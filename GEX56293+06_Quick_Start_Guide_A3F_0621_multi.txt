@@ -1,0 +1,3539 @@
+Scheme
+
+Scheme
+0* - eSetup Easergy Pro configurable
+1 - Scheme #1
+2 - Scheme #2
+3 - Scheme #3
+4 - Scheme #4
+5 - Scheme #5
+6 - Scheme #6
+7 - N/A
+8 - N/A
+9 - Test mode
+
+Light
+Group
+
+Instruction sheet
+Retain for future use
+
+PowerLogicTM A3F6P/A3F12P
+
+Configuring with rotary switches
+Light Group
+0 - N/A
+1 - Group 1
+2 - Group 2
+3 - Group 3
+4 - Group 4
+5 - Group 5
+6 - Group 6
+7 - Group 7
+8 - Group 8
+9 - Group 9
+
+Note:
+- * No scheme is selected. Select a scheme by eSetup
+Easergy Pro.
+- See the PowerLogic A3 user manual for scheme, light
+group details and how to configure devices with eSetup
+Easergy Pro.
+
+IMPORTANT NOTE
+Electrical equipment should be
+installed, operated, serviced, and
+maintained only by qualified
+personnel. No responsibility is
+assumed by Schneider Electric for
+any consequences arising out of the
+use of this material.
+
+Go to www.se.com to download the
+PowerLogicTM A3 user manual and
+other documents.
+
+Arc flash protection unit
+
+The code (front panel of the device) gives a direct access to
+your device’s website.
+Product technical data and a copy of Certificate of Conformity
+can be found there.
+
+Unpacking
+
+1a/1b
+2
+3
+4
+
+1b
+
+Troubleshooting
+
+1a
+
+Issues
+
+LED indication
+
+Possible causes
+
+Actions
+
+The trip signal does
+not reach the circuit
+breaker.
+
+Trip LED: Red, steady.
+ON/C/E LED: Green.
+
+Wiring error of the trip circuit.
+
+Check the wiring.
+
+The protection does not
+trip even when a
+sufficient light signal is
+provided.
+
+Sensor LED: Yellow,
+steady.
+Trip LED: OFF.
+ON/C/E LED: Green.
+
+Require specific condition to
+trip.
+
+Sensor LED: OFF.
+Trip LED: OFF.
+ON/C/E LED: Green.
+
+Loosened sensor wire before
+installation.
+Sensor not detected.
+
+Check the sensor
+and sensor wiring.
+
+Sensor LED: Yellow,
+blinking.
+Trip LED: OFF.
+ON/C/E LED: Red.
+T4 LED: Red, steady.
+
+Sensor defect.
+
+Replace the sensor.
+
+Short-circuited wiring of
+sensor.
+
+Check the sensor
+wiring.
+
+Loosened sensor wire after
+installation.
+
+Check the sensor
+wiring.
+
+The light is supplied to the
+arc flash sensor for over 3 s,
+the daylight blocking mode
+activates.
+
+Remove the light and
+reset the sensor.
+
+Total distance between the
+ends of the communication
+bus > 100 m.
+
+Check the distance.
+
+A PowerLogic A3F device
+supplies power to more
+than one PowerLogic A3S
+devices.
+
+Check the number of
+connected devices or
+install an auxiliary
+power.
+
+Communication
+error.
+Devices not working
+due to low voltage.
+
+ON/C/E LED: Red.
+T4 LED: Red, steady.
+
+Arc flash protection unit
+1a: A3F6P (REL52920);
+or 1b: A3F12P (REL52921)
+Production testing certificate
+Quick start guide
+Mounting accessories
+(× 1: A3F6P; × 2: A3F12P)
+
+a Screws for ground connection
+b Washers for ground connection
+c Ground bar mounting screws
+
+Ground bar
+(× 1 : A3F6P; × 2: A3F12P)
+
+5
+
+06/2023
+Check the
+configuration.
+
+Schneider Electric Industries SAS
+35 rue Joseph Monier CS30323
+92506 Rueil-Malmaison Cedex
+France
+www.se.com
+
+3
+
+48 – 240 (-20% +10%) V ac/dc
+
+Normal operating power consumption
+
+6 W; (Max. 9 W)
+
+Passive Power over Ethernet (PoE)
+
+24 V dc
+
+tion
+
+unit
+en
+
+Instructio
+Retain
+n
+Go to for sheet
+future
+www.schn
+to download
+use
+reference
+eider-elec
+the
+documentsmanual Easergy
+tric.com
+P5
+and
+other
+IMPORTA .
+This
+NT
+and device NOTE
+servicedmust
+electrical
+be installed
+by qualified
+Schneider personnel
+responsibl Electric
+.
+the
+e for
+instruction
+cannot
+instruction
+failure
+be held
+s
+to follow
+sheet.given on
+this
+
+en
+
+Equipm
+ent
+
+Industries
+Monier
+France Rueil-Malm
+SAS
+aison
+www.schn
+eider-elect
+ric.com
+
+receip
+
+The
+QR
+code
+gives
+websitea direct (front panel
+access
+of
+to your the relay)
+relay’s
+
+t
+en
+
+1b
+
+Equipmen
+1
+Protection t receipt
+2
+Certificate relay
+xxxxxxx
+of complianc
+4
+Instruction
+5
+e
+Connector sheet
+6
+Connector A
+cabling
+(s)
+kit
+
+1a
+
+3
+
+2
+
+© 2014
+All rightsSchneider
+reserved. Electric.
+4
+
+a
+c
+
+5
+
+4
+
+a
+
+© 2023 Schneider Electric. GEX56293+06
+All rights reserved.
+
+b
+
+NOTICE
+
+c
+
+PRODUCT TAMPERING
+Our products leave our factory in closed, sealed original packaging. At delivery, if
+the packaging is open or the seal is broken, the confidentiality and authenticity of
+the information contained in the products cannot be ensured.
+Failure to follow this instruction can result in compromised confidentiality and
+authenticity of the information contained in the products.
+
+5
+
+DANGER
+
+126.2
+4.968
+
+mm
+in.
+
+HAZARD OF ELECTRICAL SHOCK,
+EXPLOSION OR ARC FLASH
+
+70.6
+2.779
+
+p Turn off all power supplying this equipment
+before working on or inside the equipment.
+p Always use an appropriate voltage detection
+device to confirm no presence of any voltage.
+
+134.4
+5.291
+
+264 V ac/dc
+
+c A3
+
+protec
+
+b
+
+Technical data
+Uaux
+
+rLogi
+
+03/2014
+
+2
+
+Maximum withstand voltage
+
+flash
+
+Schneider
+35 rue
+Electric
+92500 Joseph
+
+Identification and dimensions
+
+Auxiliary power supply
+
+2
+Powe
+Arc
+
+114
+4.488
+
+3
+
+1. Code
+Access to product website
+2. Product label
+3. Instruction label
+
+p Install all devices, doors and covers before
+switching on power to this equipment.
+Failure to follow these instructions will result in
+death or serious injury.
+
+1
+
+T1, T3
+
+T2
+
+T4
+
+Rated voltage
+
+250 V ac/dc
+
+250 V ac/dc
+
+250 V ac/dc
+
+Continuous current
+
+5A
+
+5A
+
+5A
+
+Minimum making current
+
+-
+
+100 mA @ 24 Vdc
+
+100 mA @ 24 Vdc
+
+Typical operation time
+
+2 ms
+
+9 ms
+
+9 ms
+
+Make and carry, 0.5 s
+
+30 A
+
+30 A
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+15 A
+
+15 A
+
+Breaking capacity, AC
+
+2 000 VA
+
+2 000 VA
+
+2 000 VA
+1.15 A
+
+120.2
+4.730
+
+DIN rail mounting
+
+Breaking capacity, DC (L/R=40 ms)
+at 48 V dc:
+
+5A
+
+1.15 A
+
+at 110 V dc:
+
+3A
+
+0.5 A
+
+0.5 A
+
+at 220 V dc:
+
+1A
+Wire dimension
+Maximum 2.5 mm² (13 – 14 AWG)
+Minimum 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+Wire dimension
+Maximum 2.5 mm ² (13 – 14 AWG)
+Minimum 1.5 mm ² (15 – 16 AWG)
+
+0.25 A
+Wire dimension
+Maximum 2.5 mm² (13 – 14 AWG)
+Minimum 1.5 mm² (15 – 16 AWG)
+
+Terminal block
+Pitch: 5.08 mm/0.2 in.
+
+4/12
+
+1
+
+2
+1/12
+
+A3F6P
+
+Panel mounting
+
+2
+
+ON/C/E
+T1
+
+>10
+0.394
+
+7
+
+8
+7
+
+120 ± 0.5
+4.72 ± 0.02
+
+T2
+
+6
+5
+4
+
+T1
+
+3
+2
+
+US
+1
+
+8
+
+Sensor and trip output status
+(A3F12P):
+T1...T2:
+Red, steady: Output relay activation.
+S1...S12:
+Yellow, steady: Sensor activation.
+
+4
+
+Rotary configuration switches
+
+5
+
+Com 1/2: Connecting the PowerLogic
+A3 device, VAMP 321(V321) unit, or a
+PC.
+
+6
+
+A3F12P
+
+144
+5.669
+
+3
+
+X5
+
+S6
+
+1 2 3 4 5 6 7 8
+
+S5
+
+126.2
+4.968
+
+S4
+
+T3
+
+104
+4.094
+
+S3
+
+T4
+
+x4
+
+S2
+
+S6
+T3
+
+5
+
+S1
+
+1...5
+0.04...0.2
+
+S5
+
+T4
+
+x3
+0.7 N•m
+(6.2 lb-in)
+
+S3
+S4
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+4
+
+3
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+x3
+
+x4
+2 N•m
+(17.7 lb-in)
+
+3
+
+S2
+
+X2
+
+5
+0.2
+
+3
+
+S1
+
+ON/C/E:
+Green, steady: In service.
+Green, blink: Communicating.
+Orange, steady: Test mode.
+Red: Error.
+Sensor and trip output status
+(A3F6P):
+T1...T3:
+Red, steady: Output relay activation.
+T4:
+Red, steady: Self-diagnostics.
+S1...S6:
+Yellow, steady: Sensor activation.
+
+X1
+
+130
+5.19
+
+7
+2
+
+4
+
+T2
+
+Reset/install button
+
+5
+
+Light Group
+
+1
+
+6
+
+1
+2
+
+COM
+2
+1
+
+RESET/
+INSTALL
+
+Scheme
+
+5
+77 ± 0.
+0.02
+3.03 ±
+
+1 2 3 4 5
+
+1
+
+90
+3.54
+
+mm
+in.
+
+134.4
+5.291
+
+S1
+
+5
+COM
+2
+1
+
+T1
+
+T2
+
+4
+
+Light Group
+
+1
+
+2 ON/C/E
+
+Scheme
+
+RESET/
+INSTALL
+
+S2
+
+8
+
+T2
+
+7
+6
+5
+
+T1
+
+4
+3
+
+X5
+
+S6
+
+US
+
+COM
+2
+1
+
+2
+
+PowerLogic A3
+
+S5
+
+1
+
+Connecting with a PC
+
+S4
+
+1 2 3 4 5 6 7 8
+
+X5 connector
+
+S3
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+8
+
+S2
+
+S12
+
+X1 connector
+X2 connector
+
+S1
+
+S9
+S11
+
+p Check equipotential grounding network and test
+ground during installation.
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+1 N•m
+(8.85 lb-in)
+
+S8
+S10
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+S7
+
+p Connect the PowerLogic A3 to ground with a
+nut and washer provided using any of the
+indicated ground connection positions.
+
+X1
+
+S6
+
+1211 10 9 8 7 6 5 4 3 2 1
+S8 S7
+
+S5
+
+HAZARD OF ELECTRICAL SHOCK,
+EXPLOSION OR ARC FLASH
+
+x2
+
+S3
+S4
+
+X2 S12 S11 S10 S9
+
+3
+
+DANGER
+
+Connecting ground
+
+6
+7
+
+8
+
+6
+
+X1
+
+7
+
+7 mm
+0.28 in.
+
+A3F6P: X2, X5
+A3F12P: X5
+
+7 mm
+0.28 in.
+
+0.14...1.5 mm2
+(AWG 26...16)
+
+0.22...0.25 N•m
+1.95...2.21 Ib-in
+
+1.5...2.5 mm2
+(AWG 16...14)
+
+0.5...0.6 N•m
+4.43...5.31 Ib-in
+
+≥ 2.5 mm2 (AWG 12)
+Ø 4...6 mm
+0.16...0.24 in.
+
+X1
+S1
+S2
+
+L>
+L>
+L>
+
+3
+4
+
+L>
+L>
+
+S6
+
+WD
+
+S7
+
+2
+3
+
+S8
+
+4
+5
+
+12
+
+L>
+L>
+
+p Protect the power supply circuit against over
+currents.
+Failure to follow these instructions will result in
+death or serious injury.
+
+M4
+
+X5
+/
+
+1
+2
+3
+4
+
+L>
+
+2
+
+T1
+
+4
+
+L>
+
+HSO
+
+8
+
+3
+5
+6
+
+6
+7
+
+S10
+
+1
+
+/
+48-240 V dc/ac
+
+5
+
+S9
+
+T2
+
+C
+
+7
+8
+
+S
+Arc flash sensor
+T
+Trip relay
+HSO High speed/high break output, trip,
+5 A perm.
+C
+Control/trip, 5 A perm.
+L
+Light
+WD Watchdog
+Terminal
+
+5
+
+p Do not connect any other Ethernet network. Only PowerLogic A3 and
+V321 network can be connected to the Arc EM bus.
+p Connected with an external power supply unit, a PowerLogic A3F unit is
+capable of providing the operating power supply for only one PowerLogic
+A3S unit through the communication cable. See the PowerLogic A3 user
+manual for details.
+Failure to follow these instructions can result in equipment damage.
+
+Connecting with the V321 or PowerLogic A3
+PowerLogic A3F
+
+PowerLogic A3S
+
+V321
+
+Secured power supply and UPS are
+recommended.
+
+9
+
+S11
+L>
+
+10
+11
+
+L>
+
+WD
+
+1
+
+8
+9
+
+S5
+
+T4
+
+HSO
+
+1.5 N•m
+13.28 Ib-in
+
+6
+7
+
+S4
+
+T3
+
+2
+
+5
+
+S3
+
+2/12
+
+1
+
+p Tighten the terminal screws within the
+recommended range.
+
+3.5 mm
+9/64 in.
+
+X2 A3F12P
+
+X2 A3F6P
+
+HAZARD OF ELECTRICAL SHOCK,
+EXPLOSION, ARC FLASH OR FIRE
+
+2.5 mm
+3/32 in.
+
+DEVICE DAMAGE
+
+S6
+
+A3F6P: X1
+A3F12P: X1, X2
+
+NOTICE
+
+WARNING
+UNINTENTIONAL DEVICE OPERATION
+This device requires advanced knowledge of the
+application and setting of protection systems.
+Only persons with such knowledge should be
+allowed to configure and set this device.
+Failure to follow these instructions can result
+in death, serious injury or equipment
+damage.
+
+S5
+
+DANGER
+
+S4
+
+Failure to follow these instructions will result in
+death or serious injury.
+
+S3
+
+A3F6P
+
+S2
+
+A3F12P
+
+S1
+
+p Do not connect the auxiliary supply voltage until
+the installation has been completed.
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+p Always connect the grounding conductor before
+connecting the power supply.
+
+S12
+
+10
+11
+
+L>
+
+12
+
+3/12
+
+A3F6P
+
+X5
+
+T3
+
+8
+
+9
+
+S11
+
+10
+11
+
+L>
+
+12
+
+S6
+
+S12
+
+12
+
+S5
+
+L>
+
+10
+
+S4
+
+T4
+
+8
+7
+
+T2
+
+6
+
+S6
+
+7
+
+S3
+
+C
+
+5
+
+T2
+
+S2
+
+8
+
+S1
+
+7
+
+S3
+S4
+S5
+
+6
+
+6
+
+L>
+
+S1
+S2
+
+3
+
+5
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+L>
+
+S10
+
+8
+
+3
+
+4
+
+4
+
+5
+
+6
+
+11
+L>
+
+2
+
+HSO
+
+T3
+
+S6
+
+/
+48-240 V dc/ac
+T1
+
+T4
+
+L>
+
+4
+
+S9
+
+5
+
+9
+
+S5
+
+3
+
+4
+
+X2
+
+L>
+
+2
+
+L>
+
+4
+
+T1
+T2
+
+T1
+
+S8
+
+3
+
+7
+
+S4
+
+L>
+
+2
+
+ON/C/E
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+L>
+
+WD
+
+2
+
+X1
+
+5
+
+S3
+
+WD
+
+1
+
+1
+
+3
+
+T4
+
+4
+
+/
+
+1
+
+2
+
+3
+
+S7
+
+1
+
+US
+
+2
+
+HSO
+
+X5
+
+L>
+
+T3
+
+COM
+2
+1
+
+L>
+
+S2
+
+1
+
+Light Group
+
+S1
+
+5
+
+Scheme
+
+RESET/
+INSTALL
+
+1
+
+X2 A3F12P
+
+1 2 3 4 5 6 7 8
+
+X2 A3F6P
+
+1 2 3 4 5
+
+X1
+
+7
+
+8
+
+6
+
+S1
+
+1
+
+US
+
+2
+
+3
+
+T1
+
+4
+
+5
+
+6
+
+T2
+
+7
+
+8
+
+1 2 3 4 5 6 7 8
+
+X5
+
+S6
+
+zh
+
+S
+弧光传感器
+T
+跳闸继电器
+HSO 高速/重载输出，跳闸，持续电流5 A
+C
+控制/跳闸，持续电流5 A
+L
+光
+WD 看门狗
+终端
+
+8
+
+6
+
+fr
+
+de
+
+1
+
+Reset/bouton d'installation
+
+‚Reset / Install‘-Taster
+
+2
+
+ON/C/E:
+Vert, allumé : En service.
+Vert, clignotant : En communication.
+Orange, allumé: Mode test.
+Rouge : Erreur.
+
+ON/C/E:
+Grün (leuchtend): In Betrieb.
+Grün (blinkend): Kommunikation.
+Geld (leuchtend): Testmodus.
+Rot: Fehler.
+
+3
+
+Etat capteur et sortie relais (A3F6P):
+T1...T3:
+Rouge, allumé: Sortie Relais activée.
+T4:
+Rouge, allumé: Autodiagnostic.
+S1...S6:
+Jaune, allumé : Capteur activé.
+
+LEDs für Sensoren und Auslöserelais (A3F6P):
+T1...T3:
+Rot (leuchtend): Auslöserelais aktiviert.
+T4:
+Rot (leuchtend): Selbstdiagnose.
+S1...S6:
+Gelb (leuchtend): Sensor aktiviert.
+
+3
+
+Etat capteur et sortie relais (A3F12P): LEDs für Sensoren und Auslöserelais (A3F12P):
+T1...T2:
+T1...T2:
+Rouge, allumé: Sortie Relais activée. Rot (leuchtend): Auslöserelais aktiviert.
+S1...S12:
+S1...S12:
+Jaune, allumé : Capteur activé.
+Gelb (leuchtend): Sensor aktiviert.
+
+4
+
+Commutateur rotatif de configuration Drehschalter für Konfiguration
+
+5
+
+Com 1/2: Connexion du PowerLogic
+A3, VAMP 321(V321) or à un PC.
+
+COM 1/2: Anschluss eines PowerLogic A3,
+eines VAMP 321(V321) oder eines PC.
+
+Connecteur X1, X2, X5
+
+Klemmenblock X1, X2, X5
+
+6,7,8
+
+it
+
+es
+
+br/pt
+
+ru
+
+1
+
+Pulsante Ripristina/Installa
+
+Botón de reinicio/instalación
+
+Botão de Reset/Instalação
+
+Кнопка сброса/установки
+
+2
+
+ON/C/E:
+ON/C/E:
+Verde fijo: En servicio.
+Verde, fisso: In servizio.
+Verde, lampeggiante: Comunicazione in corso. Verde, parpadeo: Comunicando.
+Naranja fijo: Modo de prueba.
+Arancione, fisso: Modalità test.
+Rojo: Error.
+Rosso: Errore.
+
+ON/C/E:
+Verde, contínuo: Em serviço.
+Verde, piscando: Comunicando.
+Laranja, contínuo: Modo de teste.
+Vermelho: Erro.
+
+ON/C/E:
+Зеленый/горит : Работа.
+Зеленый/мигание : Связь.
+Оранжевый/горит : Тестовый режим.
+Красный : Ошибка.
+
+Status do sensor e da saída de trip
+Состояние датчиков и вых. реле
+(A3F6P):
+(A3F6P):
+T1...T3:
+T1...T3:
+Vermelho, contínuo: Ativação da saída do relé. Красный/горит : Работа вых. реле.
+T4:
+T4:
+Vermelho, contínuo: Autodiagnóstico. Красный/горит : Самодиагностика.
+S1...S6:
+S1...S6:
+Amarelo, contínuo: Ativação do sensor. Желтый/горит : Работа датчика.
+Status do sensor e da saída de trip
+Состояние датчиков и вых. реле
+(A3F12P):
+(A3F12P):
+T1...T2:
+T1...T2:
+Vermelho, contínuo: Ativação da saída Красный/горит : Работа вых. реле.
+do relé.
+S1...S12:
+S1...S12:
+Желтый/горит : Работа датчика.
+Amarelo, contínuo: Ativação do sensor.
+
+Stato del sensore e dell'uscita di scatto
+(A3F6P):
+T1...T3:
+Rosso, fisso: Attivazione del relè di uscita.
+T4:
+Rosso, fisso: Autodiagnostica.
+S1...S6:
+Giallo, fisso: Attivazione del sensore.
+Stato del sensore e dell'uscita di scatto
+(A3F12P):
+T1...T2:
+Rosso, fisso: Attivazione del relè di uscita.
+S1...S12:
+Giallo, fisso: Attivazione del sensore.
+
+Estado de sensor y salida de disparo
+(A3F6P):
+T1...T3:
+Rojo fijo: Activación del relé de salida.
+T4:
+Rojo fijo: Autodiagnóstico.
+S1...S6:
+Amarillo fijo: Activación del sensor.
+Estado de sensor y salida de disparo
+(A3F12P):
+T1...T2:
+Rojo fijo: Activación del relé de salida.
+S1...S12:
+Amarillo fijo: Activación del sensor.
+
+4
+
+Selettore di configurazione
+
+Conmutadores de configuración giratorios Chave rotativa de configuração
+
+Поворотные переключатели настроек
+
+5
+
+Com 1/2: Collegamento del
+dispositivo PowerLogic A3, dell'unità
+VAMP 321(V321) o di un PC.
+
+Com 1/2: Conexión del dispositivo
+PowerLogic A3, la unidad VAMP
+321(V321) o un PC.
+
+Com 1/2: Conectando o o dispositivo
+PowerLogic A3, unindade VAMP
+321(V321) ou a um PC.
+
+Com 1/2: Подключение PowerLogic
+A3, VAMP 321(V321) или ПК.
+
+Conector X1, X2, X5
+
+Разъем X1, X2, X5
+
+3
+
+3
+
+6,7,8 Connettore X1, X2, X5
+zh
+
+8/12
+
+1
+
+重置/安装按钮
+
+2
+
+ON/C/E:
+绿色，常亮：运行中。
+绿色，闪烁：通讯中。
+橙色，常亮：测试模式。
+红色：错误。
+
+Conector X1, X2, X5
+3
+
+传感器和跳闸输出状态 (A3F6P)：
+T1...T3:
+红色，常亮：输出继电器激活。
+T4:
+红色，常亮：自诊断。
+S1...S6:
+黄色，常亮：传感器激活。
+
+3
+
+传感器和跳闸输出状态 (A3F12P)：
+T1...T2:
+红色，常亮：输出继电器激活。
+S1...S12:
+黄色，常亮：传感器激活。
+
+06/2023
+
+S5
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+S4
+
+7
+
+ru
+
+建议使用安全的电源和 UPS。
+
+S3
+
+S11
+S12
+
+S2
+
+Рекомендуется использовать
+надежные источники питания и ИБП.
+
+br/pt
+
+S1
+
+Fonte de alimentação segura e UPS
+são recomendados.
+
+S10
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+S
+Датчик дуги
+T
+Реле отключения
+HSO Быстродействующее/усиленное реле,
+5 A.
+C
+реле управления/отключения, 5 A.
+L
+Свет
+WD Самодиагностика (WD)
+Клеммник
+
+S9
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+S6
+
+S8
+
+1211 10 9 8 7 6 5 4 3 2 1
+S8 S7
+
+S5
+
+S7
+
+S
+Sensor de arco
+T
+Relé de trip
+HSO Saída de alta velocidade/alta
+interrupção, trip, 5 A perm.
+C
+Controle/trip, 5 A perm.
+L
+Luz
+WD Watchdog
+Terminal
+
+5
+
+X1
+
+S4
+
+it
+
+br/pt Unidade de proteção contra arco elétrico
+
+S3
+X2 S12 S11 S10 S9
+
+3
+
+es
+
+Se recomienda el uso de fuente de
+alimentación segura y UPS.
+
+it Unità di protezione contro l'arco elettrico
+es Unidad de protección de arco eléctrico
+
+S2
+
+Eine gesicherte Spannungsversorgung
+und eine USV werden empfohlen.
+
+Si raccomanda una alimentazione
+ausiliaria sicura e un UPS di
+alimentazione.
+
+4
+
+fr Equipement de protection arc flash
+de Lichtbogenschutzeinrichtung
+
+COM
+2
+1
+
+T1
+
+T2
+
+S
+Sensor de Arco Eléctrico
+S
+Sensore d'arco
+T
+Relé de Disparo
+T
+Relè di scatto
+HSO Uscita alta velocità/alta interruzione, HSO Salida de Alta velocidad/alta capacidad
+de ruptura, disparo, 5 A perm.
+scatto, 5 A perm.
+C
+Control/Disparo, 5 A perm.
+C
+Controllo/scatto, 5 A perm.
+L
+Luz
+L
+Luce
+WD Watchdog
+WD "Watchdog"
+Borna
+Morsetti
+
+br/pt
+
+2 ON/C/E
+
+Light Group
+
+it
+
+RESET/
+INSTALL
+
+Scheme
+
+UPS ou alimentation secourue
+recommandée.
+
+A3F12P
+1
+
+fr
+
+ru Устройство защиты от дуговых замыканий
+pl
+zh 弧光保护装置
+
+de
+
+fr
+
+S
+Lichtbogensensor
+S
+Capteur d'Arc flash
+T
+Auslöserelais
+T
+Sortie relais
+HSO Sortie rapide/déclenchement rapide, HSO Auslöserelais mit Leistungskontakten,
+5 A perm.
+5 A Dauerstrom.
+Contrôle/déclenchement, 5 A perm. C
+Steuer-/Auslöserelais, 5 A Dauerstrom
+C
+L
+Licht
+L
+Lumière
+WD Watchdog
+WD Chien de garde
+Klemme
+Borne
+
+PowerLogicTM A3F6P/A3F12P
+
+4
+
+旋转配置开关
+
+5
+
+Com 1/2：连接 PowerLogic A3、
+VAMP 321(V321)或电脑。
+
+6,7,8 X1, X2, X5连接器
+
+Schneider Electric Industries SAS
+35 rue Joseph Monier CS30323
+92506 Rueil-Malmaison Cedex
+France
+www.se.com
+
+NOTE IMPORTANTE
+Les équipements électriques
+doivent être installés, utilisés,
+maintenus uniquement par un
+personnel qualifié. Schneider
+Electric décline toute
+responsabilité pour les
+conséquances découlant de
+l'utilisation de ce document.
+IMPORTANTE
+Le apparecchiature elettriche
+devono essere installate,
+utilizzate, riparate e sottoposte
+a manutenzione solo da
+personale qualificato.
+Schneider Electric non si
+assume alcuna responsabilità
+per eventuali conseguenze
+derivanti dall'uso di questo
+materiale.
+NOTA IMPORTANTE
+Equipamentos elétricos devem
+ser instalados, operados,
+reparados e mantidos apenas
+por pessoal qualificado.
+Nenhuma responsabilidade é
+assumida pela Schneider
+Electric por quaisquer
+consequências decorrentes do
+uso deste material.
+
+de WICHTIGER HINWEIS
+
+es
+
+NOTE
+CORRUPTION DE PRODUIT
+Nos produits quittent notre usine dans des emballages d'origines fermés et
+scellés. A la livraison, si l'emballage est ouvert ou si le scellé est brisé, la
+confidentialité et l'authenticité des informations contenues dans les produits ne
+sont plus garanties.
+Le non-respect de cette instruction peut compromettre la confidentialité et
+authenticité des informations contenues dans les produits.
+
+HINWEIS
+PRODUKTMANIPULATION
+Unsere Produkte verlassen unser Werk in geschlossenen, versiegelten
+Originalverpackungen. Wenn beim Erhalt der Lieferung die Transportverpackung
+oder das Verpackungssiegel geöffnet sind, so sind Vertraulichkeit und
+Unverfälschtheit der in den Produkten enthaltenen Informationen nicht mehr
+sichergestellt.
+Die Nichtbeachtung dieser Anweisungen kann zu einer Beeinträchtigung der
+Vertraulichkeit und Unverfälschtheit der in den Geräten enthaltenen Informationen
+führen.
+
+NOTA
+MANOMISSIONE DEL PRODOTTO
+I nostri prodotti lasciano la nostra fabbrica nella confezione originale chiusa e
+sigillata. Al momento della consegna, se l'imballo è aperto o il sigillo è rotto, non
+può essere garantita la riservatezza e l'autenticità delle informazioni contenute
+nei prodotti.
+L’omissione di tale procedura può compromettere la riservatezza e l’autenticità delle
+informazione contenute nel prodotto stesso.
+
+OBSERVACIÓN IMPORTANTE
+La instalación, el
+mantenimiento, la operación, el
+servicio y el mantenimiento de
+este equipo deben ser llevados
+a cabo solamente por el
+personal cualificado. Schneider
+Electric no asume ninguna
+responsabilidad por las
+consecuencias derivadas del
+uso de este material.
+
+ru ВАЖНО!
+
+zh
+
+© 2023 Schneider Electric. GEX56293+06
+All rights reserved.
+
+Elektrische Geräte dürfen nur
+von qualifiziertem Personal
+installiert, bedient, gewartet
+und instand gehalten werden.
+Schneider Electric übernimmt
+keine Haftung für Folgen, die
+sich aus der Verwendung
+dieses Dokuments ergeben.
+
+Установка, эксплуатация,
+обслуживание и ремонт
+электрооборудования должны
+осуществляться только
+квалифицированным
+персоналом. Компания
+Schneider Electric не несет
+ответственности за любые
+последствия, возникшие в
+результате использования
+данного материала.
+重要注意事项
+此电气设备必须由具有专业资格的
+人员进行安装、操作、维修和维护
+。对于因使用本说明而导致的任何
+后果，施耐德电气概不负责。
+
+ВНИМАНИЕ
+ПОДЛИННОСТЬ ПРОДУКЦИИ
+Вся наша продукция поставляется в закрытой опечатанной оригинальной
+упаковке. Если упаковка вскрыта или повреждена пломба, то
+конфиденциальность и достоверность содержащейся информации о
+продукции не могут быть обеспечены.
+Невыполнение данных требований может повлечь нарушения
+конфиденциальности и подлинности информации о продукции.
+
+注意
+产品篡改
+我们的产品在出厂时进行过密封包装。如果在接收产品时发现包装开封或密封材料
+破损，将无法保证产品内含信息的保密性和真实性。
+不遵守此指示可能导致产品内含信息的保密性和真实性受到影响。
+
+DANGER
+
+RISQUE D’ELECTROCUTION, D’EXPLOSION
+OU D’ARC ELECTRIQUE
+p Coupez l’alimentation générale de cet appareil
+avant toute intervention sur l’appareil.
+p Utilisez toujours un dispositif de détection de
+tension approprié pour confirmer l’absence de
+tension.
+p Installez tous les équipements, les protection et
+le volet avant de mettre sous tension..
+Si ces directives ne sont pas respectées, cela
+entraînera la mort ou des blessures graves.
+
+ATENCIÓN
+MANIPULACIÓN DEL PRODUCTO
+Nuestros productos salen de fábrica en empaques originales cerrados y sellados.
+En el momento de la entrega, si el embalaje está abierto o el sello roto, no se
+puede asegurar la confidencialidad y autenticidad de la información contenida en
+los productos.
+No atender estas instrucciones puede comprometer la confidencialidad y
+autenticidad de la información contenida en los productos.
+
+AVISO
+VIOLAÇÃO DO PRODUTO
+Nossos produtos saem de nossa fábrica em embalagens originais fechadas e
+lacradas. Na entrega, se a embalagem estiver aberta ou o lacre estiver rompido,
+a confidencialidade e autenticidade das informações contidas nos produtos não
+podem ser asseguradas.
+O não cumprimento desta instrução pode resultar em comprometimento da
+confidencialidade e autenticidade das informações contidas nos produtos.
+
+GEFAHR
+
+GEFÄHRDUNG DURCH ELEKTRISCHEN
+SCHLAG, EXPLOSION ODER LICHTBÖGEN
+p Vor Arbeiten an diesem Gerät ist das Gerät
+spannungsfrei zu schalten!
+p Zum Feststellen der Spannungsfreiheit ist ein
+geeignetes Spannungsmessgerät zu
+verwenden.
+p Vor dem Einschalten der Spannungsversorgung sind alle Vorrichtungen, Klappen und
+Abdeckungen am Gerät wieder anzubringen.
+Die Nichtbefolgung dieser Anweisungen führt zu
+schweren Verletzungen oder Tod.
+
+5/12
+
+PERICOLO
+
+PELIGRO
+
+RISCHIO DI FOLGORAZIONE, ESPLOSIONE
+O ARCO
+
+p Desconectar la alimentación general del equipo
+antes de manipularlo.
+
+p Usare sempre uno strumento adeguato per
+verificare l’assenza di tensione.
+
+p Utilice siempre un dispositivo de detección de
+tensión apropiado para confirmar la ausencia
+de tensión.
+p Instalar todos los dispositivos, tapas y cubiertas
+antes de volver a conectar el equipo.
+
+Il mancato rispetto di queste istruzioni può
+provocare la morte o gravi lesioni.
+
+El incumplimiento de estas instrucciones podrá
+causar la muerte o lesiones serias.
+
+ОПАСНО!
+
+GEFAHR
+GEFÄHRDUNG DURCH ELEKTRISCHEN SCHLAG,
+EXPLOSION ODER LICHTBÖGEN
+
+RISCHIO DI FOLGORAZIONE, ESPLOSIONE
+O ARCO
+
+p Desligue toda a alimentação elétrica deste
+equipamento antes de trabalhar no interior do
+equipamento.
+
+p Connecter le PowerLogic A3 à la terre en
+utilisant la vis et l'écrou founi en respectant les
+indications.
+
+p Schließen Sie das PowerLogic A3 mit der mitgelieferten
+Mutter und Unterlegscheibe über einen der
+angegebenen Erdungsanschlüsse an Erde an.
+
+p Collegare il PowerLogic A3 a terra con un dado
+e una rondella forniti utilizzando una delle
+posizioni di collegamento di terra indicate.
+
+p Utilize sempre um dispositivo de detecção de
+tensão apropriado para confirmar a ausência
+de tensão.
+
+p Vérifiez le réseau de mise à la terre
+équipotentielle et testez la terre pendant
+l'installation.
+
+p Testen Sie das Potentialausgleichssystem und prüfen
+Sie während der Installation die korrekte Erdung.
+
+p Controllare la rete equipotenziale di messa a
+terra e testare la terra durante l'installazione.
+
+p Instale todos os dispositivos, portas e tampas
+antes de ligar este equipamento.
+
+p Toujours connecter le conducteur de terre
+avant de connecter l'alimentation.
+
+p Schließen Sie vor dem Anschluss der Spannungsversorgung stets zuerst den Schutzleiter an.
+
+p Collegare sempre il conduttore di terra prima di
+collegare l'alimentazione.
+
+p Schließen Sie vor dem Anschluss der Spannungsversorgung stets zuerst den Schutzleiter an.
+
+p Non collegare la tensione di alimentazione
+ausiliaria fino a che l'installazione è stata
+completata.
+
+RISCO DE CHOQUE ELÉCTRICO,
+EXPLOSÃO OU ARCO
+
+p Prima di effettuare lavori sul dispositivo togliere
+l’alimentazione elettrica.
+
+p Prima di riaccendere l'apparecchiatura,
+installare tutti i dispositivi, gli sportelli e i
+coperchi.
+
+DANGER
+RISQUE D’ELECTROCUTION, D’EXPLOSION
+OU D’ARC ELECTRIQUE
+
+PERIGO
+
+RIESGO DE DESCARGA ELÉCTRICA,
+EXPLOSIÓN O ARCO ELÉCTRICO
+
+A não observância destas instruções causará a
+morte ou ferimentos graves.
+
+Si ces directives ne sont pas respectées, cela
+entraînera la mort ou des blessures graves.
+
+危险
+
+ОПАСНОСТЬ ПОРАЖЕНИЯ
+ЭЛЕКТРИЧЕСКИМ ТОКОМ, ВЗРЫВА ИЛИ
+ВОЗНИКНОВЕНИЯ ДУГИ
+
+126.2
+4.968
+
+p 始终使用适合的电压检测设备以确认所有电源
+已关闭。
+
+mm
+in.
+
+p Conectar el PowerLogic A3 a tierra con la tuerca
+y arandela provistas utilizando cualquiera de las
+posiciones de conexión a tierra indicadas.
+134.4
+5.291
+
+不遵守这些说明操作将导致死亡或严重的人身伤
+害。
+
+114
+4.488
+
+3
+
+p Установите все устройства, двери и крышки
+перед включением питания данного
+оборудования.
+
+1
+
+Несоблюдение этих инструкций может
+привести к смерти или серьезным травмам.
+it
+Identificazione e dimensioni
+1. Codice
+Accesso al sito internet del prodotto
+2. Etichetta prodotto
+3. Etichetta istruzioni
+
+p Compruebar la red de puesta a tierra
+equipotencial y la puesta a tierra durante la
+instalación.
+p Conectar siempre el conductor de puesta a tierra
+antes de conectar la fuente de alimentación.
+p No conectar la tensión auxiliar de alimentación
+hasta que la instalación se ha completado.
+
+120.2
+4.730
+
+de
+Gerätekennzeichnung und
+Abmessungen
+1. Code
+Link zur Produktwebsite
+2. Produktetikett
+3. Anweisungsetikett
+
+fr
+Identification et dimensions
+1. Code
+Accès au site internet du produit
+2. Etiquette produit
+3. Etiquette d'instructions
+
+RIESGO DE DESCARGA ELÉCTRICA,
+EXPLOSIÓN O ARCO ELÉCTRICO
+
+70.6
+2.779
+
+2
+
+p 在设备通电前安装所有装置、门和盖板。
+
+p Обязательно используйте индикатор
+напряжения для подтверждения отсутствия
+напряжения.
+
+es
+Identificación y dimensiones
+1. Código
+Acceso al sitio web del producto
+2. Rótulo del Producto
+3. Rótulo de Instrucciones
+
+br/pt
+Identificação e dimensões
+1. Código
+Acesso ao site do produto
+2. Etiqueta do produto
+3. Etiqueta de instruções
+
+ru
+Идентификация и габаритные размеры
+1. Код
+Доступ к данным на вебсайте
+2. Этикетка устройства
+3. Этикетка инструкции
+
+zh
+标识和尺寸
+1. 二维码
+产品网站链接
+2. 产品标签
+3. 说明标签
+
+El incumplimiento de estas instrucciones podrá
+causar la muerte o lesiones serias.
+
+p 用提供的螺母和垫圈将 PowerLogic A3 接地到任
+何指定的接地连接位置。
+p 安装时检查等电位接地网络，并测试接地。
+p 在连接电源之前，请务必可靠接地。
+p 安装完成前，不要连接辅助电源电压。
+
+1
+
+2
+
+90
+3.54
+
+mm
+in.
+
+5
+77 ± 0.
+0.02
+3.03 ±
+
+120 ± 0.5
+4.72 ± 0.02
+
+130
+5.19
+
+6
+7
+
+5
+0.2
+
+3
+x3
+
+4
+
+x3
+0.7 N•m
+(6.2 lb-in)
+
+1...5
+0.04...0.2
+
+104
+4.094
+
+126.2
+4.968
+
+>10
+0.394
+
+x4
+2 N•m
+(17.7 lb-in)
+
+p Conecte o PowerLogic A3 ao aterramento usando
+porca e arruela fornecidas, usando qualquer uma
+das posições de conexão de aterramento
+indicadas.
+p Verifique a equipontencialização da malha de
+aterramento e teste o aterramento durante a
+instalação.
+p Sempre conecte o condutor de aterramento antes
+de conectar a fonte de alimentação.
+p Não conecte a tensão de alimentação auxiliar até
+que a instalação foi concluída.
+
+p Проверьте эквипотенциальность заземляющей
+сети и заземление во время монтажа.
+p Всегда подключайте заземляющий проводник
+перед подключением питания.
+p Не подключайте питание устройства если
+монтаж еще не выполнен .
+Несоблюдение этих инструкций может привести
+к смерти или серьезным травмам.
+
+DANGER
+
+GEFAHR
+
+RISQUE D'ELECTROCUTION, D'EXPLOSION
+OU D'ECLAIR D'ARC FLASH OU D'INCENDIE
+
+GEFÄHRDUNG DURCH ELEKTRISCHEN SCHLAG,
+EXPLOSION, LICHTBÖGEN ODER BRÄNDE
+
+p Serrez les vis des borniers dans la plage
+recommandée.
+
+p Ziehen Sie die Schrauben mit dem empfohlenen
+Anziehdrehmoment an.
+
+p Protéger le circuit de l’alimentation contre les
+surintensités.
+
+p Schützen Sie den Stromkreis der Spannungsversorgung gegen Überstrom.
+
+Si ces directives ne sont pas respectées, cela
+entraînera la mort ou des blessures graves.
+
+Die Nichtbefolgung dieser Anweisungen führt zu
+schweren Verletzungen oder Tod.
+
+PELIGRO
+
+PERIGO
+
+PELIGRO DE DESCARGA ELÉCTRICA,
+EXPLOSIÓN O ARCO ELÉCTRICO E INCENDIO
+
+RISCO DE CHOQUE ELÉTRICO, EXPLOSÃO,
+ARCO ELÉTRICO OU INCÊNDIO
+
+p Apretar los tornillos del terminal dentro del rango
+recomendado.
+
+p Aperte os parafusos dos terminais dentro da
+faixa recomendada.
+
+p Proteggere il circuito d'alimentazione contro le
+sovracorrenti.
+
+p Proteger el circuito de alimentación contra las
+sobreintensidades.
+
+p Proteja a fonte de alimentação contra
+sobrecorrentes.
+
+El incumplimiento de estas instrucciones podrá
+causar la muerte o lesiones serias.
+
+A não observância destas instruções causará a
+morte ou ferimentos graves.
+
+ОПАСНО!
+x2
+
+1 N•m
+(8.85 lb-in)
+
+p Затяните винты клемм в пределах
+рекомендуемого диапазона.
+
+x4
+
+p Подключите устройство PowerLogic A3 к земле
+с помощью прилагаемой гайки и шайбы.
+
+A não observância destas instruções causará a
+morte ou ferimentos graves.
+
+ОПАСНОСТЬ ПОРАЖЕНИЯ
+ЭЛЕКТРИЧЕСКИМ ТОКОМ, ВЗРЫВА,
+ВОЗНИКНОВЕНИЯ ДУГИ ИЛИ ПОЖАРА
+
+5
+
+ОПАСНО!
+ОПАСНОСТЬ ПОРАЖЕНИЯ
+ЭЛЕКТРИЧЕСКИМ ТОКОМ, ВЗРЫВА ИЛИ
+ВОЗНИКНОВЕНИЯ ДУГИ
+
+p Serrare le viti dei morsetti entro l'intervallo
+consigliato.
+
+Il mancato rispetto di queste istruzioni può
+provocare la morte o gravi lesioni.
+
+2
+
+PERIGO
+
+PERICOLO
+RISCHIO DI FOLGORAZIONE, ESPLOSIONI,
+ARCHI ELETTRICI E INCENDI
+
+Il mancato rispetto di queste istruzioni può
+provocare la morte o gravi lesioni.
+
+RISCO DE CHOQUE ELÉCTRICO, EXPLOSÃO
+OU ARCO
+
+危险
+触电、爆炸或电弧光的危险
+
+不遵守这些说明操作将导致死亡或严重的人身伤害。
+
+1
+
+Die Nichtbefolgung dieser Anweisungen führt zu
+schweren Verletzungen oder Tod.
+
+PELIGRO
+
+触电、爆炸或电弧光的危险
+p 对设备或设备内部开展工作前，请关闭该设备
+所有电源。
+
+p Перед производством работ с данным
+устройством отключите все его источники
+питания.
+
+p Ne pas connecter l'alimentation auxiliaire avant
+que l'installation ne soit terminée.
+
+PERICOLO
+
+p Используйте защиту от перегрузки по току в
+цепи питания.
+Несоблюдение этих инструкций может
+привести к смерти или серьезным травмам.
+A3F12P
+
+危险
+
+A3F6P
+
+触电、爆炸、电弧光或火灾的危险
+p 在推荐扭矩范围内拧紧端子螺钉。
+p 保护电源回路避免过流。
+
+144
+5.669
+
+不遵守这些说明操作将导致死亡或严重的人身伤害。
+
+134.4
+5.291
+
+A3F6P: X1
+A3F12P: X1, X2
+
+A3F6P: X2, X5
+A3F12P: X5
+
+7 mm
+0.28 in.
+
+7 mm
+0.28 in.
+
+0.14 ...1.5 mm2
+(AWG 26...16)
+
+0.22...0.25 N•m
+1.95...2.21 Ib-in
+
+2.5 mm
+3/32 in.
+
+1.5...2.5 mm2
+(AWG 16...14)
+
+0.5...0.6 N•m
+4.43...5.31 Ib-in
+
+3.5 mm
+9/64 in.
+
+≥ 2.5 mm2 (AWG 12)
+Ø 4...6 mm
+0.16...0.24 in.
+
+6/12
+
+1.5 N•m
+13.28 Ib-in
+
+M4
+
+7/12
+
+技术数据
+辅助电源
+辅助电源电压
+
+48 – 240 (-20% +10%) V ac/dc
+
+最大耐受电压
+
+264 V ac/dc
+
+正常功率消耗
+
+6 W; (最大9 W)
+24 V dc
+
+电源来源于网络连接PoE
+
+T2
+
+T4
+
+额定电压
+
+250 V ac/dc
+
+250 V ac/dc
+
+250 V ac/dc
+
+持续承载电流
+
+5A
+
+5A
+
+5A
+
+最小关合电流
+
+-
+
+100 mA @ 24 Vdc
+
+100 mA @ 24 Vdc
+
+典型跳闸时间
+
+2 ms
+
+9 ms
+
+9 ms
+
+短时持续电流，0.5 s
+
+30 A
+
+30 A
+
+30 A
+
+短时持续电流，3 s
+
+15 A
+
+15 A
+
+15 A
+
+交流开断容量
+
+2 000 VA
+
+2 000 VA
+
+2 000 VA
+
+48 V dc:
+
+5 A 1.15?
+
+1.15 A
+
+1.15 A
+
+110 V dc:
+
+3 A 0.5?
+
+0.5 A
+
+0.5 A
+
+220 V dc:
+
+1 A 0.25?
+线径
+最大 2.5 mm² (13 – 14 AWG)
+最小 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+线径
+最大 2.5 mm² (13 – 14 AWG)
+最小 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+线径
+最大 2.5 mm² (13 – 14 AWG)
+最小 1.5 mm² (15 – 16 AWG)
+
+直流开断容量 (L/R=40 ms)
+
+接线端子
+针距：5.08 mm/0.2 in.
+
+WARNUNG
+
+ATTENZIONE
+
+UNBEABSICHTIGTE BETÄTIGUNG DES GERÄTS
+Für die Bedienung dieses Geräts sind
+Fachkenntnisse über die Anwendung und Einstellung
+von Schutzsystemen erforderlich. Nur Personen, die
+über solche Kenntnisse verfügen, dürfen mit der
+Konfiguration und Einstellung dieses Geräts betraut
+werden.
+Die Nichtbefolgung dieser Anweisungen kann zu
+Tod, schweren Verletzungen oder Sachschäden
+führen.
+
+INTERVENTO INVOLONTARIO DEL DISPOSITIVO
+Questo dispositivo richiede una conoscenza avanzata
+dell'applicazione e configurazione di sistemi di
+protezione. La configurazione di questo dispositivo
+dovrebbe essere eseguita solamente da personale
+altamente qualificato.
+Il mancato rispetto di queste istruzioni può
+provocare la morte, lesioni gravi o danni materiali.
+
+ADVERTENCIA
+
+ALERTA
+
+OPERACIÓN ININTENCIONADA DEL EQUIPO
+Este dispositivo requiere un conocimiento avanzado
+de la aplicación y ajuste de sistemas de protección.
+Sólo personas con tal conocimiento tienen permiso
+para configurar y ajustar este relé.
+No atender estas instrucciones puede provocar la
+muerte, lesiones graves o daños materiales.
+
+ВНИМАНИЕ!
+
+OPERAÇÃO NÃO INTENCIONAL DO DISPOSITIVO
+Este dispositivo requer conhecimento avançado de
+aplicação e configuração de sistemas de proteção.
+Apenas pessoas com devido conhecimento devem ser
+permitidas a configurar este dispositivo.
+O descumprimento dessas instruções podem
+causar morte, ferimentos graves e danos ao
+equipamento.
+
+НЕПРЕДНАМЕРЕННОЕ СРАБАТЫВАНИЕ
+УСТРОЙСТВА
+Устройство требует соответствующей
+квалификации пользователя в области релейной
+защиты. К работе с устройством должен
+допускаться только обученный персонал.
+Несоблюдение этих инструкций может привести
+к смерти, серьезным травмам или
+повреждению оборудования.
+PowerLogic A3F
+
+PowerLogic A3
+
+警告
+
+PowerLogic A3S
+
+V321
+
+设备意外动作
+该设备需要对保护系统的应用和设置有
+深入的了解。只有具备相应知识的人员
+才可以对设备进行配置。
+不遵守这些指令可能导致死亡，严重伤
+害或设备损坏。
+
+COM
+2
+1
+
+T1, T3
+
+ATTENTION
+DÉCLENCHEMENT INTEMPESTIF
+Cet appareil nécessite une connaissance approfondie
+des applications et réglages des systèmes de
+protection électrique. Seul le personnel ayant les
+compétences requises peut configurer et calibrer cet
+équipement.
+Le non-respect de ces instructions peut entraîner
+la mort, des blessures graves ou des dommages
+matériels.
+
+X1
+
+S1
+S2
+
+AVISO
+
+S3
+S4
+
+DANO NO DISPOSITIVO
+
+S5
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+NOTE
+APPAREIL DÉFAILLANT
+
+p Não conecte nenhuma outra rede Ethernet. Somente a rede PowerLogic
+A3 e V321 pode ser conectada ao barramento Arc EM.
+
+5
+p Connectée à une alimentation exterieure, PowerLogic
+A3F est capable de
+fournir l'alimentation à une seule unité PowerLogic A3S via le câble de
+communication. Se référer au manuel d'utilisateur PowerLogic A3.
+
+p Conectado a uma unidade de alimentação externa, uma unidade
+PowerLogic A3F é capaz de fornecer a alimentação operacional para
+apenas uma unidade PowerLogic A3S através do cabo de comunicação.
+Consulte o manual do usuário PowerLogic A3 para obter detalhes.
+
+S6
+
+p Ne connectez aucun autre réseau Ethernet. Seuls les réseaux PowerLogic
+A3 et V321 peuvent être connectés au bus Arc EM.
+
+Le non-respect de ces instructions peut entraîner des dommages matériels.
+
+O descumprimento dessas instruções podem causar danos ao equipamento.
+
+HINWEIS
+Geräteschäden
+p Schließen Sie das Gerät nicht an das Ethernet an. Es dürfen nur PowerLogic
+A3 und V321 an den Lichtbogen-E/A-Bus angeschlossen werden.
+p Bei Anschluss an eine externe Spannungsquelle kann ein PowerLogic A3F
+nur ein einziges PowerLogic A3S über das Kommunikationskabel mit
+Spannung versorgen. Für weitere Informationen siehe die PowerLogic A3
+Betriebsanleitung.
+Die Nichtbefolgung dieser Anweisungen kann zu Geräteschäden führen.
+
+NOTA
+
+ВНИМАНИЕ
+ПОВРЕЖДЕНИЕ УСТРОЙСТВА
+p Нельзя подключать любую сеть Ethernet. Только сети устройств
+PowerLogic A3 и V321 могут быть подключены к шине Arc EM.
+p Устройство PowerLogic A3F, подключенное к внешнему источнику
+питания, способно обеспечивать питание по кабелю связи только
+одного устройства PowerLogic A3S. Подробности см. в руководстве
+пользователя PowerLogic A3.
+Несоблюдение этих инструкций может привести к повреждению
+оборудования.
+
+DANNI AL DISPOSITIVO
+
+注意
+
+p Non collegare nessun'altra rete Ethernet. Solo la rete PowerLogic A3 e
+V321 può essere collegata al bus Arc EM.
+p Collegata con un'unità di alimentazione esterna, un'unità PowerLogic A3F
+è in grado di fornire l'alimentazione per il funzionamento di una sola unità
+PowerLogic A3S tramite il cavo di comunicazione. Per ulteriori dettagli
+riferirsi al manuale utente di PowerLogic A3.
+Il mancato rispetto di queste istruzioni può provocare danni materiali.
+
+设备损坏
+p 请勿连接任何其他以太网网络。只有 PowerLogic A3 和 V321 网络可以连
+接到 Arc EM 总线。
+p PowerLogic A3F 与外部电源连接后，通过通讯电缆仅能为一台 PowerLogic
+A3S供电。详情见PowerLogic A3用户手册。
+不遵守这些指令可能会导致设备损坏。
+
+ATENCIÓN
+EQUIPO DAÑADO
+p No conectar a ninguna otra red Ethernet. Solo la red PowerLogic A3 y V321
+se puede conectar al bus Arc EM.
+p Conectada a una fuente de alimentación externa, una PowerLogic A3F es
+capaz de proporcionar la alimentación de operación para una unica
+PoweLogic A3S a través del cable de comunicación. Mirar el manual de
+usuario del PowerLogic A3 para más detalles.
+El uso indebido de estas instrucciones puede provocar daños en el equipo.
+
+12/12
+
+9/12
+
+Caractéristiques techniques
+
+Datos técnicos
+
+Alimentation auxiliaire
+
+Fuente de alimentación auxiliar
+
+Uaux
+
+48 – 240 (-20% +10%) V ca/cc
+
+Uaux
+
+48 – 240 (-20% +10%) V cc/ca
+
+Tension maximale
+
+264 V ca/cc
+
+Tensión soportada máxima
+
+264 V cc/ca
+
+Consommation en fonctionnement nominal 6 W; (Max. 9 W)
+
+Consumo de energía de operación
+
+6 W; (Máx. 9 W)
+
+Alimentation par câble Ethernet (POE)
+
+Alimentación pasiva a través de Ethernet (PoE)
+
+24 Vcc
+
+T1, T3
+
+T2
+
+T4
+
+Tension nominale
+
+250 V ca/cc
+
+250 V ca/cc
+
+250 V ca/cc
+
+Courant Permanent
+
+5A
+
+5A
+
+Courant minimum
+
+-
+
+24 Vcc
+
+T1, T3
+
+T2
+
+T4
+
+Tensión nominal
+
+250 V cc/ca
+
+250 V cc/ca
+
+250 V cc/ca
+
+5A
+
+Corriente continua
+
+5A
+
+5A
+
+5A
+
+100 mA @ 24 Vcc
+
+100 mA @ 24 Vcc
+
+Corriente mínima de cierre
+
+-
+
+100 mA @ 24 Vcc
+
+100 mA @ 24 Vcc
+
+Temps de fonctionnement moyen 2 ms
+
+9 ms
+
+9 ms
+
+Tiempo medio de funcionamiento 2 ms
+
+9 ms
+
+9 ms
+
+Capacité de coupure, 0,5 s 30 A
+
+30 A
+
+30 A
+
+Capacidad de conmutación, 0,5 s 30 A
+
+30 A
+
+30 A
+
+Capacité de coupure, 3 s
+
+15 A
+
+15 A
+
+15 A
+
+Capacidad de conmutación, 3 s 15 A
+
+15 A
+
+15 A
+
+Pouvoir de coupure, AC
+
+2 000 VA
+
+2 000 VA
+
+2 000 VA
+
+Capacidad de corte, CA
+
+2 000 VA
+
+2 000 VA
+1.15 A
+
+Pouvoir de coupure, DC (L/R=40 ms)
+
+2 000 VA
+
+Capacidad de corte, CC (L/R=40 ms)
+
+à 48 Vcc:
+
+5A
+
+1.15 A
+
+1.15 A
+
+a 48 Vcc:
+
+5A
+
+1.15 A
+
+à 110 Vcc:
+
+3A
+
+0.5 A
+
+0.5 A
+
+a 110 Vcc:
+
+3A
+
+0.5 A
+
+0.5 A
+
+à 220 Vcc:
+
+1A
+Dimension fil
+Maximum 2.5 mm² (13 – 14 AWG)
+Minimum 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimension fil
+Maximum 2.5 mm² (13 – 14 AWG)
+Minimum 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimension fil
+Maximum 2.5 mm² (13 – 14 AWG)
+Minimum 1.5 mm² (15 – 16 AWG)
+
+a 220 Vcc:
+
+1A
+Dimensión del cable
+Máximo 2,5 mm² (13 – 14 AWG)
+Mínimo 1,5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimensión del cable
+Máximo 2,5 mm² (13 – 14 AWG)
+Mínimo 1,5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimensión del cable
+Máximo 2,5 mm² (13 – 14 AWG)
+Mínimo 1,5 mm² (15 – 16 AWG)
+
+Bornier
+Pas: 5.08 mm/0.2 in.
+
+Bloque de terminales
+Paso: 5,08 mm/0,2 pulg.
+Dados técnicos
+
+Technische Daten
+
+Fonte de alimentação auxiliar
+
+Hilfsspannungsversorgung
+UH
+
+48 – 240 (-20% +10%) V AC/DC
+
+Uaux
+
+48 – 240 (-20% +10%) V ca/cc
+
+Max. Spannungsfestigkeit
+
+264 V AC/DC
+
+Tensão máxima suportável
+
+264 V ca/cc
+
+Leistungsaufnahme bei Normalbetrieb
+
+6 W; (max. 9 W)
+
+Consumo de energia operacional normal 6 W; (Max. 9 W)
+
+Passive Power over Ethernet (PoE)
+
+24 V DC
+
+Alimentação passiva através de Ethernet (PoE) 24 Vcc
+
+T1, T3
+
+T2
+
+T4
+
+T1, T3
+
+T2
+
+T4
+
+Nennspannung
+
+250 V AC/DC
+
+250 V AC/DC
+
+250 V AC/DC
+
+Tensão nominal
+
+250 V ca/cc
+
+250 V ca/cc
+
+250 V ca/cc
+
+Dauerstrom
+
+5A
+
+5A
+
+5A
+
+Corrente contínua
+
+5A
+
+5A
+
+5A
+
+Min. Einschaltstrom
+
+-
+
+100 mA bei 24 V DC
+
+100 mA bei 24 V DC
+
+Corrente mínima de fechamento
+
+100 mA @ 24 Vcc
+
+100 mA @ 24 Vcc
+
+Typische Ansprechzeit
+
+2 ms
+
+-
+
+9 ms
+
+9 ms
+
+Tempo de operação típico
+
+2 ms
+
+9 ms
+
+9 ms
+
+Einschaltvermögen und Belastung, 0,5 s
+
+30 A
+
+30 A
+
+30 A
+
+Fechamento e carga, 0.5 s 30 A
+
+30 A
+
+30 A
+
+Einschaltvermögen und Belastung, 3 s
+
+15 A
+
+15 A
+
+15 A
+
+Fechamento e carga, 3 s
+
+15 A
+
+15 A
+
+2 000 VA
+
+2 000 VA
+
+Capacidadade de interrupção, CA
+
+2 000 VA
+
+2 000 VA
+1.15 A
+
+Ausschaltvermögen, AC
+
+2 000 VA
+
+15 A
+2 000 VA
+
+Capacidadade de interrupção, CC (L/R=40 ms)
+
+Ausschaltvermögen, DC (L/R = 40 ms)
+bei 48 V DC:
+
+5A
+
+1.15 A
+
+1.15 A
+
+à 48 Vcc:
+
+5A
+
+1.15 A
+
+bei 110 V DC:
+
+3A
+
+0.5 A
+
+0.5 A
+
+à 110 Vcc:
+
+3A
+
+0.5 A
+
+0.5 A
+
+0.25 A
+Drahtquerschnitt
+Max. 2,5 mm² (13 - 14 AWG)
+Min. 1,5 mm² (15 - 16 AWG)
+
+0.25 A
+Drahtquerschnitt
+Max. 2,5 mm² (13 - 14 AWG)
+Min. 1,5 mm² (15 - 16 AWG)
+
+à 220 Vcc:
+
+1A
+Dimensão dos cabos
+Máximo 2.5 mm² (13 – 14 AWG)
+Mínimo 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimensão dos cabos
+Máximo 2.5 mm² (13 – 14 AWG)
+Mínimo 1.5 mm² (15 – 16 AWG)
+
+0.25 A
+Dimensão dos cabos
+Máximo 2.5 mm² (13 – 14 AWG)
+Mínimo 1.5 mm² (15 – 16 AWG)
+
+bei 220 V DC:
+
+1A
+Drahtquerschnitt
+Klemmenblöcke
+Max. 2,5 mm² (13 - 14 AWG)
+Rastermaß: 5,08 mm/0.2 in.
+Min. 1,5 mm² (15 - 16 AWG)
+
+Dati tecnici
+
+Régua de terminais
+Afastamento: 5.08 mm/0.2 in.
+
+Технические характеристики
+
+Alimentazione ausiliaria
+
+Питание
+
+Uaux
+
+48 – 240 (-20% +10%) V cc/ca
+
+Uaux
+
+Massima tensione di tenuta
+
+264 V cc/ca
+
+Максимальное выдерживаемое напряжение
+
+264 В пост./пер.
+
+Consumo di energia in funzionamento normale 6 W; (9 W max)
+
+Нормальное рабочее потребление энергии
+
+6 Вт; (Макс. 9 Вт)
+
+Power over Ethernet (PoE) passivo
+
+Питание по Ethernet (PoE)
+
+24 В пост.
+
+24 Vcc
+
+T1, T3
+
+T2
+
+T4
+
+Tensione nominale
+
+250 V cc/ca
+
+250 V cc/ca
+
+250 V cc/ca
+
+Alimentazione permanente
+
+5A
+
+5A
+
+Minima corrente di spunto
+
+-
+
+Tempo di apertura tipico
+
+48 – 240 (-20% +10%) В пост./пер.
+
+T1, T3
+
+T2
+
+T4
+
+Номинал. напряжение
+
+250 В пост./пер.
+
+250 В пост./пер.
+
+250 В пост./пер.
+
+5A
+
+Длительный ток
+
+5A
+
+5A
+
+5A
+
+100 mA @ 24 Vcc
+
+100 mA @ 24 Vcc
+
+Мин. ток замыкания
+
+-
+
+100 мА@ 24 В пост. тока
+
+100 мА@ 24 В пост. тока
+
+2 ms
+
+9 ms
+
+9 ms
+
+Типовое время срабатывания 2 мсек
+
+9 мсек
+
+9 мсек
+
+Spunto e permanenza, 0.5 s 30 A
+
+30 A
+
+30 A
+
+Замыкание и удержание, 0.5 с 30 A
+
+30 A
+
+30 A
+
+Spunto e permanenza, 3 s
+
+15 A
+
+15 A
+
+15 A
+
+Замыкание и удержание, 3 с
+
+15 A
+
+15 A
+
+Potere di interruzione, CA
+
+2 000 VA
+
+2 000 VA
+
+2 000 VA
+
+Коммутационная способность, пер. 2 000 ВА
+
+2 000 ВА
+
+2 000 ВА
+1.15 A
+
+Potere di interruzione, CC (L/R=40 ms)
+
+15 A
+
+Коммутационная способность, пост. (L/R=40 мс)
+
+a 48 Vcc:
+
+5A
+
+1.15 A
+
+1.15 A
+
+при 48 В пост.:
+
+5A
+
+1.15 A
+
+a 110 Vcc:
+
+3A
+
+0.5 A
+
+0.5 A
+
+при 110 В пост.:
+
+3A
+
+0.5 A
+
+0.5 A
+
+0.25 A
+Sezione del cavo
+Massimo 2,5 mm² (13 – 14 AWG)
+Minimo 1,5 mm² (15 – 16 AWG)
+
+0.25 A
+Sezione del cavo
+Massimo 2,5 mm² (13 – 14 AWG)
+Minimo 1,5 mm² (15 – 16 AWG)
+
+при 220 В пост.:
+
+1A
+Размер провода
+Макс. 2.5 мм² (13 – 14 AWG)
+Мин. 1.5 мм² (15 – 16 AWG)
+
+0.25 A
+Размер провода
+Макс. 2.5 мм² (13 – 14 AWG)
+Мин. 1.5 мм² (15 – 16 AWG)
+
+0.25 A
+Размер провода
+Макс. 2.5 мм² (13 – 14 AWG)
+Мин. 1.5 мм² (15 – 16 AWG)
+
+a 220 Vcc:
+
+1A
+Sezione del cavo
+Morsettiera
+Massimo 2,5 mm² (13 – 14 AWG)
+Passo: 5,08 mm/0,2 pollici.
+Minimo 1,5 mm² (15 – 16 AWG)
+
+10/12
+
+Клеммная колодка
+Шаг: 5.08 мм/0.2 дюйма.
+
+11/12
+
+

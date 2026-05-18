@@ -1,0 +1,3913 @@
+Baseline Software Platform
+webApp - Maintenance and Monitoring Tool
+User Manual
+
+BQT7944802-01
+07/2025
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+webApp - Maintenance and Monitoring Tool
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+About the Book...........................................................................................6
+Safety Instructions ......................................................................................7
+
+webApp First Contact .................................................................................8
+Baseline Software Platform .........................................................................8
+Introduction ..........................................................................................8
+coreDb – Real Time Database (RTDB) ...................................................9
+Devices..............................................................................................10
+Software Tools....................................................................................10
+
+webApp Environment Description ..........................................................12
+Home Page..............................................................................................12
+Monitoring & Control .................................................................................13
+Diagnostic................................................................................................15
+Maintenance ............................................................................................20
+Settings ...................................................................................................25
+
+Working with webApp ...............................................................................27
+Access to webApp ....................................................................................27
+Introduction ........................................................................................27
+CAE and RBAC model ........................................................................27
+Default Users .....................................................................................27
+Roles .................................................................................................28
+System Security Parameters................................................................32
+Accessing webApp..............................................................................33
+Home Window..........................................................................................35
+webUI ................................................................................................38
+Monitoring & Control .................................................................................39
+System Information .............................................................................39
+Data Page ..........................................................................................41
+Diagnostic and Maintenance .....................................................................45
+Introduction ........................................................................................45
+Diagnostic ..........................................................................................45
+Maintenance.......................................................................................49
+Advanced Maintenance.............................................................................53
+Introduction ........................................................................................53
+IP Configuration..................................................................................53
+Software Upgrade...............................................................................57
+Configuration Management .................................................................61
+Users Management.............................................................................65
+Device Certificate................................................................................67
+Setting ...............................................................................................68
+
+Glossary .....................................................................................................75
+
+BQT7944802-01
+
+3
+
+Foreword
+
+webApp - Maintenance and Monitoring Tool
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7944802-01
+
+5
+
+webApp - Maintenance and Monitoring Tool
+
+Foreword
+
+About the Book
+Document Scope
+This manual provides information for the use of the webApp maintenance and
+monitoring tool included in the Baseline Software Platform integrated in Saitel and
+PowerLogicTM T500 devices of Schneider Electric.
+To suit the different Saitel and T500 platforms, “RTU” terminology is used
+throughout the document, as the name for the following modules:
+•
+
+PowerLogic HU280
+
+•
+
+SM_CPU866e
+
+•
+
+HUe
+
+Screenshots included in this manual are related to PowerLogic HU280 module,
+and are given as examples.
+
+Document Revision History
+Document referencerevision
+
+Release date
+
+Modifications
+
+SE-S8656-WAT-01
+
+08/2015
+
+Creation
+
+SE-S8656-WAT-01
+
+04/2019
+
+Changes implemented in the latest
+versions of webApp for Saitel.
+
+SE-S8656-WAT-03
+
+12/2019
+
+Changes implemented in baselines
+11.06.12 for SM_CPU866e and 11.06.06
+for HUe.
+
+SE-S8656-WAT-04
+
+05/2020
+
+Configuration of multiple IP addresses.
+
+SE-S8656-WAT-05
+
+02/2021
+
+Some issues fixed and added information
+about webUI.
+
+BQT7944802-00
+
+04/2024
+
+Addition of PowerLogic HU280 module
+description.
+A new document reference and revision is
+applied.
+Changes for T500 firmware releases from
+11.08.00 onwards.
+
+Conformity
+The webApp component has been developed in accordance with the
+requirements for a quality management system, complying with the ISO
+9001:2015 standard.
+It applies during the validation period + three years after.
+
+Related Documents
+
+6
+
+Product
+
+Title of documentation
+
+Reference
+
+Saitel DR Platform
+
+User Manual
+
+SE-F800-USR
+
+Saitel DP Platform
+
+User Manual
+
+SE-F700-USR
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+SM_CPU866e Module
+
+User Manual
+
+SE-M578-USR
+
+HUe Module
+
+User Manual
+
+SE-M588-USR
+
+BQT7944802-01
+
+Foreword
+
+webApp - Maintenance and Monitoring Tool
+Product
+
+Title of documentation
+
+Reference
+
+PowerLogic T500
+webUI
+
+User Manual
+
+BQT7944803
+
+PowerLogic HU280
+Module
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500
+Platform
+
+User Manual
+
+BQT7944801
+
+EcoStruxure™
+Cybersecurity Admin
+Expert Tool
+
+User Manual
+
+CAE/EN UM
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+Customer Care Center
+For more information, you can download the app of the Customer Care Center by
+using the following QR code:
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+This unit must be installed and serviced only by qualified electrical
+personnel.
+
+•
+
+Turn off all power supplies of this unit before working on or inside the unit.
+
+•
+
+Always use a properly rated voltage sensing device to confirm that power is
+off.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+BQT7944802-01
+
+7
+
+webApp - Maintenance and Monitoring Tool
+
+webApp First Contact
+
+webApp First Contact
+Baseline Software Platform
+Introduction
+The baseline software platform of Schneider Electric consists of the following
+components:
+•
+
+Real-time operating system (RTOS): VxWorks, Linux, ...
+
+•
+
+Real-time applications and configuration files (XML format)
+
+•
+
+Configuration, management, supervision and monitorization tools
+NOTE: The basic head units of the Saitel DR, HU_B and HU_BI modules do
+not run VxWorks nor Linux. They operate with a tailored-made OS which
+includes the database and applications.
+
+The following figure shows the different applications included in the software
+platform, as well as additional applications (devices) implementing devices or
+protocols to upgrade Easergy Builder configuration tool:
+Baseline software platform
+IEC104
+(client & server)
+
+coreDb
+Configuration Files
+
+IEC103
+(client)
+IEC101
+(client & server)
+DNP
+(client & server)
+Modbus
+(client & server)
+
+Devices
+Configuration Files
+
+IEC61850
+(client & server)
+
+Real Time Database
+(coreDb)
+
+Web Server
+(webApp & webUI)
+
+ISaGRAF
+
+Synchronization
+Supervision
+
+Communications
+Local Acquisition
+
+Others
+Devices
+
+Real Time Operating System
+(VxWorks & Linux)
+
+The operating system abstracts the hardware from the software applications and
+manages the applications in real-time. The operating system integrates the basic
+protocols to access the remote unit and manage multiple users.
+The real-time database, named coreDb, is the most important element. All the
+other elements are developed around coreDb.
+
+8
+
+BQT7944802-01
+
+webApp First Contact
+
+webApp - Maintenance and Monitoring Tool
+
+Relation between coreDb and other applications
+PC
+Management and
+Maintenance
+
+SCADA
+Controller
+
+Acquisition Modules
+IEC61850 Ed2
+Device
+
+Web Server
+(webApp & webUI)
+
+IEC101 / IEC104
+Device
+Local Acquisition
+Device
+
+DNP 3.0
+Device
+
+GPS
+
+IEC101 / IEC104
+Device
+
+coreDb
+
+Synchronization
+
+Supervision
+DNP 3.0
+Device
+ISaGRAF
+Device
+
+IEC61850 Ed1 &
+Ed2 Device
+
+IEDs
+
+The following concepts are related to coreDb:
+•
+
+Device Controller (also referred to as controller): real-time application that
+accesses coreDb. Each controller acts as a producer and/or consumer of
+information managed by coreDb.
+
+•
+
+Point: each register of coreDb is a point. A point can be included in the table
+Status, Analog, Command or Setpoint.
+
+•
+
+Device: a set of IO points that share a common source/destination. A typical
+example of a device is an IED that communicates with the RTU, or the
+representation of a SCADA exchanging information acquired or generated by
+the RTU. A device is always associated to a type of controller.
+
+•
+
+Source: origin of the value of a coreDb data point. Any coreDb data point in
+Command or SetPoint tables can have numerous different sources (in one or
+several devices).
+For Status and Analog tables, data point can only have one source.
+
+•
+
+Destination: target of the value of a coreDb data point. You can configure
+coreDb data points to have several different destinations (in one or several
+devices).
+
+•
+
+Coordinate: point identification within a device. It is unique for each point and
+has a different structure for each controller. It is described in detail in the
+appropriate manual of each controller.
+
+•
+
+Configuration Plugin: specific configuration plugins extend the RTU
+configuration tool application to configure device controllers. Refer to Device
+configuration plugins, page 10.
+You can modify the configuration of each controller and device using the
+appropriate plug-in. When the database is completely configured, the files with
+the new information can be generated and transferred to the RTU. On startup,
+the software processes the information in RTU.
+NOTE: The configuration information exchanged between the RTU and
+Easergy Builder is not continuous, but performed through XML files under
+your request. When the configuration is modified in Easergy Builder and
+the XML files are sent to the RTU, it is necessary to reboot the RTU.
+
+coreDb – Real Time Database (RTDB)
+The coreDb is the real-time database backend on which Baseline Software
+Platform is built. All the information controlled and managed by the system is
+stored in this database.
+
+BQT7944802-01
+
+9
+
+webApp - Maintenance and Monitoring Tool
+
+webApp First Contact
+
+The functionalities of the system can be easily expanded to manage new
+protocols, customized controllers, etc. To do this, trained developers need to
+implement the required device controller and the associated configuration plugin
+for Easergy Builder that allows you to configure the extended functionality.
+The coreDb records are also called data points or, simply points (this term is used
+onwards to avoid confusing these with device points).
+The coreDb points are organized in four tables status, analog, setPoint and
+command to group the different types of points. These internal tables present the
+following differences:
+•
+
+Depending on the point type: The status and command tables support integer
+values, whereas setpoint and analog tables manage floating values.
+
+•
+
+Depending on the treatment of the point: The status and analog points can
+be locked or reset to initial values, whereas the other two signal types cannot
+be locked or reset. All types retain value in non-volatile memory.
+
+Devices
+Each type of device keeps a list of its associated points, identified by unique
+labels. These labels allow the identification of each device point unequivocally as
+the source or destination of a coreDb data point.
+Each point is a piece of information produced (or consumed) by a device. Within a
+single device, the point identifiers (coordinates) are unique and cannot be used by
+two different points.
+PowerLogic T500 configuration tool supports the following device configuration
+plugins:
+•
+
+DNP 3.0 client and server
+
+•
+
+Formula
+
+•
+
+IEC101 client and server
+
+•
+
+IEC104 client and server
+
+•
+
+IEC103 client
+
+•
+
+IEC61850 client Ed1
+
+•
+
+IEC61850 Ed2 client and server
+
+•
+
+ISAGRAF5
+
+•
+
+local acquisition
+
+•
+
+MODBUS client and server (with several profiles)
+
+•
+
+SNMP manager v1, v2c, and v3, SNMP agent v3
+
+•
+
+SOE (Sequence of Events management)
+
+•
+
+TSV (Terminal Server)
+
+•
+
+webUI
+
+Software Tools
+A basic configuration is included, and can be customized.
+
+10
+
+•
+
+Easergy Builder: engineering tool for the RTU OFFLINE configuration. It
+allows to include and adapt the different functions of the RTU to the system
+where it is integrated.
+
+•
+
+CAE: engineering tool to define the security policy and assign roles to users. It
+allows the definition of a series of rights and responsibilities in the system for
+authorized users. It defines who, what, when and how to perform tasks
+according to the Role-Based Access Configurations (RBAC) model. It is a
+software tool that needs to be installed on a PC.
+
+BQT7944802-01
+
+webApp First Contact
+
+webApp - Maintenance and Monitoring Tool
+
+•
+
+webApp: web tool for online maintenance and monitoring of the RTU. Using
+the configuration defined in Easergy Builder and loaded in the RTU, you can
+refer and/or change some parameters through the web server. Unlike Easergy
+Builder, webApp does not allow adding new features. Only the parameters
+included in the configuration can be changed.
+
+•
+
+ESM: EcoStruxure™ System Management tool that provides an Inventory
+Baseline Management (IBM) software, capable to perform maintenance on
+connected equipment, in an heterogeneous solution with a focus on
+cybersecurity:
+
+•
+
+BQT7944802-01
+
+◦
+
+Data Management: storage and backup while tracking the evolution of
+Firmware, Configuration, Setting Files and Documentation.
+
+◦
+
+Manages firmware and configuration upload.
+
+◦
+
+Monitors real-time changes firmware and configuration version for
+connected devices.
+
+◦
+
+Cybersecurity: manages Role-Based Access Configurations for Schneider
+Electric devices.
+
+◦
+
+Collects Syslogs from Schneider Electric connected devices.
+
+webUI: web-based graphical substation user interface. This tool can be used
+in two different environments:
+◦
+
+webUI (run-time): web tool running in the RTU, used to monitor and control
+the information using screens previously designed by the user with the
+configuration tool.
+
+◦
+
+webUI Add-on: edition tool included in Easergy Builder for creating and
+editing customized webUI screens. It is used to design new screens for the
+configuration loaded into the RTU or also modify the information displayed
+in those already available.
+
+11
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+webApp Environment Description
+Use webApp on Windows 7® or higher version. The following web browsers can
+be used:
+•
+
+Google Chrome (version 119.0.6045.160)
+
+•
+
+Microsoft Edge (version 119.0.2151.72)
+
+•
+
+Firefox (version 119.0.1)
+
+Home Page
+
+The Home page displays the following information:
+•
+
+Device Information: you can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed each
+time a connection is established to this RTU. This information can be modified
+using the Edit option.
+
+•
+
+Location: the GPS coordinates for the RTU location (place, latitude, longitude,
+and altitude) should be entered here by the installer. The location is not set
+automatically. The image must be included manually by clicking
+map.
+
+•
+
+on the
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+NOTE: This zone allows you to include notes that are shown to other
+users. Click
+
+•
+
+to add notes.
+
+Factory information: this zone shows the manufacturer, model and the
+next to the
+version of the software loaded on the RTU module. Click
+Factory Information to include an image of the particular RTU for
+identification purposes.
+
+12
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+Monitoring & Control
+Use the Monitoring & Control menu to monitor the system information and
+control data in coreDb.
+
+System Information Page
+Select Monitoring & Control > System Information:
+System information (showing missing information)
+
+All information shown in this window is supplied by the supervision device. Each
+supervision point must be included in the configuration if you need to monitor the
+data in real time. If a point is not included in the configuration, a notice is shown.
+In the above example, you can see the following notices:
+•
+
+Configuration zone: PLC information not available. The point FAIL_PLC is
+not included in the loaded configuration or an ISaGRAF device is not included.
+
+•
+
+CPU usage: N/A: the point CPU USAGE is not included in coreDb.
+
+•
+
+RAM usage: N/A: the point RAM USAGE is not included in coreDb.
+
+In Easergy Builder,
+1. create an ISaGRAF device,
+2. select points FAIL_PLC, CPU_USAGE, and MEM_USAGE for supervision
+device,
+3. send this configuration to the RTU for the information to be available in
+webApp.
+
+BQT7944802-01
+
+13
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+System information (showing complete information)
+
+Data Page
+Select Monitoring & Control > Status to monitor and control the information of all
+points included in the status table in coreDb. These points are also available for
+Analog, Command, and Set point tables.
+The following figure shows the information about analog points:
+Monitoring and control view – Data
+
+14
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+Diagnostic
+The Diagnostic menu shows the data logs recorded in real time by the RTU:
+•
+
+Event log
+
+•
+
+System log
+
+•
+
+Security log (Security administration rights are required)
+
+•
+
+TCP Traffic
+
+•
+
+Traces
+
+•
+
+Ping (for HU280, from release 11.08.00 onwards)
+
+•
+
+IEC61850
+
+You can export all these logs to csv file and download the file to the PC.
+
+Events Log SOE Page
+Select Diagnostic > Events to view the information recorded in SOE:
+Diagnostic view – SOE
+
+System Log Page
+Select Diagnostic > System to view information in the System log:
+Diagnostic view – System log
+
+BQT7944802-01
+
+15
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+Security Log Page
+Select Diagnostic > Cyber Security to view all the information regarding the
+login and logout of the system.
+NOTE: This option is only available, if your role includes security
+administration.
+Refer to CAE/EN UM - EcoStruxure Cybersecurity Admin Expert User Manual for
+more information about cyber security logging.
+Diagnostic view – Security log
+
+TCP Traffic Page
+Select Diagnostic > TCP Traffic to capture the information sent by a
+communication channel through an ETH device.
+Diagnostic - Capturing TCP traffic
+
+16
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+Traces Page
+Select Diagnostic > Traces to display the exchanges on the different
+communication channels of the RTU.
+In the Communication section, from the communication channels available in the
+unit, select the traces to display. The available channels depend on the type of
+RTU and its configuration.
+In addition to the exchanges related to communications, it is also possible to
+display in the trace of any new event occurring to the CoreDb database, by
+selecting All events.
+When the elements are selected for the trace, click the Show selected traces
+button to display the corresponding trace in a new page.
+Diagnostic - Selection of Traces to display
+
+Diagnostic - Trace display
+
+Using Export button, it is possible to download in txt files with all the captured
+traces.
+
+BQT7944802-01
+
+17
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+Ping Page
+NOTE: This function is available only for PowerLogic T500 (HU280), from
+release 11.08.00 onwards.
+Select Diagnostic > Ping to ping other devices from the RTU.
+In the Host IP Address field, enter the IP address of the destination device.
+To configure the Size of the message to be sent in the Ping command, the user
+can select one of the following option:
+•
+
+Auto (default: 56 packets).
+
+•
+
+Custom: Enter the number of packets (range: 0 — 65507).
+
+In the Source field, select one of the following options:
+•
+
+Auto: Automatic search for the path to reach the host.
+
+•
+
+Interface: Select an interface manually from the available list.
+
+•
+
+IP Address: Enter the IP address of an interface.
+
+Diagnostic - Ping
+
+18
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+IEC61850 Page
+NOTE: This function State and IED State Report are available only for
+PowerLogic T500 (HU280), from release 11.08.00 onwards.
+Select Diagnostic > IEC61850 to view information about IEC61850
+communications.
+Diagnostic - IEC61850 Logs
+
+Diagnostic - IEC61850 State
+
+BQT7944802-01
+
+19
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+Diagnostic - IED State Reports
+
+Maintenance
+The Maintenance menu allows you to manage maintenance tasks. Available
+options depend on the role of the logged user.
+
+Users Management
+This option is available if you have the security administration privileges. Select
+Maintenance > Users management.
+Users management
+From this page, any user with SecurityAdmin role can do the following operations:
+
+20
+
+•
+
+Lock/unlock users so they cannot login. Users are locked when the password
+is wrong. They are automatically unlocked after a period of time or can be
+unlocked from this page.
+
+•
+
+Add/remove new users.
+
+•
+
+Change password for existing users.
+
+•
+
+Change roles for existing users.
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+Local Acquisition
+This section shows the information about the status of the local acquisition device.
+This tab is available for each acquisition block or I/O module. Select Maintenance
+> Acquisition.
+Local acquisition status
+
+Clock
+This option shows the information about the system time. Depending on your
+privileges, this time can be changed manually. Select Maintenance > Clock.
+
+BQT7944802-01
+
+21
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+System time
+
+Software Management
+Select Maintenance > Software, then click Show more button to view the
+versions of the software modules installed. Depending on your privileges, you can
+upgrade the software.
+Component software versions
+
+22
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+IP Configuration
+Select Maintenance > IP Configuration to display the IP configuration for
+devices, routers and also the configuration for SNMP management. The displayed
+information depends on the user’s role and rights, as well as the possible
+modifications.
+IP configuration - Devices tab
+
+IP configuration - Routers tab
+
+BQT7944802-01
+
+23
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+IP configuration - SNMP tab
+
+Click Edit SNMP user to display the Set SNMP user pop-up window to set the
+SNMP user together with the encryption technology for the password.
+
+Configuration Management
+More than one configuration can be stored for an RTU but only one can be active
+at the same time. Depending on your privileges, some operations with these
+configurations are available.
+Select Maintenance > Configuration.
+
+24
+
+BQT7944802-01
+
+webApp Environment Description
+
+webApp - Maintenance and Monitoring Tool
+
+Configuration management
+
+Settings
+The Settings menu allows you set up the following information. Access to this
+information depends on the role of the logged user.
+•
+
+Information about communication (protocols and channels).
+
+•
+
+Information about synchronization, including local time zone, summer time,
+SNTP server and synchronization devices.
+
+Select Settings, then the RTU name tab, for example: PowerLogic HU280.
+
+BQT7944802-01
+
+25
+
+webApp - Maintenance and Monitoring Tool
+
+webApp Environment Description
+
+PowerLogic HU280 settings
+
+26
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+Access to webApp
+Introduction
+The RTU module is provided with a standard security policy and a default RBAC
+(Role-Based Access Control) model.
+This model is defined and managed by a special tool - CAE (EcoStruxure
+Cybersecurity Admin Expert - Security Administration Tool). Based on this model,
+using webApp, authorized users can create and manage other users in the
+system.
+
+CAE and RBAC model
+The CAE is the security administration tool for managing the security policy and
+defining the restrictions for accessing the system or the communication interfaces.
+The CAE is a software tool to be installed on a PC.
+The RTU security policy consists in structuring the rights and responsibilities
+within the system and defining who is authorized to do what, when, and how,
+based on an RBAC (role-based access control) model.
+A key aspect of the RBAC model is that any access is controlled by roles. A role is
+essentially a set of permissions that you receive by the role to which you are
+assigned, or by the roles that you inherit through the hierarchy of roles.
+This RBAC model allows the RTU to:
+•
+
+Secure local and remote connections for maintenance: HTTPS, SSH (only
+available for SM_CPU866e and HUe).
+
+•
+
+Secure file transfer protocols: SFTP (only available for SM_CPU866e and
+HUe).
+
+The RTU is supplied with a predefined RBAC model allowing different levels of
+user access adapted to the CPU usage compliant with standard IEC 62351-8.
+It is not necessary to modify the default RBAC model if it is suitable. The CAE is
+not used for general use of the modules. The CAE can be used to create its own
+user database along with definition of its own roles, as well as to manage the
+RBAC models for each device centrally.
+
+Default Users
+The CAE tool can be used during the engineering phase to define or change the
+system access restrictions, including the access rights and responsibilities (based
+on an RBAC model).
+Since the roles and access levels are already predefined in the RBAC model,
+webApp is used to add or delete users, modify passwords, and assign or modify
+one or more predefined roles to users.
+In the default user database, the SecurityAdmin user is the only user with
+sufficient rights (SECADM role) to manage cybersecurity actions. Only this user
+can manage/modify user passwords and rights (roles).
+You cannot modify the rights assigned to a role using webApp.
+
+BQT7944802-01
+
+27
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+WARNING
+PASSWORD SECURITY
+For security purposes, change the passwords during commissioning.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+Default users and roles
+Default Username
+SM_CPU866e
+and HUe
+
+Users
+
+PowerLogic
+HU280 (releases
+prior to
+11.08.00)
+
+Password
+
+Role
+
+Viewer
+
+–
+
+Viewer1!
+
+VIEWER
+
+Operator
+
+–
+
+Operator1!
+
+OPERATOR
+
+Engineer
+
+–
+
+Engineer1!
+
+ENGINEER
+
+Installer
+
+–
+
+Installer1!
+
+INSTALLER
+
+SecurityAdmin
+
+Security1!
+
+SECADM
+
+SecAud
+
+–
+
+Secaud1!
+
+SECAUD
+
+RbacMnt
+
+–
+
+Rbacmnt1!
+
+RBACMNT
+
+SecurityAdmin
+
+Default users PowerLogic HU280
+User Name
+
+Password
+
+Role
+
+Description
+
+SecurityAdmin
+
+AAAAAAAA
+
+SECADM
+
+This user can define
+and modify the
+security policy and
+user roles.
+
+NOTE: For security purposes, default password is forced to be changed at
+first login (only for PowerLogic T500 and HU280, from release 11.08.00
+onwards).
+Upon first login, the user is prompted to create a new password that meets the
+following requirements:
+•
+
+Both upper case and lower case letters
+
+•
+
+At least one number
+
+•
+
+At least one special character
+
+•
+
+A minimum length of 12 characters
+
+Since the default password is not aligned with previous requirements, it cannot be
+reused.
+
+Roles
+RBAC (Role-based-access-control) is a control mechanism that defines roles
+which have certain privileges. These privileges are defined by objects and the
+action that you can do with them.
+The following table shows actions allowed for each object type. Depending on
+your role in which you logged in webApp, an action is or not allowed.
+
+28
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Object – Action pairs
+Object
+CONF_DB
+
+App Association
+
+Action
+Read
+
+webApp access
+webUI access
+Configuration tool Read configuration
+
+DATA
+
+Write
+
+Configuration tool Apply configuration
+
+Read
+
+webApp data monitoring
+webApp settings view
+webUI access
+
+Write
+
+webApp data monitoring force
+webApp settings edit
+webUI operate
+
+CONF_SYS
+
+Read
+
+webApp IP configuration
+Configuration tool Read configuration
+
+Write
+
+webApp IP configuration modification
+Configuration tool Apply configuration
+webApp manual clock management
+
+FIRMWARE
+
+WEBSERVICES
+
+View
+
+webApp firmware version view
+
+Read
+
+None
+
+Write
+
+webApp firmware update
+
+Downgrade
+
+webApp firmware downgrade
+
+Access
+
+webApp access
+webUI access
+Configuration tool Read configuration
+Configuration tool Apply configuration
+
+CERT_MGT
+
+AddCertificate
+
+webApp certificate management
+
+GetCertificate
+GetListCertificate
+PurgeCertificate
+RemoveCertificate
+SYS_LOG
+
+Read
+
+CAE Syslog view.
+Configuration tool syslog view
+
+Write
+
+BQT7944802-01
+
+webApp clear events log
+
+29
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Object – Action pairs (Continued)
+Object
+RBAC
+
+RBAC
+
+App Association
+
+Action
+Read
+
+webApp RBAC users’ management
+
+Write
+
+CAE access
+
+GetLockedAccountList
+
+(SAT dependency)
+RBAC
+
+LockAccount
+
+(CAE dependency)
+
+UnlockAccount
+
+RBAC
+
+SetUserPassword
+
+(CAE dependency)
+RBAC
+
+UpdateRbac
+
+(CAE dependency)
+RBAC
+
+Create
+
+(CAE dependency)
+
+Delete
+GetConfVersion
+GetRbacVersion
+RenewRbac
+SetConf
+SetRights
+SetRoles
+SetUsers
+UpdateConf
+
+RBAC_LOG
+
+Read
+
+webApp Cybersecurity log view
+
+RESET
+
+Access
+
+Configuration tool RTU reset command
+
+WEBAPP
+
+Access
+
+webApp access
+
+WUI_OPP
+
+Access
+
+webUI access with rights to Operate
+
+WUI_SUPP
+
+Access
+
+webUI access with only view rights
+
+DDS
+
+GetDSSFileVersion
+
+Required for CAE access
+
+DDS
+
+SetDSSFile
+
+Required for CAE access
+
+UpdateDSSFile
+SECURITY_LOGS
+
+GetNLogs
+
+CAE Cybersecurity log view
+
+GetTotalLogsNb
+
+You need to connect to the RTU as a SecurityAdmin user to define rights for
+each role as follows:
+
+30
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+System configuration
+files object
+
+Read
+
+Firmware management
+
+View
+
+ɣ
+
+ɣ
+
+Read
+
+ɣ
+
+ɣ
+
+CONF_SYS
+
+FIRMWARE
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+Write
+ɣ
+
+ɣ
+
+ɣ
+
+Write
+
+Write
+
+ɣ
+
+Downgrade
+WEBSERVICES
+
+Web services access
+permission
+
+Access
+
+SYS_LOG
+
+Read
+Baseline’s system log.
+Includes BL sysLog and
+Write
+soeLog. Excluded CS
+logs.
+
+RBACMNT
+
+Read
+
+SECAUD
+
+CoreDB configuration
+files object
+
+SECADM
+
+CONF_DB
+
+INSTALLER
+
+Action
+
+ENGINEER-wAPP
+
+Description
+
+ENGINEER-wUI
+
+Object
+
+ENGINEER
+
+OPERATOR-wUI
+
+OPERATOR
+
+VIEWER
+
+VIEWER-wUI
+
+VIEWER-wAPP
+
+Rights Defined For Each Role/User1
+
+OPERATOR-wApp
+
+Defined Rights for PowerLogic HU280
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+CS brick configuration
+files
+
+Read
+
+ɣ
+
+ɣ
+
+Write
+
+ɣ
+
+ɣ
+
+RBAC_LOG
+
+Access to coreDB data
+points
+
+Read
+
+ɣ
+
+DATA
+
+Access to coreDB data
+points
+
+Read
+
+RESET
+
+It allows the local and
+remote reset (BLApp
+reload and system
+reboot)
+
+Access
+
+WEBAPP_
+ACCESS
+WUI_OPP
+
+Access to webApp
+interface
+Access to webUI
+interface for View and
+Operate
+
+Access
+
+WUI_SUPP
+
+Access to webUI
+interface for View
+Management of DSS
+agent
+
+RBAC
+
+DDS
+
+LOGS
+
+Read Security logs
+
+ɣ
+
+ɣ
+
+ɣ
+
+Write
+
+ɣ
+
+ɣ
+
+Read
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+ɣ
+
+Access
+
+Access
+
+ɣ
+
+ɣ
+
+ɣ
+ɣ
+
+ɣ
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+ɣ
+
+ɣ
+
+Write
+
+ɣ
+
+Read
+
+ɣ
+
+1 It is not possible to modify the rights assigned to a role via webApp. This can
+
+only be done via CAE. Refer to the CAE user manual for more information on
+administering roles and their associated rights in the RBAC model.
+
+BQT7944802-01
+
+31
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+CONFDB
+
+Configuration files in
+coreDb.
+
+Read
+
+ɣ
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+Write
+CONFSYS
+
+Configuration files in the
+system.
+
+Read
+
+ɣ
+
+ɣ
+
+Write
+DATA
+
+Access to the information
+about coreDb points.
+
+Read
+
+ɣ
+
+Write
+FIRMWARE
+
+Firmware management.
+
+RBACMNT
+
+Access
+
+SECAUD
+
+Installer command interface
+
+SECADM
+
+BLSHELL
+
+Action
+
+INSTALLER
+
+Description
+
+ENGINEER
+
+Object
+
+VIEWER
+
+Rights Defined For Each Role/User1
+
+OPERATOR
+
+Defined Rights for CPU866e & HUe
+
+Read
+ɣ
+
+View
+Read
+
+ɣ
+
+LOGS
+
+Security Logs.
+
+GetNLogs
+
+OSSHELL
+
+Engineer command
+interface
+
+Access
+
+RBAC
+
+RBAC users management1
+
+Read
+
+ɣ
+
+ɣ
+
+Write
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+RBACLOG
+
+Log file for the
+cybersecurity brick.
+
+Read
+
+RESET
+
+Device reset.
+
+Access
+
+ɣ
+
+ɣ
+
+SSH
+
+Secure shell
+
+Access
+
+ɣ
+
+ɣ
+
+SYSLOG
+
+Read System's Log File.
+Includes the log file both for
+the system and SOE
+(sequence of events), but
+does not include the
+cybersecurity log.
+
+Read
+
+ɣ
+
+ɣ
+
+Clear System's Log File
+
+Write
+
+ɣ
+
+ɣ
+
+Web server access
+
+Access
+
+ɣ
+
+ɣ
+
+WEBSERVICES
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+ɣ
+
+1 It is not possible to modify the rights assigned to a role via webApp. This can
+
+only be done via CAE. Refer to the CAE user manual for more information on
+administering roles and their associated rights in the RBAC model.
+
+System Security Parameters
+The Cybersecurity involves a certain number of system parameters that are
+applied to the security policy. These parameters are summarized in the table
+below and can be modified in the CAE tool.
+Parameter
+
+Description
+
+Idle session timeout
+
+After a period of inactivity, your access to the web server lapses. You must re-enter their username
+and password to reconnect (Default: 15 minutes).
+
+Authorize user lockout
+
+The option is to lock/unlock a user account (Default: Authorized).
+
+Maximum number of connections
+
+The maximum number of connections attempts you can make (Default: 5 attempts).
+
+Password timeout
+
+The maximum time period allowed for entering password (Default: 3 minutes).
+
+Account auto-unlock
+
+Automatic unlocking of a user account after a defined duration (see below) if the account has been
+locked out (Default: unlocking enabled).
+
+Account lock duration
+
+The maximum time period for an account to remain locked (Default: 240 seconds).
+
+32
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Parameter
+
+Description
+
+Password complexity
+
+The choice of policy (strength) used for creating or modifying passwords. Three levels of
+complexity are possible that are compliant with standards:
+•
+
+•
+
+•
+
+Monitoring and recording standards
+
+None (Default)
+◦
+
+One character minimum.
+
+◦
+
+Valid characters: ASCII [33,122]
+
+IEEE 1686–2013:
+◦
+
+Eight characters minimum.
+
+◦
+
+Valid characters: ASCII [33,122], including:
+–
+
+1 lower case letter.
+
+–
+
+1 upper case letter.
+
+–
+
+1 digit.
+
+–
+
+1 special character
+(! " # $ % & ' ( ) * , - . / : ; < = > ? @ [ ] ^_ `).
+
+NERC:
+◦
+
+Six characters minimum.
+
+◦
+
+Valid characters: ASCII [33,122], including:
+–
+
+1 letter
+
+–
+
+1 digit
+
+–
+
+1 non-alphanumeric character
+
+List of supported standards:
+•
+
+BDEW (Default)
+
+•
+
+E3
+
+•
+
+NERC_CIP
+
+•
+
+IEEE 1686
+
+•
+
+IEC 62351
+
+•
+
+CS_PH1
+
+Syslog server IP address
+
+IP address for the syslog server (Default: 10.22.90.14 by default).
+
+Syslog server IP port
+
+IP port number for the syslog server (Default: 601).
+
+SNMP Client/Server IP address
+
+Not available
+
+Rights activation
+
+Options for activating user rights:
+•
+
+Cybersecurity rights (Default)
+
+•
+
+Generic rights
+
+High security banner
+
+Not available
+
+Medium security banner
+
+Not available
+
+Low security banner
+
+Not available
+
+Accessing webApp
+To access webApp, type https://< CPU IP address> in the browser navigation
+bar.
+Example of IP address to access webApp
+
+If a security warning is shown, click on Advanced button, then click on Continue
+to (IP address) unsafe link.
+
+BQT7944802-01
+
+33
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+webApp includes an access control that controls the users who are granted to
+connect.
+Login window
+
+NOTE: Upon first login in PowerLogic HU280, the user will be prompted to
+create a new password that meets the following requirements. Since the
+default password is not aligned with these requirements, it cannot be reused
+(only available for PowerLogic T500, HU280, from release 11.08.00 onwards).
+
+34
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Change password window for PowerLogic HU280
+
+Fill in the Username and Password fields and press the Login button. A
+disclaimer message is shown previously to access the main window:
+Disclaimer information
+
+Read this information and take it into account.
+
+Home Window
+When the tool is started, the Home page is displayed automatically:
+
+BQT7944802-01
+
+35
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Home page
+
+This page displays the following general information:
+
+Device information
+You can enter the names of the operators who have used or configured the
+equipment, or enter a specific note that can be viewed each time a connection is
+established to the RTU. This information can be changed using Edit button, next
+to Device information.
+Editing the Device information
+
+Notes
+This zone allows you to include notes that are shown to other users that connect
+to the RTU using webApp.
+
+36
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Adding notes for other users
+
+Location
+The GPS coordinates for the RTU location (place, latitude, longitude, and altitude)
+should be entered here by the installer. The location is not set automatically. The
+image must be included manually by clicking
+
+button on the map.
+
+Uploading a map image
+
+Use the Edit button to fill in fields Place, Latitude, Longitude, and Altitude.
+Editing location data
+
+The new image can be loaded from a file or simply drag and drop using the
+explorer.
+NOTE: The image must be in JPG, PNG or JPEG format and with a maximum
+size of 50 KB.
+
+BQT7944802-01
+
+37
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Factory Information
+This zone shows data about manufacturer, model, and the version of the software
+loaded in the CPU. Using
+button, you can include other image in the page,
+for example, an image of the system.
+NOTE: The image must be in JPG, PNG or JPEG format and with a maximum
+size of 100 KB.
+
+webUI
+NOTE: webUI is available for PowerLogic HU280 module, Saitel DP
+SM_CPU866e and EasyLogic T150 HUe.
+In this Home tab there is a check box that makes it possible to enter webUI by
+default instead of webApp.
+
+The webUI is a web-based graphical user interface of the substation.
+The webUI has two different environments:
+•
+
+webUI (real-time): it allows you to monitor graphically the information included
+in the different screens designed by you through the editor included in Easergy
+Builder (webUI Add-on).
+
+•
+
+webUI Editor: (webUI Add-on): the editor included in Easergy Builder for
+creating and editing webUI screens. It allows you to design new screens for
+the configuration loaded into the RTU or modify the information displayed in
+those already available.
+
+From webApp, you can go to webUI by selecting Monitoring & Control > webUI.
+Then, it must introduce the user/password and the main webUI screen is shown.
+To return to webApp, click on the settings button (
+
+38
+
+) and click on webApp.
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+webUI
+
+For more information on webUI, see the webUI user manual.
+
+Monitoring & Control
+The Monitoring & Control menu is used to monitor and control the system
+information and status and coreDb points.
+The corresponding supervision points must be installed. In following paragraphs,
+each signal is indicated on the picture into a blue square. Refer to SE-S856-MSS Easergy Builder User Manual for more information about supervision points.
+
+System Information
+The System Information page is displayed by selecting Monitoring & Control >
+System Information.
+
+BQT7944802-01
+
+39
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+System Page
+System status
+
+Depending on the RTU, some information could not be available. For example,
+HUe does not show information about the temperature.
+Information about redundancy and Local/Remote status are not linked to
+supervision points.
+
+Power Supplies
+This section shows information of the power supplies. This information is only
+available for PowerLogic HU280 and SM_CPU866e:
+Power supplies status
+
+Serial Communication
+An extra block is shown for each communication block in the RTU. Both, Saitel DP
+and Saitel DR communication blocks are shown with the text SM_SER. For
+PowerLogic HU280, the communication block is shown as XS280:
+
+40
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Serial communication status
+
+Data Page
+The Data page allows access to each table in coreDb.
+•
+
+Status table: select Monitoring & Control > Status.
+
+•
+
+Command table: select Monitoring & Control > Command.
+
+•
+
+Analog table: select Monitoring & Control > Analog.
+
+•
+
+Setpoint table: select Monitoring & Control > Set point.
+
+Example of a status point table:
+Status points
+
+For all types of point, each page has the same format, with the following
+information displayed on the screen:
+
+Refresh Period
+The information in the page is refreshed automatically according to the selected
+frequency:
+
+BQT7944802-01
+
+•
+
+Fast: Every second.
+
+•
+
+Normal: Every 4 seconds.
+
+•
+
+Slow: Every 10 seconds.
+
+41
+
+webApp - Maintenance and Monitoring Tool
+
+Using
+
+Working with webApp
+
+button, you can request to update the information at any time.
+
+Points per Page
+The number of points to be displayed on each page can be set between 10, 20,
+and 50.
+
+Filtering information
+You can set a filter to display the data by selecting Source or Destination to limit
+the amount of data displayed on the screen. Only devices used as Source and
+Destination are shown in the filter.
+
+Point Description and Value
+The first three columns include the following information:
+•
+
+Point name: internal name of the data item in coreDb.
+
+•
+
+Description: detailed description.
+
+•
+
+Value: real-time value of the point in coreDb.
+
+WARNING
+HAZARD OF EDITING LOCKED VALUES
+Ensure that any locked and edited data values are valid to avoid an impact on
+the control sequences of the system.
+Failure to follow these instructions can result in death, serious injury or
+equipment damage.
+
+Click the
+button associated with the Value field to manually edit the state or
+value of a Command or Setpoint data item.
+For a Status or Analog data item, you can force the status or value. This type of
+data is only processed in read mode; forcing is only applied in simulation. To do
+this, the actual data item must be locked first by clicking the Locking option.
+Once the data is locked, the Edit button for this point is enabled and you can
+change the status or value of the point in simulation mode.
+
+42
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Disabling the Locking option cancels the simulation and returns to the actual
+status or value of the data item.
+
+Quality Information
+Two icons displayed in the Quality column indicate the data processing quality.
+The quality of a data item can indicate the validity of the status or value entered on
+the web server page.
+The quality is indicated for the following two sources:
+•
+
+Local source: reflects the quality of the data item from the viewpoint of its
+processing at the CPU end.
+
+•
+
+Remote source: reflects the quality of the data item sent by the information
+source (device) processing the data.
+
+In the same way as for a change of state or value for Status or Analog data, you
+can manually simulate the quality of a data item. To do this, first lock the data item
+using the Locking option. Then click the
+button associated with the Quality
+field. The possible choices for the local and remote source quality are then
+displayed on the screen.
+
+BQT7944802-01
+
+43
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Disabling the Locking option cancels the simulation and returns to the actual
+quality of the data item.
+The table below shows the correspondence between the different quality types
+that can be simulated after locking a data element. Note that this also gives an
+indication of the different quality types that can be obtained in actual operation.
+Quality information
+
+44
+
+Local Source Quality
+
+Description
+
+Overflow
+
+An overflow has occurred on a counter.
+
+Rollover
+
+An overflow and an automatic reset have occurred on a counter.
+
+Counter adjustment
+
+The counter has been adjusted.
+
+Chatter
+
+Excessive change on a digital input.
+
+Locked
+
+The data item is locked.
+
+Manual
+
+The data item has been manually replaced.
+
+Not typical
+
+The data item has not yet been written to the database.
+
+Invalid data
+
+Data item is invalid.
+
+Critical alarm
+
+The value of the data item has exceeded the High-High alarm
+threshold.
+
+High level alarm
+
+The value of the data item has exceeded the High alarm threshold.
+
+Low level alarm
+
+The value of the data item is below the Low alarm threshold.
+
+Signal alarm
+
+The value of the data item is below the Low-Low alarm threshold.
+
+Invalid time
+
+The data item time-stamp is invalid or inaccurate (the CPU is not
+synchronized by a source)
+
+Remote Source Quality
+
+Description
+
+Overflow
+
+An overflow has occurred on a counter.
+
+Rollover
+
+An overflow and an automatic reset have occurred on a counter.
+
+Counter adjustment
+
+The counter has been adjusted.
+
+Chatter
+
+Excessive change on a digital input.
+
+Locked
+
+The data item is locked.
+
+Substituted data
+
+The data item has been manually replaced.
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Quality information (Continued)
+Not typical
+
+The data item has not yet been written to the database.
+
+Invalid data
+
+Data item is invalid.
+
+Invalid time
+
+The data item time-stamp is invalid.
+
+Diagnostic and Maintenance
+Introduction
+NOTE: The features available in Diagnostic and Maintenance page depend
+on the user’s role and rights.
+The Diagnostic menu is used to view the data logs recorded in real time by the
+RTU: events, system log, TCP traffic, or cybersecurity log (Security administration
+rights are required).
+The Maintenance menu helps with maintenance of the RTU: users management
+(Security administration rights are required), system clock, IP configuration,
+software upgrade and configuration management.
+
+Diagnostic
+Events Log Page
+Select Diagnostic > Events to view the information recorded in SOE.
+Events log
+
+Events can be:
+•
+
+Sorted, by using the arrow next to the name of the column.
+
+•
+
+Filtered, by typing the text to search in the textbox under the name of the
+column.
+
+•
+
+Cleared, by using
+
+•
+
+Exported to a csv file and downloaded to the PC.
+
+button.
+
+IMPORTANT: Be careful while clearing the events.
+Take into account that clearing events do not only clear the table but also the
+content of the SOE files in the file system. Events cannot be recovered after
+confirming deletion.
+
+BQT7944802-01
+
+45
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+System Log Page
+Select Diagnostic > System to view information in the System log:
+System log is presented the same way as SOE events and they can be exported
+to csv. They cannot be cleared.
+System log
+
+Security Log Page
+NOTE: Only users with SECADM role can access this page.
+If you have the security administration privileges (SECADM), select Diagnostic >
+Cyber Security. This page displays the cybersecurity log. The log can be sorted,
+filtered, and exported to CSV but cannot be cleared.
+Security log
+
+46
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Traces Page
+Select Diagnostic > Traces to display the traces. Select the communication
+channel and/or the database event, at least one must be selected.
+Traces
+
+Click Show selected traces button to visualize the corresponding trace.
+Traces for specific channels
+
+The trace information can be:
+•
+
+Stopped, by clicking
+
+.
+
+•
+
+Started, by clicking
+
+.
+
+•
+
+Exported to the computer by clicking
+
+While traces are being displayed, click
+scrolling.
+
+BQT7944802-01
+
+. A .txt file is downloaded.
+button to stop auto
+
+47
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Click
+selected.
+
+button to select a new trace, after the Stop traces button is
+
+TCP Traffic Page
+webApp captures TCP Traffic and downloads it to a local file that can be opened
+with a pcap analyzer such as WireShark.
+Select Diagnostic > TCP Traffic:
+TCP traffic
+
+Select the interface to start the capture (only one can be selected).
+Select the number of packets to be captured (from 1 to 200,000). If required, a
+specific port can be blocked, or one specific block can be scanned.
+TCP traffic for specific port
+
+If scanning the ethernet interface through which we are connecting via webApp,
+we can avoid capturing HTTP traffic, if we select “No”, then port 443 will be
+blocked.
+
+48
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+During TCP traffic capture, you can navigate through the rest of the webApp
+features. The traffic capture can be stopped, and the file can still be downloaded,
+but it may be truncated.
+Stop TCP traffic capture
+
+After the capture is finished, the Download button appears, and you can
+download the file. If you start a new capture before downloading, the current file is
+deleted. The current file is also deleted after downloading to save RTU resources.
+TCP traffic download
+
+Maintenance
+Clock page
+Select Maintenance > Clock to modify the RTU time. This change can be done
+automatically (sets the PC time as RTU time) or manually. If you do not have the
+permissions, only the current RTU time is shown as follows:
+Data / Time (Manual mode)
+
+If you can change the system time, the page is displayed as below:
+
+BQT7944802-01
+
+49
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Data / Time (Auto mode)
+
+Click the green button to send the date/time of the PC to the RTU.
+If the date/time of the RTU must be set manually, switch the Auto option to
+Manual mode.
+Data / Time (Manual mode)
+
+Select the required date/time and click the green button. The new date/time is sent
+to the RTU.
+
+Acquisition page
+Select Maintenance > Acquisition to monitor information about the local
+acquisition. This page is displayed depending on the I/O modules installed and
+configured in the RTU. For example:
+
+50
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Maintenance acquisition
+
+•
+
+Acquisition Status: Each configured acquisition module is shown in a tab,
+with its name and two icons indicating the current status. The following icons
+indicate the acquisition status:
+
+Acquisition status
+Icon
+
+Meaning
+Communication is OK
+
+Communication interruption
+
+Module has no diagnostics
+
+Module has diagnostics
+
+Diagnostic information not available
+
+BQT7944802-01
+
+51
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+The following information is also included on each tab:
+Analog point maintenance
+
+Where:
+•
+
+Module address: this data is only configurable for Saitel DR acquisition
+blocks.
+
+•
+
+Analog Calibration: when a module with analog signals is included in the
+configuration, a table with analog points is shown. If the user has the correct
+privileges, these points can be calibrated.
+
+For example, the following figure shows a tab corresponding to an AX160 module.
+All the signals are displayed with the value and quality information.
+Calibration of analog points
+
+52
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+To calibrate a point, click
+button on the row of the point to be calibrated. A
+confirmation window is displayed indicating that all points are blocked:
+
+Click Yes to start the calibration procedure and follow the instructions up to the
+end of the procedure and up to all points are unlocked.
+If the analog point cannot be calibrated, the following message is displayed:
+
+Click
+button next to the calibration button to restore the factory settings for
+calibration.
+
+Advanced Maintenance
+Introduction
+The following features are available depending on the user’s role and rights.
+•
+
+IP configuration
+
+•
+
+Software upgrade
+
+•
+
+Configuration management
+
+•
+
+Users management
+
+•
+
+Certificate
+
+IP Configuration
+Select Maintenance > IP Configuration to access the IP Configuration page.
+
+BQT7944802-01
+
+53
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Users with the correct privilege can change the configuration assigned to the
+Ethernet ports, PRP, Bond, HSR, RSTP (not available for HU280) protocols and
+routers.
+IP Configuration - Devices
+
+For each ETH port, you can set IP address, Subnet Mask, and Disable/Enable this
+interface.
+IP address can be set as Fixed or Automatic (using DHCP):
+
+Redundant devices (PRP, HSR, BOND or RSTP for HU280, HUe and SM_
+CPU866e) can only be configured when both of their single devices are not
+configured.
+
+54
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+For instance, if LAN1 or LAN2 are configured with an IP address in HU280, then
+PRP1, HSR1 and BOND1 are disabled:
+
+NOTE: Multiple IPs can be configured for each interface, but these IPs must
+not be on the same subnet. IPs within the same subnet cannot be configured
+for different ports.
+The router devices are used to define connection rules for accessing the RTU
+remotely by other IP networks. It allows devices, such as tablets or PCs that are
+connected to different auxiliary LANs than the RTU, to access the RTU via a WAN
+within defined connection rules and limits.
+IP Configuration - Routers
+
+Refer to SE-S856-MSS - Easergy Builder User Manual for more information about
+routers and ethernet ports configuration.
+Routers can be added, edited or deleted depending on user’s role and rights.
+Adding or editing a router
+
+Where:
+
+BQT7944802-01
+
+•
+
+Subnet IP: IP address of the auxiliary network needs access the RTU.
+
+•
+
+Subnet Mask: Used to define the usable IP address range on the auxiliary
+network and limit the possible number of hosts.
+
+•
+
+Router IP: Address of the IP network gateway to which the RTU is connected.
+
+55
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Use 0.0.0.0 to define a default route through which communication is
+automatically routed by the router when a connection is established. To do this,
+simply configure the router parameters as follows:
+•
+
+Subnet IP: 0.0.0.0
+
+•
+
+Subnet Mask: 0.0.0.0
+
+•
+
+Router IP: IP address of the default gateway through which traffic is directed.
+
+When all changes have been done, press button Save to store all modifications in
+the RTU.
+Depending on the configured device, the tab SNMP can be available for
+configuring RTU as SNMP agent.
+IP configuration - SNMP
+
+A view is a user-defined label (collection of) subset of the MIB (Management
+Information Base) tree. Each subset ID is defined by the OID (Object Identifier) of
+the root of the relevant subtrees.
+For each selected item in the Views list, the RTU creates a view with the selected
+items. Each item in the list represents an OID (Object Identifier).
+So with this section user can select what information (OID) the RTU will make
+available for the SNMP manager connected to the RTU.
+
+Click Edit SNMP user to change username, encryption algorithm or password.
+
+56
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Software Upgrade
+The software upgrade can be perfomed using the webApp tool. To access
+webApp, type https://<CPU IP address> in the browser navigation bar. Refer to
+BQT7944802 webApp User Manual for more information about how to access the
+webApp.
+Select Maintenance > Software to upgrade the software version. The software
+current version is shown on the Home page and on the Software management
+page:
+Firmware in the RTU
+
+Step 1 / Select
+Click the Install new firmware button. A window appears showing the firmware
+upgrade steps.
+
+BQT7944802-01
+
+57
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Firmware upgrade - Step 1
+
+Click Select file button and select the compressed file .tar.gz.cms or drag it
+where indicated. The file .tar.gz.cms must be available on the PC connected
+to the web server. Contact Schneider Electric technical support to obtain this file.
+NOTE: For CPU866e, .tar.gz.cms is available from release 11.06.33
+onwards. For HUe, .tar.gz.cms is available from release 11.06.28
+onwards.
+
+Step 2 / Upload
+Click Upload button to upload the file.
+Firmware upgrade - Step 2
+
+The upload progress is indicated as a percentage in a progress bar on the screen.
+
+58
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Firmware upload progress
+
+Step 3 / Check
+After uploading the file, the file is checked. If the checking process is
+unsuccessful, a red cross appears next to the text NewBspVer.
+Unsuccessful checking process
+
+If the checking process is successful, click the new green Install current new
+firmware version button. The rest of the process is automatic.
+Firmware upgrade - Step 3
+
+BQT7944802-01
+
+59
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Step 4 / Install
+
+NOTICE
+HAZARD OF LOSS OF DATA
+During this process do not close the browser nor navigate in another tab. The
+tracking of this process is lost and you cannot log in until the new firmware is
+fully installed.
+Failure to follow these instructions can result in equipment damage.
+The new firmware is installed and runs after rebooting the RTU.
+Firmware upgrade - Step 4
+
+Step 5 / Reboot
+Firmware upgrade - Step 5
+
+Step 6 / Login
+After the rebooting step, the login is prompted.
+Firmware upgrade - Step 6
+
+60
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Firmware and Configuration Management
+In the case the system performing in an invalid state, a software watchdog resets
+the device to return it to a known state. The device reset is recorded in both the
+Syslog and Cyber Security log.
+The watchdog can reset the device up to 5 times, then the reset is disabled.
+In the case the reset is disabled, do one of the following actions:
+•
+
+If there is access to webApp: search for the debug info through webApp to
+report the issue and to apply another configuration.
+
+•
+
+If there is no access to webApp: perform a factory reset. Once set to factory
+default mode, access to webApp and follow instructions just above.
+
+The PowerLogic HU280 does not allow invalid configurations. PowerLogic HU280
+manages configurations in the following way: PowerLogic HU280 always have a
+backup of the last firmware image that was loaded successfully. When the
+firmware is updated, the boot loader tries to launch the new firmware.
+•
+
+If the firmware load is successful: the firmware new version overwrites the
+stored backup firmware for later use.
+
+•
+
+If the firmware load is not successful: the backed-up firmware version is
+restored.
+
+This protects the booting process in case of the installation of an improper
+firmware.
+
+Configuration Management
+The initial configuration of the RTU should be completed in Easergy Builder to
+carry out the following operations:
+•
+
+Configure protocols and devices
+
+•
+
+Configure device synchronization
+
+•
+
+Configure the SOE, etc.
+
+Refer to SE-S856-MSS - Easergy Builder User Manual for more information about
+configuration of the RTU.
+Using webApp, you can do the following actions:
+
+BQT7944802-01
+
+•
+
+Save the active configuration into the PC or other device.
+
+•
+
+Copy a configuration stored in a device (slot) to the PC.
+
+•
+
+Load other configuration (the active configuration changes).
+
+•
+
+Copy a configuration in the PC to a device (slot) in the CPU.
+
+61
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Configuration management window
+
+Saving Configurations
+Saving the Active Configuration
+Proceed as follows to save the active configuration:
+NOTE: For security reasons, it is advised to regularly back up the active
+configuration to an external device, in addition to the local backups in the
+memory slots. An external backup can be used to retain the configuration
+even if the RTU is replaced.
+1. Click the Save configuration button .
+Save active configuration
+
+2. Define a name for the backup (conf is available by default), then select the
+destination for the file by clicking one of the following:
+
+62
+
+•
+
+Your device: Saves the configuration to an external backup device (for
+example, hard disk, USB flash drive, etc.). A *.tar.gz compressed
+configuration file is automatically saved on the PC in the normal location for
+web browser downloads.
+
+•
+
+Slot #1, #2, or #3: Saves the configuration in slots 1, 2, or 3. The date and
+name of the backup in the slot is saved with the current date and time after
+the backup is complete.
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+3. Click Save. A progress bar shows the following status:
+
+Saving a Stored Configuration
+When a configuration is stored in a slot, proceed as follows to copy a configuration
+stored in a slot into the PC:
+Saving a store configuration
+
+Click Download configuration to download the configuration.
+A *.tar.gz compressed configuration file is automatically saved on the PC in
+the normal location for web browser downloads.
+
+BQT7944802-01
+
+63
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Uploading a Configuration (Changing the Active Configuration)
+Proceed as follows to replace the active configuration with a stored configuration:
+1. Click Apply configuration button to open the Apply configuration window.
+Uploading configurations
+
+2. Select the backup file source by clicking on one of the following:
+•
+
+Your device: Uploads the configuration from an external backup device
+(for example hard disk, USB flash drive, etc.).
+
+3. Click Select file, then select the corresponding configuration file from the PC
+or drag and drop the file onto the Drag the configuration file here area of the
+screen. The compressed file with a .tar.gz extension must be available on
+the PC.
+•
+
+Slot #1, #2 or #3: Uploads the configuration directly from slot 1, 2 or 3.
+
+4. Click Apply configuration to start uploading the configuration. A progress bar
+indicates the upload status.
+
+5. After the upload is completed, the RTU is automatically rebooted. Re-enter the
+username and password to access webApp. The configuration upload is
+complete.
+
+Uploading a Configuration into a Slot
+Proceed as follows to upload a previously saved configuration from the PC into
+one of the slots.
+1. Click Upload configuration to open the Upload configuration files window.
+2. Click Select file and select the corresponding configuration file from the PC or
+drag and drop the file into the Drag the configuration file here area of the
+screen. The compressed file with a .tar.gz extension must be available on
+the PC.
+
+64
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+3. Click Upload to start uploading the file. A progress bar indicates the upload
+progress.
+Uploading configuration into a slot
+
+4. Click Save to slot #X to confirm the selected slot. A progress bar indicates the
+status of the operation.
+
+5. The date and name of the backup are updated in the slot after the save is
+completed. The configuration upload is completed.
+
+Users Management
+Select Maintenance > Users to add new users, change settings for existing users
+(for example, associated roles, etc.).
+
+NOTICE
+LOSS OF DATA
+When user information is modified, the synchronization with CAE tool is lost.
+This means that if new RBAC configuration is uploaded from CAE, all changes
+made from this page are overwritten.
+Failure to follow these instructions can result in equipment damage.
+
+BQT7944802-01
+
+65
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+The list of all users in the system is displayed:
+List of users
+
+New Users
+Click Add user button, to add a new user based on the RBAC model:
+New user
+
+Fill in the name and password following the instructions under the Password field.
+Confirm the password and select the Roles for the new user.
+Click OK to save the user settings in the RTU.
+
+66
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Editing User Information
+Editing user information
+
+To edit user information, select a user in the list. Then, you can do the following
+actions:
+•
+
+Assign or remove a role. You need to check or uncheck the box next to the
+specific role in the list. More than one role can be assigned to a single user, but
+there must be at least one role per user.
+After the user roles have been modified, click the
+changes.
+
+button to save the
+
+•
+
+Remove a user: click the
+potential operation mistake.
+
+•
+
+To change the user’s password. The new password must be entered twice to
+be confirmed, for security reasons. The password creation rules are defined in
+the CAE. By default, the password must be in accordance with IEEE 16862013 standard:
+
+•
+
+button. A confirmation appears to avoid a
+
+◦
+
+at least eight characters
+
+◦
+
+at least one lower case character
+
+◦
+
+at least one upper case character
+
+◦
+
+at least one digit
+
+◦
+
+at least one special character
+
+Lock a user. You can remove access permission for a user for a time. The data
+of the user remains in the system for future use, but the user cannot access
+the webApp while this option is set
+
+.
+
+You can assign cybersecurity administrator rights to a user other than
+SecurityAdmin. This user can then perform the same role and password
+administration tasks for all other users, except his own.
+
+Device Certificate
+Select Maintenance > Certificate > Device Id to display the device
+Identification page.
+Users with SECADM role can replace the installed RTU certificate. The installed
+certificate is used for TLS (Transport Layer Security) authentication. TLS
+authentication is used for HTTPS connections, Syslog, LDAP, CAE and TCP over
+TLS channels.
+BQT7944802-01
+
+67
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+The installed certificate can be an Allowlist certificate or a CA certificate.
+•
+
+Use Upload new Certificate button for Allowlist certificate.
+
+•
+
+Use Upload new CA button for CA certificate.
+
+Certificate management
+
+Setting
+Select Setting > RTU name (PowerLogic HU280 or HUe or SM_CPU866e) to
+modify the following settings described below:
+•
+
+SCADA protocols (server protocols)
+
+•
+
+Client protocols
+
+•
+
+Physical ports (channels)
+
+•
+
+Synchronization
+
+Setting
+
+You can modify the settings of channels and protocols in the default configuration
+by using webApp. The addition or replacement of protocols or channels can only
+be done through Easergy Builder.
+
+68
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Refer to SE-S856-MSS - Easergy Builder User Manual for more information.
+If an invalid value has been detected in the configuration, a red exclamation mark
+appears. Select the item with this icon and follow the instructions in the
+window to fix it.
+Example of erroneous value in settings
+
+Select a correct value in T. select (units.s) in this IEC104 sector. Click Save to
+store the changes.
+
+SCADA and Client Protocols
+The SCADA protocols are protocols that can be used for remote communication
+between the RTU and the SCADA system using any available communication
+channels. These protocols are server type since the SCADA system is the client
+for communication management and the RTU is the server.
+Current protocols supported in webApp are: DNP3 server, IEC101 server, and
+IEC104 server.
+Client protocols are those protocols allowing the RTU to communicate as the
+client with auxiliary equipment or an external IED installed in substations (server).
+Current protocol supported in webApp is Modbus client.
+Parameters displayed in webApp correspond to the application parameters of the
+protocol installed in the RTU. These parameters can be customized according to
+the use and the protocol parameter setting at the SCADA system end or IED.
+
+BQT7944802-01
+
+69
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+Configuring SCADA protocols in RTU
+
+For each communication protocol to be configured, refer to the communication
+protocol user manual for more information.
+
+SNMP Manager settings configuration
+NOTE: This function is only available for PowerLogic T500 (HU280), from
+release 11.08.00 onwards.
+To access the settings of all SNMP clients configured, select Settings >
+PowerLogic HU280 > Client protocols > SNMP Manager.
+SNMP Manager configuration
+
+70
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+The different configured SNMP clients are shown as tabs below, along with the
+periods. The configurable fields in the client are:
+•
+
+Version: 1, 2C or 3
+
+•
+
+Retries: Number of retry attempts if no response is received
+
+•
+
+Timeout: Time (in milliseconds) to wait for a response before considering the
+request failed
+
+•
+
+IP: IP address of the SNMP server
+
+•
+
+Port: Communication port for SNMP
+
+•
+
+Authentication protocol: only for v3, can be MD5, SHA1 or SHA224
+
+•
+
+Username: Authentication username
+
+•
+
+Password: Authentication password (only for version 3)
+
+The configurable fields in the period are:
+•
+
+Name of the period
+
+•
+
+Period in ms
+
+Physical Ports
+Using webApp, you can edit the channel assigned to a protocol in Easergy
+Builder.
+Configuring channels in RTU
+
+In the example above, the channel configuration is accessed by clicking on
+Master protocols > Modbus Client > mm > Channel CanalModbus.
+NOTE: Some settings cannot be changed from webApp. In this example, the
+name of the channel and the mode cannot be changed.
+If you change any parameter, the window is displayed with orange areas to inform
+you that current values are not saved. Click Save to save all changes. If you click
+Reset, all unsaved changes are discarded.
+
+BQT7944802-01
+
+71
+
+webApp - Maintenance and Monitoring Tool
+
+Working with webApp
+
+New values pending to be saved
+
+The configuration for each communication port can be accessed using the
+Physical ports configuration option. Select the physical port to be configured,
+do all necessary changes and click Save. These changes are also made in the
+communication channel that uses this port.
+Configuring physical ports
+
+Synchronization Settings
+Select Setting > RTU name > Synchronization to access the information about
+the setting time in the system. The RTU can be synchronized in a number of
+different ways:
+
+72
+
+•
+
+Manually by the user, using webApp.
+
+•
+
+Automaticall. The following mechanisms can be used:
+◦
+
+SCADA protocol
+
+◦
+
+SNTP
+
+◦
+
+GPS
+
+◦
+
+IRIG-B
+
+◦
+
+PTP
+
+BQT7944802-01
+
+Working with webApp
+
+webApp - Maintenance and Monitoring Tool
+
+Two synchronization sources are defined: the primary device and secondary
+device. The secondary device is used if the primary device is unavailable.
+Both synchronization devices can use any of the available synchronization
+sources. The selection and the associated configuration are made using Easergy
+Builder. Refer to SE-S856-MSS - Easergy Builder User Manual for more
+information.
+If an incorrect configuration is loaded, webApp informs you as shown below:
+Invalid synchronization source
+
+webApp is only used to view the application parameters associated with these
+sources.
+Some specific parameters can be changed: Timeout for each device, local time
+zone, summer time and others depending on the type of CPU and the
+configuration loaded.
+Refer to SE-S856-MSS - Easergy Builder User Manual for more information.
+
+BQT7944802-01
+
+73
+
+webApp - Maintenance and Monitoring Tool
+
+Glossary
+A
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BDEW: German Association of Energy and Water Industries.
+
+C
+CAE: Cybersecurity Administrator Expert. The CAE is a tool for organizing the
+T500 security policy and defining system access restrictions and user rights.
+CoreDB: CoreDB is a real-time RTU database that helps ensure the RTU signals
+are managed in real-time.
+CPU: Central Processing Unit.
+CS Phase I: Cybersecurity Phase I.
+
+D
+DHCP: Dynamic Host Configuration Protocol. A network protocol for ensuring that
+station IP parameters are automatically configured via automatic IP address
+allocation.
+
+E
+E3: Electrical Energy Efficiency.
+Easergy Builder: Easergy Builder is the official configuration tool for T500
+equipment. This tool can be used to configure all the advanced RTU functions (for
+example, database, protocol addressing, events) and to carry out maintenance
+tasks on the equipment.
+
+G
+GPS: Global Positioning System.
+
+H
+HSR: High-availability Seamless Redundancy.
+HTTP: Hyper Text Transfer Protocol. Client-server communication protocol
+developed for the World Wide Web. HTTPS (where S = Secure) is the secure
+variant of HTTP using SSL or TLS protocols.
+HU280: PowerLogic T500 CPU module.
+
+I
+IEC: International Electrotechnical Commission. The international standards
+organization for the fields of electricity, electronics, electromagnetic compatibility,
+nanotechnology, and related technologies. It complements the International
+Organization for Standardization (ISO), which is responsible for other fields.
+IED: Intelligent Electronic Device.
+IEEE: Institute of Electrical and Electronics Engineers. The IEEE is a professional
+association comprising members from the fields of electrical engineering,
+information technology, telecommunications, etc. The organization's mission is to
+advance knowledge in the field of electrical engineering and publish associated
+standards and other texts written by its members.
+BQT7944802-01
+
+75
+
+webApp - Maintenance and Monitoring Tool
+
+IP: Internet Protocol.
+IRIG-B: mode B of the standard IRIG.
+
+L
+LAN: Local Area Network.
+Linux: Operating system running in realtime on the software platform. This is the
+element in charge of extracting the various software components from the
+hardware.
+
+N
+NERC CIP: North American Electric Reliability Corporation Critical Infrastructure
+Protection plan.
+
+O
+OS: Operating System.
+
+P
+PC: Personal Computer.
+PLC: Programmable Logic Controller.
+PRP: Parallel Redundancy Protocol.
+PTP: Precision Time Protocol.
+
+R
+RSTP: Rapid Spanning Tree Protocol.
+RTDB: Real-Time DataBase.
+RTOS: Real-Time Operating System.
+RTU: Remote Terminal Unit.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNMP: Simple Network Management Protocol.
+SNTP: Simple Network Time Protocol.
+SOE: Sequence Of Events. This relates to saving and storing events and signal
+changes in the RTU that manages the data in real-time.
+SSH: Secure SHell. SSH is both a program and a secure communication protocol.
+It is the equivalent of the Telnet program and is used in the same way to run
+certain operations remotely (mainly server administration or file transfer
+operations). SSH is more secure than Telnet protocol.
+
+T
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TLS: Transport Security Layer.
+
+76
+
+BQT7944802-01
+
+webApp - Maintenance and Monitoring Tool
+
+W
+WAN: Wide Area Network.
+webUI: Advanced tool for the design and operation of a local web-based
+substation user interface.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7944802-01
+
+77
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time, please ask for confirmation
+of the information given in this publication.
+
+© 2024–2025 – Schneider Electric. All rights reserved.
+BQT7944802-01
+
+

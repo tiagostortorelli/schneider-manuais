@@ -1,0 +1,4312 @@
+PowerLogic T500 Substation Controller
+T500 Platform
+User Manual
+
+BQT7944801-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+T500 Platform
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the Book...........................................................................................6
+
+T500 Platform Product Family ..................................................................8
+PowerLogic T500 Platform ..........................................................................8
+PowerLogic T500 Modules ....................................................................9
+Type of Modules ................................................................................. 11
+Profibus and T500...............................................................................14
+Redundancy Configurations in PowerLogic T500 ..................................18
+
+Physical Mounting and Installing ............................................................23
+Installation ...............................................................................................23
+Handling Modules ...............................................................................23
+Modules Location within the Backplane or Chassis ................................23
+Assembling Modules ...........................................................................24
+Backplane Modules ..................................................................................24
+BP260 Model......................................................................................26
+BP270 Model......................................................................................30
+Supervision ........................................................................................32
+Powering a PowerLogic T500 RTU ............................................................35
+Power Supply Requirements................................................................35
+PS280 (PowerLogic T500 Power Supply) .............................................36
+Using External Power Supplies ............................................................41
+Recommendations for External Powering .............................................43
+Backplane Expansion ...............................................................................44
+Expansion using RS-485 .....................................................................46
+Field Connection ......................................................................................48
+C1 – Terminal Connection ...................................................................49
+C2 – Flat Ribbon Connection (Terminal Blocks).....................................49
+Wiring Recommendations for I/O Modules ............................................49
+Wiring recommendations for EMC..............................................................51
+General Recommendations .................................................................51
+Analog Inputs and Outputs Signals.......................................................52
+Communications.................................................................................52
+Group 4 (Power Supply) ......................................................................53
+Group 5 (Ground Connection)..............................................................55
+
+Configuration and Maintenance..............................................................57
+Profibus Configuration ..............................................................................57
+I/O Module Addressing ........................................................................57
+Profibus Communication Rate .............................................................58
+Communication Modules .....................................................................58
+Profibus Redundancy..........................................................................59
+RS-485 Termination Resistor ...............................................................59
+Supervision ..............................................................................................60
+
+Glossary .....................................................................................................61
+
+BQT7944801–00
+
+3
+
+Foreword
+
+T500 Platform
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7944801–00
+
+5
+
+T500 Platform
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the Book
+Document Scope
+This manual provides general information about PowerLogic™ T500 platform,
+including installation, wiring and other useful data for installers and designers.
+
+Document Revision History
+
+6
+
+Document reference-revision
+
+Release date
+
+Modifications
+
+BQT7944801 T500 Platform User Manual
+
+06/2024
+
+Creation
+
+BQT7944801–00
+
+Foreword
+
+T500 Platform
+
+Conformity
+The PowerLogic T500 platform has been developed in accordance with the
+requirements for a quality management system, complying with the ISO
+9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+PowerLogic HU280 module
+
+User Manual
+
+BQT7944901
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+PowerLogic T500 webUI
+
+User Manual
+
+BQT7944803
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+AI160
+
+User Manual
+
+BQT7988301
+
+AX160
+
+User Manual
+
+BQT7988401
+
+XS280
+
+User Manual
+
+BQT7988501
+
+DI180
+
+User Manual
+
+BQT7945101
+
+DO180
+
+User Manual
+
+BQT7945201
+
+DO280
+
+User Manual
+
+BQT7945301
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+Customer Care Center
+For more information, you can download the app of the Customer Care Center by
+using the following QR code:
+
+BQT7944801–00
+
+7
+
+T500 Platform
+
+T500 Platform Product Family
+
+T500 Platform Product Family
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+PowerLogic T500 Modules
+The PowerLogic T500 electronic modules have been designed to operate in
+aggressive industrial environments, complying with the highest standards, such as
+electromagnetic compatibility (EMC). The low-consumption design allows
+modules to operate without a forced ventilation system, which creates a wide
+range of possible applications.
+
+General Features
+The following figure shows an example of a T500 module:
+T500 module
+
+The modules have a plastic enclosure that is designed to facilitate the insertion
+and the wiring of the modules. The level of protection provided by the enclosure is
+IP20.
+
+BQT7944801–00
+
+9
+
+T500 Platform
+
+T500 Platform Product Family
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Do not open the enclosure of the module.
+
+•
+
+Do not install an electronic board without the plastic enclosure.
+
+Failure to follow these instructions will result in death or serious injury.
+Internally, all modules are electrically connected to the backplane using a 48-pin
+connector on the rear side. In connection with external devices, all the elements
+required for the module operation and maintenance tasks are located on the front
+side.
+
+Configuration Switches
+The modules integrate a 12-position switch on the rear side. The function of these
+switches depends on the module type, but in general, the switches are used to set
+the addresses and communication rate.
+Module configuration switches
+
+For more information, refer to Profibus Configuration, page 57.
+
+LED Indicators
+The T500 modules include some LEDs on the front side. All acquisition modules
+have common LEDs, and the remaining are specific for each module, which are
+detailed in the corresponding user manual.
+The front panel of each acquisition module has a red indicator DIA and a green
+indicator RUN. The module performs a self-check during the start-up process.
+When successful, the red indicator is switched off and the green indicator displays
+the configuration status of the module.
+If an issue is detected, the red indicator DIA is switched ON. The status of these
+LEDs depends on the module type.
+This information is valid if the module is completely configured and operational.
+
+10
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+LED indicators
+
+For more information regarding the interfaces, configuration switches and LED
+indicators, refer to the user manual of the specific module.
+
+Type of Modules
+Module types
+
+Module
+ID
+
+Head unit
+
+HU280
+
+Images
+
+Description
+•
+
+OS: Linux
+
+•
+
+Web tool: webApp and webUI
+
+•
+
+Ethernet: 4 x 1 Gbps ports (copper or fiber optic) and 3
+x 100 Mbps copper ports
+
+•
+
+SD card
+
+•
+
+Synchronization: GPS / SNTP / IRIG-B / IEEE1588 /
+Protocol
+
+•
+
+Serial communications: 2 ports (RS-232 / RS-485)
+
+•
+
+Watchdog output
+
+•
+
+Cybersecurity
+
+For more information, refer to the HU280 User Manual
+(BQT7944901).
+
+Communication
+
+XS280
+
+•
+
+8 serial ports
+
+•
+
+RJ-45
+
+•
+
+Synchronous and asynchronous communications
+
+•
+
+RS-232 / RS-485 /RS-422
+
+For more information, refer to the XS280 User Manual
+(BQT7988501).
+
+BQT7944801–00
+
+11
+
+T500 Platform
+
+T500 Platform Product Family
+
+Module types
+
+Module
+ID
+
+Digital inputs
+
+DI180
+
+Images
+
+Description
+
+•
+
+32 digital inputs (single/double/slow counter)
+
+•
+
+Two removable connectors
+
+•
+
+Field connection: terminal connection or flat ribbon
+
+•
+
+Terminal block available for DI180 flat ribbon option:
+TB_DI32/N-TI180
+
+•
+
+Auto-range for DI polarization. The available levels are:
+◦
+
+12 - 24 Vdc
+
+◦
+
+48 - 60 Vdc
+
+◦
+
+110 - 125 Vdc
+
+For more information, refer to the DI180 User Manual
+(BQT7945101).
+
+Digital outputs to
+transistor
+
+DO280
+
+•
+
+32 digital outputs to transistor
+
+•
+
+Two removable connectors for signals
+
+•
+
+One removable connector for polarization (only for field
+connection using flat ribbon)
+
+•
+
+Field connection: terminal connection or flat ribbon
+
+•
+
+Output type: normally open or normally closed contacts
+(configurable in the external terminal lock)
+
+•
+
+Two models of terminal blocks available for DO280 flat
+ribbon option: TB_DO16/T – TO180/P2 – TO180/P3
+and TB_DO16/P – TO180H
+DO polarization (auto-detected). The available levels
+are:
+◦
+
+12 Vdc
+
+◦
+
+24 Vdc
+
+◦
+
+48 Vdc
+
+For more information, refer to the DO280 User Manual
+(BQT7945301).
+Digital outputs to
+relay
+
+DO180
+
+•
+
+16 digital outputs to relay
+
+•
+
+Two removable connectors for signals
+
+•
+
+Field connection: terminal connection or flat ribbon
+
+•
+
+Outputs type: SPST or normally open contacts
+
+•
+
+Terminal block available for DO180 flat ribbon option:
+TB_DO16/N – TO180/P0
+
+•
+
+The 24 Vdc polarization level is available for DO
+
+For more information, refer to the DO180 User Manual
+(BQT7945201).
+
+Analog inputs
+
+AI160
+
+•
+
+•
+
+16 analog inputs
+◦
+
+Voltage
+
+◦
+
+Current (external resistor is required)
+
+Two removable connectors for signals
+
+•
+
+Field connection: terminal connection or flat ribbon
+
+•
+
+Terminal block available for AI160 flat ribbon option:
+TB_AI8/N – TA160
+
+For more information, refer to the AI160 User Manual
+(BQT7988301).
+
+12
+
+BQT7944801–00
+
+T500 Platform Product Family
+Module types
+
+Module
+ID
+
+Analog inputs
+and analog
+outputs
+
+AX160
+
+Images
+
+T500 Platform
+Description
+•
+
+•
+
+•
+
+8 analog inputs
+◦
+
+Voltage
+
+◦
+
+Current (external resistor is required)
+
+4 analog outputs
+◦
+
+Voltage (external resistor is required)
+
+◦
+
+Current multirange
+
+Two removable connectors for signals
+
+•
+
+Field connection: terminal connection or flat ribbon
+
+•
+
+Terminal block available for the connection of analog
+outputs in AX160 flat ribbon option: TB_AO4/N – TS160
+
+•
+
+Terminal block available for the connection of analog
+inputs in AX160 flat ribbon option: TB_AI8/N – TA160
+
+For more information, refer to the AX160 User Manual
+(BQT7988401).
+Power supply
+
+PS280
+
+Designed to power the electronic components on the
+backplanes and provide the required polarization voltage to
+the acquisition modules.
+•
+
+9-slot or 4-slot
+backplane
+
+19-inch (48 cm)
+chassis
+
+BP260
+
+BP270
+
+◦
+
+V2: 24 Vdc
+
+◦
+
+V3: 48 Vdc
+
+◦
+
+V4: 110 / 125 Vdc
+
+•
+
+Power output: 5.4 Vdc to the backplane
+
+•
+
+Auxiliary power output: 24 Vdc
+
+•
+
+Power input: 5.4 Vdc (if a PS280 module is not used)
+
+•
+
+Two connectors for expansion and one connector for
+external power supply
+
+•
+
+Configuration switches for Profibus and synchronization
+expansion
+
+•
+
+LED indicators for bus communications and power
+
+•
+
+The number of slots depends on the selected option:
+◦
+
+N4: 4-slot
+
+◦
+
+N9: 9-slot
+
+The electronic board backplane can be mounted in a 19-inch
+chassis:
+•
+
+Power input: 5.4 Vdc (if a PS280 module is not used)
+
+•
+
+Connectors:
+
+•
+
+BQT7944801–00
+
+Power input depending on the part number:
+
+◦
+
+N8: two connectors for expansion and one
+connector for external power supply (each of the
+two individual backplanes)
+
+◦
+
+N9: two connectors for expansion and two
+connectors for external power supplies
+
+Configuration switches for Profibus and synchronization
+expansion
+
+•
+
+LED indicators for bus communications and power
+
+•
+
+The number of slots depends on the selected options:
+◦
+
+N8: 8-slot (2 x 4-slot individual backplanes)
+
+◦
+
+N9: 9-slot
+
+13
+
+T500 Platform
+
+T500 Platform Product Family
+
+Profibus and T500
+System Buses
+Each backplane includes a multifunctional bus (Profibus TTL) that covers the
+power and intercommunication requirements. The Profibus TTL bus is designed to
+be tolerant to power and communication interruption. Additionally, a Profibus RS485 bus is included to support backplane expansion.
+The figure below shows the location of each bus in the system:
+Profibus TTL and Profibus RS-485
+Backplane 1
+
+Backplane 2
+
+Backplane n
+
+Profibus
+(TTL)
+
+Profibus
+(TTL)
+
+Profibus
+(TTL)
+
+Profibus (RS-485)
+
+Profibus (RS-485)
+
+NOTICE
+HAZARD OF INCORRECT WIRING
+Configure the first chassis and the last chassis or backplane as bus
+terminations. For more details, refer to Backplane Modules, page 24.
+Failure to follow these instructions can result in equipment malfunction.
+The system buses integrate the following bus lines:
+•
+
+•
+
+14
+
+Profibus TTL:
+◦
+
+FEG – Functional earth ground
+
+◦
+
+PW1/2 – Power bus (primary and redundant)
+
+◦
+
+PF1/2 (TTL) - Primary and redundant Profibus TTL buses
+
+◦
+
+MUX - Serial data bus for communications with the XS280 module
+
+◦
+
+SYN (TTL) - Bus for synchronization between the modules. (Pulse Per
+Second or PPS)
+
+◦
+
+SER - Serial bus for synchronization between redundant CPU modules
+
+Profibus RS-485:
+◦
+
+PF1/2 (485) - Primary and redundant Profibus RS-485 buses
+
+◦
+
+SYN (485) - RS-485 bus for synchronization between the modules (PPS)
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+The figure below shows the buses available in the backplane:
+Buses in a backplane
+
+Communications
+
+Power
+
+PW 1/2
+FEG
+
+PF 1/2
+TTL
+
+RS-485
+
+SYN
+MUX
+SER
+
+Profibus Profibus
+TTL
+RS-485
+
+RTU Basic Functions
+The control unit (CPU) performs the control functions for the complete system,
+centralizes the information acquired by other modules, and executes the
+programmable logic control, communication protocols and user-specific
+applications.
+The communication with I/O modules is established by an internal high-speed bus
+that makes the system highly reliable even in noisy environments. This bus is
+implemented in the backplane.
+Communication between the CPU and I/O modules
+Processing of I/O
+information
+
+Real Time Database
+
+Bus controller
+
+Internal Bus
+
+CPU
+
+DI180
+
+DO280
+
+DO180
+
+AI160
+
+AX160
+
+Input / Output
+
+BQT7944801–00
+
+15
+
+T500 Platform
+
+T500 Platform Product Family
+
+The CPU module controls and manages the following functions:
+•
+
+Bus controller
+
+•
+
+RTU configuration
+
+•
+
+RTU synchronization
+
+•
+
+Module communication
+
+•
+
+I/O acquisition
+
+•
+
+Real-time database
+
+Bus Controller
+The baseline software installed in the CPU controls the operation of both, CPU
+and I/O modules connected to the backplane.
+This control includes:
+•
+
+Operation mode monitoring, which includes:
+◦
+
+Hardware and software Watchdog control, CPU and I/O state monitoring.
+
+◦
+
+Diagnostic information about RTU status through LED indicators and log
+files.
+
+•
+
+Interface with the operator through webApp, and webUI (for supervision and
+maintenance) and PowerLogic T500 configuration tool.
+
+•
+
+Firmware upgrade by webApp (using an Ethernet port).
+
+PowerLogic HU280 Module Configuration
+The CPU module maintains and manages the information of the real-time
+database (coreDb). In this database, the I/O signals are related to the
+communication protocols signals.
+The configuration of the module is based on XML files that are generated with the
+PowerLogic T500 configuration tool. These XML files are generated on a PC and
+sent to the CPU via the web services through Ethernet ports.
+For configuration upload, refer to the webApp – Maintenance and Monitoring Tool
+User Manual (BQT7944802).
+For configuration management, refer to the Easergy Builder User Manual (SES856-MSS).
+
+RTU Synchronization
+Two different synchronization sources can be used. In the case of two sources,
+the priority level is defined with a primary and a secondary source. If both sources
+are active, only the primary source synchronizes the system.
+NOTE: If the primary source is available, it is used to synchronize the
+PowerLogic HU280 module. Otherwise, the secondary source is used.
+The available synchronization sources are the following:
+
+16
+
+•
+
+GPS: a GPS connected to COM1 serial port.
+
+•
+
+SNTP: the synchronization module includes a SNTP client and server, which
+can be used to synchronize from a network SNTP clock or as a time
+reference for other modules.
+
+•
+
+Protocol: most control protocols can be used as synchronization source of
+the system.
+
+•
+
+PTP: as indicated in the IEEE-1588 standard, a PTP primary device can
+synchronize other PTP devices (secondary devices) through one or several
+Ethernet interfaces.
+
+•
+
+IRIG-B: you can configure the PowerLogic HU280 synchronization module as
+an IRIG-B server and/or client. The compatible formats are: IRIG-B002, IRIGB003, IRIG-B006 and IRIG-B007.
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+If the synchronization source is not configured, the manual synchronization via
+webApp is created by default.
+
+PowerLogic HU280 Module Communication
+PowerLogic HU280 module supports the following communication protocols:
+•
+
+IEC101 client and server
+
+•
+
+IEC103 client
+
+•
+
+IEC104 client and server
+
+•
+
+DNP 3.0 client and server
+
+•
+
+Modbus client and server
+
+•
+
+IEC61850 client, Edition 1 and 2
+
+•
+
+IEC61850 server, Edition 2
+
+I/O Acquisition
+The PowerLogic HU280 module manages the information exchange with the I/O
+modules. This information is sent from the acquisition module to the PowerLogic
+HU280 module through the Profibus internal bus available in the backplane.
+The software in the PowerLogic HU280 module has the following features:
+•
+
+Access to the processing of I/O information, which offers added value to the
+information from field.
+
+•
+
+Access to the internal bus to exchange information with the I/O modules.
+
+Real-Time Database (coreDb)
+The core of the baseline software platform is the real-time database or coreDb
+which stores not only the information acquired from field devices, but also the
+information about the status of the PowerLogic HU280 module and I/O modules
+included in the product.
+The coreDb also links the acquisition signals to the communication protocol
+signals. This database is generated in the PowerLogic HU280 module by using
+the configuration information.
+The information received from the field in real time is processed, stored in the
+coreDb. It is then linked to the communication protocol signals of the PowerLogic
+HU280 module, which function is to transfer the information to the primary device.
+coreDb operation example
+
+The coreDb can also receive information from a logic, which can be implemented
+by a third-party software such as ISaGRAF® or within the database itself with a
+formula type - internal device.
+For more information about this functionality, refer to the Easergy Builder User
+Manual (SE-S856-MSS).
+BQT7944801–00
+
+17
+
+T500 Platform
+
+T500 Platform Product Family
+
+Redundancy Configurations in PowerLogic T500
+Due to the wide range of redundancy configurations supported by the baseline
+software platform and PowerLogic T500, you need to make a detailed analysis to
+determine the concepts applicable to the functionalities and to set a common
+terminology.
+It should be highlighted that redundancy always intends to increase the level of
+reliability and availability of the critical elements within a control system.
+Redundancy configurations are defined to strengthen the following parts of the
+control system:
+•
+
+Power supply: this is the first duplicated element in the system to avoid the
+system to power off. All PowerLogic T500 modules and most auxiliary
+elements support a redundant power supply.
+
+•
+
+CPU: the HU280 modules allow the configurations to be defined with
+redundancy in CPU with a high level of flexibility, meeting the specific
+requirements of any system.
+
+•
+
+Acquisition bus: the acquisition bus allows the CPU to acquire data from
+acquisition modules. PowerLogic T500 backplanes include a duplicate
+acquisition bus. The CPU module together with the acquisition modules
+implement the functions to make efficient use of these redundant
+communications.
+
+•
+
+Communication channels: several client and server communication
+protocols support a double communication channel, which are switched with
+certain rules according to the protocol.
+
+•
+
+System duality: all the system components are duplicated under this
+configuration. This is the typical configuration of data hubs and
+communication front-ends.
+
+The different types of redundancy can be combined to make the system as robust
+as possible with duplicated elements.
+
+Redundant Power Supply
+Redundant power supply allows the use of two power supply units on the same
+backplane. Thus, the power supply reliability is much improved.
+The BP260 and BP270 backplanes have two different power supply options
+available:
+•
+
+Power supply using PS280 units
+
+•
+
+Power supply using external power supply units.
+
+In both cases, you can have a simple or redundant configuration.
+
+Power Supply Redundancy in BP260
+In the redundant configuration, the first PS280 module is connected to the slot 1 in
+the backplane and the second PS280 module is connected to the slot 2 in the
+backplane.
+
+18
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+SLOT 9
+
+SLOT 8
+
+SLOT 7
+
+SLOT 6
+
+SLOT 5
+
+SLOT 4
+
+SLOT 3
+
+SLOT 2
+
+SLOT 1
+
+BP260 backplane with two PS280 modules
+
+If an external power supply module is used to power the backplane, it is connected
+to the lateral connector (see connector 5 on BP260/N9 – Front view, page 29).
+The pinout of this connector is detailed in section Connections, page 37.
+The combination of an external power supply unit and a PS280 module is not
+supported.
+
+WARNING
+UNINTENDED EQUIPMENT OPERATION
+Do not connect PS280 and external power supplies simultaneously to the same
+BP260/BP270 backplane.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+Each power supply must be available to provide 100% of the required power,
+regardless of whether a PS280, or an external power supply (considering the
+temperature derating) is used. Therefore, two redundant configurations are
+possible.
+
+BQT7944801–00
+
+SLOT 9
+
+SLOT 8
+
+SLOT 7
+
+SLOT 6
+
+SLOT 5
+
+SLOT 4
+
+SLOT 3
+
+SLOT 2
+
+SLOT 1
+
+Two PS280 modules
+
+19
+
+T500 Platform
+
+T500 Platform Product Family
+
+Two external power supplies
+
+For any of the configurations described above, the power redundancy is achieved
+using the appropriate wiring.
+
+Power Supply Redundancy in BP270
+The BP270 backplane has the same power supply options as the BP260
+backplane, so the redundancy configuration is similar.
+The difference is that the connectors for external power sources are located at the
+back of the circuit board rather than on the side (see connector 3 in BP270/N8 –
+Back view , page 31). The pinout of this connector is detailed in section
+Connections, page 37.
+Two redundant configurations are possible.
+Two PS280 modules
+
+Two external power supplies
+
+20
+
+BQT7944801–00
+
+T500 Platform Product Family
+
+T500 Platform
+
+CPU Redundancy
+Refer to the BQT7944901 PowerLogic HU280 User Manual.
+
+Acquisition Bus Redundancy
+The backplanes in PowerLogic T500 include four communication buses for
+module interconnection.
+Communication buses in the backplane
+
+These four buses are:
+•
+
+Double Profibus-DP communication bus for the communication between I/O
+modules and control modules (PF1 and PF2).
+
+•
+
+Communication bus for synchronizing acquisition modules (SYN).
+
+•
+
+High-speed communication bus for the communication between the control
+module and communication modules, XS280.
+
+•
+
+High-speed communication bus for the communication between the two
+control modules installed in the same backplane (CPU).
+
+The acquisition bus redundancy in PowerLogic T500 is achieved by the Profibus
+DP (RS-485) double bus. This bus enables distributed acquisition architectures to
+be defined; it is highly flexible and robust and can cover distances of up to 1200 m
+at 9.6 kbps. The communication rate for these channels is selectable from
+9.6 kbps to 1.5 Mbps.
+Profibus redundancy is expandable to other backplanes since the channels PF1,
+PF2 and SYN are outputs in the backplane through the expansion connectors.
+NOTE: The backplanes in PowerLogic T500 family have a jumper (J2) that is
+required to configure the system with Profibus-DP redundant communications.
+
+NOTICE
+HAZARD OF INCORRECT CONFIGURATION
+Install the jumper (J2) to enable Profibus-DP redundancy.
+Failure to follow these instructions can result in equipment malfunction.
+
+BQT7944801–00
+
+21
+
+T500 Platform
+
+T500 Platform Product Family
+
+Jumper for redundancy
+
+Profibus implementation for PowerLogic T500 has the following features:
+
+22
+
+•
+
+Only one serial controller is available for the two Profibus buses.
+
+•
+
+Messages both from the primary device and the secondary devices are
+transmitted through the two buses.
+
+•
+
+Both the primary device and the secondary devices select the receiving bus.
+
+•
+
+The redundant bridge must be installed in the backplane to select the
+receiving bus. If uninstalled, the receiving bus is the bus 1.
+
+•
+
+When the primary device (including the attempts) does not respond, the
+system switches to the active receiving bus.
+
+•
+
+If communication is lost between a secondary device and the primary device
+through the two channels during more than 8 seconds, this event is detected
+and the adequate diagnostic LED is lit.
+
+•
+
+The buses are alternatively monitored every minute. Therefore, both fault
+detection and recovery may be delayed by one minute.
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Physical Mounting and Installing
+Installation
+Handling Modules
+While all electronic components are installed into their enclosure, they are
+protected for relevant levels of electrostatic discharge.
+
+WARNING
+HAZARD OF EQUIPMENT DAMAGE
+Do not remove the enclosure of the modules in any case.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+Modules Location within the Backplane or Chassis
+Recommendations for installing modules in a backplane or chassis are:
+•
+
+Install modules in vertical position.
+
+•
+
+Install PS280 power supply module in position 1. In redundancy power supply
+configurations, reserve positions 1 and 2 for the two power supply modules.
+
+•
+
+Install remaining modules in any position within the backplane / chassis.
+
+•
+
+Group the modules to minimize adverse effects from noise and heat, for
+example, install the HU280 modules as far as possible from the PS280
+modules.
+
+•
+
+Install the HU280 and XS280 modules in the first backplane when the RTU is
+extended to other backplanes.
+
+Backplane positions
+
+NOTICE
+HAZARD OF IMPROPER INSTALLATION
+When installing a HU280 module with fiber optics, make sure the space
+between the front of the module and the cabinet door accommodates the fiber
+optics. Do not pinch the fiber optics.
+Failure to follow these instructions can result in equipment damage.
+
+BQT7944801–00
+
+23
+
+T500 Platform
+
+Physical Mounting and Installing
+
+Assembling Modules
+PowerLogic T500 modules can be installed in a 19-inch (48 cm) chassis (BP270)
+or a backplane (BP260).
+To mount the module in the backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the required position. If you are using a wall-mounted
+backplane, verify that the rear rails are properly mounted using the pre-drilled
+holes on the backplane.
+3. Firmly press the module to fit the connector properly. Check that the module
+is correctly mounted to the backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon (mounting option C2)
+connectors.
+To install in a BP260/BP270 backplane, make sure the modules are correctly
+installed.
+
+NOTICE
+HAZARD OF UNINTENDED EQUIPMENT OPERATION
+When using the BP260/BP270 backplane, make sure that the module is
+installed correctly.
+Failure to follow these instructions can result in equipment damage.
+The following graphic shows two modules inserted into the wall-mounted
+backplane. The module on the left is incorrectly installed. It may appear to be
+functional. Adjust the installation before use.
+Incorrect installation of a module on the left:
+
+Backplane Modules
+All PowerLogic T500 modules (power supply, CPU, communications, I/O
+acquisition) are installed into a backplane. These backplanes work as an
+electromechanical device that provides the following functions:
+
+24
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+•
+
+Mechanical function: allows insertion and removal of the modules into the
+system and its physical support. The backplane provides the mechanical
+integration in the location or enclosure that it is located.
+
+•
+
+Electrical function: allows the distribution of:
+
+•
+
+◦
+
+The power supply to the modules
+
+◦
+
+The internal bus for the modules installed in the backplane
+
+Expansion: allows electrical connection (at data level) between different
+backplanes to increase the number of modules integrated into the system.
+
+The backplane allows the following functions:
+•
+
+Supervision: monitoring and control of the power supply to the modules and
+signaling Profibus communication lines between modules.
+
+•
+
+Protection: protection against permanent damage from overload from
+external power supplies.
+
+Each PowerLogic T500 subsystem is made up of:
+•
+
+A main backplane where the HU280 module is installed. If you have HU280
+module redundancy, you can install both modules into the same backplane or
+you could install each HU280 module into a different backplane.
+
+•
+
+Depending on the requirements, the system must have one or more
+acquisition backplanes.
+
+•
+
+The main backplane and as many expansion backplanes are required (up to
+16 backplanes).
+
+The main backplane supports one or two control units, acquisition modules, and
+XS280 communication modules, if necessary.
+The acquisition backplanes are used when the available positions in the main
+backplane are occupied, or when implementing a distributed system of I/O
+modules. These secondary backplanes do not include any control units or
+communication modules.
+There are two basic backplane models, which use different mechanical solutions.
+
+Panel-mounted solution
+
+Chassis solution
+
+Both models are based on the same board ST_BPX4S or ST_BPX9S depending
+on the ordering options (number of slots).
+Both backplane models have the same electrical features:
+
+BQT7944801–00
+
+•
+
+4 or 9 slots to connect the PowerLogic T500 modules.
+
+•
+
+High-speed internal bus for the communication between the HU280 module
+and the communication modules XS280.
+
+•
+
+High-speed internal bus for the communication between the HU280 modules
+(in redundant HU280 configurations).
+
+•
+
+High-speed internal bus (Profibus) for the communication between the
+acquisition modules and the HU280 module.
+
+•
+
+Profibus (TTL) - Profibus (RS-485) conversion for backplane interconnection.
+
+25
+
+T500 Platform
+
+Physical Mounting and Installing
+
+•
+
+Duplicate power-supply bus (redundancy). Both can be used in two ways
+(mutually exclusive):
+◦
+
+Using a PowerLogic T500 power supply (PS280) in a simple or
+configuration redundancy.
+
+◦
+
+Using external power supplies, in a simple or configuration redundancy.
+
+WARNING
+UNINTENDED EQUIPMENT OPERATION
+Do not connect PS280 and external power supplies simultaneously to the same
+BP260/BP270 backplane.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+BP260 Model
+In this model, the electronic board is installed in a metal enclosure where the
+electronics are hidden. Only the necessary elements for the configuration are
+accessible. Two models are:
+•
+
+BP260/N4 with 4 slots.
+
+•
+
+BP260/N9 with 9 slots.
+
+The difference is the number of modules that can be mounted. The other features
+are identical.
+The following figure shows an example of this type of backplane:
+BP260/N9 – Front view
+
+Mechanical Features
+The modules can be mounted in a panel or flat wall made of any material capable
+of supporting the total weight of the assembly. The modules weight and
+connection cables must be considered.
+If several backplanes need to be mounted in a column structure, leave a minimum
+space of 57 mm between the lower and upper fixing flanges of the backplanes.
+
+26
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+WARNING
+HAZARD OF INCORRECT EQUIPMENT INSTALLATION
+•
+
+Do not cover the modules ventilation grates with feed-through, cable trays,
+or any other assembly elements.
+
+•
+
+Respect the necessary space around the backplane to allow assembly and
+disassembly of the modules.
+
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+In order to facilitate the connection of cables to the two bottom SFP connectors of
+HU280, it is recommended to leave a space of at least 1U between the backplane
+and the cable tray, thus, avoiding an excessive curvature of the cabling.
+The BP260 module has two fixing flanges located at the upper and lower parts
+respectively, with drill holes of 4 mm in diameter for wall or panel mounting.
+Number and location of holes vary with the model:
+•
+
+6 drill holes in the BP260/N4
+
+•
+
+8 drill holes in the BP260/N9
+
+BP260/N4 - Drill-hole arrangement
+
+BQT7944801–00
+
+27
+
+T500 Platform
+
+Physical Mounting and Installing
+
+BP260/N9 - Drill-hole arrangement
+
+The dimension values are given in millimeters. All connectors are located on the
+front and right sides of the module.
+
+28
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+BP260/N9 – Front view
+
+1. Connectors (slots) for the PowerLogic T500 modules. The socket connectors
+are installed on the backplane and on the rear panel for each module the
+plug-type connector is installed.
+2. Jumper to configure communication systems redundancy. If the jumper is
+mounted, it enables Profibus-DP redundancy.
+3. Two connectors to expand the internal bus to other backplanes. For more
+details, refer Backplane Expansion, page 44.
+4. Configuration switches for the expansion of the internal bus.
+5. External power supply connector. It allows connecting up to two different
+power supplies: primary and secondary.
+6. Guides for supporting PowerLogic T500 modules when they are mounted on
+the backplane.
+7. Nuts to install the module on the metal enclosure.
+8. Drill-holes to install the backplane to the bottom panel.
+9. LED indicators.
+
+Technical Specifications
+BP260 Technical specifications
+BP260
+Mechanical features
+
+Slots
+
+Dimensions
+
+Weight
+
+BQT7944801–00
+
+BP260/N4
+
+4
+
+BP260/N9
+
+9
+
+BP260/N4
+
+268 x 204 x 25.5 mm
+
+BP260/N9
+
+268.5 x 430 x 25.5 mm
+
+BP260/N4
+
+1.25 kg
+
+BP260/N9
+
+3.35 kg
+
+Consumption
+
+100 mW
+
+Connectors
+
+PowerLogic T500 module
+
+48-contact DIN 41612
+connectors
+
+External power supply
+
+6-way screw terminal
+(1.5 mm² / 15 AWG)
+
+Profibus expansion (0.5 mm² / 20 AWG)
+
+2 socket DB9
+connectors
+
+29
+
+T500 Platform
+
+Physical Mounting and Installing
+
+BP260 Technical specifications (Continued)
+Voltage levels
+
+Operating nominal voltage
+
+5.4 Vdc
+
+Startup nominal voltage
+
+> 5.3 Vdc
+
+Maximum current
+
+7A
+
+(for each power supply bus)
+Maximum consumption
+
+38 W
+
+(for the entire backplane)
+Overcharge voltage
+
+< 24 Vdc
+
+(safe for the electronic parts)
+Overcharge voltage
+
+> 30 Vdc
+
+(with risks for the electronic parts)
+Safety power-off (overvoltage)
+
+> 5.9 Vdc
+
+Safety power-off (undervoltage)
+
+< 4.9 Vdc
+
+BP270 Model
+The BP270 model uses the same electronic board as BP260, but it is mounted
+using a standard 482 mm (19 inches) wide chassis. Two models are:
+•
+
+BP270/N8, with 2x4 slots
+
+•
+
+BP270/N9 with 9 slots
+
+Mechanical Features
+BP270/N8 and BP270/N9 backplanes are designed to be mounted on a 482 mm
+(19 inches) wide, 6 U high and 180 mm deep metallic panel. The chassis provides
+the mechanic support to mount all the modules. The BP270/N8 format allows the
+mounting of two boards in the same chassis (one next to the other). This option is
+the most suitable solutions to give access to the back part of the electronic
+components.
+For BP270, the power connector, bus expansion connectors and configuration
+switches are located on the back side of the card to be accessible from the back of
+the chassis.
+In order to facilitate the connection of cables to the two bottom SFP connectors of
+HU280, it is recommended to leave a space of at least 1U between the backplane
+and the cable tray, thus, avoiding an excessive curvature of the cabling.
+You need to distinguish the front side from the back side since both sides present
+connectors.
+
+30
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+BP270/N8 – Front view
+bus
+2 Redundant
+configuration
+
+1
+
+Slots
+
+1. Connectors (slots) for the PowerLogic T500 modules. The socket connectors
+are installed on the backplane and the plug-type connector is installed on the
+back panel.
+2. Jumper to configure redundant communication systems. If the jumper is
+mounted, it enables redundant Profibus-DP.
+BP270/N8 – Back view
+
+Expansion bus
+connectors
+
+1
+
+Configuration
+
+2
+
+Reserved
+(Do not Connect)
+
+External
+3 Power
+Supply
+
+1. Two connectors to expand the internal bus to other backplanes.
+2. Configuration switches for the expansion of the internal bus.
+3. External power supply connector. It allows the connection of up to two
+different power supplies: primary and secondary.
+For the module with 9 slots, two power connectors allow to maintain the
+power when it is necessary to disconnect one power supply.
+
+BQT7944801–00
+
+31
+
+T500 Platform
+
+Physical Mounting and Installing
+
+Technical Specifications
+BP270 Technical specifications
+BP270
+Mechanical features
+
+Slots
+
+Dimensions
+
+BP270/N8
+
+8 (4 + 4)
+
+BP270/N9
+
+9
+
+19-inches rack (482 mm)
+
+Consumption
+
+100 mW
+
+Connectors
+
+PowerLogic T500 module
+
+48-contact DIN 41612
+connectors
+
+External power supply
+
+5-way screw terminal
+(2.5 mm² / 13 AWG)
+
+Profibus expansion
+
+2 female DB9
+connectors
+
+Operating nominal voltage
+
+5.4 Vdc
+
+Startup nominal voltage
+
+> 5.3 Vdc
+
+Maximum current
+
+7A
+
+Voltage levels
+
+(for each power supply bus)
+Maximum consumption
+
+38 W
+
+(for the entire backplane)
+Overcharge voltage
+
+< 24 Vdc
+
+(safe for the electronic parts)
+Overcharge voltage
+
+> 30 Vdc
+
+(with risks for the electronic parts)
+Safety power-off (overvoltage)
+
+> 5.9 Vdc
+
+Safety power-off (undervoltage)
+
+< 4.9 Vdc
+
+Supervision
+Using the light indicators above the expansion connectors (refer to the figure
+BP260/N9 – Front view, page 29) you can monitor the activity of the Profibus
+communication and the power status.
+
+32
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Each LED is identified as follows:
+Supervision LEDs on the backplane
+
+•
+
+MST: Supervision of the transmission from CPU.
+
+•
+
+SLV: Supervision of the transmission from secondary device modules.
+
+•
+
+OV1 / UV1: Supervision of the power bus PW1 (refer to the section System
+Buses, page 14). This power bus is associated with the PS280 installed on
+slot 1 or with the external power supply on the left in the connector, identified
+in the document as PS1.
+
+•
+
+OV2 / UV2: Supervision of the power bus PW2 (refer to the section System
+Buses, page 14). This power bus is associated with the PS280 module
+installed on slot 2 or with the external power supply on the right, identified in
+the document as PS2.
+
+Supervision of the Profibus
+The yellow LEDs MST and SLV show the status of the Profibus communication.
+The following table describes the LEDs:
+MST
+
+SLV
+
+Status
+
+Description
+
+Idle
+
+No queries nor responses have been detected from client nor server
+module.
+
+Correct
+
+No answer
+
+Abnormal
+answer
+
+Abnormal
+query
+
+Problem in
+the
+question
+
+BQT7944801–00
+
+•
+
+Queries have been detected from a client in both channels
+(with redundancy).
+
+•
+
+Responses have been detected from a server in both
+channels.
+
+•
+
+Queries have been detected from a client in both channels.
+
+•
+
+No responses have been detected from any server.
+
+•
+
+Queries have been detected from a client in both channels
+(with redundancy).
+
+•
+
+Responses have been detected from a server in only one
+channel.
+
+•
+
+Queries have been detected from a client in only one channel
+(with redundancy).
+
+•
+
+Responses have been detected from a server in both
+channels.
+
+•
+
+The transmission lines of the client modules in both channels
+are blocked. It is impossible to communicate with the server
+modules.
+
+•
+
+The Profibus supervisor is not working properly.
+
+33
+
+T500 Platform
+
+Physical Mounting and Installing
+
+MST
+
+SLV
+
+Status
+Problem in
+the answer
+
+Description
+•
+
+The transmission lines of the server modules in both channels
+are blocked. It is impossible to communicate with the client
+modules.
+
+•
+
+The Profibus supervisor is not working properly.
+
+NOTE:
+On
+Fast blinking
+Slow blinking
+Off
+
+Supervision of the Power
+The backplane includes a power supervision function. It has three main functions:
+•
+
+Prevent the modules from being powered with incorrect voltages.
+
+•
+
+Indicate the quality of the power supplied by the backplane to the modules.
+
+•
+
+Limit the number of startups when a problem is detected regarding
+consumption.
+
+The power status is displayed by the LEDs OV1/OV2 and UV1/UV2. The following
+table describes the LEDs:
+OVx
+
+34
+
+Uvx
+
+Status
+
+Description
+
+Power-off for
+overvoltage
+
+Power voltage > 5.80 Vdc.
+
+High-high voltage
+(very high
+voltage)
+
+Power voltage between 5.65 and 5.80 Vdc. The system can
+startup but cannot work correctly.
+
+High voltage
+(warning voltage)
+
+Power voltage between 5.50 and 5.65 Vdc. Correct state for
+startup and working.
+
+Optimum
+
+Power voltage between 5.35 and 5.50 Vdc. Optimum state for
+startup and working. Both LEDs are lit each 3 s.
+
+Low voltage
+(warning voltage)
+
+Power voltage between 5.20 and 5.35 Vdc. Correct state for
+working but not for the startup. Depending on voltage level the
+system could be restarted.
+
+Low-low voltage
+(very low voltage)
+
+Power voltage between 5.05 and 5.20 Vdc. The system can
+startup but cannot work correctly. Inappropriate state for
+working and startup. If the voltage level is decreased, the
+backplane could power off.
+
+Power-off for
+undervoltage
+
+The voltage level is < 5.05 Vdc.
+
+Blocked
+
+The maximum number of retries to boot has been exceeded.
+The supervisor does not attempt more reconnections until the
+power supply is completely removed.
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+No operative
+
+Without power supply or the voltage supervisor is not
+operative.
+
+NOTE:
+On
+Fast blinking
+
+Slow blinking
+Off
+
+Powering a PowerLogic T500 RTU
+Several options to power a PowerLogic T500 RTU are available:
+•
+
+Using PowerLogic T500 power supplies (redundancy or not)
+
+•
+
+Using external power supplies (redundancy or not)
+
+For more information about configurations redundancy, refer to the section Power
+Supply Redundancy, page 18.
+If external power supplies are used, depending on the type of backplane, BP260
+or BP270, refer to the sections BP260 Model, page 26 and BP270 Model, page
+30.
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF TERMINAL DAMAGE OR INCORRECT POWER SUPPLY
+•
+
+Use appropriate tightening torques as indicated in this document when
+tightening connector screws.
+
+•
+
+The power supply can be one or two PS280 modules or one or two external
+power supplies.
+
+•
+
+When using an external power supply, the voltage input for the backplane is
+5.4 Vdc. The external voltage input is not protected against overvoltage nor
+reverse polarity, so an incorrect wiring or an incorrect adjustment of the
+supply voltage could damage electronic parts.
+
+Failure to follow these instructions can result in equipment damage.
+The PS280 module supplies power to the modules connected to the backplane, as
+required. When using auxiliary power supplies, you need to rate the output power
+according to the maximum loads installed on the backplane. Take also into
+consideration the power derating for this calculation.
+The power consumption for each module is indicated on the technical label and is
+included in the technical specification table in the user manual of the module. The
+consumption of all modules is added plus a safety margin (between 20% and 50%
+of the full power). The power supply efficiency (typically, 70 - 90%) should also be
+considered, to protect the chassis and the power supply from overloading.
+
+BQT7944801–00
+
+35
+
+T500 Platform
+
+Physical Mounting and Installing
+
+PS280 (PowerLogic T500 Power Supply)
+PS280 – Front view
+
+The PS280 module converts the input power into a regulated 5.4 Vdc output to
+power the electronic control components of the modules within the backplane.
+Additionally, depending on the ordering option, this module can provide an
+auxiliary voltage for the polarization of the I/O interfaces of the acquisition
+modules.
+The functional features of this block are:
+•
+
+Compliance with EMC standards for industrial environments
+
+•
+
+Direct input current can be used.
+
+•
+
+Auxiliary output of 24 Vdc is available.
+
+•
+
+Galvanic isolation
+
+•
+
+Communication of power input loss to the CPU
+
+•
+
+Two test points are available to allow the checking of the voltage on the bus
+using a voltmeter.
+
+NOTICE
+HAZARD OF TERMINAL DAMAGE OR INCORRECT POWER SUPPLY
+•
+
+Use appropriate tightening torques as indicated in this document when
+tightening connector screws.
+
+•
+
+The power supply can be one or two PS280 modules or two external power
+supplies.
+
+•
+
+When using an external power supply, the voltage input for the backplane is
+5.4 Vdc. The external voltage input is not protected against overvoltage nor
+reverse polarity, so an incorrect wiring or an incorrect adjustment of the
+supply voltage could damage electronic parts.
+
+Failure to follow these instructions can result in equipment damage.
+
+36
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+PS280 – User interface
+
+TEST
+0V
+
+5.4 V
+
+AUX
+
+_
++
+
+POWER
+1
+2
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Do not connect the module to the power supply, when you are installing the
+PS280 module into the backplane.
+Failure to follow these instructions will result in death or serious injury.
+The PS280 module can be used in two different modes:
+•
+
+Simple: the module is installed in the first slot (left-hand-side) in the
+backplane.
+
+•
+
+Redundant: two identical modules are used. In the backplane, the modules
+are mounted side by side, in slots 1 and 2 from the left-hand-side.
+
+Ordering Options
+The available options are:
+•
+
+Option V2: EMS71120 – Mains 24 Vdc input and auxiliary 24 Vdc output
+
+•
+
+Option V3: EMS71130 – Mains 48 Vdc input and auxiliary 24 Vdc output
+
+•
+
+Option V4: EMS71140 – Mains 110/125 Vdc input and auxiliary 24 Vdc output
+
+Connections
+Main power input
+Connect the input power supply with the 3–poles connector POWER:
+
+BQT7944801–00
+
+•
+
+Model: Phoenix Contact Combicon: 3-MC 1.5/2 –ST-5.08
+
+•
+
+Screw-terminals for cables with a maximum 2.5 mm2 gauge
+
+•
+
+Two terminals for direct current (1,2)
+
+•
+
+A terminal for functional ground connection
+
+37
+
+T500 Platform
+
+Physical Mounting and Installing
+
+The following table shows how to connect:
+Connector Power
+
+Direct Current
+
+1
+
+Positive
+
+2
+
+Negative
+
+NOTE: The power supply input is provided with reverse polarity protection.
+
+Auxiliary power output
+The auxiliary output is available through a front two-pole connector with the
+following features:
+•
+
+Model: Phoenix Contact Combicon: 2-MC 1,5/2 –ST-3.5
+
+•
+
+Screw-terminals for cables with a maximum 1.5 mm2 gauge
+
+•
+
+Two terminals for direct current (with the labels “-“ and “+”)
+
+•
+
+Recommended cable: rigid or flexible. 0.14-1.5 mm2 / 28-16 AWG
+
+LED Indicators
+The following table shows the meaning for each LED:
+→ On
+→ Off
+PWR
+
+AUX
+
+Description
+Power supply is powered. Auxiliary output is not
+installed in the module.
+Power supply is powered. Auxiliary output is installed
+in the module.
+Main power supply is not powered.
+
+Technical Specifications
+PS280 Technical specifications
+PS280
+Input voltage level
+
+Isolation
+
+Power output
+
+38
+
+Option V2
+
+24 Vdc
+
+Option V3
+
+48 Vdc
+
+Option V4
+
+110 / 125 Vdc
+
+Input / Output
+
+3 kVrms
+
+Input / Functional earth ground
+
+1.5 kVrms
+
+Output / Functional earth
+ground
+
+0.5 kVrms
+
+Main
+
+5.4 Vdc (40 W at 25 ºC / 30 W
+at 70 ºC)
+
+Auxiliary (Option B0)
+
+Not available
+
+Auxiliary (Option B2)
+
+24 Vdc (25 W)
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+PS280 Technical specifications (Continued)
+Protection
+
+Output
+
+Permanent short-circuit
+
+Input
+
+Overvoltage / Overcurrent
+
+Maximum dip time
+
+50 ms
+
+Typical efficiency
+
+85%
+
+(full load)
+Consumption
+
+60 W Max.
+The typical efficiency at full load is 80%
+
+Weight
+
+900 g
+
+Certification Tests
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80 %,
+10 V/m
+1000 – 2700 MHz, AM 1 kHz Prof: 80 %,
+3 V/m
+2700 – 6000 MHz, AM 1 kHz Prof: 80 %,
+1 V/m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+BQT7944801–00
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80 %,
+10 Vrms
+
+39
+
+T500 Platform
+
+Physical Mounting and Installing
+
+Directive / Test
+
+Identification
+
+Details
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2, ±4 kV (asymmetrical coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93 % / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+40
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Using External Power Supplies
+The backplane model determines the power supply wiring. The following passage
+shows the external power supplies.
+
+BP260 Power Supply
+On the right side of the BP260 module is located a connector to connect one or
+two external power supplies. It is identified as number 5 in the front view
+representation, page 26.
+The pin 1 is the first one from the right when the backplane is horizontal or the
+upper one when the backplane is in vertical position. The following table shows
+the connections:
+Pinout of the connector for external power supplies
+Pin
+
+Signal
+
+Description
+
+1
+
+GND
+
+Functional earth ground
+
+2
+
+-
+
+Do not connect
+
+3
+
+PS2
+
+Power supply 2
+
+4
+
+GND
+
+5
+
+PS1
+
+6
+
+GND
+
+Power Supply 1
+
+For more information about the connection of two external power supplies, refer to
+the section Redundant Configurations in PowerLogic T500, page 18.
+Connecting external power supplies to a BP260
+
+BP270 Power Supply
+Two power supply options for the modules, through the backplane are:
+•
+
+Using power supply (PS280)
+
+•
+
+External power supply
+
+When selecting the BP270 backplane, it is important to distinguish the fourposition models from the nine-position models because the nine-position model
+has connectors J14 and J15 for primary and secondary power, while the fourposition models have only connector J15. It is identified as number 3 in the back
+view representation.
+
+BQT7944801–00
+
+41
+
+T500 Platform
+
+Physical Mounting and Installing
+
+WARNING
+HAZARD OF INCORRECT CONNECTION
+Only use J14 and J15 connectors for power input.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+The power connectors of the BP270/N9 module have the following pins:
+Pinout of the power supply connector in BP270/N9
+
+Connector J15
+Connector J15 Pin-out
+PS2
+
+PS1
+
+PS2
+
+Connector J14
+Connector J14 Pin-out
+PS1
+
+PS2
+
+PS1
+
+Pin
+
+Signal
+
+Description
+
+1
+
+PS2
+
+Positive external power supply 2
+
+2
+
+GND
+
+Negative external power supply 2
+
+3
+
+PS1
+
+Positive external power supply 1
+
+4
+
+GND
+
+Negative external power supply 1
+
+5
+
+PS2
+
+Positive external power supply 2
+
+Pin
+
+Signal
+
+Description
+
+1
+
+PS1
+
+Positive external power supply 1
+
+2
+
+GND
+
+Negative external power supply 1
+
+3
+
+PS2
+
+Positive external power supply 2
+
+4
+
+GND
+
+Negative external power supply 2
+
+5
+
+PS1
+
+Positive external power supply 1
+
+According to the description of these connectors, the following options for wiring
+the power supply are:
+•
+
+Use a single connector, wiring all pins as indicated in the table above. In this
+case, the two power supplies are associated with the same connector.
+
+•
+
+Use both connectors, which is the recommended option. In this case, you
+need to wire only the pins 1 and 2 of each connector (J14 and J15).
+
+For BP270/N8, only connector J15 is available, so two external power supplies are
+associated with the same connector.
+Pinout of the power supply connector in BP270/N8
+
+Connector J15
+Connector J15 Pin-out
+PS2
+
+42
+
+PS1
+
+Pin
+
+Signal
+
+Description
+
+1
+
+PS2
+
+Positive external
+power supply 2
+
+2
+
+GND
+
+Negative external
+power supply 2
+
+3
+
+PS1
+
+Positive external
+power supply 1
+
+4
+
+GND
+
+Negative external
+power supply 1
+
+5
+
+PS2
+
+Positive external
+power supply 2
+
+PS2
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Recommendations for External Powering
+
+NOTICE
+HAZARD OF TERMINAL DAMAGE OR INCORRECT POWER SUPPLY
+•
+
+When tightening screws, use appropriate tightening torques, as indicated in
+this document.
+
+•
+
+The power supply can be one or two PS280 modules or two external power
+supplies.
+
+•
+
+The voltage input for the backplane is 5.4 Vdc. The external voltage input is
+not protected against overvoltage nor reverse polarity, so an incorrect wiring
+or an incorrect adjustment of the supply voltage could damage electronic
+parts
+
+•
+
+On a voltage drop, the backplane is shut down when the voltage level falls to
+4.9 Vdc.
+
+•
+
+On a power surge, the backplane is shut down when the voltage level
+exceeds to 5.9 Vdc.
+
+Failure to follow these instructions can result in equipment damage.
+To power the backplanes, consider:
+•
+
+the number of available power supplies, and
+
+•
+
+the distance between the power supplies and the backplanes
+
+The total power of the power supplies used must be greater than or equal to the
+sum of the power required for all backplanes powered plus a margin (usually from
+25% to 50% of the total power).
+To reduce the voltage drop on the wires, apart from using the right section on
+these wires; it is recommended to install the external power supplies as close as
+possible to the backplane, thus reducing the wires length.
+
+One Power Supply for Each Backplane
+Make sure the distance between each power supply and the backplane is less
+than 0.75 m.
+One power supply for each backplane
+
+One Power Supply for Several Backplanes
+Although a power supply per backplane/chassis is recommended, it is possible to
+use a single power supply for several backplanes. In this case, a distribution
+terminal should be installed. Make sure the distance between the terminal and the
+backplanes is less than 0.75 m.
+
+BQT7944801–00
+
+43
+
+T500 Platform
+
+Physical Mounting and Installing
+
+One power supply for several backplanes
+
+NOTICE
+HAZARD OF INCORRECT OPERATION
+The powering of several backplanes must not be wired cascaded, that is, the
+power of the first backplane must not be extended to the others. For each
+backplane, the power is received directly by the source, using a star
+configuration, as shown in One power supply for several backplanes, page 44
+Failure to follow these instructions can result in equipment damage.
+
+Backplane Expansion
+The first point to consider is whether it is necessary to distribute the PPS (Pulse
+Per Second signal) timestamp or not, and if the communications are simple or
+redundant. The BP260 and BP270 backplanes include electronics for expansion
+of the three buses, including the terminating resistors.
+Once buses to expand are known; from the electrical point of view, the two
+connectors for expansion are alike. The two connectors are:
+
+44
+
+•
+
+number 3 in BP260/N9 – Front view, page 29, and
+
+•
+
+number 1 in BP270/N8 – Back view, page 31.
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Connectors for expansion
+(5) GND
+PF2- (9)
+PF1- (8)
+
+(3) PF1+
+
+SYN- (7)
+
+PF1
+
+(2) SYN+
+
++5 V (6)
+
+(1) PF2+
+
+SYN
+PF2
+(5) GND
+PF2- (9)
+PF1- (8)
+
+(3) PF1+
+
+SYN- (7)
+(2) SYN+
+
++5 V (6)
+
+(1) PF2+
+
+The backplanes can be expanded by interconnecting the channels GND, SYN and
+Profibus of the different backplanes (PF1 and PF2).
+In the backplane, the socket connector is installed and the plug-type connector is
+installed in the cable used for the expansion. Use a metallic and shielded
+connector with an output angle for the cable of 180 °(reference: FCK1GA).
+Expansion cable connector
+
+Each bus in use (PF1, PF2, SYN) requires a shielded twisted-pair connection
+cable. Two types of cables are available depending on the distance between the
+backplanes (in accordance with EIA RS-485):
+•
+
+•
+
+Cable type A:
+◦
+
+Impedance: 135 - 165 Ω (f = 3 to 20 MHz)
+
+◦
+
+Capacity < 30 pF/m
+
+◦
+
+Resistance < 110 Ω/km
+
+◦
+
+Conductor area ≥ 0.34 mm2 (22 AWG)
+
+Cable type B:
+◦
+
+Impedance: 100 - 130 Ω (f <100 kHz)
+
+◦
+
+Capacity < 60 pF/m
+
+◦
+
+Conductor area ≥ 0,22 mm2 (24 AWG)
+
+The following table shows the maximum length of cable type A and cable type B
+for the different transmission speeds.
+Cable length for the different transmission speeds
+Rate (kbit/s)
+
+9.6
+
+19.2
+
+93.75
+
+187.5
+
+500
+
+1500
+
+Cable A length (m)
+
+1200
+
+1200
+
+1200
+
+1000
+
+400
+
+200
+
+Cable B length (m)
+
+1200
+
+1200
+
+1200
+
+600
+
+200
+
+70
+
+BQT7944801–00
+
+45
+
+T500 Platform
+
+Physical Mounting and Installing
+
+The cables shield must be connected to the functional ground protection using the
+fixing screws of the connector.
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT INSTALLATION OR INCORRECT
+POWER SUPPLY
+•
+
+Connect the cable shield to the protective earth ground with the fixing screws
+of the connector.
+
+•
+
+Use a cable with mechanical protection, such as Belden 9841, for example.
+
+Failure to follow these instructions can result in equipment damage.
+
+Expansion using RS-485
+This section details how to wire the bus expansion depending on the system
+needs. For each backplane, the position of the switches is shown.
+The following scenarios are described:
+•
+
+One main backplane (with single or dual CPU) and a single cable for PF1,
+PF2 and SYN.
+
+•
+
+One main backplane (with single or dual CPU), a cable for PF2 and another
+cable for PF1 and SYN.
+
+•
+
+Two main backplanes, a cable for PF2 and another cable for PF1 and SYN.
+
+One Main Backplane / One Single Cable for PF1, PF2 and SYN
+A main backplane and other acquisition backplanes are available. Regarding bus
+redundancy, although there is a duplicate bus, in this case, both use the same
+cable for the expansion.
+Backplane expansion (using copper) – One main backplane / One single
+expansion cable
+
+46
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+One Main Backplane / One Cable for PF1 and SYN / One Cable for PF2
+If the system requires a cable (a cable for each Profibus) redundancy, the
+configuration is shown in the following figure:
+Backplane expansion (using copper) – A main backplane / A cable for each
+profibus
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+Expand the synchronization bus (SYN) by using either PF1 or PF2 cable to
+avoid synchronization issues in the acquisition backplanes.
+Failure to follow these instructions can result in equipment damage.
+
+Two Main Backplanes / One Cable for PF1 and SYN / One Cable for PF2
+If you have two main backplanes but you do not need to use a double wiring, the
+backplane expansion is shown in BP260/N9 – Front view, page 29 and BP270/N8
+– Back view, page 31, where the second main backplane is considered as an
+acquisition backplane. In these backplanes, all switches must be set to OFF.
+
+BQT7944801–00
+
+47
+
+T500 Platform
+
+Physical Mounting and Installing
+
+If you need a cable for each profibus, see the following figure:
+Backplane expansion – Two main backplanes / Two expansion cables
+
+Field Connection
+Acquisition modules can be connected to the field using two different procedures:
+•
+
+C1: Terminal connection or direct connection. It is used when the length of
+the field cabling is short, for example, when interconnections and assemblies
+are done within the cabinet, signals are generated in a close site or proceed
+from an interface cabinet located at the same site.
+
+•
+
+C2: Flat-ribbon connection through terminal blocks. It is used when the
+distance between the module and the signal source is long or when the cable
+gauge needs to be bigger than 0.5 mm2 due to the cabling layout.
+
+Terminal connection (C1)
+
+48
+
+Flat ribbon connection (C2)
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+A module can be easily replaced by disconnecting the two field-connectors and
+removing the module from its slot, in both direct and terminal-block connections.
+In some modules, input circuits need to be polarized to perform signaling and
+command functions.
+
+C1 – Terminal Connection
+The acquisition modules have Eurostyle™ 20-way and 3.81 mm connectors.
+These modules offer multiple solutions to the header connector (terminal screw,
+spring, small screw...). An example is shown in the following figure:
+Header connector for PowerLogic T500 acquisition modules
+
+•
+
+Manufacturer: Phoenix Contact
+
+•
+
+Reference: FMC 1.5/20 STF 3.81 (1748532)
+
+C2 – Flat Ribbon Connection (Terminal Blocks)
+When the connection is established through terminal blocks, they can be simple
+connecting interfaces made up by a flat ribbon and terminals. These spring-type
+terminals with capacity for 2.5 mm2 gauge cables have a DIN 35 rail mounting
+base. The flat ribbon cable has 20 ways, so two terminal blocks for each module
+are required.
+
+Wiring Recommendations for I/O Modules
+Consider the following recommendations regarding the wiring of the modules:
+•
+
+Recommended cable type: low voltage computer with 20 x 0.14 by
+EMELEC.
+Cable for field connection
+
+BQT7944801–00
+
+49
+
+T500 Platform
+
+Physical Mounting and Installing
+
+Remove 8 to 10 cm of the shield at the end of each cable. Place insulating
+material around the cut as shown in the following figure.
+Prepared cable for field connection
+
+Remove 0,5 cm of the shield at the end of each cable. Insert the exposed copper
+into the terminal.
+Wiring a module with terminals
+
+Close the door when the space accommodates the cables.
+
+Position of the cables when they
+are installed
+
+When the module is installed in the cabinet, join the two wires in a plastic bracket
+and attach them to the cabinet or the chassis.
+
+50
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Example of mounting cables to the cabinet or chassis
+
+Wiring recommendations for EMC
+To improve the EMC behavior of the equipment, follow the following indications in
+the wiring of the cabinet.
+Considering the wiring types that can be used, there are several wiring groups:
+Group
+
+Connection type
+
+1
+
+Analog inputs and outputs
+
+2
+
+Digital inputs and outputs
+
+3
+
+Communications
+
+4
+
+Main and auxiliary power supply and polarization of the field signals
+
+5
+
+Ground protection for safety and EMC
+
+General Recommendations
+
+BQT7944801–00
+
+•
+
+Whenever possible, cables of groups 1, 2 and 3 should be wired separately.
+That is, the analog, digital, and communication signals should have separate
+gutters.
+
+•
+
+If separate wiring is not possible and the number of signals is low,
+exceptionally this gutter may be shared. In this case, as analog and
+communication signals are the most sensitive, these two types of signals
+should be wired through the same gutter, whereas digital signals should be
+wired separately.
+
+•
+
+When none of the above is possible, you need to avoid analog, digital and
+communication signals to be wired in parallel. If there are some sections in
+which parallel wiring cannot be avoided, these should be as short as possible.
+
+•
+
+If the cables need to be crossed, these crossings should be perpendicular to
+each other.
+
+•
+
+To increase protection in the field inputs and outputs, terminal blocks are
+normally used to reinforce the protection barrier. The power supply and
+protection terminal blocks of DI, DO, AI and AO are protection barriers. The
+input wiring to these elements must always be independent from the output
+wiring of these barriers. They should never share the gutter.
+
+51
+
+T500 Platform
+
+Physical Mounting and Installing
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+Make sure that analog, digital and communication cables should never share
+the gutter with power supply or polarization cables.
+Make sure that field input signal cables must never be laid using cables with
+filtered signals.
+Failure to follow these instructions can result in equipment damage.
+
+Analog Inputs and Outputs Signals
+In the case of analog signals, always shielded cables should be used for the
+connection of the analog module to the resistor and protection terminal block.
+Ground the shield cable corresponding to the terminal block connection with a
+DIN-rail terminal.
+
+WARNING
+HAZARD OF INCORRECT EQUIPMENT INSTALLATION
+Connect the shielded twisted pair of cables properly.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+Analog signals wiring
+
+Communications
+The communication bus can be installed using 2-wires communication or 4-wires
+communication. To increase the immunity to electromagnetic interference (EMC),
+use a shielded twisted pair of cables.
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT INSTALLATION
+Connect the shielded twisted pair properly.
+Failure to follow these instructions can result in equipment damage.
+The shield connection depends on the equipotentiality between the connected
+devices:
+•
+
+52
+
+Guaranteed equipotentiality: both devices are connected to a ground
+system, so that the same potential level is guaranteed. The shield must be
+connected at both ends.
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+•
+
+Limited equipotentiality: both devices are connected to ground but not to
+the same ground system. To limit the difference of potential that can be
+produced among them, a cable with the appropriate cross-section is installed
+between both grounding. The shield must be connected at one end.
+
+•
+
+No guaranteed equipotentiality: ground connection of both devices cannot
+be guaranteed (both devices must be connected to a ground system). Copper
+must not be used in this case.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Do not connect non equi-potential devices.
+Failure to follow these instructions will result in death or serious injury.
+
+RS-485 Communications
+For RS-485 communication, use twisted pairs, shielded individually or all together
+by a copper braid. The recommendations for the cable are:
+•
+
+Resistance: < 100 Ω/km
+
+•
+
+Section: 0.22 mm2 (24 AWG)
+
+•
+
+Characteristic impedance: 120 Ω
+
+•
+
+Maximum length: 1200 m
+
+RS-422 Communications
+For RS-422 the twisted pairs must be shielded individually. The recommendations
+for the cable are:
+•
+
+Resistance: < 100 Ω/km
+
+•
+
+Section: 0.22 mm2 (24 AWG)
+
+•
+
+Characteristic impedance: 100 Ω
+
+•
+
+Maximum length: 1200 m
+
+RS-232 Communications
+For RS-232 communication, use a wire shielded with a copper braid. The
+recommendations for the cable are:
+•
+
+Resistance: < 100 Ω/km
+
+•
+
+Section: 0.22 mm2 (24 AWG)
+
+•
+
+Maximum length: 15 m
+
+Group 4 (Power Supply)
+The power supply for the electronic elements is the main barrier between the
+existing disturbances in the power supply line and the system. That is the reason
+why, this power supply is equipped with some additional filters to achieve a good
+EMC behaviour of the system. You need to keep the filters input wiring
+independent from the output wiring.
+
+Polarization
+The output of the polarizing power supplies follows the same route in the field as
+the digital signals in which they are used, so the treatment is the same as for a
+BQT7944801–00
+
+53
+
+T500 Platform
+
+Physical Mounting and Installing
+
+field input/output signal. In some projects, supplementary filters are installed. In
+these cases, the wiring should be independent for the filters input and output.
+Polarizing power supply output
+
+Auxiliary
+The auxiliary power supply and its wirings do not have any galvanic connection to
+PowerLogic T500, so they should be sufficiently separated from each other
+(independent gutters and layout) to avoid possible disturbances to reach the
+PowerLogic T500 wiring itself. In some projects, supplementary filters are
+installed. In these cases, the wiring should be independent for the filters input and
+output.
+
+Filtering
+Generally, a filter is included to reinforce the protection of the power supply of the
+electronic elements. The use of filters for the polarizing power supply is optional.
+The polarizing power supply should never be combined with the power supply for
+electric elements. The filter cannot be shared in any case, as the polarizing power
+supply goes to field with the rest of inputs/outputs. As shown in the figures, an
+incorrect connection of the polarization power supply reduces the effect of the
+protection barriers.
+Example of incorrect connections of the polarization power supply
+Electronics
+Power Supply
+
+Filter
+
+Electronics
+
+Power Supply
+Isolation
+Polarizing
+Power Supply
+
+Wrong
+Power Supply
+Cabinet
+Power Supply
+
+Field Input /
+Field Output
+
+EMC Disturbance
+
+Electronics
+Power Supply
+
+Filter
+
+Electronics
+
+Power Supply
+Isolation
+Wrong
+
+Cabinet
+Power Supply
+
+Polarizing
+Power Supply
+
+Input Field /
+Output Field
+
+EMC Disturbance
+
+54
+
+BQT7944801–00
+
+Physical Mounting and Installing
+
+T500 Platform
+
+Group 5 (Ground Connection)
+General Recommendations
+In general, each cabinet should have both a grounding bar and a metal sheet for
+grounding purposes. All shielded cables and external protective circuits need to
+be connected according to figure General scheme of a CORRECT ground
+connection, page 55.
+The size of the cable section should be appropriate for each installation, and
+grounding braids should be used whenever possible.
+
+WARNING
+HAZARD OF INCORRECT GROUND CONNECTION
+•
+
+Provide a ground wire in a given point to the equipment or cabinet to achieve
+a low impedance for the rest of the elements.
+
+•
+
+Assemble horizontal copper bars, as well as vertical copper bars (whenever
+possible).
+
+•
+
+Connect all the metallic parts of the equipment to the ground protection.
+
+•
+
+Use the cabinet metallic walls or metal sheet (when applied) to distribute the
+EMC ground.
+
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+Ground Connection
+For the ground connection, the equipment wiring must be done in star
+configuration, as shown in the following figure.
+General scheme of a CORRECT ground connection
+
+EMC ground
+Power
+Supply
+
+Power
+Supply
+
+Metal
+elements
+
+Ground
+connection
+
+EMC
+ground
+
+EMC
+ground
+
+Protective earth
+Ground
+
+Ground connection bar
+
+BQT7944801–00
+
+55
+
+T500 Platform
+
+Physical Mounting and Installing
+
+WARNING
+HAZARD OF INCORRECT GROUND CONNECTION
+•
+
+Ensure to use an individual and dedicated cable connection between each
+equipment (power supply, metallic equipment, and the ground connection
+bar).
+
+•
+
+Do not share the same wiring with more than one equipment.
+
+•
+
+When using external power supplies, particularly in CAT I power supply, it is
+needed to establish two connections. One connection is for the protective
+earth connection, as specified in the power supply user manual, while the
+other connection is for the EMC protection. The EMC protection must be
+connected to the same terminal as for the protective earth connection and
+kept as short as possible (below 15 cm).
+
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+For the functional earth ground (EMC ground), the metal sheet of the cabinet
+can be used as the functional grounding reference.
+
+•
+
+Keep the EMC protective wiring of the equipment as short as possible (less
+than 15 cm) between the connections and the metal sheet.
+
+Failure to follow these instructions can result in equipment damage.
+The best connection is direct to the metal sheet with the support of a terminal
+block or another firmly connected method to the metal sheet.
+
+56
+
+BQT7944801–00
+
+Configuration and Maintenance
+
+T500 Platform
+
+Configuration and Maintenance
+Profibus Configuration
+The identification and Profibus communication speed of the module can be set
+using the microswitches on the module rear panel.
+NOTE: You can connect up to 96 PowerLogic T500 modules.
+Each microswitch has the following functions:
+Profibus switches for module configuration
+1
+2
+3
+4
+
+1
+
+5
+6
+7
+8
+
+2
+
+9
+10
+
+3
+
+11
+12
+
+2
+
+1. Profibus address
+2. Reserved
+3. Profibus speed
+
+I/O Module Addressing
+The identification of the module must be unique. Use the microswitches 1 to 7 to
+set the identification and select a number between 1 and 96.
+The addresses 0 and starting from 97 to 127 are reserved and should not be
+assigned. In the case that they are assigned, messages are generated when the
+system boots.
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+It is assumed that Px is the value assigned to the position of microswitch x (0 is
+OFF and 1 is ON). For example, if the switches 2, 4 and 5 are in the ON position,
+the Profibus address of the module is 26.
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+Make sure that the same address is not assigned to two modules.
+Failure to follow these instructions can result in equipment malfunction.
+
+BQT7944801–00
+
+57
+
+T500 Platform
+
+Configuration and Maintenance
+
+Profibus Communication Rate
+The Profibus communication rate is the same for all PowerLogic T500 modules.
+The rate is determined by the rate configured by software in the HU280 module.
+The rate is set using microswitches 9, 10 and 11 as shown in the following table:
+Profibus configuration
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, it is recommended to set the
+Profibus rate to 1.5 Mbaud.
+Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Communication Modules
+For communication modules, the microswitches 1 to 4 are used to identify the
+position of the module in the bus. This position identifies the physical name of
+each serial port.
+For example, the serial ports XS280 in position 1 are MUX1 to MUX8. The serial
+ports in the XS280 are MUX9 to MUX16 in position 2.
+
+58
+
+BQT7944801–00
+
+Configuration and Maintenance
+
+T500 Platform
+
+Profibus Redundancy
+In the Profibus-DP redundancy, the jumper used to configure the internal bus as
+redundant or not is identified with number 2 in BP260/N9 – Front view, page 29
+and BP270/N8 – Front view, page 31.
+If the jumper is mounted, the internal bus is redundant.
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+If you do not use the configuration of Profibus-DP redundancy, remove the
+jumper, as indicated in the following image.
+Failure to follow these instructions can result in equipment malfunction.
+Removing the jumper
+
+RS-485 Termination Resistor
+Apart from the expansion connectors, six micro-switches are available in the
+backplane front panel to set the RS-485 termination resistors.
+The RS-485 standard defines an asynchronous serial communication with
+differential levels, which requires termination resistors to be included in the bus
+ends. When interconnecting the backplanes, you need to include the termination
+resistors in the first and last backplanes of the bus. To connect the termination
+resistors, the micro-switches next to the expansion connectors must be set to ON,
+where PF1 is associated with Profibus 1, PF2 with Profibus 2 and SYN with the
+synchronization bus.
+Backplane microswitches
+
+BQT7944801–00
+
+59
+
+T500 Platform
+
+Configuration and Maintenance
+
+Supervision
+The Supervision device is a default device in Easergy Builder. The device is used
+to monitor the status of CPU components and generates information about other
+components in the RTU.
+You can double-click the Supervision device in the tree to view a complete list of
+all the functions you can monitor in this type of CPU.
+Supervision points for T500
+
+It is advised to always load the supervision device that is required to monitor the
+mentioned elements of the CPU and is essential in redundant configurations. The
+CPU itself cannot arbitrate with another CPU in redundant systems, so there must
+be a monitoring part. Currently, only the supervision device can perform these
+tasks, and in practice only this device is used.
+For redundant configurations, most of the supervision points are also available
+with _A and _B suffixes to provide CPU-related information. For example, the
+points PS1_V, PS1_V_A, and PS1_V_B are available for power supply voltage.
+Regardless of which CPU is in online mode, information is available for both
+CPUs.
+The information generated by the monitoring module is supplemented with the
+control and diagnostic information generated in each device.
+NOTE: For supervision device, the coordinates are the points name. For
+example, the coordinate associated to the FAIL_PLC point is FAIL_PLC.
+
+60
+
+BQT7944801–00
+
+T500 Platform
+
+Glossary
+A
+AI160: PowerLogic T500 analog input module.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+
+C
+CPU: Central Processing Unit.
+
+D
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DNP: Distributed Network Protocol
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+DP: Decentralized Periphery
+
+E
+Easergy Builder: Easergy Builder is the official configuration tool for T500
+equipment. This tool can be used to configure all the advanced RTU functions (for
+example, database, protocol addressing, events) and to carry out maintenance
+tasks on the equipment.
+
+F
+FEG: Functional Earth Ground.
+
+G
+GND: Ground.
+GPS: Global Positioning System.
+
+I
+IEC: International Electrotechnical Commission. The international standards
+organization for the fields of electricity, electronics, electromagnetic compatibility,
+nanotechnology, and related technologies. It complements the International
+Organization for Standardization (ISO), which is responsible for other fields.
+IED: Intelligent Electronic Device.
+IEEE: Institute of Electrical and Electronics Engineers. The IEEE is a professional
+association comprising members from the fields of electrical engineering,
+information technology, telecommunications, etc. The organization's mission is to
+advance knowledge in the field of electrical engineering and publish associated
+standards and other texts written by its members.
+BQT7944801–00
+
+61
+
+T500 Platform
+
+IP: Internet Protocol.
+IRIG-B: mode B of the standard IRIG.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LV: Low Voltage.
+
+M
+Module: Hardware device comprising a functional component of the T500 (for
+example, DI180, DO180, and PS280 are modules on the T500).
+MUX: Serial data bus for communication with the XS280 module.
+
+O
+OS: Operating System.
+
+P
+PC: Personal Computer.
+PE: Protective Earth Ground.
+PF1/2 (485): Primary and redundant Profibus RS-485 buses.
+PF1/2 (TTL): Primary and redundant Profibus TTL buses.
+PPS: Pulse Per Second Signal
+PS280: PowerLogic T500 power supply.
+PTP: Precision Time Protocol.
+
+R
+RS: Serial link.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SD: Secure Digital
+SER: Serial bus for synchronization between redundant CPU modules
+SNTP: Simple Network Time Protocol.
+SYN (485): Bus RS-485 for synchronization of the modules (PPS).
+SYN (TTL): Bus for synchronization of the modules (Pulse Per Second or PPS).
+
+T
+TTL: Time To Live
+
+62
+
+BQT7944801–00
+
+T500 Platform
+
+W
+webApp: Web tool for online maintenance and monitoring of the RTU.
+webUI: Advanced tool for the design and operation of a local web-based
+substation user interface.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7944801–00
+
+63
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7944801–00
+
+

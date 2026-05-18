@@ -1,0 +1,1063 @@
+A3APS.... A3 ARC SCHEMES
+
+[ Application note ]
+--
+
+POWERLOGIC A3
+ARC FLASH PROTECTION
+SCHEMES
+
+Hamed ERSHADZADEH
+Centre of Excellence Schneider Electric
+1
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+Executive Summary
+•
+
+The aim of this application note is to explain the detailed functionality of the scheme in A3 Arc
+Flash Protection Relays.
+
+Document Revision
+Title
+Author
+Reviewer
+Reviewer
+Reviewer
+Reviewer
+Reviewer
+Reviewer
+
+Document Revision: Rev.:1.0
+Name
+Date
+Hamed ERSHADZADEH 26/05/2023
+Peter VIVERS
+Juha HIRSIMAKI
+
+2
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+
+1 Contents
+2
+
+A3 Introduction.......................................................................................................................................... 5
+
+3
+
+Schemes ..................................................................................................................................................... 6
+
+4
+
+3.1
+
+Introduction & rules .......................................................................................................................... 6
+
+3.2
+
+Logic diagram of A3 F6P’s schemes ................................................................................................... 8
+
+3.3
+
+Logic diagram of A3 F12P’s schemes ............................................................................................... 10
+
+3.4
+
+Logic diagram of A3 S6P’s schemes ................................................................................................. 12
+
+3.5
+
+Logic diagram of A3 S12P’s schemes ............................................................................................... 13
+
+Typical use case of A3 .............................................................................................................................. 14
+4.1
+
+A3 F6P sensors installation and tripping output ............................................................................. 14
+
+4.1.1
+
+A3 F6P Scheme#1 .................................................................................................................... 14
+
+4.1.2
+
+A3 F6P Scheme#3 .................................................................................................................... 15
+
+4.1.3
+
+A3 F6P Scheme#4 .................................................................................................................... 15
+
+4.2
+
+3 F12P sensors installation and tripping output.............................................................................. 16
+
+4.2.1
+
+A3 F12P Scheme#1 .................................................................................................................. 16
+
+4.2.2
+
+A3 F12P Scheme#3 .................................................................................................................. 16
+
+4.2.3
+
+A3 F12P Scheme#4 .................................................................................................................. 17
+
+4.3
+
+A3 S6P sensors installation and tripping output ............................................................................. 17
+
+4.3.1
+
+A3 S6P Scheme#1 .................................................................................................................... 17
+
+4.3.2
+
+A3 S6P Scheme#4 .................................................................................................................... 18
+
+4.4
+
+A3 S12P sensors installation and tripping output ........................................................................... 18
+
+4.4.1
+5
+
+A3 S12P Scheme#1 .................................................................................................................. 18
+
+A3 system application examples as customer requirements .................................................................. 19
+5.1
+
+Non-selective ................................................................................................................................... 19
+
+5.2
+
+Partial Selectivty on outgoing feeders mixed by nonselective requirment .................................... 20
+
+5.3
+
+Complete selectivity, 2 incomings & a coupling electrical installation ........................................... 21
+
+3
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+Figures:
+
+Figure 1: Elements of logic diagram .................................................................................................................. 6
+Figure 2: A3F6P schemes explanation ............................................................................................................... 9
+Figure 3: A3F12P schemes explanation ........................................................................................................... 11
+Figure 4: A3S6P schemes explanation ............................................................................................................. 13
+Figure 5: A3S12P schemes explanation ........................................................................................................... 13
+Figure 6: A3 F6P scheme#1 typical use case ................................................................................................... 14
+Figure 7: A3 F6P scheme#3 typical use case ................................................................................................... 15
+Figure 8: A3 F6P scheme#4 typical use case ................................................................................................... 15
+Figure 9: A3 F12P scheme#1 typical use case ................................................................................................. 16
+Figure 10: A3 F12P scheme#3 typical use case ............................................................................................... 16
+Figure 11: A3 F12P scheme#4 typical use case ............................................................................................... 17
+Figure 12: A3 S6P scheme#1 typical use case ................................................................................................. 17
+Figure 13: A3 S6P scheme#4 typical use case ................................................................................................. 18
+Figure 14: A3 S12P scheme#1 typical use case ............................................................................................... 18
+Figure 15: Example 1 for A3 system Application ............................................................................................. 19
+Figure 16: Example 2 for A3 system Application ............................................................................................. 20
+Figure 17: Example 3 for A3 system Application ............................................................................................. 21
+
+Tables:
+Table 1: Rotary switch configuration................................................................................................................. 7
+Table 2: A3 models and pre-defined scheme .................................................................................................... 7
+
+4
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+
+2 A3 Introduction
+The arc flash detection system operates as a complement to the protection relays. The arc flash
+detection system is ensuring rapid operation during arc flash incident where other protection
+schemes e.g. overcurrent is not able to operate fast enough.
+PowerLogic A3 range is designed to fit to customer application to mitigate the Arc flash fault when
+it occurs inside a cubicle.
+The A3 range can operate individually or in system mode. Thus, any A3 module can be associated
+to other A3 devices to increase the number of light sensors and tripping outputs.
+Depends on number of cubicles, zones to protect and circuit breakers to control, the designer
+should select up to 4 devices to build the suitable solution.
+The A3 range can fit to MV or LV cubicles and operate with any switching device which have an
+accessible control input.
+This application note tries to explain how we can cover different customer requirements by
+PowerLogic A3 offer (chapter 5). But in first chapters the basics and scheme are explained.
+
+5
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+3 Schemes
+3.1 Introduction & rules
+A3 configuration requires 2 parameters to be set. The scheme number and the light Group numbers (has
+exactly same concept as Zone 1 to 4 in SE legacy products e.g., Vam10L, Vam12L, V321 light matrix).
+Scop of this chapter is to illustrate add provide an explanation about each scheme, although the logic is
+charted by logic diagrams.
+Before going into the point, these terminologies are going to be used:
+•
+•
+
+Local sensors: Sensors which are connected to A3 products
+Remote sensors: Sensors which are connected to adjacent A3 s product in the system where A3
+devices are connected by communication bus. The remote sensors’ signals are shared as generic
+events through the bus.
+
+Some important rules to remind:
+•
+
+•
+
+•
+
+•
+
+•
+
+Inside each logic diagram there are 3 elements. first element is the Inputs which is in bule colour in
+Fig.1. second element “logic “which is in red colour in Fig.1. and third element is output which is in
+green colour in Fig.1.
+Input includes all sensors either local or remote and current condition (if any, according to
+configured scheme). E.g. in Fig1 S1 to S6 are used as local sensors. Light Group is used as remote
+sensors from adjacent A3 and Current confirmation condition is used as well. Inputs data flow is
+defined by “Scheme” rotary switch and “Light Group” rotary switch.
+Logic includes logic operators which are defining A3 functionality considering light only or “Light+
+current” and consequently assigning to output elements. It is defined by “Scheme” rotary switch
+configuration.
+Output includes tripping outputs either HSO (T1 &T3) or conventional (T2 & T4) and light group
+which is shared as remote sensors data on the communication bus. Output data acquisition is
+defined by “Scheme” rotary switch and “Light Group” rotary switch.
+Each A3 device can get the remote sensors signal since it is published as generic event. But each A3
+can take this data and can execute it in its logic (Scheme) if only has identical “Light Group” setting
+of sender device. So, sender and receiver must have same Light Group setting.
+
+F IGURE 1: ELEMENTS OF LOGIC DIAGRAM
+
+6
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+•
+
+Below table briefly explains each rotary switch impacts on 3 different elements of A3 logic diagram:
+Rotary switch
+Schemes
+
+Light Group
+
+Description
+• Inputs- impact of “scheme” setting is mostly on which sensor’s data
+to be pushed to output. E.g., in Fig. 1 local sensor 3 to 6 is pushed to
+Light Group data which is shared with other A3 devices in the system
+through bus communication. Also, S1 light data with current
+condition is pushed to T1 and so on. Moreover, scheme rotary switch
+configuration defines if current confirmation condition is required or
+not. E.g., in Fig. 1 current condition is required.
+• Logic- it defines selective/non-selective, incomer/feeder logics. E.g.,
+in Fig. 1 we understand it is selective as S1 tripped T1 and S2 trips T3
+with current confirmation. In coming chapters these selective & nonselective logics will be explained in detail.
+• Output- tripping outputs are assigned and all or group of local
+sensors connected to A3 deice is shared through communication bus.
+This configuration defines the “Light Group” assignment for Input and output
+element of each single A3 device. If the light group rotary switch points at 2 it
+means:
+• All or group of local sensors, refer to pre-defined scheme, are pushed
+to Light Group 2(G2);
+• The A3 device considers the remote sensors data only and if only
+with exactly same Light Group 2(G2).
+
+T ABLE 1: R OTARY SWITCH CONFIGURATION
+
+•
+
+Below table shows different schemes of all A3 models based on covering selectivity/non-selectivity and
+with/without current condition.
+
+Scheme rotary switch has 9 available configurations from 1 to 9. But in wave 1 only some of them are
+defined refer to table2. Selective schemes have 2 sub-schemes defined as Incomer/feeder scheme. In next
+chapter these Incomer/Feeder logics will be explained in detail.
+o
+o
+o
+o
+
+A3F6P has 6 schemes.
+A3F12P has 6 schemes.
+A3S6P has 4 schemes.
+A3S12P has one scheme.
+
+A3
+models
+
+Non-selective
+
+Non-selective
++ current
+
+A3F6P
+#1
+#2
+A3F12P
+#1
+#2
+A3S6P
+#1
+#2
+A3S12P
+#1
+X
+T ABLE 2: A3 MODELS AND PRE -DEFINED SCHEME
+
+Selective
+Incomer
+
+Selective
+Feeder
+
+Without current
+
+Without current
+
+#3
+#3
+X
+X
+
+#4
+#4
+#4
+X
+
+7
+
+Selective
+Incomer +
+current
+#5
+#5
+X
+X
+
+Selective
+Feeder +
+current
+#6
+#6
+#6
+X
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+3.2 Logic diagram of A3 F6P’s schemes
+Schemes
+
+Description
+Schme #1 of A3 F6P:
+Non-selective without current confirmation scheme:
+If local sensors( S1 to S6) and/or remote sensors with
+identical Light Group setting is lit then T1,T2 and T3 trip.
+Moreover,all local sensros’s ( S1 to S6) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+Schme #2 of A3 F6P:
+Non-selective with current confirmation scheme:
+Same as schme #1. just current confirmation condition is
+added.
+Moreover,all local sensros’s ( S1 to S6) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus.
+
+Schme #3 of A3 F6P:
+Selective scheme for an Incomer without current.
+Sensors S1 and/or S2 can be installed in cable and/or circuit
+breaker compartment. T1 ,which is a high speed output, trips
+when S1 and/or S2 are lit without current confirmation and
+remote inter-tripping signal can be sent.
+Sensors S3 to S6 can be installed in incomer’s busbar
+compartment or riser’s busbar compartment.T2 , which is a
+conventioanl output relay, and T3,which is a high speed
+output relay, trip when S3 to S6 or remote sensros are lit.
+T3 can ce wired to tripping circuit of Incomer’s CB and T3
+either as signaling relay or wired to Coupling’s CB (if any). T2
+can be either wired to tripping circuit of coupling’s CB or
+remote e.g. SCADA.
+Moreover, local sensros’s ( S3 to S6) activation data is pushed
+to Light Group to be shared with other A3 devices with
+identical Light Group setting through communication bus.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+
+8
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+Schme #4 of A3 F6P:
+Selective scheme for an Outgoing feeder without current.
+By this scheme two No. of outgoing feeders could be covered.
+S1 is installed in cable compartment of outgoing X. T1 trips if
+S1 is lit. T1, which is a HSO, could be wired to tripping circuit
+of outgoing X’s CB.
+S2 is installed in cable compartment of outgoing Y. T3 trips if
+S2 is lit. T3, which is a HSO, could be wired to tripping circuit
+of outgoing Y’s CB.
+S3 and S4 are installed in CB’s and/or busbar compartment of
+outgoing X. Moreover, S5 and S6 are installed in CB’s and/or
+busbar compartment of outgoing Y. If S3 to S6 is lit then T2
+trips and can be sent either to coupling or remote; Moreover
+the Light Group is set to one and is sent to other A3s in the
+system. As an illustratio,the A3 which is located in Incomer
+with scheme #3 or #5 get the light group from this A3 and
+trips incoming CBs to isolate arc incident which is located on
+busbar/CBs on other part of the electrical instalation.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+Schme #5 of A3 F6P:
+Selective scheme for an Incomer with current.
+Same as schme #3. just current confirmation condition is
+added. Scheme #5 is designed for Incomer applications. The
+current confirmation condition is just used for sensros S3 to
+S6 and remote sensors.
+For S1 and S2, which are installed in cable’s and/or CB’s
+compartment of Incomer, current confirmation condition is
+not required. T1 will be used remotely as inter-tripping signal
+so if current confirmation condition is remotely is required at
+upstream then it should be managed at upstream.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+Schme #6 of A3 F6P:
+Selective scheme for an Outgoing feeder with current.
+By this scheme two No. of outgoing feeders could be covered.
+Same as schme #4. Just current confirmation condition is
+added.
+Moreover, local sensros’s ( S3 to S6) activation data is pushed
+to Light Group to be shared with other A3 devices with
+identical Light Group setting through communication bus. the
+A3 which is located in Incomer with scheme #3 or #5 get the
+light group from this A3, using this data in its logic, trip
+incoming’s CBs to isolate the arc incident which is located on
+busbar on other part of the electrical instalation.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+F IGURE 2: A3F6P SCHEMES EXPLANATION
+9
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+3.3 Logic diagram of A3 F12P’s schemes
+Schemes
+
+Description
+Schme #1 of A3 F12P:
+Non-selective without current confirmation scheme:
+If local sensors( S1 to S12) and/or remote sensors with
+identical Light Group setting are lit then T1 and T2 trip.
+Moreover, all local sensros’s ( S1 to S12) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus.
+
+Schme #2 of A3 F12P:
+Non-selective with current confirmation scheme:
+Same as schme #1. Just current confirmation condition is
+added.
+Moreover,all local sensros’s ( S1 to S12) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus.
+
+Schme #3 of A3 F12P:
+Selective scheme for an Incomer without current.
+Sensors S1 and/or S2 can be installed in cable and/or circuit
+breaker compartment of incomer. T1 ,which is a high speed
+output, trips when S1 and/or S2 are lit without current
+confirmation and remote inter-tripping signal can be sent.
+Sensors S3 to S12 can be installed in incomer’s busbar
+compartment or riser’s busbar compartment.T2 , which is a
+conventioanl output relay trips when S3 to S12 or remote
+sensros are lit.
+T2 can be wired to tripping circuit of Incomer’s CB.
+Moreover, local sensros’s ( S3 to S12) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus.
+
+10
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+Schme #4 of A3 F12P:
+Selective scheme for an Outgoing feeder without current.
+By this scheme two No. of outgoing feeders could be covered.
+S1 is installed in cable compartment of outgoing X. T1 trips if
+S1 is lit. T1, which is a HSO, could be wired to tripping circuit
+of outgoing X’s CB.
+S2 is installed in cable compartment of outgoing Y. T2 trips if
+S2 is lit. T2, which is a conventional output, could be wired to
+tripping circuit of outgoing Y’s CB.
+S3 to S12 are installed in CB’s and/or busbar compartment of
+outgoing X and/or Y. If any of these sensors is lit then the
+Light Group is set to 1 and is sent to other A3s in the system.
+E.g.; the A3 which is located in Incomer with scheme #3 or #5
+get the light group from this A3, using this data in its logic,
+trip incoming’s CBs to isolate the arc incident which is located
+on busbar on other part of the electrical instalation.
+Schme #5 of A3 F12P:
+Selective scheme for an Incomer with current.
+Same as schme #3. just current confirmation condition is
+added. Scheme #5 is designed for Incomer applications. The
+current confirmation condition is just used for sensros S3 to
+S12 and remote sensors.
+For S1 and S2, which are installed in cable’s and/or CB’s
+compartment of Incomer, current confirmation condition is
+not required. T1 will be used remotely as inter-tripping signal
+so if current confirmation condition is remotely is required at
+upstream then it should be managed at upstream.
+
+Schme #6 of A3 F12P:
+Selective scheme for an Outgoing feeder with current.
+By this scheme two No. of outgoing feeders could be covered.
+Same as schme #4. Just current confirmation condition is
+added.
+Moreover, local sensros’s ( S3 to S12) activation data is
+pushed to Light Group to be shared with other A3 devices
+with identical Light Group setting through communication
+bus. the A3 which is located in Incomer with scheme #3 or #5
+get the light group from this A3, using this data in its logic,
+trip incoming’s CBs to isolate the arc incident which is located
+on busbar on other part of the electrical instalation.
+F IGURE 3: A3F12P SCHEMES EXPLANATION
+
+11
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+3.4 Logic diagram of A3 S6P’s schemes
+Schemes
+
+Description
+Schme #1 of A3 S6P:
+Non-selective without current confirmation scheme:
+If local sensors( S1 to S6) and/or remote sensors with identical
+Light Group setting is lit then T3 trips.
+Moreover, all local sensros’s ( S1 to S6) activation data is pushed
+to Light Group to be shared with other A3 devices with identical
+Light Group setting through communication bus.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+Schme #2 of A3 S6P:
+Non-selective with current confirmation scheme:
+Same as schme #1. Just current confirmation condition is added.
+Moreover, all local sensros’s ( S1 to S6) activation data is pushed
+to Light Group to be shared with other A3 devices with identical
+Light Group setting through communication bus.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+Schme #4 of A3 S6P:
+Selective scheme for an Outgoing feeder without current.
+By this scheme one outgoing feeder could be covered.
+S1 & S2 are installed in cable compartment of outgoing feeder. T3
+trips if S1 and/or S2 are lit. T3, which is a HSO, could be wired to
+tripping circuit of outgoing feeder’s CB.
+S3 to S6 are installed in CB’s and/or busbar compartment of
+outgoing feeder. If any of these sensors is lit then the Light Group
+is set to 1 and is sent to other A3s in the system. E.g.; the A3F6P or
+A3F12P which is located in Incomer with scheme #3 or #5 get the
+light group from this A3, using this data in its logic, trip incoming’s
+CBs to isolate the arc incident which is located on busbar on other
+part of the electrical instalation.
+This specific scheme with A3 S6P could be used for sensor
+redundancy for one feeder. By installing S1 & S2 inside cable
+compartment, S3 & S4 inside CB compartment and S5 & S6 inside
+busbar compartment.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+
+12
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+Schme #6 of A3 S6P:
+Selective scheme for an Outgoing feeder with
+confirmation.
+By this scheme one outgoing feeder could be covered.
+
+current
+
+Same as schme #4. Current confirmation is added just for S1 and
+S2 sensros which are installed at cable compartment.
+Moreover, local sensros’s ( S3 to S6) activation data is pushed to
+Light Group to be shared with other A3 devices with identical Light
+Group setting through communication bus. The current
+confirmation condition is not considred for these sensor. Since this
+condition might be checked at upstream or incoming feeder where
+A3 F6P or A3 F12P with schems #5 are used.
+T4 functions as watchdog of self diagnosis of the A3 relay and
+other A3 devices in the system.
+F IGURE 4: A3S6P SCHEMES EXPLANATION
+
+3.5 Logic diagram of A3 S12P’s schemes
+Schemes
+
+Description
+Schme #1 of A3 S12P:
+Non-selective without current confirmation scheme:
+All local sensros’s ( S1 to S12) activation data is pushed to
+Light Group to be shared with other A3 devices with identical
+Light Group setting through communication bus.
+A3 S12P just play a light data collector in a A3 system. No
+tripping output. No Light Group input.
+
+F IGURE 5: A3S12P SCHEMES EXPLANATION
+
+13
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+4 Typical use case of A3
+Purpose of this chapter is giving a better understanding on ”where” all A3’s sensors is recommended to be
+installed. And where triping outputs of A3 devices should be wired. In fact each A3 used specific snesors to
+inictae specific outputs. This part will help users to get this matter easier.
+This Single-Line-Diagrams(SLDs) used in this chapter are taken from MV panels application and use
+case.Moreover, they are all illustraed based on pre-define logics inside A3 devices. That’s crystal clear when
+designers get familar with A3 logics and applications using the application note, then they can develop their
+own apporpriate A3 system based on existing logic in Wave1 of A3 devices for any application either LV or
+MV or others.
+Refer to tabel 2, 6 schems are developed for A3 F6P. 6 schems are developed for A3 F12P. 4 schems are
+developed for A3 S6P. 1 schems is developed for A3 S12P
+Important Note: All scheme with ”current confirmation condition” will be implemented in wave1.5(through
+V321) and wave2( by A34F device). So in the chapter we exlcude all of them and we illustrate light only
+schemes.
+
+4.1 A3 F6P sensors installation and tripping output
+4.1.1 A3 F6P Scheme#1
+SLD for A3 F6P Scheme#1
+
+Description
+Schme #1 of A3 F6P:
+Non-selective without current confirmation scheme:
+Using scheme #1 of A3 F6P in any A3 system,means all
+senesor’s activation data (either local or remote) in
+electrical installation is acquired by A3 F6P and all its
+outputs trip.
+As shwon in the SLD, A3F6P is inastalled in incoming
+feeder. T3 trips incoming’s CB. T1 trips remote/upstream
+CB. T1 and T3 are HSOs. T2 could send ” Arc incident
+report” to any supervision system e.g. SCADA or local
+signalisation system.
+Moreover, A3F6P can get remote sensor data through
+communication bus e.g. in the SLD A3 S6P is connected
+to A3F6P to make a small A3 system.All A3 S6P’s(S1-S6)
+sensros are considered as remote sensros . Any remote
+sensros activation of adjacent A3 S6P trips all trip
+outputs of A3 F6P. Note: as mentioned in SLD it is a must
+to configure unique Light Group setting for both A3
+devices. In the SLD both A3 devices have same G2
+configuration.
+
+F IGURE 6: A3 F6P SCHEME #1 TYPICAL USE CASE
+
+14
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+
+4.1.2 A3 F6P Scheme#3
+SLD for A3 F6P Scheme#3
+
+Description
+Schme #3 of A3 F6P:
+Selective scheme for an Incomer without current.
+Local sensor S1 is installed in cable compartment. Local
+sensor S2 is installed in CB compartment. If S1 and/or S2
+is lit the T1,HSO output, trips remote or upstream CB.
+Other local sensros S3 to S6 are installed on busbar of
+electrical installation. If these local sensros are lit the
+T3,HSO output, trips incoming feeder’s CB.Morover, if
+these sensors are activated T2 operates. T2 could be used
+as remote signalisation e.g. SCADA or to be wired to
+coupling CB’s tripping circuit.
+Besdies, A3F6P can get remote sensor data through
+communication bus from other adjacent A3 devices. Any
+remote sensros activation of other A3 devices ( based on
+its configured shcemes) trips T2 and T3.
+Note: as
+mentioned in SLD it is a must to configure a unique Light
+Group setting for all A3 devices which are installed on
+same busbar. In beside SLD both A3 devices have same
+G2 configuration.
+
+F IGURE 7: A3 F6P SCHEME #3 TYPICAL USE CASE
+
+4.1.3 A3 F6P Scheme#4
+SLD for A3 F6P Scheme#4
+
+Description
+Schme #4 of A3 F6P:
+Selective scheme for an Outgoing feeder without current.
+As Shown, two outgoing feeders could be controlled by this
+scheme.
+S1 is installed in cable compartment of outgoing X. T1 trips
+outgoing X’s CB if S1 is lit
+S2 is installed in cable compartment of outgoing Y. T3 trips
+outgoing Y’s CB if S2 is lit.
+S3 to S6 are installed in CB’s and/or busbar compartment of
+both outgoing feeders. If S3 to S6 is lit then T2 trips and can
+be sent either to coupling or remote e.g. SCADA; Moreover
+If S3 to S6 is lit the Light Group internal register is sent to
+other A3s in the system. As an illustration,the A3 which is
+located in Incomer with scheme #3 gets the light group
+information and trips incoming CBs to isolate arc incident
+which is located on busbar/CBs on other part of the
+electrical instalation.
+
+F IGURE 8: A3 F6P SCHEME #4 TYPICAL USE CASE
+
+15
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+4.2 3 F12P sensors installation and tripping output
+4.2.1 A3 F12P Scheme#1
+SLD for A3 F12P Scheme#1
+
+Description
+Schme #1 of A3 F12P:
+Non-selective without current confirmation scheme:
+If local sensors( S1 to S12) and/or remote sensors with
+identical Light Group setting are lit then T1 and T2 trip.
+T1 can be wired to trip remote/upstream CB.
+T2 can be wired to trip local CB.
+If remote tripping is not required, T1 as HSO, can trip
+local CB and T2 can be sent as remote signaling.
+Moreover, A3F12P can get remote sensor data through
+communication bus e.g. in the SLD A3xxx is connected
+to A3F12P to make a small A3 system.As per A3xxx
+scheme setting all or some of its sensros are conceidred
+as remote sensro for A3F12P . Any remote sensros
+activation of adjacent A3 xxx trips all trip outputs of A3
+F12P. Note: as mentioned in SLD it is a must to
+configure unique Light Group setting for both A3
+devices. In the SLD both A3 devices have same G2
+configuration.
+
+F IGURE 9: A3 F12P SCHEME #1 TYPICAL USE CASE
+
+4.2.2 A3 F12P Scheme#3
+SLD for A3 F12P Scheme#3
+
+Description
+Schme #3 of A3 F12P:
+Selective scheme for an Incomer without current.
+S1 and/or S2 can be installed in CB and cable
+compartment in incomer feeder. T1 trips if these
+sensros are lit. T1 can send remote inter tipping signal
+to upstream Cbor any other remote CBs.
+Sensors S3 to S12 can be installed in incomer’s busbar
+or other points in the busbar compartment of electrical
+installation.T2 trips when S3 to S12 or other remote
+sensros from other A3 with same Light Group setting
+are lit. As an illustration all or some sensors connected
+to A3xxx in SLD, based on its scheme configuration.
+T2 can be wired to tripping circuit of Incomer’s CB.
+Moreover, local sensros of A3F12P ( S3 to S12)
+activation data is pushed to output Light Group.
+
+F IGURE 10: A3 F12P SCHEME #3 TYPICAL USE CASE
+
+16
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+4.2.3 A3 F12P Scheme#4
+SLD for A3 F12P Scheme#4
+
+Description
+Schme #4 of A3 F12P:
+Selective scheme for an Outgoing feeder without current.
+By this scheme two No. of outgoing feeders could be
+covered.
+S1 is installed in cable compartment of outgoing X. T1 trips
+if S1 is lit. T1 could be wired to tripping circuit of outgoing
+X’s CB.
+S2 is installed in cable compartment of outgoing Y. T2 trips
+if S2 is lit. T2 could be wired to tripping circuit of outgoing
+Y’s CB.
+S3 to S6 are installed in CB’s and/or busbar compartment
+of outgoing X and/or Y.Moroevr other sensors e.g. S7,S8
+and S9 are installed on other points of the busbar. If any of
+these sensors is lit then the Output Light Group is set to 1
+and is sent to other A3s in the system. E.g.; the A3 which is
+located in Incomer , by scheme #3 configuration , gets the
+light group data from A3F12P, using this data in its logic, it
+trips incoming’s CBs to isolate the arc incident.
+
+F IGURE 11: A3 F12P SCHEME #4 TYPICAL USE CASE
+
+4.3 A3 S6P sensors installation and tripping output
+4.3.1 A3 S6P Scheme#1
+SLD for A3 S6P Scheme#1
+
+Description
+Schme #1 of A3 S6P:
+Non-selective without current confirmation
+scheme.
+Same as Scheme#1 of A3 F6P & A3 F12P , If local
+sensors( S1 to S6) and/or remote sensors with
+identical Light Group setting are lit then T3 trips.
+T3 can be wired to any CB.
+Moreover, A3S6P can get remote sensor data
+through communication bus e.g. in the SLD
+A3F6P is connected to A3S6P to make a small
+A3 system.Any remote sensros activation of A3
+F6P trips T3 output of A3 S6P. Note: as
+mentioned in SLD it is a must to configure
+unique Light Group setting for both A3 devices.
+In the SLD both A3 devices have same G2
+configuration.
+A3S6P must be connected to at least one A3Fxx
+device.T4 functions as watchdog of self
+diagnosis of the A3 relay and other A3 devices in
+the system.
+
+F IGURE 12: A3 S6P SCHEME #1 TYPICAL USE CASE
+
+17
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+4.3.2 A3 S6P Scheme#4
+SLD for A3 S6P Scheme#4
+
+Description
+Schme #4 of A3 S6P:
+Selective scheme for an Outgoing feeder without
+current.
+S1 & S2 are installed in cable compartment of
+outgoing feeder. T3 trips if S1 and/or S2 are lit.
+T3, which is a HSO, could be wired to tripping
+circuit of outgoing feeder’s CB.
+S3 to S6 are installed in CB’s and/or busbar
+compartment of outgoing feeder. If any of these
+sensors is lit then the Light Group is set to 1 and
+is sent to other A3s in the system. E.g.; the A3Fxx
+which is located in Incomer with scheme #3 or #5
+get the light group from this A3, using this data in
+its logic, trip incoming’s CBs to isolate the arc
+incident which is located on busbar on other part
+of the electrical instalation.
+This specific scheme with A3 S6P could be used
+for sensor redundancy for one feeder as shown in
+the Fig.
+A3S6P must be connected to at least one A3Fxx
+device.T4 functions as watchdog of self diagnosis
+of the A3 relay and other A3 devices in the
+system.
+
+F IGURE 13: A3 S6P SCHEME #4 TYPICAL USE CASE
+
+4.4 A3 S12P sensors installation and tripping output
+4.4.1 A3 S12P Scheme#1
+SLD for A3 S12P Scheme#1
+
+Description
+Schme #1 of A3 S12P:
+A3S12P has only one scheme. It acts as light data
+collector and share this data through its configured
+light group setting to other A3 devices in the
+system.
+As an illustration in the Fig. 14 the 12 local sensors
+of A3S12P are installed on 4 feeders (each feeder
+includes 3 sensors in cable, CB and busbar
+compartment). For any Arc Falsh incident in these
+feeders the Upstream A3 device gets the light data
+and based on its configured scheme operates.
+A3S12P doesn’t have any tripping outputs.
+A3S12P must be connected to at least one A3Fxx
+device.
+
+F IGURE 14: A3 S12P SCHEME #1 TYPICAL USE CASE
+
+18
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+
+5 A3 system application examples as customer requirements
+5.1 Non-selective
+Customer requirements: To have non-selective Arc Flash detection and immediately trip the required main
+CB to remove immediately arc from electrical installation.
+So, the main request of customer is removing Arc Flash from installation and trip the main incomer feeder
+of electrical installation no matter where Arc Flash happens. So, either arc happens inside cable
+compartment of a feeder or busbar compartment of feeder X the A3 system should detect and trip the
+main incomer feeder!
+
+F IGURE 15: EXAMPLE 1 FOR A3 SYSTEM A PPLICATION
+Technical offer:
+Minimum system proposed by PowerLogic A3: one A3F12P installed in the incoming feeder, one A3S12P
+installed in one of the outgoing feeders.
+A3F12P as shown, can cover 4 feeders (including incoming feeder), T1 and/or T2 could be used to trip
+incoming feeder’s CB.
+A3S12P as shown, can cover 4 outgoing feeders! All the light data captured by it sensors S1 to S12 is
+shared by A3F12P at upstream.
+Both A3 devices are set to Scheme #1 with unique light group setting e.g. light group #2.
+Scheme #1 is chosen since the only requirment is ” non- selective” tripping, it means whereever the arc
+happens immediately the electrical isn,tallation should be shutdown. During Arc incident inside electrical
+installation the A3F12P either by its local sensor or by remote sensors (here A3S12P sensors) will actuate
+T1and T2 . these tripping output relays could be wired accordingly. E.g. in the Fig. 15 , T2 is wired to
+incoming CB’s tripping circuit and T2 is wired to remote/upstream CB’s tripping circuit.
+As you see, A3 could be very interesting technical offer, 2 pieces of A3 devices can cover requirment,
+despite if we propsoe A125 , we need to offer 8 pieces of A125. and moreover more comissioning and
+more wiring is required between A125 devices.
+Note, reminder: As t’s exaplined previously in this document, any A3Sxx device should be connected to
+atleast one A3Fxx. A3Sxx doesn’t have power supply.
+
+19
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+5.2 Partial Selectivty on outgoing feeders mixed by nonselective requirment
+Customer requirements: To have selective tripping for Arc Incident for outgoing feeders inside cable
+compartment and non-selective Arc Flash detection is other part of electrical installation. As it’s shown a
+part of electrical installation requires selectivity and another part doesn’t require it. With PowerLogicA3 we
+can cover the requirements effectively. In this application A3F6P in outing isolate the Arc Incident on th
+cable compartment from other part of the network. Consequently, the continuity of service is guaranteed.
+But for any Arc Incident on the busbar or nonselective area the local incoming CB by T3, upstream CB by T1
+and coupling CB by T2(optional) are tripped. A3F6P which is installed in the incoming feeder control these
+three CBs.
+
+F IGURE 16: EXAMPLE 2 FOR A3 SYSTEM A PPLICATION
+Incoming: A3F6P is used. First to configure a scheme which covers selective tripping in the incoming with
+scheme number 3, second to have maximum controlling/tripping output. A3F6p can get remote sensor
+data through light group to cover nonselective area as well and to isolate fault from main incomer feeder!
+Outgoings: A3F6P is used. First to configure a scheme which covers selectivity in the outgoing whit scheme
+number 4, second to have separate control and trip for 2 outgoing feeders. S1 sensor will trip outgoing
+feeder X ‘s CB and S2 sensor will trip outgoing feeder Y ‘s CB. These A3F6P with configuration scheme #4
+send sensors S3 to S6’s light data, which are installed on CBs and/or busbar compartments, to the A3F6P in
+the incoming feeder.
+Note: in Fig. 16 the coupling is shown. But as explained above cannot design full selectivity with one A3 in
+the incoming, since in wave 1 each A3 has just one light group setting which is settable by rotary switch. So,
+coupling in Fig. 16 present generally the typical electrical installation. For full selectivity application please
+see next part.
+
+20
+
+P5APS0016EN
+Internal
+
+[ Application note ]
+5.3 Complete selectivity, 2 incomings & a coupling electrical installation
+Customer requirements: To have complete selective tripping for Arc Incident inside the electrical
+installation. So, while there is an Arc Flash inside cable compartment of outgoing feeder then the dedicate
+circuit breaker of same feeder must be tripped. While there is an Arc Incident on CB compartment and on
+the busbar then incoming circuit breaker must be tripped (and coupling if any).
+
+F IGURE 17: EXAMPLE 3 FOR A3 SYSTEM A PPLICATION
+The installation with 2 incoming and a coupling feeder with full selective requirement during Arc Incident:
+As it shown there are two independent A3 system. The one on the right busbar (the busbar is colour coded
+in blue) and then one at the left busbar (the busbar is colour coded in green). Since these systems are
+independent (not connected by ethernet cable) and not connected to each other, in case of Arc Incident at
+green busbar or all CB compartment connected to green busbar just coupling and left incoming circuit
+breaker are tripped. Same, in case of Arc Incident at blue busbar or all CB compartment connected to blue
+busbar just coupling and right incoming circuit breaker are tripped.
+Incoming: A3F6P is used. First to configure a scheme which covers selective tripping in the incoming with
+scheme number 3, second to have maximum controlling/tripping output. A3F6P can get remote sensor
+data, which are installed on its busbar, and sensor data of all CB compartments connected to its busbar
+through light group.
+A3F6P with scheme No. 3, which is installed in the incoming feeder, Control 3 CBs. For all Arc Flash on the
+bursar/CB compartment (Green or Blue area) by T3 trips local incoming CB and by T2 trips coupling. For arc
+flash inside its own CB and cable compartment send direct transfer tripping to remote/upstream CB by T1.
+In case of Arc on any busbar e.g., green bus bar, The A3F6P in the left incoming immediately isolate the Arc
+incident from healthy busbar (the blue one) and the continuity of service is guaranteed. So, the right
+incoming feeder which is connected to blue busbar remains in service.
+21
+
+P5APS0016EN
+Internal
+
+[ APPLICATION NOTE ]
+
+Outgoings: A3F6P is used. First, to be able to configure a scheme selectivity possibility in the outgoing
+feeder. So, the scheme is set to number 4. Second, to have separate control and trip for 2 outgoing feeders.
+S1 sensor will trip outgoing feeder X ‘s CB and S2 sensor will trip outgoing feeder Y ‘s CB. These A3F6P with
+configuration scheme #4 send sensors S3 to S6’s light data, which are installed on CBs and/or busbar
+compartments, to the A3F6P in the incoming feeder.
+1st Note: As the two A3 systems are independent we are allowed to set any Light Group. As it’s shown on
+Fig.17 even the light group for both systems could same e.g., light group in both are set as G2.
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil-Malmaison
+FRANCE
+Phone: +33 (0) 1 41 29 70 00
+Fax: +33 (0) 1 41 29 71 00
+www.schneider-electric.com
+
+© 2022 Schneider Electric Industries SAS - All rights reserved.
+Electrical equipment should be installed, operated, serviced,
+and maintained only by qualified personnel. No responsibility
+is assumed by Schneider Electric for any consequences
+arising out of the use of this material.
+
+Publishing: 06/2022
+
+22
+
+P5APS0016EN
+Internal
+
+

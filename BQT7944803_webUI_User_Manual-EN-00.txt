@@ -1,0 +1,3255 @@
+Baseline Software Platform
+webUI – (Add-On & Runtime)
+User Manual
+BQT7944803-EN-00
+02/2024
+
+www.se.com
+Public
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+webUI – Add-on & Runtime
+
+Table of Contents
+Foreword ............................................................................................1
+Safety Information ................................................................................................ 1
+Important Information ..................................................................................... 1
+Please Note ................................................................................................... 2
+About the Book ..................................................................................................... 2
+Document Scope ........................................................................................... 2
+Document Revision History ............................................................................ 2
+Conformity ..................................................................................................... 3
+Related Documents ....................................................................................... 3
+Information on Non-Inclusive or Insensitive Terminology ............................... 3
+Safety Instructions ............................................................................................... 3
+
+webUI Runtime ...................................................................................4
+webApp & webUI ................................................................................................. 4
+Accessing webUI ................................................................................................. 4
+Using webApp & webUI ................................................................................ 4
+General Description (Runtime) ............................................................................ 7
+Main Zones.................................................................................................... 7
+Session Information (Zone 1)......................................................................... 7
+Graphic Representation Zone (Zone 2) ........................................................ 9
+Latest Alarms Zone (Zone 3) ........................................................................ 9
+Monitoring and Control ...................................................................................... 10
+Screens ....................................................................................................... 10
+Alarms ......................................................................................................... 11
+
+Saitel DP and Saitel DR ................................................................................... 12
+PowerLogic T500 ............................................................................................. 12
+
+Signals......................................................................................................... 14
+Chronological .............................................................................................. 15
+Dynamic Elements....................................................................................... 16
+
+Informative Symbols ......................................................................................... 16
+Controllable Symbols........................................................................................ 17
+Quality Information ............................................................................................ 19
+
+Graphic Elements ........................................................................................ 20
+
+Switchgear........................................................................................................ 20
+Status and Indications ...................................................................................... 22
+Measures.......................................................................................................... 24
+Devices and Equipment.................................................................................... 24
+
+Settings Tool ..................................................................................................... 29
+
+Interlocks .......................................................................................................... 30
+Preview............................................................................................................. 31
+Language ......................................................................................................... 31
+
+webUI Editor..................................................................................... 32
+webUI Description ............................................................................................. 32
+Screen Configuration......................................................................................... 33
+webUI Configuration (Zone 1) ..................................................................... 33
+
+System Identification ........................................................................................ 33
+Create a Screen ............................................................................................... 34
+Hiding a Screen ................................................................................................ 35
+Deleting a Screen ............................................................................................. 35
+
+BQT7944803-EN-00
+
+Public
+
+1
+
+webUI – Add-on & Runtime
+Screen Organization ......................................................................................... 35
+Screen Repository ............................................................................................ 36
+
+Screens Manager (Zone 2) ......................................................................... 37
+Screen Display (Zone 4) ............................................................................. 37
+Graphic Objects (Zone 3) ............................................................................ 37
+
+Common Properties for Graphic Objects .......................................................... 38
+Status and Indications ...................................................................................... 40
+Devices and Equipment.................................................................................... 42
+Data Object Selection ....................................................................................... 50
+
+Realtime Configuration ...................................................................................... 51
+Status Point ................................................................................................. 51
+
+Alarm Configuration .......................................................................................... 52
+
+Analog Points .............................................................................................. 53
+Command Points ......................................................................................... 54
+
+Command Locks Configuration ........................................................................ 54
+
+Setpoint ....................................................................................................... 55
+webUI Configuration (Zone 5) ........................................................................... 56
+Alarm Levels ............................................................................................... 56
+HMI Parameters .......................................................................................... 57
+
+Alarm ................................................................................................................ 58
+Chronological ................................................................................................... 59
+Command Session Timeout: ............................................................................ 60
+Date Mark ......................................................................................................... 61
+Enable Session Timeout................................................................................... 61
+Other Settings .................................................................................................. 62
+Tables............................................................................................................... 64
+
+Glossary ........................................................................................... 65
+
+2
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+Foreword
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates an imminently hazardous situation which, if not avoided, will result in death or
+serious injury.
+
+!
+
+WARNING
+
+WARNING indicates a potentially hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+NOTICE
+
+BQT7944803-EN-00
+
+Public
+
+1
+
+webUI – Add-on & Runtime
+
+Foreword
+
+Please Note
+Electrical equipment must be installed, operated, serviced, and maintained only by
+qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation and has received safety
+training to recognize and avoid the hazards involved.
+
+About the Book
+Document Scope
+This manual provides information for the use of the webUI Add-on and runtime tool
+integrated in the Baseline Software Platform in Saitel and PowerLogicTM T500
+devices of Schneider Electric.
+
+Document Revision History
+Document reference-revision
+
+Release date
+
+Modifications
+
+SE-WUI-S854-01
+
+01/2021
+
+Creation
+
+SE-WUI-S854-02
+
+05/2021
+
+Changes for version 1.7.8 of Easergy Builder and
+Baseline 11.06.22 of SM_CPU866e.
+Introduction of new functionalities in 2.0.5. webUI
+version
+
+SE-WUI-S854-03
+
+10/2021
+
+Changes for version 1.7.9 of Easergy Builder and
+Baseline 11.06.23 of SM_CPU866e.
+webUI version reverted to 2.0.3 and webUI Editor
+(Plugin webUI Configuration) to 01.02.08.
+
+SE-WUI-S854-04
+
+03/2022
+
+Changes for version 1.7.17.2 of Easergy Builder
+and BaseLine 11.06.24_2202220722 of
+SM_CPU866e.
+Introduction of new functionalities in 2.0.20 webUI
+version.
+Introduction of Saitel DR modules.
+
+SE-WUI-S854-05
+
+08/2022
+
+Changes for BaseLine
+BaseLine_11.06.28_2209271132 of
+SM_CPU866e.
+Introduction of new functionalities in 2.0.25.:
+- Select a row in Chronological grid.
+- Allow to re-dimension the webUI tables columns
+in width.
+- Explanation of Local/Remote functionality.
+
+BQT7944803-00
+
+2
+
+03/2024
+
+Public
+
+Information about how to acknowledge alarms
+and the specific case of alarms which correspond
+to supervision points.
+Addition of PowerLogic HU280 module
+description
+A new document reference and revision is
+applied.
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+Foreword
+
+Conformity
+The webUI component has been developed in accordance to the requirements for
+a quality management system, complying with the ISO 9001:2015 Norm.
+
+Related Documents
+Product
+
+Title of documentation
+
+Reference number
+
+PowerLogic HU280 module
+
+User Manual
+
+BQT7944901
+
+webApp
+
+User Manual
+
+SE-S856-MSS
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+EcoStruxureTM Cybersecurity User Manual
+Admin Expert
+
+CAE/ENUM/B4.1
+
+SM_CPU866e
+
+User Manual
+
+SE-USR-M578
+
+HUe
+
+User Manual
+
+SE-USR-M588
+
+Saitel DP Platform
+
+User Manual
+
+SE-F700-USR
+
+Saitel DR Platform
+
+User Manual
+
+SE-F800-USR
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+SOE Device (Sequence of
+Events)
+
+User Manual
+
+SE-S854-SOE
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+Safety Instructions
+DANGER
+
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+This unit must be installed and serviced only by qualified electrical
+personnel.
+Turn off all power supplies of this unit before working on or inside the unit.
+Always use a properly rated voltage sensing device to confirm that power is
+off.
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+Set all devices, doors, and covers before turning on power to this unit.
+Failure to follow these instructions will result in death or serious injury.
+
+BQT7944803-EN-00
+
+Public
+
+3
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+webUI Runtime
+webApp & webUI
+Saitel DP, DR and PowerLogic T500 RTUs support two web-based tools for
+maintenance and monitoring:
+
+• webApp: Embedded webserver interface for monitoring, maintenance &
+
+diagnostics of the RTU. Using the configuration defined in Easergy Builder and
+loaded on the CPU, the user can consult and / or change some parameters
+through webApp. Unlike Easergy Builder, webApp does NOT allow to add new
+features (and / or screens). It can only change the information previously
+included through Easergy Builder using the screens already defined in the tool.
+
+• webUI: Web-based graphical substation user interface. This tool is composed
+by two different environments, one for design-time and another for run-time:
+
+o webUI (Runtime): Web tool running in the RTU allowing to monitor the
+information using screens which were designed by the user with Easergy
+Builder (webUI Add- On).
+o webUI (Add-On): Additional tool included in Easergy Builder for creation
+and addition of customized webUI screens. It allows to design new screens
+for the configuration loaded into the RTU or to modify the information in
+those screens already loaded into the RTU.
+
+Accessing webUI
+webUI is accessible through a compatible web browser running in an OS Windows 7®
+or higher.
+The most common browsers (Firefox and Chrome) support this tool, although only
+versions supporting HTML5.
+Web browser
+
+Minimal Version
+
+Google
+Chrome
+
+58
+
+Firefox
+
+52
+
+Microsoft
+Edge
+
+Microsoft Edge
+44.18362.449.0 Microsoft
+Edge HTML 18.18363
+
+Internet
+Explorer
+
+Not compatible
+
+Using webApp & webUI
+There are two web-based tools available: webApp and webUI.
+By default, webApp is used as main web tool, that is, when the user writes
+https://<CPU IP address> in the address bar of the web browser, by default, the main
+page of webApp is shown.
+
+4
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+webApp in URL
+
+The user can change the default landing page to webUI activating the following
+checkbox on the main page of webApp:
+webUI as main app option
+
+Next time, webUI will be used as main web tool
+If the browser displays a security message when accessing the RTU, it can be
+dismissed to load the website. For example, in Microsoft Edge select 'Go on to the
+webpage'.
+
+BQT7944803-EN-00
+
+Public
+
+5
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Security notice
+
+A valid username and password are required.
+Login window
+
+By default, users granted to login in webUI are:
+Engineer
+Installer
+
+Saitel DP & DR
+
+Operator
+Viewer
+NOTICE
+
+HAZARD OF INAPROPRIATE OPERATION OR INFORMATION EXPOSURE
+It is recommended to change the default passwords, and in any case, follow the
+security policy applicable in each control system.
+Failure to following this recommendation may compromise the operation of
+the system and its information
+In the case of PowerLogic T500, by default, there are no users with access to
+webUI. Security Admin user can create a user with a role with webUI access.
+See the BQT7944802 webApp User Manual for more information about the users
+defined in the system and the roles assigned to each of them.
+From webApp, the user can access to webUI selecting Monitoring & control ->
+webUI in the main menu. A login window will be shown, and the user needs to have
+permission to use the webUI to access the interface.
+To return to webApp from webUI, select webApp in the menu tab available when
+'Settings' button is clicked.
+
+6
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+General Description (Runtime)
+Main Zones
+Once inside the webUI tool, the user can see three main zones:
+Description of the webUI environment
+
+• 1: Session Information.
+• 2: Graphic representation zone.
+• 3: Alarms zone.
+
+Session Information (Zone 1)
+This section is always visible, and it indicates the connection status to the webUI
+server. If the connection is active, the information displayed will be refreshed in realtime from the server database.
+Session information with CPU connection
+If the connection to the webUI server is lost, this area will be shown in red, and the
+latest valid information retrieved from the server will be illustrated.
+Session information when the connection to the CPU is lost
+
+The information shown in this area is as follows:
+• Customer logo:
+
+. Configurable in Easergy Builder.
+
+• Installation name and name of the equipment:
+Easergy Builder.
+
+Configurable in
+
+• Local or 'webUI' control / 'Remote control' indication.
+or
+The user can switch between webUI and remote using the setting button
+explained below.
+
+.
+
+• Alarm indicator (
+). It shows in red the number of alarms produced without
+being acknowledged by the operator. Clicking on the icon, the 'Page of
+Alarms' is shown.
+• Username of the user logged in the active session:
+Clicking on the arrow, the user can logout.
+
+.
+
+• Information of the last event registered, including:
+•
+
+BQT7944803-EN-00
+
+Date and time
+
+Public
+
+7
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+•
+
+Signal base message: which will depend on the event that has occurred.
+For example, if it is an alarm, the base message will be START or END
+depending on whether the alarm situation has been activated or
+deactivated.
+
+•
+
+Description of the signal or point associated with the event.
+
+• The current date and time are displayed:
+• Settings button
+
+: This button allows the user the following actions:
+
+•
+
+Go to System options.
+
+•
+
+Go to webApp.
+
+•
+
+Visualize the interlocks information.
+
+•
+
+Activate / Deactivate alarms sound.
+
+•
+
+Activate / Deactivate pop-up windows for elements on the screens.
+
+•
+
+Language used in webUI.
+
+•
+
+Information about the version of webUI.
+
+Settings menu
+
+This information is largely explained in section Settings Tool
+• Main menu button . This button allows the user to access the information
+for each available screen, which will be shown in zone 2
+Main menu button
+
+8
+
+•
+
+In the Screens option, the screens shown are configured by the editor. In
+this case, there are two available screens: UNIFILAR (Single-line diagram)
+and Acquisition.
+
+•
+
+Alarms page.
+
+•
+
+Signals page.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+•
+
+Chronological information
+
+Graphic Representation Zone (Zone 2)
+The information displayed in the graphic representation area depends on the option
+selected in the main menu.
+Graphic representation zone
+
+The first screen in the main menu is shown by default. The order of the available
+screens can be changed using Easergy Builder.
+In this zone it is possible to zoom and pan. Zooming is done with the mouse wheel
+and panning can be done with the left-click, right-click or also with the mouse wheel.
+When the window is in its original size, no panning is allowed.
+Finally, to reset the view it would only be necessary to double left-click to do it.
+
+Latest Alarms Zone (Zone 3)
+This zone shows the latest three alarms. The visual appearance of each alarm line
+will depend on its status and on the user acknowledge.
+• Blinking: Unacknowledged alarm
+• Colored according to the user configuration: Active alarm and Inactive alarm
+colors are configured by the user in the Easergy Builder Add-On. More
+information in section Alarm Levels.
+Alarms zone
+
+BQT7944803-EN-00
+
+Public
+
+9
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Monitoring and Control
+Use the main menu button (
+
+) to access the following information in Zone 2:
+
+• Graphical interfaces or screens designed in Easergy Builder.
+• Alarms page
+• Signals allowed to be shown in webUI
+
+Screens
+
+• Chronological information
+
+In the example used in this manual, two screens are available:
+Main menu (screens detail)
+
+Using Easergy Builder 1.6.7.0 or later for Saitel RTUs and 1.7.32.0 for PowerLogic
+T500 RTUs, the user can design new screens according project requirements. All
+information is included in chapter webUI Editor of this manual.
+The most common types of screens could be:
+• SLD or electrical diagrams.
+• Communications.
+• Local acquisition, including status of the I/O modules, CPU and
+SM_SER/XS280/AB_SER, communication ports, voltage, etc.
+When a screen is selected, it is shown in the graphic representation area:
+Example of SLD screen
+
+10
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Example of acquisition screen
+
+When webUI is started, the first screen in the list appears by default. This list can be
+configured in the graphic engineering tool webUI Add-On.
+
+Alarms
+
+More information in chapter webUI Editor.
+
+Selecting button
+
+> Alarms, the alarm page is shown. In this list are included:
+
+• Acknowledged active alarms.
+• Unacknowledged active alarms.
+• Unacknowledged inactive alarms
+Acknowledging an alarm will make it stop blinking. To acknowledge a specific
+alarm, it is necessary to use the button “Acknowledge” in that row. There are two
+more buttons: “Acknowledge all” and “Acknowledge page”. The first is used to
+knowledge all activated alarms, while the second is used to acknowledge only the
+page where the user is at that moment.
+However, there is a particular case where it is necessary to use the “Acknowledge
+page” or the specific “Acknowledge” and that is when the alarm corresponds to a
+supervision point. “Acknowledge all” will not acknowledge alarms which correspond
+to supervision points.
+Alarms page
+
+The color of the alarm is configurable in Easergy Builder. More information in
+paragraph Alarm Levels.
+Alarms are, by default, ordered by the column 'Timestamp'. The arrow next to it can
+be used to show most recent or oldest first.
+For each signal, the displayed information is platform dependent:
+
+BQT7944803-EN-00
+
+Public
+
+11
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Saitel DP and Saitel DR
+There are two different views:
+• Standard: Available columns are TIMESTAMP, VALUE, QUALITY, POINT
+NAME, POSITION, SOURCE and DESCRIPTION
+Alarms page (Saitel standard view)
+
+• Engineering: Available columns are TIMESTAMP, VALUE, QUALITY, B1, B2,
+B3, ELEMENT and INFO
+Alarms page (Saitel engineering view)
+
+PowerLogic T500
+There are four different views:
+• Standard: Available columns are ALARM, TIMESTAMP, VALUE, QUALITY,
+POINT NAME, POSITION, SOURCE, DESCRIPTION and ALARM TYPE
+Alarms page (PowerLogic T500 standard view)
+
+• Integrated view: Available columns are TIMESTAMP, VALUE, QUALITY,
+POINT NAME, POSITION, SOURCE and DESCRIPTION
+Alarms page (PowerLogic T500 integrated view)
+
+• Engineering: Available columns are ALARM, TIMESTAMP, VALUE,
+QUALITY, B1, B2, B3, ELEMENT, INFO and ALARM TYPE
+
+12
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Alarms page (PowerLogic T500 engineering view)
+
+• Integrated view + Engineering: Available columns are TIMESTAMP, VALUE,
+QUALITY, B1, B2, B3, ELEMENT and INFO
+Alarms page (PowerLogic T500 integrated + engineering view)
+
+The meanings of these fields are:
+• ALARM: Defines if the signal es in alarm status with a blinking red “A”. This
+column name is not visible.
+• TIMESTAMP: Date and time associated to the alarm.
+• VALUE: Value of the signal. For digital signals, the value is shown in text
+format, and for analog signals the numerical value is used.
+• QUALITY: Signal quality.
+• B1: The text indicated in this column will be applied to the engineering field B1
+assigned to the point in the webUI configuration.
+• B2: The text indicated in this column will be applied to the engineering field B2
+assigned to the point in the webUI configuration.
+• B3: The text indicated in this column will be applied to the engineering field B3
+assigned to the point in the webUI configuration.
+• ELEMENT: The text indicated in this column will be applied to the Engineering
+Element field assigned to the point in the webUI configuration.
+• POINT NAME: Signal name in coreDb.
+• POSITION: Source device of the information associated with the signal (field
+Source Device).
+• SOURCE: Coordinates of the signal in coreDb (field Source Coordinates).
+• DESCRIPTION: Brief description of the signal (field Description in coreDb).
+• ALARM TYPE: Indicates the “Alarm Mode” defined in Easergy Builders real
+time table.
+The information shown in the previous fields is configured for each signal in the
+page 'Realtime configuration' of Easergy Builder webUI Add-Ons as follow:
+• VALUE: Text included in field A0 label, A1 label, A2 label or A3 label
+according to the signal value (0, 1, 2 or 3).
+• B1, B2 and B3: Texts include in columns B1, B2 and B3 respectively.
+• ELEMENT: Text included in the column Element.
+• INFO: Text included in the column Info.
+Clicking on any of these elements allows the user to order the alarms depending on
+the value of that element.
+
+BQT7944803-EN-00
+
+Public
+
+13
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+It is also possible to re-dimension the webUI tables columns in width.
+Using the check box 'Not acknowledged', only unacknowledged alarms are included
+in the list.
+
+Signals
+
+Alarm information can be downloaded to a file called 'Alarms.csv' which can be
+imported into a commercial tool, for example Microsoft Excel®.
+
+Select button
+> Signals to access the information of signals in coreDb. The order
+of the list is the same as in coreDb.
+List of signals in database
+
+This list includes only the signals that have been marked as Enabled in the
+Realtime Configuration screen in Easergy Builder. More information in paragraph
+Realtime Configuration
+For each signal the following information is displayed:
+• TIMESTAMP: Date and time of the last change of value or quality.
+• VALUE: For status and command points, label assigned in Easergy Builder to
+the current value of the signal. This label is set in the Realtime Configuration
+window in Easergy Builder. If no label has been assigned, the test NA (not
+apply) is shown. For analog and setpoint, this field shows the current value of
+the signal. More information in section Realtime Configuration.
+• QUALITY: Quality information.
+• POINT NAME: Signal name in coreDb.
+• POSITION: Source device of the information associated with the signal (field
+Source Device).
+• SOURCE: Coordinates of the signal in coreDb (field Source Coordinates).
+• DESCRIPTION: Brief description of the signal (field Description in coreDb).
+Activating 'Engineering' check box shown the engineering information associated to
+each signal, as it can be seen in the following figure.
+It is also possible to re-dimension the webUI tables columns in width.
+
+14
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+List of signals in database with engineering information
+
+Engineering values in this picture have been created only for this user manual
+purpose. These values must be configured according to its engineering purpose in
+the substation.
+• B1: The text indicated in this column will be applied to the engineering field B1
+assigned to the point in the webUI configuration.
+• B2: The text indicated in this column will be applied to the engineering field B2
+assigned to the point in the webUI configuration.
+• B3: The text indicated in this column will be applied to the engineering field B3
+assigned to the point in the webUI configuration.
+• ELEMENT: The text indicated in this column will be applied to the Engineering
+Element field assigned to the point in the webUI configuration.
+• INFO: The text indicated in this column will be used to explain what the
+corresponding signal does.
+Clicking on any of these elements allows the user to order the signals depending on
+the value of that element.
+This information can be also enabled and configured in the Realtime Configuration
+window. More information in Realtime Configuration paragraph.
+
+Chronological
+Select button
+
+> Chronological to access the chronological information as follows:
+
+Chronological events
+
+The Chronological window shows all events that occur in the system, ordered by
+the timestamp, being the first record in the list the most recent.
+The number of events in the list will depend on the depth marked in the SOE
+configuration in Easergy Builder. More information in the SOE Device user manual.
+For each signal the following information is displayed:
+• TIMESTAMP: Date and time of last value or quality change.
+
+BQT7944803-EN-00
+
+Public
+
+15
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+• VALUE: For status points, this field shows the label assigned in Easergy
+Builder to the value of the signal. This label is set in the Realtime
+Configuration window in Easergy Builder. If no label has been assigned, the
+test NA (not apply) is shown. For analog and setpoint, this field shows the
+current value of the signal. More information in section 2.3.
+• QUALITY: Signal quality.
+• BX: The text indicated in this column will be applied to the engineering field Bx
+assigned to the point in the webUI configuration. This field is only for labeling
+purpose. The user defines how they are used to identify the element. For
+example: B1 Substation name, B2 Zone and B3 Position.
+• ELEMENT: Name of the element on the control window.
+• INFO: Description of the element on the control window.
+There is an option to download the chronological record of events by clicking on the
+blue download button.
+Clicking on any of these elements allows the user to order the signals depending on
+the value of that element.
+It is also possible to select a row (which will turn blue if it is selected) as well as redimensioning the Chronological tables columns in width.
+Select row in Chronological tab
+
+Dynamic Elements
+Any screen can include two different types of symbols associated to field devices:
+• Informative. This type of symbol is oriented to show signal values, status
+information or any other data available in database.
+• Controllable Elements. The associated device in field allows to be operated.
+When a symbol on the screen is selected (left clicking with the mouse), a pop-up
+window appears including information about the associated signals and operation
+buttons if the device allows to be operated.
+
+Informative Symbols
+If an element does not allow operation, when right-clicking on it, a window similar to
+the following one is shown:
+Window of informative symbols
+
+Where:
+• Position: name of the equipment where the signal comes from.
+• Name: name of the point.
+• Description: descriptive text of the signal.
+• Value: numerical value of the signal.
+• Quality: quality information based on icons. More information below.
+
+16
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+• Hour: timestamp of last value change.
+• Status: state of the signal.
+Click button EXIT to close the window.
+
+Controllable Symbols
+To understand how to use controllable symbols it is necessary to know first how
+Local and Remote modes work.
+First, the system mode can be modified as explained in section Settings Tool.
+The difference between Local and Remote modes is the execution of commands.
+For Local it is possible to execute them while in Remote mode it is not.
+More information about activating commands and controllable symbols can be
+found below.
+Controllable Symbols can only be operated while webUI is in Local mode and the
+current user has the suitable rights to execute the action (for instance, Viewer role
+do not have permission to execute controllable symbols).
+All commands are SBO (Select Before Operate), that is, commands are executed in
+two phases, selection and execution.
+When the user right clicks on a controllable element, a window will be shown
+including operation buttons (according to the active configuration) and real-time
+information in coreDb.
+Window of controllable symbols
+
+The operation button will be shown when CONTROL button is pressed. While the
+command is not selected, the text 'Not selected' is shown in red.
+
+BQT7944803-EN-00
+
+Public
+
+17
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Initiating a command execution
+
+The user needs to select CLOSED or OPEN and then to press SELECT. The status
+will change to Selected:
+
+18
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Executing a command
+
+To send the command to field, button EXECUTE must be pressed.
+When in Remote mode, trying to execute a command will make a message appear,
+saying “REMOTE commands not allowed”, as it can be seen in the following figure.
+Executing a command in Remote mode
+
+The Execute command is not allowed until the command is selected. To execute a
+command user must press buttons in the following order: CONTROL, SELECT and
+EXECUTE.
+Finally, using 'Command lock' or 'Interlock' function, a command can be blocked
+depending on the value of other elements in coreDb. More information in section
+Command Locks.
+
+Quality Information
+The icon displayed next to each value, provides information about the quality of the
+status or value shown. This information is shown too in the Signal list for each
+signal.
+The quality icon information is associated to a hexadecimal value, and it is
+calculated based on a combination of each quality bit. Other data to be considered
+is the status Local or Remote.
+The table below shows the possible quality values associated to a signal:
+Quality information
+Text
+
+Quality
+Icon
+
+Description
+
+Local Source Quality
+
+BQT7944803-EN-00
+
+Overflow
+
+An overflow has occurred on a counter.
+
+Rollover
+
+An overflow and an automatic reset have
+occurred on a counter.
+
+Counter adjustment
+
+The counter has been adjusted.
+
+Public
+
+19
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Chatter
+
+Excessive change on a digital input.
+
+Blocked
+
+The data item is locked.
+
+Manual
+
+The data item has been manually replaced.
+
+Not topical
+
+The data item has not yet been written to the
+database.
+
+Invalid data
+
+Data item is invalid.
+
+Critical alarm
+
+The value of the data item has exceeded the
+High-High alarm threshold.
+
+Local Source Quality
+Substituted data
+
+The data item has been manually replaced.
+
+High level alarm
+
+The value of the data item has exceeded the
+High alarm threshold.
+
+Low level alarm
+
+The value of the data item is below the Low
+alarm threshold.
+The value of the data item is below the LowLow alarm threshold.
+
+Signal alarm
+Invalid time
+
+The data item timestamp is invalid or
+inaccurate (the CPU is not synchronized by a
+source)
+
+Graphic Elements
+Graphical windows of webUI are designed in Easergy Builder using graphical
+object. Each graphical object has associated its properties and a predefined
+behavior. Following paragraphs offer detailed information about the type of
+elements that can be found in webUI.
+In runtime, the color of the symbol is associated to the voltage level of the line
+which it is included (main, second of third). The colors of these voltage lines are
+configured in Easergy Builder for each screen by using the property windows. More
+information can be found in chapter Graphic Objects (Zone 3) of this manual.
+
+Switchgear
+Switchgear symbols
+Name
+
+Description
+
+Bar or line
+
+Voltage line. It can represent a main, second or
+third voltage level.
+
+Shunt
+
+The connection of two voltage lines is shown as
+a circle.
+
+Line Output
+
+Final of a voltage line.
+
+Switch
+
+20
+
+Symbol
+
+This symbol represents the status of a switch. It is associated to a
+coreDb status signal, single or double. If non signal is associated
+to the symbol, it will be shown as ERROR.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Undetermined.
+Double signals  Value 0, single signals  N/A.
+Open.
+Double signals Value 1, single signals 
+Value 0
+Close.
+Double signals Value 2, single signals 
+Value 1
+Error.
+Double signals  Value 3, single signals  N/A.
+Breaker
+
+This symbol represents the status of a breaker. It is associated to
+a coreDb status signal, single or double. If non signal is
+associated to the symbol, it will be shown as ERROR.
+Undetermined.
+Double signals  Value 0, single signals  N/A.
+Open.
+Double signals Value 1, single signals 
+Value 0
+Close.
+Double signals Value 2, single signals 
+Value 1
+Error.
+Double signals  Value 3, single signals  N/A.
+
+Transformer
+
+This symbol represents a binary transformer.
+Each circle has the color of the line from which it
+feeds.
+
+Tertiary
+transformer
+
+This symbol represents a tertiary transformer.
+Each circle has the color of the line from which it
+feeds.
+
+Removable
+Switch
+
+This symbol represents the status of a removable switch. It is
+associated to a coreDb status signal, single or double. If non signal
+is associated to the symbol, it will be shown as ERROR.
+Undetermined.
+Double signals  Value 0, single signals  N/A.
+Open.
+Double signals Value 1, single signals 
+Value 0
+Close.
+Double signals Value 2, single signals 
+Value 1
+Error.
+Double signals  Value 3, single signals  N/A.
+
+BQT7944803-EN-00
+
+Grounding
+
+This symbol represents a ground connection.
+
+Reactance
+
+This symbol represents a reactance.
+
+Public
+
+21
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Capacitor
+bank
+
+This symbol represents a capacitor bank.
+
+Status and Indications
+Status and indication symbols
+Name
+
+Symbol
+
+Description
+
+Link line
+
+It is linked with a double status signal in
+coreDb. The color of the line if configured in
+Easergy Builder according to the signal value.
+
+Local cell
+
+This discontinued line is shown only when the
+value of the signal is 1. It is hidden for other
+values.
+
+Transferred
+Command
+Indication
+
+Icon indicating if the control has been transferred or not.
+Value of the linked signal is 0.
+
+Value of the linked signal is 1.
+
+It shows the status of the transformer according to a status signal in
+coreDb.
+Automatic
+transformer
+regulation
+Parallel
+Transformer
+Regulation
+
+Automatic. Value of the linked signal is 0.
+Manual. Value of the linked signal is 1.
+It shows the status of the parallel transformer regulation according
+to a status signal in coreDb.
+Activated. Value of the linked signal is 0.
+Deactivated. Value of the linked signal is 1.
+
+Switch Lock
+by Maneuver
+
+It is shown the status of the switch when it is lock by maneuver.
+Automatic. Value of the linked signal is 0.
+Manual. Value of the linked signal is 1.
+
+Level 2
+command
+status
+Reclosing
+status
+
+It is shown the status of the level 2 command.
+
+Status of the recloser.
+Service. Value of the linked signal is 0.
+Locked. Value of the linked signal is 1.
+Off. Value of the linked signal is 2 or 3.
+
+Relay 86
+status
+
+22
+
+This symbol is shown only when the value of
+the signal is 1. It is hidden for 0.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Coupler
+status
+
+Status of the coupler.
+Selected. Value of the linked signal is 0.
+Not selected. Value of the linked signal is 1.
+Active. Value of the linked signal is 2 or 3.
+
+Voluntary
+auto trigger
+
+Status of the voluntary auto trigger.
+Selected. Value of the linked signal is 0.
+Not selected. Value of the linked signal is 1.
+Active. Value of the linked signal is 2 or 3.
+
+Local mode
+selector
+
+This symbol is shown only when the value of
+the signal is 1. It is hidden for other values.
+
+Internal
+alarm
+
+If any internal alarm is active, the 'AI' symbol will
+be displayed. Click on the symbol to open a
+window showing the active alarms.
+
+Local alarm
+
+If there is any active alarm associated to the
+Substation, the 'AL' symbol will be displayed in
+red next to it. Click on the symbol to open a
+window showing the active alarms that caused
+the object to appear.
+
+Lock
+indication
+
+Status of a lock.
+Unlocked. Value of the linked signal is 0.
+Locked. Value of the linked signal is 1.
+
+Integral
+Control
+System
+status
+
+Status of the CCS.
+Online. Value of the linked signal is 0.
+Backup. Value of the linked signal is 1.
+Anomaly. Value of the linked signal is 2 or 3.
+
+Dynamic
+Text
+
+Dynamic text according to the value of a signal.
+Text for value 0 with assigned color.
+Text for value 1 with assigned color.
+Text for value 2 with assigned color.
+Text for value 3 with assigned color.
+
+Rectangular
+actuator
+
+Status of the actuator. The color will be shown according to the
+configuration.
+Rectangle with assigned color for value 0.
+Rectangle with assigned color for value 1.
+Rectangle with assigned color for value 2.
+
+BQT7944803-EN-00
+
+Public
+
+23
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Rectangle with assigned color for value 3.
+Circular
+actuator
+
+Status of the actuator. The color will be shown according to the
+configuration.
+Circle with assigned color for value 0.
+Circle with assigned color for value 1.
+Circle with assigned color for value 2.
+Circle with assigned color for value 3.
+
+Measures
+Several types of predefined measurements are available to be included in the
+webUI screens. Some properties of these values, such as font, size or associated
+text, can be changed using Easergy Builder as it is explained in the following
+chapter of this manual.
+The color associated to the value can be configured by the user.
+Each measurement needs to be linked to a coreDb signal and its value will be
+shown in real-time in webUI. Parameters like color, letter font, size, etc. will be
+configurable. The “Units” parameter, which is used to describe the unit of
+measurement, will be only available for “Measures” and not for “Analog value”.
+
+Devices and Equipment
+webUI allows to design an acquisition screen including information of the devices.
+The following table includes the device types available, and the information shown
+for each one. The information shown for each module must be correctly linked to
+the status signals in coreDb. More information can be found in section Status Point
+of this manual.
+In the following pictures green color means OK, while red color indicates a problem
+has been detected in the element.
+Information about devices and equipment
+
+24
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Device
+
+Symbol
+
+SM_CPU866e
+and SM_CPU866
+
+Information
+The following
+information is shown:
+•
+
+Synchronization
+status.
+
+•
+
+COM ports status.
+
+•
+
+ETH ports status.
+
+•
+
+USB port status
+(only for
+SM_CPU866e).
+
+Information of
+CONSOLE status is
+not available.
+
+PowerLogic HU280
+
+The following
+information is shown:
+
+SM_DI32, SM_DO16R
+and
+
+•
+
+Synchronization
+status.
+
+•
+
+COM ports status.
+
+•
+
+ETH ports status.
+
+LEDs DIA and RUN
+are shown.
+
+SM_DO32T
+
+BQT7944803-EN-00
+
+Public
+
+25
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+T500 DI180, DO180 and
+DO280
+
+26
+
+LEDs DIA and RUN
+are shown.
+
+SM_SER
+
+Communication status
+of the module and of
+each communication
+port.
+
+T500 XS280
+
+Communication status
+of the module and of
+each communication
+port.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+SM_PS
+
+The information of the
+PS module is:
+•
+
+Status of the
+power input
+
+Voltage level in V.
+
+T500 PS280
+
+The information of the
+PS module is:
+•
+
+Status of the
+power input
+
+Voltage level in V.
+
+LEDs DIA and RUN are
+shown.
+
+SM_AI16 and
+SM_AI8AO4
+
+BQT7944803-EN-00
+
+Public
+
+27
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+T500 AI160 and AX160
+
+LEDs DIA and RUN are
+shown.
+
+HUe
+
+The following
+information is shown:
+•
+
+Synchronization
+status.
+
+•
+
+COM ports status.
+
+•
+
+ETH ports status.
+
+•
+
+RS485 port status.
+
+Information of
+CONSOLE and USB
+status is not available.
+
+28
+
+AB_SER
+
+Communication status
+of the module and of
+each communication
+port.
+
+AB_DI and AB_DO
+
+LEDs DIA and RUN
+are shown.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+AB_DIDO
+
+LEDs DIA and RUN
+are shown.
+
+AB_AI and AB_AO
+
+LEDs DIA and RUN
+are shown.
+
+AB_MIO
+
+LEDs DIA and RUN
+are shown.
+
+AB_AC
+
+LEDs DIA and RUN
+are shown.
+
+Settings Tool
+Using the setting tool
+
+, it is possible to:
+
+• Restart the CPU or change the status between local and remote.
+• Go to webApp.
+• Manage interlocks.
+• Activate / Deactivate sound for alarms.
+• Activate / Deactivate pop-up windows of the dynamic elements on the
+screens.
+• Change the default language of webUI.
+• Have information about the current webUI.
+
+BQT7944803-EN-00
+
+Public
+
+29
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Settings tool
+
+Using System option, the following window is shown:
+System operations
+
+Press RESET to reboot the CPU or CHANGE L/R STATE to change between local
+and remote control of the RTU.
+After the button is pressed, the text Correct (green) or Error (red) is shown
+depending on the operation was successfully executed or not.
+To be able to use these buttons, the following signals must be defined in coreDb:
+• For Local/Remote button: Table: Status, Source: supervision device,
+Coordinate: LOCAL:W.
+• However, there is something specific about this signal. If it is also mapped
+with Destination: supervision device and Coordinate: LOCAL, if the signal
+value is valid, then webUI does not allow to use the button to alternate
+between Local and Remote modes. If it has an invalid value, it will appear as
+“Unknown” (
+) and webUI does not allow either to use the button.
+• For Reset button: Table: Command, Coordinate: RESET_RTU.
+Both signals must be configured as Enable in Realtime Configuration window in
+Easergy Builder. More information in following chapter.
+NOTICE
+HAZARD OF INAPROPRIATE OPERATION
+Before pressing RESET button, check that there is not a valid operation on
+course: There is no confirmation required and the RTU will be rebooted
+immediately.
+Failure to follow these instructions can result in an improper operation.
+
+Interlocks
+To access the list of interlocks defined in webUI, select button
+
+> Interlocks.
+
+Interlocks in webUI
+More information about how interlocks can be modified or created can be found in
+Command Locks section.
+
+30
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Runtime
+
+Preview
+Used to enable or disable a screen preview pop-up on the elements. When
+enabled, a screen will be displayed if the cursor is placed over an element.
+Pop-up windows enabled
+
+Pop-up windows disabled
+
+Language
+Four languages are available for webUI.
+Languages
+
+BQT7944803-EN-00
+
+Public
+
+31
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+webUI Editor
+webUI Description
+The webUI Editor is designed as an Add-On included in the Easergy Builder
+configuration tool.
+In the configuration environment of Easergy Builder, on the main menu, select AddOns > webUI Configuration. If this option is not available, install the plugin
+'webUI_SPlugin.msi' supplied in the Easergy Builder installation package.
+webUI configuration tool completes the functionality of Easergy Builder with the
+necessary functions to perform the configuration of the embedded webUI system.
+This tool offers a series of windows to allow the monitoring and control of the
+system.
+With these considerations, webUI Configuration for Easergy Builder allows to
+configure the screens included in the system, as well as the graphical objects that
+will be represented in each of them.
+webUI Editor
+
+The webUI Editor is shown as one more tab in Easergy Builder (marked in blue in
+the figure above).
+This window has five different areas:
+• Zone 1: a toolbar that includes a series of buttons with the following features:
+•
+
+Show or hide the different areas of the editor.
+
+•
+
+Show and hide the design grid.
+
+•
+
+Manage and use the graphical display repository.
+
+•
+
+Access to the editing help tools (object alignment).
+
+•
+
+Preview the selected screen.
+
+• Zone 2: name and description of the screens created in the system, presented
+in a hierarchical way.
+• Zone 3: tree of graphic objects available to be used on the screens.
+• Zone 4: editor area, where the user can design the aspect that will show in
+real-time the screen selected in zone 2.
+• Zone 5: configuration area, where screens, database and settings can be
+configured.
+
+32
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Screen Configuration
+webUI Configuration (Zone 1)
+webUI Editor allows the addition of new screens, which will be available in the web
+interface. Right after creation the screens will be empty, thus allowing the user to
+design them in accordance with project needs and based on the library of the
+different available engineering elements (Zone 3).
+The following buttons are available:
+• Show/Hide screen list (Zone 2) >
+• Show/Hide the list of available items (Zone 3) >
+• Show/Hide the drawing grid (Zone 4) >
+• System identification >
+• Add new screens >
+• Delete the screen selected in the list >
+• Importing a screen from the repository. See Screen Organization >
+• Include the selected screen in the repository. See Screen Organization >
+• Access the repository for administration >
+• Aligns the left side of the selected figures >
+• Aligns the upper side of the selected figures >
+• Aligns the right side of the selected figures >
+• Aligns the bottom side of the selected figures >
+• Aligns the selected figures vertically >
+• It lines up the selected figures horizontally >
+• It joins the selected figures horizontally >
+• Shows the screen and its schema >
+
+System Identification
+Clicking on button
+
+, the following window is shown.
+
+System identification editor
+
+• Introduce installation/substation name.
+• Introduce Equipment name.
+• Logo or image to be shown in runtime. Only PNG files are allowed.
+
+BQT7944803-EN-00
+
+Public
+
+33
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Create a Screen
+To create a new screen, press the button
+each parameter of the new screen.
+
+or right click on zone 4 and configure
+
+New screen configuration window
+
+Where:
+• 1st voltage color: Color that will be applied to the main voltage elements.
+• 2nd voltage color: Color that will be applied to the second voltage elements.
+• 3rd voltage color: Color that will be applied to the third voltage elements.
+• 4th voltage color: Color that will be applied to the fourth voltage elements.
+• 5th voltage color: Color that will be applied to the fifth voltage elements.
+• 6th voltage color: Color that will be applied to the sixth voltage elements.
+• 7th voltage color: Color that will be applied to the seventh voltage elements.
+• Background color: Color to be applied to the screen background.
+• Description: Description of the new screen.
+• Name: Screen name.
+• Screen schema: This schema determines the final image of the screen to the
+user, determining the visual environment in which the screen will be
+presented in the webUI.
+• Size: It determines the total size of the screen, indicating the width and height
+in pixels.
+Changing any of the voltage levels will cause the switchgear objects included in the
+screen to update their color to reflect the new configured voltages.
+Press confirmation button and the new screen will be included in the list.
+
+34
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+New screen
+
+Hiding a Screen
+To hide a screen from the runtime, select it, right click, and choose “Hide screen”. In
+this case, the symbol
+which appears on the left will turn its color to red
+.
+This means when the configuration is uploaded to the RTU, this screen will not
+appear as an option.
+If a screen is hidden, to make it visible again it would only be necessary to select it,
+right click and choose “Make screen visible”. Then the symbol will turn back from
+red to green.
+
+Deleting a Screen
+To remove a screen from the list, select it and press the button
+be displayed to confirm the operation or not:
+
+. A window will
+
+Remove screen confirmation window
+
+Screen Organization
+The user can control the order in which the screens are displayed in real-time. The
+order in webUI coincides with the order in which they appear in Easergy Builder.
+webUI signal order
+
+If the order is changed in Easergy Builder, the order in webUI changes too.
+
+BQT7944803-EN-00
+
+Public
+
+35
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+webUi signal order change
+
+The first screen in the list will be shown by default in webUI.
+
+Screen Repository
+This repository stores a set of screens that can be reused in other configurations.
+New screens can be added to this repository for future use.
+Screens are grouped according to the system requirements. These groups are
+created and managed by the user.
+To access the screen repository, press the button
+
+.
+
+Screen Repository
+
+To include a screen in the repository, it is mandatory to select a group of screens.
+To create a group, use the following button in the screen repository window:
+If at least one group exists, a screen can be selected and store it using button
+Selecting screen group for the repository
+
+Using button
+
+, a screen can be included in the current project.
+
+Including a screen in the repository
+
+36
+
+Public
+
+BQT7944802-00
+
+.
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Screens Manager (Zone 2)
+Use the window on the left to navigate between project screens.
+Screen manager window
+
+Using this tool, it is possible to:
+• Copy items from a screen to the one selected >
+• Change the order of the screens in the tree >
+
+Screen Display (Zone 4)
+This zone is dedicated to show each screen designed with Easergy Builder and the
+information that will be refreshed in real time.
+Screen edition zone
+
+Graphic Objects (Zone 3)
+The main webUI configuration zone contains a tree of graphic objects where the
+objects included in the loaded library are presented. Using these objects, new
+graphic elements can be added to the active screen.
+To do this, select an object type on the tree (it will be highlighted in blue), drag and
+drop on the screen. When the object is located on the screen, clicking right-button,
+its properties can be changed according to the requirements of the project.
+Following sections show the available properties for dynamic and static objects. The
+most of them are common for all object types and only some object types could
+have properties which are explained below too.
+
+BQT7944803-EN-00
+
+Public
+
+37
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Common Properties for Graphic Objects
+The following table includes properties that can be found in the most graphic
+objects of webUI.
+Usual properties of graphic objects
+Fields
+
+Description
+
+Height
+
+Height of the object in pixels. This value cannot be changed
+directly. It is recalculated when Width is changed.
+
+Width
+
+Width of the object in pixels.
+
+X
+
+Position in the horizontal axis (in pixels). Position X=0
+corresponds with the first column of pixels at left of the
+screen.
+
+Y
+
+Position in the vertical axis (in pixels). Position Y=0
+corresponds with the highest row of pixels on the screen
+
+Command
+
+Name of the signal in coreDb associated to the control of the
+dynamic object. This field is only available when the graphic
+element allows to be controlled.
+
+Description
+
+Brief description of the object type.
+
+Rotate
+
+Color
+
+Signal
+
+Vertical
+
+Voltage level
+
+38
+
+False > the object is shown by default as it was defined.
+True > The object is shown with a rotation of 180º in the
+vertical axis.
+Color to be used for the object.
+Some objects allow to configure color for:
+•
+
+Different values of the associated signal.
+
+•
+
+Type of voltage: main, secondary and tertiary (for
+screens)
+
+For status signals, each value of the single or double signal
+is shown with a symbol or color.
+For analog signals, the current value of the signal will be
+shown.
+More information about different symbols for each object in
+paragraph 1.5.1
+False > the object is shown by default as it was defined.
+True > The object is shown with a rotation of 180º in the
+horizontal axis.
+This field allows to configure the voltage level of the object:
+1st, 2nd, 3rd, 4th, 5th, 6th, or 7th.
+This voltage level will determine the color of the object in
+real-time, according to the configuration of the screen.
+Following picture shows the screen properties window,
+where 1st, 2nd, 3rd, 4th, 5th, 6th, and 7th voltage color are
+configured.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Letter Font
+
+Font type to be shown.
+
+Letter size
+
+Font size to be shown.
+
+This section explains properties for each switchgear object.
+Configuring switchgear objects
+Name
+
+Symbol
+
+Bar or line
+
+Description
+To include a line on the screen, select 'Bar or
+line', then, with a click, mark each section (or
+shunt) of the line. At the end of the line, double
+click and the line will be shown, and its
+properties can be edited, selecting the line, and
+clicking right button.
+New shunts can be added in an existing line.
+Properties for lines are:
+
+Shunt
+
+•
+
+Line style: Solid, Dash, Dot or Dash and dot.
+
+•
+
+Line width, in pixels.
+
+•
+
+Voltage level.
+
+Connection of different lines.
+There are not particular properties for shunt
+objects.
+
+Line output
+
+Final of a voltage line.
+There are not particular properties for shunt
+objects.
+
+Switch
+
+Switch device.
+This element could be controlled or not depending
+on is interlocks have been defined.
+Breaker device.
+
+Breaker
+
+This element could be controlled or not depending
+on is interlocks have been defined.
+Transformer
+
+Binary transformer. Each circle has the color of
+the line from which it feeds. Two voltage levels
+must be configured for this element.
+
+Tertiary transformer
+
+This symbol represents a tertiary transformer.
+Each circle has the color of the line from which it
+feeds.
+Two voltage levels must be configured for this
+element.
+
+BQT7944803-EN-00
+
+Public
+
+39
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Removable switch
+
+Removable device.
+This element could be controlled or not
+depending on is interlocks have been defined.
+
+Grounding
+
+Ground connector for a voltage line.
+
+Reactance
+
+Reactance for a voltage line.
+
+Capacitor bank
+
+Capacitor bank for a voltage line.
+
+Another screen
+
+Screen inside a screen. It allows to insert a realtime copy of one of the available screens.
+
+Selectable image
+
+Selectable image. It allows to show a picture on
+the screen. It may vary depending on the
+command (point/signal that will allow to act on
+the state of the object) and the signal
+(point/signal that will provide the state of the
+object) associated to it. This command value
+can be modified through this object.
+
+Status and Indications
+Configuring switchgear objects
+Name
+
+Symbol
+
+Link line
+
+Description
+Line for link. This line is linked to a status signal in
+coreDb. The color for values 0, 1, 2 and 3 must
+be defined.
+Default color: White.
+A local cell is linked to a status signal in coreDb
+and the cell is shown only when the value of the
+signal is 1.
+
+Local cell
+
+The color can be configured. Default: Yellow.
+Transferred
+Command
+Indication
+
+Icon indicating if the control has been transferred
+or not.
+
+Automatic
+Transformer
+Regulation
+
+Icon indicating the status of the transformer
+regulation (automatic or manual). It must be
+linked to a single status signal.
+Using the command field in its properties window,
+the element can be changed between both
+states.
+
+40
+
+Parallel
+Transformer
+Regulation
+
+Status of the parallel transformer regulation
+according to a status signal in coreDb.
+
+Switch Lock by
+Maneuver
+
+Status of the switch when it is lock by maneuver.
+This element must be linked to a single status
+signal. The text and color of the symbol depend
+on the value of the signal: 0 BD BLOCK;Red, 1
+
+Using the command field in its properties window,
+the element can be changed between both
+states.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+ BD_DESBL;Green.
+
+Reclosing
+status
+
+Status of the recloser. This element must be
+linked to a double status signal. The text and
+color of the symbol depend on the value of the
+signal: 0 R_SERV;Green, 1 
+R_BLOQ;Yellow, 2 and 3  R_OFF;Red.
+
+Relay 86 status
+
+Status of an 86 relay. The number of the relay is
+shown in the label, and it is configured in the
+property 'Relay number'.
+
+Coupler status
+
+Status of the coupler. This element must be linked
+to a double status
+signal. The text and color of the symbol depend
+on the value of the signal: 0 TC_SEL;Yellow,
+1  TC NOSEL;Green, 2 and 3 
+TC_ACT;Red.
+
+Voluntary autotrigger
+
+Status of the voluntary auto-trigger. This
+element must be linked to a double status
+signal. The text and color of the symbol depend
+on the value of the signal: 0 TV
+DESC;Yellow, 1  TV CONNECT;Green, 2
+and 3  TV OFF;Red.
+
+Local mode
+selector
+
+This symbol is visible when the local mode is
+active. It is associated to a single status signal
+in coreDb.
+
+Internal alarm
+
+Symbol used to inform about internal active
+alarms.
+
+Local alarm
+
+Symbol used to inform about active alarms
+associated to the substation.
+
+Lock indication
+
+Status of a signal indicating a lock. This element
+can be linked to a command to change between
+lock and unlock.
+
+Integral Control
+System status
+
+Status of a CCS. The number of the CCS is
+shown in the label, and it is configured in the
+property 'CCS'.
+
+Label
+
+Text window. Some features can be selected, as
+the color, letter font, etc.
+
+Dynamic Text
+
+Dynamic text according to the value of a signal.
+Use Color and Text fields to design the symbol.
+It will be highlighted when the signal value is 0
+and gray when it is 1.
+
+Link button
+
+It determines an active area on the screen that
+will act as a link to one of the screens of the
+project.
+The invisible button will be the square inside
+the rectangle.
+
+External Link
+button
+
+It determines an active area on the screen that
+will act as a link to an external site.
+The invisible button will be the square inside
+the rectangle.
+
+Rectangular
+actuator
+
+Colored rectangle according to a signal. The
+color of the symbol can be configured in
+properties State 0, State 1, State 2, and State 3.
+White by default for all values.
+This symbol can be used for control using the
+
+BQT7944803-EN-00
+
+Public
+
+41
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Command field.
+Circular actuator
+
+Colored circle according to a signal. The color of
+the symbol can be configured in properties State
+0, State 1, State 2 and State 3. White by default
+for all values.
+This symbol can be used for control using the
+Command field.
+
+Several types of predefined measurements are available to be included in the
+webUI screens. Some properties of these values, such as font, size, or associated
+text, can be changed using the properties windows.
+Measure properties window
+
+Analog value properties window
+
+Each measurement needs to be linked to a coreDb signal and its value will be
+shown in real-time in webUI. Parameters like color, letter font, size, etc. will be
+configurable. The “Units” parameter, which is used to describe the unit of
+measurement, will be only available for “Measures” and not for “Analog value”.
+
+Devices and Equipment
+webUI allows to design an acquisition screen including information of the devices.
+The following table includes the device types available, and the information shown
+for each one. The information shown for each module must be correctly linked to
+
+42
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+the status signals in coreDb. More information in the following chapter of this
+manual.
+Information about devices and equipment
+Device
+
+BQT7944803-EN-00
+
+Symbol
+
+Information
+
+SM_CPU866
+
+The configuration for SM_CPU866
+includes serial ports, ethernet ports and
+synchronization status. Signal in coreDb
+and Name of the ports must be indicated
+and separated by semicolon. The text in
+field Name will be used in runtime.
+
+SM_CPU866e
+
+The configuration for SM_CPU866e
+includes serial ports, ethernet ports and
+synchronization status. Signal in coreDb
+and Name of the ports must be indicated
+and separated by semicolon. The text in
+field Name will be used in runtime.
+
+Public
+
+43
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+PowerLogic
+HU280
+
+The configuration for PowerLogic T500
+HU280 includes serial ports, ethernet
+ports and synchronization status. Signal
+in coreDb and Name of the ports must be
+indicated and separated by semicolon.
+The text in field Name will be used in
+runtime.
+
+SM_DI32,
+
+The configuration for these modules is
+the same. Supervision signals for each
+module must be used.
+
+SM_DO16R
+and
+SM_DO32T
+
+The configuration for these modules is
+the same. Supervision signals for each
+module must be used.
+
+DI180,
+DO180 and
+DO280
+
+44
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Each communication port of this module
+can be linked to a list of signals. The
+text shown in runtime will be a string
+with all concatenated texts.
+
+SM_SER
+
+For each communication port, select the
+list of the status signals:
+
+More information in next paragraphs.
+Each communication port of this module
+can be linked to a list of signals. The
+text shown in runtime will be a string
+with all concatenated texts.
+
+XS280
+
+For each communication port, select the
+list of the status signals:
+
+BQT7944803-EN-00
+
+Public
+
+45
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+More information in next paragraphs.
+
+46
+
+SM_PS40
+
+For SM_PS40 modules, the following
+supervision signals must be used:
+
+PS280
+
+For PS280 modules, the following
+supervision signals must be used:
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+The configuration for these modules is
+the same. Supervision signals for each
+module must be used.
+
+SM_AI16
+and
+SM_AI8AO4
+
+The configuration for these modules is
+the same. Supervision signals for each
+module must be used.
+
+AI160 and
+AX160
+
+The configuration for HUe includes
+serial ports, ethernet ports and
+synchronization status. Signal in coreDb
+and Name of the port must be indicated
+and separated by semicolon. The text in
+field Name will be used in runtime.
+
+HUe
+
+BQT7944803-EN-00
+
+Public
+
+47
+
+webUI – Add-on & Runtime
+
+48
+
+webUI Editor
+
+AB_DO
+
+Supervision signals for each module must
+be used.
+
+AB_DI
+
+Supervision signals for each module must
+be used.
+
+AB_AO
+
+Supervision signals for each module must
+be used.
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+AB_AI
+
+Supervision signals for each module must
+be used.
+
+AB_DIDO
+
+Supervision signals for each module must
+be used.
+
+AB_SER
+
+Each communication port of this module
+can be linked to a list of signals. The
+text shown in runtime will be a string
+with all concatenated texts.
+
+For each communication port, select the
+list of the status signals:
+
+BQT7944803-EN-00
+
+Public
+
+49
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+AB_MIO
+
+Supervision signals for each module must
+be used.
+
+AB_AC
+
+Supervision signals for each module must
+be used.
+
+Data Object Selection
+Graphic objects may require the configuration of a status signal and/or an actuation
+command. These signals and commands correspond with status and command
+points of coreDb.
+Signal
+
+50
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+This window shows the set of points registered in the database, according to the
+type of point selected in the upper selection box. Select a point type and click on the
+apply filter button to display the points.
+
+Realtime Configuration
+This tab allows to configure the coreDb points that will be managed by the webUI,
+indicating for each of them the specific parameters to be applied.
+The presentation is divided in four tabs, Status, Analog, Command and Setpoint.
+Each tab presents the list of points of the indicated type registered in the coreDb.
+For each coreDb signal to be managed by webUI the field Enabled must be
+enabled.
+Following pictures show how signals between WARN_PS1 and FAIL_PS1 are not
+shown in the Signal page of webUI.
+Configuration of signals in webUI
+
+Signals in webUI
+
+Status Point
+For each enabled point, the following parameters can be configured:
+• Name: Signal name.
+• Description: Signal description.
+• Alarm mode: Indicates if the point generates alarms or not. It is possible to
+select the alarm level that applies to it. See section Alarm Levels for more
+details.
+
+BQT7944803-EN-00
+
+Public
+
+51
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+• Point type: There are two types of points:
+•
+
+SP: Single point. The value of the associated signal can be 0 or 1.
+
+•
+
+DP: Double point. The value of the associated signal can be 0, 1, 2 or 3.
+
+• B1, B2, B3, Element e Info: texts associated to the engineering information of
+the points.
+• A0 label: Text to be shown when the value of the signal is 0.
+• A1 label: Text to be shown when the value of the signal is 1.
+• A2 label: Text to be shown when the value of the signal is 2 (double status
+signals).
+• A3 label: Text to be shown when the value of the signal is 3 (double status
+signals).
+
+Alarm Configuration
+Each status signal configured in the webUI can be configurated to generate alarms
+for a specific value or when the value changes.
+When a status signal is marked as Enabled, by default, Alarm mode field is None,
+that is, no alarm will be generated for this point.
+To configure a status point to generate alarms, press on the field Alarm mode.
+Selection of status point for alarm configuration
+
+The following window is shown.
+Alarm configuration window
+
+In field Alarm mode, select the signal value for which the alarm will be activated.
+• None: No signal value will generate alarm.
+• On: An alarm will be activated when the signal is ON. Depending on the Point
+type, single (SP) or double (DP), the alarm will be activated when the signal
+value is 1 (SP and DP).
+• Off: An alarm will be activated when the signal is OFF. Depending on the
+Point type, single (SP) or double (DP), the alarm will be activated when the
+signal value is 0 (SP and DP).
+• Both: Any value of the point will activate an alarm.
+
+52
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Selection of Alarm mode values
+
+In field Alarm level, select the level of the alarm to be generated.
+Only Default level is available by default. Press button
+edit any of them:
+
+to create new levels or
+
+Configuration of default alarm level
+
+Use button
+in this window to create new alarm levels. The following information
+must be configured:
+• Active color: Color of the row in the Alarm list. While the alarm is active, the
+alarm will be show with this color (blinking or not depending on if it was
+acknowledged or not).
+• Inactive color: Color when the alarm was deactivated but not acknowledged.
+• Label: Name of the alarm level.
+Example of configuration of alarm levels
+
+Only the first three of the configured alarms are available for visualization in the
+webUI.
+
+Analog Points
+BQT7944803-EN-00
+
+Public
+
+53
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+For each enabled analog point, the following parameters can be configured:
+• Point type: Point type indicator.
+• B1, B2, B3, Element e Info: Text fields for engineering information.
+
+Command Points
+For each enabled command point, the following parameters can be configured:
+• Point type: Point type indicator. There are two types of points:
+•
+
+SC: Single command. When this type of point is used, the element can be
+changed between 0 and 1.
+
+•
+
+DC: Double command. When this type of point is used, the element can be
+changed between 0, 1, 2 and 3.
+
+• B1, B2, B3, Element e Info: Text fields for engineering information.
+• A0 label: Text to be shown when the value of the signal is 0.
+• A1 label: Text to be shown when the value of the signal is 1.
+• A2 label: Text to be shown when the value of the signal is 2 (double status
+signals).
+• A3 label: Text to be shown when the value of the signal is 3 (double status
+signals).
+• Locks: This column gives access to the configuration of the locks applied to
+the execution of the command.
+
+Command Locks Configuration
+For each command configured in the webUI system locks can be associated, so
+that the execution of the command is only possible if all locks are deactivated.
+This configuration can be accessed from the command view of the webUI Realtime
+Configuration section, by pressing the button in the column Locks of the command
+point.
+Selection of command point for lock configuration
+
+Following, the configuration lock editor is prompted.
+
+54
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Command lock editor
+
+Any signal enabled for webUI can act as lock of a command. For each signal is
+indicated the value that acts as a lock (Lock value), and the value to lock the
+command (Exe. Command).
+In the previous picture, command C002_00000 is blocked by the signal
+S001_00000. The device linked to the command C002_00000 can be closed nor
+open when S001_00000 is 0.
+It is possible to remove a lock of the list using button
+a confirmation before removing the lock.
+To add a new lock, click on the
+
+. The application requests
+
+and the following window will appear:
+
+Command lock selector
+
+Setpoint
+For each enabled point the following parameters can be configured:
+• Point type: Point type indicator. There are two types of points:
+•
+
+SCA: Single command.
+
+•
+
+DCA: Double command.
+
+• B1, B2, B3, Element e Info: Text fields for engineering information.
+• Locks: This column gives access to the configuration of the locks applied to
+
+BQT7944803-EN-00
+
+Public
+
+55
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+the operation on the setpoint, more information in Command Locks
+Configuration paragraph. It indicates whether the setpoint is locked or not
+according to the value of the associated signal.
+
+webUI Configuration (Zone 5)
+From the general configuration menu, presented in the following figure,
+configuration functions that apply to the whole webUI can be accessed.
+webUI general configuration access
+
+Click on the arrow to the right of the red circle to have access to the configuration
+options: Alarm levels and HMI parameters (only for Powerlogic HU280)
+webUI Configuration (detail)
+
+Alarm Levels
+This webUI Configuration option allows to configure the alarm levels that will be
+managed by the webUI and that will determine how the alarms will be presented to
+the user.
+Each alarm level has a customizable set of colors to be presented as active or nonactive alarms. It is possible to identify the signals that will be treated as alarms and
+assign them alarm levels. webUI will present each alarm using the set of colors
+associated for each level.
+
+56
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Alarm level configuration
+
+This window shows a list of the available alarm levels allowing:
+• Create new alarm levels (button
+added to the list.
+
+). Clicking on this button, a new level is
+
+• Delete existing alarm levels (button
+). Select the alarm level to be removed
+and click on this button. The application requests a confirmation.
+For each alarm level, the following values can be configured:
+• Label: Short text identifying the alarm level.
+• Description: Descriptive text of the alarm level.
+• Active Color: color that will be used by the webUI to present the active alarms
+of those points to which the level is assigned.
+• Inactive Color: color that will be used by the webUI to present the inactive
+alarms of those points to which the level is assigned.
+Once the changes have been made, click on the
+button
+
+to confirm the operations, or
+
+to discard changes.
+
+Only the first three of the configured alarms are available for visualization in the
+webUI.
+
+HMI Parameters
+For PowerLogic HU280 the following options are available under HMI Parameters
+editor.
+
+BQT7944803-EN-00
+
+Public
+
+57
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+HMI parameters
+
+Alarm
+Alarm enable setting enables/disables the Alarm and Preview settings.
+Alarm and preview settings
+
+58
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Chronological
+With these settings is possible to enable or disable the font color of events in
+chronological screen in case of signal is in Alarm state or not (not in alarm state or
+alarm not enabled).
+Chronological events HMI configuration
+
+Chronological colors
+
+BQT7944803-EN-00
+
+Public
+
+59
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Command Session Timeout:
+These settings enable the need for re-login before executing a command after a
+specified time without executing any command.
+Session timeout settings
+
+Once the time has been reached, the Local/Remote signals become orange to
+inform the user that, before executing the next command, a login is required.
+Re-login need indication
+
+Session timeout re-login
+
+60
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Date Mark
+These settings define the Alarms, Signals, Chronological screens tables date format
+for signals with good and bad quality.
+Date mark settings
+
+Enable Session Timeout
+These settings allow to configure the closing of the the webUI application after a
+specified time and returns to the login page.
+Enable session timeout settings
+
+BQT7944803-EN-00
+
+Public
+
+61
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Other Settings
+This section includes a set of configuration function to show/hide elements in the
+HMI, accessibility functions and/or monitorization of information.
+Other settings
+
+• Interlocks visible: It shows/hides the Interlocks menu in webUI
+Interlocks visible setting
+
+• Show last event: It shows/hides the last event in the webUI header section.
+Show last event setting
+
+• Show footer: It shows/hide the webUI footer section
+
+62
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+Show footer setting
+
+• Access to the command window with right click: Opens the command window
+with the right or left mouse click on the element.
+Access to the command window with right click setting
+
+• Local lock enabled: When False, it is not possible to change the Local status
+in the webUI/System section.
+Local lock enabled setting
+
+BQT7944803-EN-00
+
+Public
+
+63
+
+webUI – Add-on & Runtime
+
+webUI Editor
+
+• Fleeting alarms enabled: When Fleeting alarms enabled (false), alarms
+disappear when the associated signal is not in the alarm status.
+
+Tables
+These settings allow to define the table colors (text and background) as well as the
+decimal positions for analog values in tables and screens.
+Table Settings
+
+64
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+Glossary
+A
+AC: Alternate Current.
+ACK: Acknowledgement.
+AES: Advanced Encryption Standard.
+ANSI: American National Standards Institute.
+APCI: Application Protocol Control Information.
+APDU: Application Protocol Data Unit.
+ASDU: Application Service Data Unit.
+
+B
+Bps: Bits per second.
+BL: Locked
+
+C
+ºC: Celsius degree.
+CA: Reset.
+CAA: Common Address Of ASDU.
+COM: Communication port.
+CoreDB: Real-time RTU database.
+COT: Cause of Transmission.
+CPU: Central Processing Unit.
+CY: Carry.
+
+D
+DC: Direct Current.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO: Digital Output.
+
+E
+Easergy Builder: Configuration tool for Saitel and PowerLogic T500.
+
+G
+GMT: Greenwich Mean Time. Mean solar time at the Royal Observatory in Greenwich,
+London, England, used as the universal time standard.
+
+H
+HMI: Human Machine Interface.
+HTTP: Hyper Text Transfer Protocol. Client-server communication protocol developed for
+the World Wide Web. HTTPS (where S=Secure) is the secure variant of HTTP using SSL
+or TLS protocols.
+
+BQT7944802-00
+
+Public
+
+65
+
+webUI – Add-on & Runtime
+
+HU280: PowerLogic T500 CPU.
+HUe: Saitel DR High-Performance Head Unit.
+
+I
+IEC: International Electrotechnical Commission.
+IED: Intelligent Electronic Device.
+IEEE: Institute of Electrical and Electronics Engineers.
+I/O: Input / Output.
+IOA: Information Object Address.
+IP: Internet Protocol
+ISO 9001: International standard for Quality Systems.
+IV: Invalid.
+
+L
+LAN: Local Area Network
+LED: Light Emitting Diode
+LQF: Local Quality Flag
+
+M
+MAC: Message Authentication Code.
+mm: Millimeter.
+ms: Millisecond.
+
+N
+N/A: Not-Applicable.
+NT: Non-updated.
+
+O
+OS: Operating System.
+OV: Out of Range.
+
+P
+PC: Personal Computer.
+PLC: Programmable Logic Controller
+
+R
+RQF: Remote Quality Flag
+RoHS: Restriction of Hazardous Substances.
+RS-232: Communication standard
+RS-485: Multipoint differential Bus.
+RTDB: Real Time DataBase.
+RTU: Remote Terminal Unit.
+
+66
+
+Public
+
+BQT7944802-00
+
+webUI – Add-on & Runtime
+
+S
+s: Second.
+SB: Substituted.
+SCADA: Supervisory Control and Data Acquisition.
+SLD: Single Line Diagram
+SM_CPU866: Saitel DP CPU.
+SM_CPU866e: Saitel DP high-performance CPU
+SSH: Secure SHell.
+
+T
+TCP/IP: Transmission Control Protocol/Internet Protocol.
+
+U
+UDP: User Datagram Protocol.
+UTC: Coordinated Universal Time.
+
+V
+VAC: Volt of Alternate Current.
+VDC: Volt of Direct Current.
+
+BQT7944802-00
+
+Public
+
+67
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
+
+Schneider Electric Limited
+Stafford Park 5
+Telford, TF3 3BL
+United Kingdom
+
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time, please ask
+for confirmation of the information given in this publication.
+© 2024 – Schneider Electric. All rights reserved.
+BQT7944803-00
+
+

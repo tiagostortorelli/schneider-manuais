@@ -1,0 +1,2941 @@
+PowerLogic T500 Substation Controller
+PowerLogic AX160
+User Manual
+
+BQT7988401-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic AX160
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of AX160 ..................................................................8
+PowerLogic T500 Platform ..........................................................................8
+AX160 Module............................................................................................9
+Interfaces................................................................................................. 11
+Hardware Architecture .............................................................................. 11
+LED Indicators..........................................................................................12
+
+Physical Mounting and Installation .........................................................14
+Installation ...............................................................................................14
+Handling Modules ...............................................................................14
+Module Location within the Chassis or Backplane..................................14
+Power Supply Requirements................................................................15
+Configuration Switches........................................................................15
+Mounting Procedure............................................................................16
+Wiring Recommendations for PowerLogic T500..........................................17
+Wiring AX160 ...........................................................................................17
+Field Connection.................................................................................17
+Analog Output Validation .....................................................................18
+Field Connection Schematics (Option C1).............................................18
+Field Connection Schematics (Option C2).............................................19
+Terminal Blocks ..................................................................................19
+
+Configuration and Maintenance..............................................................24
+Configuration of the Backplane ..................................................................24
+AX160 Configuration.................................................................................27
+Local Acquisition Information ...............................................................28
+AX160 Signals....................................................................................28
+Local Acquisition Coordinates ..............................................................29
+coreDb Information for an AX160 Module .............................................30
+Signal Calibration .....................................................................................32
+Signal Calibration Using HU280 module ...............................................32
+Analog Input Calibration ......................................................................33
+Analog Output Calibration....................................................................34
+Maintenance of Module.............................................................................35
+webApp..............................................................................................35
+Using webApp ....................................................................................36
+
+Appendix ....................................................................................................42
+Technical Specifications ............................................................................42
+
+Glossary .....................................................................................................47
+
+BQT7988401-00
+
+3
+
+Foreword
+
+PowerLogic AX160
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7988401-00
+
+5
+
+PowerLogic AX160
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM AX160 module (part number EMS755y0).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7988401-00
+
+06/2024
+
+Creation
+
+BQT7988401-00
+
+Foreword
+
+PowerLogic AX160
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+PowerLogic HU280
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7988401-00
+
+7
+
+PowerLogic AX160
+
+General Description of AX160
+
+General Description of AX160
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7988401-00
+
+General Description of AX160
+
+PowerLogic AX160
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+AX160 Module
+The AX160 module supports up to eight analog inputs and four analog outputs,
+which can be configured separately. The following figure shows a schematic front
+view.
+This module consists of:
+•
+
+A block with eight analog inputs each
+
+•
+
+A block with four analog outputs
+
+•
+
+A controller block
+
+•
+
+An indication block
+
+AX160 front view
+
+The module can be inserted and removed from a live backplane (hot-swapping).
+In addition, the module provides protection against over-voltage, under-voltage,
+over-current and inrush current.
+
+BQT7988401-00
+
+9
+
+PowerLogic AX160
+
+General Description of AX160
+
+Analog Input Block
+Each analog input block accepts eight channels in differential configuration, which
+performs the following functions:
+•
+
+Multirange voltage inputs, with the possibility of injecting current signals using
+an external resistor (250 Ω). Accuracy of 0.1% between input terminals
+(included in the terminal blocks).
+
+•
+
+Eight channel multiplexing
+
+•
+
+High resolution converter
+
+•
+
+Network noise filtering for 50 / 60 Hz
+
+•
+
+Conversion cycle with filtering
+
+•
+
+Galvanic isolation through optocoupler
+
+The analog inputs support the following ranges:
+Analog inputs
+
+Values
+
+Voltage inputs
+
+0-5V
+–5 - +5 V
+0 - 10 V
+–10 - +10 V
+–2.5 - +2.5 V
+0 - 2.5 V
+–1.25 - +1.25 V
+0 - 1.25 V
+
+Current inputs
+
+0 - 20 mA
+–20 - +20 mA
+–5 - +5 mA
+
+NOTE: You need to use an external resistor (250 Ω) for injecting current
+signal. Refer to the Wiring AX160, page 17 for more details.
+
+Analog Output Block
+The analog outputs block accepts four channels with the following features:
+•
+
+Configurable voltage (using an external resistor) or current multirange outputs
+Analog outputs
+
+Values
+
+Voltage outputs
+
+0-5V
+0 - 10 V
+
+Current outputs
+
+0 - 20 mA
+4 - 20 mA
+
+10
+
+•
+
+16-bit digital-analog conversion
+
+•
+
+Separate calibration adjustment by channel
+
+•
+
+Signals validation per channel
+
+•
+
+Output protection against electromagnetic disturbance by surge arrester (in
+common and differential mode)
+
+•
+
+Galvanic isolation through optocoupler
+
+BQT7988401-00
+
+General Description of AX160
+
+PowerLogic AX160
+
+Controller Block
+The controller block performs preprocessing of the analog inputs, which allows
+configuring the following parameters separately:
+•
+
+Input range
+
+•
+
+Measurement scaling
+
+•
+
+Network filtering interval
+
+•
+
+The parameters below can also be configured in the real-time database for
+analog inputs:
+◦
+
+Scaling at engineering units
+
+◦
+
+Up to four out-of-range alarms
+
+◦
+
+Change threshold and event generation
+
+The configurable features related to the outputs are:
+•
+
+Scaling at engineering units
+
+•
+
+Maintenance if communication interrupts
+
+•
+
+Reset value
+
+Interfaces
+Depending on the ordering options, C1 or C2, the following interfaces are
+available for the field connections:
+•
+
+•
+
+For C1, connection by terminals:
+◦
+
+J1 connector: AI01 to AI08. Direct connection to field.
+
+◦
+
+J2 connector: AO01 to AO04. Direct connection to field.
+
+For C2, connection by flat ribbon:
+◦
+
+J1 connector: AI01 to AI08. Connected to field through an external
+terminal block.
+
+◦
+
+J2 connector: AO01 to AO04. Connected to field through an external
+terminal block.
+
+Hardware Architecture
+The AX160 module can be connected to the field using two different procedures
+defined by option C1 (terminal connection), and option C2 (flat ribbon connection).
+Depending on the ordering option, C1 or C2, the following interfaces are available
+for field connection:
+
+BQT7988401-00
+
+•
+
+Option C1: EMS75510, 20–way, with 3.81 mm terminal blocks.
+
+•
+
+Option C2: EMS75520, with flat ribbon and external terminal blocks.
+
+11
+
+PowerLogic AX160
+
+General Description of AX160
+
+LED Indicators
+LED indicators
+
+The AX160 module integrates 24 indicators, with the following functions.
+•
+
+DIA: general diagnostics
+
+•
+
+RUN: operation status
+
+•
+
+ST1 and ST2: indicate that the hardware is not working in the specific block
+
+•
+
+Break: break in analog output current loop
+
+•
+
+Fail: D/A converter anomaly detected in the analog outputs
+
+The module integrates a watchdog mechanism to detect functional anomalies in
+the modules. With respect to the analog inputs, you can also define up to four
+different alarm levels, that is, low-level and high-level alarms. The module features
+a detection system for current loop break and a permanent monitoring of D/A
+converter for outputs.
+The front indicators show the module status as indicated in the following table:
+/
+
+: On
+
+/
+
+: Off
+
+: Blinking
+
+LED indicators meaning
+DIA
+
+RUN
+
+ST1
+
+ST2
+
+Fail(x)
+
+Break
+(x)
+
+AIx
+
+AOx
+
+Description
+
+Action
+
+Normal status. The module is communicating with the
+primary device.
+
+–
+
+Firmware is not working.
+
+3
+
+Incorrect address assigned to the module (0 or greater than
+96).
+
+1
+
+If the address is correct, the type of the module is different to
+the configured for this address (and a module with correct
+type and this address is not inserted on the bus).
+Module not configured or disconnected. If the module is
+connected, the address is between 1 and 96 but this address
+is not configured.
+
+12
+
+2
+
+BQT7988401-00
+
+General Description of AX160
+
+PowerLogic AX160
+
+LED indicators meaning (Continued)
+DIA
+
+RUN
+
+ST1
+
+ST2
+
+Fail(x)
+
+Break
+(x)
+
+AIx
+
+AOx
+
+Description
+
+Action
+
+AIx out of range.
+
+–
+
+AOx out of range.
+
+–
+
+Internal detected anomaly in the analog input block.
+
+3
+
+Internal detected anomaly in the analog output block.
+
+3
+
+Hardware is not working in AOx.
+
+3
+
+Current loop for AOx is opened.
+
+4
+
+NOTE: The LED Break is switched ON if the signals are configured for current
+outputs.
+The actions to be taken are:
+1. Check the module address by verifying the positions of the configuration
+switches.
+2. Check that module address corresponds to configured address.
+3. Contact the support service.
+4. Verify that the wiring of the module is correct.
+
+BQT7988401-00
+
+13
+
+PowerLogic AX160
+
+Physical Mounting and Installation
+
+Physical Mounting and Installation
+Installation
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the CPU next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically CPU modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant CPUs, place both CPUs modules side by side in
+the backplane.
+
+Backplane positions
+
+14
+
+BQT7988401-00
+
+Physical Mounting and Installation
+
+PowerLogic AX160
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF OVER VOLTAGE OR REVERSE POLARITY
+•
+
+Check the adjustment of the supply voltage.
+
+•
+
+Check the correct wiring.
+
+•
+
+Check that the auxiliary power supplies are scaled depending on the
+consumption of the installed modules.
+
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+Failure to follow these instructions can result in equipment damage.
+The backplane can be powered by a PS280 module, by an external power supply
+or by a redundant power supply configuration.
+The PS280 module is capable of supplying power to the modules connected to the
+backplane, as required.
+When using auxiliary power supplies, check that the power supply satisfies the
+power consumption depending on the installed modules.
+Estimation of the power consumption required:
+•
+
+Consider that the maximum power requirement for each AX160 module is
+5 W.
+
+•
+
+Add up the power consumption for each module installed in the backplane.
+The power consumption information is indicated on the technical label of the
+module. It is also included in the technical specification table in the user
+manual of each module and in the data sheet.
+
+•
+
+After adding the consumption of all modules, add a safety margin: between
+20% and 50% of the full power consumed by the modules in the backplane.
+
+•
+
+When selecting a power supply, consider the power supply efficiency: 70 90%. This helps protect the chassis and power supply from overloading.
+
+Configuration Switches
+The module identification and Profibus communication speed can be set using the
+microswitches on the module rear panel.
+Profibus microswitches for module configuration
+
+1
+2
+3
+4
+
+Profibus address
+
+5
+6
+7
+8
+
+Reserved
+
+9
+10
+
+Profibus speed
+
+11
+12
+
+Reserved
+
+The module identification must be unique, selecting between 1 and 96 using
+microswitches 1 to 7. The addresses 0 and from 97 to 127 are reserved and are
+not assigned. In the case that they are assigned, messages are generated when
+the system boots.
+
+BQT7988401-00
+
+15
+
+PowerLogic AX160
+
+Physical Mounting and Installation
+
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+Assuming Px is the value assigned to the position of microswitch x (0 is OFF and 1
+is ON), for example, if switches 2, 4 and 5 are in the ON position, the Profibus
+address of the module is 26.
+The Profibus communication speed must be the same for all PowerLogic T500
+modules. It is determined by the speed of the primary device, configured in the
+Easergy Builder configuration tool.
+The speed is set using microswitches 9, 10 and 11 as shown in the following table:
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+
+16
+
+BQT7988401-00
+
+Physical Mounting and Installation
+
+PowerLogic AX160
+
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon connectors (mounting
+option C2).
+
+Wiring Recommendations for PowerLogic T500
+To help avoid EMC disturbances, refer to the PowerLogic T500 Platform user
+manual.
+
+Wiring AX160
+The AX160 module can be connected to the field using two different procedures
+defined by option C1 (terminal connection) or option C2 (flat-ribbon connection).
+
+Field Connection
+The following figure shows the pin allocation of the connectors for C1 option. The
+connector J1 is located at the top and the connector J2 at the bottom.
+
+BQT7988401-00
+
+17
+
+PowerLogic AX160
+
+Physical Mounting and Installation
+
+AX160 direct connection (option C1)
+
++
+_ AI 01
+
+AO01+
+AO01AO01 Valid1
+AO01 Valid2
+
++
+_ AI 02
++
+_ AI 03
++
+_ AI 04
++
+_ AI 05
+
+J1
+
+J2
+
++
+_ AI 06
++
+_ AI 07
++
+_ AI 08
+
+AO01 Shield
+AO02+
+AO02AO02 Valid1
+AO02 Valid2
+AO02 Shield
+AO03+
+AO03AO03 Valid1
+AO03 Valid2
+AO03 Shield
+AO04+
+AO04AO04 Valid1
+AO04 Valid2
+AO04 Shield
+
+Where:
+•
+
+AIx: analog input x
+
+•
+
+AOx: analog output x
+
+•
+
+AOxValid: digital output signal that confirms the correct analog output value
+
+•
+
+AOxShield: terminal for shield connection
+
+•
+
+NC: not connected
+
+The analog inputs of the AX160 module are differential, so there is no common
+terminal. The connector J1 has eight pairs of signals corresponding to the eight
+analog inputs. The analog outputs are unipolar and they manage two validations
+and an AOxShield associated signals, to connect the cable shield.
+
+Analog Output Validation
+Each analog output signal is used to indicate the validity of the allocated output
+value. The signals (AOxValid1 and AOxValid2) are provided by a contact of a
+solid-state relay supporting alternating and direct voltages 24 Vrms / 48 Vdc
+(50 mA maximum).
+These relays are active (closed contacts) provided the corresponding analog
+output board and channel are set properly. If the module stops communicating
+with the CPU or the analog output channel has a Break or Fail diagnostic, the
+solid-state relay is deactivated.
+
+Field Connection Schematics (Option C1)
+AX160 Field connection schematics for analog outputs (option C1)
+
+J2
+A01+
+
+A01-
+
+AO1 Valid1
+
+Differential
+analog
+outputs
+
+AO1 Valid2
+AO1 Shield
+
+18
+
+BQT7988401-00
+
+Physical Mounting and Installation
+
+PowerLogic AX160
+
+Field Connection Schematics (Option C2)
+AX160 Field connection schematics for analog inputs (option C2)
+Flat-ribbon
+cable
+
+J1
+
+TB_AI8
+AI01+
+
+AI01+
+
+AI01-
+
+AI01-
+
+Differential analog
+inputs
+
+Resistors for
+conversion to current
+
+Wiring to field
+Internal wiring
+
+AX160 Field connection schematics for analog outputs (option C2)
+Flat ribbon
+
+J2
+
+TB_AO4
+AO1+
+
+AO1-
+
+AO1+
+
+AO1-
+
+Differential
+analog
+outputs
+
+Terminal Blocks
+Some terminal blocks of the PowerLogic T500 family have been specifically
+designed to be used with the AX160 modules. These terminal blocks can help to
+simplify cabling, use wider section field wires and include different terminal
+connectors than those offered with the option C1.
+These terminal blocks include the converter resistance for current inputs.
+
+Terminal Blocks for Analog Inputs
+Two models of terminal blocks are available for Analog inputs.
+
+BQT7988401-00
+
+19
+
+PowerLogic AX160
+
+Physical Mounting and Installation
+
+TB_AI8/N - TA160 - Phöenix Contact - Normalized Terminal Block
+TB_AI8/N - TA160 Phöenix Contact Normalized terminal block
+
+Technical specifications of TB_AI8/N - TA160 Phöenix Contact
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625777
+PowerLogic EMS78400
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc (max).
+
+Dimensions
+
+63 x 90 x 85 mm
+
+Maximum current capacity
+
+1 A (per branch)
+
+Field connector
+
+16-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Module connector
+
+20-way DIN 41651 pluggable connector
+
+The figure below shows the electrical diagram for this terminal block:
+TB_AI8/N - TA160 - Electrical diagram - Phöenix Contact
+
+20
+
+BQT7988401-00
+
+Physical Mounting and Installation
+
+PowerLogic AX160
+
+TB_AI8/N - Weidmüller - Normalized Terminal Block
+TB_AI8/N Weidmüller Normalized terminal block
+
+Technical specifications of TB_AI8/N Weidmüller
+Specification
+
+Description
+
+Manufacturer
+
+Weidmüller
+
+Reference (code)
+
+TB_AI8N (7508000585)
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms / Vdc (max)
+
+Dimensions
+
+90 x 70 mm
+
+Maximum current capacity
+
+1.5 A (per branch)
+
+Field connector
+
+16-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Module connector
+
+20-way DIN 41651 pluggable connector
+
+The figure below shows the electrical diagram for this terminal block:
+TB_AI8/N - Electrical diagram - Weidmüller
+
+NOTE:
+The 250 Ω resistor for conversion is not included in the terminal block.
+The resistor is used for current inputs.
+BQT7988401-00
+
+21
+
+PowerLogic AX160
+
+Physical Mounting and Installation
+
+Terminal Blocks for Analog Outputs
+Two models of terminal blocks are available for Analog outputs.
+
+TB_AO4/N - TS160 - Phöenix Contact - Normalized Terminal Block
+TB_AO4/N - TS160 Phöenix Contact Normalized terminal block
+
+Technical Specifications of TB_AO4/N - TS160 Phöenix Contact
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625779
+PowerLogic EMS78500
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc (max)
+
+Maximum current capacity per branch
+
+1A
+
+Dimensions
+
+66 x 45 x 66 mm
+
+Field connector
+
+8-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 13
+
+Module connector
+
+20-way flat-ribbon pluggable connector
+
+Electrical Diagram
+TB_AO4/N - TS160 - Electrical diagram - Phöenix Contact
+
+22
+
+BQT7988401-00
+
+Physical Mounting and Installation
+
+PowerLogic AX160
+
+TB_AO4/N - Weidmüller
+TB_AO4/N Weidmüller Normalized terminal block
+
+Technical Specifications of TB_AO4/N Weidmüller
+Specification
+
+Description
+
+Manufacturer
+
+Weidmüller
+
+Reference (code)
+
+TB_AO4N (7508000587)
+
+Assembly
+
+DIN rail
+
+Maximum current capacity per branch
+
+1.5 A
+
+Dimensions
+
+62 x 47 mm
+
+Field connector
+
+8-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 13
+
+Module connector
+
+20-way flat-ribbon pluggable connector
+
+Electrical Diagram
+TB_AO4/N - Electrical diagram - Weidmüller
+
+BQT7988401-00
+
+23
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches, page 15.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+24
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+BQT7988401-00
+
+25
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+26
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+AX160 Configuration
+The local acquisition device for PowerLogic T500 is named laq and it is created by
+default for each PowerLogic T500 configuration.
+Configuring local acquisition for PowerLogic T500
+
+The laq device supports communication between inputs and the outputs managed
+by the acquisition blocks and coreDb points. The first step to configure the
+acquisition settings is including all IO modules in the backplane.
+
+BQT7988401-00
+
+27
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+Local Acquisition Information
+The following figure shows the relationship between the field information received
+by the AX160 module and the related points in coreDb:
+Field signals and points in coreDb
+Point Name
+
+Source Device
+
+Source Coordinate
+
+A001_00000
+A001_00001
+
+laq
+laq
+
+2002010000
+2002010001
+
+A001_00006
+A001_00007
+
+laq
+laq
+
+2002010006
+2002010007
+
+Point Name
+
+Destination Device
+
+Source Coordinate
+
+T001_00000
+T001_00001
+T001_00002
+T001_00003
+
+laq
+laq
+laq
+laq
+
+2002040000
+2002040001
+2002040002
+2002040003
+
+coreDb
+AX160
+Module
+Address: 2
+Analog Input
+
+Name
+
+Coordinate
+
+AI1
+AI2
+
+AI1
+AI2
+
+2002010000
+2002010001
+
+AI7
+AI8
+
+AI7
+AI8
+
+2002010006
+2001010007
+
+Analog Output
+
+Name
+
+Coordinate
+
+AO1
+AO2
+AO3
+AO4
+
+AO1
+AO2
+AO3
+AO4
+
+2002040000
+2002040001
+2002040002
+2001040003
+
+Field
+
+AX160 Signals
+Open the screen configuration by selecting an AX160 module with analog inputs
+and outputs. The configuration window displays two tabs:
+
+28
+
+•
+
+Analog Inputs
+
+•
+
+Analog Outputs
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+AX160 Module configuration
+
+Each signal is associated with the following fields:
+•
+
+AIx / AOx: signal description. This value can be changed although it does not
+affect the signal identification which is automatically attached, is internal and
+cannot be changed. This is applicable to all signal descriptions in all modules.
+
+•
+
+Rng: signal voltage/current range.
+
+•
+
+ENG: flag indicates that the engineering units are considered. The value N
+indicates engineering units (the Bin output is between EMIN and EMAX)
+and the value Y indicates counts. These signals when configured in
+engineering units can take a value between:
+◦
+
+EMin: minimum value expressed in engineering units. The range is
+-32768 to 32767.
+
+◦
+
+EMax: maximum value expressed in engineering units. The range is
+-32768 to 32767.
+
+•
+
+The AC FILTER field is associated with a band rejection filter at 50/60 Hz to
+avoid the damaging effects of network noise. If no filter needs to be used, set
+NONE.
+
+•
+
+Rst: value taken by the output after a CPU reset (% of output range).
+
+•
+
+Keep: if the value is set to Y, the output is retained if the communication with
+the CPU is lost.
+
+Local Acquisition Coordinates
+The coordinate is a unique identifier of a signal within a Bin. Its definition is
+different for each device and the local acquisition is defined with ten digits with the
+following format:
+2 BBB CC DDDD
+
+BQT7988401-00
+
+•
+
+2: the first number of its coordinate for all PowerLogic T500 local acquisition
+signals is 2.
+
+•
+
+BBB: three digits to indicate the point address according to the previous
+communication protocol. In the case of Profibus-DP, the address range is
+from 000 to 125.
+
+29
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+•
+
+•
+
+CC: type of signal, which includes:
+◦
+
+00: diagnostic signals of the acquisition modules
+
+◦
+
+01: analog input (16 bits)
+
+◦
+
+04: analog output (16 bits)
+
+◦
+
+12: analog input (8 bits) (Profibus input table)
+
+◦
+
+13: analog input (16 bits) (Profibus input table)
+
+◦
+
+14: analog input (32 bits) (Profibus input table)
+
+DDDD: number of the signal within each type, that is, it does not need to
+match the physical position. The first signal of a type is 0000, the second is
+0001 and so on, with all the types of the previous point.
+
+coreDb Information for an AX160 Module
+Each signal is associated with a coreDb register in the Status, Analog and
+Setpoint tables using its laq coordinate as source or destination.
+
+Status Table
+
+Analog Points
+
+30
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+Setpoint Points
+
+These points and other diagnostic points (D001_STS_COMM and D001_STS_
+DIAG) can be created automatically when the module is included in the
+backplane, but they can be created manually using the laq points wizard.
+To include a point manually, create a new point, select laq as source device or as
+a destination device, right-click the Source Coordinates and select Launch
+Point wizard:
+
+Point Wizard
+
+Select the module in which you want to create the points and then select the point
+to be created.
+Only not created point is shown in the list.
+The following point can be added for an AX160 module:
+
+BQT7988401-00
+
+31
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+•
+
+Status, Source Coordinates:
+◦
+
+Diagnostics point:
+– STS_COMM: module offline. Value 1 indicates that there is no
+communication with the module.
+– STS_DIAG: module with diagnostics. Value 1 indicates a diagnostic.
+Usually corresponds to a missing polarization detected in the module.
+– STS_FAILBUS1: value 1 indicates a communication interruption in
+Profibus1.
+– STS_FAILBUS2: value 1 indicates a communication interruption in
+Profibus2.
+
+•
+
+Analog, Source Coordinates:
+Analog Inputs: analog inputs, depend on the configuration.
+
+•
+
+Analog, Destination Coordinates:
+Analog Outputs: analog outputs, depend on the configuration.
+
+Signal Calibration
+Signal Calibration Using HU280 module
+The calibration is carried out through the webApp of the HU280. The calibration is
+done separately for each channel.
+NOTE: Using the webApp, the module can only be calibrated to the range
+selected in Easergy Builder. To modify the input/output range refer to the
+AX160 Signals, page 28 section of the manual.
+In webApp, go to Maintenance section and click Acquisition. The table is
+displayed with the corresponding signals. If the permissions are set, it allows you
+to calibrate these points.
+PowerLogic T500 webApp Menu
+
+In the Maintenance window of the acquisition, you can select the configured
+analog modules to calibrate.
+
+32
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+For example, the following picture shows Analog Inputs and Analog Outputs
+tabs of an AX160 module. All of its signals are displayed with the value and quality
+information.
+AX160 module calibration
+
+NOTE: The module is calibrated by default with the 4-20 mA output range. To
+use another output range (for example, 0-20 mA), you need to calibrate the
+outputs using the webApp.
+NOTE: Calibration result is influenced by the precision of calibration device
+used. Use only certified and calibrated equipment for the calibration process.
+Before calibration verify that you have equipment with desired precision that is
+capable of inputting/outputting analog signal in the desired calibration range.
+
+Analog Input Calibration
+From the module calibration screen, in the Analog Inputs tab, click on the
+Calibrate button of the point (Channel) to be calibrated. A window displays the
+instructions that you must follow. If the point has no good quality flag or is blocked,
+calibration does not start.
+
+Click Yes to continue or No to cancel the process. To continue, follow the steps
+indicated by the pop-up window.
+
+BQT7988401-00
+
+33
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+For example, as shown below, you have to supply 0 V to channel 1. Once
+supplied, press the right arrow button to proceed.
+
+Follow the steps by supplying the necessary output to the calibration channel.
+Once the calibration is finished, the following message is displayed:
+
+After clicking Finish button, the calibrated point is unlocked.
+
+If the analog point cannot be calibrated, following message is displayed:
+
+Analog Output Calibration
+From the module calibration screen, in the Analog Outputs tab, click on the
+Calibrate button of the point (Channel) to be calibrated. A window displays the
+instructions that you must follow. If the point has no good quality flag or is blocked,
+calibration does not start.
+
+34
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+Click Yes to continue or No to cancel the process. To continue, follow the steps
+indicated by the pop-up window.
+Adjust the level of calibration using the “+” and “-“ buttons to match the calibrated
+output with the reading of the calibrating device. For example, as shown below,
+you have to match 0 V of output with the reading of the calibrating device. Click
+the right arrow button to proceed.
+
+Repeat the process for the next output range.
+
+Once the calibration is finished, the following message is displayed:
+
+Click Finish to end calibration.
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+
+BQT7988401-00
+
+35
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+
+36
+
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+BQT7988401-00
+
+37
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+Accessing the Analog Points
+To access the analog points, in webApp main menu, go to Monitoring and
+control > Data > Analog. You can see the point mapped with Easergy Builder.
+For the AX160 module, the following points are shown:
+Monitoring and Control - Status
+
+38
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+Monitoring and Control - Analog
+
+Monitoring and Control - Set Point
+
+For all types of points, each page has the same format. If the user locks the signal
+and click
+changed.
+
+in the Value column, the value of the corresponding signal can be
+
+If the user locks the signal and click
+in the Quality column, the value of the
+corresponding signal can be changed.
+
+BQT7988401-00
+
+39
+
+PowerLogic AX160
+
+Configuration and Maintenance
+
+Local quality bits
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00000001
+
+Overflow
+
+0x00000002
+
+Carry on a counter or roll-over
+
+0x00000004
+
+Counter adjustment
+
+0x00000008
+
+Excessive changes in a digital input
+
+0x00000010
+
+Locked point (blocked)
+
+0x00000020
+
+Point manually replaced (manual)
+
+0x00000040
+
+The point is written into the database (no refresh)
+
+0x00000080
+
+Invalid value
+
+0x00000100
+
+The value of the item has exceeded Highest Limit Alarm
+
+0x00000200
+
+The value of the item has exceeded High Limit Alarm
+
+0x00000400
+
+The point value of the Low Limit Alarm has decreased
+
+0x00000800
+
+The point value of the Lowest Limit Alarm has decreased
+
+0x00001000
+
+Invalid time
+
+Quality bits from the device
+
+40
+
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00010000
+
+Overflow
+
+0x00020000
+
+Carry on a counter or roll-over
+
+0x00040000
+
+Counter adjustment
+
+0x00080000
+
+Excessive changes in a digital input
+
+0x00100000
+
+Locked point
+
+0x00200000
+
+Point manually replaced
+
+BQT7988401-00
+
+Configuration and Maintenance
+
+PowerLogic AX160
+
+Quality bits from the device (Continued)
+Values (Hexadecimal)
+
+Description
+
+0x00400000
+
+The point is not written into the database
+
+0x00800000
+
+Invalid value
+
+0x10000000
+
+Invalid time
+
+NOTE: If more than one incidence is detected for a signal, the hexadecimal
+value monitored for quality bits results from the sum of all. For example,
+0x00000001 indicates that an overflow has occurred and 0x00000002
+indicates that there has been a carry on a counter or a roll-over. The value
+0x00000003 would appear monitored.
+
+BQT7988401-00
+
+41
+
+PowerLogic AX160
+
+Appendix
+
+Appendix
+Technical Specifications
+Hardware Specifications
+AX160 – 8 Analog Inputs and 4 Analog Outputs
+Specifications
+
+Description
+
+Field connection
+
+Terminal / Flat ribbon
+
+Protection
+
+Over-voltage, under-voltage, over-current, inrush current and
+short-circuit
+
+Consumption
+
+5W
+
+Weight
+
+568 g
+
+Dimensions
+
+245 x 180 x 45 mm
+
+Analog Inputs
+AX160 – 8 Analog Inputs
+Specifications
+
+Description
+
+Number of inputs
+
+8
+
+Input type
+
+Differential (±10 V)
+
+Input range
+
+Multi-range voltage inputs. Conversion to current input using an
+external resistor (included in terminal blocks).
+
+Voltage inputs
+
+±5 Vdc / 0-5 Vdc / ±10 Vdc / 0-10 Vdc
+
+Current inputs
+
+Current / voltage (mA/V) conversion, using an external resistor
+(250 Ω) and 0.1% of accuracy between the two input terminals
+for inputs from 0 to 5 V, and 500 Ω and 0.1% for inputs from 0 to
+10 V, in the TB_AI8 terminal block.
+
+Preprocessing
+
+Digital filtering
+Range limits detection
+Value change detection
+Zero-values suppression
+Measurement scaling
+
+42
+
+Common mode rejection
+
+120 dB (typ) for 50 Hz and 100 db (min) for DC
+
+Parameterization
+
+Configurable input range:
+•
+
+0-5 Vdc / 0-10 Vdc.
+
+•
+
+0-5 mA / 0-10 mA / 0-20 mA
+
+•
+
+±5 Vdc / ±10 Vdc
+
+•
+
+±20 mA / ±10 mA / ±5 mA
+
+Conversion
+
+Eight channels multiplexing
+
+Resolution
+
+Sigma-delta converter (Effective resolution of 22 bit)
+
+Accuracy
+
+< 0.1% at 25 ºC
+
+Input impedance
+
+> 200 kΩ
+
+Common mode voltage
+tolerance
+
+≤ 24 Vdc
+
+BQT7988401-00
+
+Appendix
+
+PowerLogic AX160
+
+AX160 – 8 Analog Inputs (Continued)
+Protection
+
+Double protection: by surge arrester (common and differential
+mode) and TVS (differential)
+
+Isolation
+
+•
+
+Surge arrester: discharge current of 10 kA on 8/20 µs
+waveform
+
+•
+
+TVS: peak pulse power dissipation 600 W on 10/1000 µs
+waveform. Bidirectional
+
+By optocoupler (3,75 kVrms UL1577 recognized)
+
+Analog Outputs
+AX160 – Analog Outputs
+Specifications
+
+Description
+
+Number of outputs
+
+4
+
+Output type
+
+Multirange current outputs (voltage inputs using a resistor)
+
+Voltage outputs
+
+0-5 V (resistor: 250 Ω) and 0-10 V (resistor: 500 Ω), max 10 mA
+
+Current outputs
+
+0-20 mA in 500 Ω
+
+Resolution
+
+16-bit converter
+
+Accuracy
+
+< 0.15% at 25 ºC
+
+Thermal drift
+
+Better than 20 ppm/ºK
+
+Maximum output power
+
+200 mW
+
+Transient voltage protection
+
+Surge arrester: Discharge current of 10 kA on 8/20 µs waveform
+(common and differential)
+
+Isolation
+
+By optocoupler (3.75 kVrms UL1577 recognized)
+
+Processing
+
+Selection of scaling at engineering units
+Maintenance if communication is interrupted
+Reset value
+
+Parameterization
+
+Configurable output range:
+•
+
+0-5 Vdc / 0-10 Vdc
+
+•
+
+0-20 mA / 4-20 mA
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+BQT7988401-00
+
+43
+
+PowerLogic AX160
+Directive / Test
+
+RoHS
+
+WEEE
+
+Appendix
+Identification
+
+Details
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80 %,
+10 V/m
+1000 – 2700 MHz, AM 1 kHz Prof: 80 %,
+3 V/m
+2700 – 6000 MHz, AM 1 kHz Prof: 80 %,
+1 V/m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80 %,
+10 Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2, ±4 kV (asymmetrical coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+44
+
+IEC 61010-1:2010
+
+Overvoltage category II
+
+BQT7988401-00
+
+Appendix
+
+PowerLogic AX160
+
+Directive / Test
+
+Identification
+
+Details
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93 % / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+Ordering Options
+
+BQT7988401-00
+
+•
+
+Option C1: EMS75510, 20-way, with 3.81 mm terminal blocks.
+
+•
+
+Option C2: EMS75520, with flat ribbon and external terminal blocks.
+
+45
+
+PowerLogic AX160
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+
+D
+DC: direct current.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+
+E
+EMC: Electro Magnetic Compatibility.
+EOL: End-Of-Life. According to the WEEE CE Directive, the EOL document
+provides instructions for discard the product at the end of its life.
+
+G
+G: Grame.
+GPS: Global Positioning System.
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+BQT7988401-00
+
+47
+
+PowerLogic AX160
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+ISO 9001: international standard of quality management systems.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+MΩ: megaohm.
+
+N
+N/A: not applicable.
+NCHAT: number of changes for chattering.
+
+P
+P/N: part number.
+PC: Personal Computer.
+PE: Protective Earth Ground.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PV: Polarization Voltage.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+
+48
+
+BQT7988401-00
+
+PowerLogic AX160
+
+RoHS: Restriction of Hazardous Substances.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCHAT: time for chattering.
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TF: Time Filtering.
+TM: Time Memory.
+TS: Time Setting.
+TU: Terminal Unit.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+WEEE: Waste Electrical and Electronic Equipment.
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7988401-00
+
+49
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7988401-00
+
+

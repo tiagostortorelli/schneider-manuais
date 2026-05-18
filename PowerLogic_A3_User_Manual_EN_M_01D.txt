@@ -1,0 +1,9632 @@
+PowerLogic™ A3
+Arc Flash Protection Unit
+User Manual
+09/2025
+Version: A3/EN M/01D
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+Arc Flash Protection Unit
+
+Table of Contents
+Table of Contents ........................................................................................3
+1 Legal notice ..............................................................................................7
+2 General information .................................................................................8
+Trademarks................................................................................................8
+Purpose .....................................................................................................8
+Safety information.......................................................................................9
+User qualification......................................................................................10
+Certification and declaration ......................................................................10
+Abbreviations ...........................................................................................10
+
+3 Introduction ............................................................................................. 11
+Range description..................................................................................... 11
+Selection guide.........................................................................................12
+User interface...........................................................................................12
+Three kinds of operation mode ..................................................................14
+
+4 Use ...........................................................................................................21
+Introduction and rules ...............................................................................21
+Protection Schemes..................................................................................23
+Typical use case.......................................................................................31
+A3F6P ...............................................................................................31
+A3F12P..............................................................................................35
+A3S6P ...............................................................................................37
+A3S12P .............................................................................................40
+Application examples ................................................................................41
+Non-selective .....................................................................................41
+Partially Selective ...............................................................................42
+Completely selective ...........................................................................43
+I/O peripheral mode application............................................................44
+Modbus register and LN of IEC 61850 ........................................................46
+Supporting functions ................................................................................48
+Test mode ..........................................................................................48
+Self-supervision .................................................................................49
+System supervision.............................................................................50
+Self-diagnosis signals about PowerLogic A3 in V321 .............................51
+Connection ..............................................................................................52
+Connector terminals ............................................................................52
+ix Industrial® port.................................................................................54
+
+5 Installation ...............................................................................................56
+Safety instructions ....................................................................................56
+Transport, handling and storage ................................................................57
+Transport ...........................................................................................57
+Handling ............................................................................................58
+Storage ..............................................................................................58
+Unpacking................................................................................................58
+Equipment receipt...............................................................................58
+Package contents ...............................................................................59
+Equipment identification ............................................................................59
+Operating environment .............................................................................61
+A3/EN M/01D
+
+3
+
+Arc Flash Protection Unit
+
+Dimensions ..............................................................................................61
+Mounting..................................................................................................62
+DIN rail mounting ................................................................................62
+Panel mounting...................................................................................63
+Grounding................................................................................................66
+Install the arc sensors ...............................................................................67
+VA 1 DA arc flash sensor .....................................................................68
+VA 1 EH .............................................................................................70
+
+6 Configuration ..........................................................................................71
+Introduction of configuration methods.........................................................71
+Configure with rotary switch and push button ..............................................71
+Configure with eSetup Easergy Pro directly ................................................72
+Overview............................................................................................72
+Operation modes ................................................................................73
+Set up the connection..........................................................................74
+User accounts ....................................................................................74
+Password recovery .............................................................................75
+Parameters and commands .................................................................76
+Steps of configuration..........................................................................81
+Configure with ArcEM Configurator in V321 ................................................82
+ARC ArcEM Unit Configurator..............................................................83
+ARC ArcEM Bus .................................................................................83
+Configuring arc protection settings of the V321......................................86
+Arc matrix – light .................................................................................87
+Arc matrix – output ..............................................................................88
+Arc event enabling ..............................................................................89
+
+7 Technical data ........................................................................................91
+Technical characteristics ...........................................................................91
+Environmental characteristics ....................................................................93
+
+8 Commissioning and testing ..................................................................97
+Setting up the arc flash protection system...................................................97
+Commissioning and testing .......................................................................98
+Checking the sensor installation ................................................................98
+Checking schemes and light groups ...........................................................99
+Configuring the PowerLogic A3 to test mode...............................................99
+Sensor testing ..........................................................................................99
+Testing the connected sensors and verifying the LEDs......................... 100
+Testing the inter-tripping and verifying the LEDs .................................. 100
+Testing the sensor’s self-supervision .................................................. 101
+Testing the supervision of PowerLogic A3 devices..................................... 102
+Filling in the test report ............................................................................ 103
+
+9 Maintenance ......................................................................................... 104
+Preventative maintenance....................................................................... 104
+Periodical testing .................................................................................... 104
+Hardware cleaning.................................................................................. 104
+Sensor condition and positioning check .................................................... 105
+System status messages ........................................................................ 105
+Troubleshooting ..................................................................................... 105
+Returning for expert assessment ............................................................. 106
+End of life............................................................................................... 106
+4
+
+A3/EN M/01D
+
+Arc Flash Protection Unit
+
+10 Order information............................................................................... 107
+11 Revision history .................................................................................. 109
+
+A3/EN M/01D
+
+5
+
+1Legal notice
+
+Arc Flash Protection Unit
+
+1 Legal notice
+Copyright
+2023 Schneider Electric. All rights reserved.
+Disclaimer
+No responsibility is assumed by Schneider Electric for any consequences arising
+out of the use of this document. This document is not intended as an instruction
+manual for untrained persons. This document gives instructions on device
+installation, commissioning and operation. However, the manual cannot cover all
+conceivable circumstances or include detailed information on all topics. In the
+event of questions or specific issues, contact Schneider Electric and request the
+necessary information.
+Contact information
+35 rue Joseph Monier
+92506 Rueil-Malmaison
+FRANCE
+Phone: +33 (0) 1 41 29 70 00
+Fax: +33 (0) 1 41 29 71 00
+www.se.com
+
+A3/EN M/01D
+
+7
+
+Arc Flash Protection Unit
+
+2General information
+
+2 General information
+Trademarks
+QR Code is a registered trademark of DENSO WAVE INCORPORATED in Japan
+and other countries.
+
+Purpose
+This user manual is intended for people who are experts on electrical power
+engineering, panel builders, commissioning engineers, and experienced users,
+communication specialists or general users of the PowerLogic™ A3 arc flash
+protection unit (the PowerLogic A3).
+The complete manual is arranged as follows:
+•
+
+Preliminary sections, with the details of the manual (how to use it, glossary)
+and technical data.
+
+•
+
+Functions of the PowerLogic A3.
+Explanations, diagrams and settings of the protection, control, monitoring and
+maintenance, measurement, recording and programmable logic functions are
+detailed in these sections.
+
+•
+
+Installation and commissioning.
+
+•
+
+User interface use, troubleshooting and maintenance instructions.
+
+The following documents complete this manual:
+•
+
+Quick Start Guide, delivered in the device package, summarizes instructions
+for installation.
+
+We welcome your comments about this document. You can reach us by
+contacting Customer Care Center Contact page:
+www.se.com/CCC
+
+8
+
+A3/EN M/01D
+
+2General information
+
+Arc Flash Protection Unit
+
+Safety information
+Important information
+Read these instructions carefully and look at the equipment to become familiar
+with the device before trying to install, operate, service or maintain it. The
+following special messages may appear throughout this manual or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a "Danger" or "Warning" safety label indicates that an
+electrical hazard exists which will result in death or serious injury if the instructions
+are not followed.
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+DANGER
+DANGER indicates an imminently hazardous situation which, if not avoided, will
+result in death or serious injury.
+Failure to follow these instructions will result in death or serious injury.
+
+WARNING
+WARNING indicates a potentially hazardous situation which, if not avoided, can
+result in death or serious injury.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+CAUTION
+CAUTION indicates a potentially hazardous situation which, if not avoided, can
+result in minor or moderate injury, or equipment damage.
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+Failure to follow these instructions can result in equipment damage.
+
+A3/EN M/01D
+
+9
+
+Arc Flash Protection Unit
+
+2General information
+
+User qualification
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material. A qualified person is one who
+has skills and knowledge related to the construction, installation, and operation of
+electrical equipment and has received safety training to recognize and avoid the
+hazards involved.
+Use the password protection feature to help prevent untrained and non-authorized
+personnel interacting with the PowerLogic A3.
+
+Certification and declaration
+Item
+
+European
+Commission's
+directives
+
+United Kingdom
+regulations
+
+Standard
+
+Description
+
+EN IEC 60255-26
+
+Electromagnetic Compatibility Directive (EMCD)
+2014/30/EU
+
+EN IEC 60255-27
+
+Low Voltage Directive (LVD) 2014/35/EU
+
+EN IEC 63000
+
+Restriction of the Use of Certain Hazardous
+Substances in Electrical and Electronic
+Equipment (ROHS) Directive 2015/863/EU
+
+BS EN 60255-26
+
+Electromagnetic Compatibility (EMC)
+Regulations SI 2016 No. 1091.
+
+BS EN 60255-27
+
+Electrical Equipment (Safety) Regulations SI
+2016 No. 1101
+
+BS EN IEC 63000
+
+Restriction of the Use of Certain Hazardous
+Substances in Electrical and Electronic
+Equipment (ROHS) Regulations SI 2012 No.
+3032
+
+Abbreviations
+Table 1 - Abbreviations used in the manual
+
+10
+
+Acronyms
+
+Indication
+
+ac
+
+Alternating current
+
+AEM
+
+Arc Extensional Modular in V321 Slot 6, for the connection from PowerLogic A3
+devices to V321.
+
+ANSI
+
+American National Standards Institute. A standardization organization.
+
+AWG
+
+American wire gauge
+
+CB
+
+Circuit breaker
+
+dc
+
+Direct current
+
+DI
+
+Digital input
+
+DO
+
+Digital output, output relay
+
+EP
+
+Configuration tool eSetup Easergy Pro
+
+HSO
+
+High speed output
+
+IED
+
+Intelligent electronic device
+
+LED
+
+Light-emitting diode
+
+USB
+
+Universal Serial Bus
+
+V321
+
+Central unit for V321 arc flash protection
+
+WD
+
+Watchdog
+
+A3/EN M/01D
+
+3Introduction
+
+Arc Flash Protection Unit
+
+3 Introduction
+Range description
+The arc flash detection system operates as a complement of the protection relays.
+It helps to ensure rapid operation in case of arc flash incident where other
+protection schemes (for example, overcurrent) operates not quick enough.
+The PowerLogic A3 range is designed for the customer application of mitigating
+the arc flash fault inside MV or LV cubicle and operates with the switching device
+with an accessible control input.
+The naming rule of PowerLogic A3 range is shown as below:
+
+A3-F12P
+A
+
+D
+
+B
+
+C
+A3117200
+
+A
+
+C
+
+Range name: PowerLogic A3
+
+Number of sensor channels:
+
+B
+
+D
+
+Device form factor
+•
+
+F: Full size with power supply
+
+•
+
+S: Small size without power supply
+
+Type of sensors:
+
+•
+
+4: 4 sensors
+
+•
+
+P: light point sensors
+
+•
+
+6: 6 sensors
+
+•
+
+C: current sensors
+
+•
+
+12: 12 sensors
+
+•
+
+L: fiber loop sensors
+
+•
+
+X: mixed type sensors
+
+The PowerLogic A3 range is composed by A3F6P, A3F12P, A3S6P and A3S12P
+to perform a high-density light detection up to 6 or 12 point-sensors per device.
+ArcEM card of V321 is also released for current confirmation and light information
+transmission.
+The A3F series is equipped with a power supply card, therefore the A3F can
+operate independently to provide arc flash protection for bay-based simple
+system. Beside that, the A3F is capable to inter-operate with other PowerLogic A3
+devices to form a small arc protection system for multi-bay system. It can be
+associated to other PowerLogic A3 devices to increase the number of light sensor
+channels and tripping outputs for multi-bay system. Depends on the number of
+cubicles, the groups to be protected and the number of circuit breakers to be
+controlled, the protection system designer can select up to 5 devices to build the
+suitable solution.
+The A3S series is not equipped with power supply card, it shall be powered by
+A3F with ArcEM cable. So, it is used as only a part of arc protection system.
+Both A3F and A3S series are capable to operate with V321 equipped with an
+ArcEM card in slot 6. Up to 16 PowerLogic A3 devices can be connected to the
+system to form a large arc protection system for the complex system.
+The main features of PowerLogic A3 are as blow:
+
+A3/EN M/01D
+
+•
+
+Event memory, LED indication memory in case of main loss.
+
+•
+
+Operation on both light only mode and light with current confirmation mode are
+supported.
+
+•
+
+Maximum 2 ms operation time for T1 and T3 (HSO), 9 ms operation time for T2
+(conventional output relay) in light only mode.
+
+•
+
+Full system self-supervision.
+
+•
+
+Independent sensor LED for status detection and fault location.
+11
+
+Arc Flash Protection Unit
+
+3Introduction
+
+•
+
+Wide range of auxiliary power supply for A3F: 24 to 240 V ac/dc.
+
+•
+
+2 equivalent ix Industrial® ports for network and power supply for A3S.
+
+•
+
+Strong extensibility, support up to 5 PowerLogic A3 devices in small system,
+up to 16 PowerLogic A3 devices when being connected to V321.
+
+•
+
+Meet multiple application scenarios by choosing different Protection Scheme,
+such as Incomer, Feeder, busbar, and so on.
+
+•
+
+Meet the requirements of selectivity by defining Light Groups from 1 to 12 and
+Current Groups from 13 to 16.
+
+•
+
+Internal signal transmission protocol in ArcEM bus with higher level of security.
+
+•
+
+Test mode for sensor channels commissioning without output of physical relay
+trip.
+
+Selection guide
+Table 2 - PowerLogic A3 selection guide
+PowerLogic A3
+
+A3F6P
+
+Number of channels of
+input sensor
+
+6
+
+Type of input sensors
+
+Light Point Sensor
+
+Protection schemes
+
+A3F12P
+
+A3S6P
+
+A3S12P
+
+12
+
+6
+
+12
+
+Non-selective, Incomer,
+Feeder
+
+Non-selective, Incomer,
+Feeder
+
+Non-selective, Feeder
+
+Non-selective
+
+Output relays
+
+T1 / T2 / T3
+
+T1 / T2
+
+T3
+
+N/A
+
+Watchdog outputs
+
+T4
+
+N/A
+
+T4
+
+N/A
+
+External power supply
+
+Yes
+
+N/A
+
+Size (Width x Height x
+Depth)
+
+70.6 x 134.4 x 126.2 mm / 2.78 x 5.29 x 4.97 in
+
+34 x 134.4 x 125.1 mm / 1.34 x 5.29 x 4.92 in
+
+NOTE: T1 and T3 are HSO contacts. T2 is conventional contact. T4 is used
+for WD.
+
+User interface
+There are two sizes of PowerLogic A3: the full size A3F and the small size A3S.
+The 2 sizes looks quite similar. Here we can take the A3F6P as an example:
+Figure 1 - The user interface of PowerLogic A3F6P
+2
+
+RESET/
+INSTALL
+ON/C/E
+
+Light Group
+
+T1
+
+COM
+2
+1
+
+Scheme
+
+1
+
+5
+
+4
+
+T2
+
+S1
+S2
+S3
+
+X1
+
+S4
+8
+7
+
+T2
+
+6
+5
+4
+
+T1
+
+3
+2
+
+S5
+
+X5
+
+S6
+
+US
+
+S4
+
+T3
+
+1
+
+S3
+
+1 2 3 4 5 6 7 8
+
+S2
+
+T4
+
+1 2 3 4 5
+
+S1
+
+X2
+
+T4
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+S6
+
+T3
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+S5
+
+3
+7
+
+12
+
+8
+
+6
+
+A3112501
+
+A3/EN M/01D
+
+3Introduction
+
+Arc Flash Protection Unit
+No.
+
+Description
+
+Item
+
+1
+
+Reset/install button
+
+•
+
+Release sensor LED and output relay by short press.
+
+•
+
+Install local sensors and send install command to other
+PowerLogic A3 devices in the system by long press:
+Press and hold this button for 3~5 s until the ON/C/E
+LED lights in orange. Wait for 5 s, all sensor LEDs will
+flash in yellow.
+
+•
+
+Enter the test mode:
+Press and hold this button for 3 s, the ON/C/E LED
+flashes in orange. Press and hold 3 s again during
+flash, then the ON/C/E LED light become steady in
+orange.
+See Test mode, page 48 for details.
+
+2
+
+•
+•
+
+Green: normal status of the device.
+Red: abnormal status of the device due to sensor
+errors, parameter changed without install, system
+structure changed and so on. See Troubleshooting,
+page 105.
+
+•
+Operating status indication
+LED
+
+•
+
+Orange, steady: test mode of the device.
+Orange, blinking: the device is on hold before
+implementing the install command. Wait for 5 s if you
+want to implement the install command, or short press
+the button to cancel if you do not want to install.
+
+The LED is
+
+green in normal operation status.
+
+NOTE: If the PowerLogic A3 is working in system
+mode or IO mode which means there are messages
+transmitting in the ArcEM bus, the LED will be
+blinking.
+3
+
+Sensor and trip output
+status LED
+
+•
+
+T1, T2, T3, T4 LEDs correspond to the output relays of
+the device. But the output relays will reset
+automatically if they are not set to latched, the LEDs
+will keep lit until release manually. The light is Red
+when activated.
+
+•
+
+S1 to S6 or S12 LEDs correspond to the sensor
+channels of the device. These LEDs indicate the
+sensor status:
+◦
+
+The color is Yellow steady and keep lit when
+sensor activated until release manually.
+
+◦
+
+The light of LEDs will become
+Yellow blinking
+when the sensor status is error, for example,
+uninstall (sensor newly added without install),
+disconnected (sensor lost), daylight error,
+overcurrent (sensor short circuit).
+
+During normal operation, these LEDs are all deactivated.
+4
+
+Rotary configuration
+switches
+
+Select the scheme and light group. See Configure with
+rotary switch and push button, page 71 for details.
+
+Com 1 / Com 2
+
+2 equivalent ix Industrial® ports for connecting PowerLogic
+A3 device by ArcEM cable. This port is also the interface
+for configuring the device by eSetup Easergy Pro with
+Config ArcEM cable REL52960.
+
+X1, X2, X5
+
+Connectors for sensors, output relays and auxiliary power
+supply. There are labels to indicate the pins’ function.
+
+5
+
+6, 7, 8
+
+The small sized PowerLogic A3 device is not equipped with power supply card, it
+is powered from ix Industrial® port by the ArcEM cable which is connect to full
+sized PowerLogic A3 device. The A3S is about half size of A3F and without Reset/
+Install button. For this reason, A3S can not work alone, it can be considered as an
+extension of A3F.
+
+A3/EN M/01D
+
+13
+
+Arc Flash Protection Unit
+
+3Introduction
+
+Figure 2 - PowerLogic A3S6P user interface
+
+Light Group
+
+T3
+
+COM
+2
+1
+
+Scheme
+
+ON/C/E
+
+T4
+
+S1
+S2
+S3
+
+X1
+
+S4
+
+S2
+S3
+
+T4
+
+S4
+S5
+S6
+
+T3
+
+1 2 3 4 5
+
+S1
+
+X2
+
+1 2 3 4 5 6 7 8 9 10 1112
+
+S6
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+S5
+
+A3112701
+
+Three kinds of operation mode
+The PowerLogic A3 brings a certain flexibility to fit to different customer
+applications. The modular design of the PowerLogic A3 allows the user to design
+an arc flash protection solution adapted to the installation design and protection
+objectives.
+For the simple power system, single PowerLogic A3 device can meet the
+requirement. For a complex power system, the arc protection system shall be
+formed by multiple devices. Furthermore, PowerLogic A3 can be connected to
+V321 through its ArcEM card in slot 6. In this case, up to 16 PowerLogic A3
+devices cascaded with V321 build up a large arc protection system for multiple
+sections busbar, multiple incomers, and couplings power system.
+Using a single PowerLogic A3 device or combining multiple units depends on the
+factors below:
+•
+
+The number of groups (which is exactly the same concept as Zone 1 to 4 in
+Schneider Electric‘s legacy products, for example VAM10L, VAM12L) to
+protect;
+
+•
+
+The number of sensors to deploy;
+
+•
+
+The number of output relays to trip the circuit breaker;
+
+•
+
+The application scenarios: selectivity/non-selectivity, with/without current
+confirmation, incomer/feeder.
+
+According to the scale of the arc protection system which is composed by the
+PowerLogic A3 devices, three kinds of operation mode is defined as below:
+
+14
+
+•
+
+Stand-alone mode: also called single unit mode, full size PowerLogic A3
+device equipped with a power supply card operates independently, no
+communication function.
+
+•
+
+System mode: not more than 5 PowerLogic A3 devices form a small system.
+The system is powered by A3F devices, the A3S devices are powered by
+ArcEM cable. Internal messages containing status of Groups, reset and install
+commands are transmitted by the ArcEM bus.
+
+•
+
+I/O peripheral mode: builds up an arc protection system with V321 device, as
+an alternative of some Schneider Electric products such as VAM10L, VAM12L
+and so on with more flexible and versatile to meet various application
+scenarios.
+
+A3/EN M/01D
+
+3Introduction
+
+Arc Flash Protection Unit
+
+Stand-alone mode
+Only full size PowerLogic A3 devices can be used as stand-alone detection in MV
+and LV applications. Based on the number of sensors to be deployed and the
+number of circuit breakers to trip to isolate arc fault, there are 2 kinds of A3F
+devices available:
+•
+
+A3F6P, 6 sensor channels, 2 HSO output relays (T1 & T3) and 1 conventional
+output relay (T2), SF output relay (T4).
+
+•
+
+A3F12P, 12 sensor channels, 1 HSO output relay (T1) and 1 conventional
+output relay (T2), without SF output relay (T4).
+
+Since A3F6P and A3F12P are without current confirmation, they use only light
+criteria.
+Possible application scenarios are as listed below:
+
+A3/EN M/01D
+
+15
+
+Arc Flash Protection Unit
+
+3Introduction
+
+•
+
+Non-selectivity, open the main circuit breaker directly if the arc flash occurs in
+DC/AC power inverter, or If the arc flash occurs in the entire busbar section of
+single incomer or single busbar section, as shown below:
+Figure 3 - A3F12P scheme #1
+
+16
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+Conventional relay for either local
+CB tripping or remote signaling, for
+example, SCADA.
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+A3/EN M/01D
+
+3Introduction
+
+Arc Flash Protection Unit
+
+•
+
+Selectivity, if there are 2 feeders connected to a short busbar, scheme #4 can
+achieve certain selectivity as shown below:
+Figure 4 - A3F6P scheme #4
+
+T1
+
+HSO to trip feeder CB x
+
+T2
+
+Conventional relay to trip incomer or
+remote signalization
+
+T3
+
+HSO to trip feeder CB y
+
+T4
+
+Self diagnosis
+
+1
+
+Busbar
+
+2
+
+CB
+
+3
+
+Cable
+
+System mode
+An arc protection system of not more than 5 PowerLogic A3 devices can be built
+up by connecting the PowerLogic A3 devices with dedicated ArcEM cables. This
+arc protection system contains maximum 60 sensors and 10 output relays, can be
+used in variant applications.
+There are some limitations to pay attention of:
+•
+
+Each A3S shall be cascaded to a A3F device considering the limited capacity
+of power card in A3F. It means the cascade rule is -F-S-F-S-, S can’t be
+connected to S. So, at least 2 full size PowerLogic A3 devices are needed
+when the system scale is 5 or 3.
+
+•
+
+The total cable length in the system shall be less than 100 m and the maximum
+length between two adjacent PowerLogic A3 devices is 30 m.
+
+The image below is an example of PowerLogic A3 small system:
+
+A3/EN M/01D
+
+17
+
+Arc Flash Protection Unit
+
+3Introduction
+
+Figure 5 - Example of PowerLogic A3 small system
+5
+/
+/
+
+1
+2
+
+3
+
+4
+
+A3114501
+
+1
+
+Communication cable
+
+2
+
+ArcEM bus
+
+3
+
+Power supply +24 V
+
+4
+
+GND
+
+5
+
+24...240 V ac/dc (-20%...+10%)
+
+The small system can protect the single main and outgoing feeders or protect the
+double main and bus-tie feeder with limited number of outgoing feeders. Both
+architectures can be done with or without selectivity principle by selecting
+corresponding protection schemes. See chapter Use, page 21.
+
+CAUTION
+EQUIPMENT DAMAGE
+Do not connect modular cables in a closed loop.
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+NOTICE
+EQUIPMENT DAMAGE
+•
+
+Only the dedicated communication cable specified by Schneider shall be
+used for connecting the PowerLogic A3 and the V321.
+
+•
+
+Modular cable wiring shall be placed on the control cabling trays as far from
+the primary cable, bus bar and bus ducts as possible.
+
+•
+
+Do not connect any other Ethernet network. Only PowerLogic A3 and V321
+network can be connected to the Arc Extension Module (EM) bus.
+
+•
+
+Connected with an external power supply unit, a PowerLogic A3F unit is
+capable of providing the operating power supply for only one PowerLogic
+A3S unit through the communication cable.
+
+•
+
+The PowerLogic A3S device can not be operational if it is not connected to
+the PowerLogic A3F device.
+
+Failure to follow these instructions can result in equipment damage.
+
+I/O peripheral mode
+PowerLogic A3 devices can be used as peripheral I/O units of V321 central unit
+which is used for more advanced and sophisticated arc protection systems. It is
+not simply device substitute of Schneider Electric’s legacy products, for example
+VAM10L, VAM12L and so on, but more likely the solution substitute which is more
+flexible and versatile to meet various application scenarios.
+
+18
+
+A3/EN M/01D
+
+3Introduction
+
+Arc Flash Protection Unit
+
+The interconnection between PowerLogic A3 and V321 is made with the
+dedicated communication cable through the ArcEM interface card of V321 in Slot
+6 , as shown below:
+
+AEMbus
+
+Figure 6 - The ArcEM interface card of V321 in Slot 6
+
+A3114201
+
+There are 2 equivalent ix Industrial® connectors in ArcEM card. They are the same
+with COM1 and COM2 ports in PowerLogic A3 device. The ArcEM card of V321
+can be considered as a special small size PowerLogic A3 device without auxiliary
+power supply. Therefore, the A3F is essential in this mode. For PowerLogic A3,
+the cascading principle is also one A3F device followed by one A3S and each A3F
+device shall be powered. The system supports maximum 16 PowerLogic A3
+devices cascade and the maximum total length of the ArcEM cable is 100 m
+(adjacent ArcEM devices should be within 30 m). Below is the example of V321PowerLogic A3 system topology. Users can also connect PowerLogic A3 into two
+branches based on the on-site situation.
+Figure 7 - Example of V321-PowerLogic A3 system, one branch, …S-F-S-F-SF… and all full size devices are powered
+5
+/
+/
+
+6
+
+1
+
+2
+
+3
+
+4
+A3114301
+
+A3/EN M/01D
+
+1
+
+Communication cable
+
+2
+
+ArcEM bus
+
+3
+
+Power supply +24 V
+
+4
+
+GND
+
+5
+
+24...240 V ac/dc (-20%...+10%)
+
+6
+
+Up to 16 PowerLogic A3 devices
+cascade
+
+19
+
+Arc Flash Protection Unit
+
+3Introduction
+
+Figure 8 - Example of V321-PowerLogic A3 system, two branches
+5
+/
+/
+
+5
+/
+/
+
+6
+
+1
+
+2
+
+3
+
+4
+A3114401
+
+1
+
+Communication cable
+
+2
+
+ArcEM bus
+
+3
+
+Power supply +24 V
+
+4
+
+GND
+
+5
+
+24...240 V ac/dc (-20%...+10%)
+
+6
+
+Up to 16 PowerLogic A3 devices
+cascade
+
+CAUTION
+UNEXPECTED OPERATION
+The Arc EM bus is built following a daisy chain topology. The Arc EM bus can’t
+operate in a loop topology!
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+The system integrator is responsible for compliance with all local and
+national electrical code requirements as well as all other applicable
+regulations with respect to grounding of all equipment.
+
+•
+
+In case of using multiple auxiliary power supplies on different powered
+devices, the installer shall ensure a proper grounding for the overall system.
+
+•
+
+Power supply connection shall be made with a twisted pair cable of a crosssectional area of at least 1.5 mm2(AWG16).
+
+Failure to follow these instructions will result in death or serious injury.
+
+20
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+4 Use
+Introduction and rules
+The aim of this chapter is to illustrate and provide explanation of each protection
+scheme, although the logic is charted by logic diagrams. Typical use cases and
+application examples are also provided. Before going into the point, the following
+terminologies are going to be used:
+•
+
+Local sensors: Sensors which are connected to PowerLogic A3 products
+
+•
+
+Remote sensors: Sensors which are connected to adjacent PowerLogic A3
+products in the system with ArcEM cables. The remote sensors’ signals are
+shared as generic events through the ArcEM bus.
+
+The image below is an example of protection scheme logic diagram:
+Figure 9 - Elements of logic diagram
+Inputs
+
+Output
+
+Logic
+AND
+
+S2
+
+L>
+
+AND
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+T3
+
+L>
+
+T1
+
+S1
+
+≥1
+
+Light Group x
+x=1...12
+
+≥1
+
+self diag
+
+T4
+
+Current Group y
+y=13...16
+
+T2
+
+AND
+
+Light Group x
+x=1...12
+
+A3117300
+
+The protection scheme follows these rules:
+•
+
+There are 3 elements in each protection scheme logic diagram: the inputs, the
+logic and the outputs
+
+•
+
+The inputs include all sensors either local or remote and current condition (if
+any, according to configured scheme). For example, in the above image, S1 to
+S6 are used as local sensors. Light group is used as remote sensors from
+PowerLogic A3 devices and current confirmation condition is used as well.
+Inputs data flow is defined by “Scheme” rotary switch and “Light Group” rotary
+switch.
+
+•
+
+The outputs include tripping outputs either HSO (T1 &T3) or conventional (T2)
+and light group which is shared as remote sensors data on the communication
+bus. Output data acquisition is defined by “Scheme” rotary switch and “Light
+Group” rotary switch.
+
+•
+
+Each PowerLogic A3 device can receive signal from the remote sensors
+because the signal is published as generic event. The restriction is each
+PowerLogic A3 can receive this data and execute it in its logic (Scheme) only
+in case of the “Light Group” setting of the PowerLogic A3 is identical with the
+sender device. It means the sender and the receiver must have same Light
+Group settings.
+
+The table below explains briefly the impacts of each rotary switch on 3 different
+elements of PowerLogic A3 logic diagram:
+
+A3/EN M/01D
+
+21
+
+Arc Flash Protection Unit
+
+4Use
+
+Table 3 - Rotary switch configuration
+Rotary switch
+
+Description
+
+Schemes
+
+•
+
+Inputs: impact of “scheme” setting is mostly on which sensor’s data to be
+pushed to output. For example, in Elements of logic diagram, page 21
+local sensor 3 to 6 are pushed to Light Group data which is shared with
+other PowerLogic A3 devices in the system through bus communication.
+Also, S1 light data with current condition is pushed to T1 and so on.
+Moreover, scheme rotary switch configuration defines if current
+confirmation condition is required or not. For example, in Elements of logic
+diagram, page 21 the current condition is required.
+
+•
+
+Logic: it defines selective/non-selective, incomer/feeder logics. For
+example, in Elements of logic diagram, page 21 we can find that it is
+selective, S1 trips T1 and S2 trips T3 with current confirmation. The
+selective & non-selective logics will be explained in detail in the following
+chapters.
+
+•
+
+Outputs: the tripping outputs are assigned by local sensor connected to
+PowerLogic A3, or by the sensors of the same group through
+communication bus, or by both the local sensor and the sensors of the
+same group.
+
+Light group
+
+This configuration defines the “Light Group” assignment of input and output
+element of each single PowerLogic A3 device. If we take an example in witch
+the light group rotary switch points to 2, it means:
+•
+
+All or group of local sensors, depend on the pre-defined scheme, are
+pushed to Light Group 2(G2);
+
+•
+
+The PowerLogic A3 device takes into account only the remote sensor data
+of exactly the same Light Group 2(G2).
+
+Below table shows different schemes of all PowerLogic A3 units based on
+covering selectivity/non-selectivity and with/without current confirmation.
+Table 4 - PowerLogic A3 models and pre-defined schemes
+PowerLogic A3 unit
+
+Nonselective
+
+Nonselective +
+current
+
+Selective
+Incomer
+(Without
+current)
+
+Selective
+Feeder
+(Without
+current)
+
+Selective
+Incomer +
+current
+
+Selective
+Feeder +
+current
+
+A3F6P
+
+#1
+
+#2
+
+#3
+
+#4
+
+#5
+
+#6
+
+A3F12P
+
+#1
+
+#2
+
+#3
+
+#4
+
+#5
+
+#6
+
+A3S6P
+
+#1
+
+#2
+
+x
+
+#4
+
+x
+
+#6
+
+A3S12P
+
+#1
+
+x
+
+x
+
+x
+
+x
+
+x
+
+There are 9 available configurations from 1 to 9 for scheme rotary switch.
+However, the 9 schemes are not all defined in wave 1, refer to PowerLogic A3
+models and pre-defined schemes, page 22 for the defined status.
+•
+
+A3F6P contains 6 schemes.
+
+•
+
+A3F12P contains 6 schemes.
+
+•
+
+A3S6P contains 4 schemes.
+
+•
+
+A3S12P contains 1 scheme.
+
+The selective schemes include 2 sub-schemes defined as Incomer/feeder
+scheme, the Incomer/Feeder logics will be explained in detail in Protection
+Schemes, page 23.
+NOTE: By default, the value of protection scheme is scheme #1, the value of
+Light Group is Group 1, the value of Current Group is Group 16. The default
+positions of the 2 rotary switches are 0 and 0. Users can configure the device
+by eSetup Easergy Pro or by rotating the switches with screwdriver. (See
+Configuration, page 71.)
+
+22
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Protection Schemes
+Schemes of A3F6P
+Table 5 - Schemes of A3F6P
+Scheme diagram
+
+Description
+Non-selective without current
+confirmation
+
+Figure 10 - A3F6P Scheme #1
+Inputs
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+Light Group x
+x=1...12
+
+≥1
+
+T2
+
+L>
+
+S2
+
+Output
+
+T1
+
+S1
+
+If the local sensors( S1 to S6) and/
+or remote sensors with identical
+Light Group setting are lit then T1,
+T2 and T3 will trip.
+
+≥1
+
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+T3
+T4
+
+Light Group x
+x=1...12
+
+Moreover, all local sensors’ ( S1 to
+S6) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+self diag
+
+A3115501
+
+Non-selective with current
+confirmation
+
+Figure 11 - A3F6P Scheme #2
+Inputs
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+Light Group x
+x=1...12
+
+≥1
+
+≥1
+AND
+
+T3
+
+Light Group x
+x=1...12
+
+T4
+
+Current Group y
+y=13...16
+
+Moreover, all local sensors’ ( S1 to
+S6) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+T2
+
+L>
+
+Output
+
+T1
+
+S1
+
+Same as scheme #1 but with
+current confirmation added.
+
+self diag
+
+A3115601
+
+Selective scheme for Incomer
+without current
+
+Figure 12 - A3F6P Scheme #3 Incomer
+Inputs
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+≥1
+
+≥1
+
+Lght Group x
+x=1...12
+
+≥1
+
+T2
+
+L>
+
+S2
+
+T1
+
+S1
+
+Sensors S1 and/or S2 can be
+installed in cable and/or circuit
+breaker compartment. T1, which is
+a high speed output, trips when S1
+and/or S2 are lit without current
+confirmation, remote inter-tripping
+signal will also be sent.
+
+Output
+
+T3
+
+self diag
+
+T4
+
+Light Group x
+x=1...12
+
+A3115701
+
+Sensors S3 to S6 can be installed in
+incomer’s busbar compartment or
+riser’s busbar compartment. T2 is a
+conventional output relay, and T3 is
+a high speed output relay, trip when
+S3 to S6 or remote sensors are lit.
+T3 can be wired to tripping circuit of
+Incomer’s CB, to be either signaling
+relay or wired to Coupling’s CB (if
+any). T2 can be either wired to
+tripping circuit of coupling’s CB or to
+the remote, for example SCADA.
+Moreover, all local sensors’ ( S3 to
+S6) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+
+A3/EN M/01D
+
+23
+
+Arc Flash Protection Unit
+
+4Use
+
+Table 5 - Schemes of A3F6P (Continued)
+Scheme diagram
+
+Description
+identical Light Group setting through
+communication bus.
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+Selective scheme for an
+Outgoing feeder without current
+
+Figure 13 - A3F6P Scheme #4 Feeder
+
+S3
+S4
+S5
+
+L>
+
+L>
+
+≥1
+
+Light Group x
+x=1...12
+
+L>
+L>
+
+≥1
+
+T2
+
+S6
+
+L>
+
+T3
+
+S2
+
+S1 is installed in cable compartment
+of outgoing X. T1 trips if S1 is lit. T1
+is a HSO, can be wired to tripping
+circuit of outgoing X’s CB.
+
+T1
+
+S1
+
+This scheme can cover two
+outgoing feeders.
+
+Output
+
+Inputs
+
+L>
+
+self diag
+
+T4
+
+Light Group x
+x=1...12
+
+A3115801
+
+S2 is installed in cable compartment
+of outgoing Y. T3 trips if S2 is lit. T3
+is a HSO, can be wired to tripping
+circuit of outgoing Y’s CB.
+S3 and S4 are installed in CB’s and/
+or busbar compartment of outgoing
+X. Moreover, S5 and S6 are
+installed in CB’s and/or busbar
+compartment of outgoing Y. If S3 to
+S6 is lit then T2 trips, the trip signal
+can be sent either to coupling or to
+remote; Moreover the Light Group is
+set to ON and sent to other
+PowerLogic A3 units in the system.
+The PowerLogic A3 located in
+Incomer with scheme #3 or #5
+receives the light group from this
+PowerLogic A3 will trip incoming
+CBs to isolate arc incident located
+on busbar/CBs on other part of the
+electrical installation.
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+24
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Table 5 - Schemes of A3F6P (Continued)
+Scheme diagram
+
+Description
+
+Figure 14 - A3F6P Scheme #5 Incomer + I>
+Inputs
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+≥1
+
+Light Group x
+x=1...12
+
+S1 and S2 are installed in cable’s
+and/or CB’s compartment of
+Incomer, current confirmation is not
+required. T1 will be used remotely
+as inter-tripping signal so that if
+current confirmation is required at
+upstream, it will be managed at
+upstream.
+
+≥1
+
+≥1
+
+T2
+
+L>
+
+S2
+
+Same as scheme #3 but with
+current confirmation added.
+Scheme #5 is designed for Incomer
+applications. The current
+confirmation condition is used only
+for sensors S3 to S6 and remote
+sensors.
+
+Output
+
+T1
+
+S1
+
+AND
+
+T3
+
+Light Group x
+x=1...12
+
+T4
+
+Current Group y
+y=13...16
+
+self diag
+
+A3115901
+
+This scheme can cover two
+outgoing feeders.
+
+Output
+AND
+
+S2
+
+L>
+
+AND
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+Same as scheme #4 but with
+current confirmation added.
+
+T3
+
+L>
+
+T1
+
+S1
+
+≥1
+
+Light Group x
+x=1...12
+
+≥1
+
+self diag
+
+T4
+
+Current Group y
+y=13...16
+
+T2
+
+AND
+
+Light Group x
+x=1...12
+
+A3116001
+
+A3/EN M/01D
+
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+Selective scheme for an
+Outgoing feeder with current
+
+Figure 15 - A3F6P Scheme #6 Feeder + I>
+Inputs
+
+Selective scheme for an Incomer
+with current
+
+Moreover, local sensors’ ( S3 to S6)
+activation data is pushed to Light
+Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus. The
+PowerLogic A3 located in Incomer
+with scheme #3 or #5 receives the
+light group from this PowerLogic A3
+will treat this data by its logic, trip
+incoming’s CBs to isolate the arc
+incident which is located on busbar
+on other part of the electrical
+installation.
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+25
+
+Arc Flash Protection Unit
+
+4Use
+
+Schemes of A3F12P
+Table 6 - Schemes of A3F12P
+Scheme diagram
+
+Description
+Non-selective without current
+confirmation
+
+Figure 16 - A3F12P Scheme #1
+Inputs
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+Output
+Light Group x
+x=1...12
+
+≥1
+
+T1
+
+S1
+
+If local sensors( S1 to S12) and/or
+remote sensors with identical Light
+Group setting are lit then T1 and T2
+trip.
+Moreover, all local sensors’ ( S1 to
+S12) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+≥1
+
+T2
+
+Light Group x
+x=1...12
+
+A3116101
+
+T2 configurable as TRIP or SF
+
+Figure 17 - A3F12P Scheme #1: T2 as TRIP +
+SF(1)
+Inputs
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+Light Group x
+x=1...12
+
+Since the version V01.101, the T2
+of A3F12P can be configured to be
+TRIP only or TRIP + SF.
+
+≥1
+
+The operation to enable/disable the
+TRIP + SF for T2 is made by eSetup
+Easergy Pro in GENERAL / Main
+menu / Configuration, by enabling/
+disabling the check box T2 as TRIP
++SF. If T2 as TRIP+SF is disabled,
+A3F12P works as the above
+scheme.
+
+T1
+
+S1
+
+Output
+
+≥1
+
+T2
+
+≥1
+Light Group x
+x=1...12
+
+In the above scheme, T2 provides
+only TRIP signal. In case of system
+error such as sensor error, install
+failed and so on, since there is no
+self-diagnosis, the A3F12P can not
+raise alarm but only change the
+color of LED from green to red.
+
+self diag
+
+A3117400
+
+Non-selective with current
+confirmation
+
+Figure 18 - A3F12P Scheme #2
+
+Same as scheme #1 but with
+current confirmation added.
+Inputs
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+Light Group x
+x=1...12
+
+≥1
+
+≥1
+AND
+
+T2
+
+Light Group x
+x=1...12
+
+Moreover, all local sensors’ ( S1 to
+S12) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+T1
+
+S1
+
+Output
+
+Current Group y
+y=13...16
+
+A3116201
+
+(1)
+
+26
+
+V01.101 and newer version only.
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Table 6 - Schemes of A3F12P (Continued)
+Scheme diagram
+
+Description
+T2 configurable as TRIP or SF
+
+Figure 19 - A3F12P Scheme #2: T2 as TRIP +
+SF(2)
+Inputs
+
+S1
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+Output
+
+Light Group x
+x=1...12
+
+≥1
+≥1
+AND
+
+L>
+
+T2
+
+Light Group x
+x=1...12
+
+≥1
+Current Group y
+y=13...16
+
+Since the version V01.101, the T2
+of A3F12P can be configured to be
+TRIP only or TRIP + SF.
+The operation to enable/disable the
+TRIP + SF for T2 is made by eSetup
+Easergy Pro in GENERAL / Main
+menu / Configuration, by enabling/
+disabling the check box T2 as TRIP
++SF. If T2 as TRIP+SF is disabled,
+A3F12P works as the above
+scheme.
+
+T1
+
+S12
+
+In the above scheme, T2 provides
+only TRIP signal. In case of system
+error such as sensor error, install
+failed and so on, since there is no
+self-diagnosis, the A3F12P can not
+raise alarm but only change the
+color of LED from green to red.
+
+self diag
+
+A3117500
+
+Selective scheme for an Incomer
+without current
+
+Figure 20 - A3F12P Scheme #3 Incomer
+Inputs
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+L>
+
+S12
+
+L>
+
+≥1
+
+≥1
+
+Light Group x
+x=1...12
+
+T2
+
+S4
+
+Output
+
+T1
+
+S1
+
+Sensors S1 and/or S2 can be
+installed in cable and/or circuit
+breaker compartment of incomer.
+T1, which is a high speed output,
+trips when S1 and/or S2 are lit
+without current confirmation, remote
+inter-tripping signal will also be sent.
+
+≥1
+
+Light Group x
+x=1...12
+
+A3116301
+
+This scheme can cover two
+outgoing feeders.
+
+Output
+
+S1
+
+L>
+
+T1
+
+S2
+
+L>
+
+T2
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+≥1
+
+S1 is installed in cable compartment
+of outgoing X. T1 trips if S1 is lit. T1
+is a HSO, can be wired to tripping
+circuit of outgoing X’s CB.
+S2 is installed in cable compartment
+of outgoing Y. T2 trips if S2 is lit. T2
+is a conventional output, can be
+wired to tripping circuit of outgoing
+Y’s CB.
+
+Light Group x
+x=1...12
+
+A3116401
+
+(2)
+
+Moreover, all local sensors’ ( S3 to
+S12) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+Selective scheme for an
+Outgoing feeder without current
+
+Figure 21 - A3F12P Scheme #4 Feeder
+Inputs
+
+Sensors S3 to S12 can be installed
+in incomer’s busbar compartment or
+riser’s busbar compartment. T2 ,
+which is a conventioanl output relay,
+trips when S3 to S12 or remote
+sensros are lit. T2 can be wired to
+tripping circuit of Incomer’s CB.
+
+S3 to S12 are installed in CB’s and/
+or busbar compartment of outgoing
+X and/or Y. If any of these sensors is
+lit then the Light Group is set to ON
+and sent to other PowerLogic A3
+units in the system. For example,
+
+V01.101 and newer version only.
+
+A3/EN M/01D
+
+27
+
+Arc Flash Protection Unit
+
+4Use
+
+Table 6 - Schemes of A3F12P (Continued)
+Scheme diagram
+
+Description
+the PowerLogic A3 which is located
+in Incomer with scheme #3 or #5
+receives the light group from this
+PowerLogic A3 will treat this data by
+its logic, trip incoming’s CBs to
+isolate the arc incident which is
+located on busbar on other part of
+the electrical installation.
+
+Figure 22 - A3F12P Scheme #5 Incomer + I>
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+≥1
+
+T1
+
+S1
+
+Same as scheme #3 but with
+current confirmation added.
+Scheme #5 is designed for Incomer
+applications. The current
+confirmation condition is used only
+for sensors S3 to S12 and remote
+sensors.
+
+Output
+
+Inputs
+
+≥1
+
+Light Group x
+x=1...12
+
+≥1
+
+T2
+
+AND
+
+Selective scheme for an Incomer
+with current
+
+Light Group x
+x=1...12
+
+S1 and S2 are installed in cable’s
+and/or CB’s compartment of
+Incomer, current confirmation is not
+required. T1 will be used remotely
+as inter-tripping signal so that if
+current confirmation is required at
+upstream, it will be managed at
+upstream.
+
+Current Group y
+y=13...16
+
+A3116501
+
+Figure 23 - A3F12P Scheme #6 Feeder + I>
+
+This scheme can cover two
+outgoing feeders.
+
+Inputs
+
+Output
+
+Same as scheme #4 but with
+current confirmation added.
+
+L>
+
+AND
+
+S2
+
+L>
+
+AND
+
+T2
+
+T1
+
+S1
+
+≥1
+
+Light Group x
+x=1...12
+
+Moreover, local sensors’ ( S3 to
+S12) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus. The
+PowerLogic A3 located in Incomer
+with scheme #3 or #5 receives the
+light group from this PowerLogic A3
+will treat this data by its logic, trip
+incoming’s CBs to isolate the arc
+incident which is located on busbar
+on other part of the electrical
+installation.
+
+Current Group y
+y=13...16
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+Selective scheme for an
+Outgoing feeder with current
+
+A3116601
+
+28
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Schemes of A3S6P
+Table 7 - Schemes of A3S6P
+Scheme diagram
+
+Description
+Non-selective without current
+confirmation
+
+Figure 24 - A3S6P Scheme #1
+Inputs
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+Output
+Light Group x
+x=1...12
+
+Moreover, all local sensors’ ( S1 to
+S6) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+T3
+
+S1
+
+If local sensors( S1 to S6) and/or
+remote sensors with identical Light
+Group setting are lit then T3 trips.
+
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+≥1
+
+≥1
+
+T4
+
+Light Group x
+x=1...12
+
+self diag
+
+A3116701
+
+Non-selective with current
+confirmation
+
+Figure 25 - A3S6P Scheme #2
+
+Same as scheme #1 but with
+current confirmation added.
+Output
+
+Inputs
+
+S1
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+Light Group x
+x=1...12
+
+≥1
+
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+≥1
+
+T3
+
+AND
+
+Light Group x
+x=1...12
+
+self diag
+
+T4
+
+Current Group y
+
+Moreover, all local sensors’ ( S1 to
+S6) activation data is pushed to
+Light Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+y=13...16
+
+A3116801
+
+A3/EN M/01D
+
+29
+
+Arc Flash Protection Unit
+
+4Use
+
+Table 7 - Schemes of A3S6P (Continued)
+Scheme diagram
+
+Description
+Selective scheme for an
+Outgoing feeder without current
+
+Figure 26 - A3S6P Scheme #4 Feeder
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+L>
+
+S6
+
+L>
+
+≥1
+
+≥1
+
+Light Group x
+x=1...12
+
+self diag
+
+T4
+
+S5
+
+S1 & S2 are installed in cable
+compartment of outgoing feeder. T3
+trips if S1 and/or S2 are lit. T3 is a
+HSO, can be wired to tripping circuit
+of outgoing feeder’s CB.
+
+T3
+
+S1
+
+This scheme can cover one
+outgoing feeder.
+
+Output
+
+Inputs
+
+A3116901
+
+S3 to S6 are installed in CB’s and/or
+busbar compartment of outgoing
+feeder. If any of these sensors is lit
+then the Light Group is set to ON
+and sent to other PowerLogic A3
+units in the system. For example,
+the A3F6P or A3F12P which is
+located in Incomer with scheme #3
+or #5 receives the light group from
+this PowerLogic A3 will treat this
+data by its logic, trip incoming’s CBs
+to isolate the arc incident which is
+located on busbar on other part of
+the electrical installation.
+This specific scheme with A3S6P
+can be used for sensor redundancy
+for one feeder. By installing S1 & S2
+inside cable compartment, S3 & S4
+inside CB compartment and S5 &
+S6 inside busbar compartment.
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+Selective scheme for an
+Outgoing feeder with current
+
+Figure 27 - A3S6P Scheme #6 Feeder + I>
+
+This scheme can cover one
+outgoing feeder.
+Inputs
+S1
+
+L>
+
+S2
+
+L>
+
+Output
+
+Same as scheme #4 but with
+current confirmation added only for
+S1 and S2 sensors installed at
+cable compartment.
+
+≥1
+
+T3
+
+AND
+
+Current Group y
+y=13...16
+L>
+
+S4
+
+L>
+
+S5
+
+L>
+
+S6
+
+L>
+
+≥1
+
+Light Group x
+x=1...12
+
+self diag
+
+T4
+
+S3
+
+Moreover, local sensors’ ( S3 to S6)
+activation data is pushed to Light
+Group to share with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus. The current
+confirmation condition is not
+considered for these sensors. Since
+this condition might be checked at
+upstream or incoming feeder where
+A3F6P or A3F12P with scheme #5
+are used.
+
+A3117001
+
+T4 is a self-diagnosis watchdog of
+the PowerLogic A3 device and other
+PowerLogic A3 units in the system.
+
+30
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Schemes of A3S12P
+Table 8 - Schemes of A3S12P
+Scheme diagram
+
+Description
+Non-selective without current
+confirmation
+
+Figure 28 - A3S12P Scheme #1
+Inputs
+S1
+
+L>
+
+S2
+
+L>
+
+S3
+
+L>
+
+S4
+
+L>
+
+S12
+
+L>
+
+All local sensors’ ( S1 to S12)
+activation data is pushed to Light
+Group to be shared with other
+PowerLogic A3 devices with
+identical Light Group setting through
+communication bus.
+
+Output
+
+≥1
+
+A3S12P act as a light data collector
+in the PowerLogic A3 system
+without tripping output, nor Light
+Group input.
+
+Light Group x
+x=1...12
+
+A3117101
+
+Typical use case
+The purpose of this chapter is help in better understanding of ”where” the sensors
+of PowerLogic A3 are recommended to be installed. And where the tripping
+outputs of PowerLogic A3 devices shall be wired to. In fact each model of
+PowerLogic A3 uses specific sensors to indicate specific outputs.
+The Single-Line-Diagrams (SLDs) used in this chapter are from MV panels
+applications and use cases. Moreover, they are illustrated based on pre-defined
+logics inside PowerLogic A3 devices.
+NOTE: To simplify the explanation, this chapter shows the PowerLogic A3
+small system which is in light only schemes. For I/O peripheral mode, please
+refer to V321 user manual.
+
+A3F6P
+A3F6P scheme #1
+Scheme #1 of A3F6P is non-selective without current confirmation scheme. By
+using A3F6P scheme #1 in any PowerLogic A3 system, all sensors' activation
+data (either local or remote) of the same Light Group in electrical installation is
+received by A3F6P and will output trip.
+
+A3/EN M/01D
+
+31
+
+Arc Flash Protection Unit
+
+4Use
+
+Figure 29 - A3F6P scheme #1 typical use case
+
+T1
+
+HSO to trip remote/upstream CB
+
+T3
+
+HSO to trip local CB
+
+A
+
+A3F6P scheme #1 G2
+
+B
+
+A3S6P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+As shown in the above SLD, A3F6P is installed in incoming feeder. T3 trips
+incoming’s CB. T1 trips remote/upstream CB. T1 and T3 are HSOs. T2 could send
+“Arc incident report” to any supervision system for example SCADA or local
+signalization system. Moreover, A3F6P can receive remote sensor data through
+communication bus. For example, in the above SLD A3S6P is connected to
+A3F6P to build up a small PowerLogic A3 system. Any remote sensors activation
+of adjacent A3S6P trips all trip outputs of A3F6P.
+NOTE: As mentioned in above SLD, it is necessary to configure unique Light
+Group setting for both of the PowerLogic A3 devices. In the SLD both
+PowerLogic A3 devices have the same G2 configuration.
+
+A3F6P scheme #3
+Scheme #3 of A3F6P is selective scheme for an Incomer without current.
+
+32
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 30 - A3F6P scheme #3 typical use case
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+HSO to trip local CB
+
+T3
+
+Conventional relay to trip coupling or
+remote signalization
+
+A
+
+A3F6P scheme #3 G2
+
+B
+
+A3xxx scheme #y G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+Local sensor S1 is installed in cable compartment. Local sensor S2 is installed in
+CB compartment. If S1 and/or S2 is lit the T1, HSO output, trips remote or
+upstream CB. Other local sensors S3 to S6 are installed on busbar of electrical
+installation. If these local sensors are activated the T3, HSO output, trips incoming
+feeder’s CB. Moreover, if these sensors are activated T2 operates. T2 could be
+used as remote signalization for example SCADA or to be wired to coupling CB’s
+tripping circuit.
+Besides, A3F6P can get remote sensor data through communication bus from
+other adjacent PowerLogic A3 devices. Any remote sensors activation of other
+PowerLogic A3 devices (based on its configured schemes) trips T2 and T3.
+NOTE: As mentioned in above SLD, it is necessary to configure unique Light
+Group setting for both of the PowerLogic A3 devices. In the SLD both
+PowerLogic A3 devices have the same G2 configuration.
+
+A3/EN M/01D
+
+33
+
+Arc Flash Protection Unit
+
+4Use
+
+A3F6P scheme #4
+Scheme #4 of A3F6P is selective scheme for an Outgoing feeder without current.
+Figure 31 - A3F6P scheme #4 typical use case
+
+T1
+
+HSO to trip feeder CB X
+
+T2
+
+Conventional relay to trip coupling or
+remote signalization
+
+T3
+
+HSO to trip feeder CB Y
+
+A
+
+A3Fxx scheme #3 G2
+
+B
+
+A3F6P scheme #4 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+As shown above, this scheme controls two outgoing feeders. S1 is installed in
+cable compartment of outgoing X. T1 trips outgoing X’s CB if S1 is lit. S2 is
+installed in cable compartment of outgoing Y. T3 trips outgoing Y’s CB if S2 is lit.
+S3 to S6 are installed in CB’s and/or busbar compartment of both outgoing
+feeders. If S3 to S6 is lit then T2 trips and can be sent either to coupling or to
+remote for example SCADA. Moreover, if S3 to S6 is lit the Light Group internal
+register will be sent to other PowerLogic A3 units in the system. As an illustration,
+the PowerLogic A3 located in Incomer with scheme #3 receives the light group
+information and trips incoming CBs to isolate arc incident which is located on
+busbar/CBs on other part of the electrical installation.
+
+34
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+A3F12P
+A3F12P scheme #1
+Scheme #1 of A3F12P is non-selective without current confirmation condition.
+Figure 32 - A3F12P scheme #1 typical use case
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+Conventional relay for either local CB
+tripping or remote signaling, for
+example SCADA.
+
+A
+
+A3F12P scheme #1 G2
+
+B
+
+A3S6P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+If local sensors( S1 to S12) and/or remote sensors with identical Light Group
+setting are lit then T1 and T2 trip. T1 can be wired to trip remote/upstream CB. T2
+can be wired to trip local CB. If remote tripping is not required, T1 as HSO, can trip
+local CB and T2 can be sent as remote signaling.
+Moreover, A3F12P can receive remote sensor data through communication bus.
+For example in the above SLD A3S6P is connected to A3F12P to make a small
+PowerLogic A3 system. Any remote sensors activation of adjacent A3S6P trips all
+trip outputs of A3F12P.
+NOTE: As mentioned in above SLD, it is necessary to configure unique Light
+Group setting for both of the PowerLogic A3 devices. In the SLD both
+PowerLogic A3 devices have the same G2 configuration.
+
+A3F12P scheme #3
+Scheme #3 of A3F12P is selective scheme for an Incomer without current
+confirmation.
+A3/EN M/01D
+
+35
+
+Arc Flash Protection Unit
+
+4Use
+
+Figure 33 - A3F12P scheme #3 typical use case
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+Conventional relay for either local CB
+tripping
+
+A
+
+A3F12P scheme #3 G2
+
+B
+
+A3S6P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+S1 and/or S2 can be installed in CB and cable compartment in incomer feeder. T1
+trips if these sensors are lit. T1 can send remote inter tipping signal to upstream
+CB or any other remote CBs.
+Sensors S3 to S12 can be installed in incomer’s busbar or other points in the
+busbar compartment of electrical installation. T2 trips when S3 to S12 or other
+remote sensors from other PowerLogic A3 with same Light Group setting are lit.
+As an illustration, all or some sensors connected to A3S6P in SLD, based on its
+scheme configuration. T2 can be wired to tripping circuit of Incomer’s CB.
+Moreover, local sensors of A3F12P (S3 to S12) activation data is pushed to output
+Light Group.
+
+A3F12P scheme #4
+Scheme #4 of A3F12P is selective scheme for an Outgoing feeder without current
+confirmation. This scheme covers two outgoing feeders.
+
+36
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 34 - A3F12P scheme #4 typical use case
+
+T1
+
+HSO to trip outgoing X’s CB
+
+T2
+
+Conventional relay to trip outgoing Y’s
+CB
+
+A
+
+A3F6P/12P scheme #3 G2
+
+B
+
+A3F12P scheme #4 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+S1 is installed in cable compartment of outgoing X. T1 trips if S1 is lit. T1 could be
+wired to tripping circuit of outgoing X’s CB. S2 is installed in cable compartment of
+outgoing Y. T2 trips if S2 is lit. T2 could be wired to tripping circuit of outgoing Y’s
+CB. S3 to S6 are installed in CB’s and/or busbar compartment of outgoing X and/
+or Y. Moreover, other sensors, for example S7, S8 and S9 are installed on other
+points of the busbar. If any of these sensors is lit then the Output Light Group is
+set to ON and sent to other PowerLogic A3 units in the system. For example, the
+PowerLogic A3 which is located in Incomer, by scheme #3 configuration, receives
+the light group data from this A3F12P, treats this data by its logic, it trips
+incoming’s CBs to isolate the arc incident.
+
+A3S6P
+A3S6P scheme #1
+Scheme #1 of A3S6P is non-selective without current confirmation scheme.
+
+A3/EN M/01D
+
+37
+
+Arc Flash Protection Unit
+
+4Use
+
+Figure 35 - A3S6P scheme #1 typical use case
+
+T3
+
+HSO to trip
+
+A
+
+A3S6P scheme #1 G2
+
+B
+
+A3F6P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+Same as Scheme #1 of A3F6P & A3F12P. If local sensors (S1 to S6) and/or
+remote sensors with identical Light Group setting are lit then T3 trips. T3 can be
+wired to any CB. Moreover, A3S6P can get remote sensor data through
+communication bus, for example in the above SLD the A3S6P is connected to
+A3F6P to make a small PowerLogic A3 system. Any remote sensors activation of
+A3F6P trips T3 output of A3S6P.
+NOTE: As mentioned in above SLD, it is necessary to configure unique Light
+Group setting for both of the PowerLogic A3 devices. In the SLD both
+PowerLogic A3 devices have the same G2 configuration.
+A3S6P must be connected to at least one A3Fxx device. T4 functions as
+watchdog of self diagnosis of the PowerLogic A3 relay and other PowerLogic A3
+devices in the system.
+
+A3S6P scheme #4
+Scheme #4 of A3S6P is selective scheme for an Outgoing feeder without current.
+
+38
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 36 - A3S6P scheme #4 typical use case
+
+T3
+
+HSO to trip
+
+A
+
+A3S6P scheme #1 G2
+
+B
+
+A3F6P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+S1 & S2 are installed in cable compartment of outgoing feeder. T3 trips if S1 and/
+or S2 are lit. T3, which is a HSO, could be wired to tripping circuit of outgoing
+feeder’s CB. S3 to S6 are installed in CB’s and/or busbar compartment of
+outgoing feeder. If any of these sensors is lit then the Light Group is set to 1 and is
+sent to other PowerLogic A3 units in the system. For example, the A3Fxx which is
+located in Incomer with scheme #3 or #5 receives the light group from this A3S6P,
+treat this data with its logic, trip incoming’s CBs to isolate the arc incident which is
+located on busbar on other part of the electrical installation.
+
+A3/EN M/01D
+
+39
+
+Arc Flash Protection Unit
+
+4Use
+
+This specific scheme with A3S6P can be used for sensor redundancy for one
+feeder as shown in the above figure.
+A3S6P must be connected to at least one A3Fxx device. T4 functions as
+watchdog of self diagnosis of the PowerLogic A3 relay and other PowerLogic A3
+devices in the system.
+
+A3S12P
+A3S12P scheme #1
+This is the only scheme of A3S12P. The A3S12P acts as light data collector and
+shares this data through its configured Light Group setting to other PowerLogic A3
+devices in the system.
+Figure 37 - A3S12P scheme #1 typical use case
+
+A
+
+A3F6P/12P scheme #3 G2
+
+B
+
+A3S12P scheme #1 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+As illustrated in the above figure, the 12 local sensors of A3S12P are installed on
+4 feeders (each feeder includes 3 sensors in cable, CB and busbar compartment).
+For any Arc Flash incident in these feeders the Upstream PowerLogic A3 device
+receives the light data and operates according to its configured scheme.
+A3S12P does not have any tripping outputs, it must be connected to at least one
+A3Fxx device.
+
+40
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Application examples
+Non-selective
+Requirements: To have non-selective arc flash detection and trip immediately the
+required main CB to remove immediately the arc from electrical installation.
+Analysis: The main request is to remove the arc flash from installation and trip the
+main incomer feeder of electrical installation no matter where the arc flash
+happens. So, either arc happens inside the cable compartment of a feeder or
+inside the busbar compartment of feeder X the PowerLogic A3 system shall detect
+and trip the main incomer feeder.
+Figure 38 - Example 1 for PowerLogic A3 system application
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+Conventional relay for local CB
+tripping
+
+A
+
+A3F12P scheme #1 G2
+
+B
+
+A3S12P scheme #1 G2
+
+C
+
+A3S12P collects light signals from 4
+feeders
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+Technical offer:
+Minimum system proposed by PowerLogic A3: one A3F12P installed in the
+incoming feeder, one A3S12P installed in one of the outgoing feeders. The
+A3F12P as shown, can cover 4 feeders (including incoming feeder), T1 and/or T2
+can be used to trip incoming feeder CB. The A3S12P as shown, can cover 4
+outgoing feeders. All the light data captured by its sensors S1 to S12 are shared
+by A3S12P to upstream.
+Both of the PowerLogic A3 devices are set to scheme #1 with unique light group
+setting, for example, light group 2.
+Scheme #1 is chosen since the only requirement is ”non- selective” tripping, it
+means wherever the arc happens, the electrical installation shall be shutdown
+immediately. During arc incident inside electrical installation the A3F12P either by
+its local sensor or by remote sensors (here means the sensors of A3S12P) will
+activate T1 and T2. These tripping output relays could be wired accordingly. For
+example, in the above figure, T2 is wired to incoming CB’s tripping circuit and T1
+is wired to remote/upstream CB’s tripping circuit.
+
+A3/EN M/01D
+
+41
+
+Arc Flash Protection Unit
+
+4Use
+
+NOTE: Any A3Sxx device shall be connected to at least one A3Fxx device.
+A3Sxx have no power supply.
+
+Partially Selective
+Requirements: To have selective tripping for outgoing feeders in case of the arc
+incident inside the cable compartment, the non-selective arc flash detection is
+other part of the electrical installation.
+Analysis: As part of electrical installation requires selectivity and another part
+does not require the selectivity. PowerLogic A3 can fulfill the requirement
+effectively. In this application A3F6P in outing isolate the arc incident on the cable
+compartment from other part of the network. Consequently, the continuity of
+service is operating. But for any arc incident on the busbar or non-selective area
+the local incoming CB by T3, upstream CB by T1 and coupling CB by T2(optional)
+are tripped. The A3F6P installed in the incoming feeder controls these three CBs.
+Figure 39 - Example 2 for PowerLogic A3 system application
+
+General
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+T2
+
+Conventional relay for local CB
+tripping
+
+T3
+
+HSO to trip outgoing CB Y
+
+T3
+
+HSO to trip outgoing CB Y
+
+E
+
+Non-selective area
+
+Part of device A
+A
+
+A3F6P scheme #3 G2
+
+T1
+
+HSO to trip remote/upstream CB
+
+T3
+
+Conventional relay to trip coupling or
+remote signalization
+
+Part of device B
+B
+
+A3F6P scheme #4 G2
+
+T1
+
+HSO to trip outgoing CB X
+
+Part of device C
+C
+
+A3F6P scheme #4 G2
+
+T1
+
+HSO to trip outgoing CB X
+
+Part of device D
+D
+
+A3S12P scheme #1 G2
+
+Technical offer:
+
+42
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Incoming: The A3F6P is used firstly to configure a scheme which covers selective
+tripping in the incoming with scheme #3, secondly to have a maximum controlling/
+tripping output. The A3F6P can receive remote sensor data through light group to
+cover the non-selective area as well and to isolate fault from main incomer feeder.
+Outgoings: The A3F6P is used firstly to configure a scheme which covers the
+selectivity in the outgoing with scheme #4, secondly to have separate control and
+trip for 2 outgoing feeders. S1 sensor will trip the CB of outgoing feeder X and S2
+sensor will trip the CB of outgoing feeder Y. These A3F6P with configuration
+scheme #4 send light data of sensors S3 to S6, which are installed on CBs and/or
+busbar compartments, to the A3F6P in the incoming feeder.
+
+Completely selective
+Requirements: To have complete selective tripping for arc incident inside 2
+incomings and a coupling electrical installation.
+Analysis: When there is an arc flash inside the cable compartment of outgoing
+feeder, the dedicate circuit breaker of same feeder should be tripped. When there
+is an arc incident on the CB compartment and on the busbar, the incoming circuit
+breaker should be tripped (and coupling if any).
+Figure 40 - Example 3 for PowerLogic A3 system application
+
+T1
+
+HSO to trip remote/upstream CB
+
+T2
+
+Conventional relay to trip coupling
+
+T3
+
+HSO to trip local CB
+
+A
+
+A3F6P scheme #3 G2
+
+B
+
+A3F6P scheme #4 G2
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4
+
+Cable
+
+Technical offer:
+The installation with 2 incoming and a coupling feeder with full selective
+requirement during arc incident:
+As shown in the figure above, there are two independent PowerLogic A3 systems.
+The one at the right busbar (the busbar in blue) and the one at the left busbar (the
+busbar in green). Since these systems are independent (not connected by ArcEM
+cable) and not connected to each other, in case of arc incident at left busbar (in
+green) or all CB compartment connected to the left busbar just coupling and left
+incoming circuit breaker are tripped. The same for the right busbar (in blue), in
+case of arc incident at the right busbar or all CB compartment connected to blue
+busbar just coupling and right incoming circuit breaker are tripped.
+
+A3/EN M/01D
+
+43
+
+Arc Flash Protection Unit
+
+4Use
+
+Incoming: The A3F6P is used firstly to configure a scheme which provides
+selective tripping in the incoming with scheme #3, secondly to have maximum
+controlling/tripping output. The A3F6P can receive data from remote sensors,
+which are installed on the busbar, and the data from the sensors of all CB
+compartments connected to the busbar through light group.
+The A3F6P with scheme #3, which is installed in the incoming feeder, Controls 3
+CBs. For all arc flash on the bursar/CB compartment (green or blue area),
+incoming CB will be tripped by T3, and coupling will be tripped by T2. For the arc
+flash inside the CB and the cable compartment, a direct transfer tripping signal will
+be sent to remote/upstream CB by T1.
+In case of arc on any busbar, for example the left bus bar, The A3F6P in the left
+incoming will isolate immediately the arc incident from healthy busbar (the right
+one) and the service continuity is operating. The right incoming feeder which is
+connected to the right busbar remains in service.
+Outgoings: The A3F6P is used firstly to be able to configure a scheme selectivity
+possibility in the outgoing feeder. Therefore, the scheme is set to #4. Secondly, to
+have separate control and trip for 2 outgoing feeders. S1 sensor will trip the CB of
+outgoing feeder X and S2 sensor will trip the CB of outgoing feeder Y. These
+A3F6P with configuration scheme #4 send light data of sensors S3 to S6, which
+are installed on CBs and/or busbar compartments, to the A3F6P in the incoming
+feeder.
+NOTE: Since the two PowerLogic A3 systems are independent, it is allowed to
+set any light group value. As shown in the above figure, even the same light
+group value for both of the 2 systems. For example, set light group G2 for both
+the 2 systems.
+
+I/O peripheral mode application
+As mentioned in Three kinds of operation mode, page 14, PowerLogic A3
+supports three kinds of operation mode: stand-alone, system and I/O peripheral
+mode. The first two modes have been introduced in previous use cases and
+application examples. This section introduces an application example of I/O
+peripheral mode.
+The V321 equipped with an ArcEM card in slot 6 can constitute an arc protection
+system with up to 16 PowerLogic A3 devices. The PowerLogic A3 devices work as
+peripherals of V321 in the system, as the other legacy products of Schneider
+Electric, for example Vam10L, Vam12L. If the PowerLogic A3 device is set to
+scheme #1 non-selective, it’s like Vam10L with more trip outputs and work in L>
+only mode. If the PowerLogic A3 is set to scheme #4 feeder, it’s like Vam12L. If
+the PowerLogic A3 device is set to scheme #2 or #6 which considers the current
+confirmation, it can be seen as working in L> & I> mode. Therefore, for
+PowerLogic A3, it is not simply substitute device of Schneider Electric legacy
+products, it’s more like substitute solution. The followed image shows an
+application example.
+
+44
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 41 - Example of PowerLogic A3 I/O peripheral mode application
+
+General
+A
+
+A3F6P
+
+C
+
+Connection between V321 and
+A3F6P
+
+B
+
+V321 central unit
+
+Forward I>int to group 16.
+Group 1 to transmit I> information for
+V321 tripping.
+Group 16 to receive L> information
+from V321.
+
+A3/EN M/01D
+
+1
+
+Cable
+
+2
+
+CB
+
+3
+
+Busbar
+
+4.1,
+4.2
+
+CB
+
+45
+
+Arc Flash Protection Unit
+
+4Use
+
+For the A3F6P, set protection scheme to #6, two outgoing feeders can be
+controlled. S1 is installed in cable compartment of outgoing X. T1 trips CB of
+outgoing X if S1 is lit. S2 is installed in cable compartment of outgoing Y. T3 trips
+CB of outgoing Y if S2 is lit. The current confirmation is received from V321 by
+ArcEM bus. S3 to S6 are installed in CB’s and/or busbar compartment of both
+outgoing feeders. If S3 to S6 is lit then T2 trips and the trip signal will be sent
+either to coupling or remote, for example SCADA. Moreover, if S3 to S6 is lit the
+light group internal register will be sent to V321 by ArcEM bus. The V321 which is
+located in Incomer gets the light group information will activate an arc stage which
+T1 will be assigned and trip the incoming CBs to isolate the arc incident located on
+busbar/CBs in other part of the electrical installation. Another arc stage which T2
+will be assigned will be activated if sensors in incomer cable lit. Also, a dedicated
+arc stage trips T3 with time delay for CBFP is needed.
+NOTE: A3F6P shall be powered by an independent power supply. Group 1 to
+12 are used for Light criteria. Group 13 to 16 are used for Current
+confirmation.
+
+Modbus register and LN of IEC 61850
+The V321 is equipped with multiple communication ports and supports various
+protocols. The status and local sensor status of PowerLogic A3 device working on
+IO peripheral mode can be monitored by SCADA.
+
+Modbus
+The Modbus registers for PowerLogic A3 information are as below:
+Figure 42 - Modbus registers for PowerLogic A3 information
+
+For PowerLogic A3 slave list registers:
+•
+
+403700 stores the physical address (device ID) of the 1st PowerLogic A3
+connected to V321.
+
+•
+
+403701 stores the physical address (device ID) of the 2nd PowerLogic A3
+connected to V321.
+
+•
+
+... and so on.
+
+For example, the value of register 403767 = 7 (0b0000 0000 0000 0111), indicates
+the 2nd PowerLogic A3 has 3 sensors connected in channel 1, 2, 3.
+
+IEC 61850
+In the IEC 61850 data map list of V321, there are 16 logic nodes designed for
+PowerLogic A3 device as shown below:
+
+46
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 43 - Logic nodes for PowerLogic A3 in the IEC 61850 data map list of
+V321
+
+The 16 LNs from AMSTGGIO203 to 218 correspond to PowerLogic A3 devices
+indexed from 1 to 16. LN description can be edited by eSetup Easergy Pro. Each
+LN has 14 Data Objects, the definition is as shown below:
+Data Object
+
+Description
+
+$ST$IntIn1
+
+Shows the address of PowerLogic A3 device
+
+$ST$IntIn2
+
+Shows the status of PowerLogic A3 device: “OK” = 0, “Software
+Updating” = 1, “Added” = 2, “Lost” = 3, “Tripping” = 4, “Improper” = 5
+
+$ST$IntIn3
+
+Shows status of sensor channel #1: Value = (Bit3 | Bit2 | Bit1 | Bit0),
+“Connected” = Bit0, “Installed” = Bit1, “Active” = Bit2, “Error” = Bit3
+
+$ST$IntIn4
+
+Shows status of sensor channel #2: Value = (Bit3 | Bit2 | Bit1 | Bit0),
+“Connected” = Bit0, “Installed” = Bit1, “Active” = Bit2, “Error” = Bit3
+
+…
+
+If a PowerLogic A3 with address 12 and with 3 sensors in channel 1 to 3. Before
+tripped by sensor 3 all sensors have been installed. The values of corresponding
+data objects are as below:
+Data Object
+
+Value
+
+Description
+
+$ST$IntIn1
+
+12
+
+The address of the PowerLogic A3 device is 12
+
+$ST$IntIn2
+
+4
+
+The status of the PowerLogic A3 device is Tripping
+
+$ST$IntIn3
+
+3
+
+The status of sensor 1 is Connected and Installed
+
+$ST$IntIn4
+
+3
+
+The status of sensor 2 is Connected and Installed
+
+$ST$IntIn5
+
+7
+
+The status of sensor 3 is Connected, Installed and
+active.
+
+After finish wiring including cables connection, power on the system and send
+install command by V321. All A3 devices connected to V321 will be shown in the
+menu of PROTECTION/ARC ArcEM Unit Configurator. The Modbus register
+and IEC 61850 LN correspond to the index of the A3 devices, for example,
+403700 and AMSTGGIO203 correspond to the first A3 device with the smallest
+address.
+NOTE: The address of each A3 device should be unique in a system.
+
+A3/EN M/01D
+
+47
+
+Arc Flash Protection Unit
+
+4Use
+
+Supporting functions
+Test mode
+The test mode is used to verify the sensor reliability and the system configuration
+during commissioning or maintenance. In test mode, the device keeps operate
+according to setting parameters and inputs, but the physical output relays will be
+blocked. For example, an A3F6P works on Scheme#4, Group 2 enters test mode.
+Activate the sensor 3, the LEDs of sensor 3 and T2 will light up but physical T2
+output relay will not trip. Group 2 message in ArcEM bus also can be grabbed, T2
+LED light up without physical T2 output relay trip. Therefore, the consistency
+between the wiring of sensors and the parameter settings of devices can be
+directly checked visually by LEDs. Also, the bit ‘simulation’ of Groups messages
+transmitted through the ArcEM bus will be set to ON. Therefore, the test mode is
+accessible not only for individual device, but also for PowerLogic A3 system.
+NOTE: The V321 device is without test mode, but the bit ‘simulation’ of Group
+messages transmitted through the ArcEM bus will be checked before taking
+actions. Therefore, the sensor of PowerLogic A3 device which is in test mode
+cannot activate the arc stages in V321.
+The followed diagram shows controlling the device mode by the button of A3F:
+Figure 44 - Control the device with button
+Normal operating
+【Only ON/C/E lit, Green
+steady or Blink) 】
+
+Cancel and
+back to normal
+
+Short press
+
+Long press and hold for over 3 s
+
+No action in 5 s
+
+Send Reset
+command to release
+LEDs and latched
+output relays
+
+Short press
+
+Holding on
+【Only ON/C/E lit, Orange blink
+
+】
+
+2nd long press, hold for over 3 s
+
+Test mode
+【Only ON/C/E lit, Orange steady
+
+】
+
+Impelement Install command
+【All sensors’ LEDs blink in Yellow
+
+】
+
+Short press
+
+Long press and hold for over 3 s
+
+Send Reset
+command to
+release LEDs
+
+Exit test mode
+
+Sensor LEDs blink
+for 3 seconds
+A3114701
+
+•
+
+Enter test mode
+To enter the test mode, press and hold the reset/install button for 3 s, the ON/
+C/E LED will flash in orange. Press and hold the button again for 3 s when
+the LED is flashing, the ON/C/E LED light will be in steady orange. If the
+system contains multiple A3F devices, each of the A3F device can be operated
+to let the whole system enter the test mode. In test mode, all PowerLogic A3
+devices’ ON/C/E LEDs will be in steady orange.
+NOTE: To enable test mode, make sure that the PowerLogic A3 device
+has been installed.
+
+•
+
+Reset in test mode
+The reset button is still available when the device is in test mode. Not only to
+release the LEDs of PowerLogic A3, but also to release V321 if enabled.
+
+48
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+•
+
+Exit test mode
+To exit the test mode, press and hold the reset/install button for 3 s, the ON/C/
+E LED will be in green. It means the system is restored to normal operation
+mode. Also, each A3F in the system can restore the whole system to normal
+operation mode. Meanwhile, if the PowerLogic A3 is connect to V321, the
+Installation command sent from V321 can also restore the PowerLogic A3 to
+normal operation mode.
+NOTE: Power outage and restart can also restore to normal operation mode.
+But it is not recommended for a PowerLogic A3 system, because all the
+PowerLogic A3 devices in the system need to be restarted. If some
+PowerLogic A3 devices were not restarted and were still in test mode while
+others were in normal operation, it will be easy to get confused.
+
+Self-supervision
+The electronics and operation of the PowerLogic A3 are supervised by means of a
+separate self-supervision logic. The arc flash sensors are also self-supervised. In
+case the self-supervision detects a permanent error within the PowerLogic A3 or
+the arc sensors connected, the self-supervision output and system status
+indication LED are activated.
+
+Sensor channels supervision
+All sensor channels can be supervised continuously. If an error happened, alarm
+messages will be sent out. For example the sensor disconnected, sensor
+uninstalled, sensor short-circuit, daylight error, and so on. Sensor LED will be
+blinking in yellow and ON/C/E LED will be in red. Also, T4 will trip out if exists in
+the system.
+Table 9 - Sensor states and their description
+State
+
+Description
+
+ON/C/E LED and T4
+
+Sensor LED
+
+1. Connected
+
+Sensor is installed and in normal
+operation.
+
+-
+
+Off
+
+2. Active
+
+Sensor is activated.
+
+-
+
+Steady yellow
+
+3. Uninstalled
+
+If there is sensor attached, but not
+yet installed, its state is uninstalled.
+
+Red/Trip
+
+Blinking in yellow
+
+4.
+Disconnected
+
+The sensor may be lose, for
+example, burnt in an arc accident.
+
+Red/Trip
+
+Blinking in yellow
+
+5. Overcurrent
+
+The sensor may short-circuit.
+
+Red/Trip
+
+Blinking in yellow
+
+6. Daylight
+
+The sensor is sensitive for over 5 s.
+
+Red/Trip
+
+Blinking in yellow
+
+Parameter and configuration supervision
+The parameters and configurations will be saved in memory after the install
+command is conducted successfully. Alarm messages will be sent out if any of the
+parameters and configurations was changed. The key configuration is the position
+of the two rotary switches, scheme and light group. When configuring PowerLogic
+A3 with eSetup Easergy Pro, the key parameters are: Protection scheme, Light
+Group, Current Group, Output Latch, and Address.
+
+Relays monitoring
+Relay outputs are monitored against broken relay(3) or relay driver circuit(4).
+(3)
+(4)
+
+Relay primary coil failure can be detected.
+Relay control signal is monitored.
+
+A3/EN M/01D
+
+49
+
+Arc Flash Protection Unit
+
+4Use
+
+Table 10 - Relay states and description
+Relay state
+
+Description
+
+System state
+
+1. Normal
+
+No failures detected.
+
+OK
+
+2. Faulted
+
+Diagnostic detected failure in relay (5), (6).
+
+Faulted
+
+Figure 45 - Relay state machine
+Powerup
+
+Normal
+
+Relay primary coil failure
+
+Relay driver circuit failure
+
+Faulted
+A31154A
+
+System supervision
+When multiple PowerLogic A3 devices are connected as a system and installed,
+each device monitors the condition of the whole system. If any device has a
+problem, each device reacts to it and activates the WD relay. So, the status of
+each device indicates the status of whole system.
+Note that PowerLogic A3F12P and PowerLogic A3S12P don’t have the WD relay,
+but it will transfer its status to other devices on the system, and they will activate
+the WD relay accordingly.
+Figure 46 - Healthy system running normally
+
+Figure 47 - System structure changed, for example, ArcEM cable failure. All
+devices react.
+
+(5)
+(6)
+
+50
+
+Relay primary coil failure can be detected.
+Relay control signal is monitored.
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 48 - Faulty sensor in single device. All device reacts
+
+Self-diagnosis signals about PowerLogic A3 in V321
+When the PowerLogic A3 devices operate as I/O peripheral of V321, the alarm
+messages can be supervised by V321.
+Step 1: Go to Protection > ARC ArcEM Bus, under Links to Arc SelfDiag
+section, select the error types of the PowerLogic A3 which can trigger alarms of
+the V321. These diagnostic events are recorded into V321 event log with their
+time stamps. Any of these events can activate general ArcEM alarm signal which
+can be linked to self-diagnosis signals of V321.
+Figure 49 - Links to Arc SelfDiag
+
+Step 2: Go to Device/TestDiagnosis setting view’s section Selfdiag Signal
+Configuration. Select any group of Selfdiag1, Selfdiag2 or Selfdiag3 for ArcEM
+IO signal which is at the bottom.
+
+A3/EN M/01D
+
+51
+
+Arc Flash Protection Unit
+
+4Use
+
+Figure 50 - Selfdiag Signal Configuration
+
+The self-diagnosis 1/2/3 group can be linked to self-diagnostic relay in Device/
+Test > Diagnosis section. The self-diagnosis 1/2/3 group can also be linked to
+other signals such as virtual output in Matrix. Meanwhile, there are 3 signals about
+ArcEM bus in Output Matrix, as shown below. ArcEM bus comm. Indicates the
+communication between installed A3 devices and ArcEM card in slot 6 are
+working normally. When any A3 device is disconnected, the ArcEM comm. lost
+signal will be set to ON. Any sensor of A3 devices’ activation will set the signal of
+ArcEM light sensor to ON. Users can map these three signals to virtual outputs
+and/or physical outputs for SCADA monitoring.
+Figure 51 - The 3 signals about ArcEM bus in Output Matrix
+
+Connection
+Connector terminals
+
+DANGER
+HAZARD OF ELECTRICAL SHOCK, EXPLOSION, ARC FLASH OR FIRE
+•
+
+Tighten the terminal screws within the recommended range.
+
+•
+
+Protect the power supply circuit against over currents.
+
+Failure to follow these instructions will result in death or serious injury.
+
+52
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+The system integrator is responsible for compliance with all local and
+national electrical code requirements as well as all other applicable
+regulations with respect to grounding of all equipment.
+
+•
+
+In case of using multiple auxiliary power supplies on different powered
+devices, the installer shall ensure a proper grounding for the overall system.
+
+•
+
+Power supply connection shall be made with a twisted pair cable of a crosssectional area of at least 1.5 mm2(AWG16).
+
+Failure to follow these instructions will result in death or serious injury.
+
+PowerLogic A3F6P
+Figure 52 - X1, X2, X5 connector terminals
+X2
+
+X1
+
+S1
+
+1
+L>
+L>
+
+T4
+
+L>
+
+WD
+
+4
+
+3
+4
+
+WD
+
+L>
+
+1
+
+/
+24-240 V dc/ac
+
+2
+
+T1
+
+4
+
+HSO
+
+3
+5
+
+5
+
+6
+
+6
+T2
+
+7
+
+S4
+
+/
+
+1
+2
+
+5
+
+S3
+
+HSO
+
+2
+3
+
+S2
+
+T3
+
+X5
+
+7
+
+C
+
+8
+
+8
+9
+
+S5
+L>
+
+S6
+
+10
+11
+
+L>
+
+12
+A3113001
+
+PowerLogic A3F12P
+Figure 53 - X1, X2, X5 connector terminals
+X5
+
+X2
+
+X1
+
+S1
+
+1
+L>
+
+3
+
+S2
+L>
+L>
+
+7
+
+S4
+L>
+
+9
+
+S5
+L>
+
+S6
+
+12
+
+4
+
+L>
+
+2
+
+T1
+
+4
+
+HSO
+
+L>
+
+8
+
+3
+5
+6
+
+6
+7
+
+S10
+
+1
+
+/
+24-240 V dc/ac
+
+5
+
+S9
+
+T2
+
+C
+
+7
+8
+
+9
+
+S11
+L>
+
+10
+11
+
+L>
+
+L>
+
+8
+
+2
+3
+
+S8
+
+6
+
+/
+
+1
+L>
+
+4
+5
+
+S3
+
+S7
+
+2
+
+S12
+
+10
+11
+
+L>
+
+12
+
+A3113101
+
+A3/EN M/01D
+
+53
+
+Arc Flash Protection Unit
+
+4Use
+
+PowerLogic A3S6P
+Figure 54 - X1, X2 connector terminals
+X2
+
+X1
+
+S1
+
+1
+L>
+
+T3
+
+L>
+
+T4
+
+L>
+
+WD
+
+4
+
+3
+4
+
+WD
+
+5
+
+S3
+
+1
+2
+
+3
+
+S2
+
+HSO
+
+2
+
+5
+
+6
+7
+
+S4
+L>
+
+8
+9
+
+S5
+L>
+
+S6
+
+10
+11
+
+L>
+
+12
+A31132A
+
+PowerLogic A3S12P
+Figure 55 - X1, X2 connector terminals
+X2
+
+X1
+
+S1
+
+S7
+
+1
+L>
+L>
+
+L>
+
+4
+
+L>
+
+L>
+
+6
+
+L>
+
+L>
+
+8
+
+L>
+
+S6
+
+L>
+
+10
+S12
+
+11
+L>
+
+10
+11
+
+L>
+
+12
+
+8
+9
+
+S11
+
+9
+
+S5
+
+6
+7
+
+S10
+
+7
+
+S4
+
+4
+5
+
+S9
+
+5
+
+S3
+
+2
+3
+
+S8
+
+3
+
+S2
+
+1
+L>
+
+2
+
+12
+
+A31133A
+
+Table 11 - Wiring details
+Connector
+
+Applicable cable end
+
+Sensor
+inputs
+
+Wire gauge
+
+Tightening
+torque
+
+Tool
+
+0.14...1.5 mm2
+(AWG 26 ...16)
+
+0.22...0.25 N.m
+(1.95...2.21 lb-in)
+
+(—) 2.5 mm (3/32
+in.) flat blade
+screwdriver
+
+1.5...2.5 mm2
+(AWG 16...14)
+
+0.5...0.6 N.m
+(4.43...5.31 lb-in)
+
+(—) 3.5 mm (9/64
+in.) flat blade
+screwdriver
+
+L
+
+Contact tip length
+L = 7 mm (0.28 in.)
+Trip outputs
+and power
+supply
+L
+
+Contact tip length
+L = 7 mm (0.28 in.)
+
+NOTE: Use of power supplies without voltage monitoring is not
+recommended.
+
+ix Industrial® port
+The PowerLogic A3 device and the ArcEM card of V321 are equipped with two
+equivalent ix Industrial® ports. These two ports are used to cascade multiple
+devices with ArcEM cable. They act also as the interface to configure PowerLogic
+A3 device by eSetup Easergy Pro with the dedicated configure cable REL52960.
+The pin numbers of the port are as shown below:
+
+54
+
+A3/EN M/01D
+
+4Use
+
+Arc Flash Protection Unit
+
+Figure 56 - Pins of the ix Industrial® ports
+
+Table 12 - Symbols
+Pin NO.
+
+Function
+
+1
+
+-
+
+2
+
+-
+
+3
+
+Eth Comm Rx+
+
+4
+
+Eth Comm Rx-
+
+5
+
+V- Reserved
+
+6
+
+Bus Ground
+
+7
+
+Bus Ground
+
+8
+
+Eth Comm Tx+
+
+9
+
+Eth Comm Tx-
+
+10
+
+V+ Reserved
+
+For full size PowerLogic A3 device equipped with power supply card, there are
+24V between the pins No.5 and No.10. This is the unique power source for ArcEM
+bus. For small size PowerLogic A3 device, the ix Industrial® ports act as the
+interface taking power from the ArcEM bus.
+NOTE: Any A3Sxx device shall be connected to at least one A3Fxx device.
+A3Sxx is not equipped with power supply.
+NOTE: Do not connect modular cables in a closed loop.
+NOTE: The accessory configure cable REL52960 (in yellow) is mandatory to
+be used for the connection between PowerLogic A3 device and the Ethernet
+port of PC or switch.
+
+A3/EN M/01D
+
+55
+
+Arc Flash Protection Unit
+
+5Installation
+
+5 Installation
+Safety instructions
+This page contains important safety instructions that should be followed precisely
+before attempting to install, repair, service or maintain electrical equipment.
+Carefully read and follow the safety instructions described below. Only qualified
+personnel, equipped with appropriate personal protection equipment, may work
+on or operate the equipment. Qualified personnel are individuals who:
+•
+
+Are familiar with the installation, commissioning, and operation of the
+equipment and of the system to which it is being connected.
+
+•
+
+Are able to safely perform switching operations in accordance with accepted
+safety engineering practices and are authorized to energize and de-energize
+equipment and to isolate, ground, and label it.
+
+•
+
+Are trained in the care and use of safety apparatus in accordance with safety
+engineering practices.
+
+•
+
+Are trained in emergency procedures (first aid).
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, or
+CSAZ462.
+
+•
+
+The arc fault detection system is not a substitute for proper PPE when
+working on or near equipment being monitored by the system.
+
+•
+
+Information on this product is offered as a tool for conducting arc-flash
+hazard analysis. It is intended for use only by qualified persons who are
+knowledgeable about power system studies, power distribution equipment,
+and equipment installation practices. It is not intended as a substitute for the
+engineering judgement and adequate review necessary for such activities.
+
+•
+
+Only qualified personnel should install and service this equipment. Read this
+entire set of instructions and check the technical characteristics of the device
+before performing such work.
+
+•
+
+Perform wiring according to national standards (NEC) and any requirements
+specified by the customer.
+
+•
+
+Observe any separately marked notes and warnings.
+
+•
+
+NEVER work alone.
+
+•
+
+Before performing visual inspections, tests, or maintenance on this
+equipment, disconnect all sources of electric power. Assume all circuits are
+live until they are completely de-energized, tested, and tagged. Pay
+particular attention to the design of the power system. Consider all sources
+of power, including the possibility of back feeding.
+
+•
+
+Always use a properly rated voltage sensing device to ensure that all power
+is off.
+
+•
+
+The equipment must be properly grounded.
+
+•
+
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+•
+
+Do not open the device. It contains no user-serviceable parts.
+
+•
+
+Install all devices, doors and covers before turning on the power to this
+device.
+
+Failure to follow these instructions will result in death or serious injury.
+
+56
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Always connect the grounding conductor before connecting the power supply.
+Failure to follow these instructions will result in death or serious injury.
+Always observe the national electrical safety regulations when working under live
+conditions. The unit manufacturer is not liable for damage due to incorrect working
+methods or failure to observe safety instructions.
+The correct handling of the unit under all mounting and operating conditions forms
+the foundation for its intended use.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Do not connect the auxiliary supply voltage until the installation has been
+completed.
+Failure to follow these instructions will result in death or serious injury.
+Before installation, make sure the environmental conditions comply with the
+requirements specified in Environmental characteristics, page 93.
+NOTE: The unit contains components liable to damage if exposed to an
+electrostatic discharge (ESD). Do not open the unit unless you have taken
+appropriate protective measures against ESD.
+
+WARNING
+UNEXPECTED OPERATION
+The manufacturer cannot guarantee operational safety in environments that do
+not satisfy the specified environmental conditions.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+NOTICE
+UNEXPECTED DEVICE DOWN
+Power the device with auxiliary power supply. Do not power the device by
+primary network.
+Failure to follow these instructions can result the device down when the
+primary network is power off.
+
+Transport, handling and storage
+Transport
+In its original packing, a PowerLogic A3 device can be shipped to any destination
+by all usual means of transport.
+If installed in a cubicle, a PowerLogic A3 device can be transported by all usual
+means of transport in the customary conditions used for cubicles. Storage
+conditions should be taken into consideration for a long period of transport.
+
+A3/EN M/01D
+
+57
+
+Arc Flash Protection Unit
+
+5Installation
+
+Handling
+The PowerLogic A3, although generally of robust construction, requires careful
+handling: handle it in its original packing in order to help to protect it from shock.
+To avoid the device fall down when installed to a cubicle, make visual inspection of
+the fixation before energizing.
+
+Storage
+
+NOTICE
+WATER DAMAGE
+•
+
+Do not expose the products to sustained humidity during storage.
+
+•
+
+Where electrical equipment is being installed, allow sufficient time for
+acclimatization to the ambient temperature of the environment before
+powering on.
+
+Failure to follow these instructions can result in reduced lifetime.
+If PowerLogic A3 devices are not to be installed immediately upon receipt, they
+should be stored in a place free from dust, humidity and moisture in their original
+packaging. The PowerLogic A3 can be stored in its original packaging, in an
+appropriate location under the followed condition:
+•
+
+Temperature between -40°C and +80°C (between -40°F and +176°F)
+
+•
+
+Humidity < 90%
+
+Care should be taken on subsequent unpacking so that any dust collected on the
+carton does not fall inside. In locations of high humidity, the carton and packing
+may become impregnated with moisture that the de-humidifier crystals will lose
+their efficiency.
+Periodically, on an yearly basis checking of the environment and the packaging
+condition is recommended.
+Once the PowerLogic A3 has been unpacked, it is recommended to energize the
+device as soon as possible in an appropriate environment in terms of temperature,
+humidity and pollution.
+If it is installed in a cubicle, keep the cubicle protection packing as long as
+possible. It should not be stored in a damp environment for more than a month. It
+should be energized as quickly as possible. If this is not possible, the cubicle
+reheating system should be activated.
+
+Unpacking
+Equipment receipt
+
+NOTICE
+PRODUCT TAMPERING
+Our products leave our factory in closed, sealed original packaging. At delivery,
+if the packaging is opened or the seal is broken, the confidentiality and
+authenticity of the information contained in the products cannot be ensured.
+Failure to follow this instruction can result in compromised confidentiality
+and authenticity of the information contained in the products.
+
+58
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+The PowerLogic A3 is shipped in a cardboard box which helps protect it against
+any shocks received in transport.
+PowerLogic A3 devices that are supplied unmounted and not intended for
+immediate installation should be returned to original boxes.
+
+Package contents
+Each PowerLogic A3 is delivered in an independent package containing:
+•
+
+A PowerLogic A3 arc flash protection unit
+◦
+
+1a-1: PowerLogic A3F6P
+
+◦
+
+1a-2: PowerLogic A3F12P
+
+◦
+
+1b-1: PowerLogic A3S6P
+
+◦
+
+1b-2: PowerLogic A3S12P
+
+•
+
+2: A production testing certificate
+
+•
+
+3: An installation sheet providing main information about installation and use
+
+•
+
+4: One to two bags including a set of accessories
+(× 1 : A3F6P and A3S6P; × 2: A3F12P and A3S12P)
+
+•
+
+◦
+
+a: Screw for ground connection × 3
+
+◦
+
+b: Washer for ground connection × 3
+
+◦
+
+c: Ground bar mounting screw × 2
+
+5: One to two ground bars
+(× 1: A3F6P and A3S6P; × 2: A3F12P and A3S12P)
+
+Figure 57 - PowerLogic A3 package contents
+1b-2
+1b-1
+1a-2
+1a-1
+
+2
+3
+
+Pow
+Arc
+
+erLo
+
+flash
+
+gic
+
+prote
+
+A3
+
+ction
+
+unit
+en
+
+en
+
+Instruct
+Retain ion
+Go to for sheet
+future
+www.sc
+to downloa
+use
+referenc d hneiderthe
+documene manualEasergyelectric.
+com
+P5
+ts.
+and
+other
+IMPORT
+This
+ANT
+NOTE
+and device
+servicedmust
+electrica
+be installed
+by qualified
+Schneid l personn
+respons er Electric el.
+the
+ible
+instructio
+cannot
+for failure
+instructio
+ns given to be held
+n sheet.
+follow
+on this
+
+The
+QR
+code
+gives
+websitea direct (front panel
+access
+of
+to your the relay)
+relay’s
+
+Equip
+
+ment
+
+03/2014
+
+recei
+
+pt
+
+Schneide
+35 rue
+r Electric
+92500 Joseph
+Industrie
+s SAS
+France Rueil-MaMonier
+lmaison
+www.sch
+neider-e
+lectric.co
+m
+
+en
+
+Equipme
+
+1 Protectio nt receipt
+2 Certifica n
+relay
+xxxxxxx te
+of complian
+4 Instructio
+ce
+5 Connect n
+sheet
+6 Connect or
+A cabling
+or(s)
+kit
+
+© 2014
+All rights Schneide
+reserved r Electric.
+.
+
+4
+
+a
+b
+c
+5
+
+A31106A
+
+Equipment identification
+Different kinds of labels are used on the PowerLogic A3 to identify its model type
+and contain safety instructions.
+
+A3/EN M/01D
+
+59
+
+Arc Flash Protection Unit
+
+5Installation
+
+Figure 58 - Label examples on the PowerLogic A3
+
+1
+
+2
+
+2
+
+3
+
+3
+
+1
+A3F
+
+A3S
+A31107A
+
+1. QR code label
+2. Product label
+3. Instruction label
+Scan the QR code with mySchneider application or other scanner to access the
+specific product website to get basic product documents and product life cycle
+documents like Certificate of Conformity and Test.
+The product label contains the serial number, the model number, technical data
+and certification information.
+Figure 59 - Example of a product label
+
+The instruction label contains the safety instructions for the operations of
+PowerLogic A3.
+Figure 60 - Example of an instruction label
+
+60
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+Operating environment
+NOTICE
+POTENTIAL DAMAGE FROM ENVIRONMENTAL CONDITIONS
+•
+
+The device should be installed in an environment within the specified
+operation temperature and humidity.
+
+•
+
+The device may not operate correctly if condensation occurs on the
+electronic boards inside the device.
+
+Failure to follow these instructions can result in equipment damage.
+The PowerLogic A3 is intended for indoor installation and use only. If it is required
+for use in an outdoor environment, it should be mounted in a specific cabinet that
+will enable it to meet the requirements of IEC 60529 with the classification of
+protection degree IP54 (dust and splashing water protected).
+The temperature/relative humidity factors should be compatible with the
+environmental withstand characteristics of the PowerLogic A3:
+Ambient temperature range, in operation:
+
+-40...+70°C (-40...+158°F)
+
+Relative air humidity:
+
+< 90%
+
+Maximum operating altitude:
+
+2000 m (6561.68 ft)
+
+No condensation.
+
+If the operating conditions are outside the normal range, special arrangements
+should be made before commissioning, such as air conditioning of the premises.
+A contaminated industrial atmosphere (such as the presence of chlorine,
+hydrofluoric acid, sulphur, solvents, etc.) can cause corrosion of the electronic
+components and terminals, in which case environmental control arrangements
+should be made (such as pressurized premises with filtered air, etc.) before
+commissioning.
+To improve robustness of PowerLogic A3 devices against such environment, all
+the electronic boards of devices have a conformal coating.
+
+Dimensions
+Dimensions of the PowerLogic A3 are shown below:
+
+A3/EN M/01D
+
+61
+
+Arc Flash Protection Unit
+
+5Installation
+
+Figure 61 - PowerLogic A3F6P and A3F12P dimensions
+mm
+in.
+126.2
+4.968
+
+70.6
+2.779
+
+134.4
+5.291
+
+114
+4.488
+
+120.2
+4.730
+
+A31110A
+
+Figure 62 - PowerLogic A3S6P and A3S12P dimensions
+mm
+in.
+125.1
+4.925
+
+34
+1.338
+
+134.4
+5.291
+
+114
+4.488
+
+120.2
+4.730
+
+A31112A
+
+Mounting
+CAUTION
+CUTS AND PHYSICAL IMPACT
+•
+
+Wear gloves and safety shoes.
+
+•
+
+Trim the edges of the cut-out plates to remove any jagged edges.
+
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+DIN rail mounting
+The PowerLogic A3 can be directly mounted onto DIN rail.
+
+62
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+Figure 63 - PowerLogic A3F DIN rail mounting (PowerLogic A3F12P shown
+as an example)
+
+1
+
+2
+A31114A
+
+Figure 64 - PowerLogic A3S DIN rail mounting (PowerLogic A3S12P shown
+as an example)
+
+1
+
+2
+A31115A
+
+The DIN rail mount mechanism can be installed on another position of the device
+enclosure.
+Figure 65 - Installing the DIN rail mount mechanism on another position of
+the device enclosure (PowerLogic A3F12P and A3S12P shown as examples)
+
+A3F
+
+1 N•m
+(8.85 lb-in)
+
+A3S
+
+1 N•m
+(8.85 lb-in)
+A31116A
+
+Panel mounting
+The PowerLogic A3 can be mounted onto panels with the provided door mounting
+bracket. Door mounting bracket supports installation to a door for easy access of
+system status data.
+Mounting procedure
+(PowerLogic A3F12P and A3S12P shown as examples in the figures)
+
+A3/EN M/01D
+
+63
+
+Arc Flash Protection Unit
+
+5Installation
+
+1. Prepare the cut-out in the panel according to the following dimensions.
+Figure 66 - Cut-out on the panel for PowerLogic A3F/A3S
+mm
+in.
+
+90
+3.54
+
+56
+2.20
+
+1...5
+0.04...0.2
+
+5
+0.2
+
+5
+40 ± 0.
+0.02
+1.57 ±
+
+120 ± 0.5
+4.72 ± 0.02
+
+130
+5.19
+
+120 ± 0.5
+4.72 ± 0.02
+
+130
+5.19
+
+5
+77 ± 0.
+0.02
+3.03 ±
+
+5
+0.2
+
+A3F
+
+1...5
+0.04...0.2
+
+A3S
+A31117A
+
+2. Remove three screws according to the figure below. Insert the door mounting
+bracket (REL52903 for use with PowerLogic A3F, REL52902 for use with
+PowerLogic A3S).
+Figure 67 - Inserting the door mounting bracket
+
+2
+
+1
+
+A3F
+
+64
+
+2
+1
+
+A3S
+
+A31118A
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+3. To fix the door mounting bracket onto the device, install back the three screws
+removed in previous step.
+Figure 68 - Fastening the door mounting bracket
+
+0.7 N•m
+(6.2 lb-in)
+
+0.7 N•m
+(6.2 lb-in)
+
+A3F
+
+A3S
+A31119A
+
+Figure 69 - Dimensions
+mm
+in.
+104
+4.094
+
+126.2
+4.968
+
+144
+5.669
+
+A3F
+
+70
+2.756
+
+A3S
+
+134.4
+5.291
+
+126.2
+4.968
+
+144
+5.669
+
+134.4
+5.291
+
+A31128A
+
+A3/EN M/01D
+
+65
+
+Arc Flash Protection Unit
+
+5Installation
+
+4. Remove four screws at the door mounting bracket first. Fasten the device onto
+the panel using the four screws removed just now.
+Figure 70 - Fastening the device onto panel
+
+2
+
+2
+
+2 N•m
+(17.7 lb-in)
+
+2 N•m
+(17.7 lb-in)
+
+1
+
+1
+
+A3F
+
+A3S
+A31120A
+
+The gap between two devices installed on the same panel should be more than 10
+mm (0.39 in.).
+Figure 71 - Gap between two devices
+>10
+0.394
+
+A31129A
+
+Grounding
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION OR ARC FLASH
+•
+
+Connect the PowerLogic A3 to ground with a nut and washer provided using
+any of the indicated ground connection positions (see Ground connections
+on the PowerLogic A3F, page 67 and Ground connections on the
+PowerLogic A3S, page 67).
+
+•
+
+Check equipotential grounding network and test ground during installation.
+
+Failure to follow these instructions will result in death or serious injury.
+Ground bar and a set of accessories including ground bar mounting screws,
+screws and washers for ground connection are provided in the package box, see
+Equipment receipt, page 58. Install the provided ground bar onto the device using
+the provided screws, so that the ground connections are accessible on several
+positions of the devices. The shielded sensors, for example VA 1 DA-6S (see
+Accessories, page 107), the shield shall be connected to the ground bar, therefore
+the ground bar shall be installed. The unshielded sensors do not need grounding,
+the ground bar can be not installed.
+
+66
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+Figure 72 - Installing the ground bar
+
+1 N•m
+(8.85 lb-in)
+
+A31121A
+
+Figure 73 - Ground connections on the PowerLogic A3F
+
+A3F12P
+
+A3F6P
+A31122A
+
+Figure 74 - Ground connections on the PowerLogic A3S
+
+A3S12P
+
+Terminal type
+
+A3S6P
+
+Applicable
+cable end
+
+Ground stud
+Ø
+
+A31123A
+
+Wire gauge
+
+Tightening
+torque
+
+Tool
+
+Min. 2.5
+mm² (AWG
+12)
+
+1.5 N.m
+(13.28 lb-in)
+
+Socket
+wrench
+for M4
+screw
+
+Ø = 4...6 mm (0.16...0.24 in.)
+
+Install the arc sensors
+Mount the sensors on the switchgear in such a way that they cover the light group
+as completely as possible. The line of sight should be free between the sensor
+and the supervised area.
+If point sensors are used in open compartments (such as bus-bar sections), there
+should be a sensor approximately every five meters. Due to the wide detection
+
+A3/EN M/01D
+
+67
+
+Arc Flash Protection Unit
+
+5Installation
+
+range of the sensors and the light reflection inside the switchgear, the mounting
+position is not critical.
+The sensors are delivered with 6 m (19.68 ft) standard cables or 20 m (65.61 ft)
+shielded cables (to be specified in the order).
+After mounting the sensors, connect them to PowerLogic A3 devices by the
+following operations:
+1. Draw the wire to the nearest device through the possible shortest route and cut
+it to a suitable length.
+NOTE: Take into account the wiring methods inside the equipment. This
+should be compliant with local regulations.
+2. Connect the arc sensors to the screw terminals according to the connector pin
+diagram (see Connector terminals, page 52). The polarity of the arc sensor
+cables is not critical.
+
+VA 1 DA arc flash sensor
+
+DANGER
+HAZARD OF NON-DETECTED LIGHT
+Clean the arc flash sensor periodically as instructed in its user manual and after
+an arc flash fault.
+Failure to follow these instructions will result in death or serious injury.
+VA 1 DA is a point-type arc flash sensor. The sensor is activated by strong light. It
+transforms the light information into the current signal that is used by the device to
+detect arc flash light.
+Figure 75 - Sensor dimensions
+mm
+in
+
+22.2
+0.83
+
+20
+0.79
+
+46.4
+1.83
+
+10
+0.39
+
+14
+0.55
+
+25
+0.98
+
+8
+0.31
+4.2
+0.17
+A31138A
+
+The sensor features include:
+•
+
+standard 8000...10000 lux visible light sensitivity
+
+•
+
+wide area arc flash detection
+
+•
+
+maximum 2 ms detection time
+
+•
+
+standard cable length 6 m (19.68 ft) or 20 m (65.61 ft) (cut to length on site)
+
+•
+
+easy to install (two-wired non-polarity sensitive connection)
+
+DANGER
+HAZARD OF NON-DETECTED LIGHT
+Never attempt to extend the length of arc flash sensor cables.
+Failure to follow these instructions will result in death or serious injury.
+
+68
+
+A3/EN M/01D
+
+5Installation
+
+Arc Flash Protection Unit
+
+Mounting the sensors to the switchgear
+Install arc flash sensors inside the switchgear. There are two options for mounting
+the sensors:
+•
+
+in customer-drilled holes on the switchgear
+
+•
+
+on VYX001 Z-shape or VYX002 L-shape mounting plates available from
+Schneider Electric or locally fabricated from supplied drawings
+
+Figure 76 - VYX 001 mounting plate for sensor
+mm
+in
+
+15
+0.59
+
+50
+1.97
+
+25
+0.98
+
+59
+2.32
+
+51
+2.0
+
+2.5
+0.1
+
+42
+1.65
+
+10
+0.39
+50
+1.97
+
+7
+0.28
+
+15
+0.59
+
+A31139A
+
+Figure 77 - VYX 002 mounting plate for sensor
+mm
+in
+
+10
+0.39
+
+15
+0.59
+
+59
+2.32
+
+15
+0.59
+
+3
+0.12
+
+30
+1.18
+
+30
+1.18
+
+A31140A
+
+Figure 78 - Mounting the sensor
+A
+
+B
+
+C
+
+D
+
+A31141A
+
+A3/EN M/01D
+
+69
+
+Arc Flash Protection Unit
+
+5Installation
+A
+
+Active part of the sensor
+
+B
+
+Cable clamp
+
+C
+
+Fastening screw M4 x 15 mm
+
+D
+
+Sensor cable
+
+1. Press the active part of the sensor through the 10 mm (0.393 in) hole in the
+panel surface.
+2. Fix it using a M4 screw.
+
+VA 1 EH
+Install the arc flash sensor onto the switchgear wall from the outside. Press the
+active part of the sensor through the 10.5 mm (0.413 in) hole in the wall.
+The surface mounting of the sensor is also accepted. To do this, push the sensor
+into a plastic mounting tube and fix it with heat shrink tubing.
+NOTE: The sensor should not be exposed to direct sunlight or other strong
+light. Do not mount the sensor directly under a light source.
+Figure 79 - Arc sensor VA 1 EH
+
+70
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+6 Configuration
+Introduction of configuration methods
+As introduced in the chapters Introduction, page 11 and Use, page 21, the
+operation of PowerLogic A3 requires mainly the configuration of the following
+parameters and commands:
+•
+
+Protection scheme
+
+•
+
+Light group
+
+•
+
+Current group
+
+•
+
+Output relay latch or not
+
+•
+
+Install/Reset command
+
+According to the application scenarios of PowerLogic A3, there are three methods
+to configure the PowerLogic A3 device:
+•
+
+By rotary switch and push button: It is the method for a single PowerLogic
+A3 device or a small system as it is quite easy and convenient. The protection
+scheme and light group depends on the position of rotary switch. The current
+group is set to default value Group 16. The output relays are in latch mode.
+Users can implement Install/Reset command by push button in full size
+PowerLogic A3 device.
+
+•
+
+By configure tool eSetup Easergy Pro directly: The dedicated configure
+cable REL52960 which converts the ix Industrial® ports to RJ45 is a mandatory
+accessory. This method uses Ethernet IP address. All parameters and
+commands can be configured by the eSetup Easergy Pro. The other settings
+and functions such as device name edit and force outputs are also supported.
+
+•
+
+By ArcEM Unit Configurator of V321: In this method, PowerLogic A3 works
+in I/O peripheral mode, it means the V321 is in the system. The PowerLogic A3
+device can be configured through ArcEM configurator embedded in V321 by
+the front USB port. All parameters and commands are recommended to be
+configured by V321.
+
+Configure with rotary switch and push button
+There are two rotary switches on each PowerLogic A3 device. They are used to
+set the parameters of protection scheme and light group. Meanwhile, there is a
+push button on the full size PowerLogic A3 device to implement the reset and
+install command. With these two physical interfaces, users can complete the
+configuration of single PowerLogic A3 device or PowerLogic A3 small system. The
+current group is set to default value Group 16. The output relays are latch mode.
+Figure 80 - Rotary switches and push button
+RESET/
+INSTALL
+Scheme
+
+Light Group
+
+A311A2A
+
+Light group
+
+Scheme
+
+A3/EN M/01D
+
+Position
+
+Definition
+
+Position
+
+Definition
+
+0
+
+Configure with
+eSetup Easergy Pro
+
+0
+
+N/A
+
+1
+
+Scheme #1
+
+1
+
+Group 1
+
+2
+
+Scheme #2
+
+2
+
+Group 2
+
+3
+
+Scheme #3
+
+3
+
+Group 3
+
+71
+
+Arc Flash Protection Unit
+
+6Configuration
+Light group
+
+Scheme
+Position
+
+Definition
+
+Position
+
+Definition
+
+4
+
+Scheme #4
+
+4
+
+Group 4
+
+5
+
+Scheme #5
+
+5
+
+Group 5
+
+6
+
+Scheme #6
+
+6
+
+Group 6
+
+7-9
+
+N/A
+
+7-9
+
+Group 7 - 9
+
+NOTE: See Protection Schemes, page 23 for schemes available for each
+model of the PowerLogic A3 range. If the scheme rotary switch is set to invalid
+positions, the device will be install failed and work in empty scheme without
+output. Due to the limitation of the position (0 to 9), the available Light Group
+are 1 to 9.
+In this configuration method, the parameters and commands are set by:
+•
+
+Protection scheme: set by the 1st rotary switch which shall be in valid
+positions (for example the A3S6P, only the positions '1', '2', '4', '6' are valid).
+
+•
+
+Light group: set by the 2nd rotary switch, the setting value corresponds to the
+positions. (Position '0' means no Light Group will be sent out)
+
+•
+
+Current group: set to default value Group 16.
+
+•
+
+Install/Reset: implemented by push button on full size PowerLogic A3 device.
+
+The normal processes of configuration are as below:
+1. Power on the PowerLogic A3 device after completing all physical connections.
+2. Rotate the switches to the corresponding positions, the default positions are
+both ‘0’.
+3. Press and hold the button for 3 to 5 s until the ON/C/E LED is changed to
+orange. Wait for 5 s, all sensor LEDs will be flashing in yellow then extinguish,
+it means the device or system is installed successfully.
+4. Check the status of the device. If the configuration is invalid, for example the
+scheme rotary switch is in non-defined position, the device or system will be
+install failed. ON/C/E LED will be in red and T4 will trip. If everything is running
+normally, only the ON/C/E LED will light up in green.
+5. The output relays (T1, T2, T3) will latch if they tripped. Short press the button if
+you want to reset the trip outputs and the LEDs.
+NOTE: The definition of scheme rotary switch position ‘0’ configures the
+PowerLogic A3 by eSetup Easergy Pro which is explained in the following
+chapter. When the scheme rotary switch is set to position '0', the 2nd rotary
+switch is useless. At this time, the value of light group depends on the
+protection settings in eSetup Easergy Pro.
+
+Configure with eSetup Easergy Pro directly
+Overview
+
+WARNING
+INOPERABLE DEVICE
+Make sure that the reboot of the PowerLogic A3 has no impact on people and
+equipment.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+eSetup Easergy Pro is a setting and operating software tool for configuring
+PowerLogic A3 devices, local operation and customisation functions.
+
+72
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+The eSetup Easergy Pro software is supplied directly through the Schneider
+Electric website www.se.com, along with the eSetup Easergy Pro program for
+recovering all the PowerLogic A3 documentation in PDF format.
+When configuring the PowerLogic A3 directly, the eSetup Easergy Pro displays on
+the graphical interface the parameters and commands grouped under the tab
+General . The displayed contents of the tab depend on the type of device. For
+example, there are six selection options of protection scheme for A3F6P and
+A3F12P, four options for A3S6P, and only one option for A3S12P.
+The eSetup Easergy Pro supports also making the device configuration by a
+setting file. The configuration of a physical device is saved in one setting file. The
+configurations can be printed out and saved for later use.
+When starting to work with eSetup Easergy Pro, there are two options
+corresponding to two operation modes as described below.:
+•
+
+Open an existing (previously saved) setting file without connecting to a
+PowerLogic A3 device
+
+•
+
+Connect to a PowerLogic A3 device and read the settings from the device.
+NOTE: The accessory configure cable REL52960 (in yellow) is mandatory to
+be used for the connection between PowerLogic A3 device and the Ethernet
+port of PC or switch.
+
+Operation modes
+The eSetup Easergy Pro software can be used in two operation modes:
+•
+
+Disconnected mode
+
+•
+
+Connected mode
+
+The disconnected mode allows the user to prepare parameters and settings files
+for the PowerLogic A3 prior to commissioning. The previously saved setting file
+can be opened as a template to create new configuration for a same type device
+(Refer to the user manual of eSetup Easergy Pro for more information). The
+parameter and protection setting files prepared in disconnected mode will be
+downloaded later to PowerLogic A3 devices in connected mode.
+The connected mode is used during commissioning of the PowerLogic A3
+devices:
+•
+
+To upload, download and modify the parameters and settings of PowerLogic
+A3.
+Refer to the user manual of eSetup Easergy Pro for more information on
+uploading (writing)/downloading (reading) setting files to/from the connected
+devices.
+
+NOTICE
+UNEXPECTED EQUIPMENT OPERATION AND NUISANCE TRIPPING
+After writing new settings, configurations or firmware to a device, perform a
+test to verify that the device operates correctly with the new settings.
+Failure to follow these instructions can result in reduced lifetime.
+•
+
+To have all the measurements and supporting data available for
+commissioning.
+NOTE: The accessory configure cable REL52960 (in yellow) is mandatory to
+be used for the connection between PowerLogic A3 device and the Ethernet
+port of PC or switch.
+
+A3/EN M/01D
+
+73
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Figure 81 - Connecting PC and PowerLogic A3
+
+Set up the connection
+Before connecting, make sure your PC Ethernet port is configured to obtain IP
+address by DHCP.
+PowerLogic A3 devices use AUTOIP to obtain address from range 169.254.xxx.
+xxx with the subnet mask 255.255.0.0.
+1. Connect the dedicated cable REL52960 to any ix Industrial® port in the system
+and the PC. Run eSetup Easergy Pro. (See Connecting PC and PowerLogic
+A3, page 74).
+2. On the eSetup Easergy Pro toolbar, click the ON connection button. The Login
+pop-up window opens.
+3. Click the ETHERNET tab, then click the scan network icon to find the devices.
+4. Select the right device from the drop-down menu.
+5. Click Connect. A new window showing the device information will be
+displayed.
+6. Enter the user name and password to login. The main interface of eSetup
+Easergy Pro will be displayed.
+NOTE: See User accounts, page 74 for default user names and
+passwords. See Password recovery, page 75 to retrieve your password.
+
+User accounts
+By default, there are three kinds of user account for PowerLogic A3 device.
+Table 13 - User accounts
+
+74
+
+User account
+
+User name
+
+Default
+password
+
+Use
+
+User
+
+user
+
+0
+
+Used for reading parameter values.
+
+Operator
+
+operator
+
+1
+
+Used for installing devices and
+sensors, changing the protection
+settings, forcing the relay outputs, for
+example.
+
+Configurator
+
+conf
+
+2
+
+Needed during the device
+commissioning. For example, only
+this user account can disable the
+install/reset button’s function.
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+NOTICE
+UNAUTHORIZED ACCESS
+To improve in cybersecurity:
+•
+
+Change all passwords from their default values when taking the protection
+device into use.
+
+•
+
+Change all passwords regularly.
+
+•
+
+Ensure a minimum level of password complexity according to common
+password guidelines.
+
+Failure to follow these instructions can increase the risk of unauthorized
+access.
+
+Password recovery
+
+WARNING
+INOPERABLE DEVICE
+Password recovery of PowerLogic A3 device will clear the device firmware and
+all your settings. Make sure that the password recovery of the PowerLogic A3
+has no impact on people and equipment.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+WARNING
+INOPERABLE DEVICE
+Make sure that the reboot of the PowerLogic A3 has no impact on people and
+equipment.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+1. From Login page, click Forget password?.
+2. From Request page, click Read and click
+
+to copy information.
+
+3. Contact Schneider Electric Customer Care Center (www.se.com/CCC) and
+provide the copied information.
+4. Obtain the password recovery file from Schneider Electric Customer Care
+Center.
+5. From Restore page, click Update firmware. A caution message appears.
+
+A3/EN M/01D
+
+75
+
+Arc Flash Protection Unit
+
+6Configuration
+
+6. Click Yes to continue.
+7. In the pop-up Firmware update page, select the password recovery file
+obtained from Step 4.
+8. In the Firmware update page, select the image and click Update. Firmware
+update progress window appears.
+9. Click OK when the update is finished.
+
+10. Restart PowerLogic A3 device.
+
+Parameters and commands
+NOTE: Do remember to rotate the scheme switch to position '0' if you want to
+change the protection settings. When the scheme switch is in position '0', the
+2nd rotary switch light group is useless. The value of light group depends on
+the protection settings in eSetup Easergy Pro.
+
+Basic parameters
+The basic information and parameters are displayed at the beginning of the view,
+as shown below:
+Figure 82 - View of basic information in eSetup Easergy Pro
+
+Table 14 - Basic parameters
+
+76
+
+Parameter name
+
+Value
+
+Description
+
+Attribute
+
+Device Description
+
+-
+
+Same as the device name
+
+Read-only
+
+Device Type
+
+A3F6P, A3F12P,
+A3S6P, A3S12P
+
+Displays the type of PowerLogic
+A3 device
+
+Read-only
+
+Serial Number
+
+-
+
+-
+
+Read-only
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Table 14 - Basic parameters (Continued)
+Parameter name
+
+Value
+
+Description
+
+Attribute
+
+Device Name
+
+Supports up to 19
+characters
+
+User can define the PowerLogic
+A3 device
+
+Write-able
+
+Device Addr
+
+0 -255
+
+Device address, determine the
+index number when connect to
+V321
+
+Write-able
+
+MainLocation
+
+Supports up to 19
+characters
+
+It is recommended to
+correspond to bay name
+
+Write-able
+
+SubLocation
+
+Supports up to 19
+characters
+
+It is recommended to
+correspond to bay name
+
+Write-able
+
+Identify
+
+Disabled/Blinking
+
+Usually disabled. All sensor
+LED will blink in yellow after
+write Blinking so that user can
+find easily the current device in
+multiple devices system.
+
+Write-able
+
+MAC
+
+-
+
+MAC address
+
+Read-only
+
+Firmware
+
+-
+
+FW version
+
+Read-only
+
+FPGA
+
+-
+
+FPGA version
+
+Read-only
+
+NOTE: If the device address (Device Addr) is updated, an Install command
+have to be implemented. The Install command is not needed for the updates
+of other Write-able attributes.
+
+Protection and configuration settings
+Go to General > Main menu, under Protection and Configuration group view,
+change and view arc flash protection settings.
+
+A3/EN M/01D
+
+77
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Figure 83 - Protection group view
+
+Table 15 - Protection and configuration settings
+Parameter name
+
+Default
+
+Value
+
+Description
+
+Install
+
+-
+
+-; Install
+
+Install all connected
+sensors.
+
+Reset Latch
+
+-
+
+-; Reset
+
+Reset all latched sensors
+and relays.
+
+Powerup recovery time
+
+10 s
+
+10...255 s
+
+A period when the arc
+protection system wait for
+all units been detected.
+This takes effect when the
+system has more than one
+unit.
+
+78
+
+Disable install button
+
+Off
+
+On; Off
+
+Disable the installing
+function of the install/reset
+button.
+
+Disable reset button
+
+Off
+
+On; Off
+
+Disable the resetting
+function of the install/reset
+button.
+
+Disable TestMode button
+
+Off
+
+On; Off
+
+Disable the test mode
+function of the install/reset
+button.
+
+Configuration Mode
+
+-
+
+Tool/External;
+Rotary switch
+
+Configure the device by
+rotary switch or software.
+When the 1st rotary switch
+scheme is in position '0',
+the device uses tool/
+external configuration.
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Table 15 - Protection and configuration settings (Continued)
+Parameter name
+
+Default
+
+Value
+
+Description
+Other positions show
+configure by rotary switch.
+
+System status
+
+Uninstalled
+
+Uninstalled;
+Installing;
+Installed;
+Install failed
+
+Installation status.
+
+Rotary Switch 1
+
+0
+
+0; 1; 2; 3; 4; 5; 6;
+7; 8; 9
+
+The 1st rotary switch
+scheme stops.
+When configure with
+eSetup Easergy Pro, the
+value shall be 0,
+corresponding to the
+physical position '0'. When
+configuring with rotary
+switches, the value also
+corresponds to a physical
+position which shall be
+valid.
+
+Rotary Switch 2
+
+0
+
+0; 1; 2; 3; 4; 5; 6;
+7; 8; 9
+
+The current installed
+settings the device is
+working with
+
+Active Scheme/Light
+Group/Current Group/Latch
+Config
+Protection Scheme
+
+The 2nd rotary switch light
+group stops.
+
+1
+
+1; 2; 3; 4; 5; 6
+
+Options of protection
+scheme.
+NOTE: Only valid
+options can be
+selected from the
+drop-down list. The
+drop-down lists of
+A3F6P and A3F12P
+contain the options ‘1’
+to ‘6’. The drop-down
+list of A3S6P contains
+the options '1', '2', '4',
+'6'. The drop-down list
+of A3S12P contains
+only option '1'.
+
+Light Group
+
+-
+
+1; 2; 3; 4; 5; 6; 7;
+8; 9; 10; 11; 12
+
+Light group.
+
+Current Group
+
+16
+
+13; 14; 15; 16
+
+Current group.
+
+Output Latch
+
+Disable
+
+Disable; Enable
+
+The output relay can be
+configured as latched or
+non-latched.
+
+•
+
+If the Configuration mode value is Rotary switch, the values of Protection
+Scheme, Light Group, Current Group and Output Latch are read only.
+
+•
+
+If the connected device’s scheme rotary switch is set to 0, the Configuration
+mode value will be Tool/External, the attribute of Protection Scheme, Light
+Group, Current Group and Output latch are write-able.
+
+•
+
+The four settings of Protection Scheme, Light Group, Current Group and
+Output latch are critical for normal operation. Re-install is needed when those
+four settings are changed.
+
+Install command
+1. Under General tab, select Main menu.
+2. Under the Protection group view, click Install drop-down list and select
+Install.
+3. Click Write on the top.
+
+A3/EN M/01D
+
+79
+
+Arc Flash Protection Unit
+
+6Configuration
+
+4. Wait until the System status shows Installed, all sensor LEDs of the single
+PowerLogic A3 or PowerLogic A3 system will blink in yellow during the install
+process. If the configuration are correct, all LEDs will distinguish except the
+ON/C/E LED lit in green, this status means all sensors are installed and rotary
+switches’ configurations are enabled.
+5. Check the Installed Configuration is consistent with expectations. Check the
+sensor status in Arc Sensor Inputs group view. Check the status of output
+relays in Outputs group view.
+
+Reset latch command
+1. Under General tab, select Main menu.
+2. Under the Protection group view, click Reset latch drop-down list and select
+Reset.
+3. Click Write on the top.
+4. Check the LEDs of the single PowerLogic A3 or PowerLogic A3 system, both
+sensor LED and output LED shall distinguish. Check the status of output relays
+in Outputs group view.
+NOTE: Install and Reset command will be transmitted to other PowerLogic A3
+device in the system. The two commands can still be implemented by long/
+short pressing the physical button on full size PowerLogic A3 device.
+
+Other functions
+Diagnostic
+The device runs self-diagnostic tests for hardware and software. Check the
+detected voltage, temperature and humidity under the Diagnostic group view.
+Figure 84 - Diagnostic
+
+Sensor status detection
+Check the arc sensor status under the Arc sensor inputs group view. The status
+value includes -, Connected, Disconnected , Error , Active, Daylight and HW
+Fault. Connected means the sensor is installed and well detected. Active means
+the sensor has detected an arc flash. These two status are valid during normal
+operation. But other status are abnormal, such as Disconnected (means sensor
+lost), the alarm message will be sent out, sensor LED will be blinking in yellow,
+ON/C/E will turn to red, T4 will trip. The alarm will be sent to the entire system by
+communication ports.
+
+80
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Figure 85 - Arc sensor inputs
+
+Forcing the relay outputs
+1. Go to GENERAL > Main Menu, under Outputs group ,enter 1 in the
+OutputsForce field. Click Write on the top.
+2. Click the checkbox besides the relay's name, click Write. The corresponding
+output relay and its LED will be activated.
+3. Remove the mark in checkbox, click Write. The corresponding output relay
+and its LED will be deactivated.
+NOTE: The outputs forcing mode keep valid for 10 minutes only. The
+OutputsForce field will turn to "0" automatically in 10 minutes.
+Figure 86 - Outputs
+
+Steps of configuration
+Step 1: Physical connection.
+
+DANGER
+HAZARD OF ELECTRICAL SHOCK, EXPLOSION, ARC FLASH AND FIRE
+Before connecting the devices, disconnect the supply voltage to the unit.
+Failure to follow these instructions will result in death or serious injury.
+Cascade the PowerLogic A3 devices by their ix Industrial®ports with ArcEM cable.
+Finish wring including sensor inputs. Connect configure cable REL52960 to any
+empty ix Industrial® port and RJ45 of PC. Turn on the power supply of PowerLogic
+A3 devices.
+Step 2: Set up the connection.
+
+A3/EN M/01D
+
+81
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Click the ON/OFF button on the toolbar. In ETHERNET tab, select the device
+according to their IP address. The device type, order code and other information
+are also displayed if the sub-menu is opened. Click the Connect button, enter
+user accounts and password, the connection will be built and parameters will be
+uploaded from the device.
+
+Step 3: Configure the device.
+Change the basic parameters and protection settings. The 1st rotary switch shall
+be in position '0' if you want to change the four protection settings: Protection
+Scheme, Light Group, Current Group and Output Latch.
+Step 4: Download the configuration to the device.
+Click the Write button to download the parameters and settings to device.
+Step 5: Implement install command.
+Select Install and click Write to implement the install command. All sensor LEDs
+of the PowerLogic A3 system will blink for 3 seconds during installation. If the
+configuration is valid, the system status will be displayed as Installed and all LEDs
+will be deactivated except the ON/C/E lit in green. The install command can also
+be implemented by long pressing the button on full size PowerLogic A3 device,
+which is the same as configure with rotary switch and push button.
+Step 6: Check the status of the system.
+Check and ensure the configuration is completely consistent with expectations.
+Save the configuration to .epz file for later use.
+
+Configure with ArcEM Configurator in V321
+When PowerLogic A3 work as I/O peripherals of V321, it is recommended to
+configure A3 devices in V321 by front USB port connection. There is a dedicated
+menu for configuration of A3 devices, named ARC ArcEM Unit Configurator in
+Protection page (see V321 user manual).
+
+82
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+ARC ArcEM Unit Configurator
+Check all PowerLogic A3 scheme rotary switches are in ‘0’ position before set up
+the connection between eSetup Easergy Pro and V321. Write Install command in
+Protection/Arc protection menu. Go to Protection/ARC ArcEM Unit
+Configurator, the A3 devices connected to V321 will be listed here. All the A3
+critical parameters such as Device name, Device address, Protection scheme,
+Light Group, Current Group, identify function, Relay latch, and so on can be
+configured in this menu.
+Figure 87 - ARC ArcEM Unit Configurator
+
+Table 16 - Parameters of PowerLogic A3 in ArcEM Unit Configurator
+Name
+
+Description
+
+Attribute
+
+ID
+
+A3 device address. Determine the index of the device. This
+value also contained in IEC61850 LN of related A3 device.
+Value range from 0 to 255.
+
+Writable
+
+MAC
+
+Mac address of A3 device.
+
+Read-only
+
+Name
+
+Device name of A3 device.
+
+Writable(7)
+
+Sw. Ver.
+
+Software version of A3 device.
+
+Read-only
+
+Type
+
+A3 device type: A3F6P, A3S6P, A3F12P, A3S12P
+
+Read-only
+
+Scheme
+
+Protection scheme of A3 device. Extremely important
+parameter of A3 device. There are 6 protection schemes
+(#1, #2, #3, #4, #5, #6) in A3F6P and A3F12P, 4 schemes
+(#1, #2, #4, #6) in A3S6P, and only 1 protection scheme (#1)
+in A3S12P. Select accurate value according to application
+scenario. Details see Protection Schemes, page 23.
+
+Writable
+
+Group L>
+
+Light group in which the A3 device is working. Extremely
+important parameter of A3 device. Range from ArcEM
+Group 1 to 12.
+
+Writable
+
+Group I>
+
+Current group in which this A3 device is working. Extremely
+important parameter of A3 device. Range from ArcEM
+Group 13 to 16.
+
+Writable
+
+Relay Latch
+
+Set the outputs (T1, T2, T3) of A3 device latch or not
+
+Writable
+
+Identify
+
+Identification of the A3 device.
+
+Writable
+
+NOTE: The ID is the address of the PowerLogic A3 devices, the ID must be
+unique in one system.
+
+ARC ArcEM Bus
+In Protection/ARC ArcEM Bus, you can make setting to let V321 forward its
+overcurrent information to Current Groups (only Group 13 to 16 available) for
+PowerLogic A3 to use. Another setting allows A3 units to reset latches. In the
+middle of this menu, all Groups status in ArcEM bus are displayed, including Light
+Groups (Group 1 to 12) and Current Groups (Group 13 to 16). Also, some signals
+of abnormal status related to ArcEM bus can be linked to self-diagnostic at the
+bottom of this menu. For example, link the signal of ArcEM I/O sensor lost to selfdiagnostic ArcEM I/O signal in the list of Selfdiag Signal Configuration of
+Device/Test.
+
+(7)
+
+10 characters maximum, without space.
+
+A3/EN M/01D
+
+83
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Figure 88 - Overcurrent information forwarding
+
+Figure 89 - Groups for Light and Groups for Current
+
+84
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Figure 90 - Links to Arc SelfDiag
+
+Figure 91 - SelfDiag Signal Configuration
+
+A3/EN M/01D
+
+85
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Table 17 - Parameters of ARC ArcEM Bus
+Name
+
+Default
+Value
+
+Range
+
+Description
+
+Attribute
+
+Device ID
+
+254
+
+100 - 254
+
+The address of V321 in
+ArcEM bus
+
+Writable
+
+Allow A3 to reset
+latches
+
+On
+
+On/Off
+
+Allows A3 units to reset
+latches
+
+Writable
+
+Forward I>int. to
+Group
+
+None
+
+None, ArcEM
+Group 13 - 16
+
+Forward phase
+overcurrent information
+to ArcEM bus for A3 use
+
+Writable
+
+Forward Io>int. to
+Group
+
+None
+
+None, ArcEM
+Group 13 - 16
+
+Forward residual
+overcurrent information
+to ArcEM bus for A3 use
+
+Writable
+
+Groups for Light
+
+-
+
+-
+
+The status of Light
+Groups 1 - 12 in ArcEM
+bus
+
+Read-only
+
+Groups for
+Current
+
+-
+
+-
+
+The status of Current
+Groups 13 - 16 in ArcEM
+bus
+
+Read-only
+
+Links to Arc
+Selfdiag
+
+On
+
+On/Off
+
+Abnormal status of
+ArcEM bus link to selfdiagnostic signal
+
+Writable
+
+Configuring arc protection settings of the V321
+Go to Protection > ARC protection, the following arc protection settings of the
+V321 can be configured:
+Figure 92 - Arc Stages
+
+Table 18 - System overview parameters
+
+86
+
+Parameter name
+
+Default
+
+Range
+
+Description
+
+Stage
+
+-
+
+1...8
+
+Stage No.
+
+Stage Enabled
+
+-
+
+On, Off
+
+Enable the arc protection
+stage.
+
+Trip delay
+
+0
+
+0...255 ms
+
+Trip delay for the arc
+protection stage
+
+Min. hold time
+
+2
+
+2...255 x 10 ms
+
+Minimum trip pulse length
+for the arc protection stage
+(Overshoot time 35 ms)
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Table 18 - System overview parameters (Continued)
+Parameter name
+
+Default
+
+Range
+
+Description
+
+State
+
+0
+
+On, Off
+
+Stage state: tripped or not
+tripped.
+
+DI to block stage
+
+-
+
+DI1...DI6;
+F1, F2;
+VI1...VI20;
+VO1...VO20;
+GOOSE NI1...
+GOOSE NI64;
+
+DI used to block stage
+
+Arc matrix – light
+The arc flash light matrix is used for connecting light signals detected by sensors
+or Goose or any virtual inputs to the different stages of the arc flash detection
+function.
+In the Arc matrix – light setting view, the available arc light signals (left column)
+are linked to the appropriate arc stages (1...8).
+Figure 93 - View of arc matrix – light
+
+Table 19 - Arc matrix – light parameter group
+
+A3/EN M/01D
+
+Item
+
+Range
+
+Description
+
+Arc sensor 1... X
+
+On; Off
+
+Internal arc flash sensor 1...X; X is depending
+on the V321 order code.
+
+Zone 1...4
+
+On; Off
+
+Zone information for Arc I/O bus (VAM I/O unit)
+
+Binary input 1...X
+
+On; Off
+
+Binary input. X is depending on the V321 order
+code.
+
+87
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Table 19 - Arc matrix – light parameter group (Continued)
+Item
+
+Range
+
+Description
+
+GOOSE NI
+
+On; Off
+
+Goose network input.
+
+Virtual output 1...6
+
+On; Off
+
+Virtual output.
+
+ArcEM G1...G12
+
+On; Off
+
+Light Group information in ArcEM bus (from
+PowerLogic A3)
+
+Arc matrix – output
+The arc flash output matrix is used for connecting the different arc stage signals to
+the outputs.
+In the Arc matrix – output setting view, the used arc stages (1...8) are connected
+to the required outputs. Possible latched function per output is also determined in
+this view. The available outputs depend on the V321 order code.
+The matrix connection done in the Arc matrix – output view also becomes visible
+in the output matrix.
+Figure 94 - View of arc matrix – output
+
+Table 20 - Arc matrix – output parameter group
+
+88
+
+Item
+
+Range
+
+Description
+
+Latched
+
+On; Off
+
+Output latch.
+
+Arc stage 1...8
+
+On; Off
+
+Arc protection stage 1...8.
+
+T1 ...T4
+
+On; Off
+
+Trip digital output 1...4.
+
+A1
+
+On; Off
+
+Signal alarm relay 1.
+
+Binary output 1...X
+
+On; Off
+
+Binary output. X is depending on the V321 order
+code
+
+A3/EN M/01D
+
+6Configuration
+
+Arc Flash Protection Unit
+
+Table 20 - Arc matrix – output parameter group (Continued)
+Item
+
+Range
+
+Description
+
+Zone 1...4
+
+On; Off
+
+Zone information for Arc I/O bus (VAM I/O unit)
+
+I>ext.
+
+On; Off
+
+External I overcurrent signal
+
+ArcEM G1...G16
+
+On; Off
+
+Group information for Arc EM bus (PowerLogic
+A3 units)
+
+Arc event enabling
+In the Logs > Event enabling – arc, this matrix is used to generate events when
+the current elements, light signals from the arc sensors, and the arc stages are
+activated or drop off.
+Figure 95 - View of arc event enabling
+
+Table 21 - Arc event enabling matrix parameter group
+
+A3/EN M/01D
+
+Item
+
+Default
+
+Range
+
+Description
+
+I > int.
+
+On
+
+On; Off
+
+Internal I overcurrent signal
+
+I01 > int
+
+On
+
+On; Off
+
+Internal I01 overcurrent signal
+
+I > ext.
+
+On
+
+On; Off
+
+External I overcurrent signal
+
+Arc sensor 1... X
+
+On
+
+On; Off
+
+Internal arc flash sensor 1...X; X is
+depending on the V321 order code.
+
+Arc stage 1...8
+
+On
+
+On; Off
+
+Arc protection stage 1...8.
+
+Zone 1...4
+
+On
+
+On; Off
+
+Zone information for Arc I/O bus (VAM
+I/O unit)
+
+Arc I/O unit
+sensors
+
+On
+
+On; Off
+
+VAM I/O unit sensors
+
+BI1...BIX
+
+On
+
+On; Off
+
+Binary input; X is depending on the
+V321 order code.
+
+89
+
+Arc Flash Protection Unit
+
+6Configuration
+
+Table 21 - Arc event enabling matrix parameter group (Continued)
+
+90
+
+Item
+
+Default
+
+Range
+
+Description
+
+ArcAEM unit
+sensors
+
+On
+
+On; Off
+
+PowerLogic A3 unit sensors
+
+ArcEM G1...G16
+
+On
+
+On; Off
+
+Group information for Arc EM bus
+(PowerLogic A3 units)
+
+A3/EN M/01D
+
+7Technical data
+
+Arc Flash Protection Unit
+
+7 Technical data
+Technical characteristics
+Table 22 - PowerLogic A3 technical characteristics
+Characteristic
+
+Value
+A3F6P
+
+A3F12P
+
+A3S6P
+
+A3S12P
+
+Auxiliary power supply
+UAUX
+
+24 – 240 (-20% – +10%) V ac/dc(8)
+
+N/A
+
+Maximum withstand voltage
+
+264 V ac/dc
+
+N/A
+
+Normal operating power consumption
+
+6 W; (Max. 9 W)
+
+3 W; (Max. 4 W)
+
+Passive Power over Ethernet (ix
+Industrial® ports)
+
+24 V dc(through the connection bus)
+
+High speed output, T1 and T3
+Number of contacts
+
+1, NO
+
+Rated voltage (max withstand current)
+
+250 V ac (3 A); 24 V dc (2 A); 250 V dc (0.2 A);
+
+Minimum voltage
+
+12 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+-
+
+Maximum operation time (light only mode)
+
+2 ms
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2 000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40 ms)
+
+•
+
+at 48 V dc: 5 A
+
+•
+
+at 110 V dc: 3 A
+
+•
+
+at 220 V dc: 1 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Trip contact, T2
+Number of contacts
+
+1, NO
+
+Rated voltage
+
+250 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+100 mA at 24 V dc
+
+Maximum operation time (light only mode)
+
+9 ms(9)
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2 000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40ms)
+
+•
+
+at 48 V dc: 1.15 A
+
+•
+
+at 110 V dc: 0.5 A
+
+•
+
+at 220 V dc: 0.25 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+
+Wire dimension:
+
+(8)
+(9)
+
+48 – 240 V ac / 24 – 240 V dc for marine application related to IACS E10.
+When the device operates in system (associated to other devices), the performance with HSO output is less than 2 ms and conventional
+output relay is less than 10 ms.
+
+A3/EN M/01D
+
+91
+
+Arc Flash Protection Unit
+
+7Technical data
+
+Table 22 - PowerLogic A3 technical characteristics (Continued)
+Characteristic
+
+Value
+A3F6P
+
+A3F12P
+
+A3S6P
+
+A3S12P
+
+6
+
+12
+
+Pitch: 5.08 mm/0.2 in.
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+Watchdog, T4
+Number of contacts:
+
+2, NC/NO
+
+Rated voltage
+
+250 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+100 mA at 24 V ac/dc
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2 000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40ms)
+
+•
+
+at 48 V dc: 1.15 A
+
+•
+
+at 110 V dc: 0.5 A
+
+•
+
+at 220 V dc: 0.25 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Arc sensor inputs
+Number of inputs
+
+6
+
+Supply to sensors
+
+8 V dc
+
+Terminal block:
+Pitch: 3.5 mm/0.14 in.
+
+Wire dimension:
+
+12
+
+Maximum 1.5 mm2 (15 – 16 AWG)
+Minimum 0.14 mm2 (25 – 26 AWG)
+Connection cable
+
+Twisted pair, with shield. Shield shall be grounded to the appropriate connector.
+
+IEC 60947-9-2 Compliance
+Light immunity
+
+2000 lx (0,+400)
+
+Arc detection
+
+Reduced energy arc, 10 kA, 400 V, with a cos Phi of 0,50
+High energy arcs, 100 kA, 400 V, with a cos Phi of 0,20
+Sensors placed 2000 mm from the arc
+
+Functional tests
+
+Configure all output relays triggered for any sensor stimulation. Stimulated all the sensors
+one by one.
+The associated LED for sensor and output relay light on when the relay is triggered by the
+light sensors.
+
+92
+
+A3/EN M/01D
+
+7Technical data
+
+Arc Flash Protection Unit
+
+Environmental characteristics
+WARNING
+UNEXPECTED OPERATION
+Install the PowerLogic A3 according to the environmental characteristics
+described in the table below.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+Table 23 - Electro-Magnetic Compatibility (EMC) requirements
+Characteristic
+
+Standard
+
+Description
+
+EN IEC 60255-26
+
+Class A(10)
+
+Emission tests
+Radiated emission
+
+CISPR 11
+Conducted emission
+
+EN IEC 60255-26
+
+Class A (Power ports, Wired network port)
+
+CISPR 11
+CISPR 32
+Radiated disturbances immunity tests
+Electrostatic discharges
+
+IEC 61000-4-2
+
+Level 4:
++/- 8 kV Contact Discharge
++/- 15 kV Air Discharge
+Criteria B
+
+Radiated radio frequency
+electromagnetic field
+
+IEC 61000-4-3
+
+Level 3:
+10 V/m, 0.8 to 6 GHz, AM 80% - 1 kHz
+Criteria A
+
+Power frequency magnetic fields
+
+IEC 61000-4-8
+
+Level 5:
+100 A/m, continuously - 60 s, 50/60 Hz
+Criteria A
+1000 A/m, continuously - 3 s, 50/60 Hz
+Criteria B
+
+Conducted disturbances immunity tests
+Electrical fast transient
+
+IEC 61000-4-4
+
+Level 4:
+4 kV, burst frequency 5 kHz and 100 kHz
+Criteria B
+
+Surge
+
+IEC 61000-4-5
+
+Level 3:
+2 kV, 1.2/50 μs (CM) - 1 kV, 1.2/50 μs (DM)
+Criteria B(11)
+
+RF conducted disturbances
+
+IEC 61000-4-6
+
+Level 3:
+10 Vrms, 0.15 - 80 MHz - AM 80% - 1kHz
+Criteria A
+
+Conducted low frequency
+
+IEC 61000-4-16
+
+Level 4:
+Continuous disturbance: 30 V - 50/60 Hz
+Short disturbance: 300 V (CM) - 50/60 Hz
+
+(10) Tested from 30 MHz to 1 GHz. According to the EN IEC 60255-26, if the highest frequency of the internal sources of the EUT is less than
+108 MHz, the measurement shall only be made up to 1 GHz.
+(11) Zone B requirement level
+
+A3/EN M/01D
+
+93
+
+Arc Flash Protection Unit
+
+7Technical data
+
+Table 23 - Electro-Magnetic Compatibility (EMC) requirements (Continued)
+Characteristic
+
+Standard
+
+Description
+Criteria A
+
+Ripple (DC)
+
+IEC 61000-4-17
+
+Level 4:
+15% UDC - 100 Hz / 120 Hz – 5 min
+Criteria A
+
+Damped oscillatory waves
+
+IEC 61000-4-18
+
+Level 3:
+2.5 kV (1 MHz and 100 kHz): CM
+1 kV (1 MHz and 100 kHz): DM
+2 kV (93/10/30 MHZ): CM
+Criteria B
+
+Gradual shutdown
+
+IEC 60255-26
+
+Criteria C:
+Shut-down ramp 60 s
+Power off 5 min
+Start-up ramp 60 s
+
+Table 24 - Electrical safety tests
+Characteristic
+
+Standard
+
+Description
+
+Insulation
+
+IEC 60255-27
+
+Insulation resistance > 100 MΏ at 500 Vdc
+
+IEC 60947-9-2
+
+Insulation resistance > 100 MΩ at 500 Vdc
+
+Clearances and creepage distances
+
+IEC 60255-27
+
+Pollution degree 2, Overvoltage category III
+
+Dielectric voltage
+
+IEC 60255-27
+
+3.7 kV DC, 1 min: between all independent circuits.
+1.5 kV AC, 1 min: across normally open control and
+signaling contacts. (12)
+
+IEC 60947-9-2
+
+2.12 kV DC, 1 min: between all independent circuits.
+
+IEC 60255-27
+
+5 kV, 1.2 μs - 50 μs, 0.5 J between all independent
+circuits.
+
+IEC 60947-9-2
+
+4.8 kV, 1.2 μs – 50 μs, 0.5 J between all independent
+circuits and case ground.
+
+Protective bonding
+
+IEC 60255-27
+
+R< 0,1 Ω; 20 A, 12 V ac or dc maximum; 60 seconds.
+
+Reverse polarity and slow ramp test
+
+IEC 60255-27
+
+/
+
+Impulse voltage
+
+Table 25 - Mechanical requirements (DIN rail mounting & panel mounting)
+Characteristic
+
+Standard
+
+Description
+
+Vibration
+
+IEC 60255-21-1
+
+Class 1:
+
+IEC 60068-2-6
+
+Response – 0.5 Gn, 10 Hz to 150 Hz
+Endurance - 1 Gn, 10 Hz to 150 Hz
+
+Shock and bump
+
+IEC 60255-21-2
+
+Class 1:
+Shock response - 5 Gn, 11 ms
+Shock withstand - 15 Gn, 11 ms
+Bump - 10 Gn, 16 ms
+
+Seismic
+
+IEC 60255-21-3
+
+Class 1: 1 Gn horizontal; 0.5 Gn vertical
+
+(12) None for high speed, high break control relay output due to solid state devices across normally open contact.
+
+94
+
+A3/EN M/01D
+
+7Technical data
+
+Arc Flash Protection Unit
+
+Table 26 - Climatic environmental requirements
+Characteristic
+
+Standard
+
+Description
+
+Cold test
+
+IEC 60068-2-1
+
+In operation:
+
+Dry heat test
+
+IEC 60068-2-2
+
+-40°C (-40°F), 96 hours / +70°C (+158°F), 96 hours.
+Storage:
+-40°C (-40°F), 96 hours / +85°C (+185°F), 96 hours.
+
+Damp heat steady state
+
+IEC 60068-2-78
+
+In operation:
+10 days, 93% RH, +40°C (104°F).
+
+Cyclic temperature with humidity
+
+IEC 60068-2-30
+
+In operation:
+93% RH, +25°C to +55°C (77°F to 131°F), 6 cycles
+(12 hours + 12 hours).
+
+Change of temperature test
+
+IEC 60068-2-14
+
+In operation:
+-40°C to +70°C (-40°F to +158°F)
+Exposure time: 2 h + 1 h, 5 cycles
+1°C/min (1.8°F/min) of transfer time
+
+Table 27 - Enclosure protection
+Characteristic
+Enclosure protection
+
+Front surface
+area
+Other area
+
+Flammability of insulating materials,
+components, and fire enclosures
+
+Standard
+
+Description
+
+IEC 60529
+
+IP2X
+
+IEC 62262
+
+IK07
+
+IEC 60529
+
+IP2X
+
+IEC 60255-27
+
+Needle flame test
+
+IEC 60695-11-5
+Single fault condition
+
+IEC 61010-1
+
+Short-circuit of components
+
+Durability of markings
+
+IEC 60255-27
+
+Water-resistance
+
+Packaging
+
+IEC 68000-2-31
+
+Resistance to shocks by free fall (with packaging). 1
+m (3.28ft)
+
+A3/EN M/01D
+
+95
+
+Arc Flash Protection Unit
+
+7Technical data
+
+Table 28 - Energizing quantities
+Characteristic
+
+Standard
+
+Description
+
+Burden
+
+IEC 60255-1
+
+A3F6P & A3F12P:
+Power supply DC:
+5 W typical, 8 W maximum at 24 Vdc
+7 W typical, 9 W maximum at 240 Vdc
+Power supply AC:
+8 VA typical, 11 VA maximum at 24 Vac
+20 VA typical, 24 VA maximum at 240 Vac
+A3S6P & A3S12P:
+Power supply DC:
+3 W typical, 4 W maximum at 24 Vdc
+
+AC power supply interruption
+
+IEC 61000-4-11
+
+24 Vac:
+0% residual voltage @ 10 cycles (50/60 Hz) Criteria A
+40% residual voltage @ 10/12 cycles (50/60 Hz)
+Criteria C
+70% residual voltage @ 25/30 cycles (50/60 Hz)
+Criteria C
+0% residual voltage @ 250/300 cycles (50/60 Hz)
+Criteria C
+240 Vac:
+0% residual voltage @ 25 cycles (50/60 Hz) Criteria A
+40% residual voltage @ 10/12 cycles (50/60 Hz)
+Criteria C
+70% residual voltage @ 25/30 cycles (50/60 Hz)
+Criteria C
+0% residual voltage @ 250/300 cycles (50/60 Hz)
+Criteria C
+
+DC power supply interruption
+
+IEC 61000-4-29
+
+24 Vdc:
+0% residual voltage @ 200 ms Criteria A
+40% residual voltage @ 200 ms Criteria C
+70% residual voltage @ 500 ms Criteria C
+0% residual voltage @ 5000 ms Criteria C
+240 Vdc:
+0% residual voltage @ 300 ms Criteria A
+40% residual voltage @ 200 ms Criteria C
+70% residual voltage @ 500 ms Criteria C
+0% residual voltage @ 5000 ms Criteria C
+
+Table 29 - Casing
+Degree of protection (IEC 60529)
+
+IP2X
+
+Dimensions (W x H x D)
+
+A3F: 70.6 x 134.4 x 126.2 mm / 2.78 x 5.29 x 4.97 in
+A3S: 34 x 134.4 x 125.1 mm / 1.34 x 5.29 x 4.92 in
+
+Weight
+
+A3F6P: 0.95 kg (2.094 lb)
+A3F12P: 0.91 kg (2.006 lb)
+A3S6P: 0.54 kg (1.190 lb)
+A3S12P: 0.51 kg (1.124 lb)
+
+96
+
+A3/EN M/01D
+
+8Commissioning and testing
+
+Arc Flash Protection Unit
+
+8 Commissioning and testing
+Setting up the arc flash protection system
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, or
+CSAZ462.
+
+•
+
+The arc fault detection system is not a substitute for proper PPE when
+working on or near equipment being monitored by the system.
+
+•
+
+Information on this product is offered as a tool for conducting arc-flash
+hazard analysis. It is intended for use only by qualified persons who are
+knowledgeable about power system studies, power distribution equipment,
+and equipment installation practices. It is not intended as a substitute for the
+engineering judgement and adequate review necessary for such activities.
+
+•
+
+Only qualified personnel should install and service this equipment. Read this
+entire set of instructions and check the technical characteristics of the device
+before performing such work.
+
+•
+
+Perform wiring according to national standards (NEC) and any requirements
+specified by the customer.
+
+•
+
+Observe any separately marked notes and warnings.
+
+•
+
+NEVER work alone.
+
+•
+
+Before performing visual inspections, tests, or maintenance on this
+equipment, disconnect all sources of electric power. Assume all circuits are
+live until they are completely de-energized, tested, and tagged. Pay
+particular attention to the design of the power system. Consider all sources
+of power, including the possibility of back feeding.
+
+•
+
+Always use a properly rated voltage sensing device to ensure that all power
+is off.
+
+•
+
+The equipment must be properly grounded.
+
+•
+
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+•
+
+Do not open the device. It contains no user-serviceable parts.
+
+•
+
+Install all devices, doors and covers before turning on the power to this
+device.
+
+Failure to follow these instructions will result in death or serious injury.
+Before setting up the arc flash protection system:
+•
+
+Mount and connect all components and sensors.
+
+•
+
+Make sure that you understand the customer application.
+
+Follow the procedures below to set up the arc flash protection system:
+1. Identify the wiring connection of sensors to the device’s connectors.
+2. Identify the wiring connection to breaking devices.
+3. Proceed with configuration by rotary switches or eSetup Easergy Pro with
+consideration of the customer application.
+4. Power up the device.
+5. Reset the device by pushing the reset button.
+6. Verify LED indication as described with consideration of the customer
+application.
+
+A3/EN M/01D
+
+97
+
+Arc Flash Protection Unit
+
+8Commissioning and testing
+
+Commissioning and testing
+This section contains the commissioning and testing instructions. See the figure
+below for the testing sequence.
+NOTE:
+•
+
+This commissioning test sequence applies to the PowerLogic A3 device
+used in the system mode. If the PowerLogic A3 device is connected to the
+V321 as I/O unit, refer to the V321 User Manual for other test steps to
+complete the commissioning.
+
+•
+
+Steps for testing the inter-tripping and testing the self-supervision of the
+PowerLogic A3 described in this chapter are not applicable to the
+commissioning of the PowerLogic A3 device used in the stand-alone
+mode.
+
+Figure 96 - Testing sequence
+PowerLogic A3 arc flash protection system commissioning
+
+Verify the installation according to drawings and customer
+specifications
+
+Check schemes and light groups
+
+Configure the PowerLogic A3 to test mode
+
+Test connected arc flash sensors and verify the sensor
+LEDs and trip output LEDs according to schemes
+
+Test the inter-tripping and verify the trip output LEDs
+according to schemes
+
+Test the self-supervision of arc flash sensors
+
+Test the self-supervision of the PowerLogic A3
+
+Filling in test results
+Finalizing the test report
+
+End
+A31148A
+
+Checking the sensor installation
+1. Check the protected compartment where sensors have been installed and
+compare them according to the drawings.
+2. Consult the customer if the sensor installation does not match with the
+drawings.
+
+98
+
+A3/EN M/01D
+
+8Commissioning and testing
+
+Arc Flash Protection Unit
+
+Checking schemes and light groups
+1. Check each PowerLogic A3’s schemes and light group configuration and
+compare them with design documents.
+2. In case of any discrepancy, inform the customer accordingly.
+
+Configuring the PowerLogic A3 to test mode
+For details of how to configure the PowerLogic A3 to test mode, see Test mode,
+page 48.
+
+Sensor testing
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, or
+CSAZ462.
+
+•
+
+The arc fault detection system is not a substitute for proper PPE when
+working on or near equipment being monitored by the system.
+
+•
+
+Information on this product is offered as a tool for conducting arc-flash
+hazard analysis. It is intended for use only by qualified persons who are
+knowledgeable about power system studies, power distribution equipment,
+and equipment installation practices. It is not intended as a substitute for the
+engineering judgement and adequate review necessary for such activities.
+
+•
+
+Only qualified personnel should install and service this equipment. Read this
+entire set of instructions and check the technical characteristics of the device
+before performing such work.
+
+•
+
+Perform wiring according to national standards (NEC) and any requirements
+specified by the customer.
+
+•
+
+Observe any separately marked notes and warnings.
+
+•
+
+NEVER work alone.
+
+•
+
+Before performing visual inspections, tests, or maintenance on this
+equipment, disconnect all sources of electric power. Assume all circuits are
+live until they are completely de-energized, tested, and tagged. Pay
+particular attention to the design of the power system. Consider all sources
+of power, including the possibility of back feeding.
+
+•
+
+Always use a properly rated voltage sensing device to ensure that all power
+is off.
+
+•
+
+The equipment must be properly grounded.
+
+•
+
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+•
+
+Do not open the device. It contains no user-serviceable parts.
+
+•
+
+Install all devices, doors and covers before turning on the power to this
+device.
+
+Failure to follow these instructions will result in death or serious injury.
+In the test mode, when you test the arc flash sensors with the light-only criteria,
+the sensor LED light becomes steady yellow and trip LED light becomes steady
+red according to configured schemes.
+
+A3/EN M/01D
+
+99
+
+Arc Flash Protection Unit
+
+8Commissioning and testing
+
+In the test mode, when you test the arc flash sensors with the light and current
+criteria, with an injected current, the sensor LED light becomes steady yellow and
+trip LED light becomes steady red according to configured schemes, while without
+an injected current, only the sensor LED light becomes steady yellow according to
+configured schemes.
+The indication of the arc fault is registered by the PowerLogic A3.
+NOTE: Testing the arc flash sensors using a light source can trip the
+neighboring zones.
+NOTE: For more information on viewing and resetting indications, see the
+corresponding sensor user manual or se.com.
+
+Testing the connected sensors and verifying the LEDs
+Test the sensors connected to the PowerLogic A3 device. Reset the PowerLogic
+A3 device before the test.
+Figure 97 - Testing connected point sensors
+2
+
+1
+
+A31149A
+
+1. Point light to each arc flash sensor, one at a time, with a powerful light source
+such as camera flash unit or flashlight.
+2. Check if the light of sensor LEDs on the PowerLogic A3 device become steady
+yellow, and if the light of trip LEDs on the PowerLogic A3 device become
+steady red according to configured schemes.
+3. Fill in the test result in the test report.
+4. Reset the device.
+5. Repeat the procedure with the next sensor.
+
+Testing the inter-tripping and verifying the LEDs
+Test the inter-tripping by activating sensors connected to the neighbor PowerLogic
+A3 device whose light group setting is same with the local PowerLogic A3 in
+“Testing the connected sensors and verifying the LEDs” procedure. Reset the
+PowerLogic A3 device before the test.
+Figure 98 - Testing the inter-tripping
+2
+
+1
+
+A31150A
+
+100
+
+A3/EN M/01D
+
+8Commissioning and testing
+
+Arc Flash Protection Unit
+
+1. Choose an appropriate neighbor/remote PowerLogic A3 device connected with
+sensor which can activate the same light group as the local PowerLogic A3
+device. Point light to the neighbor/remote arc flash sensor, with a powerful light
+source such as camera flash unit or flashlight.
+2. Check if the light of trip output LEDs on the local PowerLogic A3 device
+become steady red according to configured schemes.
+3. Fill in the test result in the test report.
+4. Reset the device.
+5. Repeat the procedure with other PowerLogic A3 device or sensors if required.
+
+Testing the sensor’s self-supervision
+Test the self-supervision feature of sensors connected to the PowerLogic A3
+device.
+Figure 99 - Testing the sensor’s self-supervision
+
+A31151A
+
+1. Disconnect wiring of one point sensor, one sensor for each PowerLogic A3
+device, to see that the self-supervision system recognizes the fault in the
+sensor.
+2. Wait until the LED indication appears as below.
+•
+
+Sensor LED: Yellow, blinking.
+
+•
+
+ON/C/E LED: Red.
+
+•
+
+Trip LED: OFF.
+
+•
+
+T4 LED (on any A3F6P/A3S6P device): Red, steady.
+
+3. Fill in the test results in the test report.
+4. Reconnect the wire and reset the system.
+5. Repeat the procedure with other PowerLogic A3 units.
+
+A3/EN M/01D
+
+101
+
+Arc Flash Protection Unit
+
+8Commissioning and testing
+
+Testing the supervision of PowerLogic A3 devices
+Figure 100 - Testing of the PowerLogic A3 self-supervision
+
+A31152A
+
+1. Disconnect the Ethernet connection from the PowerLogic A3 device in the
+communication chain in order to remove it from the PowerLogic A3 arc flash
+protection system.
+2. Wait until the LED indication of all PowerLogic A3 devices appears as below.
+•
+
+ON/C/E LED: Red.
+
+•
+
+T4 LED (on A3F6P/A3S6P device): Red, steady.
+
+3. Fill in the test results in the test report.
+4. Reconnect the Ethernet connection and reset the system.
+5. Repeat the procedure with other Ethernet cables and test all PowerLogic A3
+devices.
+
+102
+
+A3/EN M/01D
+
+8Commissioning and testing
+
+Arc Flash Protection Unit
+
+Filling in the test report
+Fill in all the required information about the PowerLogic A3 arc flash protection
+system, the tested PowerLogic A3 units and the test results. The test report below
+is just a general example, you can use it as a starting point to create your own test
+report.
+PowerLogic A3 commissioning and testing report
+Customer
+information
+Unit
+
+Customer name:
+
+Substation:
+
+Customer address:
+
+Bay:
+
+PowerLogic A3 device model:
+
+PowerLogic A3 device name/location:
+
+Serial number:
+
+Order code:
+
+PowerLogic A3 device scheme setting:
+
+PowerLogic A3 device light group setting:
+
+PowerLogic A3 device is set to test mode: Yes �; No �
+Connected
+arc flash
+sensor test
+
+Inter-tripping
+test by
+activating
+remote arc
+flash sensor
+
+Sensor selfsupervision
+test
+
+Sensor No.
+tested
+
+Sensor LED
+
+Trip output LEDs
+
+Remark
+
+T1
+
+T2
+
+T3
+
+1�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+2�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+3�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+4�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+5�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+6�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+7�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+8�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+9�
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+10 �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+11 �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+12 �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+OK �; NA �
+
+Trip relay
+
+Trip output LED according to scheme & light
+group settings
+
+1
+
+OK �; NA �
+
+2
+
+OK �; NA �
+
+3
+
+OK �; NA �
+
+Sensor No.
+tested
+
+Sensor LED
+
+ON/C/E LED
+
+Trip output LEDs
+
+T4 LED (A3F6P/A3S6P)
+
+OK �;
+
+OK �;
+
+OK �;
+
+OK �; NA �
+
+OK �;
+
+OK �;
+
+OK �;
+
+OK �; NA �
+
+OK �;
+
+OK �;
+
+OK �;
+
+OK �; NA �
+
+OK �;
+
+OK �;
+
+OK �;
+
+OK �; NA �
+
+Activated remote sensor No. and remote
+PowerLogic A3 device name
+
+PowerLogic
+A3 device
+selfsupervision
+test
+
+ON/C/E LED
+
+T4 LED (A3F6P/A3S6P)
+
+OK �;
+
+OK �; NA �
+
+Signature
+
+Commissioner:
+
+Remark
+
+Remark
+
+Supervisor:
+Date:
+
+A3/EN M/01D
+
+103
+
+Arc Flash Protection Unit
+
+9Maintenance
+
+9 Maintenance
+DANGER
+HAZARD OF UNEXPECTED SYSTEM OPERATION
+•
+
+If the arc flash detection unit is no longer supplied with power or is in
+permanent non-operational state, the protection functions are no longer
+active and all the output contacts are dropped out.
+
+•
+
+To detect a power-off or a permanent error state, connect the watchdog
+output contact to a monitoring device such as SCADA or DCS.
+
+Failure to follow these instructions will result in death or serious injury.
+The PowerLogic A3 requires maintenance to help ensure that it works according
+to the specification. Keep record of the maintenance actions performed for the
+system. The maintenance can include, but is not limited to, the following actions.
+
+Preventative maintenance
+The PowerLogic A3 device, sensor and cabling shall be visually checked when the
+switchgear is de-energized. During such inspection pay attention to
+•
+
+possible dirty arc sensors
+
+•
+
+loose wire connections
+
+•
+
+damaged wiring
+
+•
+
+indicator lights
+
+•
+
+other mechanical connections
+
+Visual inspection shall be made minimum every three (3) years.
+
+Periodical testing
+The PowerLogic A3 device, cabling and sensors must periodically be tested
+according to the end-user's safety instructions, national safety instructions or law.
+Manufacturer recommend functional testing being carried minimum every five (5)
+years.
+It is proposed that the periodic testing is conducted with a secondary injection
+principle for those protection stages which are used in the IED and its related
+units.
+
+Hardware cleaning
+Pay special attention to help to ensure that the device, its extension units and
+sensors are always clean.
+
+DANGER
+HAZARD OF UNEXPECTED SYSTEM OPERATION
+•
+
+Do not use any type of solvents or gasoline to clean the device, sensors or
+cables.
+
+•
+
+When cleaning the sensor, make sure that the cleaning solution does not
+contact anything other than the sensor.
+
+Failure to follow these instructions will result in death or serious injury.
+
+104
+
+A3/EN M/01D
+
+9Maintenance
+
+Arc Flash Protection Unit
+
+•
+
+If cleaning is required, wipe out dirt from the device.
+
+•
+
+Use a dry cleaning cloth or equivalent together with mild soapy water to clean
+any residues from the light sensor.
+
+Sensor condition and positioning check
+Always check that the sensor positioning remains as it was originally designed
+after:
+•
+
+Commissioning
+
+•
+
+Sensor replacement
+
+•
+
+Modification procedure
+
+•
+
+Cleaning
+
+•
+
+Arc flash fault
+
+•
+
+Periodic testing
+
+Check for obstruction of the sensors.
+
+System status messages
+In case the PowerLogic A3's self checking detects unexpected system status, it
+will in most cases provide alarm concerning this by activating the ON/C/E LED
+and indication status notification on the WD output. Once this happen, contact
+your local representative for further guidance.
+PowerLogic A3 system events are available in V321 unit event buffer.
+
+Troubleshooting
+Issues
+
+LED indication
+
+Possible Causes
+
+Actions
+
+The trip signal does
+not reach the circuit
+breaker.
+
+Trip LED: Red, steady.
+ON/C/E LED: Green,
+steady.
+
+Wiring error of the trip
+circuit.
+
+Check the wiring.
+
+The protection does
+not trip even when a
+sufficient light signal is
+provided.
+
+Sensor LED: Yellow,
+steady.
+Trip LED: OFF.
+ON/C/E LED: Green,
+steady.
+
+Require specific
+condition to trip.
+
+Check the
+configuration.
+
+Sensor LED: OFF.
+Trip LED: OFF.
+ON/C/E LED: Green.
+
+Loosened sensor wire
+before installation.
+
+Check the sensor and
+sensor wiring.
+
+Sensor not detected.
+Sensor LED: Yellow,
+blinking.
+Trip LED: OFF.
+ON/C/E LED: Red.
+T4 LED: Red, steady.
+
+Communication error.
+Devices not working
+due to low voltage.
+
+A3/EN M/01D
+
+ON/C/E LED: Red.
+T4 LED: Red, steady.
+
+Sensor defect.
+
+Replace the sensor.
+
+Short-circuited wiring
+of sensor
+
+Check the sensor
+wiring.
+
+Loosened sensor wire
+after installation.
+
+Check the sensor
+wiring.
+
+The light is supplied to
+the arc flash sensor
+for over 3 s, the
+daylight blocking
+mode activates.
+
+Remove the light and
+reset the sensor.
+
+The total distance
+between the ends of
+the communication
+bus exceeds 100
+meters.
+
+Check the distance.
+
+105
+
+Arc Flash Protection Unit
+
+9Maintenance
+Issues
+
+LED indication
+
+Possible Causes
+
+Actions
+
+A PowerLogic A3F
+device supplies power
+to more than one
+PowerLogic A3S
+devices.
+
+Check the number of
+connected devices or
+install an auxiliary
+power.
+
+Returning for expert assessment
+To return PowerLogic A3 for expert assessment, use the original packaging if
+possible.
+PowerLogic A3 must be returned accompanied by its settings sheet and the
+following information:
+•
+
+Name and address of the initiator
+
+•
+
+PowerLogic A3 type and serial number
+
+•
+
+Date of the incident
+
+•
+
+Detailed description of the incident
+
+•
+
+LED status at the time of the incident
+
+•
+
+List of stored events
+
+•
+
+Repair and Modification Authorization (RMA) form which is from the country
+organization
+
+End of life
+At end of life of PowerLogic A3, Schneider Electric's Green Premium program
+helps decrease the amount of waste and allow recovery of the product
+components and materials. Please refer to the Product Environmental Profile and
+the End of Life instructions documents available on SE website: www.se.com/ww/
+en/about-us/sustainability/green-premium-products/.
+Dispose the device according to the legislation of the country when
+decommissioning the device. It helps prevent potential disclosure of data
+contained in the device that was not removed.
+
+WARNING
+UNAUTHORIZED OR UNINTENDED ACCESS TO CONFIDENTIAL DATA
+Ensure all data from the device has been saved and erased.
+Failure to follow these instructions can result in unauthorized or
+unintended access to sensitive or secure customer data.
+
+106
+
+A3/EN M/01D
+
+10Order information
+
+Arc Flash Protection Unit
+
+10 Order information
+When ordering, please state:
+•
+
+Type designation
+
+•
+
+Quantity
+
+•
+
+Accessories (see respective ordering code)
+
+Table 30 - Accessories
+
+A3/EN M/01D
+
+Commercial
+Reference
+
+Product Name
+
+Description
+
+REL52804
+
+VA 1 DA-6
+
+Arc sensor, cable length 6 m (19.69 ft)
+
+REL52801
+
+VA 1 DA-20
+
+Arc sensor, cable length 20 m (65.62
+ft)
+
+REL52806
+
+VA 1 DA-6S
+
+Arc sensor, shielded, cable length 6 m
+(19.69 ft)
+
+REL52803
+
+VA 1 DA-20S
+
+Arc sensor, shielded, cable length 20
+m (65.62 ft)
+
+REL52805
+
+VA 1 DA-6S-HF
+
+Arc sensor, halogen free, cable length
+6 m (19.69 ft)
+
+REL52802
+
+VA 1 DA-20S-HF
+
+Arc sensor, halogen free, cable length
+20 m (65.62 ft)
+
+REL52839
+
+VA 1 DA-6W
+
+Arc sensor, shielded at sensor end,
+cable length 6 m (19.69 ft)
+
+REL52840
+
+VA 1 DA-20W
+
+Arc sensor, shielded at sensor end,
+cable length 20 m (65.62 ft)
+
+REL52809
+
+VA 1 EH-6
+
+Arc sensor (pipe type), cable length 6
+m (19.69 ft)
+
+REL52807
+
+VA 1 EH-20
+
+Arc sensor (pipe type), cable length
+20 m (65.62 ft)
+
+REL52810
+
+VA 1 EH-6S
+
+Arc sensor (pipe type), shielded,
+cable length 6 m (19.69 ft)
+
+REL52808
+
+VA 1 EH-20S
+
+Arc sensor (pipe type), shielded,
+cable length 20 m (65.62 ft)
+
+REL52828
+
+VYX 001
+
+Surface mounting plate for sensors,
+Z-shaped
+
+REL52829
+
+VYX 002
+
+Surface mounting plate for sensors, Lshaped
+
+REL52902
+
+Door mount bracket
+
+For PowerLogic A3S, IP 20
+
+REL52903
+
+Door mount bracket
+
+For PowerLogic A3F and PowerLogic
+A125, IP 20
+
+REL52960
+
+A3 Config Arc EM
+
+A3 Configuration Arc EM cable to
+RJ45
+
+REL52961
+
+A3 Arc EM cable 1 m (3.28 ft)
+
+A3 Arc EM cable 1 m (3.28 ft) Comm
+and ix Industrial® ports
+
+REL52962
+
+A3 Arc EM cable 2 m (6.56 ft)
+
+A3 Arc EM cable 2 m (6.56 ft) Comm
+and ix Industrial® ports
+
+REL52963
+
+A3 Arc EM cable 3 m (9.85 ft)
+
+A3 Arc EM cable 3 m (9.85 ft) Comm
+and ix Industrial® ports
+
+REL52964
+
+A3 Arc EM cable 5 m (16.41 ft)
+
+A3 Arc EM cable 5 m (16.41 ft) Comm
+and ix Industrial® ports
+
+REL52965
+
+A3 Arc EM cable 10 m (32.81 ft)
+
+A3 Arc EM cable 10 m (32.81 ft)
+Comm and ix Industrial® ports
+
+REL52966
+
+A3 Arc EM cable 15 m (49.21 ft)
+
+A3 Arc EM cable 15 m (49.21 ft)
+Comm and ix Industrial® ports
+
+107
+
+Arc Flash Protection Unit
+
+10Order information
+
+Table 30 - Accessories (Continued)
+
+108
+
+Commercial
+Reference
+
+Product Name
+
+Description
+
+REL52967
+
+A3 Arc EM cable 20 m (65.61 ft)
+
+A3 Arc EM cable 20 m (65.61 ft)
+Comm and ix Industrial® ports
+
+REL52968
+
+A3 Arc EM cable 25 m (82.02 ft)
+
+A3 Arc EM cable 25 m (82.02 ft)
+Comm and ix Industrial® ports
+
+REL52969
+
+A3 Arc EM cable 30 m (98.42 ft)
+
+A3 Arc EM cable 30 m (98.42 ft)
+Comm and ix Industrial® ports
+
+A3/EN M/01D
+
+11Revision history
+
+Arc Flash Protection Unit
+
+11 Revision history
+Document version
+
+Description
+
+A3/EN M/01A
+
+First edition for initial product release.
+
+2023-06
+
+Firmware version
+
+V01.000
+
+Configuration tool
+
+eSetup Easergy Pro V4.4.0 or later
+
+A3/EN M/01B
+
+Firmware version
+
+V01.100 (13)
+
+2024-06
+
+Configuration tool
+
+eSetup Easergy Pro V4.4.0 or later
+Supports operates as extension module of V321 to set up a
+sophisticated arc protection system
+Restore the status of sensors and outputs after A3 restarts
+Supports TestMode Reset feature in eSetup EasergyPro
+WD won’t be reset until system restored from abnormal
+conditions
+
+A3/EN M/01C
+
+Firmware version
+
+V01.101
+
+2024-11
+
+Configuration tool
+
+eSetup Easergy Pro V4.4.0 or later
+T2 of A3F12P can be used as TRIP+SF relay if the device
+set to scheme #1 and scheme #2. (14)
+
+A3/EN M/01D
+
+Firmware version
+
+V01.101
+
+2025-09
+
+Configuration tool
+
+eSetup Easergy Pro V4.4.0 or later
+Update of IEC 60947-9-2 Compliance certification: Active
+arc-fault mitigation systems – Optical-based internal
+arc-detection and mitigation devices.
+
+(13) The A3 V01.100 and newer versions support more functions and features to communicate with V321, therefore the A3 V01.100 is not
+compatible with earlier A3 V01.000 version.
+(14) This feature TRIP+SF is dedicated to A3F12P and only accessible for scheme #1 and scheme #2.
+
+A3/EN M/01D
+
+109
+
+Schneider Electric Industries SAS
+35 rue Joseph Monier CS30323
+92506 Rueil-Malmaison Cedex
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time, please ask for confirmation
+of the information given in this publication.
+
+© 2023 – 2025 Schneider Electric. All rights reserved.
+A3/EN M/01D
+
+

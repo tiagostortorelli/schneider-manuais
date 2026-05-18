@@ -1,0 +1,10510 @@
+PowerLogic™ P7
+Protection and control device
+Communication User Manual
+04/2026
+P7/EN CM/02-004A
+Firmware version: V02.004
+Hardware version: B
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+Protection and control device
+
+Table of Contents
+Safety information .......................................................................................5
+About the Document ...................................................................................6
+Introduction ..................................................................................................8
+Protocols used and data exchanged ............................................................8
+Architecture ...............................................................................................9
+Serial network architecture ....................................................................9
+Ethernet network architectures...............................................................9
+Communication ports ................................................................................12
+Ethernet communication port ...............................................................12
+Serial communication port ...................................................................17
+
+Communication protocols ........................................................................19
+IEC61850 communication .........................................................................19
+Capability ...........................................................................................19
+Configuration of IEC61850 communication ...........................................20
+GOOSE communication ......................................................................24
+SV performance..................................................................................27
+GOOSE performance ..........................................................................27
+Conformance statements ....................................................................27
+DNP3 ......................................................................................................29
+Function description ............................................................................29
+Device profile document ......................................................................33
+Implementation table...........................................................................36
+Supported function codes ....................................................................38
+DNP3 configuration.............................................................................40
+Modbus server .........................................................................................43
+Function description ............................................................................44
+Supported function codes ....................................................................50
+Modbus configuration..........................................................................50
+IEC 60870-5-103 ......................................................................................51
+Function description ............................................................................52
+IEC 60870-5-103 configuration ............................................................62
+Redundancy protocols ..............................................................................67
+Parallel Redundancy Protocol (PRP) ....................................................67
+High-availability Seamless Redundancy (HSR) .....................................69
+Rapid Spanning Tree Protocol (RSTP) .................................................72
+Failover mode.....................................................................................74
+Generic functions for all redundant Ethernet modules ............................74
+SFTP.......................................................................................................74
+Extracting files using SFTP ..................................................................74
+Simple network management protocol (SNMP) ...........................................75
+Supported MIBs..................................................................................76
+Supported PDU types..........................................................................76
+Communication ..................................................................................77
+Configuring SNMP parameters ............................................................77
+
+Client IP address filter ..............................................................................79
+VLAN and Out of Band (OOB) management ........................................81
+Virtual LAN (VLAN)...................................................................................81
+P7/EN CM/02-004A
+
+3
+
+Protection and control device
+
+Out of Band (OOB) ...................................................................................82
+
+Secure communication with PowerLogic Engineering Suite via
+the Ethernet interface ...............................................................................84
+Revision history .........................................................................................85
+Appendix 1: Abbreviations .......................................................................86
+
+4
+
+P7/EN CM/02-004A
+
+Safety information
+
+Protection and control device
+
+Safety information
+Important information
+Read these instructions carefully and look at the equipment to become
+familiar with the device before trying to install, operate, service or maintain
+it. The following special messages may appear throughout this manual or
+on the equipment to warn of potential hazards or to call attention to
+information that clarifies or simplifies a procedure.
+The addition of either symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+DANGER
+DANGER indicates a hazardous situation which, if not avoided, will result in
+death or serious injury.
+Failure to follow these instructions will result in death or serious injury.
+
+WARNING
+WARNING indicates a hazardous situation which, if not avoided, can result in
+death or serious injury.
+
+CAUTION
+CAUTION indicates a hazardous situation which, if not avoided, can result in
+minor or moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+User qualification
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction,
+installation, and operation of electrical equipment and has received safety training
+to recognize and avoid the hazards involved.
+Use the password protection feature to help prevent untrained and non-authorized
+personnel interacting with PowerLogic P7.
+
+P7/EN CM/02-004A
+
+5
+
+Protection and control device
+
+About the Document
+
+About the Document
+Document Scope
+PowerLogic™ P7 protection and control device (PowerLogic P7) user manual is for
+people who are experts on electrical power engineering, panel builders,
+commissioning engineers, communication specialists or experienced users.
+This document describes the communication protocols supported by
+PowerLogic P7.
+
+Validity Note
+This document applies to the PowerLogic P7 range devices.
+The characteristics of the products described in this document are intended to
+match the characteristics that are available on www.se.com. As part of our
+corporate strategy for constant improvement, we may revise the content over time
+to enhance clarity and accuracy. If you see a difference between the
+characteristics in this document and the characteristics on www.se.com, consider
+www.se.com to contain the latest information.
+
+Product Related Information
+Refer to Safety information, page 5 .
+
+General Cybersecurity Information
+In recent years, the growing number of networked machines and production plants
+has seen a corresponding increase in the potential for cyber threats, such as
+unauthorized access, data breaches, and operational disruptions. You must,
+therefore, consider all possible cybersecurity measures to help protect assets and
+systems against such threats.
+To help keep your Schneider Electric products secure and protected, it is in your
+best interest to implement the cybersecurity best practices as described in the
+Cybersecurity Best Practices document.
+Schneider Electric provides additional information and assistance:
+•
+
+Subscribe to the Schneider Electric security newsletter.
+
+•
+
+Visit the Cybersecurity Support Portal web page to:
+
+•
+
+6
+
+◦
+
+Find Security Notifications.
+
+◦
+
+Report vulnerabilities and incidents.
+
+Visit the Schneider Electric Cybersecurity and Data Protection Posture web
+page to:
+◦
+
+Access the cybersecurity posture.
+
+◦
+
+Learn more about cybersecurity in the cybersecurity academy.
+
+◦
+
+Explore the cybersecurity services from Schneider Electric.
+
+P7/EN CM/02-004A
+
+About the Document
+
+Protection and control device
+
+Product Related Cybersecurity Information
+Refer to Cybersecurity chapter of PowerLogic P7 Protection and Control Device
+IED User Manual.
+
+Environmental Data
+For product compliance and environmental information, refer to the Schneider
+Electric Environmental Data Program.
+
+Related Documents
+Title of documentation
+
+Reference
+number
+
+PowerLogic P7 Protection and Control Device IED User Manual
+
+P7_EN_M
+
+PowerLogic P7 IEC 61850 Conformance Statements
+
+P7_IEC61850_EN
+
+To find documents online, visit the Schneider Electric download center
+(www.se.com/ww/en/download/).
+Your comments on this documentation are welcome. You can reach us by visiting
+Customer Care Centre (http://www.se.com/CCC).
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+P7/EN CM/02-004A
+
+7
+
+Protection and control device
+
+Introduction
+
+Introduction
+Protocols used and data exchanged
+PowerLogic™ P7 protection and control device (PowerLogic P7) is designed for
+data exchange and integration in any system architecture with serial links (daisy
+chain or multi-drop) or Ethernet.
+The protocols used for exchange of data on PowerLogic P7 devices are as
+follows:
+•
+
+IEC 61850
+
+•
+
+DNP3
+
+•
+
+Modbus server
+
+•
+
+IEC 60870-5-103
+
+The data objects that can be exchanged are:
+Port
+
+Ethernet
+
+Protocol
+
+IEC 61850
+
+DNP3
+
+Modbus server
+
+Real time data
+Measurements
+
+✓
+
+✓
+
+✓
+
+Alarms and status
+
+✓
+
+✓
+
+✓
+
+Controls
+
+✓
+
+✓
+
+✓
+
+Time-stamped events
+
+✓
+
+✓
+
+✓
+
+Disturbance records
+
+✓
+
+✓
+
+✓
+
+Sequence of event record files
+
+✓
+
+Operation log
+
+✓
+
+✓
+
+✓
+
+Logged data
+
+Device management
+Setting group change
+
+✓
+
+Settings
+
+✓
+
+Port
+
+Serial
+
+Protocol
+
+IEC 60870-5-103
+
+DNP3
+
+Modbus server
+
+Real time data
+Measurements
+
+✓
+
+✓
+
+✓
+
+Alarms and status
+
+✓
+
+✓
+
+✓
+
+Controls
+
+✓
+
+✓
+
+✓
+
+Time-stamped events
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+Logged data
+Disturbance records
+Device management
+Setting group change
+Settings
+
+✓
+
+NOTE: On PowerLogic P7, the array data type (harmonic measurement for
+example) is not yet supported with the IEC 61850 report, GOOSE, Modbus,
+DNP3 and IEC 60870-5-103 protocols.
+
+8
+
+P7/EN CM/02-004A
+
+Introduction
+
+Protection and control device
+
+Architecture
+Serial network architecture
+The serial network architecture allows the connection of HMI/SCADA to a set of
+PowerLogic P7 devices using a multi-drop RS-485 serial communication link with
+client-server (master-outstation) communication.
+
+SCADA
+
+Serial
+link
+
+M71102A
+
+Ethernet network architectures
+The Ethernet network architecture allows the connection of a set of
+PowerLogic P7 devices directly on an Ethernet network.
+NOTE: It is possible to mix any of the three Ethernet protocols (IEC 61850,
+DNP3, Modbus server) on the same SCADA Ethernet network.
+The architecture allows the use of Generic Object Oriented Substation Event
+(GOOSE) messages between devices together with another protocol for
+communication to Supervisory Control and Data Acquisition (SCADA).
+It is also possible to connect PowerLogic P7 devices to more than one control
+system, using the same Ethernet communication port with one of the chosen
+protocols.
+Depending on the configuration, PowerLogic P7 devices support IEC 61850
+station bus and process bus, in compliance with standards IEC 61850-6, 7-1, 7-2,
+7-3, 7-4, 8-1 Edition 2.1 and IEC 61869-9.
+Other supported protocols:
+•
+
+Precision Time Protocol (PTP) and Simple Network Time Protocol (SNTP) for
+time synchronization
+
+•
+
+Hypertext Transfer Protocol Secure (HTTPS) for Web server
+
+•
+
+Redundancy protocols, refer to Parallel Redundancy Protocol (PRP), page
+10.
+
+•
+
+Secured File Transfer Protocol (SFTP) for file transfer
+
+Connections
+PowerLogic P7 devices can be connected to an Ethernet switch using:
+•
+
+Port 1 RJ45 100 Mbps BASE-T copper wire.
+
+•
+
+Port 2/3 Small Form-factor Pluggable (SFP) modules for the redundant
+connection using:
+◦
+
+RJ45 100/1000 Mbps BASE-T copper wire
+
+◦
+
+100 or 1000 Mbps BASE-FX singlemode fiber optic
+
+◦
+
+100 or 1000 Mbps BASE-FX multimode fiber optic
+
+To optimize system performance, Schneider Electric recommends:
+
+P7/EN CM/02-004A
+
+9
+
+Protection and control device
+
+Introduction
+
+•
+
+To build a fault-tolerant communications backbone by implementing a
+redundant topology
+
+•
+
+To use IEC 61850 compatible managed switches
+
+•
+
+To use VLANs for prioritized messages
+
+•
+
+To configure meaningful destination MAC addresses and APPID for GOOSE
+and SV to enable network filtering
+
+•
+
+To minimize the content of GOOSE datasets
+
+Parallel Redundancy Protocol (PRP)
+Parallel Redundancy Protocol (PRP) transmits frames in parallel on two
+independent network infrastructures: A and B.
+The receiving device is in charge of discarding the second (redundant) frame once
+it is received.
+PRP provides a 0 ms recovery time in case of a communication failure, but this
+requires a cost of two communication networks.
+
+SCADA
+
+Network A
+
+Network B
+
+M71110A
+
+High-availability Seamless Redundancy (HSR)
+High-availability Seamless Redundancy (HSR) is used in ring architectures.
+Frames are transmitted on the ring in both directions and the receiving device
+discards the redundant frames.
+HSR provides a 0 ms recovery time and requires less additional network
+components compared to PRP.
+
+SCADA
+SCADA
+
+M71111A
+
+10
+
+P7/EN CM/02-004A
+
+Introduction
+
+Protection and control device
+
+Rapid Spanning Tree Protocol (RSTP)
+Rapid Spanning Tree Protocol (RSTP) virtually switches off all links that are not
+necessary at a given time, changing the meshed topology into a tree topology.
+The main advantage of RSTP is that it is a widespread solution, and works on any
+network topology. On the other hand, RSTP may take a considerable time to
+reconfigure the network in case of a network failure, change and restoration which
+may not be a suitable solution for time-critical data exchange, for example, on
+GOOSE communication.
+
+SCADA
+
+Ethernet
+switch
+
+Ethernet
+switch
+
+Ethernet
+switch
+
+Ethernet
+switch
+
+M71112A
+
+Failover mode
+Failover mode is a backup operational mode that automatically switches to a
+standby Ethernet port. In the Failover mode for a PowerLogic P7, the device looks
+for an active port and will use it for all traffic until that port is lost. When the active
+port is lost, it will scan both ports until an active port is found. This mode is often
+used with RSTP networks providing redundant access to the relay without
+allowing trunk traffic to flow through the device.
+The default redundancy setting is Failover mode, where either port can be used
+for access.
+
+SCADA
+
+Network A
+
+Network B
+
+M71110A
+
+P7/EN CM/02-004A
+
+11
+
+Protection and control device
+
+Introduction
+
+Communication ports
+Ethernet communication port
+A PowerLogic P7 device has three Ethernet ports:
+•
+
+One fixed RJ45 port (Port 1)
+
+•
+
+Two SFP ports (Port 2/3) supporting two Small Form-factor Pluggable (SFP)
+modules (copper or fiber optic) with PRP/HSR/RSTP/Failover redundancy
+management.
+NOTE: The IP addresses of Port 1 and Port 2/3 must be configured in different
+IP subnetworks.
+
+Port status
+The detailed status of the Ethernet ports can be viewed from the HMI under
+General > Device config > Slot A > Port 1 Ethernet or Port 2/3 Ethernet >
+Status. The following tables detail the available entries.
+Table 1 - Status entries for Port 1
+Name
+
+Short label
+
+Infotip
+
+MacAddr
+
+MAC address
+
+Media Access Controller (MAC) address
+
+ChLiv
+
+Connected
+
+Connection status
+
+ERxCnt
+
+Packages received
+
+Number of packages received
+
+ETxCnt
+
+Packages transmitted
+
+Number of packages sent
+
+Table 2 - Status entries for Port 2/3
+
+12
+
+Name
+
+Short label
+
+Infotip
+
+MacAddr
+
+MAC address
+
+Media Access Controller (MAC) address
+
+ChLiv
+
+Port 2 connected
+
+Port 2 connected
+
+RedChLiv
+
+Port 3 connected
+
+Port 3 connected
+
+ERxCnt
+
+RX packages
+
+Number of packages received
+
+ETxCnt
+
+TX packages
+
+Number of packages sent
+
+FailoverTime
+
+Timeout in Failover
+
+Timeout used in Failover mode when primary port A
+fails
+
+FailoverPort
+
+Active port in Failover
+
+Active port in Failover mode
+
+NodeType
+
+Redundant node type
+
+Redundant node type, the type can be DAN, DANF or
+REDBOX
+
+ChkInterval
+
+Life check interval
+
+The typical time interval in ms between two successive
+PRP supervision frames sent by the same node
+
+ForgetTime
+
+Entry forget time
+
+The maximum time in ms that an entry may reside in
+the duplicate table
+
+SuperFrame
+
+Supervision frame
+status
+
+Fixed to On, indicating the sending of PRP/HSR
+supervision frames is enabled
+
+TrsptRecp
+
+RCT retained in PRP
+frame
+
+Fixed to On, indicating the Redundancy Check Tag
+(RCT) is not removed from PRP frame in PRP mode.
+
+AcceptAll
+
+Promiscuous mode
+
+Fixed to Off, indicating when ETH_MAC is defined or
+learned, only the unicast frames with destination
+addresses equal to ETH_MAC or found in mac_table
+are sent to the interlink port
+
+AgeingTime
+
+Ageing time
+
+Ageing time of dynamically learnt mac address in mac_
+table
+
+P7/EN CM/02-004A
+
+Introduction
+
+Protection and control device
+
+Table 2 - Status entries for Port 2/3 (Continued)
+Name
+
+Short label
+
+Infotip
+
+P1State
+
+RSTP port 2 state
+
+RSTP port 2 state. The value can be Root (0),
+Designated (1), Alternate (2), Backup (3) or Disabled
+(4)
+
+P1Role
+
+RSTP port 2 role
+
+RSTP port 2 role. The value can be Disabled (0),
+Discarding (1) or Forwarding (2)
+
+P2State
+
+RSTP port 3 state
+
+RSTP port 3 state. The value can be Root (0),
+Designated (1), Alternate (2), Backup (3) or Disabled
+(4)
+
+P2Role
+
+RSTP port 3 role
+
+RSTP port 3 role. The value can be Disabled (0),
+Discarding (1) or Forwarding (2)
+
+Ethernet port configuration
+You can configure the parameters for the Ethernet ports under Device
+configuration > Slot A > Port 1 Ethernet or Port 2/3 Ethernet from
+PowerLogic Engineering Suite. Each Ethernet port can be configured
+independently. You can choose to activate or deactivate the supported
+communication protocols for each individual physical port as needed.
+The default IP addresses of Ethernet ports are:
+•
+
+Port 1: Default IP address is 192.168.1.100.
+
+•
+
+Ports 2/3: Default IP address is 192.168.0.100.
+NOTE:
+•
+
+If Port 1 and Port 2/3 are configured with IP addresses within the same
+network segment, the device enters safe mode and reports a physical IP
+conflict. Reconfigure the affected IP addresses and reapply the settings to
+resume normal operation.
+
+•
+
+If the configured IP address is already in use on the network, the device
+reports a remote IP conflict and retains the configured IP address.
+
+Table 3 - Settings for Port 1
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+PortEna
+
+Port status
+
+Enables this interface for Ethernet
+connectivity
+
+•
+
+Off
+
+•
+
+On
+
+Step
+size
+
+Default setting
+On
+
+IpAddr
+
+IP address
+
+IP address. Should not be changed if
+configured by SCD file
+
+192.168.1.100
+
+IpMsk
+
+Subnet mask
+
+Sets the subnetwork address range
+
+255.255.255.0
+
+RouteEna
+
+Gateway access
+
+Gateway access allows connection via a
+gateway to other networks
+
+•
+
+Off
+
+•
+
+On
+
+Off
+
+IpGtw
+
+Gateway address
+
+Gateway IP address
+
+192.168.1.1
+
+DstNetIP1
+
+Destination network
+IP address 1
+
+Limit remote access to destination
+domain. Set to 0.0.0.0 for unlimited
+
+0.0.0.0
+
+DstNetmask1
+
+Dest network IP
+subnet mask 1
+
+Set to 0.0.0.0 if destination IP address is
+0.0.0.0 otherwise set as the subnet range
+
+0.0.0.0
+
+DstNetIP2
+
+Destination network
+IP address 2
+
+Limit remote access to destination
+domain. Should be different to address
+range 1
+
+1.0.0.1
+
+DstNetmask2
+
+Dest network IP
+subnet mask 2
+
+Sets the subnetwork address range
+
+255.255.255.255
+
+IPFltrEna(1)
+
+IP filter status
+
+Enables access filtering by IP address
+range
+
+(1)
+
+•
+
+Off
+
+•
+
+On
+
+Off
+
+For additional RSTP settings, see RSTP parameters, page 73.
+
+P7/EN CM/02-004A
+
+13
+
+Protection and control device
+
+Introduction
+
+Table 3 - Settings for Port 1 (Continued)
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+VlanEna(2)
+
+VLAN status
+
+Enable VLANs with Out Of Band (OOB)
+filtering
+
+•
+
+Off
+
+•
+
+On
+
+Enable IEC 61850 on this interface and
+all its VLANs
+
+•
+
+Off
+
+•
+
+On
+
+IECSPhyEna
+
+MdbSPhyEna
+
+DNP3PhyEna
+
+WSPhyEna
+
+SNMPPhyEna
+
+SFTPPhyEna
+
+IEC 61850 status
+
+Modbus status
+
+DNP3 status
+
+Web server status
+
+SNMP status
+
+SFTP status
+
+Enable Modbus on this interface
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+Enable web server (support for
+PowerLogic toolsuite)
+
+•
+
+Off
+
+•
+
+On
+
+Enable SNMP
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+Enable DNP3 on this interface
+
+Enable SFTP
+
+Step
+size
+
+Default setting
+Off
+
+Off
+
+Off
+
+Off
+
+On
+
+Off
+
+Off
+
+Table 4 - Settings for Port 2/3
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+PortEna
+
+Port status
+
+Enables this interface for Ethernet
+connectivity
+
+•
+
+Off
+
+•
+
+On
+
+Step
+size
+
+Default setting
+Off
+
+IpAddr
+
+IP address
+
+IP address. Should not be changed if
+configured by SCD file
+
+192.168.0.100
+
+IpMsk
+
+Subnet mask
+
+Sets the subnetwork address range
+
+255.255.255.0
+
+RouteEna
+
+Gateway access
+
+Gateway access allows connection via a
+gateway to other networks
+
+•
+
+Off
+
+•
+
+On
+
+Off
+
+IpGtw
+
+Gateway address
+
+Gateway IP address
+
+192.168.0.1
+
+DstNetIP1
+
+Destination network
+IP address 1
+
+Limit remote access to destination
+domain
+
+0.0.0.0
+
+DstNetmask1
+
+Dest network IP
+subnet mask 1
+
+Set to 0.0.0.0 if destination IP address is
+0.0.0.0 otherwise set 255.255.255.255
+
+0.0.0.0
+
+DstNetIP2
+
+Destination network
+IP address 2
+
+Limit remote access to destination
+domain
+
+2.0.0.1
+
+DstNetmask2
+
+Dest network IP
+subnet mask 2
+
+Set to 0.0.0.0 if destination IP address is
+0.0.0.0 otherwise set 255.255.255.255
+
+255.255.255.255
+
+RedMod(3)
+
+Redundancy mode
+
+Failover is used when single SFP fitted. If
+both SFPs are fitted failover will use port
+1 if connected and change to port 2 if port
+1 is lost
+
+IPFltrEna(4)
+
+VlanEna(2)
+
+IECSPhyEna
+
+SNTPPhyEna
+
+MdbSPhyEna
+
+(2)
+(3)
+(4)
+
+14
+
+IP filter status
+
+VLAN status
+
+IEC 61850 status
+
+SNTP status
+
+Modbus status
+
+•
+
+PRP
+
+•
+
+HSR
+
+•
+
+RSTP
+
+•
+
+Failover
+
+Enables access filtering by IP address
+range
+
+•
+
+Off
+
+•
+
+On
+
+Enable VLANs with Out Of Band (OOB)
+filtering
+
+•
+
+Off
+
+•
+
+On
+
+Enable IEC 61850 on this interface and
+all its VLANs
+
+•
+
+Off
+
+•
+
+On
+
+Enable SNTP on this interface
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+Enable Modbus on this interface
+
+Failover
+
+Off
+
+Off
+
+Off
+
+Off
+
+Off
+
+For additional VLAN settings, see VLAN, page 81.
+For additional RSTP settings, see RSTP parameters, page 73.
+For additional IP filter settings, see Client IP address filter, page 79.
+
+P7/EN CM/02-004A
+
+Introduction
+
+Protection and control device
+
+Table 4 - Settings for Port 2/3 (Continued)
+Name
+
+DNP3PhyEna
+
+Short label
+
+Infotip
+
+DNP3 status
+
+Enable DNP3 on this interface
+
+Setting range
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+WSPhyEna
+
+Webserver status
+
+Enable webserver (support for
+PowerLogic toolsuite)
+
+•
+
+Off
+
+•
+
+On
+
+SNMPPhyEna
+
+SNMP status
+
+Enable SNMP (Simple Network
+Management Protocol) to provide device
+monitoring via MIB (Managment
+Information Base)
+
+•
+
+Off
+
+•
+
+On
+
+Enable SFTP (Secure File Transfer
+Protocol) for record access
+
+•
+
+Off
+
+•
+
+On
+
+SFTPPhyEna
+
+SFTP status
+
+Step
+size
+
+Default setting
+
+Off
+
+Off
+
+Off
+
+Off
+
+Configuring static routes
+A static route is used for configuring remote access connection. Static routes can
+be configured for each single interface.
+NOTE: Only the physical interfaces support static routes configuration, not
+VLAN interfaces.
+To view the static routes:
+•
+
+From the HMI, expand > General > Device config > Slot A, go to Port 1
+Ethernet or Port 2/3 Ethernet, and select the Port setting tab.
+
+To view and configure the static routes:
+1. From PowerLogic Engineering Suite, expand Device configuration > Slot A,
+go to Port 1 Ethernet or Port 2/3 Ethernet.
+2. Enable remote access connection by setting Gateway access to On.
+3. Configure the parameters.
+Table 5 - Configurable parameters for static routes
+Name
+
+Parameter
+
+Description
+
+RouteEna(5)
+
+Gateway access
+
+It is used to enable or disable static route via a gateway.
+
+IpGtw
+
+Gateway address
+
+Gateway address can be configured as x.x.x.x. Gateway address must be in the same IP
+address segment with the Ethernet port used.
+•
+
+(5)
+
+For example, if Port 2/3 is used with its default IP 192.168.0.100 and default subnet
+mask 255.255.255.0, Gateway address can be configured as 192.168.0.1.
+
+Do not set Gateway access to On if no remote connection is needed.
+
+P7/EN CM/02-004A
+
+15
+
+Protection and control device
+
+Introduction
+
+Table 5 - Configurable parameters for static routes (Continued)
+Name
+
+Parameter
+
+Description
+
+DstNetIPn(6)
+
+Destination network IP
+address n(6)
+
+The IP address segment of the remote connection, which is used to configure the destination
+domain.
+Destination network IP address 1 is used by default.
+Destination network IP address 2 is a redundant routing option if the client needs to connect
+the device in another network segment different from Destination network IP address 1.
+NOTE: The second set of gateway parameters (Destination network IP address 2,
+Destination network IP subnet mask 2) serves as a backup. If the first set (Destination
+network IP address 1, Destination network IP subnet mask 1) configured for the
+Ethernet interface becomes unavailable, the system automatically switches to the
+second set to maintain communication.
+
+DstNetmaskn(6)
+
+Destination network IP
+subnet mask n(6)
+
+The destination domain mask defines the size of the destination domain.
+The combination of Destination network IP address and Destination network IP subnet mask
+determines the destination network for the remote connection.
+•
+
+If Destination network IP address is 0.0.0.0:
+◦
+
+Destination network IP subnet mask must be 0.0.0.0.
+
+◦
+
+0.0.0.0/0 is the designated default route in IPv4. The route will handle messages with
+any unknown destination.
+NOTE: Do not configure the default route on both interfaces. Doing so will cause
+unpredictable communication behavior on the device, and the remote connection
+might fail.
+When Gateway access is enabled on both interfaces, initially they will all have the
+default route configured. Update the configuration so that only one interface retains
+it.
+
+•
+
+•
+
+If Destination network IP address is a specific IP address:
+◦
+
+Destination network IP subnet mask must be 255.255.255.255.
+
+◦
+
+The route will only handle messages sent to that exact IP address.
+
+If Destination network IP address is an IP address segment:
+◦
+
+Destination network IP subnet mask must define the address range (e.g.,
+255.255.255.0).
+
+◦
+
+The route will handle messages sent to any destination within the range.
+NOTE: In this case, Destination network IP address must be the first IP in the
+segment (network address).
+
+These parameters define from which destination address the client is receiving
+data over the gateway from which remote device address. The destination
+address must be a valid IP address in the range defined by the parameters
+Destination network IP subnet mask (DstNetIP) and Destination network IP
+address (DstNetmask), for example:
+•
+
+For a specific client IP address 10.61.201.244:
+Configure Destination network IP subnet mask as 255.255.255.255 and
+Destination network IP address as 10.61.201.244.
+
+•
+
+For client IP address segment 10.61.201.x:
+Configure Destination network IP subnet mask as 255.255.255.0 and
+Destination network IP address as 10.61.201.0.
+
+•
+
+For client IP address segment 10.61.x.x:
+Configure Destination network IP subnet mask as 255.255.0.0 and
+Destination network IP address as 10.61.0.0.
+
+(6)
+
+16
+
+n = 1, 2
+
+P7/EN CM/02-004A
+
+Introduction
+
+Protection and control device
+
+The following figure shows an example of remote access connection for the
+second case above:
+Figure 1 - Application example of remote access connection
+PC
+
+PowerLogic P7
+
+IP: 10.61.201.244
+
+IP: 192.168.0.100
+Subnet mask: 255.255.255.0
+
+Port 2/3
+ETH
+
+Gateway: 192.168.0.1
+Destination IP: 10.61.201.0
+Destination netmask: 255.255.255.0
+
+Subnet mask: 255.255.255.0
+Gateway: 10.61.201.1
+
+Local client
+
+Remote device
+
+Network 1
+
+Network 2
+
+Router
+Gateway 1
+IP: 10.61.201.1
+Subnet mask: 255.255.255.0
+
+Gateway 2
+IP: 192.168.0.1
+Subnet mask: 255.255.255.0
+
+M71120A
+
+In this example, the Ethernet interface of the remote configuration PC has to be
+manually configured to an IP in the range 10.61.201.0 to 10.61.201.255
+(10.61.201.244 as an example) and Subnet mask 255.255.255.0, to
+connect to PowerLogic P7 with IP 192.168.0.100 and Subnet mask
+255.255.255.0.
+
+Serial communication port
+The serial communication port supports one RS-485 (half-duplex) serial
+communication module. Status information for the serial communication port can
+be viewed on the HMI under General > Device config > Slot A > Serial port >
+Status.
+Table 6 - Status entries for the serial port
+Name
+
+Short label
+
+Infotip
+
+Protocol
+
+Protocol
+
+Protocol used
+
+ChLiv
+
+Connected
+
+Connection status
+
+RxCnt
+
+Messages received
+
+Number of messages received
+
+TxCnt
+
+Messages transmitted
+
+Number of messages sent
+
+Serial port configuration
+You can configure the parameters for the serial port under Device configuration
+> Slot A > Serial port from PowerLogic Engineering Suite.
+
+P7/EN CM/02-004A
+
+17
+
+Protection and control device
+
+Introduction
+
+Table 7 - Configurable parameters for the serial port
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+LnkSpd
+
+Baud rate
+
+Communication speed in bits per
+second
+
+•
+
+1200
+
+•
+
+2400
+
+•
+
+4800
+
+•
+
+9600
+
+•
+
+19200
+
+•
+
+38400
+
+•
+
+None
+
+•
+
+Even
+
+•
+
+Odd
+
+FrmPar
+
+StopBitNum
+
+Parity
+
+Number of stop bits
+
+Parity type
+
+Number of stop bits
+
+1...2
+
+Step
+size
+
+Default setting
+19200
+
+None
+
+1
+
+1
+
+NOTE: When possible, set Baud rate to 4800 bps or higher (for example,
+9600 bps) for optimal communication reliability and transmission speed. If
+1200 bps or 2400 bps is used for DNP3 communication, increase the DNP3
+timeout values. For more information, see DNP3 configuration, page 40.
+
+18
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Communication protocols
+NOTICE
+POTENTIAL COMPROMISE TO CYBERSECURITY
+•
+
+For transmitting data over an internal network, physically or logically
+segment the network. Restrict the access to the internal network by using
+standard controls, such as firewalls, and other relevant features supported
+by your device, such as IP Table allowlist.
+
+•
+
+For transmitting data over an external network, encrypt protocol
+transmissions over all external connections using an encrypted tunnel, TLS
+wrapper or a similar solution.
+
+Failure to follow these instructions can increase the risk of unauthorized
+access.
+
+IEC 61850 communication
+IEC 61850 is a series of standards for communication networks and systems of
+power utility automation.
+Based on the Ethernet protocol, the IEC 61850 communication standards help to
+ensure:
+•
+
+High communication speeds and versatile communication architectures
+
+•
+
+Interoperability between manufacturers
+
+When used as a server, PowerLogic P7 can be connected to an IEC 61850
+Edition 2.1 station bus. When communicating GOOSE or Sampled Value (SV)
+messages, PowerLogic P7 can be connected to an IEC 61850 process bus.
+
+Capability
+PowerLogic P7 devices provide a built-in solution for demanding IEC 61850
+applications:
+•
+
+IEC 61850 logical nodes and configurable data sets to meet the needs of a
+Server-Client communication to a SCADA system, up to 16 simultaneous
+clients supported
+
+•
+
+Peer-to-peer communication capabilities using GOOSE messages to
+enhance the protection and control system without the need of additional
+wiring
+
+•
+
+Sampled value publication and subscription capabilities to communicate
+current/voltage values without the need of additional wiring
+
+The IEC 61850 protocol can be used to read/write static data from/to PowerLogic
+P7 devices, to receive event messages, to send controls, to receive/send GOOSE
+or SV messages from/to other devices.
+
+NOTICE
+FAILURE OF DATA UPDATES
+Do not add measurement data attributes (FC=MX) larger than 4 bytes to any
+data set subscribed by the device.
+Failure to follow these instructions can result in subscribed data
+attributes not being updated.
+The IEC 61850 server interface supports:
+•
+P7/EN CM/02-004A
+
+Configurable data sets
+19
+
+Protection and control device
+
+Communication protocols
+
+•
+
+Dynamically configurable data sets created online by network clients, which
+can be assigned to Buffered and Unbuffered Report Control Blocks and Log
+Control Blocks
+
+•
+
+Reporting function with Buffered and Unbuffered Report Control Blocks
+
+•
+
+Control models:
+
+•
+
+◦
+
+Status-only
+
+◦
+
+Direct control with normal security (not available for L/R related controls for example, CBCSWI and SWCSWI)
+
+◦
+
+Direct control with enhanced security (only for L/R related controls - for
+example, CBCSWI and SWCSWI)
+
+◦
+
+Select before operate with enhanced security (only for L/R related controls
+- for example, CBCSWI and SWCSWI)
+
+Horizontal communication with GOOSE
+◦
+
+Configurable GOOSE publisher data sets
+
+◦
+
+Configurable GOOSE subscriber inputs
+
+•
+
+Sending and receiving multiple data types over GOOSE, that can refer to both
+Functional Constrained Data (FCD) and Functional Constrained Data
+Attribute (FCDA)
+
+•
+
+Sending and receiving digitalized current/voltage values over SV frames
+
+•
+
+Setting modification
+
+•
+
+•
+
+◦
+
+Editing a setting value for both group and non group settings
+
+◦
+
+Changing the active setting group
+
+File transfer
+◦
+
+Extracting disturbance records from PowerLogic P7 devices by file
+transfer, as COMTRADE files
+
+◦
+
+All disturbance record files are accessible from the folder /COMTRADE.
+
+◦
+
+Deleting files in the /COMTRADE folder is not supported.
+
+Service tracking
+The control services and the following control block services can be tracked:
+◦
+
+Buffered reporting
+
+◦
+
+Unbuffered reporting
+
+◦
+
+Log control block
+
+◦
+
+GOOSE control block
+
+◦
+
+SGCB
+
+◦
+
+Controllable single point (SPC)
+
+◦
+
+Controllable double point (DPC)
+
+◦
+
+Controllable integer status (INC)
+
+◦
+
+Controllable enumerated status (ENC)
+
+◦
+
+Controllable analog process value (APC)
+
+Configuration of IEC 61850 communication
+Configuration tools
+For PowerLogic P7, PowerLogic Engineering Suite is the IED Configuration Tool
+(ICT) and EPAS-E is the recommended System Configuration Tool (SCT).
+PowerLogic Engineering Suite can be used to partially create, manage (such as
+creating datasets and configuring GOOSE publisher), and deploy IEC 61850
+configurations to PowerLogic P7 devices. Key IEC 61850 functions of
+PowerLogic Engineering Suite include:
+
+20
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+•
+
+Generate device ICD/IID files for system integration.
+
+•
+
+Create or update a project based on imported SCD files. During this process
+IEC 61850 configurations are validated and the relevant data of a given IED is
+extracted out of the SCD.
+
+•
+
+Modify the communication parameter values of individual IEDs.
+
+•
+
+Generate and send a set of configuration files (including the CID file) to the
+device.
+2
+IID
+ICD
+
+EPAS-E
+
+1
+
+3
+4
+
+PowerLogic
+Engineering Suite
+
+5
+
+SCD
+
+IED
+
+PowerLogic P7
+M71103C
+
+For detailed information, refer to PowerLogic Engineering Suite User Manual.
+
+Configuration files
+The IEC 61850 configuration process uses and generates several types of
+System Configuration description Language (SCL) files. A selection is introduced
+here:
+•
+
+ICD - IED (Intelligent Electronic Device) Capability Description
+It describes the data model and communication services available in the
+PowerLogic P7 device model.
+ICD files are used as template models in the engineering process. They can
+be generated by the Export to ICD SCL file option in
+PowerLogic Engineering Suite.
+
+•
+
+IID - Instantiated IED Description
+The IID file describes the project-specific configuration of a single IED in a
+system.
+IID files are used as exchange files between PowerLogic Engineering Suite
+and other SCTs to exchange the configuration data of a single IED
+instantiated specifically for a project. It can be generated by the Export to IID
+SCL file option in PowerLogic Engineering Suite.
+
+•
+
+CID - Configured IED Description
+For every configured device there is a CID file which describes the IEC 61850
+configuration of the device.
+A CID file is included in the IED file generated by PowerLogic Engineering
+Suite with the Export device configuration option. The IED file is loaded into
+the device to configure it.
+
+•
+
+SCD - System Configuration Description
+An SCD file contains the configuration data for the IEC 61850 system
+including the communication configuration settings for all related IEC 61850
+devices.
+
+P7/EN CM/02-004A
+
+21
+
+Protection and control device
+
+Communication protocols
+
+SCL file validation
+PowerLogic Engineering Suite perform the validation of imported SCL files, which
+includes two parts:
+•
+
+Verification of the structure and content of the SCL file
+The System Configuration description Language is based on Extensible
+Markup Language (XML). The structure and the content of an SCL file is fully
+specified by the IEC 61850 standard using an XML Schema (XSD files).
+PowerLogic Engineering Suite is delivered with the set of XSD files defined by
+the IEC 61850 standard. Using the Xerces™ parser, PowerLogic Engineering
+Suite checks the validity of SCL files against the IEC 61850 XML Schema.
+
+•
+
+Verification of the consistency of the GOOSE/SV communication.
+The following checks are made:
+◦
+
+The dataset defined for a GOOSE message meets a specific size
+constraint.
+
+◦
+
+The data sent by a publishing IED is consistent with the data expected
+and subscribed by the subscribing IED.
+
+◦
+
+The Sample rate and Number of ASDU parameters defined for an SV
+publishing/subscribing device are valid.
+
+Configuring IEC 61850 for PowerLogic P7
+4. Create project
+
+EPAS-E
+
+5. Configure dataflow
+
+SCD
+IIDs
+
+PowerLogic
+Engineering Suite
+
+1. Create project
+
+2. Add devices with
+full configuration
+
+3. Duplicate devices
+
+6. Update project
+
+IEDs
+
+7. Synchronize to
+physical devices
+
+PowerLogic P7
+
+M71121A
+
+1. Create a project in PowerLogic Engineering Suite.
+2. Add the required PowerLogic P7 device types to the project. Fully configure
+each device including:
+•
+
+Flexibility and general settings. These configurations are included in
+exported ICD/IID files.
+
+•
+
+FSLs, mimics, matrix mappings, function key settings, and analog routing
+(if applicable). These configurations are not included in exported ICD/IID
+files. They are stored within the project and will be preserved when
+updating the project later.
+
+3. Optionally, duplicate fully configured devices by exporting their IED files and
+then importing these files back into the project to help avoid manual
+reconfiguration of every device.
+4. Export the IID files of all devices and create a project in EPAS-E using these
+IIDs.
+5. Configure the dataflow for all devices in EPAS-E.
+NOTE: For detailed instructions on using EPAS-E including editing
+datasets, refer to EPAS-E user guide which is accessible with the Help
+button from its tool bar.
+
+22
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+6. Export an SCD from EPAS-E and update the PowerLogic Engineering Suite
+project using the SCD.
+NOTE:
+•
+
+Firmware updates and flexibility changes can be done before Step 4 if
+needed.
+
+•
+
+Functions that have data attributes assigned to a dataset cannot be
+deleted from a device.
+
+•
+
+When updating a PowerLogic Engineering Suite project using an
+SCD file, the following items must match between the project and the
+SCD:
+◦
+
+The number of devices
+
+◦
+
+The flexibility configuration for any device
+
+7. Synchronize the configuration to each physical device.
+
+SV control block parameters
+Data transmission for SV is based on datasets and multicast SV control blocks
+(MSVCB). The following MSVCB parameters are configured using an SCT and
+can be viewed on PowerLogic Engineering Suite under Communication > IEC
+61850 > Sent data > SV control blocks.
+Parameter
+
+Description
+
+Name
+
+The name of the MSVCB. This should be of the format MSVCBxx where
+xx is the instance number (01-99) to retain compliance with IEC 61869-9.
+NOTE: Set MSVCB name to MSVCB01 for IEC 61850-9-2LE
+applications.
+
+Dataset
+
+The list of CT/VT channels to be published. The dataset name should be
+of the format PhsMeasx where x is the instance number (1-99) to retain
+compliance with IEC 61869-9.
+NOTE: Set dataset name to PhsMeas1 for IEC 61850-9-2LE
+applications.
+
+Configuration revision
+
+1 for the default dataset. Otherwise assigned by the SCT.
+
+Sampled values
+identification
+
+SV unique identifier. IEC 61869-9 recommends making it equal to the
+hexadecimal character representation of AppID: 4000 to 7FFF if
+supported by the subscribers.
+
+Multicast
+
+On (box is checked).
+
+Sampling mode
+
+Set to Samples per second or Samples per period
+
+Sample rate
+
+For Samples per seconds:
+•
+
+4800 Hz: for subscription by general measuring and protection
+devices (PowerLogic P7 for example)
+
+•
+
+14400 Hz: for quality metering devices in accordance with IEC
+61869-9. Only available on level 1/2 P7S.
+
+For Samples per period:
+
+Number of ASDU
+
+•
+
+80 (for IEC 61850-9-2LE applications)
+
+•
+
+96
+
+•
+
+2: for protection devices
+
+•
+
+6: for measurement devices in accordance with IEC 61869-9. Only
+available on level 1/2 P7S.
+
+•
+
+1: for backward compatibility with IEC 61850-9-2LE devices
+
+MAC Address
+
+Destination MAC address for the SV stream. Should be 01-0C-CD-04-xxxx, with the ending xx-xx in the range of 00–00 to 01–FF. A unique
+address is normally used for each MSVCB.
+
+Application
+identification
+
+Set in the range of 0x4000 to 0x7FFF. This value should be individually
+unique within a network. This is normally done automatically by the SCT
+when subscriptions are added.
+NOTE: Set application ID to 0x4000 for IEC 61850-9-2LE
+applications.
+
+VLAN identification
+
+P7/EN CM/02-004A
+
+Set in the range of 0x0000 to 0x0FFF.
+
+23
+
+Protection and control device
+
+Communication protocols
+Parameter
+
+Description
+
+VLAN priority
+
+Set in the range of 0 to 7.
+
+Synchronization
+source identification
+(SynchSourceId)
+
+If On (box is checked), the parent clock ID is included in the published SV.
+
+GOOSE control block parameters
+Data transmission for GOOSE is based on datasets and GOOSE control blocks
+(GoCB). The following GoCB parameters are configured using an SCT and can be
+viewed on PowerLogic Engineering Suite under Communication > IEC 61850 >
+Sent data > GOOSE control blocks.
+Parameter
+
+Description
+
+GOOSE name
+
+The name of the multicast GOOSE control block.
+
+Dataset
+
+The list of data points to be transmitted.
+
+Configuration revision
+
+Assigned by the SCT.
+
+GOOSE identification
+
+A string to uniquely identify a GOOSE control block in the system.
+
+Enabled fixed offset
+
+False by default.
+
+MAC Address
+
+01-0C-CD-01-xx-xx, with the ending xx-xx in the range of 00-00 to 01-FF.
+A unique address is normally used for each GOOSE control block.
+
+Application
+identification
+
+A hexadecimal value to uniquely identify a GOOSE control block within a
+network.
+
+VLAN identification
+
+Set in the range of 0x0000 to 0x0FFF.
+
+VLAN priority
+
+Set in the range of 0 to 7.
+
+Minimum time
+(MinTime)
+
+The delay between the first transmission of a data change and the first
+retransmission in ms. The minimum value is 1 ms.
+
+Maximum time
+(MaxTime)
+
+The heartbeat cycle time in ms. If there is no data change, contents of the
+last GOOSE message will be resent with this cycle time. Must be larger
+than 2*MinTime.
+
+NOTE: Each GOOSE message carries a TAL parameter that specifies how
+long the message is valid until the next heartbeat message. For GOOSE
+messages published by PowerLogic P7, TAL = 2*MaxTime.
+
+GOOSE communication
+The IEC 61850 GOOSE (Generic Object-Oriented Substation Events) messaging
+protocol enables fast, direct, and secure communication between IEDs over an
+Ethernet network. It can replace traditional hardwired IED signals with multicast,
+Ethernet-based station bus communications, making it suitable to transmit timesensitive, high-priority information such as breaker/isolator positions or protection
+tripping commands.
+GOOSE utilizes a publisher-subscriber model, where devices publish GOOSE
+messages that reflect the current state of monitored data, and other devices
+subscribe to these messages. A retransmission mechanism is used to ensure
+reliability even in the presence of network interference.
+When a change in monitored data occurs, a new GOOSE message is
+instantaneously transmitted. Then, GOOSE messages with the same data are first
+retransmitted at the minimum interval, then at gradually increasing intervals until
+the maximum interval is reached. After that, retransmissions will continue at the
+maximum interval (heartbeat) until the next data change occurs.
+
+24
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+GOOSE properties
+GOOSE communication is based on datasets and GoCB. Datasets define what
+device data is transmitted, while GoCB governs how this data is transmitted,
+including parameters like retry intervals, destination addresses and so on.
+Over the single port (Port 1) or the redundancy ports (Port 2/3), PowerLogic P7
+can publish or subscribe to a maximum of 256 data points across up to 64 GoCBs,
+each referencing its respective dataset.
+NOTE: The size of a GOOSE message cannot exceed 1514 bytes. This
+restriction might limit the number of configurable entries in a dataset to fewer
+than 256.
+PowerLogic P7 also supports analog GOOSE publishing or subscription.
+Subscribed analog GOOSE data can be used with functions such as
+programmable stage, overtemperature, and current loop outputs.
+
+Viewing configured GoCBs
+After importing an SCD file into PowerLogic Engineering Suite, configured GoCBs
+can be viewed via the interface:
+•
+
+For subscribed GoCBs, navigate to Communication > IEC 61850 >
+Subscribed GOOSEs > Network input mapping
+
+•
+
+For published GoCBs, navigate to Communication > IEC 61850 > Sent data
+> GOOSE control blocks
+
+After sending the configuration files to PowerLogic P7, configured GoCBs and
+subscribed data points can be viewed under General > Device config > IEC
+61850. See GOOSE supervision , page 25 for more information.
+
+Mapping subscribed GOOSE data points
+Subscribed GOOSE data points can be used via LPVI on PowerLogic P7.
+Each GoCB corresponds to one LPVI instance, which groups all referred data
+points of the GoCB.
+Map these data points via LPVI in PowerLogic Engineering Suite:
+•
+
+For binary data points, map them in the matrix.
+
+•
+
+For analog data points, map them via flexible mapping in applicable functions.
+In overtemperature, for example, the Temperature input can be mapped to a
+analog data point with the
+
+button.
+
+GOOSE supervision
+Subscription supervision (LGOS)
+The LGOS is used to monitor GOOSE subscription status. Each subscribed GoCB
+corresponds to one LGOS instance.
+After configuring GOOSE subscriptions, the following information can be viewed
+on an IEC 61850 client connected to the device (select information is also
+available on the HMI under General > Device config > IEC 61850 > GOOSE >
+GOOSE Subscription):
+
+P7/EN CM/02-004A
+
+Name
+
+Short label
+
+Infotip
+
+NdsCom
+
+Needs commissioning
+
+Needs commissioning
+
+St
+
+Subscription active
+
+Valid messages received
+
+SimSt
+
+Simulation active
+
+Simulation messages are being used
+
+GoCBRef
+
+GoCB reference
+
+GoCB reference
+
+25
+
+Protection and control device
+
+Communication protocols
+Name
+
+Short label
+
+Infotip
+
+Health
+
+GOOSE health
+
+GOOSE health
+
+RxRate
+
+GOOSE Rx rate
+
+Number of GOOSE received per second
+
+ErrCnt
+
+Mismatched GOOSE count
+
+Number of mismatched GOOSE received
+
+Virtual input supervision
+The values and qualities of subscribed data points can be viewed on the HMI
+under General > Device config > IEC 61850 > GOOSE > GOOSE Virtual Input
+x. One GoCB instance corresponds to one GOOSE Virtual Input x tab.
+NOTE: The values of subscribed analog data points are not viewable on the
+HMI.
+Under the tab, data attributes belonging to the same data object are grouped
+together. The text color of a data attribute will be black if its quality is valid. If the
+quality is invalid, its text color will be grey.
+
+Publishing supervision (LGOP)
+The LGOP is used to monitor GOOSE publishing status. All published GoCBs
+share one LGOP instance.
+After configuring GOOSE publications, the following information can be viewed on
+an IEC 61850 client connected to the device (also available on the HMI under
+General > Device config > IEC 61850 > GOOSE > GOOSE Publishing):
+Name
+
+Short label
+
+Infotip
+
+TxRate#
+
+GoCB # Tx rate
+
+Number of published GOOSE per sec
+
+Received GOOSE handling
+The device actively monitors the validity of incoming GOOSE messages. The
+following table lists how the LPVI and LGOS handle different anomalies regarding
+GOOSE subscription.
+
+(7)
+
+26
+
+Scenario
+
+LPVI stVal state
+
+LPVI quality
+state
+
+LGOS state(7)
+
+GOOSE messages are not received for
+the duration of TAL*2. In this case the
+GOOSE subscription is considered lost.
+
+False
+
+Invalid/Olddata
+
+St = False
+
+Any of the following parameters of
+received GOOSE does not match
+configuration:
+
+Keep the last
+value
+
+Keep the last
+value
+
+St = True
+
+The ndsCom of a received GOOSE
+message changes to True.
+
+Keep the last
+value
+
+Keep the last
+value
+
+St = True
+
+The ndsCom of a received GOOSE
+message changes to False.
+
+Update the value
+
+Update the value
+
+One or more intermediate data updates
+are lost (indicated by the stNum of
+received GOOSE skipping numbers).
+
+Update the value
+
+Update the value
+
+•
+
+Dataset reference
+
+•
+
+The number of signals within a
+dataset
+
+•
+
+Configuration revision
+
+•
+
+GOOSE ID
+
+•
+
+MAC address
+
+•
+
+AppID
+
+•
+
+GoCB reference
+
+Assuming the previous St state was True
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+Scenario
+
+LPVI stVal state
+
+LPVI quality
+state
+
+The stNum of a received GOOSE
+message is zero.
+
+Keep the last
+value
+
+Keep the last
+value
+
+The first GOOSE message is received
+but the retransmitted GOOSE
+messages are out of order.
+
+Update the value
+
+Update the value
+
+A retransmitted GOOSE message is
+received, but the messages before it
+(for the same data update) are lost.
+
+Keep the last
+value
+
+Keep the last
+value
+
+LGOS state(8)
+
+Simulated GOOSE
+During commissioning or testing, the device can be configured to process
+simulated GOOSE messages by setting Simulation accepted to On (LPHD.Sim =
+True) under Control > Device mode of the HMI.
+When in simulation mode, the device continues treating normal GOOSE
+messages as valid until simulated GOOSE messages are received. After that, the
+device only accepts the simulated GOOSE messages and treat the normal ones
+as invalid until Simulation accepted is set to Off.
+NOTE: Such behavior applies to each subscribed GoCB independently.
+
+SV performance
+The end-to-end SV latency includes the network delay and the internal processing
+delay at both ends. The maximum internal processing delay for PowerLogic P7 is
+(assuming Number of ASDU = 1):
+•
+
+0.5 ms before publishing SV to the network
+
+•
+
+0.5 ms after receiving SV from the network
+
+GOOSE performance
+According to IEC 61850-5 and IEC 61850-10 Edition 2, the GOOSE performance
+of PowerLogic P7 devices is compliant with Class P1 (< 3 ms).
+The GOOSE publisher retransmission curve is Δt(n)=2*Δt(n-1), where Δt is the
+minimum time configured by MinTime of the GoCB in the CID file. The first
+GOOSE message is always published as fast as it can be, the final time interval is
+the maximum time configured by MaxTime of the GoCB.
+NOTE: MaxTime must be larger than 2*MinTime. Otherwise, MaxTime and
+MinTime will be restored to their default values of 1 s and 10 ms, respectively.
+
+Conformance statements
+The conformance statements describe the implementation of IEC 61850 Edition
+2.1 in PowerLogic P7, in terms of services, modeling, exceptions, extensions and
+adaptations.
+The conformance statements contain the following documents:
+
+(8)
+
+•
+
+Protocol Implementation Conformance Statement (PICS), which describes
+the choices made in protocol implementation.
+
+•
+
+Model Implementation Conformance Statement (MICS), which describes how
+the information model is implemented.
+
+Assuming the previous St state was True
+
+P7/EN CM/02-004A
+
+27
+
+Protection and control device
+
+28
+
+Communication protocols
+
+•
+
+Tissues Conformance Statement (TICS), which describes the Technical
+Issues (TISSUES) considered in the device implementation.
+
+•
+
+Protocol Implementation Extra Information for Testing (PIXIT), which gives
+additional implementation specific information which is not available in the
+PICS, MICS, TICS documents. This document is also useful for operation of
+the devices.
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+DNP3
+DNP3 communication enables PowerLogic P7 units to be connected to a
+supervisor or other device featuring a DNP3 communication channel.
+Communication is based on the client/server principle:
+•
+
+PowerLogic P7 is always a server device.
+
+•
+
+The client is the supervisor, which is another device.
+
+The DNP3 protocol specifies the coding of data and the rules for exchanging this
+data between a server device and a client device (supervision and control device
+or RTU). DNP3 is an open (non-proprietary) protocol, which can be implemented
+by any communicating device without any restrictions.
+The DNP3 protocol is developed from the basic standards prepared by IEC
+Technical Committee 57 (Power systems management and associated
+communications).
+Defined by IEEE Task Force C.2, DNP3 is the IEEE Recommendation for
+communication between RTUs and IEDs.
+For more information on the Intelligent Electronic Device protocol can be obtained
+from the DNP3 User Group (www.dnp.org).
+PowerLogic P7 supports the following point types from the DNP3 protocol:
+Group Number
+
+Point type
+
+0
+
+No point type is associated.
+
+1
+
+Binary input
+
+3
+
+Double-bit input
+
+10
+
+Control output
+
+20
+
+Counter
+
+30
+
+Analog input
+
+PowerLogic P7 also support the collection of data into classes.
+
+Function description
+Transmission mode
+PowerLogic P7 devices communicate using DNP3, in two transmission modes:
+•
+
+Serial port mode
+
+•
+
+TCP/IP mode
+
+The maximum number of clients for DNP3 is 8 in TCP/IP mode and 1 in serial
+mode.
+
+Status polling
+PowerLogic P7 allows the polling of current status values on client request with
+class 0.
+The function code for polling is 1 (Read).
+
+Event reporting
+PowerLogic P7 allows the reporting of data change events which are derived from:
+•
+P7/EN CM/02-004A
+
+Polled value status change
+29
+
+Protection and control device
+
+Communication protocols
+
+•
+
+Control command status change
+
+The event class specifies how the data event is polled from the device. Typically,
+•
+
+Class 0: contains the current values for all data without timestamp.
+
+•
+
+Class 1: assigned to the highest priority data (e.g., binary input change
+events, protection operation events).
+
+•
+
+Class 2: assigned to the medium priority data (e.g., analog events).
+
+•
+
+Class 3: assigned to the lowest priority data (e.g., counter events, analog
+events).
+
+The class of each data point is configurable. The default value of Class depends
+on the data type:
+•
+
+Analog input: class 3
+
+•
+
+Binary input and double-bit input: class 1
+
+•
+
+Binary output and counter: class 0
+
+PowerLogic P7 can be configured to support unsolicited responses. See DNP3
+configuration, page 40.
+
+Measurement polling
+PowerLogic P7 supports the polling of static measurement values on client
+request with class 0.
+The function code for polling is 1 (Read).
+
+Measurement event polling (Reporting)
+PowerLogic P7 supports the polling of measurements event values on client
+request.
+The function code for polling is 1 (Read).
+The deadband setting determines whether an event should be triggered for a
+given data point.
+•
+
+•
+
+Electrical measurements
+◦
+
+Includes: Voltage, current, active/reactive/apparent power, impedance,
+admittance, power factor
+
+◦
+
+Stored as: Per Unit (PU) values
+
+◦
+
+Range: 0.0 to 0.1 (PU)
+
+◦
+
+Resolution: 0.0001 (PU)
+
+Physical measurements (absolute values)
+◦
+
+Includes: Frequency, temperature, angle, percentage, electrical energy
+
+◦
+
+Stored as: Actual physical values
+
+◦
+
+Deadband: Configured in real-world units
+
+Remote control
+PowerLogic P7 supports remote control command requests.
+Remote control command requests can be used with data types: binary output.
+The remote control commands supported are listed below:
+
+30
+
+•
+
+Select
+
+•
+
+Operate
+
+•
+
+Direct Operate
+
+•
+
+Direct Operate with No ACK
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Both DC (Direct Control) and SBO (Select Before Operate) control models are
+supported. The DNP3 only checks whether the point to be controlled has been
+configured. The DNP3 does not check whether the value is correct or not.
+The SBO timeout specifies the maximum amount of time that the client will wait for
+a response from the outstation (e.g., a circuit breaker) after sending a Select
+command. The SBO timeout is configurable and must be set higher than all CB’s
+internal SBO timeout values. This helps ensure that the configured SBO timeout
+does not disrupt the normal operation of switching devices with longer internal
+timeouts.
+PowerLogic P7 sends response frame to client according to the real control
+command response.
+
+Counter management
+PowerLogic P7 supports the polling of counter values on client request.
+The function code for polling is 1 (Read).
+
+General interrogation
+The general interrogation function of PowerLogic P7 allows polling of all event
+(Class 1/2/3) and static (Class 0) for DNP3 client. The general interrogation
+command is typically sent after device restart, loss of communication, or on a
+periodic basis to ensure all data is accurate.
+•
+
+Class 0 Polling
+The client can poll Class 0 only to request Class 0 data. Upon receiving this
+command, the device will return all available Class 0 data.
+
+•
+
+Multi-Class Polling (Classes 0/1/2/3)
+The client can poll all classes to retrieve a full dataset. In this case, the device
+will respond with all available data from Class 0 to Class 3.
+
+Time synchronization
+The time of PowerLogic P7 corresponds to Universal Coordinated Time (UTC).
+PowerLogic P7 supports time synchronization command requests and the polling
+of current date and time information from a DNP3 client.
+It is possible for client to verify the correctness of system time.
+The function code for actioning the time synchronization command is 2 (Write).
+The function code for polling the current date and time information is 1 (Read).
+The time synchronization procedure for TCP and serial is different.
+PowerLogic P7 devices do not retry time synchronization messages at either the
+Application or Data Link layers for these application layer function codes.
+•
+
+DELAY_MEASURE request from client and corresponding response (function
+code 129) from outstation
+
+•
+
+WRITE requests from client with an Absolute Time object, group 50, variation
+1
+
+•
+
+WRITE requests from client with a Last Recorded Time object, group 50,
+variation 3
+
+When PowerLogic P7 detects that the time synchronization request has not been
+received within the configured timeout, the IIN1.4 [NEED_TIME] bit is set in the
+response message. The client must send the time synchronization request after
+receiving a response with this bit set.
+
+P7/EN CM/02-004A
+
+31
+
+Protection and control device
+
+Communication protocols
+
+Application identifier
+The application identifier uses the function code 16 (Initialize application), 17
+(Start application), 18 (Stop application).
+When PowerLogic P7 receives a request related with application identifier, nothing
+internally is performed.
+
+Cold restart and warm restart
+To help protect itself from damage, when the DNP3_AP receives a cold restart or
+warm restart request, it will not perform a complete restart or partial reset. In the
+internal DNP3_AP, for example, not clear event or control queues, not set default
+point values, etc. When DNP3_AP receives a cold restart or warm restart request,
+it immediately responds with a Delay Time DNP3 object, g52v2. The delay time in
+the object is fixed at 5000 million seconds.
+
+File transfer
+PowerLogic P7 supports file transfer, which can be used to transfer the
+disturbance record file to clients. PowerLogic P7 supports the following file
+operations:
+•
+
+Open file
+
+•
+
+Close file
+
+•
+
+Get file/folder information
+
+•
+
+Read file
+
+•
+
+Abort file
+
+File authentication is not supported. PowerLogic P7 can only have one file open at
+a time.
+The file operations above can act on the folder /COMTRADE and all its subfolders.
+
+32
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Device profile document
+DNP3
+Device Profile Document
+Vendor Name: Schneider Electric
+Device Name: PowerLogic P7
+Highest DNP Level Supported:
+
+Device Function:
+
+For Requests: Level 2
+
+Client
+
+For Responses: Level 2
+
+✓ Server
+
+Notable objects, functions, and/or qualifiers supported in addition to the Highest DNP Levels Supported (the complete list is described in
+the DNP Implementation table):
+Maximum Data Link Frame Size (octets):
+
+Maximum Application Fragment Size (octets):
+
+Transmitted: 292
+
+Transmitted: 2048
+
+Received: 292
+
+Received: 2048
+
+Maximum Data Link Re-tries:
+
+Maximum Application Layer Re-tries:
+
+None
+
+None
+
+Fixed
+
+✓ Configurable
+
+✓ Configurable from 0 to 255
+Requires Data Link Layer Confirmation:
+Never
+Always
+Sometimes
+✓ Configurable with confirmation type selector, default NO ACK
+Requires Application Layer Confirmation:
+Never
+Always
+Sometimes
+✓ When reporting Event Data (Server devices only)
+✓ When sending multi-fragment responses (Server devices only)
+Sometimes
+✓ Configurable as: “Only when reporting event data”, or “When reporting event data or multi-fragment messages.”
+Timeouts while waiting for:
+Data Link Confirm:
+
+None
+
+Fixed at
+
+Variable
+
+✓ Configurable
+
+Complete Appl. Fragment:
+
+✓ None
+
+Fixed at
+
+Variable
+
+Configurable
+
+Application Confirm:
+
+None
+
+Fixed at
+
+Variable
+
+✓ Configurable
+
+Complete Appl. Response:
+
+✓ None
+
+Fixed at
+
+Variable
+
+Configurable
+
+P7/EN CM/02-004A
+
+33
+
+Protection and control device
+
+Communication protocols
+
+DNP3
+Device Profile Document
+Vendor Name: Schneider Electric
+Device Name: PowerLogic P7
+Sends/Executes Control Operations:
+WRITE Binary Outputs
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+SELECT/OPERATE
+
+Never
+
+✓ Always
+
+Sometimes
+
+Configurable
+
+DIRECT OPERATE
+
+Never
+
+✓ Always
+
+Sometimes
+
+Configurable
+
+DIRECT OPERATE – NO ACK
+
+Never
+
+✓ Always
+
+Sometimes
+
+Configurable
+
+Count > 1
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+Pulse On
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+Pulse Off
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+Latch On
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+Latch Off
+
+✓ Never
+
+Always
+
+Sometimes
+
+Configurable
+
+Trip
+
+Never
+
+✓ Always
+
+Sometimes
+
+Configurable
+
+Close
+
+Never
+
+✓ Always
+
+Sometimes
+
+Configurable
+
+Queue
+
+✓ Never
+
+Never
+
+Sometimes
+
+Configurable
+
+Clear Queue
+
+✓ Never
+
+Never
+
+Sometimes
+
+Configurable
+
+Reports Binary Input Change Events when no specific variation
+requested:
+
+Reports time-tagged Binary Input Change Events when no specific
+variation requested:
+
+Never
+
+Never
+
+Only time-tagged
+
+✓ Binary Input Change With Time
+
+Only non-time-tagged
+
+Binary Input Change With Relative Time
+
+✓ Configurable to send one or the other
+
+Configurable
+
+Sends Unsolicited Responses:
+
+Sends Static Data in Unsolicited Responses:
+
+Never
+
+✓ Never
+
+✓ Configuration
+
+When Device Restarts
+
+Only certain Objects
+
+When Status Flags Change
+
+Sometimes
+✓ ENABLE/DISABLE UNSOLICITED
+Function codes supported
+
+No other options are permitted.
+
+Default Counter Object/Variation:
+
+Counters Roll Over at:
+
+No Counters Reported
+
+No Counters Reported
+
+Configurable
+
+Configurable
+
+✓ Default Object: 20
+
+✓ 16 Bits, but roll-over bits not used
+
+✓ Default Variation: 1
+
+32 Bits
+
+Point-by-point list attached
+
+Other Value:____
+Point-by-point list attached
+
+Sends Multi-Fragment Responses:
+✓ Yes
+No
+Configuration
+Sequential File Transfer Support:
+Append File Mode
+
+Yes
+
+✓ No
+
+Custom Status Code Strings
+
+Yes
+
+✓ No
+
+34
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Permissions Field
+
+✓ Yes
+
+No
+
+File Events Assigned to Class
+
+Yes
+
+✓ No
+
+File Events Send Immediately
+
+✓ Yes
+
+No
+
+Multiple Blocks in a Fragment
+
+Yes
+
+✓ No
+
+Max Number of Files Open
+
+1
+
+P7/EN CM/02-004A
+
+35
+
+Protection and control device
+
+Communication protocols
+
+Implementation table
+DNP OBJECT GROUP & VARIATION
+
+REQUEST
+(Client may issue
+Outstation must parse)
+
+Group
+Num
+
+Var
+Num
+
+Description
+
+Function Codes
+(dec)
+
+1
+
+0
+
+Binary Input – Any variation
+
+1 (Read)
+
+Qualifier Codes
+(hex)
+
+RESPONSE
+(Client must parse
+Outstation may issue)
+Function Codes
+(dec)
+
+Qualifier Codes
+(hex)
+
+129 (Response)
+
+00, 01, 17,28
+
+129 (Response)
+
+00, 01, 17,28
+
+00, 01 (start-stop)
+06 (no range, or all)
+00, 01 (start-stop)
+1
+
+1
+
+Binary Input – Packed format
+
+1 (Read)
+06 (no range, or all)
+00, 01 (start-stop)
+
+1
+
+2
+
+Binary Input – With flags
+
+1 (Read)
+06 (no range, or all)
+
+2
+
+2
+
+2
+
+0
+
+1
+
+2
+
+Binary Input Event – Any
+variation
+
+Binary Input Event – Without time
+
+06 (no range, or all)
+1 (Read)
+07, 08 (limited qty)
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+1 (Read)
+
+Binary Input Event – With
+absolute time
+
+1 (Read)
+
+17, 28 (index)
+
+17, 28 (index)
+
+3
+
+0
+
+Double-bit Binary Input – Any
+variation
+
+1 (Read)
+
+00, 01, 06
+
+3
+
+1
+
+Double-bit Binary Input – Packed
+format
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+3
+
+2
+
+Double-bit Binary Input – With
+flags
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+4
+
+0
+
+Double-bit Binary Input – Any
+variation
+
+1 (Read)
+
+00, 01, 06
+
+1
+
+Double-bit Binary Input Event –
+without time
+
+1 (Read)
+
+Double-bit Binary Input Event –
+With absolute time
+
+1 (Read)
+
+1 (Read)
+
+4
+
+4
+
+2
+
+10
+
+0
+
+Binary Output – Any variation
+
+10
+
+2
+
+Binary Output – Output status
+with flags
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+17, 28 (index)
+
+17, 28 (index)
+
+00, 01, 06
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+00, 01, 17, 28
+
+129 (Response)
+
+00, 01, 17, 28
+
+3 (Select)
+4 (Operate)
+12
+
+1
+
+Binary Command – Control relay
+output block (CROB)
+
+5 (Direct
+Operate)
+6 (Direct Operate
+– No ACK)
+
+20
+
+0
+
+Counter – Any variation
+
+1 (Read)
+
+00, 01, 06
+
+20
+
+1
+
+Counter – 32-bit with flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+20
+
+2
+
+Counter – 16-bit with flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+20
+
+5
+
+Counter – 32-bit without flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+20
+
+6
+
+Counter – 16-bit without flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+30
+
+0
+
+Analog Input – Any Variation
+
+1 (Read)
+
+06 (no range, or all)
+
+36
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+REQUEST
+(Client may issue
+Outstation must parse)
+
+DNP OBJECT GROUP & VARIATION
+
+RESPONSE
+(Client must parse
+Outstation may issue)
+
+30
+
+1
+
+Analog Input – 32-bit with flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+30
+
+2
+
+Analog Input – 16-bit with flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+30
+
+3
+
+Analog Input – 32-bit without flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+30
+
+4
+
+Analog Input – 16-bit without flag
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+30
+
+5
+
+Analog Input – Short float
+
+1 (Read)
+
+00, 01, 06
+
+129 (Response)
+
+00, 01, 17, 28
+
+32
+
+0
+
+Analog Input Event – Any
+variation
+
+1 (Read)
+
+Analog Input Event – 32-bit
+without time
+
+1 (Read)
+
+Analog Input Event – 16-bit
+without time
+
+1 (Read)
+
+Analog Input Event – 32-bit with
+time
+
+1 (Read)
+
+Analog Input Event – 16-bit with
+time
+
+1 (Read)
+
+32
+
+32
+
+32
+
+32
+
+1
+
+2
+
+3
+
+4
+
+06 (no range, or all)
+07, 08 (limited qty)
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+06 (no range, or all)
+
+129 (Response)
+
+07, 08 (limited qty)
+
+130 (Unsolicited
+Response)
+
+17, 28 (index)
+
+17, 28 (index)
+
+17, 28 (index
+
+17, 28 (index)
+
+129 (Response)
+32
+
+5
+
+Short Float Ana. Change Ev.
+without Time
+
+50
+
+1
+
+Time and Date – Absolute time
+
+2 (Write)
+
+07, 08
+
+129 (Response)
+
+52
+
+2
+
+Time Delay – Fine
+
+23 (Delay
+Measurement)
+
+7
+
+129 (Response)
+
+07 (limited qty)
+(qty = 1)
+
+60
+
+0
+
+Class Objects – Class 0, 1, 2, 3
+
+1 (Read)
+
+6
+
+60
+
+1
+
+Class Objects – Class 0 data
+
+1 (Read)
+
+06 (no range, or all)
+
+60
+
+2
+
+Class Objects – Class 1 data
+
+1 (Read)
+
+1 (Read)
+
+6, 7, 8
+
+130 (Unsolicited
+Response)
+
+17, 28 (index)
+
+06 (no range, or all)
+07, 08 (limited qty)
+06 (no range, or all)
+60
+
+3
+
+Class Objects – Class 2 data
+
+1 (Read)
+07, 08 (limited qty)
+06 (no range, or all)
+
+60
+
+4
+
+Class Objects – Class 3 data
+
+1 (Read)
+07, 08 (limited qty)
+
+70
+
+3
+
+File Command Object - initiate
+Open or Delete operations
+
+25
+
+5b
+
+70
+
+4
+
+File Command Status Object
+
+26, 30
+
+5b
+
+129,130
+
+5b
+
+70
+
+5
+
+File Transport Object
+
+1 (Read)
+
+5b
+
+129,130
+
+5b
+
+70
+
+6
+
+File Transport Status Object
+
+129,130
+
+5b
+
+70
+
+7
+
+File Descriptor Object
+
+28
+
+129,130
+
+5b
+
+80
+
+1
+
+Internal Indications – Packed
+format
+
+2 (Write)
+
+P7/EN CM/02-004A
+
+5b
+00 (start-stop)
+
+129
+index=7
+
+37
+
+Protection and control device
+
+Communication protocols
+
+Supported function codes
+The table below is the application layer function codes that DNP3 server supports.
+Code
+
+Function
+
+Description
+
+Supported
+
+Transfer function codes
+0
+
+Confirm
+
+Message fragment confirmation
+No response
+
+Yes
+
+1
+
+Read
+
+Request objects from outstation
+Response with requested objects
+
+Yes
+
+2
+
+Write
+
+Store specified objects to outstation
+Respond with status of operation
+
+Yes
+
+Control function codes
+3
+
+Select
+
+Select output point of outstation
+Respond with status of control point
+
+Yes
+
+4
+
+Operate
+
+Set output that has previously selected
+Respond with status of control point
+
+Yes
+
+5
+
+Direct operate
+
+Set output directly
+Respond with status of control point
+
+Yes
+
+6
+
+Direct operate - NO ACK
+
+Set output directly
+No response
+
+Yes
+
+Freeze function codes
+7
+
+Immediate freeze
+
+Copy specified objects to freeze buffer
+Respond with status of operation
+
+No
+
+8
+
+Immediate freeze - NO ACK
+
+Copy specified objects to freeze buffer
+No respond
+
+No
+
+9
+
+Freeze and clear
+
+Copy specified objects to freeze buffer and clear objects
+Respond with status of operation
+
+No
+
+10
+
+Freeze and clear - NO ACK
+
+Copy specified objects to freeze buffer and clear objects
+No respond
+
+No
+
+11
+
+Freeze with time
+
+Copy specified objects to freeze buffer at specified time
+Respond with status of operation
+
+No
+
+12
+
+Freeze with time
+
+Copy specified objects to freeze buffer at specified time
+No respond
+
+No
+
+Application control function codes
+13
+
+Cold restart
+
+Perform desired reset sequence
+Respond with a time object
+
+No
+
+14
+
+Warm restart
+
+Perform desired partial reset operation
+Respond with a time object
+
+No
+
+16
+
+Initialize application
+
+Ready the specified application to run
+Respond with status of operation
+
+No
+
+17
+
+Start application
+
+Start the specified application to run
+Respond with status of operation
+
+No
+
+18
+
+Stop application
+
+Stop the specified application to run
+
+No
+
+Configuration function codes
+19
+
+Save configuration
+
+Save configuration
+Respond with status of operation
+
+No
+
+20
+
+Enable unsolicited messages
+
+Enable unsolicited messages
+Respond with status of operation
+
+Yes
+
+21
+
+Disable unsolicited messages
+
+Disable unsolicited messages
+Respond with status of operation
+
+Yes
+
+22
+
+Assign class
+
+Assign specified objects to a class
+Respond with status of operation
+
+No
+
+Perform propagation delay measurement
+
+Yes
+
+Time synchronization function codes
+23
+
+38
+
+Delay measurement
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Code
+
+Function
+
+Description
+
+Supported
+
+24
+
+Record current time
+
+For LAN (Local Area Network) networks only
+
+No
+
+File transfer
+25
+
+Open file
+
+Yes
+
+26
+
+Close file
+
+Yes
+
+27
+
+Delete file
+
+Yes
+
+28
+
+Get file information
+
+Yes
+
+29
+
+Authenticate file
+
+No
+
+30
+
+Abort file
+
+Yes
+
+31
+
+Activate configuration
+
+No
+
+Response function codes
+0
+
+Confirm
+
+Message fragment confirmation
+
+Yes
+
+129
+
+Response
+
+Response to request message
+
+Yes
+
+130
+
+Unsolicited message
+
+Spontaneous message without request
+
+Yes
+
+P7/EN CM/02-004A
+
+39
+
+Protection and control device
+
+Communication protocols
+
+DNP3 configuration
+General configuration
+The DNP3 application can be configured under Communication > DNP3
+settings > Basic info from PowerLogic Engineering Suite.
+Table 8 - Settings of DNP3
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+TcpEna
+
+TCP mode
+
+Enables DNPoE
+
+•
+
+Off
+
+•
+
+On
+
+Enables DNP3 over the serial port.
+Only a single protocol can use the
+serial port
+
+•
+
+Off
+
+•
+
+On
+
+SerEna
+
+Serial mode
+
+Step
+size
+
+Default setting
+Off
+
+Off
+
+SlaveAddr
+
+Outstation address
+
+Defines the address of the IED
+
+1...65519
+
+1
+
+100
+
+MasterAddr
+
+Master address
+
+Defines the address of the station
+(RTU) to which events must be
+transmitted
+
+1...65534
+
+1
+
+200
+
+ClientNum
+
+Max clients
+
+Defines the number of clients
+
+1...8
+
+1
+
+2
+
+TcpLisPort
+
+TCP port
+
+TCP port
+
+1025...65535
+
+1
+
+20000
+
+LnkStatPrd
+
+Link status period
+
+How often to send link status
+requests if no DNP3 frames have
+been received on this session
+
+0...65535 ms
+
+1 ms
+
+0 ms
+
+LnkCfmMode
+
+Link layer
+confirmation mode
+
+Selects between no confirmation,
+only on multiframe fragments, and
+all frames
+
+•
+
+Never
+
+•
+
+Sometimes
+
+•
+
+Always
+
+Never
+
+LnkCfmTmout
+
+Link layer
+confirmation timeout
+
+Time the DNP3 server waits for
+remote station confirmation of a
+data link message before
+resending it
+
+0...65535 ms
+
+1 ms
+
+3000 ms
+
+LnkCfmRtrCnt
+
+Max link layer retries
+
+Maximum number of link layer
+retries if link layer confirmation
+times out
+
+1...255
+
+1
+
+2
+
+ApplCfmTmout
+
+Application fragment
+timeout
+
+This parameter applies to
+transmitting events (responses to
+a polling request from the server
+and unsolicited responses)
+
+0...65535 ms
+
+1 ms
+
+5000 ms
+
+NdTmIntrvl
+
+Need time interval
+
+Specifies how long the local clock
+will remain valid after receiving
+time synchronization. A setting of
+0 disables time sync requests
+
+0...65535 ms
+
+1 ms
+
+0 ms
+
+InterfrmGap
+
+Interframe gap
+
+This sets the time between frames
+when the message is requires
+multiple frames
+
+0...50 ms
+
+1 ms
+
+0 ms
+
+SboTimeout
+
+SBO timeout
+
+Timeout between SCADA
+selection and execution
+
+10...600000 ms
+
+1 ms
+
+60000 ms
+
+FileTimeout
+
+File transfer timeout
+
+Activity timeout references a file
+handle to close the file and send a
+File Transport Status Object
+(group 70 var 6) using a status
+code value of file handle expired
+(0x02)
+
+5000...3600000 ms
+
+1 ms
+
+3600000 ms
+
+EventNum
+
+Event cache
+
+Specifies the event buffer size for
+each event data object supported
+
+0...200
+
+1
+
+200
+
+UnsolRespEna
+
+Unsolicited
+response enabled
+
+Selects whether the master can
+enable unsolicited events
+
+•
+
+Off
+
+•
+
+On
+
+EvtNumberC1
+
+Class1 event
+number
+
+Number of events to store before
+sending unsolicited response
+
+0...10
+
+1
+
+10
+
+EvtDelayC1
+
+Class1 event delay
+
+Time to wait after an event before
+sending unsolicited response
+
+100...60000 ms
+
+1 ms
+
+2000 ms
+
+40
+
+On
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Table 8 - Settings of DNP3 (Continued)
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+Step
+size
+
+Default setting
+
+EvtNumberC2
+
+Class2 event
+number
+
+Number of events to store before
+sending unsolicited response
+
+0...10
+
+1
+
+5
+
+EvtDelayC2
+
+Class2 event delay
+
+Time to wait after an event before
+sending unsolicited response
+
+100...60000 ms
+
+1 ms
+
+2000 ms
+
+EvtNumberC3
+
+Class3 event
+number
+
+Number of events to store before
+sending unsolicited response
+
+0...10
+
+1
+
+5
+
+EvtDelayC3
+
+Class3 event delay
+
+Time to wait after an event before
+sending unsolicited response
+
+100...60000 ms
+
+1 ms
+
+2000 ms
+
+DefVarBI
+
+Binary input
+
+Object 01 default variant
+
+•
+
+Without flags
+
+•
+
+With flags
+
+•
+
+Without time
+
+•
+
+With absolute time
+
+With absolute
+time
+
+•
+
+Without flags
+
+With flags
+
+•
+
+With flags
+
+•
+
+Without flags
+
+•
+
+With flags
+
+•
+
+Without time
+
+•
+
+With absolute time
+
+With absolute
+time
+
+•
+
+32-bit with flags
+
+32-bit with flags
+
+•
+
+16-bit with flags
+
+•
+
+32-bit without flags
+
+•
+
+16-bit without flags
+
+•
+
+32-bit with flags
+
+•
+
+16-bit with flags
+
+•
+
+32-bit without flags
+
+•
+
+16-bit without flags
+
+•
+
+Short floating point
+
+•
+
+32-bit without time
+
+•
+
+16-bit without time
+
+•
+
+32-bit with time
+
+•
+
+16-bit with time
+
+•
+
+Float without time
+
+DefVarBIEvt
+
+DefVarBO
+
+DefVarDBI
+
+DefVarDBIEvt
+
+DefVarCntr
+
+DefVarAI
+
+DefVarAIEvt
+
+Binary input event
+
+Object 02 default variant
+
+Binary output
+
+Object 10 default variant
+
+Double-bit BI
+
+Object 03 default variant
+
+Double-bit BI event
+
+Object 04 default variant
+
+Counter
+
+Objects 20, 21, 22, 23 default
+variant
+
+Analog input
+
+Object 30 default variant
+
+Analog input event
+
+Object 32 default variant
+
+Without flags
+
+Without flags
+
+32-bit with flags
+
+32-bit without
+time
+
+NOTE: If DNP3 communication uses a baud rate of 1200 bps or 2400 bps,
+increase the timeout values to allow for longer transmission times:
+•
+
+Set Application fragment timeout to 20.0 seconds or higher
+
+•
+
+Set Link layer confirmation timeout to 5.0 seconds or higher.
+
+For more information about the baud rate setting, see Serial port
+configuration, page 17.
+
+Flexible data point mapping configuration
+The DNP3 data points can be flexibly mapped to suit the application. A preconfigured data map is provided by default. You can create a customized data
+map by modifying the default configuration. See the DNP3 point list document for
+a complete list of DNP3 data points supported by PowerLogic P7.
+To view and configure the data points:
+
+P7/EN CM/02-004A
+
+41
+
+Protection and control device
+
+Communication protocols
+
+1. From PowerLogic Engineering Suite, go to Communication > DNP3
+settings > Analog mapping or Communication > DNP3 settings > Binary/
+counter mapping.
+The list of data points is displayed on the corresponding page. The data
+points are grouped by point type.
+2. From the Analog mapping or Binary/counter mapping page, click the
+icon in the Actions column of one point type to open the Edit pop-up window.
+3. From the Edit pop-up window, select the data points from the Available data
+section and add into the Selected data section to customize your data map.
+NOTE: The capacity on the top right of the Edit pop-up window indicates
+the remaining points that can be added before reaching the maximum.
+4. Configure the properties of data points if needed.
+Table 9 - Configurable properties of analog data points
+Parameter
+
+Description
+
+Class
+
+Class is about how the data event is polled from the device.
+
+Multiplier
+
+The multiplier of the configurable analog input data point.
+
+Deadband
+
+The deadband of the configurable analog input data point.
+
+Table 10 - Configurable properties for binary/counter data points
+Parameter
+
+Description
+
+Class
+
+Class is about how the data event is polled from the device.
+
+NOTE: 8 special binary outputs from BayLD/LLN0.SettingControl
+are used for switching setting groups. You can activate any one of the
+setting groups.
+5. Click Apply to save changes made to the data map, or click Cancel to quit.
+
+42
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Modbus server
+The Modbus interface is a client/server protocol defined by the Modbus
+organization.
+For more information on the Modbus protocol, visit www.modbus.org.
+The Modbus server is used to exchange information between a client and one or
+more server units, identified by a number. It implements request-reply dialog,
+where requests are always initiated by the client. Modbus exists in binary (RTU
+mode) formats. Data is exchanged in the form of 16-bit words (also called
+registers(8)) or simply bits. Each piece of information (bit or register) has a 16-bit
+address. Modbus is a data-transmission protocol in charge of communication
+using serial link or Ethernet links.
+Modbus TCP/IP offers the same functionality as a Modbus serial link, as well as
+compatibility with multi-client architectures.
+PowerLogic P7 is considered in Modbus communication as a server only.
+The Modbus server supports the following functions and services:
+•
+
+Status polling
+
+•
+
+Measurement polling
+
+•
+
+Remote control
+
+•
+
+Time synchronization
+
+•
+
+Events
+
+•
+
+Diagnostics
+
+•
+
+File transfer
+
+Modbus protocol data unit
+Every Modbus request or response frame includes a Modbus PDU (protocol data
+unit) made up of 2 fields.
+•
+
+Function code (1 byte): indicates the type of request (1 to 127)
+
+•
+
+Data (0 to n bytes): depends on the function code
+
+The function codes in the reply and in the request are identical.
+
+Modbus serial RTU link frames
+All the frames exchanged have the same structure, made up of 3 parts:
+•
+
+Server address (1 byte): from 1 to 247 (0 for broadcasting)
+
+•
+
+Modbus PDU: as previously described
+
+•
+
+Check (2 bytes): CRC16 used to check frame integrity
+
+The server addresses in the reply and in the request are identical.
+The maximum size of a frame is 256 bytes.
+
+Synchronization of exchanges
+In serial mode, any character that is received after a silence of more than 3.5
+characters is considered as the beginning of a new frame. A minimum silence of
+3.5 characters is always observed between two frames.
+A server disregards all frames:
+(8)
+
+The register address sent via Modbus is one less than that indicated by a PowerLogic P7.
+
+P7/EN CM/02-004A
+
+43
+
+Protection and control device
+
+Communication protocols
+
+•
+
+Received with a physical error for 1 or more characters (format error, parity
+error, etc.)
+
+•
+
+With an incorrect CRC16 result
+
+•
+
+For which it is not the recipient.
+
+The server addresses in the reply and in the request are identical.
+The maximum size of a frame is 256 bytes.
+
+Broadcasting
+The client can also address all servers using the conventional address 0. This
+type of exchange is called broadcasting. servers do not respond to broadcast
+messages. As a result, only messages that do not require the transmission of data
+by the servers can be broadcast.
+
+Response time
+The communication coupler response time (Tr) is less than 15 ms, including a 3character silence (approximately 3 ms at 9600 bauds).
+
+Function description
+Transmission mode
+The Modbus server can communicate with clients using either of two transmission
+modes:
+•
+
+Serial RTU mode
+
+•
+
+TCP/IP mode
+
+The Modbus server can communicate with the client through the serial port and
+Ethernet port at the same time.
+The Modbus server can be configured to work at max. 2 IP addresses.
+The maximal number of clients for Modbus server is 8. The Modbus server and
+the clients can be connected by either:
+•
+
+A serial port connection
+
+•
+
+A TCP connection via an Ethernet port
+
+Read device identification
+Both basic and regular device identification are supported through function code
+43 and 14. The Modbus server will respond with the exception code 3 if it receives
+an unsupported category.
+Table 11 - Read device identification
+
+44
+
+Object ID
+
+Object Name
+
+Value
+
+0x00
+
+VendorName
+
+i.e., Schneider Electric
+
+0x01
+
+ProductCode
+
+PowerLogic P7
+
+0x02
+
+MajorMinorRevision
+
+i.e., V02.001.001.002
+
+0x03
+
+VendorUrl
+
+http://www.schneider-electric.com
+
+0x04
+
+ProductName (product
+range)
+
+i.e., Device1
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Table 11 - Read device identification (Continued)
+Object ID
+
+Object Name
+
+Value
+
+0x05
+
+ModelName
+
+i.e., P7M41-1CR5NNMMNNNNNNNNN-THB
+
+0x06
+
+UserApplicationName
+
+Protection & Control
+
+Events
+The event buffer of PowerLogic P7 can be read via the Modbus Protocol. This is
+done by reading one event at a time. The event registers store the most recent
+events. The event buffer has a capacity of 100 entries and operates on a FIFO
+(First-In, First-Out) mechanism for buffer management. A description of the
+registers is shown in the table.
+Table 12 - Description of events in registers
+Register Address (HEX)
+
+Type
+
+Field description
+
+0xF000
+
+Uint16
+
+Event Log Version: the version of the event log
+format
+
+0xF001
+
+Uint16
+
+Event Buffer Size: the buffer size of the PDM local
+event logs
+
+0xF002
+
+Uint16
+
+Actual Number of Events: the number of valid events
+in buffer starts from 0 and is incremented up to the
+maximum capacity
+
+0xF003
+
+Uint16
+
+Most Recent Event Entry Number: the index of the
+most recent event stored in the table (incremented
+at each new event)
+
+0xF004
+
+Uint16
+
+Most Recent Event Position: the index of the most
+recent event stored in the buffer
+
+0xF005
+
+Uint16
+
+Oldest Event Position: the index of the oldest event
+stored in the buffer
+
+0xF006-0xF4B5
+
+Uint16
+
+Events: 12 × 100
+
+Time synchronization
+The internal clock of PowerLogic P7 devices can be synchronized by the Modbus
+protocol. Note that this is not a native feature of the Modbus protocol. Therefore,
+this is a PowerLogic P7 specific feature. The accuracy of the clock
+synchronization is in the scale of 1 s.
+The clock can be synchronized either completely (all fields: seconds, minutes,
+hours, days, month and year) or by synchronizing only the minutes, which in turn
+will set the seconds and milliseconds to zero.
+An example of how minute synchronization can be done: when the reference clock
+(the clock which is assumed to be correct) is exactly seven minutes past (any
+hour), a minute synchronization is performed. The result will be that the internal
+clock of PowerLogic P7 devices will be set to HH:07:00.000 (Hours:Minutes:
+Seconds.Milliseconds) and HH will not be changed.
+These two ways of synchronizing the clock are denoted Set RTC, where stands
+for and in the data map.
+The holding registers allocated to the Set RTC synchronization are:
+
+P7/EN CM/02-004A
+
+45
+
+Protection and control device
+
+Communication protocols
+
+Table 13 - Description of Register for time synchronization
+Register Address
+(HEX)
+
+Type
+
+Content
+
+0xF600
+
+Uint16
+
+Year(9)
+
+0xF601
+
+Uint16
+
+Upper byte: month
+Lower byte: day
+
+0xF602
+
+Uint16
+
+Upper byte: hours
+Lower byte: minutes
+
+0xF603
+
+Uint16
+
+Milliseconds
+
+Read device status
+The function code 7 is used to read the contents of 8 exception statuses. Eight bits
+make up one byte.
+The following table shows the status supported:
+Table 14 - Read exception status
+Bit
+
+Description
+
+0
+
+Reserved
+
+1
+
+Reserved
+
+2
+
+New status reporting available
+
+3...7
+
+Reserved
+
+Measurement polling
+The function codes 3 and 4 are used for the measurement polling.
+The contents of measurements for polling, the applied Modbus address of each
+measurement, and the data type of each measurement are configurable.
+
+Remote control
+For PowerLogic P7, the function codes 5, 6 and 16 are used to perform a control
+operation. The function code 5 is used for writing coils while the function codes 6
+and 16 are used for writing holding registers. The applied address of each
+command group is configurable.
+Both DO (Direct Operate) and SBO (Select Before Operate) control modes are
+supported via Modbus coils or holding registers.
+NOTE: The SBO control mode is only supported by switchgear controls.
+When controlling switchgear, two holding registers should be used and they
+always appear in pairs by default. The first holding register is used to simulate
+selection while the second one is used to simulate operation.
+•
+
+(9)
+
+46
+
+If the switchgear is configured as DO mode, only the second holding register
+is used to control the switchgear.
+
+If 70 ≤ F600 ≤ 99, Year = 1900 + F600; Otherwise, Year = 2000 + F600.
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+•
+
+If the switchgear is configured as SBO mode, both of the holding registers are
+used to control the switchgear. The first holding register is used to simulate
+the select command to select the switchgear. The second register is used to
+simulate the operate command to open/close the switchgear.
+NOTE:
+◦
+
+◦
+
+The switchgear can have different states and receive open/close
+commands, which are indicated by the following values:
+–
+
+0 - Intermediate position
+
+–
+
+1 - Open position or open command
+
+–
+
+2 - Close position or close command
+
+–
+
+3 - Bad state
+
+Before sending any selecting or controlling command to the
+Switchgear, firstly use function code 3 to check the current position of
+the Switchgear is suitable for the subsequent operation.
+To conduct a full open operation, for example, firstly use the function
+code 3 to get the current position of the Switchgear, which must be
+closed. Then, write 1 to the first holding register via function code 6 to
+select the Switchgear. Finally, after receiving a positive response,
+write 1 to the second holding register via function code 6 to open the
+Switchgear.
+
+Disturbance record extraction
+The device records waveform data in COMTRADE format. Each waveform
+capture is saved as one disturbance record (DR) file (.CFF).
+The device can store up to 200 DR files in circular buffer. Each file has a unique
+file number for retrieval. The file numbering wraps back to 1 after reaching 200.
+When the storage limit is reached, the oldest file is overwritten by the newest file.
+
+DR extraction mechanism
+NOTE: In this section, record refers to a Modbus file record as defined by
+Read File Record (function code 0x14), not a disturbance event record.
+The device supports DR extraction with Modbus Function Code 20 (0x14). A
+Modbus client extracts a DR file by sending repeated requests to retrieve DR data
+in Modbus file records and reassembling the returned records into a .CFF output
+file.
+The device supports DR extraction by multiple clients at the same time, each
+client holding its own extraction state.
+Record size
+The device supports requesting up to 120 registers per record. The first register
+contains record metadata; the remaining registers carry user data. Each register is
+2 bytes, so each record extraction response frame can contain up to 240 bytes of
+data (including 2 bytes of record metadata).
+Maximum file size
+A file can contain up to 65,536 records (record numbers 0–65,535). Therefore, the
+maximum file size is:
+65,536 records × 119 registers × 2 bytes = 15,597,568 bytes = 14.875 MiB.
+If the computed record number exceeds 65,535, the Modbus server rejects the
+transfer for that file and returns a Modbus exception.
+
+P7/EN CM/02-004A
+
+47
+
+Protection and control device
+
+Communication protocols
+
+DR extraction procedure
+To extract a DR file, the client repeats the following steps until the device indicates
+end of file (EOF):
+1. Build the request frame by defining file number, record number and record
+length. See Request frame format, page 48.
+2. Send a Read File Record request (function code 0x14) for the current record.
+3. Validate the response.
+•
+
+A successful response echoes function code 0x14.
+
+•
+
+If the request fails, the device returns an exception response.
+
+4. Parse the record metadata (the first returned register). See Response frame
+format.
+•
+
+Read the valid-byte count (high byte).
+
+•
+
+Read the status flags (low byte): check the last-part flag (bit 2) and the
+error flag (bit 3).
+
+5. Append the number of bytes indicated by valid-byte count from the returned
+record data bytes to the output file. Discard any trailing padding bytes.
+6. Check for EOF.
+•
+
+If the last-part flag is set, finalize the current file and stop requesting
+further records for this file.
+
+•
+
+Otherwise, increment the record number by 1 and return to step 1.
+
+EOF detection
+EOF is determined by the last-part flag (b2) in the record metadata of
+a successful response.
+Error handling
+•
+
+Exception response: If the device returns an exception, verify Modbus server
+address, DR file number, record number, and record length.
+
+•
+
+Error flag (b3): If the error flag in record metadata is set, abort the current file
+transfer. The device has signaled an internal error.
+
+•
+
+Record length consistency: Keep the record length unchanged for the
+duration of the transfer unless the device specifies otherwise.
+
+Request and response frames
+The following table defines the 10-byte request frame fields.
+Table 15 - Request frame format
+Byte
+
+Field
+
+Value
+
+0
+
+Modbus server address
+
+1–255
+
+1
+
+Function code
+
+0x14
+
+2
+
+Byte count
+
+0x07
+
+3
+
+Subfunction
+
+0x06
+
+4
+
+File number High byte
+
+0x00 (reserved)
+
+5
+
+File number Low byte
+
+1–200
+
+6
+
+Record number High byte
+
+Bits 15–8 of the 16-bit record number
+
+7
+
+Record number Low byte
+
+Bits 7–0 of the 16-bit record number
+
+8
+
+Record length High byte
+
+0x00 (reserved)
+
+9
+
+Record length Low byte
+
+N (N≤120)
+
+NOTE: File number starts at 1. Record number starts at 0 and increments by 1
+for each subsequent record within the same file.
+
+48
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Response frame
+A successful response echoes function code 0x14 and subfunction 0x06, followed
+by record data (metadata and user data).
+Byte
+
+Field
+
+Value
+
+0
+
+Modbus server address
+
+1–255
+
+1
+
+Function code
+
+0x14
+
+2
+
+Response byte count
+
+2N+2
+
+3
+
+File response length
+
+2N+1
+
+4
+
+Subfunction
+
+0x06
+
+5–6
+
+Record metadata
+
+2 bytes of metadata (first register):
+
+7...
+
+Record user data
+
+•
+
+High byte (bits 15–8): valid-byte count (number of valid
+data bytes to append);
+
+•
+
+Low byte (bits 7–0): status flags (b0–b1 CFF flag; b2
+last-part (EOF), b3 error; b4–b7 reserved).
+
+2(N-1) bytes of user data (payload and possible padding)
+
+An exception response returns function code 0x94 (0x14 + 0x80) and an
+exception code byte.
+Example
+This example shows a client reading DR File 5 from server address 0x08. The
+client requests 120 registers per record. The DR file size is 252 bytes of user data.
+Record 0
+
+Request:
+08 14 07 06 00 05 00 00 00 78
+Response:
+08 14 F2 F1 06 EE 00 <238 bytes of user data>
+Metadata: valid-byte count = 0xEE (238), last-part flag = 0, error flag = 0.
+Action: append 238 bytes to output file, increment record number.
+
+Record 1
+
+Request:
+08 14 07 06 00 05 00 01 00 78
+Response:
+08 14 F2 F1 06 0E 04 <14 bytes of user data, followed by 0x00 padding>
+Metadata: valid-byte count = 0x0E (14), last-part flag = 1, error flag = 0.
+Action: append 14 bytes to output file, EOF detected, stop and finalize file.
+
+DR register map
+SCADA systems or Modbus clients read these registers to monitor DR availability
+and select the next DR file to read.
+Register address
+(Hex)
+
+Data type
+
+Description
+
+0xF501
+
+Uint16
+
+Waveform counter: Increments when a new waveform is captured and available. Resets to 0 when
+all disturbance records are cleared.
+SCADA reads this register at regular intervals to detect new waveform captures.
+
+0xF502
+
+Uint16
+
+Maximum number of DR files that can be stored.
+
+0xF503
+
+Uint16
+
+File status: 1 = can read.
+
+0xF504
+
+Uint16
+
+Number of DR files currently available: 0 if no waveform captured. Increments by one for each
+captured waveform until the maximum storage limit is reached. Resets to 0 when all disturbance
+records are cleared.
+SCADA uses this register to handle rollover condition.
+
+0xF505
+
+Uint16
+
+First DR file number: Always 1.
+
+0xF506
+
+Uint16
+
+Oldest DR file number: Increments after rollover when the buffer overwrites the oldest file.
+
+0xF507
+
+Uint16
+
+Latest DR file number: Identifies the newest file. Wraps back to 1 after reaching 200.
+
+P7/EN CM/02-004A
+
+49
+
+Protection and control device
+
+Communication protocols
+
+Supported function codes
+PowerLogic P7 supports the following Modbus functions.
+Table 16 - Modbus function codes
+Function code
+
+Address space
+
+01
+
+Read Coils
+
+02
+
+Read Discrete Inputs
+
+03
+
+Read Holding Registers
+
+04
+
+Read Input Registers
+
+05
+
+Write Single Coil
+
+06
+
+Write Single Register
+
+07
+
+Read Exception Status
+
+08(10)
+
+Diagnostic
+
+11(10)
+
+Get Comm Event Counter
+
+12(10)
+
+Get Comm Event Log
+
+16(11)
+
+Write Multiple registers
+
+20
+
+Read File Record
+
+43/14
+
+Read Device Identification
+
+The following function codes are not supported.
+•
+
+17- Report Server ID
+
+The sub-function of diagnostic supported are listed below:
+•
+
+0 - Return Query Data (Only the first two bytes' data are returned)
+
+•
+
+1 - Restart Communications Option
+
+•
+
+2 - Return Diagnostic Register (always zero)
+
+•
+
+4 - Force Listen Only Mode
+
+Modbus configuration
+The Modbus application can be configured under Communication > Modbus
+settings > Basic info from PowerLogic Engineering Suite.
+Table 17 - Settings of Modbus
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+TcpEna
+
+TCP mode
+
+Enable Modbus TCP
+
+•
+
+Off
+
+•
+
+On
+
+Enables Modbus over the serial port. If
+enabled all other serial protocols are
+blocked
+
+•
+
+Off
+
+•
+
+On
+
+SerEna
+
+Serial mode
+
+Step
+size
+
+Default setting
+Off
+
+Off
+
+ClientNum
+
+Max clients
+
+Max clients
+
+1...8
+
+1
+
+2
+
+TcpLisPort
+
+TCP port
+
+TCP port
+
+502...49151
+
+1
+
+502
+
+SerDevAddr
+
+Server address
+
+Server address
+
+1...255
+
+1
+
+1
+
+(10) This function code is only available for serial communication.
+(11) FC16 is only for writing single multi-register values (e.g., 32-bit or 64-bit data). Simultaneous writes to multiple discrete 16-bit registers
+are not supported.
+
+50
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Modbus serial RTU mode configuration
+In this mode, the clients are connected with the Modbus server through a serial
+port. For more information on the serial port and the configuration, refer to Serial
+communication port, page 17.
+
+Modbus TCP mode configuration
+Modbus TCP (or Modbus TCP/IP) is simply the Modbus RTU protocol with a TCP
+interface that runs on Ethernet. TCP/IP refers to the Transmission Control
+Protocol and Internet Protocol which provide the transmission medium for Modbus
+TCP/IP messaging. In practice, Modbus TCP embeds a standard Modbus data
+frame into a TCP frame.
+
+Flexible register mapping configuration
+The Modbus registers can be flexibly mapped to suit the application. A preconfigured data map is provided by default. You can create a customized data
+map by modifying the default configuration. See the Modbus point list document
+for a complete list of the Modbus addresses supported by PowerLogic P7.
+To view and configure the Modbus register mapping:
+1. From PowerLogic Engineering Suite, go to Communication > Modbus
+settings > Mapping.
+The displayed data points are grouped by point type, the points can be
+configured by group. By default, each point configuration contains the initial
+value of the following parameters:
+Table 18 - Modbus data point configuration parameters
+Parameter
+
+Description
+
+Bit/register number
+
+The start address of the register.
+
+Data address
+
+The end address of the register.
+
+Datatype
+
+The count of actual data bytes.
+
+Enable event
+
+Checked means the data change will be recorded in the Modbus SOE
+(sequence of events).
+Unchecked means the data change will not trigger any event.
+
+Function code
+
+The supported function codes for the mapped register.
+
+2. From the Mapping page, click the
+type to open the pop-up window.
+
+icon in the Actions column of one point
+
+3. From the pop-up window, select the data points from the Available data
+section and add into the Selected data section to customize your data map.
+NOTE:
+•
+
+Repeated data points will appear only once in the mapping list.
+
+•
+
+The capacity on the top right of the pop-up window indicates the
+remaining points that can be added before reaching the maximum.
+
+4. Click Apply to save changes made to the data map, or click Cancel to quit.
+
+IEC 60870-5-103
+IEC 60870-5-103 is a companion standard for the informative element of
+protection and control devices.
+
+P7/EN CM/02-004A
+
+51
+
+Protection and control device
+
+Communication protocols
+
+The standard defines the communication between protection and control devices
+and various devices within a control system, such as the supervisor or the Remote
+Terminal Unit (RTU) in a substation.
+
+Function description
+Communication links
+The IEC 60870-5-103 protocol only operates on a serial communication link. The
+standard defines serial data characteristics.
+
+Physical layer
+PowerLogic P7 provides a single RS485 port for serial communications. An
+external converter is required for fiber optic links.
+For configuring connection mode, both device address and baud rate can be
+specified through PowerLogic Engineering Suite. The baud rate can be set via the
+HMI or other protocols such as IEC 61850.
+NOTE: When either of the two settings is changed, the full configuration are
+sent to the IED which will cause the reboot.
+
+Link layer
+Service classes
+PowerLogic P7 devices provide three classes of link layer services:
+Class
+
+Function
+
+Purpose
+
+S1
+
+Request/ACK
+
+Client station sends broadcast messages to server station.
+Server station sends measurement values or event
+information to client station.
+
+S2
+
+Request/Confirm
+
+Client station sends control commands to server station.
+
+S3
+
+Request/Reply
+
+Client station requests disturbance record from server station.
+
+Transmission rules
+In the IEC 60870-5-103 communication, the unbalanced transmission mode of the
+protocol is used, and the IED acts as a server station.
+Data is transferred to the primary system using data acquisition by polling.
+The device start-up triggers the following transmission rules:
+
+52
+
+•
+
+Remote signal change
+
+•
+
+Remote measurand change
+
+•
+
+Abnormal device self-check information
+
+•
+
+Abnormal operation alarm information
+
+•
+
+Action of actuating elements
+
+•
+
+Device fault information
+
+•
+
+Operating results
+
+•
+
+Cyclically transmitted measurand and state quantities
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Application layer
+Functionality
+PowerLogic P7 supports the following application functions:
+•
+
+General initialization (Reset)
+
+•
+
+General interrogation (GI)
+
+•
+
+Cyclic measurand
+
+•
+
+General commands
+
+•
+
+Time synchronization
+
+•
+
+Spontaneous events
+
+•
+
+Disturbance record extraction
+
+•
+
+Blocking in monitoring direction
+
+•
+
+Test mode
+
+•
+
+Private codes
+
+ASDU type
+Application Service Data Unit (ASDU) is used to exchange information between
+control centers and RTUs or IEDs in a power system.
+In monitor direction, following ASDU types are supported:
+•
+
+ASDU 1: Time tagged message
+
+•
+
+ASDU 3(12): Measurands ILS
+
+•
+
+ASDU 3.1~3.4: Measurands I
+
+•
+
+ASDU 5: Identification message
+
+•
+
+ASDU 6: Time synchronization
+
+•
+
+ASDU 8: Termination of general interrogation
+
+•
+
+ASDU 9: Measurands II
+
+•
+
+ASDU 23: List of recorded disturbances
+
+•
+
+ASDU 26: Ready for transmission of disturbance data
+
+•
+
+ASDU 27: Ready for transmission of a channel
+
+•
+
+ASDU 28: Ready for transmission of tags
+
+•
+
+ASDU 29: Transmission of tags
+
+•
+
+ASDU 30: Transmission of disturbance values
+
+•
+
+ASDU 31: End of transmission
+
+•
+
+ASDU 72(12): IED state
+
+•
+
+ASDU 73(12): Measurand ILS-C
+
+•
+
+ASDU 79(12): Energy counters
+
+In control direction, following ASDU types are supported:
+•
+
+ASDU 6: Time synchronization
+
+•
+
+ASDU 7: Initiation of general interrogation
+
+•
+
+ASDU 20: General command
+
+•
+
+ASDU 24: Order for disturbance data transmission
+
+•
+
+ASDU 25: Acknowledgement for disturbance data transmission
+
+(12) private ASDU
+
+P7/EN CM/02-004A
+
+53
+
+Protection and control device
+
+Communication protocols
+
+Function type
+PowerLogic P7 is a product family, the mapping information between standard
+function types and product types is shown in the following table:
+Table 19 - Function type definition
+Function type
+
+DEC
+
+HEX
+
+128~159
+
+80~9F
+
+160
+
+A0
+
+Overcurrent protection
+
+161~175
+
+A1~AF
+
+Not used
+
+176
+
+B0
+
+Transformer differential
+protection
+
+177~191
+
+B1~BF
+
+Private range
+
+192~223
+
+C0~DF
+
+224
+
+E0
+
+225~239
+
+E1~EF
+
+255
+
+FF
+
+Abbreviation
+
+Product Type
+Reserved
+
+I>>
+
+P7F/P7M
+Reserved for extended
+FUN of P7F/P7M
+
+∆IT
+
+P7T
+Reserved for extended
+FUN of P7T
+Reserved
+
+Generator protection
+
+P7G
+
+Private range
+
+Reserved for extended
+FUN of P7G
+
+Global function type
+
+GLB
+
+Generic information ID
+
+Event
+The event buffer size of PowerLogic P7 is 500. The IEC 60870-5-103 application
+maintains an internal storage limit of 250 entries for energy counters and an
+additional 250 entries for digital points.
+NOTE: When the event number exceeds 500, the oldest events will be
+automatically overwritten.
+
+Initialization
+A reset command is used to initialize the communications, when
+•
+
+the device is activated.
+
+•
+
+the communication parameters are changed.
+
+Two reset commands Reset CU (Communication Unit) and Reset FCB (Frame
+Count Bit) are supported in initialization.
+PowerLogic P7 can acknowledge either of the two reset commands. Upon
+receiving the reset command, the device acknowledges with an identification
+message ASDU 5. The Cause Of Transmission (COT) for this message will be
+either Reset CU or Reset FCB, depending on the type of reset command issued.
+In addition to the message ASDU 5, the device will produce a power-up event
+when it is activated.
+NOTE: Reset commands only reset the communication functions of the
+device, not the protection functions. Reset CU command clears any pending
+messages in the transmit buffer of the device.
+After the initialization, when PowerLogic P7 is ready to process information from
+the client, it will send an ASDU message to the client. The client will start the
+communication with the Server device using the reset command (short message)
+to the link layer and subsequently receives the ASDU. By this message, the client
+identifies the server device and issues the general interrogation command with a
+time synchronization command if required. After all these steps, the client starts
+polling the server device.
+NOTE: When several initialization instructions are received successively by
+the device, only one initialization message is sent back as response.
+The IED status is included in the ASDU. See Information of IED status 1, page 55
+and IED status 1 - BS1, page 55 for details.
+54
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+NOTE: IED status1 BS2 is reserved.
+Table 20 - Information of IED status 1
+TYP
+
+VSQ
+
+COT
+
+ADR
+
+FUN
+
+INF
+
+Element1
+
+Element2
+
+Timetag
+
+SIN
+
+48H
+
+81H
+
+COT
+
+CAD
+
+7FH
+
+70H
+
+BS1
+
+BS2
+
+TT4
+
+00
+
+6
+
+5
+
+Table 21 - IED status 1 - BS1
+Description
+
+7
+
+4
+
+3
+
+2
+
+1
+
+0
+
+Signal/measurand blocked: no
+
+0
+
+1
+
+Signal/measurand blocked: yes
+
+1
+
+0
+
+Command blocking: no
+
+0
+
+1
+
+Command blocking: yes
+
+1
+
+0
+
+Remote blocking: no
+
+0
+
+1
+
+Remote blocking: yes
+
+1
+
+0
+
+Local blocking: no
+
+0
+
+1
+
+Local blocking: yes
+
+1
+
+0
+
+The command blocking parameter is not applicable to the initialization commands
+for the control program or the substation control unit. Before the initialization
+message FCB is sent, the device executes the following actions:
+•
+
+The FCB bit values within the device are set to 0.
+
+•
+
+Any ongoing GI are terminated silently, without generating a message.
+
+•
+
+Assembled and queued messages for transmission are not discarded
+according to standardization guidelines.
+
+•
+
+Active transfer protocols including monitoring and error records are aborted,
+and all related messages in the protection transfer buffers are cleared.
+
+•
+
+The ongoing transmission of disturbance values is interrupted, and all
+corresponding messages in the protection transfer buffers are removed.
+
+•
+
+The FCB initialization message is not impacted by the test mode or any
+enabled signal blocking.
+
+•
+
+The device automatically sends a start/restart message upon each power-up
+or after a reset (warm start) operation.
+
+Spontaneous events and GI
+Events within the device are classified based on two primary criteria:
+•
+
+Function Type: This refers to the nature of the event, indicating what type of
+action or condition triggered the event.
+
+•
+
+Information Number: This is a unique identifier associated with the event,
+providing additional context or details specific to the event.
+
+By default, the device includes an IEC 60870-5-103 communication protocol
+profile. This profile contains a complete list of all events that the device generates,
+detailing each event's characteristics and the conditions under which they occur.
+
+Digital signals
+Data points configured to generate signals are automatically included in both the
+spontaneous event list and the GI list.
+In digital data point list, some fixed data points are as follows:
+
+P7/EN CM/02-004A
+
+55
+
+Protection and control device
+
+Communication protocols
+
+Table 22 - Fixed data points definition
+Description
+
+Function Type
+
+Information Number
+
+Signal/measurand blocking
+
+127
+
+20
+
+Command blocking
+
+127
+
+21
+
+Remote blocking
+
+127
+
+22
+
+Local blocking
+
+127
+
+23
+
+Transmission of signals via GI is controlled by demand, GI is initiated by the
+substation control system following the initial startup of the device. The execution
+of the GI command is based on following conditions:
+•
+
+Signal/measurand blocking is not enabled.
+
+•
+
+The GI command is received without any errors.
+NOTE: By default, a minimum configuration is provided.
+
+Blocking
+PowerLogic P7 supports two types of signal blocking:
+•
+
+Blocking: Prevent the transmission of signals and measurand data.
+
+•
+
+Command blocking: Reject all incoming commands.
+
+These blocking functions manage signal transmission and command execution
+under specific conditions. Detailed information is shown in the following table.
+Table 23 - Blocking function
+Function
+
+Blocking
+
+Command blocking
+
+Reset FCB/CU
+
+x
+
+x
+
+GI
+
+√
+
+x
+
+Spontaneous event
+
+√
+
+x
+
+Cyclic measurements
+
+√
+
+x
+
+General commands (ASDU 20)
+
+√
+
+√
+
+Disturbance records extraction
+
+√
+
+x
+
+Time synchronization
+
+x
+
+x
+
+Energy counter
+
+√
+
+x
+
+IED state
+
+x
+
+x
+
+•
+
+√: blocked
+
+•
+
+x: transmission as normal
+NOTE:
+
+56
+
+•
+
+During disturbance transmission, the transmission function will be
+immediately cancelled, any ongoing process of transmitting disturbance
+data will be stopped.
+
+•
+
+During a running GI, the transmission function will be cancelled, when a
+GI is in progress, it will be stopped to prevent any further transmission of
+data.
+
+•
+
+Previously not transmitted recorded spontaneous messages can be sent
+upon request for user data class 1, no newer messages or events will be
+transmitted.
+
+•
+
+Request for user data class 2 will not be transmitted.
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Test mode
+PowerLogic P7 provides three test modes, including Test, Test-blocked and Off.
+NOTE: Off mode is applicable to Bay Logical Devices (BayLD) and not to
+device-level Logical Devices (LD0).
+When operating in Test mode or Test-blocked mode, the device manages both
+spontaneous messages and polled measured values under the test mode
+designation.
+•
+
+Spontaneous and cyclic messages: Messages that are typically sent without
+a request (COT = 1) or on a regular schedule (COT = 2) will now be marked
+with COT = 7 to indicate they are transmitted in Test mode.
+
+•
+
+Unaffected messages: Other types of messages, such as those retrieved
+using a GI command (COT = 9), will continue to operate as usual.
+
+Control
+IEC 60870-5-103 standard defines the remote control of indications and the
+management of objects without associated indications.
+For example, the status of switchgear (On/Off) can be monitored as a standard
+ASDU 1 and controlled by the IEC 60870-5-103 client. Control objects without
+corresponding indications may include acknowledgment objects, such as an LED
+reset.
+ASDU 20 object type is used in remote control operations.
+The following data types are supported for controllable objects:
+•
+
+Boolean
+
+•
+
+Enumeration
+
+•
+
+Double point control
+
+Switchgear control model
+Switchgear control is restricted to direct On/Off commands according to the
+limitation of the standard.
+When the internal switchgear control model of the device is set to SBO, the
+application will internally simulate both select and operate commands for the
+switchgear. Consequently, the control operation will always be perceived as direct
+control by the IEC 60870-5-103 client.
+
+Control states of the device
+The IED can be configured in three states: Local, Remote and Local+Remote
+•
+
+When the device is in either Remote or Local+Remote state, the control of
+switchgear or other control objects belonging to the bay can be performed
+from the IEC 60870-5-103 client.
+
+•
+
+When the device is in Local state, the control cannot be performed from the
+IEC 60870-5-103 client.
+
+The IEC 60870-5-103 mapping includes two points (ASDU1 On or Off) to manage
+these states, and two Data Objects (DO), Local control active (BayLD/LLN0.
+LocInd) and Remote control active (BayLD/LLN0.RemInd) to indicate the state of
+the bay:
+
+P7/EN CM/02-004A
+
+•
+
+When Local control active = True, the device is in Local state.
+
+•
+
+When Remote control active = True, the device is in Remote state.
+
+•
+
+When both Local control active = True and Remote control active = True, the
+device is in Local+Remote state.
+
+57
+
+Protection and control device
+
+Communication protocols
+
+NOTE: The IEC 60870-5-103 application can locally reject control operations
+on the IEC 60870-5-103 client based on these indications and the client type
+(remote or station).
+
+Control operation rejection
+IEC 60870-5-103 standard does not accommodate scenarios where the IED is in
+connections with multiple remote clients.
+The configuration A remote control operation may be rejected if another remote
+client is simultaneously executing a control operation, such as an IEC 61850
+client.
+The IED manages remote command rejections in the following scenarios:
+•
+
+A remote command is sent to an existing object while the device is in Local
+control active or Remote control active state, but the control operation is
+blocked due to simultaneous control by another remote client.
+
+•
+
+A remote command is received while the device is still processing a prior
+command from the same client.
+
+•
+
+A remote command is executed on a non-existent object.
+
+•
+
+A remote command includes an invalid control value.
+
+In these instances, the command is acknowledged at the link level (Link ACK) but
+rejected at the application level (Negative response, COT = 21).
+
+Measurands
+Measurand object transmission is defined by the IEC 60870-5-103 standard.
+Analog measurands are transmitted as a set of class 2 data, known as a class 2
+measurands frame.
+According to the standard, the coding of IEC 60870-5-103 measurand objects
+must be 13-bit signed values.
+For instance, when an IEC 60870-5-103 measurand (phase current) is scaled as
+2.4, it means that the measurand value 1 corresponds to 2.4 × In, measurand
+value 0.5 corresponds to 1.2 × In, and so on. If the measurand value in this case
+exceeds 2.4 × In, the IEC 60870-5-103 object value saturates at the maximum
+value and an overflow flag is set in the object transmission.
+
+Class 2 measurands
+The interchangeable part of the IEC 60870-5-103 standard specifies only five
+class 2 measurands frames exist. These five class 2 frames only relate to current
+and voltage values only. The allowed scale factors, meaning [max values] of per
+unit coded measurands, are 1.2 or 2.4. PowerLogic P7 applies the scale factor
+2.4. The device supports all five interchangeable class 2 measurand frames
+defined by the standard as well as additional two private class 2 frames.
+NOTE: The IEC 60870-5-103 measurand value is signed, even if the original
+value is exclusively positive.
+
+58
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+•
+
+Standard/Interchangeable measurand
+◦
+
+ASDU 3.1
+
+◦
+
+ASDU 3.2
+
+◦
+
+ASDU 3.3
+
+◦
+
+ASDU 3.4
+
+◦
+
+ASDU 9
+
+Table 24 - Interchangeable class 2 measurand frames
+
+•
+
+ASDU
+
+FUN
+
+INF
+
+Number of
+data
+
+Data in the frame
+
+3.1
+
+IEC type
+
+144
+
+1
+
+IB
+
+3.2
+
+IEC type
+
+145
+
+2
+
+IB, VAB
+
+3.3
+
+IEC type
+
+146
+
+4
+
+IB, VAB, P, Q
+
+3.4
+
+IEC type
+
+147
+
+2
+
+IN, VN
+
+9
+
+IEC type
+
+148
+
+9
+
+IA, IB, IC, VA, VB, VC, P,
+Q, f
+
+Private measurand
+◦
+
+ASDU 3 (Cfg): The private frame contains up to 80 configurable
+measurands. The function type and information number can be configured
+for this user-definable class 2 frame if the protocol variant is set as
+Private.
+The default definitions for this frame are FUN = IEC type + 2, INF = 240.
+
+◦
+
+ASDU 73 (ILS-C): The further private defined measurand frame, which
+contains a fixed collection of 14 measurands with 3 bytes for each value (2
+bytes for the value and one byte for the quality). This frame was
+predefined because no additional fix ASDU frame contains phase-tophase and phase-to-ground values in one pre-defined frame.
+NOTE: The frame type selection will impact fix definitions of Type
+identification, Function type and Information number used by the
+firmware.
+
+Table 25 - Private class 2 measurand frames
+ASDU
+
+FUN
+
+INF
+
+Number of
+data
+
+Data in the frame
+
+3 (Cfg)
+
+IEC type + 2
+
+240
+
+80 (max)
+
+User configurable data
+points
+
+73 (ILS-C)
+
+248/247
+
+80
+
+14
+
+IA, IB, IC, VA, VB, VC,
+VAB, VBC, VCA, P, Q, f,
+PF, VN
+
+NOTE: For ASDU 73 (ILS-C), it is configurable.
+
+Selection of measurands
+One table is provided to obtain different measurand frames from the device with
+settings for cycle and deadband values. This table can be configured with
+standard ASDU 9.
+During the configuration of measurand telegrams, when Type of measurand
+telegram is selected as ASDU 3.x (x = 1 to 4), ASDU 9, ASDU 3 or ASDU 73, the
+corresponding collection of measurands will be automatically added to the
+measurand configuration list to save configuration time.
+The protocol variant can be configured, measurands can be changed in the preselected list.
+
+P7/EN CM/02-004A
+
+59
+
+Protection and control device
+
+Communication protocols
+
+Scaling of measurands
+The scale value defines the highest value expressed by the IEC 60870-5-103
+measurand. Integer value measurands are transferred in 12 bits + sign integer
+format.
+The raw 12-bit values (-4096~4095) are relative to 2.4 x nominal values. The
+scaling for different measurands is shown in the following table.
+Table 26 - Measurand scaling
+Type
+
+Measurand
+
+Scaling
+
+Nominal value
+
+Current
+
+IA, IB, IC, IN
+
+2.4 × In
+
+pu
+
+Voltage
+
+VA, VB, VC, VN
+
+2.4 × Vn
+
+pu
+
+Power
+
+P, Q, S
+
+2.4 × In × Vn × √3
+
+pu
+
+2.4 × Vn/In/√3
+
+pu
+
+Impedances
+Frequency
+
+f
+
+2.4 × Fn
+
+Fn = 50 Hz or 60 Hz
+
+Thermal
+
+Thermal level
+
+2.4 × TLn
+
+TLn = 100%
+
+Other
+
+Angle, temperature
+
+2.4 × Dn
+
+Dn = 100°
+
+PF
+
+2.4 × PFn
+
+PFn = 1
+
+DI counter, time duration
+
+No scaling
+
+Energy counter
+
+No scaling
+
+Primary energy
+
+Engergy counters
+In IEC 60870-5-103 standard, the transmission of counters or accumulated totals,
+such as energy values, is not supported. However, in PowerLogic P7
+configuration, counters are treated as a type of special measurands. The energy
+values from the EMMTR are classified as counters. These counter values can be
+reset by control commands sent from the client station.
+NOTE: The ASDU for energy counter is fixed to ASDU 79.
+Table 27 - Energy counters
+Function
+
+Information number
+
+IEC 61850 object reference
+
+Description
+
+124
+
+108~111
+
+BayLD/EMMTR1.WhDmd.actVal
+
+Active energy demand.
+
+BayLD/EMMTR1.WhSup.actVal
+
+Active energy supply.
+
+BayLD/EMMTR1.VArhDmd.actVal
+
+Reactive energy demand.
+
+BayLD/EMMTR1.VArhSup.actVal
+
+Reactive energy supply.
+
+Disturbance records
+PowerLogic P7 applies a broad limitation on the size of Disturbance Records (DR)
+files.
+Extraction of the DR file exceeding 4 MB in size is not supported by the
+IEC 60870-5-103 DR service on the IED.
+
+DR files
+The device supports DR files in .CFF format, which are created in compliance
+with the IEC 60255-24 standard.
+
+60
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+DR files parsing
+To parse the DR files, the device will
+•
+
+store xxx.CFF files with the fault number selected by the IEC 60870-5-103
+client in the memory.
+
+•
+
+parse the memory that stores the contents of xxx.CFF file.
+Four sections are available in the file:
+◦
+
+xxx.CFG
+
+◦
+
+xxx.INF
+
+◦
+
+xxx.HDR
+
+◦
+
+xxx.DAT (binary format)
+NOTE: For the IEC 60870-5-103 of PowerLogic P7, only xxx.CFG and
+xxx.DAT are supported.
+
+Table 28 - Segment of xxx.CFF file
+Segment
+
+Description
+
+xxx.CFG
+
+–--file type: CFG–-Substation/feeder identification, PowerLogic P7, 2013
+110,22A,88D
+1,3ph CT 1.IA,A,,A,0.0090000,0.0,0.000000,32767,32767,100.000000,1.000000,S
+2,3ph CT 1.IB,B,,A,0.0050000,0.0,0.000000,32767,32767,100.000000,1.000000,S
+3,3ph CT 1.IC,C,,A,0.0050000,0.0,0.000000,32767,32767,100.000000,1.000000,S
+4,1ph CT 1.Ix,,,A,0.0050000,0.0,0.000000,32767,32767,100.000000,1.000000,S
+In this xxx.CFF file,
+
+xxx.DAT
+
+•
+
+◦
+
+110 indicates the number of channels.
+
+◦
+
+22A indicates 22 analog channels.
+
+◦
+
+88D indicates 88 digital channels.
+
+◦
+
+Others indicate the analog channel configuration information for encoding
+ASDU messages.
+
+The data value is stored in binary format.
+
+get initial values and changed values of the digital channels through private
+implementation.
+NOTE: In the IEC 60870-5-103 standard, 25 initial values can be
+contained per ASDU 29, only one modified value can be contained.
+
+•
+
+parse the memory that stores the contents of xxx.CFF file to get xxx.DAT
+and values of analog channels.
+
+DR files management
+The basic information such as fault number and creation time of all DR files in the
+file system of PowerLogic P7 are stored by creation date in a link list.
+When a new DR file is generated, the value of DRRDRE1.RcdMade is changed
+from false to true.
+The IEC 60870-5-103 application detects the data change event and updates the
+DR file link list.
+When a DR file is deleted, the total number of DR files is decremented by one.
+When the process involves the generation of a new DR file or the deletion of an
+existing one, the IEC 60870-5-103 identifies the changes by comparing the
+current list of DR files present in the file system with the local DR list.
+
+P7/EN CM/02-004A
+
+61
+
+Protection and control device
+
+Communication protocols
+
+Time synchronization
+PowerLogic P7 supports time synchronization over the IEC 60870-5-103. This
+time synchronization is based on local time.
+The device can correct the transmission delay. When the time synchronization
+message is transmitted in a send/confirm message, the device acknowledges the
+message with a confirm.
+NOTE: When a time synchronization source (PTP, IRIG-B or SNTP) is
+configured for the device, setting the device time using the IEC 60870-5-103
+interface is unavailable, which means the IEC 60870-5-103 time
+synchronization messages will be rejected.
+
+Setting group
+Eight setting groups are supported in PowerLogic P7. The setting group switching
+is managed by control process. Each setting group has one control point. The
+function type and information number definitions for eight setting groups are:
+FUN = 126, INF = 1 - 8.
+NOTE: On the device’s native IEC 61850 model level, the setting group
+change object is also a setting parameter, not a process object. Consequently,
+the setting group writing fails if simultaneous parameter settings are edited via
+the HMI, remotely from another client or matrix.
+
+IEC 60870-5-103 configuration
+PowerLogic P7 provides flexible configuration of the IEC 60870-5-103 protocol for
+various applications.
+There is a default configuration file for each product type and it can be viewed and
+configured by using PowerLogic Engineering Suite.
+The IEC 60870-5-103 protocol configuration file of the device contains digital and
+analog data points:
+•
+
+Digital data points are used to represent status indications, control signals,
+and other binary information, each digital point includes following attributes:
+◦
+
+Data reference: Reference of the data point.
+
+◦
+
+FUN: Function Type.
+
+◦
+
+INF: Information Number.
+
+◦
+
+ASDU: ASDU type.
+
+◦
+
+Control: Indicates if the data point is a control point.
+
+◦
+
+Double point: Indicates if the data point is a double point.
+(0 = No, 1 = Yes)
+
+62
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+•
+
+Analog data points are used for measurements such as current, voltage,
+power, and frequency, each analog point includes following attributes:
+◦
+
+Data reference: Reference of the data point.
+
+◦
+
+FUN: Function Type.
+
+◦
+
+INF: Information Number.
+
+◦
+
+ASDU: ASDU type.
+
+◦
+
+Min: Minimum scaling value is 0.
+
+◦
+
+Max: Maximum scaling value which is fixed to 2.4.
+
+◦
+
+Resolution: Resolution of the measurand.
+The resolutions of different measurands are calculated separately.
+–
+
+For current, voltage, power, impedances, power factor:
+resolution = 2.4/4096 ≈ 0.0006
+
+–
+
+For frequency: resolution = 2.4×50/4096 ≈ 0.03
+
+–
+
+For angle, temperature: resolution = 2.4×100/4096 ≈ 0.06
+
+–
+
+For thermal level: resolution = 2.4×100/4096 ≈ 0.06
+
+–
+
+For all other measurement: resolution = 2.4/4096 ≈ 0.0006
+
+General protocol configuration
+The IEC 60870-5-103 application can be configured under
+Communication > IEC 60870-5-103 > Basic info from PowerLogic Engineering
+Suite.
+Table 29 - Settings of IEC 60870-5-103
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+SerEna
+
+Serial mode
+
+Enables IEC 60870-5-103 over
+the serial port. Only a single
+protocol can use the serial port
+
+•
+
+Off
+
+•
+
+On
+
+Step size
+
+Default
+setting
+Off
+
+SlvNo
+
+Outstation address
+
+A unique address for the IED
+
+1...254
+
+1
+
+1
+
+AckMode
+
+Acknowledgement
+mode
+
+Sets the acknowlegement
+response
+
+•
+
+Character
+
+•
+
+Message
+
+CycleTmm
+
+Class 2 cycle
+
+Class 2 data report cycle
+
+0...900 s
+
+1s
+
+60 s
+
+CycleEnergy
+
+Energy counter cycle
+
+Energy counter cycle time
+
+0...15 min
+
+1 min
+
+0 min
+
+DeltaV
+
+Voltage deadband
+
+Voltage deadband
+
+0...15%
+
+0.1%
+
+3%
+
+DeltaI
+
+Current deadband
+
+Current deadband
+
+0...15%
+
+0.1%
+
+3%
+
+DeltaP
+
+Power deadband
+
+Power deadband
+
+0...15%
+
+0.1%
+
+15%
+
+DeltaAng
+
+Angle deadband
+
+Angle deadband
+
+0...15 deg
+
+1 deg
+
+1 deg
+
+DeltaT
+
+Temperature deadband
+
+Temperature deadband
+
+0...15 °C
+
+1 °C
+
+5 °C
+
+DeltaF
+
+Frequency deadband
+
+Frequency deadband
+
+0...15 Hz
+
+0.1 Hz
+
+3 Hz
+
+DeltaZ
+
+Impedance deadband
+
+Impedance deadband
+
+0...15%
+
+0.1%
+
+3%
+
+DeltaM
+
+Other deadband
+
+Other measurement type
+deadband
+
+0...15%
+
+0.1%
+
+3%
+
+Character
+
+Flexible mapping configuration
+A complete configuration for signals and commands are provided in the
+IEC 60870-5-103 point list document. The data points pre-configured by default in
+PowerLogic P7 can be flexibly mapped for your applications.
+
+P7/EN CM/02-004A
+
+63
+
+Protection and control device
+
+Communication protocols
+
+Measurand mapping and indication mapping configurations
+To configure data points in mapping list:
+1. From PowerLogic Engineering Suite,
+•
+
+expand Communication > IEC 60870-5-103 > Measurand mapping to
+map measurand telegram, or
+
+•
+
+expand Communication > IEC 60870-5-103 > Indication mapping to
+map digital inputs.
+
+2. From corresponding Measurand mapping or Indication mapping window,
+
+64
+
+•
+
+click
+
+icon to edit the existing mapping list, or
+
+•
+
+click
+
+icon to delete the selected point list from the mapping list, or
+
+•
+
+click Add to create a new mapping list.
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+3. Select one of the following options to create or edit a mapping list.
+Table 30 - Measurand mapping configuration
+Measurand mapping
+
+Procedure
+
+•
+
+To create a new list of analog points or modify the analog points
+configuration of the IEC 60870-5-103 protocol:
+
+•
+
+From Create
+measurand
+telegram list window
+From Edit
+measurand
+telegram list window
+
+a. Expand the tree from the Available data section and select
+the data point you want to add.
+b. Click
+to add a new point into the Selected data section,
+or click
+to remove an existing point from the Selected
+data section to update the existing measurand mapping list.
+NOTE: Search cell is used to filter list of data. Available
+data and Selected data can be filtered with IEC 61850
+DA data attribute function code MX.
+c. Type a new name or edit the existing name in Measurand
+telegram field.
+d. Optionally, if you want to update the ASDU, function type or
+information number of the mapping list,
+•
+
+ASDU: Select an ASDU value.
+
+•
+
+FUN: Select a function type.
+
+•
+
+INF: Set an information number.
+NOTE:
+•
+
+We recommend that you keep the default values of
+ASDU, function type and information number
+provided by the IED.
+
+•
+
+The Capacity field displays the remaining
+percentage of capacity available for the mapping
+list.
+
+e. Click Apply to save changes to the mapping list, or click
+Cancel to quit.
+•
+
+From Row deletion
+window
+
+Click Delete to confirm the deletion of the row.
+
+Table 31 - Indication mapping configuration
+Indication mapping
+
+Procedure
+
+•
+
+To create a new digital points configuration or modify the digital
+points configuration of the IEC 60870-5-103 protocol:
+
+•
+
+From Create list of
+digital inputs
+window
+From Edit list of
+digital inputs
+window
+
+a. Expand the tree from the Available data section and select
+the data point you want to add.
+b. Click
+to add a new point into the Selected data section,
+or click
+to remove an existing point from the Selected
+data to update the existing digital mapping list.
+NOTE: The search box is used to filter the list of data.
+Available data and Selected data can be filtered with
+IEC 61850 DA data attribute function code ST, SP, SE,
+or CO.
+c. Type a new name or edit the existing name in Digital points
+description filed.
+d. Optionally, if you want to update the function type, information
+type or ASDU of the digital points,
+•
+
+FUN: Select a function type for the mapping list.
+
+•
+
+INF: Select a data point and set an information number.
+
+•
+
+ASDU: Select an ASDU value.
+NOTE:
+•
+
+We recommend that you keep the default values of
+function type, information number and ASDU
+provided by the IED.
+
+•
+
+The Capacity field displays the remaining
+percentage of capacity available for the mapping
+list.
+
+e. Click Apply to save changes to the mapping list, or click
+Cancel to quit.
+•
+
+P7/EN CM/02-004A
+
+From Row deletion
+window
+
+Click Delete to confirm the deletion of the row.
+
+65
+
+Protection and control device
+
+66
+
+Communication protocols
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Redundancy protocols
+There are four redundancy protocols available as options of Ethernet
+communication in PowerLogic P7 devices:
+•
+
+PRP (Parallel Redundancy Protocol)
+
+•
+
+HSR (High-availability Seamless Redundancy)
+
+•
+
+RSTP (Rapid Spanning Tree Protocol)
+
+•
+
+Failover mode
+
+To switch between different redundancy protocols, navigate to Device
+configuration > Slot A > Port 2/3 Ethernet > Redundancy mode in
+PowerLogic Engineering Suite.
+
+Parallel Redundancy Protocol (PRP)
+Introduction
+The Parallel Redundancy Protocol used in PowerLogic P7 devices is defined in
+Clause 4 of the IEC 62439-3 standard. The PRP is a redundancy in the devices
+method that provides bumpless switchover in case of network failure or
+reintegration. Furthermore, it provides the shortest Ethernet network
+reconfiguration time as network reconfiguration is seamless.
+PowerLogic P7 uses two independent Ethernet ports that operate in parallel on
+two independent networks. Each message is replicated and sent over both
+networks. The first network node that receives a message will process it, all later
+instances of the received message will be discarded. These details of replicating
+and discarding messages are controlled by the low-level PRP layer of the network
+architecture, so that the two networks are hidden from the higher level layers.
+Thus, PRP-based networks provide a high degree of robustness and resilience.
+Essentially, a PRP network consists of a pair of similar Local Area Networks
+(LANs) which can be any topology (tree, ring or mesh). An example of a PRP
+network is shown in PRP redundancy network, page 68.
+The key features of a PRP redundant network include:
+
+P7/EN CM/02-004A
+
+•
+
+Each of the two LANs can have one or more Single Attached Nodes (SANs).
+These are normally non-significant devices that are attached only to a single
+network. SANs can communicate with each other, but only if they are
+attached to the same LAN.
+
+•
+
+Matched pairs of devices have an interface to each LAN, hence they are
+called Dual Attached Nodes (DANs). DANs having the PRP implemented are
+called DANs with PRP implemented (DANP).
+
+•
+
+Each device in both LANs, each DANP has to be configured with the same
+Media Access Control (MAC) code and Internet Protocol (IP) address for both
+of its ports. As a result, TCP/IP traffic will automatically communicate with
+both of the paired devices, so it will be unaware of any layer 2 redundancy or
+frame duplication issues.
+
+•
+
+A Redundancy Box (RedBox) is used when a single interface node has to be
+connected to both LANs. The RedBox can communicate with all other nodes.
+So far as other nodes are concerned, the RedBox behaves like a DAN, so an
+IED connected via a RedBox is also called a Virtual DAN (VDAN). The
+RedBox has its own unique IP address.
+
+•
+
+PowerLogic P7 devices have to be connected to the redundant Ethernet
+network as a DAN using PRP (DAN using PRP is known as DANP).
+
+•
+
+The redundant Ethernet interface has two SFP ports. These can be fitted with
+RJ45, as well as single or multi-mode LC connections. A mixture of SFP
+modules is supported.
+
+•
+
+The management of the PRP redundancy is transparent to the application
+data provided via the Ethernet interface.
+
+67
+
+Protection and control device
+
+Communication protocols
+
+•
+
+Disconnection of one of the LANs to the device does not cause any
+degradation to the application data over the Ethernet interface.
+
+•
+
+Each supervision frame includes a sequence number as defined in the IEC
+62439-3 specification. This is incremented for each supervision message and
+the value starts from zero following a system restart.
+
+•
+
+Supervision frames are not processed by PowerLogic P7 devices.
+
+Figure 2 - PRP redundancy network
+LAN A
+SAN
+(A1)
+
+SAN
+(A2)
+
+DANP
+(D2)
+
+LAN B
+
+Redundancy Box
+(RedBox)
+DANP
+(D1)
+
+VDAN
+VDAN
+
+SAN
+(B2)
+SAN
+(B1)
+
+VDAN
+M71106A
+
+Structure of a DANP
+PowerLogic P7 devices working in PRP mode work as a DANP each within the
+overall network topology. Each DANP has two ports that operate in parallel. They
+are attached to the upper layers of the communications stack through Link
+Redundancy Entity (LRE).
+Figure 3 - Communication between two DANPs
+Double Attached Node (DAN1)
+
+Double Attached Node (DAN2)
+
+Upper Layers
+
+Upper Layers
+
+Link Redundancy Entity (LRE)
+
+Link Redundancy Entity (LRE)
+
+Tx
+
+Tx
+
+Rx
+
+Tx
+
+Rx
+
+Rx
+
+Tx
+
+Rx
+
+Port A
+
+Port B
+
+Port A
+
+Port B
+
+(P7 PORT3)
+
+(P7 PORT2)
+
+(P7 PORT3)
+
+(P7 PORT2)
+
+LAN_A
+LAN_B
+M71107B
+
+NOTE: Port 3 and Port 2 on PowerLogic P7 must be connected to Port A and
+Port B on the switch, respectively. Otherwise, some functions reliant on the
+two ports might not work, such as web service.
+The LRE has two main tasks:
+•
+
+Handling message frames
+
+•
+
+Management of redundancy
+
+When an upper layer sends a frame to the LRE, the LRE replicates the frame and
+adds the PRP footer in each frame, then sends them through their ports at nearly
+the same time. The two frames move through the two LANs with slightly different
+delays, ideally arriving at the destination node within a small time window.
+
+68
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+When receiving frames, the LRE forwards the first frame it received to its upper
+layers and then discards the duplicate.
+As both DANP nodes have the same MAC and IP addresses, this makes
+redundancy transparent to the upper layers. This allows Address Resolution
+Protocol (ARP) to work in the same way as with a SAN. Accordingly, to the upper
+layers of a DANP, the LRE layer shows the same interface as the network adapter
+of a non-redundant adapter.
+To manage redundancy, the LRE:
+•
+
+Adds a 32-bit Redundancy Check Tag (RCT) to each frame it sends
+
+•
+
+Removes the RCT from each frame it receives
+
+Communication between SANs and DANs
+A SAN can be connected to any LAN and can communicate with any other SAN
+on the same LAN or any DAN. However, a SAN which connected to one LAN can
+not communicate directly to a SAN which is connected to the other LAN.
+A DAN is connected to both LANs and can communicate with any Redundancy
+Box (RedBox) or any other DANs or any SANs on either network. For
+communication purposes, a DAN views a SAN connected through a RedBox as a
+VDAN.
+When a SAN generates a basic frame, it sends the frame only onto the LAN to
+which it is connected.
+
+Main characteristics
+•
+
+Up to four VLAN tags supported
+
+•
+
+64 GOOSE publishers supported per receiver
+
+•
+
+Up to 1000 Mbps full duplex Ethernet
+
+•
+
+Capable of full rate switching including with small frame (no frame loss up to
+100% bandwidth)
+
+•
+
+It supports Precision Time Protocol (PTP) (IEEE 1588) and Link Layer
+Discovery Protocol (LLDP).
+
+According to the IEC/IEEE 8802-3, Maximum Transmission Unit (MTU) (Ethernet
+maximum packet size) is:
+•
+
+1518 bytes without VLAN and without PRP
+
+•
+
+1522 bytes with VLAN and without PRP
+
+•
+
+1524 bytes without VLAN and with PRP
+
+•
+
+1528 bytes with VLAN and with PRP
+NOTE: Check that the LAN switches setting for the MTU is at least 1528
+bytes.
+
+High-availability Seamless Redundancy (HSR)
+Introduction
+The High-availability Seamless Redundancy Protocol used in PowerLogic P7
+devices is defined in Clause 5 of the IEC 62439-3 standard.
+The HSR is a redundancy in the devices method that provides seamless
+switchover and recovery in case of a single communication failure or reintegration.
+HSR Ethernet redundancy method is independent of any industrial Ethernet
+protocol and uses a ring topology.
+
+P7/EN CM/02-004A
+
+69
+
+Protection and control device
+
+Communication protocols
+
+PowerLogic P7 devices provide two redundant Ethernet ports using HSR. The
+redundant Ethernet interface can be made using an optical fiber connection with
+an LC connector type. The management of the HSR redundancy is transparent to
+the application data provided via the Ethernet interface.
+Disconnection of one of the nodes to the device does not cause any degradation
+to the application data over the Ethernet interface.
+An example of a HSR network is shown in HSR redundancy network, page 70.
+The key features of a HSR redundancy network include:
+•
+
+Nodes within the ring are restricted to be HSR-capable bridging nodes, thus
+avoiding the use of dedicated bridges.
+
+•
+
+Singly Attached Nodes (SANs) such as laptops or printers cannot be attached
+directly to the ring, but need attachment through a RedBox.
+
+•
+
+A simple HSR network consists of doubly attached bridging nodes, each
+having two ports, interconnected by full-duplex links.
+
+•
+
+A source Double Attached Node with HSR implemented (DANH) sends a
+frame passed from its upper layers, prefixes it by an HSR tag to identify frame
+duplicates and sends the frame over each port.
+
+•
+
+A destination DANH receives, in the fault-free state, two identical frames from
+each port within a certain interval, if it is a multicast frame, it instantaneously
+forwards it on the ring, removes the HSR tag of the first frame before passing
+it to its upper layers and discards any duplicate.
+In particular, the node will not forward a frame that it injected into the ring. A
+destination node of a unicast frame does not forward a frame for which it is
+the only destination, except for testing.
+
+•
+
+PowerLogic P7 devices have to be connected to the redundant Ethernet
+network as a DAN using HSR (DANH).
+
+Figure 4 - HSR redundancy network
+DANH
+(D1)
+
+Redundancy Box
+(RedBox)
+
+SAN
+(A1)
+
+DANH
+(D2)
+
+Redundancy Box
+(RedBox)
+
+SAN
+(A2)
+SAN
+(A3)
+
+DANH
+(D3)
+
+VDAN
+VDAN
+VDAN
+M71108A
+
+Structure of a DAN
+PowerLogic P7 devices working in HSR Mode work as a DAN within the overall
+network topology. Each DAN has two ports that operate in parallel. The two HSR
+ports A and B are connected by the LRE, which includes a switching matrix
+allowing to forward frames from one port to the other. The switching matrix allows
+cut-through bridging. The LRE presents to the higher layers the same interface as
+a standard Ethernet transceiver would do.
+
+70
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Figure 5 - Communication between two DANs (in HSR)
+Double Attached Node (DAN)
+Upper Layers
+LRE
+
+Tx_A
+
+Tx_B
+
+Rx_B
+
+Rx_A
+
+Tx_B
+
+LAN_A
+
+Rx_B
+
+LAN_B
+M71113A
+
+NOTE: LAN_A and LAN_B are associated with Port 3 and Port 2 on the
+device, respectively.
+DAN node is operable in HSR-tagged forwarding mode, the DAN inserts the HSR
+tag on behalf of its host and forwards the ring traffic, except for frames sent by the
+node itself. Duplicate frames and frames where the node is the unicast destination
+are not forwarded.
+
+Structure of a RedBox
+The RedBox has a LRE that performs the duties of the HSR protocol, in particular:
+•
+
+Forwards the frames received from one HSR port to the other HSR port,
+unless the frame receives frames addressed to its own upper protocols
+
+•
+
+Prefixes the frames sent by its own upper layers with the corresponding HSR
+tag before sending two copies over its HSR ports
+
+The switching logic is incorporated into the RedBox, so interlink becomes an
+internal connection.
+A simple RedBox is present in every node, since the LRE makes a transition to a
+single non-HSR host. In addition, it is usual to have more than one host in a node,
+since a port for maintenance often exists.
+A node does not send over a port a frame that is a duplicate of a frame previously
+sent over that port in that same direction.
+For the purpose of Duplicate Discard, a frame is identified by:
+•
+
+Source MAC address
+
+•
+
+Sequence number
+
+The Duplicate Discard method forgets an entry identified by <Source MAC
+Address><Sequence number> after a time EntryForgetTime.
+
+Communication between SANs, DANs and RedBoxs
+Singly Attached Nodes, for instance maintenance laptops or printers cannot be
+inserted directly into the ring since they have only one port and cannot interpret
+the HSR tag in the frames. SANs communicate with ring devices through a
+RedBox that acts as a proxy for the SANs attached to it.
+A source DANH sends a frame passed from its upper layers, and prefixes it by an
+HSR tag to identify frame duplicates and sends the frame over both ports. Each
+supervision frame includes a sequence number as defined in the IEC 62439- 3
+
+P7/EN CM/02-004A
+
+71
+
+Protection and control device
+
+Communication protocols
+
+specification. This is incremented for each supervision message and the value
+starts from zero following a system restart.
+A destination DANH receives, in the fault-free state, two identical frames from
+each port within a certain interval, if it is a multicast frame, it instantaneously
+forwards it on the ring, removes the HSR tag of the first frame before passing it to
+its upper layers (D - frame) and discards any duplicate.
+
+Main characteristics
+•
+
+Up to four VLAN tag supported
+
+•
+
+Up to 128 devices supported
+
+•
+
+Up to 1000 Mbps full duplex Ethernet
+
+•
+
+Dynamic frame memory allocation (page manager)
+
+•
+
+Configurable duplicate detection
+
+•
+
+Wishbone interface for configuration and status registers
+
+•
+
+CPU port interface - Wishbone
+
+•
+
+Support for link-local protocols - CPU may send to specific ports only - CPU
+knows receive port
+
+•
+
+Support for interfaces with or without Ethernet preamble
+
+•
+
+Configurable frame memory and queue length
+
+•
+
+Duplicate detection with configurable size and aging time
+
+•
+
+Support for interfaces with or without Ethernet preamble
+
+Limitations:
+•
+
+Number of devices on a same ring at 1000 Mbit/s:
+Each hop (devices or RedBox) not only carries its own messages but also all
+the other devices messages thus the bandwidth used is proportional to the
+number of devices. The maximum number of hops is around 20 when
+GOOSE/SV messages are highly used or 40 if the number and importance of
+GOOSE/SV messages are not high.
+
+•
+
+When Precision Time Protocol, according to IEEE 1588/IEC 61588 standard,
+is used:
+As the GPS receiver inaccuracy is 200 ns and each hop (devices or RedBox)
+can add a 50 ns inaccuracy, the maximum number of hops is 16 if 1 μs
+accuracy is required (PMU application or Process Bus).
+
+Rapid Spanning Tree Protocol (RSTP)
+Introduction
+RSTP is a standard used to quickly reconnect a network failure by finding an
+alternative path, allowing loop-free network topology.
+Figure 6 - A redundant Ethernet star or ring circuit
+
+Switch 1
+
+Switch 2
+
+Switch 1
+
+Switch 2
+
+PowerLogic P7 1
+
+PowerLogic P7 2
+
+PowerLogic P7 1
+
+PowerLogic P7 2
+
+PowerLogic P7 1
+
+Star connection with redundant ports
+managed by RSTP blocking function.
+
+Ring connection managed by RSTP
+blocking function on upper switches and
+IEDs interconnected directly.
+M71109A
+
+72
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+Although RSTP can recover network failures quickly, the recovery time depends
+on the number of devices and the topology. The recovery time also depends on
+the time taken by the devices to determine the root bridge and compute the port
+roles (discarding, learning, forwarding). The devices do this by exchanging Bridge
+Protocol Data Units (BPDUs) containing information about bridge devices and root
+path costs. See the IEEE 802.1w standard for further information.
+The RSTP solution is based on open standards. It is therefore compatible with
+other manufacturers’ IEDs that use the RSTP protocol. The typical RSTP recovery
+time is less than 50 ms for 10 IEDs in a network but it increases with the network
+size. Due to this recovery time it is not recommended to use RSTP in automation
+systems where a high availability of GOOSE or SV exchange is essential.
+PowerLogic P7 devices provide two redundant Ethernet ports using RSTP. The
+redundant Ethernet interface can be made using RJ45 or optical fiber connections
+of LC connector type. The management of the RSTP is transparent to the
+application data provided via the Ethernet interface. One of the missed node
+connections to the device does not cause any degradation to the application data
+over the Ethernet interface.
+
+RSTP parameters
+The parameters for the RSTP protocol can be configured under Device
+configuration > Slot A > Port 2/3 Ethernet from PowerLogic Engineering Suite.
+Table 32 - Settings of RSTP
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+RedMod
+
+Redundancy mode
+
+Failover is used when single SFP
+fitted. If both SFPs are fitted failover
+will use port 1 if connected and change
+to port 2 if port 1 is lost
+
+•
+
+PRP
+
+•
+
+HSR
+
+•
+
+RSTP
+
+•
+
+Failover
+
+Step size
+
+Default
+setting
+Failover
+
+BridgePrio
+
+Bridge priority
+
+Parameter used to define the RSTP
+root device for the network. If priorities
+of two or more devices are equal then
+the device with lowest MAC address is
+chosen as a root
+
+0...61440
+
+4096
+
+32768
+
+HelloTime
+
+Hello time
+
+Setting defines how often RSTP
+frames (Hello BPDU) are sent
+
+1...2 s
+
+1s
+
+2s
+
+MaxAge
+
+Max age
+
+The maximum age of the information
+transmitted by the Bridge when it is the
+Root Bridge.
+
+6...40
+
+1
+
+20
+
+FwdDelay
+
+Forward delay
+
+Time needed for the port to change its
+state from blocking to forwarding
+
+4...30 s
+
+1s
+
+15 s
+
+P1PathCost
+
+Port 2 path cost
+
+Port Cost is related to transfer speed.
+This is determined according to RSTP
+specification
+
+20000...200000000
+
+10000
+
+200000
+
+P1Priority
+
+Port 2 priority
+
+When both Ethernet ports are set
+connected to the same network
+segment – in such a case the port with
+worse priority (higher value) is disabled
+as a backup path for that segment.
+
+0...240
+
+16
+
+128
+
+P2PathCost
+
+Port 3 path cost
+
+Port Cost is related to transfer speed.
+This is determined according to RSTP
+specification
+
+20000...200000000
+
+10000
+
+200000
+
+P2Priority
+
+Port 3 priority
+
+When both Ethernet ports are set
+connected to the same network
+segment – in such a case the port with
+worse priority (higher value) is disabled
+as a backup path for that segment.
+
+0...240
+
+16
+
+128
+
+P7/EN CM/02-004A
+
+73
+
+Protection and control device
+
+Communication protocols
+
+Failover mode
+Introduction
+Failover mode is a backup operational mode that automatically switches to a
+standby Ethernet port. Only one of the redundant ports is active at any time. In the
+Failover mode for a PowerLogic P7, the device determines the active port as
+follows:
+On startup, PowerLogic P7 communicates via Port 3. When the device detects a
+link failure on Port 3, it activates Port 2 immediately, which means a fast port
+switching (with no intentional delay) is supported.
+After Failover, while communicating via Port 2, PowerLogic P7 does not check the
+link status of Port 3. The device continues to communicate via the Port 2 even
+after the Port 3 returns to normal. The port of choice for communications is
+recalculated on failure of the Port 2 or on reboot. The device returns operation on
+Port 3 under the condition if it detects a normal link status on Port 3. When the
+links on Port 3 and Port 2 both fail, the device checks the link status of the two
+ports in turn until it detects an active port.
+
+Generic functions for all redundant Ethernet modules
+•
+
+Ethernet 100Base Fx/Tx
+The redundant port provides two SFP sockets.
+
+•
+
+Forwarding
+The devices from the families PowerLogic P7 devices support store and
+forward mode. The forwards messages with known addresses to the
+appropriate port. The messages with unknown addresses, the broadcast
+messages and the multicast messages are forwarded out to all ports except
+the source port. Switches will not forward error packets, IEEE 802.3x pause
+frames or local packets.
+NOTE: Forwarding is active when HSR or RSTP protocol is selected.
+
+•
+
+Priority Tagging
+IEEE 802.1p priority tagging is enabled on all ports.
+
+SFTP
+SFTP (Secure File Transfer Protocol) is an SSH (Secure Shell) based network
+protocol, used for securely transferring files over an Ethernet TCP/IP network.
+SFTP provides a secure, reliable and efficient file transfer mechanism.
+PowerLogic P7 has an internal SSH server that can be accessed using an
+encrypted connection with SFTP client software. The SSH server hosts an internal
+SFTP site and stores files in the device’s flash memory.
+In the device, all logs (DR, SoE, Opertation logs, etc.) are available for SFTP
+clients to view and extract.
+
+Extracting files using SFTP
+Prerequisites:
+
+74
+
+•
+
+SFTP status of Port 1 or Port 2/3 is On. This setting can be found in
+PowerLogic Engineering Suite under Device configuration > Slot A > Port 1
+Ethernet or Port 2/3 Ethernet.
+
+•
+
+The IP address of PowerLogic P7 and SFTP port number (port 2222)
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+
+•
+
+User name and password configured in RBAC file by CAE
+NOTE: By default, the ENGINEER and OPERATOR roles are granted
+SFTP right.
+
+•
+
+Refresh the log list in PowerLogic Engineering Suite by clicking Refresh logs
+on the corresponding log page.
+NOTE: PowerLogic P7 stores most logs in binary format. When you
+refresh the logs in PowerLogic Engineering Suite, the device converts the
+binary log data into CSV format. Extracting logs through SFTP does not
+initiate this conversion. To ensure that the latest and complete CSV log
+files are available for extraction, refresh the log list before using SFTP.
+
+•
+
+SFTP client software, such as FileZilla.
+
+To extract files using SFTP:
+1. Start the SFTP client software.
+2. Connect to PowerLogic P7 through SFTP.
+The maximum SSH/SFTP connection number is 6.
+3. Log in using the default account of roles.
+The default maximum attempts for authentication is 3. The login operation
+must be completed within 2 minutes, otherwise the TCP connection will be
+disconnected.
+NOTE: The attempt number can be configured by CAE. If the configured
+number exceeds 6, the maximum attempts will be limited to 6.
+4. Navigate to the desired folder and select the logs you want.
+5. Extract the files.
+
+Simple network management protocol (SNMP)
+SNMP is an application layer protocol used for monitoring and managing network
+devices. In this model, the SNMP agent component is embedded in managed
+devices, gathering a variety of device information and storing them in a
+hierarchical format that can be queried or set by the SNMP manager (typically an
+NMS, Network Management Station) with correct credentials. In addition, the
+SNMP agent can also proactively send trap messages to the SNMP manager,
+informing events that are happening on managed devices.
+get-request
+get-response
+SNMP manager
+Trap
+receiver
+
+get-next-request
+get-response
+
+SNMP agent
+MIB
+
+trap
+Managed objects
+
+NMS
+
+IED
+P7111BA
+
+PowerLogic P7 supports SNMP v3 and has the SNMP agent component
+embedded to provide a secure and flexible way for device monitoring and
+management.
+To enable the SNMP function on Port 1 or Port 2/3, use PowerLogic Engineering
+Suite to set SNMP status to On under Device configuration > Slot A > Port 1
+Ethernet or Port 2/3 Ethernet. The SNMP parameters can be further modified
+with CAE.
+
+P7/EN CM/02-004A
+
+75
+
+Protection and control device
+
+Communication protocols
+
+NOTE:
+•
+
+The SNMP function is always enabled on the Mini-USB and DHMI ports.
+
+•
+
+In Safe mode, the SNMP function remains operational but some device
+information is unavailable for querying.
+
+•
+
+The Set request is not supported due to security considerations.
+
+Supported MIBs
+Management Information Block (MIB) is used to detail the hierarchical tree of
+managed objects and their object identifications (OIDs).
+root
+
+ccitt (0)
+
+iso (1)
+
+joint-iso-ccitt (2)
+
+org (3)
+
+dod (6)
+
+internet (1)
+
+directory (1)
+
+mgmt (2)
+
+experimental (3)
+
+private (4)
+
+mib (1)
+
+enterprises (1)
+
+schneiderElectric (3833)
+System (1)
+
+interfaces (2)
+
+ip (4)
+
+icmp (5)
+
+tcp (6)
+
+udp (7)
+
+hostResources (25)
+
+. . .
+
+. . .
+
+. . .
+
+. . .
+
+. . .
+
+. . .
+
+. . .
+p7 (1338)
+. . .
+P7111AA
+
+PowerLogic P7 supports a subset of the standard MIB-2 (RFC 1213), categorized
+into the following MIB modules:
+•
+
+IF-MIB (RFC 2863): provides information related to network interfaces.
+
+•
+
+IP-MIB & ICMP-MIB (RFC 4293): provides information about IPv4 and ICMP.
+
+•
+
+TCP-MIB (RFC 4022): provides TCP information.
+
+•
+
+UDP-MIB (RFC 4113): provides UDP information.
+
+•
+
+HOST-RESOURCES-MIB (RFC 2790): provides information about resource
+usage on the device, such as storage usage and memory usage.
+
+PowerLogic P7 also supports SCHNEIDER-ELECTRIC-P7-MIB (MIB file provided
+on Schneider website). This is the private MIB module located under
+1.3.6.1.4.1.3833.1338, and includes a variety of data such as the following:
+•
+
+Device identification, hardware, and firmware data
+
+•
+
+Communication parameters and statistics
+
+•
+
+Status of Ethernet ports
+
+•
+
+Connection information with other network components, such as GOOSE
+subscribers or connected redundancy nodes.
+
+All the supported MIB files need to be loaded into the NMS that manages the
+device.
+
+Supported PDU types
+Acting as an SNMP agent, PowerLogic P7 supports the following types of protocol
+data units (PDUs):
+
+76
+
+P7/EN CM/02-004A
+
+Communication protocols
+
+Protection and control device
+PDU types
+
+Sender-receiver
+
+GetRequest
+
+Manager to agent
+
+GetNextRequest
+
+Manager to agent
+
+GetBulkRequest
+
+Manager to agent
+
+Response
+
+Agent to manager
+
+InformRequest
+
+Agent to manager
+
+SNMPv2-Trap
+
+Agent to manager
+
+Report
+
+Agent to manager
+
+For the SNMPv2-Trap PDU, the following trap events are supported:
+•
+
+New settings are synchronized to the device using PowerLogic Engineering
+Suite.
+
+•
+
+New security settings are pushed to the device using CAE.
+NOTE: In this case an additional trap message will be sent, indicating the
+SNMP agent process is restarted during the security setting update.
+
+•
+
+A login to the device fails.
+
+•
+
+A device start.
+
+•
+
+A user-added certificate has expired or will expire in 30 days.
+
+Communication
+When the SNMP function is enabled, PowerLogic P7 uses UDP for
+communications with an SNMP manager. The inbound port is 161 and the
+outbound port is 162.
+SNMP v3 messages between the agent and the manager are authenticated and
+encrypted. The device uses SHA-1 as the authentication protocol and AES-128 as
+the encryption protocol.
+
+Configuring SNMP parameters
+Acting as an SNMP agent, PowerLogic P7 has a default SNMP configuration. This
+configuration can be changed with CAE.
+NOTE: SNMP parameters reset to their default values when the device enters
+Safe mode or the device firmware is updated.
+With CAE, configure the following SNMP parameters under SECURITY
+SETTINGS > Logs and Monitoring > SNMP parameters:
+Name
+
+Description
+
+Address Manager 1
+
+The SNMP manager IP address. Only supports IPv4 addresses and the
+default address is 192.168.0.253.
+Setting this parameter to empty values will not take effect, and the device
+will retain the last valid value as the SNMP manager address.
+
+Address Manager 2
+
+A second SNMP manager IP address. This setting is invalid for
+PowerLogic P7.
+
+Security Level
+
+Only supports Authentication, Privacy for PowerLogic P7.
+
+Username
+
+User name for SNMP v3 protocol required for the Authentication, Privacy
+security level. The default value is p7admin.
+NOTE: The username can only contain the following characters:
+
+P7/EN CM/02-004A
+
+•
+
+Letters (a-z, A-Z)
+
+•
+
+Numbers (0-9)
+
+•
+
+Special characters (!@#$%^&*()_+`-=:;'<>?,./[]*)
+
+77
+
+Protection and control device
+
+Communication protocols
+Name
+
+Description
+
+Authentication
+password
+
+The SNMP agent authentication password required for the Authentication,
+Privacy security level. The default value is “AAaa123.”.
+
+Privacy password
+
+The SNMP agent encryption password required for the Authentication,
+Privacy security level. This password needs to comply with IEEE 1686
+policy with a minimum of 8 characters. The default value is “AAaa123.”.
+
+NOTE: Set new authentication and privacy passwords instead of using the
+default ones.
+
+78
+
+P7/EN CM/02-004A
+
+Client IP address filter
+
+Protection and control device
+
+Client IP address filter
+The Client IP address filter, when enabled, defines the IP addresses that are
+accepted by PowerLogic P7. Connections from other IP addresses, which are not
+defined, are rejected.
+From PowerLogic Engineering Suite, the feature can be enabled or disabled by
+setting IP filter status to On or Off under Device configuration > Slot A > Port 1
+Ethernet or Port 2/3 Ethernet.
+The IP address filter is implemented for all communication protocols through
+TCP/IP, including:
+•
+
+Modbus TCP
+
+•
+
+DNP3 TCP
+
+•
+
+MMS
+
+•
+
+Web service
+
+Up to 8 IP addresses ranges can be configured on settings of Port 1 Ethernet or
+Port 2/3 Ethernet from PowerLogic Engineering Suite. Only the connections from
+these IP addresses can be accepted by PowerLogic P7. If the client IP address
+filter is applied, the number of connections allowed is limited to the number of
+configured connections, regardless of the number of connections defined in the
+communication protocol; otherwise, the number of connections allowed depends
+on the connection definition of various communication protocol.
+CIDR (Classless Inter-Domain Routing) notation is used to define IP addresses
+range, 192.168.1.191/24 means that IP address 192.168.1.0-192.168.1.255 are
+available.
+Each IP address range filter can be enabled or disabled individually.
+Table 33 - IP filter configuration parameters
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+IPFltrEna
+
+IP filter status
+
+Enables access filtering by IP
+address range
+
+•
+
+Off
+
+•
+
+On
+
+Enable IP address filter 1
+
+•
+
+Off
+
+•
+
+On
+
+IPFltr1Ena
+
+IP filter 1
+
+Step size
+
+Default setting
+Off
+
+Off
+
+IPFltr1Addr
+
+IP filter 1 address
+
+IP filter 1 address
+
+192.168.0.1
+
+IPFltr1CIDR
+
+IP filter 1 CIDR
+
+This defines the subset of IPs
+based on matching prefix of the
+binary IP address
+
+/1 to /32
+
+/24
+
+IPFltr2Ena
+
+IP filter 2
+
+Enable IP address filter 2
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr2Addr
+
+IP filter 2 address
+
+IP filter 2 address
+
+192.168.0.2
+
+IPFltr2CIDR
+
+IP filter 2 CIDR
+
+IP filter 2 CIDR
+
+/1 to /32
+
+/24
+
+IPFltr3Ena
+
+IP filter 3
+
+Enable IP address filter 3
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr3Addr
+
+IP filter 3 address
+
+IP filter 3 address
+
+1.0.0.0
+
+IPFltr3CIDR
+
+IP filter 3 CIDR
+
+IP filter 3 CIDR
+
+/1 to /32
+
+/24
+
+IPFltr4Ena
+
+IP filter 4
+
+Enable IP address filter 4
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr4Addr
+
+IP filter 4 address
+
+IP filter 4 address
+
+IPFltr4CIDR
+
+IP filter 4 CIDR
+
+IP filter 4 CIDR
+
+/1 to /32
+
+/24
+
+IPFltr5Ena
+
+IP filter 5
+
+Enable IP address filter 5
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr5Addr
+
+IP filter 5 address
+
+IP filter 5 address
+
+IPFltr5CIDR
+
+IP filter 5 CIDR
+
+IP filter 5 CIDR
+
+P7/EN CM/02-004A
+
+1.0.0.0
+
+1.0.0.0
+/1 to /32
+
+/24
+
+79
+
+Protection and control device
+
+Client IP address filter
+
+Table 33 - IP filter configuration parameters (Continued)
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+IPFltr6Ena
+
+IP filter 6
+
+Enable IP address filter 6
+
+•
+
+Off
+
+•
+
+On
+
+Step size
+
+Default setting
+Off
+
+IPFltr6Addr
+
+IP filter 6 address
+
+IP filter 6 address
+
+1.0.0.0
+
+IPFltr6CIDR
+
+IP filter 6 CIDR
+
+IP filter 6 CIDR
+
+/1 to /32
+
+/24
+
+IPFltr7Ena
+
+IP filter 7
+
+Enable IP address filter 7
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr7Addr
+
+IP filter 7 address
+
+IP filter 7 address
+
+IPFltr7CIDR
+
+IP filter 7 CIDR
+
+IP filter 7 CIDR
+
+/1 to /32
+
+/24
+
+IPFltr8Ena
+
+IP filter 8
+
+Enable IP address filter 8
+
+•
+
+Off
+
+Off
+
+•
+
+On
+
+IPFltr8Addr
+
+IP filter 8 address
+
+IP filter 8 address
+
+IPFltr8CIDR
+
+IP filter 8 CIDR
+
+IP filter 8 CIDR
+
+80
+
+1.0.0.0
+
+1.0.0.0
+/1 to /32
+
+/24
+
+P7/EN CM/02-004A
+
+VLAN and Out of Band (OOB) management
+
+Protection and control device
+
+VLAN and Out of Band (OOB) management
+PowerLogic P7 supports VLAN and OOB on all Ethernet interfaces.
+
+Virtual LAN (VLAN)
+A virtual LAN (VLAN) is any broadcast domain that is partitioned and isolated in a
+computer network at the data link layer (OSI layer 2). VLANs work through tags
+within network packets and tag handling in networking systems - recreating the
+appearance and functionality of network traffic that is physically on a single
+network but acts as if it is split between separate networks. It is possible to assign
+traffic to different VLANs to allow the separation of the traffic while using a single
+physical network.
+Each physical Ethernet interface supports up to 4 VLANs. VLAN tags are
+accepted on all frames. VLAN can be enabled or disabled by the VLAN status
+setting under Device configuration > Slot A > Port 1 Ethernet or Port 2/3
+Ethernet from PowerLogic Engineering Suite.
+NOTE:
+•
+
+All IP addresses must be in different network segments. Otherwise, the
+device reports an IP conflict during network initialization and does not
+create the VLAN.
+◦
+
+If a VLAN IP address conflicts with a physical Ethernet interface IP, the
+device reports a VLAN IP conflict. The device retains the physical
+interface IP and does not create the VLAN.
+
+◦
+
+If a VLAN IP address conflicts with another VLAN, the device reports a
+VLAN IP conflict and does not create the VLAN.
+
+•
+
+If a configured VLAN IP address is already in use on the LAN, the device
+reports a remote IP conflict and retains all configured IP addresses.
+
+•
+
+0.0.0.0 is considered an invalid VLAN IP address.
+
+Table 34 - VLAN configuration parameters
+Name
+
+Short label
+
+Infotip
+
+Setting range
+
+VlanEna
+
+VLAN status
+
+Enable VLANs with Out Of Band
+(OOB) filtering
+
+•
+
+Off
+
+•
+
+On
+
+1...4094
+
+Step size
+
+Default setting
+Off
+
+Vlan1Id
+
+VLAN 1 Id
+
+VLAN 1 identifier
+
+Vlan1Ip
+
+VLAN 1 IP address
+
+VLAN 1 IP address
+
+0.0.0.0
+
+Vlan1IpMsk
+
+VLAN 1 subnet mask
+
+VLAN 1 subnet mask
+
+255.255.255.0
+
+Vlan1IpBcast
+
+VLAN 1 broadcast
+
+Broadcast IP address for VLAN1
+
+0.0.0.0
+
+SNTPVlan1Ena
+
+VLAN 1 SNTP status
+
+Enable SNTP on VLAN1
+
+MdbSVlan1Ena
+
+DNP3Vlan1Ena
+
+WSVlan1Ena
+
+VLAN 1 Modbus status
+
+VLAN 1 DNP3 status
+
+VLAN 1 webserver status
+
+Enable Modbus on VLAN1
+
+Enable DNP3 on VLAN1
+
+Enable webserver on VLAN1
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+1
+
+Off
+
+Off
+
+Off
+
+Off
+
+Vlan2Id
+
+VLAN 2 Id
+
+VLAN 2 identifier
+
+Vlan2Ip
+
+VLAN 2 IP address
+
+VLAN 2 IP address
+
+0.0.0.0
+
+Vlan2IpMsk
+
+VLAN 2 subnet mask
+
+VLAN 2 subnet mask
+
+255.255.255.0
+
+Vlan2IpBcast
+
+VLAN 2 broadcast
+
+Broadcast IP address for VLAN2
+
+0.0.0.0
+
+SNTPVlan2Ena
+
+VLAN 2 SNTP status
+
+Enable SNTP on VLAN2
+
+P7/EN CM/02-004A
+
+1...4094
+
+1
+
+•
+
+Off
+
+1
+
+2
+
+Off
+
+81
+
+Protection and control device
+
+VLAN and Out of Band (OOB) management
+
+Table 34 - VLAN configuration parameters (Continued)
+Name
+
+MdbSVlan2Ena
+
+DNP3Vlan2Ena
+
+WSVlan2Ena
+
+Short label
+
+Infotip
+
+VLAN 2 Modbus status
+
+VLAN 2 DNP3 status
+
+VLAN 2 webserver status
+
+Enable Modbus on VLAN2
+
+Enable DNP3 on VLAN2
+
+Enable webserver on VLAN2
+
+Setting range
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+Default setting
+
+Off
+
+Off
+
+Off
+
+Vlan3Id
+
+VLAN 3 Id
+
+VLAN 3 identifier
+
+Vlan3Ip
+
+VLAN 3 IP address
+
+VLAN 3 IP address
+
+0.0.0.0
+
+Vlan3IpMsk
+
+VLAN 3 subnet mask
+
+VLAN 3 subnet mask
+
+255.255.255.0
+
+Vlan3IpBcast
+
+VLAN 3 broadcast
+
+Broadcast IP address for VLAN3
+
+0.0.0.0
+
+SNTPVlan3Ena
+
+VLAN 3 SNTP status
+
+Enable SNTP on VLAN3
+
+MdbSVlan3Ena
+
+DNP3Vlan3Ena
+
+WSVlan3Ena
+
+VLAN 3 Modbus status
+
+VLAN 3 DNP3 status
+
+VLAN 3 webserver status
+
+Enable Modbus on VLAN3
+
+Enable DNP3 on VLAN3
+
+Enable webserver on VLAN3
+
+1...4094
+
+Step size
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+3
+
+Off
+
+Off
+
+Off
+
+Off
+
+Vlan4Id
+
+VLAN 4 Id
+
+VLAN 4 identifier
+
+Vlan4Ip
+
+VLAN 4 IP address
+
+VLAN 4 IP address
+
+0.0.0.0
+
+Vlan4IpMsk
+
+VLAN 4 subnet mask
+
+VLAN 4 subnet mask
+
+255.255.255.0
+
+Vlan4IpBcast
+
+VLAN 4 broadcast
+
+Broadcast IP address for VLAN4
+
+0.0.0.0
+
+SNTPVlan4Ena
+
+VLAN 4 SNTP status
+
+Enable SNTP on VLAN4
+
+MdbSVlan4Ena
+
+DNP3Vlan4Ena
+
+WSVlan4Ena
+
+VLAN 4 Modbus status
+
+VLAN 4 DNP3 status
+
+VLAN 4 webserver status
+
+Enable Modbus on VLAN4
+
+Enable DNP3 on VLAN4
+
+Enable webserver on VLAN4
+
+1...4094
+
+1
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+•
+
+Off
+
+•
+
+On
+
+1
+
+4
+
+Off
+
+Off
+
+Off
+
+Off
+
+Out of Band (OOB)
+OOB is the capability to assign IP-based services to a dedicated communication
+interface. The communication interface can be a physical interface or a virtual
+interface of the communication module. OOB can be configured for physical
+Ethernet interfaces as well as for VLANs.
+In general the Ethernet communication module is designed that all IP-based
+services are working on all physical/virtual interfaces. In this case with neither
+OOB nor VLAN, the communication services are available without restriction on
+the physical Ethernet Interfaces. Depending on the physical module type all
+services are working on Port 1 and Port 2/3.
+OOB allows to configure IP-based services of networks for the customer needs.
+With OOB, the user can choose which services shall work on which physical/
+virtual interface. This allows, for example to configure two networks, where one
+network is dedicated to the station bus and the related services and the second
+network is dedicated for maintenance services. The user can configure
+
+82
+
+P7/EN CM/02-004A
+
+VLAN and Out of Band (OOB) management
+
+Protection and control device
+
+configuration/administration services (configuration bus) as available on physical
+Port 1 and the client application services (station bus) as available on Port 2/3.
+OOB is linked with IP addresses. The IP-based services that can be assigned to
+interfaces in PowerLogic P7 are listed as follows:
+•
+
+IEC 61850
+
+•
+
+SNTP
+
+•
+
+Web server
+
+•
+
+DNP3 over Ethernet
+
+•
+
+Modbus over Ethernet
+NOTE: IEC 61850 feature of PowerLogic P7 is only applicable for physical
+Ethernet interfaces, not for VLANs.
+
+P7/EN CM/02-004A
+
+83
+
+Secure communication with PowerLogic Engineering Suite
+via the Ethernet interface
+
+Protection and control device
+
+Secure communication with
+PowerLogic Engineering Suite via the Ethernet
+interface
+When the devices and the tool are connected via the Ethernet interface, they will
+communicate securely using Web Server.
+NOTE: Ensure Webserver status is On to allow access on the network.
+The benefits of secure communication are:
+•
+
+Helps prevent unwanted eavesdropping between the tool and the devices.
+
+•
+
+Helps prevent modification of data between the tool and the devices.
+
+•
+
+Ensures data integrity.
+
+•
+
+Helps prevent replay of data at a later date.
+
+For the functions file transfer, setting modification and get value, only authorized
+and authenticated users can login. The usernames and passwords are centrally
+managed by a specific software, EcoStruxure™ Cybersecurity Admin Expert
+(CAE).
+
+84
+
+P7/EN CM/02-004A
+
+Revision history
+
+Protection and control device
+
+Revision history
+Document version
+
+Description
+
+P7/EN CM/02-004A
+
+Firmware version
+
+V02.004
+
+2026-04
+
+Build
+
+V02.004.001
+
+Configuration tool
+
+PowerLogic Engineering Suite V2.32.3
+
+Description of changes
+
+Time source timeout is configurable.
+IEC 61850 configuration workflow enhanced.
+
+Identified and fixed
+
+IEC 60870-5-103 - Energy counter measurand telegrams
+are provided in very fast cycles without configuration.
+CID with GOOSE Mx accepted by PowerLogic P7 but
+PowerLogic P7 report Control Block not working.
+
+P7/EN CM/02-003A
+
+Firmware version
+
+V02.003
+
+2025-07
+
+Build
+
+V02.003.001
+
+Configuration tool
+
+PowerLogic Engineering Suite V2.21.4
+
+Description of changes
+
+IEC 60870-5-103 protocol supported.
+SNMP V3 protocol supported.
+SFTP file access function added.
+Certification IEC 61869-9 supported.
+Analog GOOSE supported.
+GOOSE status visualization on HMI added.
+DNP3 flexible configuration mapping added.
+
+P7/EN CM/02-002A
+
+Firmware version
+
+V02.002
+
+2024-09
+
+Build
+
+V02.002.001
+
+Configuration tool
+
+PowerLogic Engineering Suite V2.13.0
+
+Description of changes
+
+SV configuration added.
+Network supervision added.
+
+P7/EN CM/22A
+
+Firmware version
+
+V02.001
+
+2023-12
+
+Build
+
+V02.001.001
+
+Configuration tool
+
+PowerLogic Engineering Suite V2.0.0
+
+Description of changes
+
+Flexible register mapping for Modbus configuration added.
+
+P7/EN CM/11A
+
+Firmware version
+
+V01.001
+
+2022-10
+
+Build
+
+V01.001.001
+
+2023-02 reprint
+
+Configuration tool
+
+PowerLogic Engineering Suite V1.0.0
+
+Description of changes
+
+First edition for initial product release.
+
+P7/EN CM/02-004A
+
+85
+
+Protection and control device
+
+Appendix 1: Abbreviations
+
+Appendix 1: Abbreviations
+
+86
+
+AP
+
+Access Point
+
+APC
+
+Controllable analog process value
+
+ARP
+
+Address Resolution Protocol
+
+ASDU
+
+Application Service Data Unit
+
+BPDU
+
+Bridge Protocol Data Unit
+
+CAE
+
+EcoStruxure Cybersecurity Admin Expert
+
+CFF
+
+Compact Font Format
+
+CID
+
+The Configured IED Description (file) is a file used to exchange device configuration
+between an IED configuration tool to an IED. It can be considered as an SCD file
+stripped down to what the concerned IED needs to know and contains a mandatory
+communication section of the addressed IED.
+
+CIP
+
+Common Industrial Protocol
+
+COS
+
+Change of State
+
+DA
+
+Data Attribute
+
+DAN
+
+Double Attached Nodes
+
+DANH
+
+Double Attached Nodes implementing HSR
+
+DANP
+
+Double Attached Nodes implementing PRP
+
+DHCP
+
+Dynamic Host Configuration Protocol
+
+DO
+
+Data Object
+
+DPC
+
+Controllable double point
+
+DS
+
+Dataset
+
+ENC
+
+Controllable enumerated status
+
+FIFO
+
+First In – First Out
+
+FPGA
+
+Field Programmable Gate Array
+
+GoCB
+
+GOOSE Control Block
+
+GOOSE
+
+Generic Object Oriented Substation Event
+
+HSR
+
+High-availability Seamless Redundancy
+
+HTTPS
+
+Secured Hypertext Transfer Protocol is an extension of the Hypertext Transfer
+Protocol (HTTP) to help to secure communication over a computer network.
+
+ICD
+
+The IED Capability Description (file) completely defines the capabilities of an IED.
+This file needs to be supplied by each manufacturer to make the complete system
+configuration. The file contains a single IED section, an optional communication
+section and an optional substation part which denotes the physical entities
+corresponding to the IED.
+
+ICT
+
+IED Configuration Tool
+
+IED
+
+Intelligent Electronic Device – This is a term used to describe microprocessor-based
+controllers of power system equipment. Common types of IEDs include protective
+relaying devices, load tap changer controllers, circuit breaker controllers, capacitor
+bank switches, recloser controllers, voltage regulators, etc.
+
+IID
+
+The Instantiated IED Description (file) defines the configuration of one IED for a
+project and is used as data exchange format from the IED configurator to the system
+configurator. This file contains only the data for the IED being configured: one IED
+section, the communication section with the IED's communication parameters, the
+IED's data type templates, and, optionally, a substation section with the binding of
+functions (LNodes) to the single line diagram.
+
+INC
+
+Controllable integer status
+
+LAN
+
+Local Area Network
+
+LD
+
+Logical Device
+
+LLDP
+
+Link Layer Discovery Protocol
+
+LN
+
+Logical Node
+
+P7/EN CM/02-004A
+
+Appendix 1: Abbreviations
+
+P7/EN CM/02-004A
+
+Protection and control device
+LRE
+
+Link Redundancy Entity
+
+MAC
+
+Media Access Control
+
+MICS
+
+Model Implementation Conformance Statement describes how the information model
+is implemented.
+
+MTU
+
+Maximum Transmission Unit
+
+NI
+
+Network Input
+
+OOB
+
+Out of Band
+
+PDM
+
+Power Data Model
+
+PICS
+
+Protocol Implementation Conformance Statement describes choices made in
+protocol implementation.
+
+PIXIT
+
+Protocol Implementation Extra Information for Testing gives any additional
+implementation specific information.
+
+PRP
+
+Parallel Redundancy Protocol
+
+PTP
+
+Precision Time Protocol
+
+RCB
+
+Report Control Block
+
+RCT
+
+Redundancy Check Tag
+
+RedBox
+
+Redundancy Box
+
+RSTP
+
+Rapid Spanning Tree Protocol
+
+RTU
+
+Remote Terminal Unit
+
+SAN
+
+Singly Attached Node
+
+SBO
+
+Select Before Operate
+
+SCADA
+
+Supervisory Control and Data Acquisition
+
+SCT
+
+System Configuration Tool
+
+SCD
+
+The System (or Substation) Configuration Description is the file describing the
+complete power utility automation system details. It contains substation,
+communication, IED and Data type template sections. An SSD file and different ICD
+files contribute in making an SCD file.
+
+SCL
+
+The System Configuration description Language is the language and representation
+format specified by IEC 61850 for the configuration of electrical substation devices.
+This includes representation of modeled data and communication services specified
+by IEC 61850-7-X standard documents. The complete SCL representation and its
+details are specified in IEC 61850-6 standard document. It includes data
+representation for substation device entities; its associated functions represented as
+logical nodes, communication systems and capabilities. The complete representation
+of data as SCL enhances the different devices of a substation to exchange the SCL
+files and to have a complete interoperability.
+
+SFP
+
+Small Form-factor Pluggable
+
+sFTP
+
+Secured File Transfer Protocol is a network protocol that provides file access, file
+transfer, and file management over any reliable data stream.
+
+SNMP
+
+Simple Network Management Protocol is an Internet standard protocol for managing
+devices on IP networks.
+
+SNTP
+
+Simple Network Time Protocol is a less complex implementation of NTP, using the
+same protocol but without requiring the storage of state over extended periods of
+time.
+
+SPC
+
+Controllable single point
+
+SSH
+
+Secure Shell is a cryptographic network protocol for operating network services
+securely over network communication.
+
+SV
+
+Sampled value
+
+TC
+
+Transparent Clock
+
+TFTP
+
+Trivial File Transfer Protocol
+
+TICS
+
+Tissues Conformance Statement describes how the device behaves regarding
+identified technical issues.
+
+UCMM
+
+UnConnected Message Manager
+
+UDP
+
+User Datagram Protocol
+
+87
+
+Protection and control device
+
+88
+
+Appendix 1: Abbreviations
+VDAN
+
+Virtual Double Attached Nodes
+
+VLAN
+
+Virtual LAN
+
+XML
+
+Extensible Markup Language
+
+P7/EN CM/02-004A
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
+
+www.se.com
+As standards, specifications, and design change from time to time, please ask for confirmation
+of the information given in this publication.
+
+© 2026 Schneider Electric. All rights reserved.
+P7/EN CM/02-004A
+
+

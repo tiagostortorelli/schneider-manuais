@@ -1,0 +1,3977 @@
+TM
+
+PowerLogic T500
+Catalog 2024
+Substation Controller
+
+se.com/powerlogict500
+
+Notes
+
+2 | PowerLogic™ T500
+
+PB125558
+
+General Contents
+
+General Presentation
+
+10
+
+Functions and Description
+
+26
+
+Schneider Electric Service
+
+46
+
+Commercial References
+
+50
+
+PowerLogic™ T500 | 3
+
+We Have an Opportunity to Co-Create the
+Future
+
+More
+Electric
+2X faster growth of electricity demand
+
+More
+Digitized
+20X more incremental connected devices
+
+More
+Decarbonized
+82% of the economic potential of energy
+
+More
+Decentralized
+70% of new capacity additions will be in
+
+compared to energy demand by 2040
+
+efficency in buildings and more than half in
+industry, remains untapped
+
+4 | PowerLogic™ T500
+
+than connected people since 2020
+
+renewables by 2040
+
+Power Industry is Facing Unprecedented
+Changes
+Increasing Complexity and Challenges Ahead
+DER Integration
+
+Impact on planning and operations
+new regulation and practices:
+Grid codes, Cybersecurity, and IEC 61850
+
+Operational Efficiency
+
+Reliability (SAIDI…), losses,
+customer satisfaction, affordability,
+investment, and OPEX
+
+New Power Grid Design
+
+National/Interco-regional
+Intermediate Microgrids (municipal,
+regional)
+
+Digital Transformation
+
+IT/OT integration readiness, IoT
+enablement, and Cyber Security
+
+Digitization Presents Tremendous
+Opportunities to Enhance Grid Efficiency
+Self-immune
+Digital substation improves energy supply reliability and
+quality.
+
+Streamlined
+Digital tool suite optimizes all steps from design, build to
+Operate and maintain.
+
+Predictive
+Collecting and analyzing right asset data is the
+foundation of efficient maintenance operations.
+
+Future-proof
+An open and modular digital infrastructure is crucial to
+support the forthcoming active network challenges.
+
+PowerLogic™ T500 | 5
+
+Digitization Presents Tremendous
+Opportunities to Enhance Grid Efficiency
+Manage increasing complexity: integrate with specialized IEDs and systems
+•
+
+Integrate devices from multiple vendors and protocols.
+
+•
+
+Communicate simultaneously with several upstream systems.
+
+•
+
+Advanced remote monitoring of system performance.
+
+Increase availability: improve control system uptime
+•
+
+Minimize downtime with hot-swappable hardware modules and extensive redundancy options.
+
+•
+
+Deploy customized network reconfiguration schemes.
+
+Manage costs: reduce installation, operation, and maintenance
+•
+
+Optimize investment thanks to the modular approach.
+
+•
+
+Perform maintenance tasks and diagnostics remotely.
+
+•
+
+Deploy different applications - RTUs, gateways, and controllers - using the same offer and tools.
+
+Deliver efficiency: optimize network control
+•
+
+Reduce control system power consumption by using state of the art embedded electronic products.
+
+•
+
+Tailor solution hardware footprint to your needs.
+
+Improve cybersecurity: help defend against malicious software and unauthorized access
+Secure boot hardware and firmware signatures.
+
+•
+
+Leverage embedded firewall.
+
+•
+
+Apply RBAC policies as recommended by IEC 62351, IEC 62443, and IEEE 1686.
+
+•
+
+Conduct telecontrol communications using TLS encrypted channels.
+
+PB125559
+
+•
+
+PowerLogic™ T500
+
+6 | PowerLogic™ T500
+
+Next Generation Substation Controller
+One single platform with a modular and flexible hardware, firmware, and
+software for all your demands!
+Highly scalable solution for demanding substation control applications
+
+PowerLogic™ T500 Key Features
+•
+
+Secure RBAC, logging, and certificate management
+
+•
+
+FW signatures, secure boot, and TLS encryption
+
+PB125560
+
+Secure: Features based on IEC62443
+
+Powerful
+•
+
+Redundant and hot-swappable hardware
+
+•
+
+Client/server for IEC 61850 and OPC-UA (2025)
+
+•
+
+SCADA protocols: DNP3 and IEC101/4
+
+•
+
+Legacy IED protocols: DNP3, IEC101/3/4 and Modbus
+
+•
+
+Embedded logic engines: formulae and IEC61131
+
+•
+
+Fully integrated with ESM and EPAS-E
+
+Scalable
+•
+
+Up to 100k datapoints
+
+•
+
+512 concurrent TCP connections
+
+•
+
+Configuration/Engineering
+
+•
+
+Multi-user environment
+
+PB125561
+
+Easergy Builder
+
+•
+
+WebApp: maintenance and diagnostics
+
+•
+
+WebUI: lightweight substation HMI
+
+PB125562
+
+Web-based User Interface
+
+PowerLogic™ T500 | 7
+
+Next Generation Substation Controller
+Predictive Maintenance
+
+Web-based User Interface
+
+Highly Reliable
+Hot-swappable HW, enhanced mission profile
+
+Sustainable
+
+Cyber secure
+
+Fully Digital and Smart
+
+SE Eco design, RoHS, REACh, recyclable packaging
+
+Flexible Modular Solution
+Single HW platform and flexible FW platform
+
+Integrated Engineering and
+Maintenance Tools
+
+Connected to APM cloud services
+
+Cornerstone of Smart Digital Substation
+Comprehensive and virtualizable
+
+Best in class pre-sales and post-sales technical support provided through
+our experts network.
+
+Easy
+
+Engaging
+
+Enabling
+
+Simplify the user
+experience by easy to
+order, configure, integrate,
+use, and maintain.
+
+Deliver an engaging and
+intuitive digital experience
+throughout the entire
+customer lifecycle.
+
+Enabling the Digital Energy
+transition by leveraging our
+EcoStruxure architecture,
+global footprint, and
+leveraging retrofit.
+
+8 | PowerLogic™ T500
+
+Integration of PowerLogic™ T500 with
+EcoStruxureTM
+EcoStruxure™ is our open, interoperable, IoT-enabled system architecture and
+platform. EcoStruxure delivers enhanced value around safety, reliability, efficiency,
+sustainability, and connectivity for our customers. EcoStruxure leverages
+advancements in IoT, mobility, sensing, cloud, analytics, and cybersecurity to deliver
+Innovation at Every Level. This includes Connected Products, Edge Control, and
+Apps, Analytics & Services which are supported by Customer Lifecycle Software.
+
+EcoStruxureTM has been deployed in almost
+500 000 sites with the support of 20 000+
+developers, 650 000 service providers and
+partners, 3 000 utilities, and connects over
+2 million assets under management.
+
+Turn data into action
+EcoStruxure™ architecture lets customers maximize the value of data.
+Specifically, it helps them:
+
+Efficient asset
+management
+
+Greater efficiency with
+predictive maintenance
+helping to reduce downtime.
+
+•
+
+Translate data into actionable intelligence and better business decisions.
+
+•
+
+Take informed decisions to secure uptime and operational efficiency thanks to
+real-time control platforms.
+
+•
+
+Gain visibility to their electrical distribution by measuring, collecting,
+aggregating, and communicating data.
+
+24/7 connectivity
+Connect
+
+Collect
+
+Analyze
+
+Take action
+
+Connect
+everything
+from shop floor
+to top floor
+
+Capture critical
+data at every level,
+from sensor
+to cloud
+
+Convert data into
+meaningful
+analytics
+
+Drive action
+through real-time
+information and
+business logic
+
+Real-time data everywhere
+anytime to make betterinformed decisions.
+
+Increased safety
+Proven design and experience
+to enhance people's safety and
+equipment's protection.
+
+DB446449
+
+CLOSE THE LOOP
+
+Apps,
+Analytics &
+Services
+
+EcoStruxure
+ADMS
+
+EcoStruxure
+ArcFM
+
+EcoStruxure
+Asset Advisor
+
+EcoStruxure
+Microgrid Advisor
+
+EcoStruxure
+Smart Metering Advisor
+
+EcoStruxure
+Resource Advisor
+
+Edge
+Control
+EcoStruxure
+Substation Operation
+
+EcoStruxure
+Microgrid Operation
+
+EcoStruxure
+Advanced Metering Operation
+
+PowerLogic T500
+RTU/Gateway
+
+Connected
+Products
+RM6 & Easergy TH11
+
+PowerLogic P5
+
+PowerLogic
+Power
+Meter
+PowerLogic
+P7P7 IONION
+Power
+Meter
+
+Minera SGrid
+Transformer
+
+Conex
+Cone
+Conext
+onex
+o
+n
+ne
+nex
+ext SmartGen
+ext
+Sma
+Sm
+S
+martGe
+ma
+rtGen
+rtG
+ttGe
+Ge
+G
+e
+
+PowerLogic T300
+Remote Terminal Unit
+
+PowerLogic™ T500 | 9
+
+General Presentation
+
+10 | PowerLogic™ T500
+
+General Presentation
+Applications
+
+12
+
+Applications
+
+12
+
+Product Overview
+
+14
+
+Modular Architecture
+
+14
+
+The Modules
+
+15
+
+Dimensions
+
+21
+
+Installation and Update
+
+24
+
+Lifecycle Tools
+
+25
+
+PowerLogic™ T500 | 11
+
+General
+Presentation
+
+Applications
+PowerLogic™ T500
+
+Different Solutions for Different Markets
+Cloud services
+
+Traditional
+•
+
+Few bays
+
+•
+
+Protection via IEDs
+
+•
+
+Optional HMI
+
+•
+
+Flexible automation
+
+•
+
+Centralized control
+
+Focused on data acquisition and integration
+
+•
+
+Requires general knowledge on substation automation
+
+HMI
+I/O
+Station
+Bus
+
+Engineering
+•
+
+SCADA/DMS
+
+DB446450
+
+Centralized systems
+
+Serial
+IEDs
+
+T500
+
+I/O
+
+IEDs
+
+Unmanned substations: Distribution, Rail, RenGen
+
+I/O
+
+Cloud services
+
+De-centralized systems
+•
+
+Many bays/stations
+
+•
+
+Protection cord
+
+•
+
+Advanced HMI
+
+•
+
+Fast automation
+
+•
+
+IED local HMIs
+
+DB446451
+
+Modern
+SCADA/DCS
+HMI
+
+T500
+
+Engineering
+•
+
+Focused on tailored protection schemes
+
+•
+
+Requires expert knowledge on specific technologies
+
+IEDs
+
+Manned substations: Transmission, Large O&G
+
+I/O
+
+12 | PowerLogic™ T500
+
+BCU
+
+BCU
+
+General
+Presentation
+
+Applications
+PowerLogic™ T500
+
+PowerLogic™ T500 Utility Customers
+•
+•
+•
+
+REGIONAL
+SCADA
+
+DB446452
+
+Core Applications:
+High range RTU’s high capacity + multifunctional gateway
+HV and MV network – IEC 61850 or legacy protocols (up to 200
+protection relay devices)
+Legacy serial devices (brownfield market)
+
+LOCAL
+SCADA
+
+Upstream Interfaces:
+•
+•
+
+Local SCADA: IEC61850 or DNP3/IEC10x
+Regional SCADA: DNP3 or IEC101/4 (up to four redundant clients)
+
+HV Network
+
+•
+•
+
+Hot-swappable
+Redundancy CPU (HOT-STANDBY), PS, and Eth (HSR/PRP)
+
+Time Synchronization:
+•
+
+IEEE1588
+
+Substation
+
+Advanced Features:
+
+Serial
+IEDs
+
+MV Network
+
+Actual Market Trend
+•
+•
+•
+
+Cybersecurity IEC 62443-4-2 (target SL2)
+Align with engineering management and device management
+Web HMI integrated
+
+IEDs
+
+PowerLogic™ T500 Electro-Intensive
+•
+•
+•
+
+High range RTU’s high capacity + multifunctional gateway
+MV/LV network - IEC 61850 (up to 1000 protection relays and
+meters devices)
+Legacy serial devices (brownfield market)
+
+ELECTRIC
+SCADA
+
+DB446453
+
+Core Applications:
+
+PROCESS
+DCS
+
+•
+•
+
+Process DCS: Modbus TCP
+Electrical SCADA: IEC61850 or Legacy (up to 4 redundant clients)
+
+Advanced Features
+•
+•
+
+Hot-swappable
+Redundancy CPU (HOT-STANDBY), PS, and Eth (PRP with
+IEEE1588)
+
+Substation
+
+Upstream Interfaces:
+
+MV Network
+
+•
+•
+
+Cybersecurity IEC 62443-4-2 (Target SL2) and NERC/CIP
+Web HMI integrated
+
+Process
+
+Actual Market Trend
+
+MV Network
+
+Serial
+IEDs
+
+IEDs
+
+PowerLogic™ T500 | 13
+
+Product Overview
+
+General
+Presentation
+
+Modular Architecture
+
+PowerLogic™ T500 is highly scalable
+solution for demanding substation
+control application.
+
+This open architecture supports different applications,
+from a single communication gateway to large
+substation management with third-party devices. The
+modules, with their supported applications are:
+
+DB446454
+
+Internal Bus (backplane)
+Expansion
+
+Power Supply
+•
+•
+
+Drive modules
+Protected Vout
+
+•
+•
+•
+•
+•
+•
+
+Head Unit
+
+Data processing
+Redundancy
+Logic
+Webserver
+Com. protocols
+Ethernet ports
+
+•
+
+19” rack or wall-mount installation
+
+•
+
+Internal bus: high-speed serial (redundant)
+
+•
+
+Legacy serial devices (brownfield market)
+
+•
+
+Modular hardware - 9 modules per bus
+
+•
+
+Hot-swappable electronic modules
+
+•
+
+Redundancy: PSU, Head Unit, and Comms
+
+•
+
+Expand installation over multiple backplanes
+
+•
+
+100% backwards compatible with Saitel DP
+
+Serial Expansion
+•
+•
+
+RS232/485 expansion
+Managed by HU
+
+I/O Modules
+•
+•
+•
+•
+
+Digital inputs
+Digital outputs
+DC analog input
+DC analog output
+
+Internal bus
+expansion
+
+T500 configuration can have up to 96 I/O modules - regardless of backplane number. Backplanes can be expanded via
+the dedicated connectors.
+XS280 expansions can only be managed by an HU280 it they are installed in the same backplane.
+I/O modules can be managed by an HU280 as long as they are available in the same bus - same backplane as HU280 or a
+remote backplane connected via expansion ports.
+
+14 | PowerLogic™ T500
+
+General
+Presentation
+
+Product Overview
+The Modules
+
+PB125563
+
+PowerLogic™ HU280 - High Performance Head Unit
+HU280 can communicate with peers (SCADA and other devices) on one or several
+communication channels
+•
+•
+•
+•
+•
+
+Communication channels can be configured individually to fit application needs
+(DMS, local automation, etc.).
+Channels can be created and setup using Easergy Builder.
+Configuration settings - for example, IP addresses - can be modified using the
+embedded webApp.
+Embedded firewall can be configured to improve overall security.
+T500 is delivered with no default protocols or channels preconfigured.
+
+Characteristics:
+•
+•
+
+•
+
+•
+
+•
+•
+•
+
+Processor: Quad-core ARM64 @1GHz
+Memory:
+– RAM: 4 GB (DDR4)
+– NVRAM: 2 MB
+Storage:
+– FLASH: 32 GB (eMMC)
+– SD-card slot for cards up to: 64 GB
+Communications:
+– 2xRS-232/485
+– 7xEthernet: (4xGigabit - PRP/HSR supported)
+Synchronization: GPS, IRIG-B, SNTP, and PTP.
+Cybersecurity: RBAC, Logging, and Cryptography
+Maximum power consumption: 15 W
+
+PB125564
+
+PowerLogic™ PS280 - Power Supply
+The PowerLogic™ PS280 module converts the input power into a regulated 5.4
+Vdc output to power the electronic control components of the modules within the
+backplane. Additionally, depending on ordering option, this module can provide an
+auxiliary voltage for the polarization of the I/O interfaces of the acquisition modules.
+The functional features of this block are:
+•
+•
+
+•
+•
+•
+
+Compliance with EMC standards for industrial environments.
+Depending on ordering option:
+– Direct and/or alternating input current can be used.
+– Auxiliary output of 24 Vdc is available.
+Galvanic isolation.
+Communication of power faults to the CPU.
+A test device (two terminals) is available allowing to check the level voltage on
+the bus using a voltmeter.
+
+Characteristics:
+•
+
+Input voltage level: 24, 48 and 110/125 Vdc
+
+•
+
+Input range: ±20 % nominal value
+
+•
+
+Isolation:
+– Input-Output: 3 kVrms
+– Input-Functional ground: 1.5 kVrms
+– Output-Ground: 500 Vrms
+
+•
+
+Main output voltage: 5.4 Vdc
+– 40 W at 25 ºC
+– 30 W at 70 ºC
+
+•
+
+Auxiliary output: 24 Vdc (25 W) – optional
+
+•
+
+Protection: short-circuits, over-voltage/current
+
+PowerLogic™ T500 | 15
+
+Product Overview
+
+General
+Presentation
+
+The Modules (cont.)
+
+PB125565
+
+PowerLogic™ XS280 – Serial Port Expansion
+The PowerLogic™ XS280 is the serial communication module available in
+PowerLogic™ T500. It expands the control module communication capability. This
+module is linked with the PowerLogic™ HU280 through a bi-directional high-speed
+channel.
+The PowerLogic™ XS280 communicates with the CPU module through the internal
+bus, at a transmission rate of up to 1.5 Mbps. The multiplexing operation allows
+transfers the message streams bidirectional from input channels and its signals.
+The communication protocol between the PowerLogic™ XS280 and CPU module
+follows a client-server (poll-response) structure, in which the client is the CPU
+module, and the server are the different PowerLogic™ XS280 modules which are
+installed.
+Characteristics:
+•
+
+Number of channels: 8 (asynchronous)
+
+•
+
+Isolation between channels: 1.5 kVrms
+
+•
+
+Signal levels: RS-232/RS-485/RS-422
+
+•
+
+Transmission: configurable per channel
+
+•
+
+Baud rate: Up to 38400 bps
+
+•
+
+Typical consumption: 3.9 W
+
+PB125566
+
+PowerLogic™ DI180 – Digital Input
+PowerLogic™ DI180 can manage 32 digital inputs with or without timestamp,
+that can be configured as single, double or slow counter. These signals can be
+associated to simple or double points in coreDb.
+The main features of this module are:
+•
+
+32 configurable and high-precision digital input and distributed in two 16-signal
+blocks.
+
+•
+
+Each digital input can be configured as: Single/Double/Slow counter.
+
+•
+
+Filtering the information before transmitting it to the CPU.
+
+•
+
+Advanced processing of digital inputs, including the management of simple or
+processed inputs with chronological register and time stamping.
+
+•
+
+The parameter change memory time can be set for each signal.
+
+•
+
+The module is synchronized via a message received from the CPU.
+
+•
+
+36 light indicators are available on the front side.
+
+Characteristics:
+
+16 | PowerLogic™ T500
+
+•
+
+Number of inputs: 32
+
+•
+
+Polarization voltage (PV): 12...125 Vdc (autodetect)
+
+•
+
+Polarization range: From 80% PV to 120% PV
+
+•
+
+Polarization blocks isolation (optocouplers): 2.5 kVrms
+
+•
+
+Time-stamping resolution: 1 ms
+
+•
+
+Connection to field: flat ribbon or terminals
+
+•
+
+Typical consumption: 1 W (idle)
+
+General
+Presentation
+
+Product Overview
+The Modules (cont.)
+
+PB125567
+
+PowerLogic™ DO180 – Relay Digital Output
+PowerLogic™ DO180 can manage standard digital signal controlled by a direct
+execution command. They can operate as latched signals or pulsing variable pulse
+time. These signals can be associated to simple or double points in coreDb.
+The PowerLogic™ DO180 module includes:
+•
+
+16 independent free-contact digital outputs (DO) in two independent blocks.
+
+•
+
+All DO are SPST (Single Pole Single Throw) or NO (Normally open).
+
+•
+
+Relay coils for each DO are powered via dedicated power inputs for each block.
+DO switching mechanisms require 24 Vdc nominal power inputs - available from
+PS280 modules.
+
+•
+
+Polarization power level is monitored for each block.
+
+•
+
+A Select before operate command management system is used to control field
+operation.
+
+•
+
+Auto check of DOs every time that the polarization is reset.
+
+•
+
+Commands continuously supervised to prevent execution of outputs when
+abnormal functioning mode detected.
+
+•
+
+Address and communication rate in the bus are setting using microswitches
+located on the rear side.
+
+•
+
+20 LED indicators giving information about the status of the module and each
+DO.
+
+•
+
+The software in the module can be upgrade remotely, from the CPU.
+
+This module implements hot-swapping function, that is, it can remove and install on
+the backplane while the RTU is working without affecting the proper functioning of
+the system.
+Characteristics:
+•
+
+Number of outputs: 16
+
+•
+
+Switching mechanism power voltage (PV): 24 Vdc
+
+•
+
+Polarization range: 20% PV
+
+•
+
+Isolation (optocouplers):
+– Switching mechanism power block: 2.2 kVrms
+– Between outputs and power: 2.2 kVrms
+
+•
+
+Maximum nominal current per block: 8 A (4 latched outputs per block)
+
+•
+
+Output switching capacity:
+– 50 W, 250 Vrms; L/R ≤1 ms
+
+•
+
+Typical consumption:
+– Idle: 1.1 W
+– Polarization: 16 mA/relay for 24 Vdc (regular)
+
+PowerLogic™ T500 | 17
+
+General
+Presentation
+
+Product Overview
+The Modules (cont.)
+
+PB125568
+
+PowerLogic™ DO280 - Transistor Digital Output
+The PowerLogic™ DO280 module provides 32 passive digital configurable outputs
+to transistor. According to IEC-60870-3, a passive output is defined when the
+polarization source is external to the control equipment.
+The PowerLogic™ DO280 module:
+•
+
+Two blocks with 16 digital outputs each.
+
+•
+
+A controller block.
+
+•
+
+An indication block.
+
+•
+
+A Select before operate command management system.
+
+Characteristics:
+•
+
+Number of outputs: 32
+
+•
+
+Switching mechanism power voltage (PV): 24/48 Vdc - auto-range
+
+•
+
+Polarization range: 20% PV
+
+•
+
+Isolation (optocouplers):
+– Switching mechanism power block: 2.5 kVrms
+– Between outputs and power: 2.5 kVrms
+
+•
+
+Max. current/output: 500 mA (non-simultaneous)
+
+•
+
+Typical consumption:
+– Idle: 1.1 W
+– Switching mechanism (using TO180/Px): 0.8 W per active relay
+– Switching mechanism (using TO180/H): 1.2 W per active relay
+
+PB125569
+
+PowerLogic™ AI160 – Analog Input
+The PowerLogic™ AI160 module supports up to 16 configurable analog inputs, with
+two removable terminal blocks to connect eight analog inputs.
+This module consists of:
+•
+
+Two blocks with 8 analog inputs each.
+
+•
+
+A controller block
+
+•
+
+An indication block
+
+Characteristics:
+•
+
+Number of outputs: 16 (differential, ±10 V)
+
+•
+
+Multi-range voltage inputs – current (using an external resistor)
+conversion in TA160
+
+•
+
+Conversion:
+–
+–
+–
+–
+
+18 | PowerLogic™ T500
+
+Eight channels multiplexing
+Amplifier with programmable gain by channel
+16-bit sigma-delta converter
+Accuracy: < 0.1% at 25 ºC
+
+•
+
+Input impedance > 200 kΩ
+
+•
+
+Common-mode voltage tolerance > 30 V
+
+•
+
+Overvoltage protection
+
+•
+
+Isolation (optocouplers): 2.5 kVrms
+
+•
+
+Typical consumption: 2.4 W
+
+Product Overview
+
+PB125570
+
+General
+Presentation
+
+The Modules (cont.)
+
+PowerLogic™ AX160 - Combined Analog I/O
+The PowerLogic™ AX160 module supports up to 8 analog inputs and 4 analog
+outputs, which can be configured separately.
+This module consists of:
+•
+
+A block with 8 analog inputs each.
+
+•
+
+A block with 4 analog outputs
+
+•
+
+A controller block
+
+•
+
+An indication block
+
+Characteristics:
+•
+
+8x differential inputs (±10 V) – same specs as AI160
+
+•
+
+4x outputs:
+– Output range: Voltage outputs/multi-range current
+– Conversion: 14-bit sigma-delta converter
+– Accuracy: < 0.15% at 25 ºC
+– Maximum output power: 200 mW
+– Line noise filtering: 80 dB rejection for 50/60 Hz
+
+•
+
+Isolation (optocouplers): 3.75 kVrms
+
+•
+
+Overvoltage protection – inputs and outputs
+
+•
+
+Typical consumption: 5 W (idle)
+
+PowerLogic™ BP260 – Wall-Mount Backplane
+
+PB125571
+
+This is the wall mount version of T500 base unit offering distribution of internal bus
+communications, power supply lines and bus expansion to remote backplanes
+Characteristics:
+•
+
+Available slots:
+– Four modules (EMS70140)
+– Nine modules (EMS70190)
+
+•
+
+Bus Expansion:
+– High-speed RS-485 – 2x DB9
+
+•
+
+Indications:
+– Internal bus activity (TX & RX)
+– Voltage supervision
+
+PowerLogic™ T500 | 19
+
+General
+Presentation
+
+Product Overview
+The Modules (cont.)
+
+PowerLogic™ BP270 – Rack-Mount Backplane
+This is the rack mount version of T500 base unit offering distribution of internal bus
+communications, power supply lines and bus expansion to remote backplanes
+Characteristics:
+•
+
+Available Slots:
+– Eight modules (EMS70280) – twin 4-slot buses
+– Nine modules (EMS70290)
+
+•
+
+Bus Expansion:
+– High-speed RS-485 – 2x DB9
+
+•
+
+Indications:
+– Internal bus activity (TX and RX)
+
+PB125572
+
+– Voltage supervision
+
+20 | PowerLogic™ T500
+
+Product Overview
+
+General
+Presentation
+
+Dimensions
+
+[in]
+
+DB446455
+
+7.9
+[0.31]
+
+270
+[10.62]
+
+203.8
+[8.02]
+
+26
+[1.02]
+
+T500 4-slot wallmount backplane
+
+[in]
+
+DB446456
+
+7.9
+[0.31]
+
+270
+[10.62]
+
+430
+[16.92]
+
+26
+[1.02]
+
+T500 9-slot wallmount backplane
+
+PowerLogic™ T500 | 21
+
+Product Overview
+
+General
+Presentation
+
+DB446457
+
+mm
+[in]
+
+Dimensions
+
+225.7
+[8.88]
+
+225.3
+[8.87]
+31.6
+[1.24]
+
+265.9
+[10.46]
+
+482.6
+[19.15]
+
+237
+[9.33]
+
+T500 dual 4-slot rackmount backplane
+
+DB446458
+
+mm
+[in]
+
+265.9
+[10.46]
+
+482.6
+[19]
+
+T500 dual 4-slot rackmount backplane
+
+22 | PowerLogic™ T500
+
+237
+[9.33]
+
+Product Overview
+
+General
+Presentation
+
+Dimensions
+
+mm
+[in]
+
+DB446459
+
+45.6
+[1.79]
+
+186.34
+[7.33]
+
+244.98
+[9.64]
+
+T500 backplane power supply
+
+mm
+[in]
+187.65
+[7.38]
+
+DB446460
+
+45
+[1.77]
+
+244.9
+[9.64]
+
+T500 Hot-swappable Head Unit
+
+PowerLogic™ T500 | 23
+
+General
+Presentation
+
+Product Overview
+Installation and Update
+
+Quick and easy installation. Combine different types of modules to suit
+your needs, including redundant power supplies and head units.
+Modules
+
+DB446461
+
+Hot-swappable modules inserted in backplane slots
+
+Backplane
+T500 internal bus
+•
+
+Activity LEDs
+
+•
+
+Bus expansion ports
+
+Bus termination
+4 types available:
+• BP260/N4: 4-slot (wall-mount)
+•
+
+BP260/N9: 9-slot (wall-mount
+
+•
+
+BP270/N8: dual 4-slot (rack-mount)
+
+•
+
+BP270/N9: 9-slot (rack-mount)
+
+HU280
+T500 head unit
+
+PS280
+T500 power supply
+3 options available:
+•
+
+PS280/V2: 24 Vdc input
+
+•
+
+PS280/V3: 48 Vdc input
+
+•
+
+PS280/V4: 110...125 Vdc input
+
+AI160
+16x analog inputs
+
+24 | PowerLogic™ T500
+
+DO280
+32x transistor outputs
+
+AX160
+
+DO180
+
+8x AI + 4x AO
+
+16x relay outputs
+
+XS280
+
+DI180
+
+8x serial ports
+
+32x digital inputs
+
+General
+Presentation
+
+PowerLogic™ T500 offers several
+tools for the different stages of the
+lifecycle of the product.
+
+PB125573
+
+Access is possible locally and
+remotely. Local access can be made
+by Ethernet.
+
+Product Overview
+Lifecycle Tools
+
+PowerLogic™ T500 is supplied with a standard configuration or a
+dedicated customer configuration.
+Commissioning and maintenance do not require special tools,
+only a web browser on a PC, tablet, or smartphone.
+
+Easergy Builder for Configuration
+
+PB125574
+
+Easergy Builder is Windows® UI tool to setup:
+•
+
+I/O database and parameters
+
+•
+
+Communication channels and protocols
+
+•
+
+Creation and re-use of device templates
+
+•
+
+Mapping of IEC61850 data
+
+•
+
+Synchronization parameters
+
+ISaGRAF for Programming
+ISaGRAF Workbench is used as T500 PLC programming environment:
+•
+
+Support for all IEC 61131-3 languages
+
+•
+
+User friendly interface (OS Windows®)
+
+•
+
+C supported as programming language
+
+•
+
+Tightly integrated with Easergy Builder
+
+PowerLogic™ T500 | 25
+
+Functions and
+Description
+
+26 | PowerLogic™ T500
+
+Functions and Description
+PowerLogic™ HU280 Head Unit Communication
+
+28
+
+General Description
+
+29
+
+Protocols and Communication Architecture
+
+32
+
+Time Synchro and Sequence of Events
+
+34
+
+Cybersecurity
+
+35
+
+Characteristics
+
+37
+
+Standard Compliance
+
+39
+
+Configuration Tool
+
+41
+
+PowerLogic™ T500 | 27
+
+PowerLogic™ HU280
+Head Unit Communication
+
+28 | PowerLogic™ T500
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+General Description
+
+PowerLogic™ HU280 is a powerful
+and flexible communication
+gateway for all PowerLogic™ T500
+configurations.
+
+The PowerLogic™ Head Unit HU280 is the communication module of the
+PowerLogic™ T500.
+
+PowerLogic™ HU280 Manages:
+•
+
+Cybersecurity management
+
+•
+
+Communication with control center
+
+•
+
+Communication with other substations (peer-to-peer communication)
+
+• Open to any communication system and
+protocol
+
+•
+
+PowerLogic™ T500 modules gateway
+
+•
+
+Local network communication with third-party IEDs
+
+• Compliant with Cybersecurity standards
+
+•
+
+Local and remote configuration access for all modules of PowerLogic™ T500
+
+• Advanced configuration tools
+
+•
+
+Web server with local and remote access
+
+• Web server for easy commissioning,
+maintenance, and operation
+
+•
+
+Automation system with programmable logic control
+
+•
+
+Global function as remote/local operation, automation enable/disable
+
+• PowerLogic™ HU280 can be used as
+a standalone or reduntant gateway for
+substation IEDs
+
+• Open to IEC 61131 applications
+• Easy remote and local firmware updates
+
+Network Control Centre
+SCADA/EMS
+
+MDM/
+AMM
+
+Devices
+Cyber Security
+Management System
+Manager
+
+Easergy
+Builder
+
+Web
+server
+
+PB125575
+
+DB446462
+
+The figure shows an example of the communication architecture and the
+capabilities of PowerLogic™ T500.
+
+@
+
+WAN or Serial ports
+
+HU250
+
+XS280
+
+DI180
+
+DO180
+
+DO280
+
+AI160
+
+AX160
+
+Easergy Builder
+
+@
+
+Local webserver
+Internal I/O bus
+4x LAN ports for
+substation bus
+communications
+
+Legacy serial coms.
+Legacy IEDs
+
+Substation IEDs
+
+PowerLogic™ T500 | 29
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+General Description (cont.)
+
+PB125576
+
+Physical Interface
+
+Reset button
+PowerLogic Ring
+Visual indication of device status
+
+Watchdog
+Watchdog output (health monitoring)
+IRIG-B
+IRIG-B synchronization input
+2x RS-232/485 (RJ45)
+Communication with serial comms.
+MNT (ETH-RJ45)
+Engineering, configuration and maintenance.
+
+2x LAN/WAN (ETH-RJ45)
+
+4x station ports (Gbit-SFP)
+Communication with substation IEDS
+
+PB125577
+
+Communication with
+upstream SCADA/DCS
+
+Backplane connector
+Connect to internal bus
+and power supply.
+
+SD-card slot
+Expand internal file storage
+
+30 | PowerLogic™ T500
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+General Description (cont.)
+
+PB125578
+
+Configurable Communication Ports
+
+2x RS-232/485 (RJ45)
+Communication with serial comms.
+All serial protocol client/servers can
+be associated to these ports.
+
+MNT (ETH-RJ45)
+Access embedded webserver.
+Available to connect with
+engineering tools.
+
+2x LAN/WAN (ETH-RJ45)
+Communication with upstream
+SCADA/DCS.
+
+4x LAN ports (Gbit-SF)
+LAN1 to LAN4 - these require insertion of
+SFP transceivers.
+
+All supported protocol servers can
+be mapped to make use of these
+ports.
+
+To communicate using copper (RJ45) or
+fiberoptic links. Configurable as standalone
+links or redundant pairs (IEC 62439 PRP &
+HSR supported). All supported protocols
+can be associated to any of these. Also
+supporting client and server for time
+synchronization over NTP & IEEE 1588.
+
+PowerLogic™ T500 | 31
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+Protocols and Communication Architecture
+
+HU280 can communicate with peers
+(SCADA and other devices) on one or
+several communication channels.
+
+Protocols
+PowerLogic T500 communicates with IEDs and control systems using open
+protocols. PowerLogic™ HU280 can also be used to act as data concentrator or
+protocol converter for downstream devices.
+
+•
+
+Communication channels can be
+configured individually to fit application
+needs (DMS, local automation, etc.)
+
+PowerLogic HU280 can manage several communication channels and protocols
+concurrently.
+
+•
+
+Channels can be created and setup
+using Easergy builder.
+
+IEC 60870-5-101 controlling station and controlled station
+
+•
+
+Configuration settings – e.g., IP
+addresses – can be modified using the
+embedded webApp.
+
+•
+
+UDP and Serial (RS232/485)
+
+•
+
+Supports secure authentication as per IEC 62351-5
+
+•
+
+Redundant connections with several controlling stations
+
+•
+
+Embedded firewall can be configured
+to improve overall security.
+
+IEC 60870-5-103 client – manage legacy serial IEDs
+
+•
+
+T500 is delivered with no default
+protocols or channels preconfigured.
+
+IEC 60870-5-104 controlling station and controlled station
+•
+
+TCP only
+
+•
+
+Supports secure authentication as per IEC 62351-5
+
+•
+
+Redundant connections with several controlling station IPs
+
+For more information on the IEC 60870-5 protocol, visit www.iec.ch.
+
+DNP3 master station and outstation
+•
+
+Supports secure authentication as per IEC 62351-5
+
+•
+
+UDP, TCP (including dual end point), and Serial (RS232/485)
+
+For more information on the DNP3 protocol, visit www.dnp.org.
+
+Modbus client and server
+•
+
+TCP and Serial (RS232/485)
+
+For more information on the Modbus protocol, visit www.modbus.org.
+
+IEC 61850 client and server
+•
+
+IEC 61850-8-1 ed 1 client
+
+•
+
+IEC 61850-8-1 ed 2 client and server
+
+•
+
+GOOSE messages between IED and HU280
+
+For more information on the IEC 61850 protocol, visit www.iec.ch.
+
+Other protocols
+•
+
+HTTPS for secure web server connection
+
+•
+
+SNTP for time synchronization
+
+•
+
+SNMP client and agent*
+
+•
+
+Radius and LDAP* server
+
+•
+
+Webservices with devices management system (ESM)
+
+* Please contact Schneider Electric service representative for availability.
+
+32 | PowerLogic™ T500
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+Protocols and Communication Architecture
+
+PB125579
+
+Channels
+The ports used to communicate are configured as communication channels.
+A channel can support one or more protocols according to the compatibilities with
+the physical layers.
+
+The possible channel types are:
+•
+
+Serial (RS232/RS485)
+
+• TCP (Called, Calling or Both) or UDP
+For TCP and UDP channels, a remote IP list can be created to limit access to
+identified peers.
+
+Channel Association - Links
+TCP channel configuration from Easergy Builder
+
+PB125580
+
+Some control centers or IEDs support double channels. The functionality can be
+different for each protocol. The links are associations of two channels and they are
+used to identify a double channel. Two modes of channels switching are possible:
+•
+
+AutoSwitch: used with secondary protocols. When the active channel stops
+receiving, it switches to the other channel, which becomes active.
+
+•
+
+SwitchByMaster: used with the primary protocol, the HU280 controls the channel
+switching. A periodic switching between channels can be defined to verify
+channel state TIME_FORCE_SWITCH.
+
+PB125581
+
+Example of PowerLogic™ T500 Communication Channel
+DNP3_Scada
+
+IEC104_Scada
+
+DNP
+
+IEC103
+
+DNP3
+
+T104
+
+MDB
+
+MDB
+
+Event
+
+T101
+
+T104
+
+DNP3
+
+T104
+
+T103
+61850
+
+Serial channel configuration from Easergy Builder
+Legacy IEDs
+
+Legacy IEDs
+
+Legacy IEDs
+
+Legacy IEDs
+
+Legacy IEDs IEC61850_Scada
+
+PB125582
+
+IED_Server
+
+Serial Channel
+
+TCP Channel
+
+Association of channels
+
+PowerLogic™ T500 | 33
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+Time Synchro and Sequence of Events
+
+PB125583
+
+Time Synchronization
+Proper timestamping of events and alarms requires that correct time information is
+provided to the PowerLogic™ T500. The PowerLogic™ T500 time synchronization
+is managed by PowerLogic™ HU280. Time synchronization can be achieved in
+numerous ways, depending on the overall system architecture and the required
+precision.
+
+PowerLogic™ T500 can accommodate several kinds
+of clock synchronization and manages:
+•
+
+Local time zone
+
+•
+
+Summer/wintertime
+
+•
+
+Protocol: Most data-transmission protocols allow secondary devices to
+synchronize from a control. The time accuracy depends on the implementation
+and the communication media.
+
+•
+
+SNTP or NTP: Ethernet communication networks provide SNTP clocks to
+synchronize devices. PowerLogic™ HU280 can manage a list of SNTP servers:
+The time accuracy depends on network topology.
+
+•
+
+PTP (IEEE 1588): High-accuracy clock synchronization for substation ethernet
+networks.
+
+PowerLogic™ T500 Modules Time
+Synchronization
+
+PB125584
+
+PowerLogic™ HU280 operates as a time server to synchronize:
+•
+
+T500 modules using the Precision Time Protocol (IEEE 1588)
+
+•
+
+IEDs in the substation
+– Primary protocol
+– SNTP server
+– PTP server
+
+Sequences Of Events (SOE)
+The Sequence Of Events (SOE) records all data changes in log files. Each
+PowerLogic™ T500 has its own SOE management. The recording mode for each
+variable can be configured from the HU280 via Easergy Builder.
+•
+
+Up to 4 log files can be configured
+– These logs can be defined from Easergy Builder
+– The names of these logs are configurable
+
+PB125585
+
+SOE configuration
+
+– Any data from the database can be assigned to a log file
+•
+
+The logs files may be downloaded locally from the web server
+
+•
+
+SOE time accuracy
+
+•
+
+Time resolution: 1 ms
+
+•
+
+Discrimination between two events: 1 ms
+
+•
+
+Event storage capacity
+– Up to 3000 events can be stored by PowerLogic™ T500
+– The size of logs files is configurable
+
+For all logs, when the storage capacity is reached, the most recent event clears the
+oldest from the list.
+
+Web server view of SOE
+
+34 | PowerLogic™ T500
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+Cybersecurity
+PowerLogic™ T500 includes as standard and without external devices, the
+following cybersecurity features as per IEC 62443-4-2:
+
+Cybersecurity features implemented in
+PowerLogic™ T500 help to mitigate cyber
+threats as per IEC 62443 standard.
+Cybersecurity requirements are designed
+to meet the international cybersecurity
+standards and support the security
+systems necessary to fulfill NERC and
+IEC 62351 requirements.
+
+•
+
+Software integrity with firmware signature on all modules
+
+•
+
+Secure communication between PowerLogic™ T500 and associated webserver
+tool with local or remote connections using HTTPS
+
+•
+
+User identification and authentication as per IEC 62351-8
+
+•
+
+User's interface certificate management as per IEC 62351-8
+
+•
+
+Communication authentication as per IEC 62351-5 when using DNP3
+and IEC 60870-5-104 protocols.
+
+•
+
+Port hardening management.
+
+•
+
+IP communication filter
+
+•
+
+Security events log storage and transmission according to Syslog protocol
+
+Local and Remote-Control Access
+(RBAC)
+
+Cybersecurity log
+PowerLogic™ T500 supports advanced logging
+and monitoring features for cybersecurity
+implementations. Logs are protected against
+unauthorized access, modification and deletion
+and are preserved in the security events log.
+
+The device uses Role-Based-Access-Control (RBAC) to provide defined levels of
+access for users. RBAC is predefined as per IEC 62351-8.
+PowerLogic™ T500 is provided with a pre-defined RBAC. It can be customized with
+the Cybersecurity manager tool CAE or T500 Web server.
+
+Port Hardening
+All HU280 physical ports (LAN and WAN) not
+used by the application are disabled on startup.
+Additional firewall rules can be defined for each
+configured port.
+
+RESET
+
+DATA
+
+SECURITY
+
+LOG & SOE
+
+TOOLS
+
+BUILDER
+
+WEB Services
+
+Role
+
+FIRMWARE
+
+At least one of the Ethernet ports of HU280
+module must be enabled to give the possibility to
+connect the unit.
+
+DATA BASE
+
+Right
+
+VIEWER
+OPERATOR
+ENGINEER
+INSTALLER
+SECADM
+
+Firewall
+For each network interface (LAN and WAN), the
+firewall can be configured :
+To block TCP ports
+
+•
+
+To block an IP address (blocklist)
+
+•
+
+To allow an IP address (allowlist)
+
+Permission Assignment
+
+DB446463
+
+•
+
+User Assignment
+
+Operations
+Objects
+
+Users
+
+Functional roles
+
+Permissions
+
+RBAC Role structure
+
+PowerLogic™ T500 | 35
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+DB446464
+
+Cybersecurity
+Cybersecurity Administration Expert Tool
+(CAE)
+
+CAE tool
+
+Security logs
+
+The EcoStruxure Cybersecurity CAE is a windows-based tool that allows a central
+management of Security configuration and access to security logs of each
+PowerLogic™ T500.
+
+Security configuration
+
+Security configuration includes:
+
+Security
+logs
+request
+
+•
+•
+•
+•
+
+Security policy, including for example: password complexity or password
+strategy.
+Define rules for security logs, choose between various standards.
+Roles and permissions: Role Base Access Control (RBAC).
+Users with associated roles.
+
+Local Authentication and Authorization
+
+DB446465
+
+Local authentication and authorization can be achieved without any external
+servers. Security configuration is stored locally in each PowerLogic™ T500.
+Users authentication and authorization using associated role are performed
+locally (RBAC). CAE is used to update globally the security configuration of all
+the PowerLogic™ T500 located inside the substation, so that users, associated
+passwords, and other parameters are consistent on all devices. Centralized
+authentication and authorization can be achieved also with one or two Radius and
+LDAP server, with IEC 62351-8 extension. In order to coordinate the authentication
+Tools
+
+RADIUS server
+
+Radius and LDAP Server
+
+Authentication
+result + role
+
+RADIUS protocol
+
+Authentication
++ role request
+
+Third-party
+device
+
+36 | PowerLogic™ T500
+
+from a unique customer security policy management system.
+
+Secured
+communication
+
+This allows to use Unified Account management system shared across
+heterogenous solutions. The same credentials are used for each PowerLogic™
+T500, at tools and at third party devices.
+Radius server is in charge of authenticating users and providing associated role.
+Then PowerLogic™ T500 allows access based on this role and the internal security
+configuration (RBAC).
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+Characteristics
+Characteristics
+Main
+Range
+
+PowerLogic™
+
+Product name
+
+PowerLogic HU280
+
+Device short name
+
+HU280
+
+Product or component type
+
+Communication gateway
+
+Installation
+Type of installation
+
+Indoor and outdoor
+
+Cabinet specifications
+
+Ventilated metallic cabinet
+Mechanic resistance IK08
+Fire resistance V-1 or V-0
+Outdoor cabinet minimum recommended IP65
+
+Fixing Mode
+
+By screw
+Only vertical orientation
+
+Maximum relative humidity
+
+95%
+
+Ambient air temperature for storage
+
+-40 ºC to 85 ºC
+
+Ambient air temperature for operation -40 ºC to 70 ºC
+Pollution degree
+
+PD2
+
+Overvoltage category
+
+CAT-II
+
+Maximum operation altitude
+
+2000 m
+
+Dimensions
+
+Height: 244 mm
+Width: 44 mm
+Depth: 180 mm
+
+Lifting and transport
+
+In case of installed in cabinets with weight >18 kg follow instructions of cabinet manufacturer
+
+Hardware
+Maximum power consumption
+
+15 W
+
+Processor name
+
+ARM Cortex-A53 quad core at 1.1 GHz
+ARM Cortex-M4 at 400 MHz
+
+Realtime clock
+
+Built-in clock
+Clock drift +/-2ppm from 0 to 40 ºC
+Clock drift +/-3.5ppm from 40 to 85 ºC
+
+Communication port support
+
+4 x Gbps Ethernet ports SFP 100/1000 Mbps
+3 x 10/100 BaseT RJ45 ports
+2x RS232/485 RJ45 serial ports
+
+Validated SFP devices
+
+Copper SFPs:
+FINISAR:
+•
+
+FCLF8520P2BTL
+
+•
+
+FCLF8521P2BTL
+
+•
+
+FCLF8522P2BTL
+
+6COM:
+•
+
+6C-SFP-F
+
+•
+
+6C-SFP-T
+
+Fiber SFPs:
+AVAGO/BROADCOM:
+•
+
+HFBR-57E5APZ
+
+PowerLogic™ T500 | 37
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+Characteristics (cont.)
+Characteristics (cont.)
+Memory capacity
+
+32 GB eMMC
+4 GB RAM DDR4
+Up to 64 GB slog for Secure Digital (SD) card
+
+Validated SD cards
+
+Kingston Canvas Select Plus SD - SDS2/32 GB Class 10 UHS-I
+Kingston Canvas Select Plus SD - SDS2/64 GB Class 10 UHS-I
+
+IP Degree of protection
+
+IP20 conforming to IEC 60529
+
+IK Degree of protection
+
+IK07 conforming to IEC 62235
+
+Software
+Communication port protocol
+
+IEC/BS 61850 client/server
+DNP3 serial and TCP client/server
+IEC/BS 60870-5-101 client/server
+IEC/BS 60870-5-104 client/server
+IEC/BS 60870-5-103 client
+Modbus serial and TCP client/server
+
+Cybersecurity
+
+Role-Based Access Control
+TPM secure storage
+Certificate management
+Secure boot
+Encryption engine
+Firmware signature
+Security log
+
+Encryption algorithms
+
+AES (Advanced Encryption Standard)
+3DES
+MD5/SHA
+RSA/ECC
+Single-pass authentication encryption
+
+Communication service
+
+TLS
+DHCP client
+Syslog Protocol
+RADIUS client
+LDAP client
+Web server (HTTPS)
+
+Data recording
+
+Event logs
+Sequence of Events
+Alarms
+
+Time Synchronization protocols
+
+IRIG-B
+GPS
+PTP IEEE1588
+SNTP
+
+Functionality provided by web
+applications
+
+Device identification
+Device status
+Data monitoring and control
+Events log
+TCP/Serial traces
+System log
+Clock management
+Firmware management
+Configuration management
+User management
+Certificate management
+Cybersecurity log
+Customizable HMI screens including Single Line Diagram
+
+38 | PowerLogic™ T500
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+Characteristics and Standard Compliance
+Characteristics (cont.)
+Programming language
+
+ST (Structured text)
+IL (Instruction list)
+LD (Ladder)
+FBD (Function block diagram)
+SFC (Sequential function chart)
+Calculation Formula
+
+Packaging
+Unit Type of Package
+
+PCE
+
+Number of Units in Package 1
+
+1
+
+Package 1 Height
+
+8.5 cm
+
+Package 1 Width
+
+23 cm
+
+Package 1 Length
+
+31 cm
+
+Package 1 Weight
+
+1.366 kg
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+SI 2016 Nº 1101
+
+UKCA Mark Directive
+
+2014/30/EU
+
+CE Mark Directive
+
+SI 2016 Nº 1091
+
+UKCA Mark Directive
+
+CE Mark and UKCA Mark
+Low Voltage Directive (LVD)
+Electromagnetic Compatibility (EMC)
+
+2011/65/EU
+
+CE Mark Directive
+
+RoHS
+
+Regulations 2012 and SI 2012
+Nº 3032
+
+UKCA Mark Directive
+
+WEEE
+
+2012/19/UE
+
+CE and UKCA Mark Directive
+
+EMC - Emission tests (Aligned with IEC/BS 61850-3 and IEC/BS 60255-26
+Radiated emission EF measure
+
+CISPR 32:2015+A1:2019
+
+30 MHz to 6 GHz
+
+Continuous conducted emission
+
+CISPR 32:2015+A1:2019
+
+0.15 MHz to 30 MHz
+
+EMC - Immunity tests (Aligned with IEC/BS 61850-3 and IEC/BS 60255-26)
+Radiated RF Electromagnetic field immunity test
+
+IEC 61000-4-3:2020
+
+80 – 3000 MHz, AM 1 KHz Prof: 80%, 10 V/m
+80 – 2700 MHz, AM 1 kHz Prof: 80%, 10 V/m
+27 – 6000 MHz, AM 1 kHz Prof: 80%, 3 V/m
+
+Immunity to conducted disturbances, induced by
+radiofrequency fields
+
+IEC 61000-4-6:2013
+
+Range A; 150 kHz - 80 MHz, AM 1 kHz Prof: 80%, 10
+Vrms
+Range B: 27 ± 0.135 MHz, AM 1 kHz Prof: 80%, 10 V/
+m, 10 s
+
+Electrical fast transient/burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014+A1:2017
+
+±0.5, ±1, ±2 kV (Symmetrical coupling)
+±0.5, ±1, ±2 kV, ±4 kV (Asymmetrical coupling)
+
+Damped oscillatory wave
+
+IEC 61000-4-18:2019
+
+1 kV (1 MHz) for differential mode
+2.5 kV (1 MHz) for common mode
+
+PowerLogic™ T500 | 39
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+Standard Compliance (cont.)
+
+Standard Compliance (cont.)
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2009
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2008
+
+50 Hz, 100 A/m continuous
+50 Hz, 1000 A/m for 1 s
+±2 kV; ±4 kV, ±8 kV (Direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV, ±15 kV (Air discharge)
+
+DC Voltage dips, short interruptions and voltage
+variations
+
+IEC 61000-4-29:2000
+
+10 ms voltage dips 0% Criteria A
+200 ms voltage dips 40%
+500 ms voltage dips 70%
+5000 ms voltage dips 100%
+
+DC supply voltage –Ramp up Ramp down
+
+IEC 61000-4-17:1999
++A1:2001+A2:2008
+
+Shut-down ramp duration: 60 s
+Power off duration: 5 min
+Start-up ramp duration: 60 s
+
+Mains frequency voltage
+
+IEC 61000-4-16:2015
+
+30 V continuous perturbation
+300 V 1 s
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
++A1:2001+A2:2009
+
+15% Un, 100 Hz
+
+Impulse magnetic field
+
+IEC 61000-4-9:2016
+
+Level 5, 1000 A/m peak, pulse 1,2/50 μs and 8/20 μs
+
+Damped oscillatory magnetic field
+
+IEC 61000-4-10:2016
+
+Level 5, 100 A/m peak, 0.1 MHz and 1 MHz
+
+10% Un, 100 Hz
+
+Electrical Safety
+Aligned with all requirements
+
+IEC/BS 60255-27:2013
+IEC/BS 61010-1:2010
+
+Electrical Safety
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad: (-40 ºC/16 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC/+55 ºC/95%RH/6 cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab (93 ± 3) %/+40°C/10 days
+
+Damp heat steady state test
+
+IEC 60068-2-14:2009
+
+Test Nb
+
+Test Ab (-40 ºC/96 h)
+Test Bd: (+70 ºC/16 h)
+Test Bb (+70 ºC/96 h)
+
+-40 ºC/+70 ºC/1 ºC/min/3 h/5 cycles
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+UNE-EN 60068-2-6:2008
+
+Test Fc
+
+UNE-EN 60255-21-1:1996
+
+Section 1
+
+UNE-EN 60068-2-27:2011
+
+Test Ea and guidance
+
+UNE-EN 60255-21-2:1996
+
+Section 2
+
+Seismic tests
+
+UNE-EN 60255-21-3:1996
+
+Section 3
+
+Drop test
+
+IEC 60068-2-31:2008
+
+60 cm (with packaging)
+
+Shock and bump
+
+ISO 4180:2019
+
+40 | PowerLogic™ T500
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+DB446466
+
+Configuration Tool
+T500 Easergy Builder
+
+PowerLogic™ T500 Configuration Tool
+One configuration tool is available with T500:
+
+The Easergy Builder
+can change only
+HU280 configuration
+
+T500.rar
+
+•
+
+Easergy Builder
+Advanced Engineering tool for experts, this tool enables adding/modifying the
+configuration of the T500 application, for example:
+
+The deployment of
+configuration is done for all
+tools by the Import/Export
+WebServices
+
+– Adding/modifying communication architecture (protocol, modem, etc.)
+– Adding/modifying local network and IEDs and associated variables
+
+T500.rar
+
+– Adding/modifying ISaGRAF® automation applications or PLC programs
+
+T500 webApp
+
+•
+
+Some settings can be modified via the embedded webApp.
+– IP addresses of the Ethernet ports
+– Communication protocol parameters
+
+Interaction between the three T500 configuration tools
+
+With the use of this Easergy Builder, the user is able to:
+•
+
+Modify the configuration downloaded to Easergy Builder, in order to adapt/
+add/modify new advanced functions or unit settings.
+
+•
+•
+
+Transfer the configuration file to the T500 unit once modified.
+Change functional settings directly on the unit from a PC connected to the
+web server.
+
+This tool is interactive and can be used to transfer the configuration file
+from one to another.
+PB125586
+
+EcoStruxure™ Power Automation System
+Maintenance Tool
+Easergy Builder
+
+EcoStruxure™ Power Automation System Maintenance tool allows to track the
+evolution of all the configuration and software artifacts throughout the lifecycle.
+
+Device Management
+•
+•
+•
+
+FW version
+HW version
+Serial number
+
+Baseline Management
+ESM
+
+•
+•
+•
+
+Backup configuration.
+Track evolution of changes with Time.
+Track versions of Baseline Vs Real.
+
+Mass Firmware and Configuration Update
+•
+•
+•
+
+Mass firmware upgrades.
+Mass configuration downloads.
+Mass incremental configuration updates.
+
+Central Cyber Security Configuration (CAE embedded)
+•
+•
+
+Manage RBAC configurations.
+Backup all RBAC configurations and trace evolution.
+
+Access to T500 Web Interface
+•
+
+Identify devices and connect without needing to remember URLs.
+
+PowerLogic™ T500 | 41
+
+PowerLogic™ HU280
+Head Unit Communication
+
+Functions
+and Description
+
+DB446467
+
+Configuration Tool (cont.)
+PC
+Management
+& Maintenance
+
+SCADA
+Controller
+
+Easergy Builder
+
+Acquisition Module
+Profibus-DP
+
+Easergy Builder is the advanced configuration tool of the PowerLogic™ T500 RTU,
+reserved for the expert engineering team.
+
+Web Server
+IEC 104
+Controller
+
+SNTP,
+GPS
+
+Controller
+Profibus DP
+
+CoreDb
+
+Synchronisation
+
+The basic use of PowerLogic™ T500 does not require advanced modifications of
+the PowerLogic™ T500 configuration.
+
+IEC 101 / IEC 104
+Controller
+
+IEDs
+
+The web server is sufficient for the user to personalize the system and change
+basic settings.
+
+DNP 3.0
+Controller
+
+Supervision
+ISaGRAF
+PLC
+
+T500
+
+Interface
+
+IEDs
+
+Easergy Builder: Relationship between coreDb and
+other applications
+
+Easergy Builder permits the modification of an existing PowerLogic™ T500
+configuration from the main page WorkSpace.
+
+DB446468
+
+This page includes the following general settings:
+coreDb
+Configuration
+files
+
+Other
+BinControllers
+
+IEC 104
+i4e
+
+ModBus
+mdbe
+BinControllers
+Configuration Files
+
+Real Time Database
+coreDb
+
+Web Server
+T500
+
+•
+
+IP parameters for LAN and WAN (IP address, delays, etc.)
+
+The Workspace can manage several PowerLogic™ T500 RTU configurations. The
+Workspace page displays as a diagram the architecture of each PowerLogic™
+T500 application (architecture of the different devices included in the
+configuration).
+
+ISaGRAF
+isg
+Synchronization
+thm
+Supervision
+sup
+Communications
+Local
+Acquisition
+laq
+
+PB125587
+
+Easergy Builder: Real-time operating system
+architecture
+
+Each of the following elements (named devices) can be associated with a
+PowerLogic™ T500 RTU application:
+•
+•
+•
+•
+•
+•
+•
+
+Primary/secondary protocol setting (IEC 104, DNP3)
+ISaGRAF® project interface
+Supervision setting
+Local acquisition setting (input/output)
+SOE setting (Sequence of Events)
+CoreDb signals (real-time database), including status, command, analog,
+setpoint
+Synchronization setting
+
+To personalize the RTU application, Easergy Builder uses four main groups of
+settings pages:
+•
+•
+•
+•
+
+PB125588
+
+WorkSpace: RTU setting
+
+WorkSpace: Device architecture page
+
+42 | PowerLogic™ T500
+
+Devices: one device for each function (protocol, modem port, SOE, ISaGRAF,
+input/output)
+Channels: one channel for each internal or external communication link
+CoreDb: database including variables, labels and mapping of the application
+Synchronization: setting to synchronize the unit by SNTP server, GPS, or by the
+protocol
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+User Interface
+
+PB125589
+
+T500 Web Server - Commissioning,
+Operation and Maintenance
+HU280 includes an embedded Web Server as HMI interface and local supervision
+of the substation for the user.
+Basic configuration, operation and diagnosis are carried out by connecting a
+laptop, tablet or smartphone to the T500 Web Server. This web server can be
+accessed:
+•
+
+•
+•
+•
+
+PB125590
+
+Home
+
+Locally via any configured Ethernet port; allowing connections to the embedded
+HTTPs server.
+(laptop directly connected to one of the T500 Ethernet ports)
+Remotely via any configured Ethernet port; allowing remote connections to
+HTTPs from the remote connecting IP.
+The menu on the home page enables the user to select the language
+The web data server’s HTML format pages includes different pages and
+subpages:
+– Home page: local map, GPS coordinates, photos and notes to identify the
+substation.
+– Monitoring and control page: physical view of the system, data view
+including display of status and analogs, control of commands and set
+points.
+– Diagnostic page: to consult and export.csv file (events log, cybersecurity
+log, system log, protocol traces and disturbance records).
+– Maintenance page: user settings, clock synchronization, IP configuration
+settings, device status, firmware version update, configuration download.
+– Settings page: These settings include the configuration of functional
+parameters for communication, protocol, and detection, etc.
+
+Monitoring/Data/Status
+
+Operation and Control
+
+PB125591
+
+Alongside operation and control of the network from the SCADA system, it is
+possible to operate the equipment locally or remotely using data pages:
+•
+•
+•
+
+Displaying status and measurement.
+Issuing commands: switches, automation system on/off, other digital outputs
+with a selection and confirmation process.
+Consultation of archived data
+– On-screen consultation of archive logs
+– Extraction of logs on a PC as a .csv file for analysis
+
+Diagnostic/Events
+
+PowerLogic™ T500 | 43
+
+Functions
+and Description
+
+PowerLogic™ HU280
+Head Unit Communication
+User Interface (Cont.)
+
+PowerLogic webApp
+PowerLogic webApp is embedded web interface to the device enabling authorized users to:
+•
+
+Monitor device configuration.
+
+•
+
+View current state of all the processed.
+
+•
+
+Check firmware versions.
+
+Dedicated to the end user for the operation, commissioning, and maintenance, this tool allows (according to the cybersecurity access and
+roles):
+– Data consultation
+– Events consultation
+– Firmware updating
+– Configuration saving/uploading
+
+PB125592
+
+– Functional setting of T500
+
+PowerLogic webUI
+
+PB125593
+
+The PowerLogic webUI is a lightweight web-based HMI built on webApp services, placing minimal load on CPU hardware. It offers 'justenough' features, including configuration in Easergy Builder, system view, single line diagram, alarm, and event management, and utilizes the
+same RBAC model defined for controller CPU.
+
+44 | PowerLogic™ T500
+
+Notes
+
+PowerLogic™ T500 | 45
+
+Schneider-Electric Service
+
+46 | PowerLogic™ T500
+
+Schneider Electric Service
+Peace of Mind
+Throughout your Installation Life Cycle		
+
+48
+
+PowerLogic™ T500 | 47
+
+Schneider Electric Service
+
+How can you cut costs and
+improve performance at the
+same time?
+When it comes to your electrical distribution
+infrastructure, the answer is straightforward:
+get professional expertise.
+
+Life Cycle Services
+
+DB446469
+
+Life Cycle Services
+
+Peace of Mind Throughout
+your Installation Life Cycle
+Plan
+Schneider Electric helps you plan the full design and execution of your solution,
+looking at how to secure your process and optimize your time:
+•
+
+Technical feasibility studies: Design a solution in your environment
+
+•
+
+Preliminary design: Accelerate turnaround time to reach a final solution design
+
+Install
+Schneider Electric will help you to install efficient, reliable and secured solutions
+based on your plans.
+
+Plan
+
+•
+
+Project management: Complete your projects on time and within budget
+
+What are my options?
+
+•
+
+Commissioning: Ensure your actual performance matches the design, through
+on-site testing and commissioning, and tools and procedures
+
+Install
+How do I install and commission?
+
+Operate
+How do I operate and maintain?
+
+Optimize
+How do I optimize?
+
+Renew
+How do I renew my solution?
+
+When it comes to your electrical
+distribution installation, we can
+help you:
+• Increase productivity and reliability
+• Mitigate risk and limit downtime
+• Keep equipment up to date and extend
+lifespan
+• Cut costs and increase savings
+• Improve your return on investment
+
+Operate
+Schneider Electric helps you maximize your installation uptime and control your
+capital expenditure through its service offer.
+•
+
+Asset operation solutions: Provide the information you need to enhance
+installation performance, and optimize asset maintenance and investment
+
+•
+
+Advantage service plans: Customize service plans that cover preventive,
+predictive and corrective maintenance
+
+•
+
+On-site maintenance services: Deliver extensive knowledge and experience
+in electrical distribution maintenance
+
+•
+
+Spare parts management: Ensure spare parts availability and an optimized
+maintenance budget of your spare parts
+
+•
+
+Technical training: Build the necessary skills and competencies to properly
+and efficiently operate your installations
+
+Optimize
+Schneider Electric can make recommendations for improved availability, reliability
+and quality.
+•
+
+Renew
+Schneider Electric extends the life of your system while providing upgrades.
+
+CONTACT US!
+
+We offer to take full responsibility for the end of life processing of old electrical
+equipment.
+
+https://www.se.com/ww/en/work/
+services/
+
+•
+•
+
+48 |
+
+MP4 electrical assessment of customer installations: Define an
+improvement and risk management program
+
+ECOFIT™: Keep up to date and improve the performance of your electrical
+installations (LV, MV, protection relays, etc.)
+MV product end of life: Recycle and recover outdated equipment with end of
+life services
+
+Notes
+
+PowerLogic™ T500 | 49
+
+Commercial References
+
+50 | PowerLogic™ T500
+
+Commercial References
+Digital Configuration and Ordering Tools
+
+52
+
+PowerLogic™ T500
+
+53
+
+PowerLogic™ BP260 - Wall - Mount Backplane
+
+53
+
+PowerLogic™ BP270 - Rack - Mount Backplane
+
+53
+
+PowerLogic™ HU280 - High Performance Head Unit
+
+53
+
+PowerLogic™ PS280 - Power Supply
+
+53
+
+PowerLogic™ XS280 - Serial Port Expansion
+
+53
+
+PowerLogic™ DI180 – Digital Input
+
+53
+
+PowerLogic™ DO180 – Relay Digital Output
+
+53
+
+PowerLogic™ DO280 - Transistor Digital Output
+
+54
+
+PowerLogic™ AI160 - Analog Input
+
+54
+
+PowerLogic™ AX160 - Combined Analog I/O
+
+54
+
+Accessories
+
+55
+
+TOOLS
+
+56
+
+PowerLogic™ T500 | 51
+
+Digital Configuration and
+Ordering Tools
+
+Commercial references
+
+Fast and simple
+
+PowerLogic™ T500
+CONFIGURATOR:
+The unique web tool to quickly
+and easily configure your
+PowerLogic™ T500 substation
+controller.
+
+You will find a detail of PowerLogic™ T500 offer on the
+Schneider Electric Website.
+The commercial reference with description is available
+on the Product Selector and a webconfigurator allows
+you to define a configuration and accessories:
+
+PB125595
+
+https://www.se.com/ww/en/product-range/203452520PowerLogic™-t500
+
+52 | PowerLogic™ T500
+
+Commercial references
+
+PowerLogic™ T500
+
+PowerLogic™ BP260 - Wall - Mount Backplane
+Comm. Ref
+
+Description
+
+EMS70140
+
+PowerLogic T500 - BP260/N4
+
+T500 4-slot wallmount backplane
+
+EMS70190
+
+PowerLogic T500 - BP260/N9
+
+T500 9-slot wallmount backplane
+
+PowerLogic™ BP270 - Rack - Mount Backplane
+Comm. Ref
+
+Description
+
+EMS70280
+
+PowerLogic T500 - BP270/N8
+
+T500 dual 4-slot rackmount backplane
+
+EMS70290
+
+PowerLogic T500 - BP270/N9
+
+T500 9-slot wallmount backplane
+
+PowerLogic™ HU280 - High Performance Head Unit
+Comm. Ref
+
+Description
+
+EMS72000
+
+PowerLogic T500 - HU280
+
+T500 Hot-swappable Head Unit, 7xETH + 2xSerial
+
+PowerLogic™ PS280 - Power Supply
+Comm. Ref
+
+Description
+
+EMS71120
+
+PowerLogic T500 - PS280/V2
+
+T500 backplane power supply (In=24 Vdc. Aux.Out=24 Vdc)
+
+EMS71130
+
+PowerLogic T500 - PS280/V3
+
+T500 backplane power supply (In=48 Vdc. Aux.Out=24 Vdc)
+
+EMS71140
+
+PowerLogic T500 - PS280/V4
+
+T500 backplane power supply (In=110/125 Vdc. Aux.Out=24 Vdc)
+
+PowerLogic™ XS280 - Serial Port Expansion
+Comm. Ref
+
+Description
+
+EMS73100
+
+PowerLogic T500 - XS280
+
+T500 serial port expansion (8x RS232/485) RJ45
+
+PowerLogic™ DI180 – Digital Input
+Comm. Ref
+
+Description
+
+EMS74110
+
+PowerLogic T500 - DI180/C1
+
+T500 32x Digital inputs (12 - 125 Vdc autorange) (Terminals)
+
+EMS74120
+
+PowerLogic T500 - DI180/C2
+
+T500 32x Digital inputs (12 - 125 Vdc autorange)
+
+PowerLogic™ DO180 – Relay Digital Output
+Comm. Ref
+
+Description
+
+EMS74210
+
+PowerLogic T500 - DO180/C1
+
+T500 16x Relay outputs (powered with 24Vdc)(Terminals)
+
+EMS74220
+
+PowerLogic T500 - DO180/C2
+
+T500 16x Relay outputs (powered with 24Vdc)
+
+PowerLogic™ T500 | 53
+
+PowerLogic™ T500
+
+Commercial references
+
+PowerLogic™ DO280 - Transistor Digital Output
+Comm. Ref
+
+Description
+
+EMS74310
+
+PowerLogic T500 - DO280/C1
+
+T500 32x Transistor outputs (24/48Vdc powered) (Terminals)
+
+EMS74320
+
+PowerLogic T500 - DO280/C2
+
+T500 32x Transistor outputs (24/48Vdc powered)
+
+PowerLogic™ AI160 - Analog Input
+Comm. Ref
+
+Description
+
+EMS75410
+
+PowerLogic T500 - AI160/C1
+
+T500 16x Analog input module (Terminals)
+
+EMS75420
+
+PowerLogic T500 - AI160/C2
+
+T500 16x Analog input module
+
+PowerLogic™ AX160 - Combined Analog I/O
+
+54 | PowerLogic™ T500
+
+Comm. Ref
+
+Description
+
+EMS75510
+
+PowerLogic T500 - AX160/C1
+
+T500 combined analog module (8 inputs + 4 outputs) (Terms)
+
+EMS75520
+
+PowerLogic T500 - AX160/C2
+
+T500 combined analog module (8 inputs + 4 outputs)
+
+Accessories
+
+Ordering
+
+Comm. Ref
+
+Description
+
+REL70062
+
+SFP ETH module RJ45
+
+RJ45 SFP for LAN ports
+
+REL70063
+
+SFP ETH module multimode
+
+Multimode 100Mbps fibre SFP for LAN ports
+
+REL70064
+
+SFP ETH module single mode
+
+Single mode 100Mbps fibre SFP for LAN ports
+
+EMS78100
+
+PowerLogic T500 - TI180
+
+T500 terminal block for DI180 (32x DI)
+
+EMS78200
+
+PowerLogic T500 - TO180/P0
+
+T500 terminal block for DO180 (16x DO without relay)
+
+EMS78320
+
+PowerLogic T500 - TO180/P2
+
+T500 terminal block for DO280 (with 16x relays at 24 Vdc)
+
+EMS78330
+
+PowerLogic T500 - TO180/P3
+
+T500 terminal block for DO280 (with 16x relays at 48 Vdc)
+
+EMS78340
+
+PowerLogic T500 - TO180/H
+
+T500 heavy duty terminal block for DO280 (16x relays at 24 Vdc)
+
+EMS78400
+
+PowerLogic T500 - TA160
+
+T500 terminal block for AI160 or AX160 (8x AI)
+
+EMS78500
+
+PowerLogic T500 - TS160
+
+T500 terminal block for AX160 (4x AO)
+
+EMS78600
+
+PowerLogic T500 - CX160
+
+T500 terminal block cable (unshielded) (2.5 m)
+
+EMS78610
+
+PowerLogic T500 - CX160/S
+
+T500 terminal block cable (shielded) (2.5 m)
+
+EMS78910
+
+PowerLogic T500 - CP020/C1
+
+Unused T500 backplane connector dust cover (x2)
+
+EMS78920
+
+PowerLogic T500 - CP020/C2
+
+Dust cover for unused DB9 connectors (2X)
+
+EMS78930
+
+PowerLogic T500 - CP020/C3
+
+Dust cover for unused RJ45 connectors (2X)
+
+EMS78940
+
+PowerLogic T500 - CP020/C4
+
+Dust cover for unused SFP connectors (2X)
+
+| 55
+
+TOOLS
+www.se.com
+This international web site allows you to access all the
+Schneider Electric solutions and product information via:
+• Comprehensive descriptions
+• Range datasheets
+• A download area
+• Product selectors
+
+PB125594
+
+You can also access information dedicated to your
+business and contact your Schneider Electric country
+support.
+
+56 | PowerLogic™ T500
+
+TOOLS
+Web Selector
+This site allows you to access Schneider Electric
+products in just two clicks via a comprehensive range of
+datasheets, with direct links to:
+• Complete libraries: technical documents, catalogs,
+FAQs, brochures
+• Selection guides from the e-catalog
+• Product discovery sites and their animations
+You will also find illustrated overviews, news to which
+you can subscribe, and a list of country contacts
+
+Training
+Training allows you to acquire the expertise (installation
+design, working with power on, etc.) to increase
+efficiency and improve customer service.
+The training catalog includes beginner’s courses in
+electrical distribution, knowledge of MV and LV
+switchgear, operation and maintenance of installations,
+and design of LV installations, to give a few examples.
+
+PowerLogic™ T500 | 57
+
+www.se.com
+Schneider Electric Industries SAS
+35, Rue Joseph Monier
+CS 30323
+92506 Rueil Malmaison Cedex
+France
+RCS Nanterre 954 503 439
+Capital social 928 298 512 €
+www.se.com
+November 2024
+PowerLogic™ T500
+
+NRJED324204EN
+© 2024 - Schneider Electric. All rights reserved.
+All trademarks are owned by Schneider Electric
+Industries SAS or its affiliated companies.
+
+As standards, specifications and designs develop from time to time, please
+ask for confirmation of the information given in this document.
+
+

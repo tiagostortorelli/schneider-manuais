@@ -1,0 +1,2272 @@
+PowerLogic T500 Substation Controller
+PowerLogic XS280
+User Manual
+
+BQT7988501-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic XS280
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of XS280 ..................................................................8
+PowerLogic T500 Platform ..........................................................................8
+XS280 Module............................................................................................9
+XS280 Interfaces...................................................................................... 11
+LED Indicators.......................................................................................... 11
+
+Physical Mounting and Installation .........................................................13
+Installation ...............................................................................................13
+Handling Modules ...............................................................................13
+Module Location within the Chassis or Backplane..................................13
+Power Supply Requirements................................................................14
+Configuration Switches........................................................................14
+Mounting Procedure............................................................................15
+Wiring XS280 ...........................................................................................16
+Recommendation for EMC...................................................................16
+Wiring RS-485 ....................................................................................16
+Wiring RS-422 ....................................................................................17
+Wiring RS-232 ....................................................................................17
+Termination Resistor (RS-485 and RS-422) ..........................................18
+Interconnection with Other Equipment ..................................................19
+
+Configuration and Maintenance..............................................................20
+Configuration of the Backplane ..................................................................20
+XS280 Configuration.................................................................................23
+XS280 Channel ..................................................................................23
+Maintenance of Module.............................................................................25
+webApp..............................................................................................25
+Using webApp ....................................................................................26
+
+Appendix ....................................................................................................29
+Technical Specifications ............................................................................29
+
+Glossary .....................................................................................................33
+
+BQT7988501–00
+
+3
+
+Foreword
+
+PowerLogic XS280
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7988501–00
+
+5
+
+PowerLogic XS280
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM XS280 module (part number EMS73100).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7988501-00
+
+06/2024
+
+Creation
+
+BQT7988501–00
+
+Foreword
+
+PowerLogic XS280
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+PowerLogic HU280
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7988501–00
+
+7
+
+PowerLogic XS280
+
+General Description of XS280
+
+General Description of XS280
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7988501–00
+
+General Description of XS280
+
+PowerLogic XS280
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+XS280 Module
+The XS280 is the serial communication module available in PowerLogic T500. It
+expands the control module communication capability. This module is linked with
+the CPU module (HU280) through a bidirectional high-speed channel.
+The XS280 module communicates with the CPU module through the internal bus,
+at a transmission rate of up to 1.5 Mbps. The multiplexing operation allows the
+bidirectional transfer of the message streams from input channels and its signals.
+The communication protocol between the XS280 module and the CPU module
+follows a client-server (poll-response) structure, in which the client is the CPU
+module and the servers are the different installed XS280 modules.
+The XS280 module supports:
+
+BQT7988501–00
+
+•
+
+A controller block
+
+•
+
+A communication channel block
+
+•
+
+An indication block
+
+9
+
+PowerLogic XS280
+
+General Description of XS280
+
+XS280 front view
+
+Controller Block
+The controller block supports the following functions:
+•
+
+Parameter settings and control of the communication blocks:
+◦
+
+Asynchronous communication
+
+◦
+
+Configurable transmission/reception
+
+◦
+
+Configurable transmission rate up to 38,400 bps
+
+◦
+
+Configurable stream (number of bits, start, stop and parity bit)
+
+◦
+
+RTS/CTS flow control
+
+◦
+
+Transmission/reception of complete streams
+
+•
+
+Block indication update with the new block module information
+
+•
+
+Communication bus interface to connect with the CPU
+
+Communication Channels Block
+Each module includes eight completely configurable communication channels with
+the following features:
+
+10
+
+•
+
+Input protection against electromagnetic disturbances
+
+•
+
+Individual galvanic isolation per communication channel through iCouplers®
+
+•
+
+Six signals for each channel: Tx, Rx, RTS, CTS, DTR and DSR
+
+•
+
+RS-232 / RS-485 / RS-422 signal levels. All channels are configurable as RS232, RS-485 or RS-422
+
+BQT7988501–00
+
+General Description of XS280
+
+PowerLogic XS280
+
+XS280 Interfaces
+The XS280 module integrates eight channels supporting RS-232, RS-485 or RS422 communication standards.
+All connectors are RJ-45 type. The communication status is displayed in the LED
+indicators panel.
+
+LED Indicators
+The following LED indicators are available in a XS280 module:
+
+LED indicators
+
+BQT7988501–00
+
+•
+
+DIA: general diagnostics
+
+•
+
+RUN: operation status
+
+•
+
+One diagnostic LED for each block of four communication channels (ST1/
+ST2)
+
+•
+
+32 indications for the channel signals. Four indications for each channel to
+display the Transmission status (Tx1-Tx8), Reception status (Rx1-Rx8),
+Request to Send (RTS1-RTS8) and Clear to Send status (CTS1-CTS8).
+
+11
+
+PowerLogic XS280
+
+General Description of XS280
+
+XS280 provides the following information to the operator:
+/
+
+: On
+
+/
+
+: Blinking
+
+: Off
+
+LED indicators meaning
+DIA
+
+RUN
+
+STx
+
+RXx
+
+TXx
+
+RTSx
+
+CTSx
+
+Description
+
+Action
+
+The module is configured and communication with the CPU.
+
+–
+
+Incorrect configuration. The module has assigned the address 0.
+
+2
+
+Incorrect configuration. The module has assigned an address
+greater than eight.
+
+1
+
+ON when Request To Send (RTS) or Clear To Send (CTS)
+signals are activated. The channel has to been set with ENABLE
+for “RTS Control”. If the channel was configured as AUTO, these
+LEDs are only ON if there is transmission/reception. These LEDs
+are OFF for any other situation.
+The firmware does not work properly. It is necessary to install the
+software again.
+
+2
+
+Hardware is not working.
+
+2
+
+Hardware is not working on the block x.
+
+2
+
+Receiving data.
+
+–
+
+Transmitting data.
+
+–
+
+The actions to be taken are the following:
+1. If the module address does not match with any configured address, this
+module does not exchange data with the control unit. Check that the module
+address corresponds to configured address. The module may also be
+switched OFF.
+2. Verify that the wiring of the module is correct. Contact the Customer Care
+Center or your Services Representative.
+
+12
+
+BQT7988501–00
+
+Physical Mounting and Installation
+
+PowerLogic XS280
+
+Physical Mounting and Installation
+Installation
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the HU280 module next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+All XS280 modules in the RTU must be installed in the first backplane.
+Communication data is not expanded to other backplanes. Then, the maximum
+number of XS280 modules connected to an HU280 module is eight.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically HU280 modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant HU280 modules, place both CPUs modules
+side by side in the backplane.
+
+Backplane positions
+
+BQT7988501–00
+
+13
+
+PowerLogic XS280
+
+Physical Mounting and Installation
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF OVER VOLTAGE OR REVERSE POLARITY
+•
+
+Check the adjustment of the supply voltage.
+
+•
+
+Check the correct wiring.
+
+•
+
+Check that the auxiliary power supplies are scaled depending on the
+consumption of the installed modules. Auxiliary power can be supplied either
+by a PS280 module or by an external power supply.
+
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+Failure to follow these instructions can result in equipment damage.
+The backplane can be powered by a PS280 module, by an external power supply
+or by a redundant power supply configuration, see Power Supply Redundancy
+section of the PowerLogic T500 Platform manual.
+The PS280 module is capable of supplying power to the modules connected to the
+backplane, as required.
+When using auxiliary power supplies, check that the power supply satisfies the
+power consumption depending on the installed modules.
+Estimation of the power consumption required:
+•
+
+Consider that the maximum power requirement for each XS280 module is:
+3.9 W.
+
+•
+
+Add up the power consumption for each module installed in the backplane.
+The power consumption information is indicated on the technical label of the
+module. It is also included in the technical specification table in the user
+manual of each module and in the data sheet.
+
+•
+
+After adding the consumption of all modules, add a safety margin: between
+20% and 50% of the full power consumed by the modules in the backplane.
+
+•
+
+When selecting a power supply, consider the power supply efficiency: 70 90%. This helps protect the chassis and power supply from overloading.
+
+Configuration Switches
+The module identification address and Profibus communication speed can be set
+using the microswitches on the rear panel of the module. Switches 1 to 4 are used
+to configure the address. The position allocation is shown in the following table:
+Addressing the XS280 module
+Position 4
+
+Position 3
+
+Position 2
+
+Position 1
+
+Address
+
+OFF
+
+OFF
+
+OFF
+
+ON
+
+1
+
+OFF
+
+OFF
+
+ON
+
+OFF
+
+2
+
+OFF
+
+OFF
+
+ON
+
+ON
+
+3
+
+OFF
+
+ON
+
+OFF
+
+OFF
+
+4
+
+OFF
+
+ON
+
+OFF
+
+ON
+
+5
+
+OFF
+
+ON
+
+ON
+
+OFF
+
+6
+
+OFF
+
+ON
+
+ON
+
+ON
+
+7
+
+ON
+
+OFF
+
+OFF
+
+OFF
+
+8
+
+The Profibus communication speed can be set using the microswitches on the
+rear panel of the module.
+
+14
+
+BQT7988501–00
+
+Physical Mounting and Installation
+
+PowerLogic XS280
+
+The Profibus communication speed must be the same for all PowerLogic T500
+modules, which is determined by the speed of the master, configured by software,
+in the control module. The speed is set using microswitches 9 to 11 as shown in
+the following table:
+Configuration switches
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+BQT7988501–00
+
+15
+
+PowerLogic XS280
+
+Physical Mounting and Installation
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+
+Wiring XS280
+Recommendation for EMC
+To avoid EMC disturbances, follow the instructions below.
+The communication bus can be installed using 2-wires communication or 4-wires
+communication. To increase the immunity to electromagnetic interference (EMC),
+use a shielded twisted pair.
+
+NOTICE
+HAZARD OF INCORRECT WIRING
+Ensure that the cable is shielded properly.
+Failure to follow these instructions can result in equipment damage.
+The shield connection depends on the equipotentiality between the connected
+devices:
+•
+
+Guaranteed equipotentiality: Both devices are connected to a ground
+system, so that the same potential level is guaranteed. The shield must be
+connected at both ends.
+
+•
+
+Limited equipotentiality: Both devices are connected to the ground but not
+to the same ground system. To limit the difference of potential that can be
+produced among them, a cable with the appropriate cross-section is installed
+between the grounding of both. The shield must be connected at one end.
+
+•
+
+No guaranteed equipotentiality: Ground connection of both devices cannot
+be guaranteed (both devices must be connected to a ground system). Copper
+must not be used in this case.
+
+Wiring RS-485
+For RS-485, the pairs are shielded individually or all together by a copper braid.
+The recommendations for the cable are the following:
+•
+
+Resistance: < 100 Ω/km
+
+•
+
+Section: 0.22 mm2 (24 AWG)
+
+•
+
+Characteristic impedance: 120 Ω
+
+•
+
+Maximum length: 1200 m
+
+•
+
+Maximum transmitters: 32
+
+•
+
+Maximum receivers: 32
+
+All channels can be configured as RS-485 half-duplex.
+
+16
+
+BQT7988501–00
+
+Physical Mounting and Installation
+
+PowerLogic XS280
+
+RS-485 port pinout
+Pin
+
+Description
+
+1
+
+Rx (-)
+
+B
+
+I/O
+
+3
+
+Tx (+)
+
+Y
+
+I/O
+
+4, 5
+
+GND
+
+6
+
+Rx (+)
+
+A
+
+I/O
+
+8
+
+Tx (-)
+
+Z
+
+I/O
+
+I/O
+
+The cabling for a half-duplex communication is the following:
+•
+
+Join wires 1 and 8 (Rx(-) / Tx(-), B/Z or Negative (-)).
+
+•
+
+Join wires 3 and 6 (Tx(+) / Rx(+), A/Y or Positive (+)).
+
+•
+
+Join wires 4 and 5 to GND.
+NOTE: A and B naming convention depends on the manufacturer. Check the
+naming convention of the manufacturer of the connected product.
+
+Wiring RS-422
+For RS-422 the pairs must be shielded individually. The recommendations for the
+cable are the following:
+•
+
+Resistance: < 100 Ω/km
+
+•
+
+Section: 0.22 mm2 (24 AWG)
+
+•
+
+Characteristic impedance: 100 Ω
+
+•
+
+Maximum length: 1200 m
+
+•
+
+Maximum transmitter: 1
+
+•
+
+Maximum receivers: 10
+
+All channels can be configured as RS-422.
+RS-422 port pinout
+Pin
+
+Description
+
+I/O
+
+1
+
+Rx (-)
+
+I
+
+3
+
+Tx (+)
+
+O
+
+4, 5
+
+GND
+
+6
+
+Rx (+)
+
+I
+
+8
+
+Tx (-)
+
+O
+
+Wiring RS-232
+The 8 communication channels can be configured as full RS-232 with galvanic
+isolation.
+RS-232 port pinout
+Pin
+
+Description
+
+I/O
+
+1
+
+/CTS
+
+I
+
+2
+
+/DTR
+
+O
+
+3
+
+Data transmission
+
+O
+
+4
+
+GND
+
+5
+
+BQT7988501–00
+
+17
+
+PowerLogic XS280
+
+Physical Mounting and Installation
+
+RS-232 port pinout (Continued)
+Pin
+
+Description
+
+I/O
+
+6
+
+Data reception
+
+I
+
+7
+
+/DCD
+
+I
+
+8
+
+/RTS
+
+O
+
+Termination Resistor (RS-485 and RS-422)
+In a communication bus (RS-485 or RS-422), the devices installed on the ends of
+the bus include a termination resistor.
+For each communication port that works as end of the bus, a terminal with
+termination resistors (120 to 150 Ω) for both reception and transmission channels
+must be installed.
+NOTE: For each bus, only two devices must function as a termination of the
+bus.
+The recommended models for these auxiliary terminals (both by Phoenix Contact)
+are the following:
+
+FL-PP-RJ45-SC and VIP-3/PT/RJ45
+
+For example, the following figure shows how to use a 5-pin terminal for RS-422 in
+full-duplex communications:
+Termination resistor in full-duplex communications
+Auxiliary
+terminal x
+
+- Rx
+
++Tx
+
+GND +Rx
+
+-Tx
+
+For RS-485, using half-duplex communications, a 3-pin terminal must be used as
+follows:
+Termination resistor in half-duplex communications
+Auxiliary
+terminal x
+
+_
+
++
+
+GND
+
+NOTE: Above figures are examples. Some other mechanism that provides
+with the same functionality can be used.
+To connect the XS280 port with the auxiliary terminal, if the bus is RS-422, the
+cable to be used is shown in the following figure:
+
+18
+
+BQT7988501–00
+
+Physical Mounting and Installation
+
+PowerLogic XS280
+
+Cable for connection XS280-Auxiliary terminal in full-duplex
+communications
+XS280
+(RJ-45)
+
+Auxiliary
+terminal x
+
+1, -Rx (B)
+
+-Rx (B)
+
+3, +Tx (Y)
+
++Tx (Y)
+
+4, GND
+GND
+5, GND
+6, +Rx (A)
+
++Rx (A)
+
+8, -Tx (Z)
+
+-Tx (Z)
+
+Cable for connection XS280-Auxiliary terminal in half-duplex
+communications
+XS280
+(RJ-45)
+
+Auxiliary
+terminal x
+
+1, -Rx (B)
+
+-Data (B)
+
+3, +Tx (Y)
+
++Data (A)
+
+4, GND
+
+GND
+
+5, GND
+6, +Rx (A)
+
+8, -Tx (Z)
+
+Interconnection with Other Equipment
+The XS280 module incorporates Safety Extra Low Voltage (SELV) circuits across
+all its communication ports. In order to sustain performance in accordance with the
+specifications outlined in the IEC60255 standard (chapter 8.5), it is essential that
+the ports of the external equipment to which they are connected also adhere to the
+SELV requirements.
+
+BQT7988501–00
+
+19
+
+PowerLogic XS280
+
+Configuration and Maintenance
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+20
+
+BQT7988501–00
+
+Configuration and Maintenance
+
+PowerLogic XS280
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+BQT7988501–00
+
+21
+
+PowerLogic XS280
+
+Configuration and Maintenance
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+22
+
+BQT7988501–00
+
+Configuration and Maintenance
+
+PowerLogic XS280
+
+XS280 Configuration
+XS280 Channel
+The ports used to communicate with field devices are configured as
+communication channels. They can be configured in the Channels tab of the
+configuration mode of Easergy Builder. The number and type of these channels
+depends on the type of CPU and communication modules installed in the RTU.
+XS280 channel architecture
+
+For example, this figure shows an RTU with a HU280 and an XS280 module. The
+Channel Architecture zone displays all channels and links (channel
+associations) which are defined.
+•
+
+Channel1 and Channel2: COM1 and COM2 (HU280)
+
+•
+
+Channel3 and Channel4: RS-485 and RS-422 (XS280)
+
+Using buttons in the toolbar, you can:
+
+BQT7988501–00
+
+•
+
+Click
+
+to add a new channel or link.
+
+•
+
+Click
+
+to delete a channel or link.
+
+•
+
+Click
+
+to modify the configuration of a channel or link.
+
+23
+
+PowerLogic XS280
+
+Configuration and Maintenance
+
+The following figure shows the configuration panel for ASYNC channel:
+Channel setup
+
+Where:
+
+24
+
+•
+
+Name: identifying name
+
+•
+
+Description: description
+
+•
+
+Type: channel type depending on the implemented communication protocol.
+There are three types:
+◦
+
+TCP
+
+◦
+
+UDP
+
+◦
+
+ASYNC (RS-232, RS-485 or RS-422 serial communication)
+
+•
+
+Specific Parameters: reserved, this box should not be checked.
+
+•
+
+Channel: the physical port is used for this channel. The list of physical
+channels available are the following:
+◦
+
+HU280: COM1, COM2.
+
+◦
+
+XS280: XS280 x-COMx. Only the ports available in the configured XS280
+are listed for configuration.
+
+•
+
+Baudrate: specifies the communication speed. The speed range is between
+300 and 256000 bps.
+
+•
+
+Protocol: defines which asynchronous protocol is used. The available
+protocols are RS-232, RS-485 and RS-422. RS-485 allows 2 or 4-wire
+communications.
+
+•
+
+Parity, Stop bit, Data bits: configures the communication parameters.
+
+•
+
+RS-485 / RS-422:
+◦
+
+Termination resistor
+
+◦
+
+Polarization
+
+BQT7988501–00
+
+Configuration and Maintenance
+
+PowerLogic XS280
+
+•
+
+Modem Control: these parameters allow configuring the signals for modem
+control in the communication ports. Not all values are available for each CPU.
+◦
+
+DTR Control: flow control
+– ENABLE: DTR at high logical level (1)
+– DISABLE: DTR at low logical level (0)
+– TOGGLE (only available for K7 modem): DTR control depends on the
+parameter DTR - RTS delay.
+
+◦
+
+RTS Control: to configure the RTS output:
+– DISABLE. disables the use of the RTS signal.
+– ENABLE: enables the RTS signal, and keeps it active.
+– AUTO: the RTS signal timing is defined automatically.
+– TOGGLE: allows defining timing for RTS signal.
+
+◦
+
+CD Control:
+– ENABLE: CD at high logical level (1)
+– DISABLE: CD at low logical level (0)
+
+◦
+
+DSR Control:
+– ENABLE: DSR at high logical level (1)
+– DISABLE: DSR at low logical level (0)
+
+◦
+
+Time Setup: time setup when DTR is configured as TOGGLE:
+– Delay before transmission: elapsed time from the data transmission
+is ready and activation of the RTS.
+– DTR – RTS delay: timeout before the RTS signal is established when
+DTR has been activated.
+– Timeout CTS: standby time from the activation of the RTS to the
+activation of the CTS. If the CTS value is zero, it means that the
+transmission is done regardless of CTS value. For non-zero values,
+channel transmission is controlled by the CTS; if the time defined in this
+attribute elapses without a CTS activation, then the package pending to
+be sent is discarded.
+– RTS(or CTS) message delay: elapsed time from the activation of the
+CTS to data transmission.
+– Message – RTS delay: time from the end of the data transmission to
+RTS deactivation.
+
+NOTE: For 2-wires RS-485 communications, set the RTS control to TOGGLE,
+and define all times to 0 ms. Thus, reception while transmitting is disabled (to
+avoid echo).
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+
+BQT7988501–00
+
+25
+
+PowerLogic XS280
+
+Configuration and Maintenance
+
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+
+26
+
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+BQT7988501–00
+
+Configuration and Maintenance
+
+PowerLogic XS280
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+BQT7988501–00
+
+27
+
+PowerLogic XS280
+
+Configuration and Maintenance
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+Diagnostic
+In the Diagnostic menu, a Trace tab is available. The channels configured with
+Easergy Builder can be monitored in Trace tab. You can choose the channel to
+monitor and click in the Show selected traces field.
+Diagnostic view
+
+28
+
+BQT7988501–00
+
+Appendix
+
+PowerLogic XS280
+
+Appendix
+Technical Specifications
+Hardware Specifications
+Specifications
+
+Description
+
+Number of channels
+
+8
+
+Isolation between channels
+
+1.5 kVrms
+
+Signal level
+
+RS-232 / RS-485 / RS-422
+
+Signals
+
+Rx - Tx - RTS - CTS - DTR - DSR
+
+Weight
+
+677 g
+
+Consumption
+
+3.4 W (Using 8 channels)
+
+Dimensions
+
+245 x 170 x 45 mm
+
+Specifications
+
+Description
+
+Field connection
+
+8 ports
+
+Interfaces
+
+RJ-45 connector
+RS-485 connection
+
+Resistance < 100 Ω/km
+Wire: 0.22 mm2 (24 AWG)
+Impedance: 120 Ω
+Max wiring length: 1200 m
+Half duplex
+
+RS-422 connection
+
+Resistance < 100 Ω/km
+Wire: 0.22 mm2 (24 AWG)
+Impedance: 100 Ω
+Max wiring length: 1200 m
+
+RS-232 connection
+
+Resistance < 100 Ω/km
+Wire: 0.22 mm2 (24 AWG)
+Max wiring length: 15 m
+
+Software
+
+BQT7988501–00
+
+Specifications
+
+Description
+
+Transmission features
+
+Configurable per channel
+
+Transmission rate
+
+Up to 38400 baud
+
+Transmission / Reception
+
+By complete streams
+
+29
+
+PowerLogic XS280
+
+Appendix
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80 %,
+10 V/m
+1000 – 2700 MHz, AM 1 kHz Prof: 80 %,
+3 V/m
+2700 – 6000 MHz, AM 1 kHz Prof: 80 %,
+1 V/m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80 %,
+10 Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2, ±4 kV (asymmetrical coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+30
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+
+BQT7988501–00
+
+Appendix
+
+PowerLogic XS280
+
+Directive / Test
+
+Identification
+
+Details
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93 % / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+Ordering Option
+To order, select the EMS73100: 8-channels serial communication line.
+
+BQT7988501–00
+
+31
+
+PowerLogic XS280
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AC: Alternate Current.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+CTS: Clear To Send.
+
+D
+DC: direct current.
+DCD: Data Carrier Detected.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+DSR: Data Set Ready.
+DTR: Data Terminal Ready.
+
+E
+EMC: Electro Magnetic Compatibility.
+EPROM: Erasable Programmable Read Only Memory.
+
+G
+g: gram.
+GND: Ground.
+GPS: Global Positioning System.
+BQT7988501–00
+
+33
+
+PowerLogic XS280
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+MB: megabyte.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+
+N
+N/A: not applicable.
+
+P
+PC: Personal Computer.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+RS-232: communication standard.
+RS-485: multipoint differential bus.
+34
+
+BQT7988501–00
+
+PowerLogic XS280
+
+RTDB: Real-Time DataBase.
+RTS: Request To Send.
+RTU: Remote Terminal Unit.
+Rx: reception.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SELV: Safety Extra Low Voltage.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TU: Terminal Unit.
+Tx: transmission.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7988501–00
+
+35
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7988501–00
+
+

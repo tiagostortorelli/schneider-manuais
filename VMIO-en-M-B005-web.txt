@@ -1,0 +1,8273 @@
+VAM I/O units
+
+Publication version: VIO/en M/B005
+
+User Manual
+
+Trace back information:
+Workspace VAMP Range version a13
+Checked in 2019-06-25
+Skribenta version 5.3.023
+
+Table of Contents
+
+Table of Contents
+1
+
+General ..................................................................................... 5
+1.1
+1.2
+1.3
+
+2
+
+Introduction .............................................................................
+2.1
+2.2
+
+3
+
+Legal notice ...................................................................... 5
+Safety information ............................................................ 5
+EU directive compliance .................................................. 7
+8
+
+Purpose ............................................................................ 8
+Main properties ................................................................ 8
+
+User interface .......................................................................... 10
+3.1 VAM 3L fiber sensor I/O unit ............................................ 11
+3.2 VAM 3LX fiber sensor I/O unit .......................................... 12
+3.3 VAM 10L point sensor I/O unit ......................................... 13
+3.4 VAM 10LD point sensor I/O unit ....................................... 14
+3.5 VAM 12L point sensor I/O unit ......................................... 16
+3.6 VAM 12LD point sensor I/O unit ....................................... 17
+3.7 VAM 4C current I/O unit ................................................... 19
+3.8 VAM 4CRL current I/O unit .............................................. 20
+3.9 VAM 4CD current I/O unit ................................................ 21
+3.10 VAMP 4R trip multiplier relay ........................................... 22
+
+4
+
+Programming switches ........................................................... 23
+4.1
+4.2
+
+5
+
+Adjusting the overcurrent setting .......................................... 28
+
+6
+
+BI/BO connection .................................................................... 29
+
+7
+
+Connections ............................................................................. 30
+7.1
+7.2
+7.3
+7.4
+7.5
+7.6
+7.7
+7.8
+7.9
+
+8
+
+VAM 3L / VAM 3LX interfaces .......................................... 31
+VAM 10L interfaces .......................................................... 32
+VAM 10LD interfaces ....................................................... 33
+VAM 12L interfaces .......................................................... 34
+VAM 12LD interfaces ....................................................... 35
+VAM 4C interfaces ........................................................... 36
+VAM 4CRL interfaces ....................................................... 37
+VAM 4CD interfaces ......................................................... 38
+VAMP 4R interfaces ......................................................... 39
+
+I/O Technical data .................................................................... 40
+8.1
+8.2
+8.3
+
+VIO/en M/B005
+
+Switches for arc sensor I/O units ..................................... 23
+Switches for current I/O units ........................................... 25
+
+Connections ..................................................................... 40
+Auxiliary power supply ..................................................... 41
+Digital inputs .................................................................... 41
+
+3
+
+Table of Contents
+
+8.4
+8.5
+8.6
+8.7
+8.8
+8.9
+9
+
+Trip contacts ..................................................................... 42
+Environmental conditions ................................................. 43
+Package ........................................................................... 43
+Disturbance tests ............................................................. 44
+Electrical safety tests ....................................................... 44
+Casing .............................................................................. 45
+
+Construction ............................................................................ 46
+9.1
+
+Dimensional drawings ...................................................... 46
+9.1.1 VAM 3L / 3LX Din rail mounting .......................... 46
+9.1.2 VAM 10L Din rail mounting .................................. 47
+9.1.3 VAM 10LD Flush mounting ................................. 48
+9.1.4 VAM 12L Din rail mounting .................................. 49
+9.1.5 VAM 12LD Flush mounting ................................. 50
+9.1.6 VAM 4C / 4CRL Din rail mounting ....................... 51
+9.1.7 VAM 4CD Flush mounting ................................... 52
+9.1.8 VAMP 4R Din rail mounting ................................. 53
+9.1.9 VA 1 DA ............................................................... 54
+9.1.10 VA 1 EH ............................................................... 54
+9.1.11 VYX 001 .............................................................. 55
+9.1.12 VYX 002 .............................................................. 56
+9.2 I/O unit mounting and wiring ............................................ 57
+9.2.1 VAM 10L, VAM 12L, VAM 4C, VAM 4CRL, VAM
+3L, VAM 3LX ....................................................... 58
+9.2.2 VAM 10LD, VAM 12LD, VAM 4CD ...................... 58
+9.3 Connecting the VAMP 321 I/O units ................................ 58
+9.4 Connecting the secondary circuits of the current
+transformers (VAM 4C / VAM 4CD / VAM 4CRL only) ..... 58
+9.5 Connecting the trip circuits of the circuit breakers ........... 60
+9.6 Connecting between the central unit and the I/O unit ...... 60
+9.7 Connecting separate auxiliary supplies ........................... 61
+9.8 VAMP 4R ......................................................................... 63
+9.9 Wiring multiple central units ............................................. 64
+9.10 Arc sensors ...................................................................... 64
+9.10.1 VA 1 DA ............................................................... 65
+9.10.2 VA 1 EH ............................................................... 66
+9.10.3 ARC-SLx ............................................................. 67
+9.10.4 VA 1 DP ............................................................... 67
+10 Order information .................................................................... 69
+11 Glossary ................................................................................... 71
+
+4
+
+VIO/en M/B005
+
+1 General
+
+1
+
+General
+
+1.1
+
+Legal notice
+Copyright
+2018 Schneider Electric. All rights reserved.
+Disclaimer
+No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this document. This document
+is not intended as an instruction manual for untrained persons. This
+document gives instructions on device installation, commissioning
+and operation. However, the manual cannot cover all conceivable
+circumstances or include detailed information on all topics. In the
+event of questions or specific problems, do not take any action
+without proper authorization. Contact Schneider Electric and request
+the necessary information.
+Contact information
+35 rue Joseph Monier
+92500 Rueil-Malmaison
+FRANCE
+Phone: +33 (0) 1 41 29 70 00
+Fax: +33 (0) 1 41 29 71 00
+www.schneider-electric.com
+
+1.2
+
+Safety information
+Important Information
+Read these instructions carefully and look at the equipment to
+become familiar with the device before trying to install, operate,
+service or maintain it. The following special messages may appear
+throughout this bulletin or on the equipment to warn of potential
+hazards or to call attention to information that clarifies or simplifies
+a procedure.
+The addition of either symbol to a “Danger” or “Warning” safety label
+indicates that an electrical hazard exists which will result in personal
+injury if the instructions are not followed.
+This is the safety alert symbol. It is used to alert you to potential
+personal injury hazards. Obey all safety messages that follow this
+symbol to avoid possible injury or death.
+
+VIO/en M/B005
+
+5
+
+1.2 Safety information
+
+1 General
+
+DANGER
+DANGER indicates an imminently hazardous situation which, if
+not avoided, will result in death or serious injury.
+
+WARNING
+WARNING indicates a potentially hazardous situation which, if
+not avoided, can result in death or serious injury.
+
+CAUTION
+CAUTION indicates a potentially hazardous situation which, if
+not avoided, can result in minor or moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical
+injury.
+User qualification
+Electrical equipment should be installed, operated, serviced, and
+maintained only by trained and qualified personnel. No responsibility
+is assumed by Schneider Electric for any consequences arising out
+of the use of this material. A qualified person is one who has skills
+and knowledge related to the construction, installation, and operation
+of electrical equipment and has received safety training to recognize
+and avoid the hazards involved.
+Password protection
+Use the IED's password protection feature to protect untrained
+persons from interacting with this device.
+
+WARNING
+WORKING ON ENERGIZED EQUIPMENT
+Do not choose lower Personal Protection Equipment while
+working on energized equipment.
+Failure to follow these instructions can result in death or
+serious injury.
+
+6
+
+VIO/en M/B005
+
+1 General
+
+1.3
+
+1.3 EU directive compliance
+
+EU directive compliance
+EMC compliance
+2014/30/EU
+Compliance with the European Commission's EMC Directive. Product
+Specific Standards were used to establish conformity:
+•
+
+EN 60255-26: 2013
+
+Product safety
+2014/35/EU
+Compliance with the European Commission's Low Voltage Directive.
+Compliance is demonstrated by reference to generic safety
+standards:
+•
+
+VIO/en M/B005
+
+EN60255-27:2014
+
+7
+
+2 Introduction
+
+2
+
+Introduction
+This User’s Manual contains a functional description of the VAM I/O
+units and technical data.
+
+2.1
+
+Purpose
+The main purpose of the VAM I/O units is to detect arc light or short
+circuit current and deliver this information (zone information) to the
+arc protection central unit and the other VAM I/O units. Additionally
+VAM I/O units can be used for tripping appropriate circuit breakers.
+NOTE: For applications in the US, Canada and Mexico, use specific
+documents reviewed in line with the requirements of the relevant
+regulatory authorities. Please contact our local Schneider Electric
+office for assistance.
+
+2.2
+
+Main properties
+Arc flash protection system is a modular system consisting of a
+central unit, I/O units and arc sensors.
+Due to its modularity, the system is suitable for a range of arc
+protection applications, from simple systems with one central unit
+and one I/O unit to more complex solutions comprising several central
+units used for selective arc protection.
+The I/O unit VAM 10L / VAM 10LD, VAM 12L / VAM 12LD serves
+as link between the system’s point sensors and the central unit. Each
+I/O unit has connections for ten arc sensors, one portable pin sensor
+and one trip output.
+The I/O unit VAM 3L/VAM3LX serves as link between the system’s
+fibre sensors and the central unit. Each I/O unit has connections for
+three arc sensors, one pin sensor and one trip output.
+The I/O unit VAM 4C / VAM 4CD / VAM 4CRL serves as link between
+the system’s current inputs and the central unit. Each I/O unit has
+connections for three current transformers and one trip output.
+The arc sensor VA 1 DA is activated by strong light. The sensor
+transforms the light information into the current signal, which is
+forwarded through the I/O unit to the central unit. The arc sensor VA
+1 EH also operates on the same principle.
+The pin sensor VA 1 DP has the same functions as an arc sensor
+but can be temporarily connected to an I/O unit. The sensor can be
+fixed to the breast pocket of a technician to improve safety when
+working with live switchgear.
+
+8
+
+VIO/en M/B005
+
+2 Introduction
+
+2.2 Main properties
+
+The door mounted VAM I/O units with the letter D in the type
+designations VAM 10LD, VAM 12LD and VAM 4CD are door mounted
+versions for the corresponding VAM 10L, VAM 12 L and VAM 4C
+units. The functionality is exactly the same.
+
+VIO/en M/B005
+
+9
+
+3 User interface
+
+3
+
+User interface
+Usually, there is no need to touch the front panel during normal
+operation, since all the necessary information can be read from the
+central unit display. However, after a new installation or a system
+expand you will need to program certain functions (zone/address,
+trip output) in the I/O unit.
+NOTE: If you unfasten the terminal blocks during installation, remember to
+tighten the fixing screws after installation! Also tighten the screws
+even if you did not unfasten the blocks.
+
+10
+
+VIO/en M/B005
+
+3 User interface
+
+3.1
+
+3.1 VAM 3L fiber sensor I/O unit
+
+VAM 3L fiber sensor I/O unit
+12
+
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 3L
+6
+COM 1
+
+COM 2
+
+1
+2
+
+SW1
+SENSOR
+OFF
+
+ON
+
+L>ext/Int 1
+Latch 2
+L+I / L 3
+
+OK
+
+9
+
+ACT
+
+10
+
+Zone
+
+4
+5
+
+TRIP
+
+11
+
+Addr.
+
+6
+7
+
+3
+4
+
+ON
+COM
+
+5
+
+7
+
+8
+
+SENSOR INPUTS
+CH1
+
+R1
+
+T1
+
+CH2
+
+R2
+
+T2
+
+CH3
+
+R3
+
+T3
+
+8
+
+Figure 3.1: VAM 3L fiber sensor I/O unit front panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central units and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminals for three fibre sensors
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+
+VIO/en M/B005
+
+11
+
+3.2 VAM 3LX fiber sensor I/O unit
+
+3.2
+
+3 User interface
+
+VAM 3LX fiber sensor I/O unit
+12
+
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 3LX
+6
+COM 1
+
+COM 2
+
+1
+2
+L>ext/Int
+Latch
+L+I / L
+
+SW1
+OFF
+1
+2
+3
+
+Zone
+
+4
+5
+
+Addr.
+
+6
+7
+
+ON
+
+SENSOR
+OK
+
+9
+
+ACT
+
+10
+
+TRIP
+
+11
+
+3
+4
+
+ON
+COM
+
+5
+
+7
+
+8
+
+SENSOR INPUTS
+CH1
+
+R1
+
+T1
+
+CH2
+
+R2
+
+T2
+
+CH3
+
+R3
+
+T3
+
+CH1
+Adj
+
+CH2
+Adj
+
+CH3
+Adj
+
+13
+
+8
+
+Min. Max. Min. Max. Min. Max.
+
+Figure 3.2: VAM 3LX fiber sensor I/O unit front panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central units and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminals for three fibre sensors
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+13. Sensitivity adjustments for each fibre sensor channels
+
+12
+
+VIO/en M/B005
+
+3 User interface
+
+3.3
+
+3.3 VAM 10L point sensor I/O unit
+
+VAM 10L point sensor I/O unit
+12
+16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 10L
+6
+COM 1
+
+COM 2
+
+1
+2
+
+SW1
+SENSOR
+
+L> ext/int
+Latch
+L+I / L
+
+OFF
+1
+2
+3
+
+Zone
+
+4
+5
+
+Addr.
+
+6
+7
+
+ON
+
+OK
+
+9
+
+ACT
+
+10
+
+TRIP 11
+
+ON
+
+4
+
+COM
+
+5
+
+7
+
+8
+
+1
+
+X1
+
+3
+
+1
+
+2
+
+2
+
+3
+
+4
+
+SENSOR INPUTS
+4
+5
+6
+
+3
+
+5
+
+6
+
+7
+
+8
+
+9
+
+7
+
+8
+
+9
+
+10
+
+10 11 12 13 14 15 16 17 18 19 20
+
+8
+
+Figure 3.3: VAM 10L point sensor I/O unit front panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central unit and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminal block for ten arc sensors
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+
+VIO/en M/B005
+
+13
+
+3.4 VAM 10LD point sensor I/O unit
+
+3.4
+
+3 User interface
+
+VAM 10LD point sensor I/O unit
+VAM 10LD
+Point sensor I/O unit
+
+7
+SENSOR INPUTS
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+13
+ADDRESS NR 10
+1. BB FEEDER 7
+
+TRIP
+
+5
+
+11
+
+2. CB FEEDER 7
+3. CC FEEDER 7
+
+4
+
+COM
+
+3
+
+ON
+
+4. BB FEEDER 8
+5. CB FEEDER 8
+6. CC FEEDER 8
+7. BB FEEDER 9
+
+FRONT PANEL
+
+8. BB FEEDER 9
+9. BB FEEDER 9
+10. TIE BREAKER ID
+
+8
+20 19 18 17 16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+X1
+
+1
+
+SENSOR INPUTS
+
+2
+1
+
+10 ACT
+
+6
+
+9
+
+COM 1
+
+OK
+
+O
+N
+
+COM 2
+
+1 2 3 4 5 6 7 8
+
+SENSOR
+
+SW1
+
+Addr.
+Zone
+L/L+I
+Latch
+L> Int/
+Ext
+
+BACK PANEL
+X2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12 13 14 15 16
+
+12
+
+Figure 3.4: VAM 10LD point sensor I/O unit front and back panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central unit and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminal block for ten arc sensors
+14
+
+VIO/en M/B005
+
+3 User interface
+
+3.4 VAM 10LD point sensor I/O unit
+
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+13. Text pocket for sensor specific labels.
+
+VIO/en M/B005
+
+15
+
+3.5 VAM 12L point sensor I/O unit
+
+3.5
+
+3 User interface
+
+VAM 12L point sensor I/O unit
+VAM 12L is primary design for selective feeder trip applications. The
+unit comprises 3 electromechanical trip normally open contacts and
+one trip alarm change over contact.
+The unit has 10 Arc sensor inputs. Tree sensors (of the ten) inputs
+are dedicated, and are controlling their own trip relay. The unit is
+ideal for selective trip of cable compartment in case of an ARC fault.
+VAM 12L can selectively handle 3 feeders. The rest of the sensors
+can then supervise the busbar and breaker compartments and will
+operate in the zone selected by the unit address switches.
+12
+16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 12L
+COM 1
+
+COM 2
+
+6
+1
+2
+
+SW 1
+SENSOR
+OFF
+1
+2
+3
+
+ON
+
+L>ext/int
+Latch
+L+I / L
+4
+Zone 5
+Addr
+
+OK
+
+9
+
+ACT
+
+10
+
+TRIP 11
+
+6
+7
+
+ON
+
+4
+
+COM
+
+5
+
+7
+
+8
+
+3
+
+SENSOR INPUTS
+1
+
+X1
+
+1
+
+2
+
+2
+
+3
+
+4
+
+3
+
+5
+
+6
+
+4
+
+7
+
+8
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+9 10 11 12 13 14 15 16 17 18 19 20
+
+8
+
+Figure 3.5: VAM 12L point sensor I/O unit fron panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central unit and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminal block for ten arc sensors
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relays activated
+12. Terminal block for output relay
+16
+
+VIO/en M/B005
+
+3 User interface
+
+3.6
+
+3.6 VAM 12LD point sensor I/O unit
+
+VAM 12LD point sensor I/O unit
+VAM 12LD
+Point sensor I/O unit
+
+7
+SENSOR INPUTS
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+13
+ADDRESS NR 10
+1. BB FEEDER 7
+
+TRIP
+
+5
+
+11
+
+2. CB FEEDER 7
+3. CC FEEDER 7
+
+4
+
+COM
+
+3
+
+ON
+
+4. BB FEEDER 8
+5. CB FEEDER 8
+6. CC FEEDER 8
+7. BB FEEDER 9
+
+FRONT PANEL
+
+8. BB FEEDER 9
+9. BB FEEDER 9
+10. TIE BREAKER ID
+
+8
+20 19 18 17 16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+X1
+
+1
+
+SENSOR INPUTS
+
+2
+1
+
+10 ACT
+
+6
+
+9
+
+COM 1
+
+OK
+
+O
+N
+
+COM 2
+
+1 2 3 4 5 6 7 8
+
+SENSOR
+
+SW1
+
+Addr.
+Zone
+L/L+I
+Latch
+L> Int/
+Ext
+
+BACK PANEL
+X2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12 13 14 15 16
+
+12
+
+Figure 3.6: VAM 12LD point sensor I/O unit front and back panel
+
+1. Connection for portable arc sensor (VA 1 DP)
+2. Programming switches
+3. POWER indicator light, indicates that the supply voltages of each
+component are in order.
+4. COM indicator light, lit when the central unit and I/O units are
+communicating.
+5. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty arc
+sensor or changes in the amount of sensors.
+6. Connector sockets for the VX001 modular cables
+7. LED lights indicating sensor activation
+8. Terminal block for ten arc sensors
+VIO/en M/B005
+
+17
+
+3.6 VAM 12LD point sensor I/O unit
+
+3 User interface
+
+9. Portable arc sensor VA 1 DP connected and operational
+10. Portable arc sensor activated
+11. I/O unit trip relays activated
+12. Terminal block for output relays
+13. Text pocket for sensor specific labels.
+
+18
+
+VIO/en M/B005
+
+3 User interface
+
+3.7
+
+3.7 VAM 4C current I/O unit
+
+VAM 4C current I/O unit
+12
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 4C
+1
+Zone1
+Zone2
+Zone3
+Zone4
+Addr.
+
+5
+COM 1
+
+COM 2
+
+SW1
+OFF
+1
+2
+3
+
+ON
+
+11
+
+TRIP
+
+4
+5
+6
+7
+
+13
+
+8
+
+4.0
+
+ON
+
+2.0
+
+COM
+
+2
+
+3
+
+x In 1.0
+
+6
+
+4
+
+0.5
+
+CURRENT TRANSFORMER
+L1
+L2
+
+0.1
+
+L3
+
+9
+X1
+
+10
+
+8
+
+L1/L3 L2/Io
+
+SW2
+
+6
+
+0.5 5
+
+0.05
+
+ON
+
+x In
+
+7
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12
+
+Latch
+1A/5A
+I> out
+I> in
+
+1234
+3
+L1,L3
+
+1.0
+L2/Io
+
+Figure 3.7: VAM 4C current I/O unit front panel
+
+1. Programming switches
+2. POWER indicator light, indicates the supply voltages of each
+component are in order.
+3. COM indicator light, lit when the central units and I/O units are
+communicating.
+4. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty current
+transformer or phase current unbalance.
+5. Connector sockets for the VX001 modular cables
+6. LED lights indicating that I> stage has started
+7. Terminals for three current transformers
+8. Current transformer programming switches
+9. Overcurrent setting knob (IL1, IL3), setting range 0.5 – 6 x IN
+10. Overcurrent setting knob (IL1, I0), setting range 0.05 – 5 x IN
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+13. Indicator leds for current setting
+
+VIO/en M/B005
+
+19
+
+3.8 VAM 4CRL current I/O unit
+
+3.8
+
+3 User interface
+
+VAM 4CRL current I/O unit
+12
+
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 4C
+1
+Zone1
+Zone2
+Zone3
+Zone4
+Addr.
+
+5
+COM 1
+
+COM 2
+
+4.0
+
+POWER
+
+2.0
+
+COM
+
+3
+
+ERROR
+
+4
+
+SW1
+OFF
+1
+2
+3
+
+ON
+
+TRIP
+
+11
+
+4
+5
+
+6
+
+6
+7
+
+L1
+
+8
+
+L2
+
+L3
+
+13
+
+CURRENT TRANSFORMER
+
+x In 1.0
+
+2
+
+0.5
+0.1
+
+L1/L3 L2/Io
+
+X1
+SW2
+ON
+
+6
+
+0.5 5
+
+0.05
+
+D IP
+
+x In
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Latch
+1A/5A
+I> out
+I> in
+
+1234
+
+1
+
+3
+L1,L3
+
+1.0
+L2/Io
+
+9
+
+10
+
+VAM 4CRL
+
+7
+
+8
+
+Figure 3.8: VAM 4CRL current I/O unit front panel
+
+1. Programming switches
+2. POWER indicator light, indicates the supply voltages of each
+component are in order.
+3. COM indicator light, lit when the central units and I/O units are
+communicating.
+4. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty current
+transformer or phase current unbalance.
+5. Connector sockets for the VX001 modular cables
+6. LED lights indicating that I> stage has started
+7. Terminals for three current transformers
+8. Current transformer programming switches
+9. Overcurrent setting knob (IL1, IL3), setting range 0.5 – 6 x IN
+10. Overcurrent setting knob (IL1, I0), setting range 0.05 – 5 x IN
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+13. Indicator leds for current setting
+
+20
+
+VIO/en M/B005
+
+3 User interface
+
+3.9
+
+3.9 VAM 4CD current I/O unit
+
+VAM 4CD current I/O unit
+VAM 4CD
+Current I/O unit
+
+6
+- - - CURRENT TRANSFORMER - - L1
+
+L2
+
+L3
+
+14
+FEEDER:
+
+F06
+
+ADDRESS:
+
+33
+
+ZONE:
+
+1&2
+
+4
+
+I> PICK-UP: 2 X In
+OTHER:
+
+3
+
+COM
+
+2
+
+ON
+
+I> EXT ON
+
+TRIP
+
+11
+
+FRONT PANEL
+
+9
+
+8
+
+L2/Io L1/L3
+
+SW2
+
+10
+
+12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X1
+
+7
+4.0
+
+13
+
+SW1
+
+1.0
+
+1 2 3 4 5 6 7 8
+
+2.0
+x In
+
+0.5
+
+COM 2
+
+5
+
+Zone4
+Zone3
+Zone2
+Zone1
+
+O
+N
+
+0.1
+
+1
+Addr.
+
+COM 1
+
+BACK PANEL
+12
+X2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12 13 14 15 16
+
+Figure 3.9: VAM 4CD current I/O unit front and back panel
+
+1. Programming switches
+2. POWER indicator light, indicates the supply voltages of each
+component are in order.
+3. COM indicator light, lit when the central units and I/O units are
+communicating.
+4. ERROR indicator light, indicates an internal fault detected by the
+component’s self-diagnostics. Such faults include faulty current
+transformer or phase current unbalance.
+5. Connector sockets for the VX001 modular cables
+6. LED lights indicating that I> stage has started
+7. Terminals for three current transformers
+8. Current transformer programming switches
+VIO/en M/B005
+
+21
+
+3.10 VAMP 4R trip multiplier relay
+
+3 User interface
+
+9. Overcurrent setting knob (IL1, IL3), setting range 0.5 – 6 x IN
+10. Overcurrent setting knob (IL1, I0), setting range 0.05 – 5 x IN
+11. I/O unit trip relay activated
+12. Terminal block for external communication and BI/O channels
+and trip signal
+13. Indicator leds for current setting
+14. Text pocket
+
+3.10
+
+VAMP 4R trip multiplier relay
+
+
+
+
+
+
+12 11
+
+9
+
+TRIP 1
+
+TRIP 2
+
+8
+
+6 5 4
+
+3
+
+2
+
+1
+
+-
+
++
+
+-
+
++
+
+X2
+
+VAMP 4R
+
+Power
+
+
+
+Trip 1
+
+-
+
++
+
+18...265Vac/dc
+
+24Vdc
+INPUTS
+
+Trip 2
+
+OUTPUT
+TRIP GROUP 2
+
+TRIP GROUP 1
+
+NO NC
+
+X1
+
+1 2
+
+NO
+
+NC
+
+NO
+
+NC
+
+NO
+
+SF ALARM
+
+NC
+
+NO
+
+COM
+
+NC
+
+3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+VAMP 4R frontplate
+
+
+Figure 3.10: VAMP 4R trip multiplier relay front panel
+
+1. POWER LED, indicates that the external operating voltage of
++24 Vdc is connected.
+2. Terminals for external operating voltage (+24 Vdc). Can be
+supplied by central units or I/O units.
+3. Terminals for incoming trip signal (e.g. 24 Vdc from VAM I/O unit
+binary output, 2 groups). Control voltage range is 18 – 265
+Vad/dc.
+4. Terminals for outgoing trip signals (8 potential-free contacts, 4
+normally open, 4 normally closed).
+
+22
+
+VIO/en M/B005
+
+4 Programming switches
+
+4
+
+Programming switches
+Before system implementation, check the positions of the
+programming switches in accordance with the following basic
+principles:
+
+4.1
+
+•
+
+Each I/O unit connected to the communication bus has its own
+address (each I/O unit have an unique address).
+
+•
+
+Set the programming switches before connecting the supply
+voltage.
+
+•
+
+If you have to change the switch positions once the supply
+voltage has been connected, disconnect the supply voltage to
+the unit in question for the duration of the programming and
+re-configure the system.
+
+•
+
+If position of the switch is changed, re-install the system again
+in the central unit.
+
+Switches for arc sensor I/O units
+The programming switches of the I/O units are used to determine
+the unit address and trip relay function.
+The system accommodates up to 16 units. Eight addresses are
+reserved for each protection zone:
+•
+
+Zone 1 addresses 0 – 7
+
+•
+
+Zone 2 addresses 8 – 15
+
+•
+
+Zone 3 addresses 16 – 23
+
+•
+
+Zone 4 addresses 24 – 31
+
+The programming switches have different weight factors. To create
+an address for the I/O unit, turn switches with different values to the
+ON position and calculate the sum of their weight factors. The
+following table shows the weight factors of each programming switch.
+Table 4.1: Programming switch weight factors, *) VAM 10L / VAM 10LD, VAM
+12L / VAM 12LD, and VAM 3L / VAM 3LX only
+Switch No.
+
+Weight factor
+
+8
+
+1
+
+7
+
+2
+
+6
+
+4
+
+5
+
+8
+
+4 *)
+
+16
+
+NOTE: Note the position of the VAM 12LD, VAM 10LD and VAM 4CD dip
+switches.
+VIO/en M/B005
+
+23
+
+4.1 Switches for arc sensor I/O units
+
+4 Programming switches
+
+VAM 12LD / VAM 10LD
+
+VAM 3L / VAM 3LX
+
+SW1
+
+SENSOR
+
+SW1
+ACT
+
+SENSOR
+OFF
+
+ON
+
+ACT
+
+4
+5
+
+TRIP
+
+Addr.
+
+6
+5
+4
+3
+2
+1
+
+OK
+
+L>ext/Int 1
+Latch 2
+L+I / L 3
+Zone
+
+ON
+8
+7
+
+OK
+
+OFF
+
+Addr.
+Zone
+L / L+I
+Latch
+L> ext/int
+
+6
+7
+8
+
+VAM 10L / VAM 12L
+
+SW1
+SENSOR
+L> ext/int
+Latch
+L+I / L
+
+OFF
+1
+2
+3
+
+Zone
+
+4
+5
+
+Addr.
+
+6
+7
+
+ON
+
+OK
+ACT
+TRIP
+
+8
+
+Figure 4.1: Programming switches for VAM 10L, VAM 10LD, VAM 12L, VAM 12LD,
+VAM 3L and VAM 3LX
+
+VAM 10L / VAM 10LD, VAM 3L / VAM 3LX
+Switch 1 determines which light activation activates the arc stage.
+When the switch position is ON, the arc stage only activates on the
+light information provided by the unit's own sensors. In OFF position
+the arc stage activates on the light information received from any
+unit in the same protection zone.
+Switch 2 determines the trip relay latch. When the switch is in ON
+position the trip relay remains engaged after the arc trip until the fault
+is acknowledged at the central unit’s panel. In the OFF position the
+trip relay follows the arc fault.
+Switch 3 determines the arc trip criteria. When the switch is in ON
+position the trip is based on light information only; in OFF position
+both fault currents exceeding the current limit and light information
+are required.
+
+24
+
+VIO/en M/B005
+
+4 Programming switches
+
+4.2 Switches for current I/O units
+
+VAM 12L / VAM 12LD
+When the L>ext/int DIP switch is in “L>int” position, the output relays
+are only activated by dedicated sensors.
+SENSOR 1 activates T1.
+SENSOR 2 activates T2.
+SENSOR 3 activates T3.
+SENSORS 4 to 10 are normally sending light information to system
+according to zone setting.
+If the switch is in “L>ext” position, all output relays are also controlled
+by the selected zone information. This activation source can be any
+sensor channel 4 to 10 or from an external I/O unit configured to the
+same zone.
+
+4.2
+
+Switches for current I/O units
+The address range for current I/O units is (32), 33 - 47. To determine
+the address of a current I/O unit, add the sum of the weight factors
+to 32 (for example, programming switch values total 7, address of
+the current I/O unit 32 + 7 = 39).
+NOTE: Do not configure address 32 for the VAM 4Cx unit because 32 is
+reserved for the master unit of the arc flash protection system.
+Other programming switches have different functions in different
+units, as described below.
+
+VIO/en M/B005
+
+25
+
+4.2 Switches for current I/O units
+
+4 Programming switches
+
+VAM 4C / VAM 4CD / VAM 4CRL
+
+VAM 4C
+SW1
+Zone1
+Zone2
+Zone3
+Zone4
+
+OFF
+1
+
+ON
+
+2
+
+TRIP
+
+3
+4
+5
+
+Addr.
+
+6
+7
+8
+
+SW2
+
+6
+
+0.5 5
+
+0.05
+
+ON
+
+x In
+1234
+3
+L1,L3
+
+Latch
+1A/5A
+I> out
+I> in
+
+11 12
+
+1.0
+L2/Io
+
+VAM 4CD
+SW1
+ON
+8
+7
+
+OFF
+
+6
+5
+4
+3
+2
+
+Addr.
+
+1
+
+Zone4
+Zone3
+Zone2
+Zone1
+
+SW2
+
+6
+
+0.5 5
+
+0.05
+
+ON
+
+x In
+
+11 12
+
+Latch
+1A/5A
+I> out
+I> in
+
+1234
+3
+L1,L3
+
+M
+
+1.0
+L2/Io
+
+Figure 4.2: Programming switches of VAM 4C / VAM 4CD /VAM 4CRL
+Table 4.2: VAM 4C / VAM 4CD / VAM 4CRL dipswitches weight factors
+
+26
+
+SW NO:
+
+Weight factor
+
+8
+
+1
+
+7
+
+2
+
+6
+
+4
+
+5
+
+8
+
+VIO/en M/B005
+
+4 Programming switches
+
+4.2 Switches for current I/O units
+
+Table 4.3: SW1 switch settings
+Switch
+
+Definition
+
+Description
+
+1
+
+Zone 1
+
+System operating zone 1 (light information)
+
+2
+
+Zone 2
+
+System operating zone 2 (light information)
+
+3
+
+Zone 3
+
+System operating zone 3 (light information)
+
+4
+
+Zone 4
+
+System operating zone 4 (light information)
+
+5
+
+Addr
+
+Address weighting coefficient 8
+
+6
+
+Addr
+
+Address weighting coefficient 4
+
+7
+
+Addr
+
+Address weighting coefficient 2
+
+8
+
+Addr
+
+Address weighting coefficient 1
+
+Table 4.4: SW2 switch settings
+Switch
+
+Definition
+
+Description
+
+1
+
+Latch
+
+Position ”0” (switch down): trip relay is only
+operational while the protection is activated
+Position ”1” (switch up): trip relay changes
+to latching status after trip
+
+2
+
+1A / 5A *
+
+Position ”0” (switch down): rated secondary
+current of the current transformer is 1 A
+Position ”1” (switch up): rated secondary
+current of the current transformer is 5 A
+
+3
+
+I> out
+
+Position ”0” (switch down): unit does not
+transmit the current criteria to other units
+Position ”1” (switch up): unit transmits the
+current criteria to other units
+
+4
+
+I> in
+
+Position ”0” (switch down): unit does not receive the current criteria from other units
+Position ”1” (switch up): unit receives the
+current criteria from other units
+
+*) As in CT
+
+VIO/en M/B005
+
+27
+
+5 Adjusting the overcurrent setting
+
+5
+
+Adjusting the overcurrent
+setting
+The principles for changing the current setting in VAM 4C / VAM
+4CD / VAM 4CRL units are the same as for the central unit. You can
+see the estimated current setting from the led bar on the right side
+of the unit.
+The most accurate way of setting the current limit for the unit is as
+follows:
+•
+
+Turn the potentiometer to the maximum value.
+
+•
+
+Feed a test current corresponding to the required setting using
+a testing device.
+
+•
+
+Lower the setting until the current activation indicator LED of the
+I/O unit and / or the I>ext indicator LED in VAMP 221 the central
+unit are / is lit.
+
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 4C
+COM 1
+
+COM 2
+
+4.0
+
+POWER
+
+SW1
+Zone1
+Zone2
+Zone3
+Zone4
+
+TRIP
+
+Addr.
+
+2.0
+x In 1.0
+
+COM
+ERROR
+
+0.5
+CURRENT TRANSFORMER
+L1
+L2
+
+X1
+
+0.1
+L3
+
+L1/L3 L2/Io
+
+VAM4c conn
+
+Figure 5.1: Example of adjusting the current setting in VAM 4C
+
+28
+
+VIO/en M/B005
+
+6 BI/BO connection
+
+6
+
+BI/BO connection
+Each I/O unit also has a BI/O bus. The light I/O units (VAM 10L /
+VAM 10LD, VAM 12L / VAM 12LD, VAM 3L / VAM 3LX) can transmit
+trip signal to the central unit or current I/O unit. The current I/O unit
+(VAM 4C / VAM 4CD / VAM 4CRL) can receive the light information
+and send the current information either to other I/O units or the
+multiplying relay.
+NOTE: The DI/DO on the VAM units are fast BI/BO signals.
+The following DI and DO connections are included in the
+standard delivery of VAM 10L and VAM 3L / VAM 3LX:
+DI
+
+X2-8
+
+Zone shift 1(2, 2(1, 3(4, 4(3
+
+GND
+
+X2-7
+
+Trip out
+
+X2-10
+
+Trip signal, 24 V dc
+
+GND
+
+X2-9
+
+Trip signal earth
+
+The following DI and DO connections are included in the
+standard delivery of VAM 4C / VAM 4CD / VAM 4CRL units:
+L>in
+
+X2-8
+
+Light input, 24 – 48 V dc
+
+GND
+
+X2-7
+
+Light input earth
+
+Trip out
+
+X2-10
+
+Trip signal
+
+GND
+
+GND
+
+Trip signal earth
+
+NOTE: L>in light input in VAM 4C / VAM 4CD / VAM 4CRL (X2-7 & X2-8)
+is master light input. This means that incoming light zone dip switch
+settings do not matter and unit trips when this input is active and
+there is current over the set limit.
+
+VIO/en M/B005
+
+29
+
+7 Connections
+
+7
+
+Connections
+Grounding of VAM I/O units must be made according to the
+Construction section in the document.
+
+DANGER
+ELECTRICAL SHOCK
+Always connect the protective grounding before connecting the
+power supply.
+Failure to follow these instructions can result in death or
+serious injury.
+
+30
+
+VIO/en M/B005
+
+7 Connections
+
+7.1 VAM 3L / VAM 3LX interfaces
+
+7.1
+
+VAM 3L / VAM 3LX interfaces
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 3L / 3LX
+COM 1
+
+COM 2
+
+SW1
+SENSOR
+L>ext/int
+Latch
+L+I / L
+
+OK
+POWER
+ACT
+COM
+
+Zone
+
+TRIP
+ERROR
+
+Addr.
+
+SENSOR INPUTS
+CH1
+
+R1
+
+T1
+
+CH2
+
+R2
+
+T2
+
+CH3
+
+R3
+
+T3
+
+X1-R1:
+
+Fiber receiver connection
+
+X1-T1:
+
+Fiber transmitter connection
+
+X1-R2:
+
+Fiber receiver connection
+
+X1-T2:
+
+Fiber transmitter connection
+
+X1-R3:
+
+Fiber receiver connection
+
+X1-T3:
+
+Fiber transmitter connection
+
+X2-1:
+
++24V supply from master unit or external power
+supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+Zone change
+
+X2-8:
+
+DI (24-48Vdc)
+
+(1 -> 2; 2 -> 1;
+
+Channel 1
+
+Channel 2
+
+Channel 3
+
+Zone information (L>, I>)
+
+= COM1, COM2
+
+master slave com
+
+3 -> 4; 4 -> 3)
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+X2-11:
+
++ Temp sensor
+
+X2-12:
+
+- Temp sensor
+
+Trip signal (DI&DO)
+
+Not in use
+
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+VIO/en M/B005
+
+31
+
+7.2 VAM 10L interfaces
+
+7.2
+
+7 Connections
+
+VAM 10L interfaces
+16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 10L
+COM 1
+
+COM 2
+
+SW1
+SENSOR
+L> ext/int
+Latch
+L+I / L
+
+OK
+POWER
+ACT
+COM
+
+Zone
+
+TRIP
+ERROR
+
+Addr.
+
+1
+
+X1
+
+1
+
+2
+
+2
+
+3
+
+4
+
+3
+
+5
+
+6
+
+7
+
+4
+
+SENSOR INPUTS
+5
+6
+
+8
+
+9
+
+7
+
+8
+
+9
+
+10
+
+10 11 12 13 14 15 16 17 18 19 20
+
+VAM10L conn
+
+X1-1, 2:
+
+arc sensor channel 1
+
+X1-3, 4:
+
+arc sensor channel 2
+
+X1-5, 6:
+
+arc sensor channel 3
+
+X1-7, 8:
+
+arc sensor channel 4
+
+X1-9, 10:
+
+arc sensor channel 5
+
+X1-11, 12:
+
+arc sensor channel 6
+
+X1-13, 14:
+
+arc sensor channel 7
+
+X1-15, 16:
+
+arc sensor channel 8
+
+X1-17, 18:
+
+arc sensor channel 9
+
+X1-19, 20:
+
+arc sensor channel 10
+
+X2-1:
+
++24V supply from masterunit or external
+power supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+Zone change
+
+X2-8:
+
+DI (24 – 48Vdc)
+
+(1 -> 2; 2 ->1;
+
+Zone information (L>, I>)
+
+=COM1, COM2
+
+Master slave com
+
+3 -> 4; 4 -> 3)
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+X2-11:
+
++ Temp sensor
+
+X2-12:
+
+- Temp sensor
+
+Trip signal
+
+Not in use
+
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+32
+
+VIO/en M/B005
+
+7 Connections
+
+7.3 VAM 10LD interfaces
+
+7.3
+
+VAM 10LD interfaces
+
+20 19 18 17 16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+X1
+
+1
+
+SENSOR INPUTS
+
+ACT
+COM 1
+
+O
+N
+
+COM 2
+
+OK
+
+1 2 3 4 5 6 7 8
+
+SW1
+SENSOR
+
+X2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+Addr.
+Zone
+L/L+I
+Latch
+L> Int/
+Ext
+
+10 11 12 13 14 15 16
+
+X1-1, 2:
+
+arc sensor channel 1
+
+X1-3, 4:
+
+arc sensor channel 2
+
+X1-5, 6:
+
+arc sensor channel 3
+
+X1-7, 8:
+
+arc sensor channel 4
+
+X1-9, 10:
+
+arc sensor channel 5
+
+X1-11, 12:
+
+arc sensor channel 6
+
+X1-13, 14:
+
+arc sensor channel 7
+
+X1-15, 16:
+
+arc sensor channel 8
+
+X1-17, 18:
+
+arc sensor channel 9
+
+X1-19, 20:
+
+arc sensor channel 10
+
+X2-1:
+
++24V supply from masterunit or external
+power supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+Zone change
+
+X2-8:
+
+DI (24-48Vdc)
+
+(1 -> 2; 2 ->1;
+
+Zone information (L>, I>)
+
+=COM1, COM2
+
+Master slave com
+
+3 -> 4; 4 -> 3)
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+X2-11:
+
++ Temp sensor
+
+X2-12:
+
+- Temp sensor
+
+Trip signal
+
+Not in use
+
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+VIO/en M/B005
+
+33
+
+7.4 VAM 12L interfaces
+
+7.4
+
+7 Connections
+
+VAM 12L interfaces
+16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 12L
+COM 1
+
+COM 2
+
+SW1
+SENSOR
+OFF
+
+ON
+
+L> ext/int 1
+Latch 2
+L+I / L 3
+Zone
+
+4
+5
+
+Addr.
+
+6
+7
+
+OK
+POWER
+ACT
+COM
+TRIP
+ERROR
+
+8
+
+1
+
+X1
+
+1
+
+2
+
+2
+
+3
+
+4
+
+3
+
+5
+
+6
+
+7
+
+4
+
+SENSOR INPUTS
+5
+6
+
+8
+
+9
+
+7
+
+8
+
+9
+
+10
+
+10 11 12 13 14 15 16 17 18 19 20
+
+VAM12L conn
+
+X1-1, 2:
+
+arc sensor channel 1
+
+X1-3, 4:
+
+arc sensor channel 2
+
+X1-5, 6:
+
+arc sensor channel 3
+
+X1-7, 8:
+
+arc sensor channel 4
+
+X1-9, 10:
+
+arc sensor channel 5
+
+X1-11, 12:
+
+arc sensor channel 6
+
+X1-13, 14:
+
+arc sensor channel 7
+
+X1-15, 16:
+
+arc sensor channel 8
+
+X1-17, 18:
+
+arc sensor channel 9
+
+X1-19, 20:
+
+arc sensor channel 10
+
+X2-1:
+
++24v supply from masterunit or external power
+supply
+
+X2-2:
+
+GND
+
+X2-3:
+X2-4:
+
+COM
+
+X2-5:
+
+NO
+
+X2-6:
+
+NC
+
+Alarm
+
+X2-7:
+X2-8:
+
+Trip relay 3 (NO)
+
+X2-9:
+
+Trip relay 3 (NO)
+
+X2-10:
+X2-11:
+
+Trip relay 2 (NO)
+
+X2-12:
+
+Trip relay 2 (NO)
+
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay 1 (NO)
+
+X2-16:
+
+Trip relay 1 (NO)
+
+34
+
+VIO/en M/B005
+
+7 Connections
+
+7.5 VAM 12LD interfaces
+
+7.5
+
+VAM 12LD interfaces
+
+20 19 18 17 16 15 14 13 12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+X1
+
+1
+
+SENSOR INPUTS
+
+ACT
+COM 1
+
+O
+N
+
+COM 2
+
+OK
+
+1 2 3 4 5 6 7 8
+
+SW1
+SENSOR
+
+X2
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+X1-1, 2:
+
+arc sensor channel 1
+
+X1-3, 4:
+
+arc sensor channel 2
+
+X1-5, 6:
+
+arc sensor channel 3
+
+X1-7, 8:
+
+arc sensor channel 4
+
+X1-9, 10:
+
+arc sensor channel 5
+
+X1-11, 12:
+
+arc sensor channel 6
+
+X1-13, 14:
+
+arc sensor channel 7
+
+X1-15, 16:
+
+arc sensor channel 8
+
+X1-17, 18:
+
+arc sensor channel 9
+
+X1-19, 20:
+
+arc sensor channel 10
+
+X2-1:
+
++24v supply from masterunit or external power
+supply
+
+X2-2:
+
+GND
+
+7
+
+8
+
+9
+
+Addr.
+Zone
+L/L+I
+Latch
+L> Int/
+Ext
+
+10 11 12 13 14 15 16
+
+X2-3:
+X2-4:
+
+COM
+
+X2-5:
+
+NO
+
+X2-6:
+
+NC
+
+Alarm
+
+X2-7:
+X2-8:
+
+Trip relay 3 (NO)
+
+X2-9:
+
+Trip relay 3 (NO)
+
+X2-10:
+X2-11:
+
+Trip relay 2 (NO)
+
+X2-12:
+
+Trip relay 2 (NO)
+
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay 1 (NO)
+
+X2-16:
+
+Trip relay 1 (NO)
+
+VIO/en M/B005
+
+35
+
+7.6 VAM 4C interfaces
+
+7.6
+
+7 Connections
+
+VAM 4C interfaces
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 4C
+COM 1
+
+COM 2
+
+4.0
+
+POWER
+
+SW1
+Zone1
+Zone2
+Zone3
+Zone4
+
+TRIP
+
+Addr.
+
+2.0
+x In 1.0
+
+COM
+ERROR
+
+0.5
+CURRENT TRANSFORMER
+L1
+L2
+
+0.1
+L3
+
+L1/L3 L2/Io
+
+X1
+
+VAM4c conn
+
+X1-1, 3:
+
+Current input IL1
+
+X1-5, 7:
+
+Current input IL2 / Io
+
+X1-9, 11:
+
+Current input IL3
+
+X2-1:
+
++24V supply from master unit or external
+power supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+X2-8:
+
+DI (24-48Vdc)
+
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+Zone information (L>, I>)
+
+= COM1, COM2
+
+master slave com
+
+L>
+
+TRIP
+
+X2-11:
+X2-12:
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+36
+
+VIO/en M/B005
+
+7 Connections
+
+7.7 VAM 4CRL interfaces
+
+7.7
+
+VAM 4CRL interfaces
+16 15 14 13 12 11 10 9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X2
+
+VAM 4C
+COM 1
+
+COM 2
+
+4.0
+
+POWER
+
+SW1
+Zone1
+Zone2
+Zone3
+Zone4
+Addr.
+
+OFF
+1
+2
+3
+
+ON
+
+TRIP
+
+4
+5
+6
+7
+
+L1
+
+8
+
+L2
+
+L3
+
+CURRENT TRANSFORMER
+
+2.0
+
+COM
+
+x In 1.0
+
+ERROR
+
+0.5
+0.1
+
+L1/L3 L2/Io
+
+X1
+SW2
+ON
+
+6
+
+0.5 5
+
+0.05
+
+D IP
+
+x In
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Latch
+1A/5A
+I> out
+I> in
+
+1234
+
+6
+
+3
+L1,L3
+
+1.0
+L2/Io
+
+VAM 4CRL CONN
+
+X1-1, 3:
+
+Current input IL1
+
+X1-5, 7:
+
+Current input IL2 / Io
+
+X1-9, 11:
+
+Current input IL3
+
+X2-1:
+
++24V supply from master unit or external
+power supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+X2-8:
+
+DI (24-48Vdc)
+
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+Zone information (L>, I>)
+
+= COM1, COM2
+
+master slave com
+
+L>
+
+TRIP
+
+X2-11:
+X2-12:
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+VIO/en M/B005
+
+37
+
+7.8 VAM 4CD interfaces
+
+7.8
+
+7 Connections
+
+VAM 4CD interfaces
+
+L2/Io L1/L3
+
+SW2
+
+12 11 10
+
+9
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+X1
+
+4.0
+SW1
+1 2 3 4 5 6 7 8
+
+2.0
+x In
+
+1.0
+0.5
+
+COM 2
+
+O
+N
+
+0.1
+COM 1
+
+X2
+
+Addr.
+Zone4
+Zone3
+Zone2
+Zone1
+
+1
+
+X1-1, 3:
+
+Current input IL1
+
+X1-5, 7:
+
+Current input IL2 / Io
+
+X1-9, 11:
+
+Current input IL3
+
+X2-1:
+
++24V supply from master unit or external
+power supply
+
+X2-2:
+
+GND
+
+X2-3:
+
+CAN-L
+
+X2-4:
+
+CAN-H
+
+X2-5:
+
+Serial B
+
+X2-6:
+
+Serial A
+
+X2-7:
+
+DI GND
+
+X2-8:
+
+DI (24-48Vdc)
+
+X2-9:
+
+DO GND
+
+X2-10:
+
+DO +24Vdc
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10 11 12 13 14 15 16
+
+Zone information (L>, I>)
+
+= COM1, COM2
+
+master slave com
+
+L>
+
+TRIP
+
+X2-11:
+X2-12:
+X2-13:
+X2-14:
+X2-15:
+
+Trip relay (NO)
+
+X2-16:
+
+Trip relay (NO)
+
+38
+
+VIO/en M/B005
+
+7 Connections
+
+7.9 VAMP 4R interfaces
+
+7.9
+
+VAMP 4R interfaces
+3
+
+3
+
+2
+
+12 11
+
+9
+
+8
+
+TRIP 1
+
+TRIP 2
+
+6 5 4
+
+3
+
+2
+
+1
+
+-
+
++
+
+-
+
++
+
+X2
+
+VAMP 4R
+1
+
+Power
+Trip 1
+
+-
+
++
+
+18 - 265Vac/dc
+
+24Vdc
+INPUTS
+
+Trip 2
+
+OUTPUT
+TRIP GROUP 2
+
+TRIP GROUP 1
+
+NO NC
+
+X1
+
+1 2
+
+NO
+
+NC
+
+NO
+
+NC
+
+NO
+
+SF ALARM
+
+NC
+
+NO
+
+COM
+
+NC
+
+3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+4
+
+X1-1, 2:
+
+Trip relay (NO), Trip group 1.
+
+X1-3, 4:
+
+Trip relay (NC), Trip group 1.
+
+X1-5, 6:
+
+Trip relay (NO), Trip group 1.
+
+X1-7, 8:
+
+Trip relay (NC), Trip group 1.
+
+X1-9, 10:
+
+Trip relay (NO), Trip group 2.
+
+X1-11, 12:
+
+Trip relay (NC), Trip group 2.
+
+X1-13, 14:
+
+Trip relay (NO), Trip group 2.
+
+X1-15, 16:
+
+Trip relay (NC), Trip group 2.
+
+X1-17:
+X1-18:
+
+NO
+
+X1-19:
+
+COM
+
+X1-20:
+
+NC
+
+X2-1:
+
+Aux voltage supply +24Vdc
+
+X2-2:
+
+GND
+
+X2-3:
+
+Aux voltage supply +24Vdc
+
+X2-4:
+
+GND
+
+X2-5:
+
+Aux voltage supply +24Vdc
+
+X2-6:
+
+GND
+
+SF Alarm relay
+
+X2-7:
+X2-8:
+
+TRIP 2. Input 18 – 265Vac/dc
+
+X2-9:
+
+TRIP 2. Input 18 – 265Vac/dc
+
+Trip group 2.
+
+X2-10:
+X2-11:
+
+TRIP 1. Input 18 – 265Vac/dc
+
+X2-12:
+
+TRIP 1. Input 18 – 265Vac/dc
+
+VIO/en M/B005
+
+Trip group 1.
+
+39
+
+8 I/O Technical data
+
+8
+
+I/O Technical data
+
+8.1
+
+Connections
+Table 8.1: VAM 3L
+Sensor connections
+
+3 fibre loop sensors (type ARC-SLx)
+1 portable arc sensor (type VA 1 DP)
+
+Table 8.2: VAM 3LX
+Sensor connections
+
+3 fibre loop sensors (type ARC-SLx)
+- sensitivity adjust range compared to 3L
+0.5 (max) – 1.5 (min)
+1 portable arc sensor (type VA 1 DP)
+
+Table 8.3: VAM 10L, VAM 10LD, VAM 12L, VAM 12LD
+Sensor connections
+
+10 arc sensors (type VA 1 DA or VA 1 EH)
+1 portable arc sensor (type VA 1 DP)
+
+Terminal:
+
+Cross-section area of wire
+
+- MSTB2.5 - 5.08
+
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Table 8.4: VAM 4C, VAM 4CD, VAM 4CRL
+Rated current L1 / L3
+
+1 or 5 A (optional) 50/60Hz
+
+- current measuring zone
+
+0 – 6 A (0 – 6*IN [IN =1A]);
+
+- thermal withstand capability
+
+0 – 30 A (0 – 6* IN [IN =5A])
+
+- power consumption
+
+300 A (for 1s)
+100 A (for 10s)
+20 A (continuous)
+<0.3 VA
+
+Rated current L2 / I0
+
+1 or 5 A (optional) 50/60Hz
+
+- current measuring zone
+
+0 – 6 A (0 – 6*IN [IN =1A]);
+
+- thermal withstand capability
+
+0 – 30 A (0 – 6* IN [IN =5A])
+
+- power consumption
+
+300 A (for 1s)
+100 A (for 10s)
+20 A (continuous)
+<0.3 VA
+
+Terminal:
+
+Cross-section area of wire
+
+- single or multi-strand wire
+
+Maximum 4 mm2 (11 – 12 AWG)
+Minimum 2.5 mm2 (13 – 14 AWG)
+
+40
+
+VIO/en M/B005
+
+8 I/O Technical data
+
+8.2
+
+8.2 Auxiliary power supply
+
+Auxiliary power supply
+Table 8.5: VAM 10L, VAM 10LD, VAM 12L, VAM 12LD, VAM 4C, VAM 4CD,
+VAM 4CRL, VAM 3L, VAM 3LX
+Rated voltage UAUX
+
+24 V dc
+
+Power consumption
+
+< 1 W (in normal mode)
+< 1.5 W (output relays activated)
+
+Terminal:
+
+-
+
+- MSTB2.5 - 5.08
+
+Cross-section area of wire
+
+( RJ 45 when supply from central unit) Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Table 8.6: VAMP 4R
+Rated voltage UAUX
+
+24 V dc
+
+Current consumption
+
+20 mA stby
+
+- one relay group activated
+
+80 mA
+
+- both relay groups activated
+
+180 mA
+
+Table 8.7: VA 1 DA, VA 1 EH, VA 1 DP
+Rated voltage UAUX
+
+12 V dc (from I/O unit)
+
+Power consumption
+
+< 35 mW (in normal mode)
+< 450 mW (activated)
+
+8.3
+
+Digital inputs
+No digital inputs available in VAM 12L and VAM 12LD
+Table 8.8: VAM 10L, VAM 10LD, VAM 3L, VAM 3LX
+Number of inputs
+
+1 pcs I> in
+1 arc fault trip out
+
+Internal operating voltage
+
+24 – 48 V dc (BIO in)
+24 V dc (BIO out)
+
+Load capacity (max.)
+
+5 mA
+
+Terminal:
+
+Cross-section area of wire
+
+- MSTB2.5 - 5.08
+
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Connection cable
+
+VIO/en M/B005
+
+Twisted pair with shield. Shield shall be grounded.
+
+41
+
+8.4 Trip contacts
+
+8 I/O Technical data
+
+Table 8.9: VAM 4C, VAM 4CD, VAM 4CRL
+Number of inputs
+
+1 pcs L> in
+1 pcs I> out
+
+Internal operating voltage
+
+24 – 48 V dc (BIO in)
+24 V dc (BIO out)
+
+Load capacity (max.)
+
+5 mA
+
+Terminal:
+
+Cross-section area of wire
+
+- MSTB2.5 - 5.08
+
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Connection cable
+
+Twisted pair with shield. Shield shall be grounded.
+
+Table 8.10: VAMP 4R
+
+8.4
+
+Operating voltage
+
+18 – 265 V ac/dc
+
+Current consumption
+
+2 mA
+
+Trip contacts
+Table 8.11: VAM 10L, VAM 10LD, VAM 12L, VAM 12LD, VAM 4C, VAM 4CD,
+VAM 4CRL, VAM 3L, VAM 3LX
+Number of contacts
+
+1 closing contact (relay T1)
+
+for VAM 10L, VAM 10LD, VAM 4C,
+VAM 4CD, VAM 4CRL, VAM 3L, VAM
+3LX
+Number of contacts
+
+3 closing contacts (relay T1)
+
+for VAM 12L, VAM 12LD
+Rated voltage
+
+250 V ac/dc
+
+Continuous withstand capacity
+
+5A
+
+Make and carry for 0.5s
+
+30 A
+
+Make and carry for 3s
+
+15 A
+
+Breaking capacity, dc(L/R=40 ms)
+At 48 V dc:
+
+1A
+
+At 110 V dc:
+
+0.44 A
+
+At 220 V dc:
+
+0.22 A
+
+Relay material
+
+AgNi 90/10
+
+Terminal:
+
+Cross-section area of wire
+
+- MSTB2.5 - 5.08
+
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+42
+
+VIO/en M/B005
+
+8 I/O Technical data
+
+8.5 Environmental conditions
+
+Table 8.12: VAMP 4R
+4N/O / 4N/C rated voltage
+
+250V ac/dc
+
+Operation time (typical)
+
+< 10 ms
+
+Continuous withstand capacity
+
+5A
+
+Make and carry for 0.5s
+
+30 A
+
+Make and carry for 3s
+
+15 A
+
+N/O breaking capacity dc
+(L/R=40ms)
+At 48 V dc
+
+1A
+
+At 110 V dc
+
+0.44 A
+
+At 220 V dc
+
+0.22 A
+
+Contact material
+
+AgNi 90/10
+
+Terminal:
+
+Cross-section area of wire
+
+- MSTB2.5 - 5.08
+
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+8.5
+
+Environmental conditions
+Table 8.13: Environmental conditions
+Operating temperature range
+
+-10 – 55°C (14 – 131°F)
+
+Transport and storage temperature range
+- VAM I/O units
+
+-40 – 70°C (-40 – 158°F)
+
+- ARC SLm, VA 1 xx sensors
+
+-40 – 85°C (-40 – 185°F)
+
+-
+
+8.6
+
+Relative air humidity
+
+< 95% (condensation not allowed)
+
+Maximum operating altitude
+
+2000 m (6561.68 ft)
+
+Package
+Table 8.14: Package
+Dimensions (WxHxD)
+
+-
+
+VAMP 4R, VAM I/O units
+
+157 x 92 x 25 mm / 6.18 x 3.62 x 0.98 in
+
+Weight (unit, box and user instructions) VAMP 4R, VAM I/O units
+
+VIO/en M/B005
+
+0.62 kg (1.369 lb)
+
+43
+
+8.7 Disturbance tests
+
+8.7
+
+8 I/O Technical data
+
+Disturbance tests
+Table 8.15: Disturbance tests
+
+Test
+
+Standard & Test class / level
+
+Test value
+
+Emission
+
+EN 61000-6-4 / IEC 60255-26
+
+- Conducted
+
+EN 55011, Class A / IEC 60255-25
+
+0.01 – 30 MHz
+
+- Emitted
+
+EN 55011, Class A / IEC 60255-25
+
+30 – 1000 MHz
+
+Immunity
+
+EN 61000-6-2 / IEC 60255-26
+
+- 1 Mhz damped oscillatory wave
+
+IEC 60255-22-1
+
+±2.5kVp CM, ±1.0kVp DM
+
+- Static discharge (ESD)
+
+EN 61000-4-2 Level 4 / IEC 60255-22-2 Class
+4
+
+8 kV contact, 15 kV air
+
+- Emitted HF field
+
+EN 61000-4-3 Level 3 / IEC 60255-22-3
+
+80 - 2700 MHz, 10 V/m
+
+- Fast transients (EFT)
+
+EN 61000-4-4 Level 4 / IEC 60255-22-4 Class
+A
+
+4 kV, 5/50 ns, 5 kHz
+
+- Surge
+
+EN 61000-4-5 Level 3 / IEC 60255-22-5
+
+2 kV, 1.2/50 µs, CM
+1 kV, 1.2/50 µs, DM
+
+- Conducted HF field
+
+EN 61000-4-6 Level 3 / IEC 60255-22-6
+
+0.15 - 80 MHz, 10 Vemf
+
+- Power-frequency magnetic field
+
+EN 61000-4-8
+
+300A/m (continuous), 1000A/m 13s
+
+- Pulse magnetic field
+
+EN 61000-4-9 Level 5
+
+1000A/m, 1.2/50 µs
+
+8.8
+
+Electrical safety tests
+Table 8.16: Electrical safety tests
+
+Test
+
+Standard & Test class / level
+
+Test value
+
+- Impulse voltage withstand
+
+EN 60255-5, Class III
+
+5 kV, 1.2/50 µs, 0.5 J
+
+- Dielectric test
+
+EN 60255-5, Class III
+
+2 kV, 50 Hz
+
+- Insulation resistance
+
+EN 60255-5
+
+- Protective bonding resistance
+
+EN 60255-27
+
+44
+
+VIO/en M/B005
+
+8 I/O Technical data
+
+8.9
+
+8.9 Casing
+
+Casing
+Table 8.17: VAM 10L, VAM 4C, VAM 4CRL, VAMP 4R, VAM 3L, VAM 3LX
+Housing class (IEC 60529)
+
+IP21
+
+Housing class (NEMA)
+
+NEMA 1
+
+Housing class (UL 508)
+
+Open type
+
+Dimensions (W x H x D)
+
+157 x 92 x 25 mm / 6.18 x 3.62 x 0.98 in
+
+Material
+
+1 mm (0.039 in) steel plate
+
+Weight
+
+0.52 kg (1.148 lb)
+
+Colour code
+
+RAL 7032 (housing) / RAL 70035 (back plate)
+
+Table 8.18: VAM 10LD, VAM 12LD, VAM 4CD
+Housing class (IEC 60529)
+
+IP64
+
+Housing class (NEMA)
+
+Front: NEMA 2
+Rear: NEMA 1
+
+Housing class (UL 508)
+
+Front: Open type
+Rear: Open type
+
+Dimensions (W x H x D)
+
+185 x 120 x 25 mm / 7.28 x 4.72 x 0.98 in
+
+Material
+
+1 mm (0.039 in) steel plate
+
+Weight
+
+0.60 kg (1.325 lb)
+
+Colour code
+
+RAL 7032 (housing) / RAL 70035 (back plate)
+
+Table 8.19: VA 1 DA, VA 1 EH, VA 1 DP
+Housing class (IEC 60529)
+
+IP21
+
+Housing class (NEMA)
+
+NEMA 1
+
+Housing class (UL 508)
+
+Open type
+
+Dimensions (W x H x D)
+
+25 x 55 x 14 mm (VA 1 DA)
+Φ11 x 62 mm (VA 1 EH)
+Φ40 x 7 mm (VA 1 DP)
+
+Material
+
+Plastic
+
+Weight
+
+0.01 kg
+
+Cable length
+
+VA 1 DA and VA 1 EH: 6 m or 20 m
+VA 1 DP: 5 m
+
+VIO/en M/B005
+
+45
+
+9 Construction
+
+9
+
+Construction
+
+9.1
+
+Dimensional drawings
+
+9.1.1
+
+VAM 3L / 3LX Din rail mounting
+
+VAM 3L/3LX DIN RAIL MOUNTING
+mm
+in
+
+112
+4.41
+VAM
+
+3L / 3
+
+LX
+
+92
+3.62
+
+ON
+
+t/Int
+
+L>ex
+
+15 7
+6.18
+
+3L
+VAM
+
+/ 3LX
+ON
+
+t/Int
+
+L>ex
+
+25
+0.98
+
+VAM 3
+
+L / 3L
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+X
+ON
+
+/Int
+L>ext
+
+35mm /1.38 in
+
+VAM
+
+3L / 3
+
+LX
+ON
+
+t/Int
+
+L>ex
+
+46
+
+VIO/en M/B005
+
+9 Construction
+
+9.1.2
+
+9.1 Dimensional drawings
+
+VAM 10L Din rail mounting
+
+VAM 10L DIN RAIL MOUNTING
+mm
+in
+
+157
+6.18
+
+112
+4.41
+
+ON
+
+ON
+
+92
+3.62
+
+25
+0.98
+
+ON
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+35mm /1.38 in
+EN 50022
+ON
+
+VIO/en M/B005
+
+47
+
+9.1 Dimensional drawings
+
+9.1.3
+
+9 Construction
+
+VAM 10LD Flush mounting
+
+VAM 10LD FLUSH MOUNTING
+
+mm
+in
+
+92
+3.62
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+105
+4.13
+
+ø4.5
+0.18
+
+ON
+
+1.0
+0.0 10
+40.4
+
+157
+6.18
+170
+6.69
+
+Ground screw terminal
+
+Min. 2.5 mm2 / Ø0.06 in (#12 - #14 AWG)
+
+27 .
+6
+1.0
+9
+
+ON
+
+120
+4.72
+
+90
+3.5
+4
+
+ON
+
+1 85
+7.28
+
+48
+
+VIO/en M/B005
+
+9 Construction
+
+9.1.4
+
+9.1 Dimensional drawings
+
+VAM 12L Din rail mounting
+
+VAM 12L DIN RAIL MOUNTING
+mm
+in
+
+157
+6.18
+
+112
+4.41
+
+ON
+
+ON
+
+92
+3.62
+
+25
+0.98
+
+ON
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+35mm /1.38 in
+EN 50022
+ON
+
+VIO/en M/B005
+
+49
+
+9.1 Dimensional drawings
+
+9.1.5
+
+9 Construction
+
+VAM 12LD Flush mounting
+
+VAM 12LD FLUSH MOUNTING
+mm
+in
+
+92
+3.62
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+105
+4.13
+
+ø4.5
+0.18
+
+ON
+
+1.0
+0.0 10
+40.4
+
+157
+6.18
+170
+6.69
+
+Ground screw terminal
+
+Min. 2.5 mm2 / Ø0.06 in (#12 - #14 AWG)
+
+27 .
+6
+1.0
+9
+
+ON
+
+120
+4.72
+
+90
+3.5
+4
+
+ON
+
+1 85
+7.28
+
+50
+
+VIO/en M/B005
+
+9 Construction
+
+9.1.6
+
+9.1 Dimensional drawings
+
+VAM 4C / 4CRL Din rail mounting
+
+The example is given with VAM 4C.
+VAM 4C DIN RAIL MOUNTING
+
+mm
+in
+
+112
+4.41
+ON
+
+92
+3.62
+
+157
+6.18
+
+ON
+
+25
+0.98
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+ON
+
+35mm /1.38 in
+EN 50022
+ON
+
+VIO/en M/B005
+
+51
+
+9.1 Dimensional drawings
+
+9.1.7
+
+9 Construction
+
+VAM 4CD Flush mounting
+
+VAM 4CD FLUSH MOUNTING
+mm
+in
+
+92
+3.62
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+105
+4.13
+
+ø4.5
+0.18
+
+ON
+
+1.0
+0.0 10
+40.4
+
+157
+6.18
+170
+6.69
+
+Ground screw terminal
+
+Min. 2.5 mm2 / Ø0.06 in (#12 - #14 AWG)
+
+27 .
+6
+1.0
+9
+
+ON
+
+120
+4.72
+
+90
+3.5
+4
+
+ON
+
+1 85
+7.28
+
+52
+
+VIO/en M/B005
+
+9 Construction
+
+9.1 Dimensional drawings
+
+9.1.8
+
+VAMP 4R Din rail mounting
+
+VAMP 4R DIN RAIL MOUNTING
+mm
+in
+
+18 -
+
+265 Va
+
+112
+4.41
+
+c/dc
+
+157
+6.18
+
+18 -
+
+265 Va
+
+c/dc
+
+92
+3.62
+
+25
+0.98
+
+T max. 0.5-0.6 N•m
+4.4-5.3 lb-in
+
+35mm /1.38 in
+EN 50022
+18 -
+
+VIO/en M/B005
+
+265 Va
+
+c/dc
+
+53
+
+9.1 Dimensional drawings
+
+9.1.9
+
+9 Construction
+
+VA 1 DA
+mm
+in
+
+22.2
+0.83
+
+20
+0.79
+
+10
+0.39
+
+14
+0.55
+
+46.4
+1.83
+
+25
+0.98
+
+8
+0.31
+4.2
+0.17
+
+9.1.10
+
+VA 1 EH
+62
+2.44
+
+11
+0.43
+
+mm
+in
+
+VA1EH_mittakuva
+
+54
+
+VIO/en M/B005
+
+9 Construction
+
+9.1.11
+
+9.1 Dimensional drawings
+
+VYX 001
+mm
+in
+
+15
+0.59
+
+59
+2.32
+42
+1.65
+
+50
+1.97
+
+25
+0.98
+
+51
+2.0
+
+2.5
+0.1
+10
+0.39
+
+7
+0.28
+
+VIO/en M/B005
+
+50
+1.97
+
+15
+0.59
+
+55
+
+9.1 Dimensional drawings
+
+9.1.12
+
+9 Construction
+
+VYX 002
+mm
+in
+
+10
+0.39
+
+15
+0.59
+
+59
+2.32
+
+15
+0.59
+
+3
+0.12
+30
+1.18
+
+30
+1.18
+
+56
+
+VIO/en M/B005
+
+9 Construction
+
+9.2
+
+9.2 I/O unit mounting and wiring
+
+I/O unit mounting and wiring
+CAUTION
+Read this User's Manual carefully before undertaking any
+installation or wiring work.
+Safety instructions
+Always observe the national electrical safety regulations when
+working under live conditions. The unit manufacturer is not liable for
+damage due to incorrect working methods or failure to observe safety
+instructions.
+The correct handling of the unit under all mounting and operating
+conditions forms the foundation for its safe use.
+
+CAUTION
+Any separately marked notes and warnings must be observed.
+The wiring work must be performed according to national
+standards and any requirements specified by the customer.
+Do not connect the auxiliary supply voltage until the installation
+has been completed.
+Before installation
+Before installation, make sure the environmental conditions comply
+with the requirements specified in Chapter 7.
+
+CAUTION
+The unit contains components liable to damage if exposed to an
+electrostatic discharge (ESD). Do not open the unit unless you
+have taken appropriate protective measures against ESD.
+The manufacturer cannot guarantee operational safety in
+environments that do not satisfy the specified environmental
+conditions.
+
+VIO/en M/B005
+
+57
+
+9.3 Connecting the VAMP 321 I/O units
+
+9.2.1
+
+9 Construction
+
+VAM 10L, VAM 12L, VAM 4C, VAM 4CRL, VAM
+3L, VAM 3LX
+The units are designed for mounting on a DIN rail. Mount the units
+on the rail in such a way that the indicator lights on the front panel
+are visible and the sensor wiring can be made as easily as possible.
+
+9.2.2
+
+VAM 10LD, VAM 12LD, VAM 4CD
+The units are designed for mounting on a door. Hence all indicators
+are clearly visible in normal operation.
+
+9.3
+
+Connecting the VAMP 321 I/O units
+The I/O units can be connected to the components listed below:
+
+9.4
+
+•
+
+Enclosure current transformer secondary circuits (VAM 4C, VAM
+4CD and VAM 4CRL I/O units only)
+
+•
+
+Circuit breaker trip circuits
+
+•
+
+External auxiliary supply circuits
+
+•
+
+Connections to the VAMP 321 central unit or other I/O units (data
+communication and auxiliary supply)
+
+•
+
+Connections to other central units or detection relays (digital
+input (DI) or digital output (DO) bus)
+
+Connecting the secondary circuits of the
+current transformers (VAM 4C / VAM
+4CD / VAM 4CRL only)
+Connect the secondary circuits of the current transformers to the
+following screw connectors:
+•
+
+X1-1, X1-3 (L1)
+
+•
+
+X1-5, X1-7 (L2/I0)
+
+•
+
+X1-9, X1-11 (L3)
+
+The arc protection system can also be single or two-phase connected.
+Three-phase connection is nevertheless recommended for optimal
+operating speed.
+
+58
+
+VIO/en M/B005
+
+9 Construction
+
+9.4 Connecting the secondary circuits of the current transformers
+(VAM 4C / VAM 4CD / VAM 4CRL only)
+
+DANGER
+HAZARD OF ELECTRICAL SHOCK
+Do not open the secondary circuit of a live current transformer.
+Disconnecting the secondary circuit of a live current transformer
+may cause dangerous overvoltages.
+Failure to follow these instructions will result in death or
+serious injury.
+NOTE: The current measuring channels L1 and L3 must be used in
+connection with two-phase current measuring. Single-phase current
+or ground fault current must always be connected to the current
+measuring channel L2/I0; otherwise, an unbalance error will occur.
+The specified operating time can only be guaranteed for three-phase
+current measurement and with the proper voltage supply to all system
+components, minimum allowed auxiliary voltage is 21.6 Vdc.
+The VAM 4C / VAM 4CD / VAM 4CRL overcurrent unbalance alarm
+settings recognizes if the two-phase or three-phase monitoring is
+being used based on the connections made to the unit and the
+overcurrent limits set for each connection. The two-phase connection
+monitoring is triggered when the L2/I0 connection overcurrent limit
+differs from the L1/L3 overcurrent limit settings by 90% or more. This
+is because in the event two-phase monitoring is used, the L2/I0
+connection is the connection used to monitor the ground current.
+Therefore, the current limit set for the L2/I0 connection should reflect
+limits associated with anticipated ground currents. The remaining
+L1/L3 currents should be balanced, and overcurrent settings for the
+L1/L3 connection should be reflected as such. The two-phase
+monitoring mode is also referred to as “ground-fault mode.”
+The three-phase monitoring is triggered when the L2/I0 and L1/L3
+overcurrent limit settings are similar, reflecting that each phase is
+understood to be in balance with the other two phases.
+If detected, the system gives an unbalance alarm after a 10-second
+delay time. The alarm does not affect other operations of the arc
+detection system.
+The phase discontinuity settings are non-adjustable since all the
+setting values have been programmed in the current-monitoring unit.
+
+VIO/en M/B005
+
+59
+
+9.5 Connecting the trip circuits of the circuit breakers
+
+9.5
+
+9 Construction
+
+Connecting the trip circuits of the circuit
+breakers
+Connect the circuit breaker’s trip circuit to the following pins:
+TRIP1: X2-15, X2-16
+For example, in the event of an arc fault, the output contact will close
+at specified time when three-phase current measurement is used.
+The output trip relay of the light I/O units (VAM 10L and VAM 3 L)
+operates during faults in its own zone. In the current I/O unit (VAM
+4 C), select the protection zone controlling the I/O unit using the
+programming switches.
+If several trips are required, the multiplying relay VAMP 4R can be
+used. If VAMP 4R is used, make sure that proper voltage supply is
+connected to device.
+
+9.6
+
+Connecting between the central unit and
+the I/O unit
+Connect the central unit to the I/O units with a modular cable of type
+VX001. The modular cable carries all information between the central
+unit and I/O units, including data in serial form, arc fault messages
+and operating supply to the I/O units.
+•
+
+Connect the VX001 cable to the arc I/O COM interface of the
+central units.
+
+•
+
+Connect the cable to COM1 or COM2 on the first I/O unit.
+
+•
+
+Route the cable from COM1 or COM2 on the first I/O unit to
+COM1 or COM2 in the next unit, etc.
+
+All the COM1 and COM2 interfaces are identical, i.e. the cable can
+always be connected to either interface. The maximum total length
+of the modular cable, taking into account all the I/O units connected
+to the central unit, is 100 m.
+NOTE: Use only star connection for I/O units. Maximum single bus cable
+length is 30 meters.
+
+CAUTION
+HAZARD OF EQUIPMENT DAMAGE
+Do not connect modular cables closed loop.
+Failure to follow these instructions can result in personal
+injury or equipment damage.
+60
+
+VIO/en M/B005
+
+9 Construction
+
+9.7 Connecting separate auxiliary supplies
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+Only VAMP communication cable type VX001 shall be used.
+Modular cable wiring shall be placed on the control cabling trays
+as far from the primary cable, bus bar and bus ducts as possible.
+Do not connect Ethernet to ARC I/O Bus!
+Failure to follow these instructions can result in equipment
+damage.
+
+9.7
+
+Connecting separate auxiliary supplies
+When routing modular cables over long distances (30 meters of
+modular cabling) or when the system contains more than 4 I/O units
+you should preferably use a separate auxiliary +24Vdc voltage supply
+with output monitoring along with the modular bus cabling.
+Recommended types of power supplies with output monitoring:
+1. Phaseo ABL4RSM24035 (3.5A @ 24Vdc)
+2. Phaseo ABL4RSM24050 (5A @ 24Vdc)
+3. or any equivalent type of power supply with above functionality
+NOTE: Use of power supplies without voltage monitoring is not
+recommended.
+Connect the auxiliary supply to the 24 V terminals of the last I/O unit.
+Use at least 1.5mm2 (AWG 16) size twisted pair cable.
+NOTE: It is recommended to use external wiring to connect auxiliary supply
+to all units. Pay particular attention to the polarity of the wire and
+cable connections.
+Additional power supply cabling is recommended, min. 1.5 mm2 (AWG 16)
+
+Power supply cabling, min. 1.5 mm2 (AWG 16)
+
+Modular Arc I/O bus cable
+
+VIO/en M/B005
+
+61
+
+9.7 Connecting separate auxiliary supplies
+
+9 Construction
+
+24Vdc
+
+~
+−
+
++
+−
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+VAM
+
+R
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+10
+9
+7
+6
+
+Addr.
+
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+ON
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+X2
+
+COM
+COM
+
+TRIP
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+10
+9
+8
+
+S
+R INPUT
+6
+SENSO
+5
+
+20
+
+7
+Addr.
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+16
+
+15
+
+17
+
+18
+
+19
+
+R
+
+ERROR
+OK
+ACT
+TRIP
+9
+8
+
+S
+R INPUT
+6
+SENSO
+5
+
+20
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+15
+
+14
+
+16
+
+17
+
+18
+
+19
+
+20
+
+X1
+
+X1
+
+X1
+
+2
+
+1
+
+POWE
+
+ACT
+
+R
+SENSO
+
+O1 2 3 4 5 6 7 8
+N
+
+ACT
+
+SW1
+
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+Addr.
+
+1
+
+2
+
+COM
+
+ERROR
+
+R
+SENSO
+
+SW1
+
+TRIP
+
+3
+
+10L
+VAM
+
+R
+POWE
+COM
+
+ERROR
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+Vamp 300
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+POWE
+COM
+R
+SENSO
+
+SW1
+
+OK
+
+F2
+F1
+
+O
+
+I
+
+Figure 9.1: External power supply wiring
+24Vdc
+
+~
+−
+
++
+−
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+VAM
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+VAM
+
+1
+
+2
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+X2
+
+COM
+COM
+
+VAM
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+2
+
+1
+
+X2
+
+COM
+
+VAM
+
+POWER
+
+1
+
+2
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+COM
+
+10L
+
+POWER
+
+X2
+
+COM
+COM
+
+POWER
+COM
+
+COM
+
+COM
+ERROR
+
+ERROR
+ERROR
+
+L>ext/in
+Latch
+L+I/L
+Zone
+
+10
+9
+7
+
+R INPUTS
+6
+SENSO
+5
+
+Addr.
+
+11
+
+12
+
+17
+
+16
+
+15
+
+14
+
+13
+
+TRIP
+
+18
+
+19
+
+L>ext/in
+Latch
+L+I/L
+Zone
+
+10
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+Addr.
+
+4
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+ON
+
+t
+
+20
+
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+18
+
+17
+
+OK
+
+SENSOR
+
+SW1
+
+ACT
+
+9
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+20
+
+Addr.
+
+TRIP
+
+10
+7
+
+R INPUTS
+6
+SENSO
+5
+
+20
+
+19
+
+4
+3
+2
+1
+
+11
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+13
+
+12
+
+15
+
+14
+
+16
+
+17
+
+18
+
+19
+
+OK
+ACT
+TRIP
+
+10
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+X1
+
+X1
+
+ERROR
+
+SENSOR
+
+O1 2 3 4 5 6 7 8
+N
+
+TRIP
+
+SW1
+
+OK
+ACT
+
+O1 2 3 4 5 6 7 8
+N
+
+Addr.
+
+t
+
+ACT
+
+SENSOR
+
+O1 2 3 4 5 6 7 8
+N
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+O1 2 3 4 5 6 7 8
+N
+
+Vamp 300
+
+SW1
+
+OK
+
+2
+
+1
+
+10L
+
+POWER
+COM
+
+SENSOR
+
+SW1
+
+12
+
+11
+
+13
+
+14
+
+19
+
+18
+
+17
+
+16
+
+15
+
+20
+
+X1
+
+OK
+
+F2
+F1
+
+I
+
+O
+
+24Vdc
+
+~
+−
+
++
+−
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+VAM
+
+10L
+
+VAM
+
+3
+
+4
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+POWER
+
+2
+
+1
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+2
+
+1
+
+10L
+POWER
+
+COM
+
+POWER
+
+POWER
+
+ERROR
+
+COM
+
+COM
+
+ERROR
+
+ERROR
+
+COM
+SW1
+
+SW1
+
+SENSOR
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+7
+
+R INPUTS
+6
+SENSO
+5
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+Addr.
+
+ACT
+TRIP
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+Addr.
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+OK
+
+OK
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+ACT
+TRIP
+
+10
+9
+7
+
+R INPUTS
+6
+SENSO
+5
+
+20
+
+Addr.
+
+4
+3
+2
+1
+
+11
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+13
+
+12
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+ACT
+TRIP
+
+10
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+4
+
+20
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+X1
+
+X1
+
+X1
+
+SENSOR
+
+SW1
+
+SENSOR
+
+O1 2 3 4 5 6 7 8
+N
+
+10
+9
+8
+
+O1 2 3 4 5 6 7 8
+N
+
+TRIP
+
+SW1
+
+OK
+
+ACT
+O1 2 3 4 5 6 7 8
+N
+
+Addr.
+
+ERROR
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+SENSOR
+
+Two branch design, length of cabling must not exceed 100 m combine total in both branches.
+Figure 9.2: Protection system wiring configuration
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+VAM
+
+10L
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+R
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+VAM
+
+R
+POWE
+
+POWE
+
+R
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+R
+POWE
+
+COM
+
+COM
+COM
+
+10
+8
+7
+
+Addr.
+
+ACT
+TRIP
+
+10
+9
+
+3
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+Addr.
+
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+11
+
+12
+
+13
+
+14
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+7
+
+4
+
+2
+1
+
+8
+
+S
+R INPUT
+6
+SENSO
+5
+
+5
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+SW1
+
+OK
+
+15
+
+16
+
+17
+
+18
+
+19
+
+COM
+
+ERRO
+
+R
+SENSO
+
+OK
+
+SW1
+
+ACT
+TRIP
+
+10
+8
+
+S
+R INPUT
+6
+SENSO
+5
+
+20
+
+7
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+Addr.
+
+R
+ERRO
+
+R
+SENSO
+
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+TRIP
+
+SENSO
+
+O1 2 3 4 5 6 7 8
+N
+
+OK
+ACT
+
+4
+
+ON
+
+SW1
+O1 2 3 4 5 6 7 8
+N
+
+Addr.
+
+O1 2 3 4 5 6 7 8
+N
+
+int
+L>ext/
+Latch
+L+I/L
+Zone
+
+Vamp 300
+
+ERRO
+
+R
+
+ERRO
+
+R
+SENSO
+
+R
+
+R
+R
+
+SW1
+
+2
+
+1
+
+10L
+VAM
+
+POWE
+
+ACT
+TRIP
+
+10
+9
+8
+
+S
+R INPUT
+6
+SENSO
+5
+
+7
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+X1
+
+OK
+
+F2
+F1
+
+I
+
+O
+
+If four or less I/O units are used, total cable length is below 30 m. No power supply is needed.
+Figure 9.3: Small protection system wiring configuration, one branch design
+
+62
+
+VIO/en M/B005
+
+9 Construction
+
+9.8 VAMP 4R
+
+24Vdc
+
+~
+−
+
++
+−
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+VAM
+
+3
+
+4
+
+2
+
+1
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+
+VAM
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+6 5
+8 7
+10 9
+12 11
+14 13
+16 15
+
+2
+
+1
+
+10L
+VAM
+
+POWER
+
+POWER
+
+3
+
+4
+
+1
+
+2
+
+X2
+
+COM
+COM
+
+POWER
+COM
+
+COM
+
+COM
+ERROR
+
+ERROR
+ERROR
+
+10
+9
+7
+
+R INPUTS
+6
+SENSO
+
+Addr.
+
+ACT
+TRIP
+
+Addr.
+
+4
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+10
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+20
+
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+OK
+
+SW1
+
+ACT
+TRIP
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+10
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+20
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+Addr.
+
+20
+
+SENSOR
+
+OK
+ACT
+TRIP
+
+10
+9
+8
+7
+
+R INPUTS
+6
+SENSO
+5
+
+4
+3
+2
+1
+
+9 10
+7 8
+5 6
+3 4
+1 2
+
+X1
+
+X1
+
+X1
+
+ERROR
+
+SENSOR
+
+O1 2 3 4 5 6 7 8
+N
+
+TRIP
+
+SW1
+
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+ACT
+
+SENSOR
+
+O1 2 3 4 5 6 7 8
+N
+
+Addr.
+
+ON
+
+SW1
+
+OK
+
+O1 2 3 4 5 6 7 8
+N
+
+t
+L>ext/in
+Latch
+L+I/L
+Zone
+
+Vamp 300
+
+SENSOR
+
+2
+
+1
+
+10L
+
+POWER
+COM
+
+SW1
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+X1
+
+OK
+
+F2
+F1
+
+I
+
+O
+
+Systems having more than four I/O units must be equipped with separate auxiliary supply.
+Figure 9.4: Protection system wiring configuration, one branch design
+
+9.8
+
+VAMP 4R
+18 - 265V ad/dc
+
++ 2 4 Vdc
+
+- + - + - +
+12 11
+
+9 8
+
+6 5 4
+
+3 2 1
+
+:X2
+
+VAMP 4R
+
+Group 1
+
+X1:
+
+1 2
+
+3 4
+
+5 6
+
+7 8
+
+Group 2
+
+9 10
+
+11 12 13 14 15 16
+
+Self
+super vision
+alar m
+
+19 20 18
+
+Figure 9.5: VAMP 4R block diagram
+
+The multiplying relay VAMP 4R can be used when additional trip
+outputs are needed.
+VAMP 4R comprises 4 N/O contacts and 4 N/C contacts. They are
+divided into two separate groups which can be independently
+controlled by e.g. the binary output of the I/O units or the central unit.
+
+VIO/en M/B005
+
+•
+
+Attach the VAMP 4R unit to a DIN rail.
+
+•
+
+Connect the auxiliary voltage ( +24V ) to terminal X2-1 (+) and
+X2-2 (-). Terminals X2-3 and X2-5 are parallel inputs to X2-1(+).
+Terminals X2-4 and X2-6 are parallel inputs to X2-2(1). The
+auxiliary voltage ( +24V ) can be supplied from the central unit
+or nearest slave ( X2-1 (+), X2-2 (-)).
+
+•
+
+Connect the required signal (18-265 V ad/dc) to the trip control
+inputs.
+
+•
+
+Input “TRIP 1” ( X2-11, X2-12 ) is controlling the trip group 1.
+Input “TRIP 2” ( X2-8, X2-9 ) is controlling the trip group 2.
+
+•
+
+There are 2xN/C + 2xN/O contacts per trip group.
+63
+
+9.9 Wiring multiple central units
+
+9 Construction
+
+If necessary, input TRIP 1 and 2 can be connected in parallel. Then
+all trip relays will operate simultaneously.
+
+9.9
+
+Wiring multiple central units
+A maximum of 16 I/O units and/or central units in ‘slave’ mode can
+be connected to one communication bus. In this case, the units can
+operate on a maximum of four protection zones (depending on their
+programming switches). The light and current signals given by the
+I/O units, including address information, are transferred to each
+central unit.
+If more than one central unit is to be connected to the same
+communication bus, one central unit must be in central unit mode
+and the other central units in sub-unit mode.
+In applications with multiple central units the central units can be
+interconnected also via BI/O connections (binary input/output). In
+this case, each part of the system can control four protection zones
+per system communication bus. In this case, arc and overcurrent
+information is transferred between the central units without address
+information.
+NOTE: When configurating Vamp 221 arc protection system with multiple
+central units, disconnect I/O-units from central units in slave mode
+during their installation procedure.
+
+9.10
+
+Arc sensors
+Mount the sensors on the switchgear in such a way that they cover
+the protection zone as completely as possible. The line of sight must
+be free between the sensor and the supervised area.
+If point sensors are used in open compartments (such as bus-bar
+sections), there should be a sensor approximately every 5 meters.
+Due to the wide detection range of the sensors and the light reflection
+inside the switchgear, the mounting position is not critical.
+Connecting sensors VA 1 DA and VA 1 EH to the I/O units
+The sensors are delivered with 6-metre standard cables or 20-metre
+shielded cables (to be specified in the order).
+After mounting the sensors, connect them to the I/O units as follows:
+
+64
+
+•
+
+Draw the wire to the nearest I/O unit using the shortest route
+possible and cut it to a suitable length.
+
+•
+
+Connect the arc sensors to the screw terminals X1-1…20. The
+polarity of the arc sensor cables is not critical.
+
+VIO/en M/B005
+
+9 Construction
+
+9.10 Arc sensors
+
+Connecting the ARC-SLx sensors to the I/O units
+The sensors are delivered in standard lengths (to be specified in the
+order) equipped with terminals compatible with VAM 3L units.
+After mounting the sensors, connect them to the I/O units as follows:
+•
+
+Draw each end of the sensor to the I/O unit and carefully form a
+loop of the extra fibre.
+
+•
+
+Connect the arc sensors to plug-in terminals X1-R1, T1…R3,
+T3. While the polarity of the arc sensors is not critical, you must
+connect each end of the fibre to the same channels.
+
+NOTE: Check that the sensor positioning has not changed during shipping
+and commissioning.
+Use a separate VAMP Arc Flash Protection Testing Manual for testing
+testing each sensor during commissioning.
+
+9.10.1
+
+VA 1 DA
+You can be install the arc sensor onto the switchgear wall from the
+outside. Press the active part of the sensor through the 10-mm hole
+in the wall and fix it using a 4-mm screw.
+
+VA1DA_asennus
+
+Figure 9.6: Mounting the arc sensor VA 1 DA
+1
+
+Active part of the sensor
+
+2
+
+Cable clamp
+
+3
+
+Fastening screw 4x15 mm
+
+4
+
+Cable of sensor
+
+You can also surface mount the sensor to the wall using the mounting
+plates VYX01 or VYX02, available as additional parts.
+
+VIO/en M/B005
+
+65
+
+9.10 Arc sensors
+
+9 Construction
+
+NOTE: The sensor must not be exposed to direct sunlight or other strong
+light. Do not mount the sensor directly under a light source.
+
+Figure 9.7: Arc sensor VA 1 DA
+Figure 9.8: Sensitivity of the arc sensor
+VA 1 DA
+
+9.10.2
+
+VA 1 EH
+You can be install the arc sensor onto the switchgear wall from the
+outside. Press the active part of the sensor through the 10.5-mm
+hole in the wall.
+You can also surface mount the sensor. To do this, push the sensor
+into a plastic mounting tube and fix it with heat shrink tubing.
+NOTE: The sensor must not be exposed to direct sunlight or other strong
+light. Do not mount the sensor directly under a light source.
+
+Figure 9.9: Arc sensor VA 1 EH
+
+66
+
+VIO/en M/B005
+
+9 Construction
+
+9.10.3
+
+9.10 Arc sensors
+
+ARC-SLx
+ARC-SLx is an fibre sensor that can be mounted on the switchgear
+to monitor several compartments simultaneously (various bus-bar
+compartmets, etc.).
+The fibre must not touch any live parts of the switchgear or other hot
+components, since too high temperatures may destroy the fibre.
+When mounting the sensor on the switchgear, ensure that the
+bending radius is long enough (min. 50 mm) and that it is safe from
+the sharp edges of the switchgear.
+NOTE: The sensor must not be exposed to direct sunlight or other strong
+light. Do not mount the sensor directly under a light source.
+To avoid false tripping, cover any unused channels of the I/O unit.
+
+Figure 9.10: ARC-SLx
+
+9.10.4
+
+VA 1 DP
+The portable pin sensor can be temporarily connected to the I/O
+units. It is used to improve safety when working with live switchgear,
+for example, Attach the sensor close to the working area, for example
+in the breast pocket of the maintenance man.
+A pin sensor operates in the same way as a fixed arc sensor. The
+only difference is free mobility within the limits of the connecting
+cable.
+
+Figure 9.11: Pin sensor VA 1 DP
+
+VIO/en M/B005
+
+67
+
+9.10 Arc sensors
+
+9 Construction
+
+NOTE: To avoid faulty tripping, disconnect the pin sensor from the system
+immediately after use.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, ELECTRIC ARC OR BURNS
+Ensure that trip signal will control main breaker in case of Arc
+flash incident!
+Failure to follow these instructions will result in death or
+serious injury.
+
+68
+
+VIO/en M/B005
+
+10 Order information
+
+10
+
+Order information
+
+Order code
+
+Description
+
+Note
+
+VAM 3L
+
+Fibre sensor I/O unit (VAMP221 and 321)
+
+3 fibre loops, 1 trip relay
+
+VAM 3LX
+
+Fibre sensor I/O unit (VAMP221 and 321)
+
+3 fibre loops, 1 trip relay, adjustable sensitivity
+
+VAM 4C
+
+Current I/O unit (VAMP221 and 321)
+
+3 current inputs, 1 trip relay
+
+VAM 4CD
+
+Current I/O unit (VAMP221 and 321)
+
+3 current inputs, 1 trip relay, flush mounting
+
+VAM 4CRL
+
+Current I/O unit (VAMP221 and 321)
+
+3 current inputs, 1 trip relay, ring-lug connector
+
+VAM 10L
+
+Point sensor I/O unit (VAMP221 and 321)
+
+10 sensor inputs, 1 trip relay
+
+VAM 10LD
+
+Point sensor I/O unit (VAMP221 and 321)
+
+10 sensor inputs, 1 trip relay, flush mounting
+
+VAM 12L
+
+Point sensor I/O unit (VAMP221 and 321)
+
+10 sensor inputs, 3 trip relays
+
+VAM 12LD
+
+Point sensor I/O unit (VAMP221 and 321)
+
+10 sensor inputs, 3 trip relays, flush mounting
+
+VAMP 4R
+
+Trip multiplier relay
+
+4 x NO, 4 x NC, 2 groups
+
+VA 1 DA-6
+
+Arc sensor
+
+Cable length 6 m (19.69 ft)
+
+VA 1 DA-20
+
+Arc sensor
+
+Cable length 20 m (65.62 ft)
+
+VA 1 DA-6s
+
+Arc Sensor, shielded
+
+Cable length 6 m (19.69 ft)
+
+VA 1 DA-20s
+
+Arc Sensor, shielded
+
+Cable length 20 m (65.62 ft)
+
+VA 1 DA-6-HF
+
+Arc Sensor, halogen free
+
+Cable length 6 m (19.69 ft)
+
+VA 1 DA-20-HF
+
+Arc Sensor, halogen free
+
+Cable length 20 m (65.62 ft)
+
+VA 1 EH-6
+
+Arc Sensor (Pipe type)
+
+Cable length 6 m (19.69 ft)
+
+VA 1 EH-20
+
+Arc Sensor (Pipe type)
+
+Cable length 20 m (65.62 ft)
+
+VA 1 EH-6S-IP
+
+Arc Sensor, shielded (Pipe type, IP65)
+
+Cable length 6 m (19.69 ft)
+
+VA 1 EH-20S-IP Arc Sensor, shielded (Pipe type, IP65)
+
+Cable length 20 m (65.62 ft)
+
+VA 1 EH-20-IP
+
+Arc Sensor (Pipe type, IP65)
+
+Cable length 20 m (65.62 ft)
+
+VA 2 DV-5
+
+Arc Sensor, shielded (metal pipe)
+
+Cable length 5 m (16.41 ft)
+
+VA 2 DV-11
+
+Arc Sensor, shielded (metal pipe)
+
+Cable length 11 m (36.09 ft)
+
+VA 2 DV-15
+
+Arc Sensor, shielded (metal pipe)
+
+Cable length 15 m (49.22 ft)
+
+VA 1 DP-5
+
+Portable Arc Sensor
+
+Cable length 5 m (16.41 ft)
+
+VA 1 DP-5D
+
+Portable Arc Sensor
+
+Cable length 5 m (16.41 ft)
+
+VA 1 GIS-1,5
+
+Arc Sensor, shielded with GIS adapter
+
+Cable length 1.5 m (4.93 ft)
+
+VA 1 GIS-3
+
+Arc Sensor, shielded with GIS adapter
+
+Cable length 3 m (9.85 ft)
+Cable length 9.85 ft (3 m)
+
+VA 1 GIS-5
+
+Arc Sensor, shielded with GIS adapter
+
+Cable length 5 m (16.41 ft)
+
+VA 1 GIS-10
+
+Arc Sensor, shielded with GIS adapter
+
+Cable length 10 m (32.81 ft)
+
+ARC SLm-x
+
+Fibre sensor, 8 000 lx
+
+x = fiber length (1
+
+SLS-1
+
+Fiber joint SLS-1
+
+Max one joint per fiber
+
+VX001-xx
+
+Modular Cable VAM - VAM ( xx = Cable length [m] )
+
+Preferred Cable Lengths (2
+
+VX031-5
+
+Extension cable for VA1DP-5D
+
+Cable length 5 m (16.41 ft)
+
+VX052-3
+
+USB programming cable (VAMPSET)
+
+Cable length 3 m (9.85 ft)
+
+VX072
+
+VAMP 300/321 profibus cable
+
+Cable length 3 m (9.85 ft)
+
+VYX 001
+
+Surface Mounting Plate for Sensors
+
+Z-shaped
+
+VIO/en M/B005
+
+69
+
+10 Order information
+
+Order code
+
+Description
+
+Note
+
+VYX 002
+
+Surface Mounting Plate for Sensors
+
+L-shaped
+
+VYX 628
+
+Surface Mounting Plate for VA 1 DV Sensor
+
+U-shaped
+
+VYX 695
+
+Projection for 300-series
+
+Height 45 mm (1.78 in)
+
+VSE001PP
+
+Fibre optic Interface Module (plastic - plastic)
+
+Max. distance 30 m (99 ft)
+
+VSE002
+
+RS485 Interface Module
+
+VPA 3CG
+
+Profibus DP fieldbus option board
+
+3P001
+
+Line amplifier for arc protection BI/O channels
+
+DIN rail mount
+
+3P004
+
+Supply unit, 100-240AC/24DC/1.3A
+
+Supply unit
+
+(1 Fibre lengths: 1, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60 or 70 m
+(2 Cable lengths: 1, 3, 5, 7, 10, 15, 20, 25 & 30 m
+
+70
+
+VIO/en M/B005
+
+11 Glossary
+
+11
+
+VIO/en M/B005
+
+Glossary
+Term
+
+Description
+
+BI
+
+Binary input
+
+BO
+
+Binary output
+
+Document file
+
+Stores information about the IED settings, events and
+fault logs.
+
+FPGA
+
+Field-programmable gate array
+
+HMI
+
+Human-machine interface
+
+IED
+
+Intelligent electronic device
+
+LCD
+
+Liquid crystal display
+
+LED
+
+Light-emitting diode
+
+Local HMI
+
+IED front panel with display and push-buttons
+
+PC
+
+Personal computer
+
+VAMPSET
+
+Configuration tool for VAMP protection devices
+
+71
+
+Customer Care Centre
+
+2019 Schneider Electric. All rights reserved.
+
+http://www.schneider-electric.com/CCC
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil-Malmaison
+FRANCE
+Phone: +33 (0) 1 41 29 70 00
+Fax: +33 (0) 1 41 29 71 00
+www.schneider-electric.com
+Publication version: VIO/en M/B005
+
+Publishing: Schneider Electric
+06/2019
+
+

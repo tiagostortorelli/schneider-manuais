@@ -1,0 +1,2334 @@
+PowerLogic T500 Substation Controller
+PowerLogic AI160
+User Manual
+
+BQT7988301-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic AI160
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of AI160 ....................................................................8
+PowerLogic T500 Platform ..........................................................................8
+AI160 Module.............................................................................................9
+Interfaces.................................................................................................10
+LED Indicators ......................................................................................... 11
+
+Physical Mounting and Installation .........................................................13
+Installation ...............................................................................................13
+Handling Modules ...............................................................................13
+Module Location within the Chassis or Backplane..................................13
+Power Supply Requirements................................................................14
+Configuration Switches........................................................................14
+Mounting Procedure............................................................................15
+Wiring Recommendations for PowerLogic T500..........................................16
+Wiring AI160 ............................................................................................16
+Terminal Connection (option C1) ..........................................................16
+Flat Ribbon Connection (option C2)......................................................17
+Terminal Blocks (option C2) .................................................................17
+
+Configuration and Maintenance..............................................................20
+Configuration of the Backplane ..................................................................20
+AI160 Configuration ..................................................................................23
+Local Acquisition Information ...............................................................23
+AI160 Signals .....................................................................................24
+Local Acquisition Coordinates ..............................................................25
+coreDb Information for an AI160 Module...............................................25
+Signal Calibration .....................................................................................27
+Signal Calibration Using HU280 module ...............................................27
+Analog Input Calibration ......................................................................28
+Maintenance of Module.............................................................................29
+webApp..............................................................................................29
+Using webApp ....................................................................................30
+
+Appendix ....................................................................................................35
+Technical Specifications ............................................................................35
+
+Glossary .....................................................................................................39
+
+BQT7988301-00
+
+3
+
+Foreword
+
+PowerLogic AI160
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7988301-00
+
+5
+
+PowerLogic AI160
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM AI160 module (part number EMS754x0).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7988301-00
+
+06/2024
+
+Creation
+
+BQT7988301-00
+
+Foreword
+
+PowerLogic AI160
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+PowerLogic HU280
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7988301-00
+
+7
+
+PowerLogic AI160
+
+General Description of AI160
+
+General Description of AI160
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7988301-00
+
+General Description of AI160
+
+PowerLogic AI160
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+AI160 Module
+The AI160 module supports up to 16 configurable analog inputs, with two
+removable terminal blocks to connect each of the eight analog inputs. The
+following figure shows a schematic front view.
+This module consists of:
+•
+
+Two blocks with eight analog inputs each
+
+•
+
+A controller block
+
+•
+
+An indication block
+
+AI160 Front view
+
+The module can be inserted and removed from a live backplane (hot-swapping).
+In addition, the module provides protection against over-voltage, under-voltage,
+over-current and inrush current.
+
+BQT7988301-00
+
+9
+
+PowerLogic AI160
+
+General Description of AI160
+
+Analog Input Block
+Each analog input block accepts eight channels in differential configuration, which
+performs the following functions:
+•
+
+Multirange voltage inputs, with the possibility of injecting current signals using
+an external resistor (250 Ω). Accuracy of 0.1% between input terminals
+(included in the terminal blocks).
+
+•
+
+Eight channel multiplexing
+
+•
+
+High resolution converter
+
+•
+
+Network noise filtering for 50 / 60 Hz
+
+•
+
+Conversion cycle with filtering
+
+•
+
+Galvanic isolation through optocoupler
+
+The analog inputs support the following ranges:
+Analog inputs
+
+Values
+
+Voltage inputs
+
+0-5V
+–5 - +5 V
+0 - 10 V
+–10 - +10 V
+–2.5 - +2.5 V
+0 - 2.5 V
+–1.25 - +1.25 V
+0 - 1.25 V
+
+Current inputs
+
+0 - 20 mA
+–20 - +20 mA
+–5 - +5 mA
+
+Controller Block
+The controller block performs preprocessing of the analog inputs, which allows
+configuring the following parameters separately:
+•
+
+Input range
+
+•
+
+Measurement scaling
+
+•
+
+Network filtering interval
+
+•
+
+The parameters below can also be configured in the real-time database for
+analog inputs:
+◦
+
+Scaling at engineering units
+
+◦
+
+Up to four out-of-range alarms
+
+◦
+
+Change threshold and event generation
+
+Interfaces
+Depending on the ordering options, C1 or C2, the following interfaces are
+available for the field connections:
+•
+
+10
+
+For C1, connection by terminals:
+◦
+
+J1 connector: AI01 to AI08. Direct connection to field.
+
+◦
+
+J2 connector: AI09 to AI16. Direct connection to field.
+
+BQT7988301-00
+
+General Description of AI160
+
+PowerLogic AI160
+
+•
+
+For C2, connection by flat ribbon:
+◦
+
+J1 connector: AI01 to AI08. Connected to field through an external
+terminal block.
+
+◦
+
+J2 connector: AI09 to AI16. Connected to field through an external
+terminal block.
+
+LED Indicators
+LED indicators
+
+The AI160 module integrates four diagnostic indicators, with the following
+functions.
+•
+
+DIA: general diagnostics
+
+•
+
+RUN: operation status
+
+•
+
+ST1 and ST2: indicate that the hardware is not working in the specific block.
+
+The module integrates a watchdog mechanism to detect functional anomalies in
+the modules. Furthermore, you can also define up to four different alarm levels,
+that is, lower-level and high-level alarms.
+The front indicators show the module status as indicated in the following table:
+/
+
+: On
+
+/
+
+: Blinking
+
+: Off
+
+LED indicators meaning
+DIA
+
+RUN
+
+STx
+
+Description
+
+Action
+
+Normal status. The module is communicating with the master.
+
+–
+
+Incorrect address assigned to the module (0 or greater than
+96).
+
+1
+
+If the address is correct, the type of the module is different to
+the configured for this address (and a module with correct
+type and this address is not inserted on the bus).
+Module not configured or disconnected. If the module is
+connected, the address is between 1 and 96 but this address
+is not configured.
+
+BQT7988301-00
+
+2
+
+11
+
+PowerLogic AI160
+
+General Description of AI160
+
+LED indicators meaning (Continued)
+It lights briefly during startup. If it remains ON, an abnormal
+behavior has been detected in the firmware or during the
+startup process.
+
+3
+
+Internal detected error in the block x.
+
+3
+
+The actions to be taken are the following:
+1. Check the type of the module and the selected address (rear switches).
+2. Check that the module is properly inserted in the bus and that the assigned
+address is correct.
+3. Contact the support service.
+
+12
+
+BQT7988301-00
+
+Physical Mounting and Installation
+
+PowerLogic AI160
+
+Physical Mounting and Installation
+Installation
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the CPU next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically CPU modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant CPUs, place both CPUs modules side by side in
+the backplane.
+
+Backplane positions
+
+BQT7988301-00
+
+13
+
+PowerLogic AI160
+
+Physical Mounting and Installation
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF OVER VOLTAGE OR REVERSE POLARITY
+•
+
+Check the adjustment of the supply voltage.
+
+•
+
+Check the correct wiring.
+
+•
+
+Check that the auxiliary power supplies are scaled depending on the
+consumption of the installed modules.
+
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+Failure to follow these instructions can result in equipment damage.
+The backplane can be powered by a PS280 module, by an external power supply
+or by a redundant power supply configuration.
+The PS280 module is capable of supplying power to the modules connected to the
+backplane, as required.
+When using auxiliary power supplies, check that the power supply satisfies the
+power consumption depending on the installed modules.
+Estimation of the power consumption required:
+•
+
+Consider that the maximum power requirement for each AI160 module is
+2.4 W.
+
+•
+
+Add up the power consumption for each module installed in the backplane.
+The power consumption information is indicated on the technical label of the
+module. It is also included in the technical specification table in the user
+manual of each module and in the data sheet.
+
+•
+
+After adding the consumption of all modules, add a safety margin: between
+20% and 50% of the full power consumed by the modules in the backplane.
+
+•
+
+When selecting a power supply, consider the power supply efficiency: 70 90%. This helps protect the chassis and power supply from overloading.
+
+Configuration Switches
+The module identification and Profibus communication speed can be set using the
+microswitches on the module rear panel.
+Profibus microswitches for module configuration
+
+1
+2
+3
+4
+
+Profibus address
+
+5
+6
+7
+8
+
+Reserved
+
+9
+10
+
+Profibus speed
+
+11
+12
+
+Reserved
+
+The module identification must be unique, selecting between 1 and 96 using
+microswitches 1 to 7. The addresses 0 and from 97 to 127 are reserved and are
+not assigned. In the case that they are assigned, messages are generated when
+the system boots.
+
+14
+
+BQT7988301-00
+
+Physical Mounting and Installation
+
+PowerLogic AI160
+
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+Assuming Px is the value assigned to the position of microswitch x (0 is OFF and 1
+is ON), for example, if switches 2, 4 and 5 are in the ON position, the Profibus
+address of the module is 26.
+The Profibus communication speed must be the same for all PowerLogic T500
+modules. It is determined by the speed of the primary device, configured in the
+Easergy Builder configuration tool.
+The speed is set using microswitches 9, 10 and 11 as shown in the following table:
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+
+BQT7988301-00
+
+15
+
+PowerLogic AI160
+
+Physical Mounting and Installation
+
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon connectors (mounting
+option C2).
+
+Wiring Recommendations for PowerLogic T500
+To help avoid EMC disturbances, refer to the PowerLogic T500 Platform user
+manual.
+
+Wiring AI160
+Depending on the pin connection, the AI160 module can be connected to the field
+using option C1 (terminal connection) or option C2 (flat-ribbon connection).
+
+Terminal Connection (option C1)
+The following figure shows the pin allocation of the connectors for connection C1.
+The connector J1 is located at the top and the connector J2 at the bottom.
+
+16
+
+BQT7988301-00
+
+Physical Mounting and Installation
+
+PowerLogic AI160
+
+Terminal connection (option C1)
+
+J1
+
++
+_ AI 01
++
+_ AI 02
+
++
+_ AI 09
++
+_ AI 10
+
++
+_ AI 03
++
+_ AI 04
+
++
+_ AI 11
++
+_ AI 12
+
++
+_ AI 05
++
+_ AI 06
+
+J2
+
++
+_ AI 07
++
+_ AI 08
+
++
+_ AI 13
++
+_ AI 14
++
+_ AI 15
++
+_ AI 16
+
+Where AI xx is the analog input xx.
+The analog inputs of the AI160 module are differential, so there is no common
+terminal. Each connector has eight pairs of signals corresponding to the eight
+analog inputs.
+
+Flat Ribbon Connection (option C2)
+The following scheme shows the connection to the terminal block of the first
+analog input. The other inputs will be wired using the same procedure.
+Field connection schematics for option C2
+
+NOTE: The resistor shown in the above figure is necessary only if you need to
+measure current instead of voltage. The usual value for this resistor is 250 Ω /
+0.1% (1/4 W). The product must be configured at 0 – 20 mA or ±20 mA range.
+
+Terminal Blocks (option C2)
+Two models of terminal blocks are available for AI160.
+
+BQT7988301-00
+
+17
+
+PowerLogic AI160
+
+Physical Mounting and Installation
+
+TB_AI8/N - TA160 - Phöenix Contact - Normalized Terminal Block
+TB_AI8/N - TA160 - Phöenix Contact Normalized terminal block
+
+Technical specifications of TB_AI8/N - TA160 Phöenix Contact
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625777
+PowerLogic EMS78400
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc (max)
+
+Dimensions
+
+63 x 90 x 85 mm
+
+Maximum current capacity
+
+1 A (per branch)
+
+Field connector
+
+16-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Module connector
+
+20-way DIN 41651 pluggable connector
+
+The figure below shows the electrical diagram for this terminal block:
+TB_AI8/N - TA160 - Electrical diagram - Phöenix Contact
+
+18
+
+BQT7988301-00
+
+Physical Mounting and Installation
+
+PowerLogic AI160
+
+TB_AI8/N - Weidmüller - Normalized Terminal Block
+TB_AI8/N Weidmüller Normalized terminal block
+
+Technical specifications of TB_AI8/N Weidmüller
+Specification
+
+Description
+
+Manufacturer
+
+Weidmüller
+
+Reference (code)
+
+TB_AI8N (7508000585)
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms / Vdc (max)
+
+Dimensions
+
+90 x 70 mm
+
+Maximum current capacity
+
+1.5 A (per branch)
+
+Field connector
+
+16-way PCB terminal connector
+
+Connector type
+
+PCB header with fixing screws
+
+Min/Max wire cross section
+
+0.2 / 2.5 mm2
+
+Contact type
+
+Configurable NA or NC
+
+Module connector
+
+20-way DIN 41651 pluggable connector
+
+The figure below shows the electrical diagram for this terminal block:
+TB_AI8N – Electrical diagram – Weidmüller
+
+NOTE: The 250 Ω resistor for conversion is not included in the terminal block.
+
+BQT7988301-00
+
+19
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches, page 14.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+20
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+BQT7988301-00
+
+21
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+22
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+AI160 Configuration
+The local acquisition device for PowerLogic T500 is named laq and it is created by
+default for each PowerLogic T500 configuration.
+Configuring local acquisition for PowerLogic T500
+
+The laq device supports communication between inputs and the outputs managed
+by the acquisition blocks and coreDb points. The first step to configure the
+acquisition settings is including all IO modules in the backplane.
+
+Local Acquisition Information
+The following figure shows the relationship between the field information received
+by the AI160 module and the related points in coreDb:
+
+BQT7988301-00
+
+23
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+Field signals and points in coreDb
+
+Point Name Source Device Source Coordinate
+A001_00000
+A001_00001
+
+laq
+laq
+
+2001010000
+2001010001
+
+A001_00014
+A001_00015
+
+laq
+laq
+
+2001010014
+2001010015
+
+coreDb
+
+AI160
+Module
+Address: 1
+Field
+Analog Input
+
+Name
+
+Coordinate
+
+AI1
+AI2
+
+AI1
+AI2
+
+2001010000
+2001010001
+
+AI15
+AI16
+
+AI15
+AI16
+
+2001010014
+2001010015
+
+All signals in this figure are simple.
+
+AI160 Signals
+Select an AI160 module on the tree to open the configuration screen, which
+includes an AI160 module and HU280 module in a backplane.
+AI160 Module configuration
+
+24
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+The AI160 module includes 16 analog signals to be configured. Each signal is
+associated with the following fields:
+•
+
+AIx: signal description. This value can be changed although it does not affect
+the signal identification which is automatically attached, is internal and cannot
+be changed. This is applicable to all signal descriptions in all modules.
+
+•
+
+Rng: signal voltage/current range.
+
+•
+
+EGU: flag indicating that the engineering units are considered. The value Y
+indicates engineering units (the Bin output is between Emin and Emax) and
+the value N indicates counts. These signals when configured in engineering
+units can take a value between the following ones:
+
+•
+
+◦
+
+EMin: minimum value expressed in engineering units. The range is
+-32768 to 32767.
+
+◦
+
+EMax: maximum value expressed in engineering units. The range is
+-32768 to 32767.
+
+The AC FILTER field is associated with a band rejection filter at 50/60 Hz to
+avoid the damaging effects of network noise. If no filter needs to be used, set
+to NONE.
+
+Local Acquisition Coordinates
+The coordinate is a unique identifier of a signal within a Bin. Its definition is
+different for each device and the local acquisition is defined with ten digits with the
+following format:
+2 BBB CC DDDD
+•
+
+2: the first number of its coordinate for all PowerLogic T500 local acquisition
+signals is 2.
+
+•
+
+BBB: three digits to indicate the point address according to the previous
+communication protocol. In the case of Profibus-DP, the address range is
+from 000 to 125.
+
+•
+
+CC: type of signal, which includes:
+
+•
+
+◦
+
+00: diagnostic signals of the acquisition modules
+
+◦
+
+01: analog input (16 bits)
+
+◦
+
+04: analog output (16 bits)
+
+◦
+
+12: analog input (8 bits) (Profibus input table)
+
+◦
+
+13: analog input (16 bits) (Profibus input table)
+
+◦
+
+14: analog input (32 bits) (Profibus input table)
+
+DDDD: number of the signal within each type, that is, it does not need to
+match the physical position. The first signal of a type is 0000, the second is
+0001 and so on, with all the types of the previous point.
+
+coreDb Information for an AI160 Module
+Each AI160 signal is associated with a coreDb register in the Status and
+Command tables using its laq coordinate as source.
+
+BQT7988301-00
+
+25
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+Status Table
+
+Analog Points
+
+These points and other diagnostic points (D001_STS_COMM and D001_STS_
+DIAG) can be created automatically when the module is included in the
+backplane, but they can be created manually using the laq points wizard.
+
+26
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+To include a point manually, create a new point, select laq as source device or as
+a destination device, right-click the Source Coordinates and select Launch
+Point wizard:
+
+The following screen is displayed.
+
+Select the module in which you want to create the points and then select the point
+to be created.
+Only not created point is shown in the list.
+The following point can be added for an AI160 module:
+•
+
+STS_COMM: module offline. Value 1 indicates that there is no
+communication with the module.
+
+•
+
+STS_DIAG: module with diagnostics. Value 1 indicates a diagnostic. Usually
+corresponds to a missing polarization detected in the module.
+
+•
+
+STS_FAILBUS1: value 1 indicates a communication interruption in Profibus1.
+
+•
+
+STS_FAILBUS2: value 1 indicates a communication interruption in Profibus2.
+
+Signal Calibration
+Signal Calibration Using HU280 module
+The calibration is carried out through the webApp of the HU280. The calibration is
+done separately for each channel.
+NOTE: Using the webApp, the module can only be calibrated to the range
+selected in Easergy Builder. To modify the input/output range refer to the
+AI160 Signals, page 24 section of the manual.
+In webApp, go to Maintenance section and click Acquisition. The table is
+displayed with the corresponding signals. If the permissions are set, it allows you
+to calibrate these points.
+
+BQT7988301-00
+
+27
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+PowerLogic T500 webApp Menu
+
+For example, the following picture shows Analog Inputs of an AI160 module. All
+of its signals are displayed with the value and quality information.
+AI160 module calibration
+
+NOTE: Calibration result is influenced by the precision of calibration device
+used. Use only certified and calibrated equipment for the calibration process.
+Before calibration verify that you have equipment with desired precision that is
+capable of inputting/outputting analog signal in the desired calibration range.
+
+Analog Input Calibration
+From the module calibration screen, in the Analog Inputs tab, click on the
+Calibrate button of the point (Channel) to be calibrated. A window displays the
+instructions that you must follow. If the point has no good quality flag or is blocked,
+calibration does not start.
+
+28
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+Click Yes to continue or No to cancel the process. To continue, follow the steps
+indicated by the pop-up window.
+
+For example, as shown below, you have to supply 0 V to channel 1. Once
+supplied, press the right arrow button to proceed.
+
+Follow the steps by supplying the necessary output to the calibration channel.
+Once the calibration is finished, the following message is displayed:
+
+After Finish button is clicked, the calibrated point is unlocked.
+
+If the analog point cannot be calibrated, following message is displayed:
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+
+BQT7988301-00
+
+29
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+
+30
+
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+BQT7988301-00
+
+31
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+Accessing Analog Points
+To access the analog points, in webApp main menu, go to Monitoring and
+control > Data > Analog. You can see the data points mapped with Easergy
+Builder.
+For AI160 module, the following points are shown:
+Monitoring and Control - Analog
+
+For all types of points, each page has the same format. If the user locks the signal
+and click
+changed.
+
+32
+
+in the Value column, the value of the corresponding signal can be
+
+BQT7988301-00
+
+Configuration and Maintenance
+
+PowerLogic AI160
+
+If the user locks the signal and click
+in the Quality column, the value of the
+corresponding signal can be changed.
+
+Local quality bit values
+
+BQT7988301-00
+
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00000001
+
+Overflow
+
+0x00000002
+
+Carry on a counter or roll-over
+
+0x00000004
+
+Counter adjustment
+
+0x00000008
+
+Excessive changes in a digital input
+
+0x00000010
+
+Locked point (blocked)
+
+0x00000020
+
+Point manually replaced (manual)
+
+0x00000040
+
+The point is written into the database (no refresh)
+
+0x00000080
+
+Invalid value
+
+0x00000100
+
+The value of the item has exceeded Highest Limit Alarm
+
+0x00000200
+
+The value of the item has exceeded High Limit Alarm
+
+0x00000400
+
+The point value of the Low Limit Alarm has decreased
+
+0x00000800
+
+The point value of the Lowest Limit Alarm has decreased
+
+0x00001000
+
+Invalid time
+
+33
+
+PowerLogic AI160
+
+Configuration and Maintenance
+
+Quality bit values from the device
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00010000
+
+Overflow
+
+0x00020000
+
+Carry on a counter or roll-over
+
+0x00040000
+
+A counter adjustment
+
+0x00080000
+
+Excessive changes in a digital input
+
+0x00100000
+
+Locked point
+
+0x00200000
+
+Point manually replaced
+
+0x00400000
+
+The point is not written into the database
+
+0x00800000
+
+Invalid value
+
+0x10000000
+
+Invalid time
+
+NOTE: If more than one incidence is detected for a signal, the hexadecimal
+value monitored for quality bits results from the sum of all. For example,
+0x00000001 indicates that an overflow has occurred and 0x00000002
+indicates that there has been a carry on a counter or a roll-over. The value
+0x00000003 would appear monitored.
+
+34
+
+BQT7988301-00
+
+Appendix
+
+PowerLogic AI160
+
+Appendix
+Technical Specifications
+Hardware Specifications
+Specifications
+
+Description
+
+AI160
+
+16 (2 blocks with 8 inputs each)
+
+Type of inputs
+
+Voltage
+Current (using an external resistor of 250 Ω)
+
+Consumption
+
+2.4 W
+
+Weight
+
+638 g
+
+Dimensions
+
+245 x 180 x 45 mm
+
+Protection
+
+Over-voltage, under-voltage, over-current, inrush current and
+short-circuit
+
+Accuracy
+
+0.1 %
+
+Isolation
+
+Between acquisition blocks: by optocoupler 2.5 kVrms
+Between acquisition and control blocks: by optocoupler 2.5
+kVrms
+
+Transient voltage protection (DO
+and Pol)
+
+Peak pulse power dissipation up to 4.2 J (for 2 ms)
+
+Interface
+Specifications
+
+Description
+
+C1 option (Terminals)
+
+Two 20-way terminal block
+Recommended wire: low voltage computer with 20 x 0.14 by
+EMELEC
+
+C2 option (Flat ribbon)
+
+Two 20-way flat ribbon
+
+Software
+Specifications
+
+Description
+
+Line noise filtering
+
+80 dB rejection for 50/60 Hz
+
+Preprocessing
+
+Digital filtering
+Range limits detection
+Value change detection
+Zero-values suppression
+Measurement scaling (gain and offset)
+
+Configuration
+
+Independent for each channel
+
+Available ranges
+
+0-5 Vdc / ±5 Vdc
+0-10 Vdc / ±10 Vdc
+±20 mA / ±10 mA / ±5 mA
+0-5 mA / 0-10 mA / 0-20 mA
+
+BQT7988301-00
+
+35
+
+PowerLogic AI160
+
+Appendix
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80 %,
+10 V/m
+1000 – 2700 MHz, AM 1 kHz Prof: 80 %,
+3 V/m
+2700 – 6000 MHz, AM 1 kHz Prof: 80 %,
+1 V/m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80 %,
+10 Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2, ±4 kV (asymmetrical coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+36
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+
+BQT7988301-00
+
+Appendix
+
+PowerLogic AI160
+
+Directive / Test
+
+Identification
+
+Details
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93 % / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+Ordering Options
+Two options are available for field connection:
+
+BQT7988301-00
+
+•
+
+Option C1: Use terminal blocks for field connection.
+
+•
+
+Option C2: Use flat-ribbon connection and terminal blocks for field
+connection.
+
+37
+
+PowerLogic AI160
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+
+D
+DC: direct current.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+
+E
+EMC: Electro Magnetic Compatibility.
+EOL: End-Of-Life. According to the WEEE CE Directive, the EOL document
+provides instructions for discard the product at the end of its life.
+
+G
+G: Grame.
+GPS: Global Positioning System.
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+BQT7988301-00
+
+39
+
+PowerLogic AI160
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+ISO 9001: international standard of quality management systems.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+MΩ: megaohm.
+
+N
+N/A: not applicable.
+NCHAT: number of changes for chattering.
+
+P
+P/N: part number.
+PC: Personal Computer.
+PE: Protective Earth Ground.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PV: Polarization Voltage.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+
+40
+
+BQT7988301-00
+
+PowerLogic AI160
+
+RoHS: Restriction of Hazardous Substances.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCHAT: time for chattering.
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TF: Time Filtering.
+TM: Time Memory.
+TS: Time Setting.
+TU: Terminal Unit.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+WEEE: Waste Electrical and Electronic Equipment.
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7988301-00
+
+41
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7988301-00
+
+

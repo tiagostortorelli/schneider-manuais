@@ -1,0 +1,2509 @@
+PowerLogic T500 Substation Controller
+PowerLogic DO180
+User Manual
+
+BQT7945201-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic DO180
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of DO180 ..................................................................8
+PowerLogic T500 Platform ..........................................................................8
+DO180 Module ...........................................................................................9
+Software Processing................................................................................. 11
+LED Indicators.......................................................................................... 11
+
+Physical Mounting and Installation .........................................................14
+Installation ...............................................................................................14
+Limits .................................................................................................14
+Handling Modules ...............................................................................14
+Module Location within the Chassis or Backplane..................................14
+Power Supply Requirements................................................................15
+Configuration Switches........................................................................15
+Mounting Procedure............................................................................16
+Wiring Recommendations for PowerLogic T500..........................................17
+Wiring DO180 ..........................................................................................17
+Terminal Connection (option C1) ..........................................................18
+Flat Ribbon Connection (option C2)......................................................21
+
+Configuration and Maintenance..............................................................24
+Configuration of the Backplane ..................................................................24
+DO180 Configuration ................................................................................27
+Local Acquisition Information ...............................................................28
+DO180 Signals ...................................................................................28
+Local Acquisition Coordinates ..............................................................29
+coreDb Information for a DO180 Module...............................................30
+Maintenance of Module.............................................................................32
+webApp..............................................................................................32
+Using webApp ....................................................................................32
+
+Appendix ....................................................................................................37
+Technical Specifications ............................................................................37
+
+Glossary .....................................................................................................41
+
+BQT7945201-00
+
+3
+
+Foreword
+
+PowerLogic DO180
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7945201-00
+
+5
+
+PowerLogic DO180
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM DO180 module (part number EMS742x0).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7945201-00
+
+06/2024
+
+Creation
+
+BQT7945201-00
+
+Foreword
+
+PowerLogic DO180
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+PowerLogic HU280
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7945201-00
+
+7
+
+PowerLogic DO180
+
+General Description of DO180
+
+General Description of DO180
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7945201-00
+
+General Description of DO180
+
+PowerLogic DO180
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+DO180 Module
+Interfaces & Functions
+Internally, all modules are electrically connected to the backplane using a 48-pin
+connector on the rear side. In relation to the field connection (external devices),
+two connectors are located on the front side.
+According to the DO180 part number, the following ordering options are available
+for field connection:
+•
+
+Option C1: EMS74210: 24 Vdc relays with 3.81 mm terminal blocks.
+
+•
+
+Option C2: EMS74220: 24 Vdc relays with flat ribbon.
+
+The DO180 module includes the following:
+•
+
+BQT7945201-00
+
+16 independent free-contact digital outputs (DO) in two independent blocks.
+Each DO can be configured as:
+◦
+
+Single: pulsed (fixed time) or preset (latched).
+
+◦
+
+Double: pulsed or preset.
+
+•
+
+All DOs are SPST (Single Pole Single Throw) or NO (Normally open).
+
+•
+
+External polarization of DO for each block. DO signals are polarized using
+24 Vdc.
+
+•
+
+Polarization level is monitored for each block.
+
+•
+
+A "Select before operate" command management system is used to control
+field operation.
+
+•
+
+Autocheck of DOs every time when the polarization is reset.
+
+•
+
+Commands are continuously supervised to prevent execution of outputs
+when an abnormal functioning mode is detected.
+
+•
+
+Address and communication rate in the bus are set using the microswitches
+located on the rear side.
+
+•
+
+20 LED indicators provide information about the status of the module and
+each DO.
+
+•
+
+The software in the module can be upgraded remotely, from the CPU.
+
+•
+
+Hot-swap functionality.
+
+9
+
+PowerLogic DO180
+
+General Description of DO180
+
+The following figure shows the functional blocks integrated in the DO180 module:
+Functional block diagram
+LEDs
+
+I/O to the bus
+(Communications with the CPU)
+
+Synchronization
+
+Supervision Mechanism
+
+Insulation
+
+Insulation
+
+8 Digital Outputs
+
+8 Digital Outputs
+
+•
+
+I/O to the bus: Connection to the bus in the backplane to share information
+with the CPU.
+
+•
+
+LEDs: 36 LED indicators are available on the front side of the module which
+provides information about the module and the output signals.
+
+•
+
+Synchronization: The DO180 is synchronized by a message received from
+the CPU that includes information about the time. The module is
+synchronized with the synchronization source accuracy used for the CPU.
+
+•
+
+Controller block: The controller block supports the following functions:
+
+•
+
+10
+
+Controller Block
+
+◦
+
+Parameter settings and control of the digital output blocks
+
+◦
+
+Advanced digital outputs processing
+
+◦
+
+Updating the Indications block with the module status information
+
+◦
+
+Interface with the Profibus communication bus to connect with the CPU
+
+Digital outputs: The DO180 has two terminal connectors labeled as J1 and
+J2 which allow the 16 digital outputs to be connected to the field devices.
+Each block receives eight SPST signals with the following features:
+◦
+
+Permanent output verification and automatic polarization test
+
+◦
+
+Independent outputs
+
+◦
+
+External polarization 24 Vdc
+
+◦
+
+Maximum current per signal: 2 A, 30 Vdc (Ohmic load)
+
+◦
+
+Output type: Form A. Contact rating: 5 A max, 75 W (Resistive load,
+220 V), 20 W (Inductive load, 220 V, R/L: 20 ms).
+
+◦
+
+Maximum simultaneous current per block 8 A (max. 4 latched outputs)
+
+◦
+
+Galvanic isolation through optocoupler in polarization blocks and between
+outputs and power: 2.2 kVrms
+
+BQT7945201-00
+
+General Description of DO180
+
+PowerLogic DO180
+
+The following figure shows the breaking capacity of the relay depending on the
+voltage level. This figure shows the information that is only applicable for direct
+current and resistive load.
+Max DC load breaking capacity
+
+Software Processing
+The DO180 manages standard digital signal controlled by a direct execution
+command. They can operate as latched signals or pulsing variable pulse time.
+These signals can be associated to simple or double points in coreDb.
+The behavior of the system depends on the type of the signal. There are the
+following types of signal:
+•
+
+Simple digital output
+
+•
+
+Double digital output
+
+Simple Digital Outputs
+A single output is used to execute the command:
+•
+
+Running command → Activated output
+
+•
+
+Completed command → Deactivated output
+
+Double Digital Output
+Two outputs are used to execute the command:
+•
+
+Deactivation command → DO1 is ON and DO2 is OFF
+
+•
+
+Activation command → DO1 is OFF and DO2 is ON
+
+Two outputs cannot be activated simultaneously.
+
+LED Indicators
+The module integrates an auto check of the digital outputs that is performed when
+powering the module or after a polarization interruption. This verification system
+monitors polarization voltages, the general status of the module and
+communication.
+This information is shown through 20 LED indicators on the front of the module.
+BQT7945201-00
+
+11
+
+PowerLogic DO180
+
+General Description of DO180
+
+LED indicators
+
+Information given by the LED indicators:
+
+12
+
+•
+
+Acquisition and system status (Run and DIA)
+
+•
+
+Polarization status (ST1 and ST2)
+
+•
+
+Status for each digital output (DOx)
+
+BQT7945201-00
+
+General Description of DO180
+
+/
+
+PowerLogic DO180
+
+: On
+
+/
+
+: Off
+
+: Blinking
+
+LED indicators meaning
+DIA
+
+RUN
+
+ST1
+
+DOx
+
+Description
+
+Action
+
+–
+
+The module is in communication with the CPU.
+the configured address is incorrect.
+
+–
+
+The module is not powered, or incorrect address
+is configured.
+
+Check the power input to the backplane and
+that the module is correctly inserted into the
+backplane connector.
+
+ST2
+–
+
+–
+
+–
+
+–
+Check that the position of microswitches is
+correct and the address is the same as the
+one was assigned in the Easergy Builder tool.
+
+–
+
+–
+
+–
+
+–
+
+DIA LED lights briefly during startup. If it remains
+ON, this means an undesired event is detected
+in the firmware or during the startup process.
+
+Update the software and if the problem
+remains, contact the support service.
+Check address in microswitches and Easergy
+Builder tool.
+
+–
+
+Incorrect configuration (invalid or incorrect
+address). The address is 0 or greater than 96, or
+the type of module does not match with the
+indicated module for this address in the Easergy
+Builder tool.
+The module is operative, without diagnostic and
+DOx is active.
+
+–
+
+The module is operative, with/without command
+in progress and with missing polarization issue.
+
+Check the polarization input.
+
+The module is not operative (incorrect address
+or type) and with missing polarization issue.(*)
+
+Check the polarization input.
+Check that the position of microswitches is
+correct and the address is the same which
+was assigned in the Easergy Builder tool.
+
+The autocheck did not work for DOx.
+–
+
+Check the connection to the DO.(*)
+
+–
+
+(*) The verification test is done every time when the polarization is reset. If the problem is solved, the module returns to a normal state.
+While the problem is present, command execution is blocked.
+
+BQT7945201-00
+
+13
+
+PowerLogic DO180
+
+Physical Mounting and Installation
+
+Physical Mounting and Installation
+Installation
+Limits
+The maximum number of I/O modules connected to a CPU is 96.
+
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the CPU next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+14
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically CPU modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant CPUs, place both CPUs modules side by side in
+the backplane.
+
+BQT7945201-00
+
+Physical Mounting and Installation
+
+PowerLogic DO180
+
+Backplane positions
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF INCORRECT WIRING OR SUPPLIED VOLTAGE
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+•
+
+Check that there is no reverse polarity.
+
+Failure to follow these instructions can result in equipment damage.
+The PS280 module supplies power to the modules connected to the backplane, as
+required. When using auxiliary power supplies, you need to scale them depending
+on the installed PowerLogic T500 modules.
+The consumption of all modules is added plus a safety margin (between 20% and
+50% of the full power). The power supply efficiency, typically, 70 - 90%, is also
+considered to protect the chassis and power supply from overloading.
+The maximum power requirement for each DO180 module is:
+•
+
+Main power supply : Basic consumption (as indicated in the technical
+specifications table at the end of the manual).
+
+•
+
+Polarization supply: 16 x Maximum consumption per signal. Polarization
+voltage and maximum current per signal are indicated in the technical
+specifications table at the end of the manual.
+NOTE: The data is available in the Technical Specification Table at the end of
+this manual, page 37.
+
+Configuration Switches
+The module identification and Profibus communication speed can be set using the
+microswitches on the module rear panel.
+
+BQT7945201-00
+
+15
+
+PowerLogic DO180
+
+Physical Mounting and Installation
+
+Profibus microswitches for module configuration
+
+1
+2
+3
+4
+
+Profibus address
+
+5
+6
+7
+8
+
+Reserved
+
+9
+10
+
+Profibus speed
+
+11
+12
+
+Reserved
+
+The module identification must be unique, selecting between 1 and 96 using
+microswitches 1 to 7. The addresses 0 and from 97 to 127 are reserved and are
+not assigned. In the case that they are assigned, messages are generated when
+the system boots.
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+Assuming Px is the value assigned to the position of microswitch x (0 is OFF and 1
+is ON), for example, if switches 2, 4 and 5 are in the ON position, the Profibus
+address of the module is 26.
+The Profibus communication speed must be the same for all PowerLogic T500
+modules. It is determined by the speed of the primary device, configured in the
+Easergy Builder configuration tool.
+The speed is set using microswitches 9, 10 and 11 as shown in the following table:
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+16
+
+BQT7945201-00
+
+Physical Mounting and Installation
+
+PowerLogic DO180
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon connectors (mounting
+option C2).
+
+Wiring Recommendations for PowerLogic T500
+To help avoid EMC disturbances, refer to the PowerLogic T500 Platform user
+manual.
+
+Wiring DO180
+A module can be easily replaced by disconnecting the two field-connectors and
+removing the module from its slot.
+This section provides information about signals field connection, polarization and
+commons.
+
+BQT7945201-00
+
+17
+
+PowerLogic DO180
+
+Physical Mounting and Installation
+
+Terminal Connection (option C1)
+The DO180 uses Eurostyle™ 20-way and 3.81 mm connectors, as shown in the
+following figure:
+
+The recommended torque is 0.5 Nm.
+The following figure shows the pin allocation, where the connector J1 is located at
+the top, behind the front window, and the connector J2 is located at the bottom,
+behind the front window.
+Terminal connection (option C1)
+
+Where:
+•
+
+DO xx: Digital Output xx
+
+•
+
+NC: No connected
+
+•
+
+Mi: Command i
+
+•
+
++V1 and +V2: Terminal for polarization positive
+
+•
+
+-V1 and -V2: Terminal for polarization negative
+
+All digital outputs in this module are SPST or NO contact.
+SPST contact
+
+18
+
+BQT7945201-00
+
+Physical Mounting and Installation
+
+PowerLogic DO180
+
+Field connection schematics
+DO 01
+DO 01
+
+DO 08
+DO 08
+
++V1
+-V1
+-
+
++
+External
+polarization
+
+Follow the instructions below before wiring this module:
+•
+
+Type of cable: Low voltage computer 20 x 0.14” (Brand: EMELEC).
+
+Recommended cable for field connection
+
+•
+
+To make the connection, strip between 8 and 10 cm off the cable end, and
+protect it with an insulating material as shown in the following figure:
+
+Cable prepared for field connection
+
+•
+
+BQT7945201-00
+
+The shield at the end of each individual cable is removed for a distance of 0.5
+cm, which is the part of copper to introduce in the terminal.
+
+19
+
+PowerLogic DO180
+
+Physical Mounting and Installation
+
+Wiring a module with terminals
+
+A empty space at the bottom allows the door to be closed.
+
+Position of the cables when they are connected
+
+Once the module is installed in the cabinet, to avoid jerking and the cable fall on
+the terminal, due to their weight, join both cables with a plastic bracket. Then fix
+them to the cabinet or the chassis.
+Example of mounting cables onto the cabinet or chassis
+
+Polarization
+The digital outputs need a polarization voltage for operation.
+
+20
+
+BQT7945201-00
+
+Physical Mounting and Installation
+
+PowerLogic DO180
+
+The 16 outputs of the DO180 module are divided into two 8-input polarization
+blocks. Each block can be polarized independently but both must have the same
+value.
+The polarization of V1 and V2 voltages is supplied externally from the module.
+Even if two power supplies are available, use only one power supply by bridging
+the terminals. The terminal +V1 in connector B1 must be interconnected with the
+terminal +V2 in connector B2 and the terminal -V1 in B1 with the terminal -V2 in
+B2.
+
+Command Permission Outputs
+The terminal 18 in connectors B1 and B2 of the DO180 module has two special
+outputs labeled as M1 and M2 as shown in figure Terminal connection, page 18.
+M1 is associated with the outputs 1 to 8 and M2 with the outputs 9 to 16. Internally,
+these outputs are connected to the positive of each polarization voltage through
+the contact of a command relay. These relays are activated automatically when
+there is an active output.
+The field receivers can be powered with polarization voltage (V1 and V2) through
+the command outputs M1 and M2.
+
+Flat Ribbon Connection (option C2)
+This version of the product (flat ribbon connection) is only capable to drive digital
+output circuits lower than 60 Vdc and connected to at least basic isolated circuits.
+When the connection is established through terminal blocks, they can be simple
+connecting interfaces made up by a flat ribbon and terminals. These spring-type
+terminals with capacity for 2.5 mm2 gauge cables have a DIN 35 rail mounting
+base. The flat ribbon cable has 20 ways, so two terminal blocks for each module
+are required. The flat ribbon cables are designed to be installed inside the cabinet.
+The following figure shows the pin allocation of the connectors for option C2.
+The connector J1 is located at the top, behind the front window, and the connector
+J2 is located at the bottom, behind the front window.
+Flat ribbon pinout (option C2)
+
+BQT7945201-00
+
+21
+
+PowerLogic DO180
+
+Physical Mounting and Installation
+
+The field connection must be done as follows:
+Field connection schematics for option C2
+Flat ribbon cable
+
+J1
+
+TB_DO16
+1
+
+16
+VP+
+VP-
+
++
+
+DO01
+
+DO08
++Vx
++Vx
+-Vx
+-Vx
+
+External
+Polarization
+
+Wiring to field
+Internal wiring
+
+Terminal Block (option C2)
+A terminal block is designed specifically to be used with the DO180/C2 module:
+TB_DO16/N - Phöenix Contact - Normalized Terminal Block.
+This terminal block facilitates the wiring, using wires with a bigger section for field
+signals and using different terminals to the one included in option C1.
+The terminal block is connected to the module using two 20-way flat-ribbon
+cables. The module is polarized through the terminal block.
+
+TB_DO16/N - TO180/P0 - Phöenix Contact - Normalized Terminal Block
+TB_DO16/N - TO180/P0 Phöenix Contact Normalized terminal block
+
+Commercial terminal block manufactured by Phoenix Contact that converts two
+20-way flat tapes to terminal blocks. The type of connector used is screw fixing. It
+has a sectionable terminal. It is fixed on a DIN rail
+Technical Specifications of TB_DO16/N - TO180/P0 – Phöenix Contact
+Specification
+
+Description
+
+Manufacturer
+
+Phöenix Contact
+
+Reference (code)
+
+E0625775
+PowerLogic EMS78200
+
+22
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc maximum
+
+Maximum current capacity per branch
+
+1A
+
+Dimensions
+
+65 x 45 x 194 mm
+
+BQT7945201-00
+
+Physical Mounting and Installation
+
+PowerLogic DO180
+
+Technical Specifications of TB_DO16/N - TO180/P0 – Phöenix Contact
+(Continued)
+Specification
+
+Description
+
+Field connectors
+
+Knife-disconnect terminals with fixing screws
+
+Min/Max wire cross section (rigid)
+
+0.2 / 4 mm2
+
+Min/Max wire cross section (flexible)
+
+0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 12
+
+Module connector
+
+2 x 20-way DIN 41651 connector
+
+Electrical Diagram
+TB_DO16/N - TO180/P0 – Electrical diagram – Phöenix Contact
+
+BQT7945201-00
+
+23
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches, page 15.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+24
+
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+BQT7945201-00
+
+25
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+26
+
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+DO180 Configuration
+The local acquisition device for PowerLogic T500 is named as laq and it is created
+by default for each PowerLogic T500 configuration.
+The first step to configure the acquisition is to ensure that the configured
+backplane in the graphical interface is according to the system. Each module must
+be addressed according the position of its microswitches. Refer Configuration
+Switches, page 15.
+Configuring local acquisition for PowerLogic T500
+
+The laq device supports communication between inputs and the outputs managed
+by the acquisition blocks and coreDb points. To configure the acquisition settings,
+include all IO modules in the backplane.
+NOTE: The graphical interface does not show if the modules are mounted in
+one or multiple backplanes. Communication and power supplies modules are
+not included in the graphical schematic.
+
+BQT7945201-00
+
+27
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+Local Acquisition Information
+The following figure shows the relationship between the field information received
+by the DO180 module and the related points in coreDb:
+Field signals and points in coreDb
+Point Name
+
+Destination Device Destination Coodinate
+
+D001_00000
+D001_00001
+
+laq
+laq
+
+2001050000
+2001050001
+
+D001_00014
+D001_00015
+
+laq
+laq
+
+2001050014
+2001050015
+
+coreDb
+
+DO180
+Module
+Address: 1
+Field
+Digital Output
+
+Name
+
+Coordinate
+
+D1
+D2
+
+DO_SIM_1
+DO_SIM_2
+
+2001050000
+2001050001
+
+D15
+D16
+
+DO_SIM_15
+DO_SIM_16
+
+2001050014
+2001050015
+
+In the example above, all signals are simple. If a signal is configured as double or
+counter, its default name must be different.
+
+DO180 Signals
+The following figure shows the configuration panel when the backplane is
+composed of a CPU HU280 and one DO180 module with address 6:
+Output signals
+
+Select the module on the screen. All digital outputs are displayed.
+28
+
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+The first field of each row specifies the description of the signal (DO_SIM_1 .. DO_
+SIM_8). In coreDb, each signal is identified using its coordinate.
+For each signal, the following parameters can be changed:
+•
+
+•
+
+•
+
+Type of signal: there are two types of signals:
+◦
+
+Simple digital output (DO_SIM)
+
+◦
+
+Double digital output (DO_DOB)
+
+Latch: the possible values are Y or N.
+◦
+
+Y indicates that the signal is latched, that is, the associated command is
+permanent over time.
+
+◦
+
+N indicates that the signal is temporary, that is, the command is retained
+for the time indicated in ExeTim field.
+
+ExeTim: only available for signals that are not latched. Command timeout
+(ms). After this time, the command is deactivated.
+
+If any signal is set to a double digital signal, the next signal available is disabled
+because a double signal takes two signals. The following figure shows the signal
+DO_DOB_2 configured as double:
+Configuring double output signal
+
+Click Next button to display all the digital outputs of the module, that is, from 9 to
+16.
+
+Local Acquisition Coordinates
+Each digital output is identified in coreDb by a name, stored in the Description
+field. This name is only used for information purpose.
+coreDb uses the coordinate of the signal to identify a field signal.
+
+BQT7945201-00
+
+29
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+The following figure shows digital outputs of the DO180 module in the command
+table:
+Digital outputs for the DO180 module in the command table
+
+The coordinate is a unique identifier of a signal within a device. For digital outputs,
+the coordinate is indicated as destination, with the following syntax:
+2 BBB CC DDDD
+•
+
+2: digit that specifies coordinate for all PowerLogic T500 local acquisition
+signals. It is always 2.
+
+•
+
+BBB: three digits to indicate the point address according to the
+communication protocol. In the case of Profibus-DP, the address ranges from
+000 to 125.
+
+•
+
+CC: type of signal:
+
+•
+
+◦
+
+00: diagnostic signals of the acquisition modules
+
+◦
+
+05: simple digital output (1 bit)
+
+◦
+
+15: double digital output (2 bits)
+
+DDDD: incremented number of the signal within each type. It does not match
+the physical position. The first signal of a type is 0000, the second is 0001
+and so on.
+
+For example, if a coreDb point has associated the signal 2003050002 as
+destination, then it means that this point of coreDb executes a single command
+(05) on signal (0002) of the module with address 003, according to Profibus-DP
+(2) protocol.
+
+coreDb Information for a DO180 Module
+The following points are included in coreDb if the Create defined RTU
+acquisition points option is selected when creating a configuration for the
+selected RTU (refer to figure New Configuration, page 26):
+•
+
+30
+
+16 points for information from field. A coreDb point is included in the
+command table for each field signal. The default name is: D00x_00000 ...
+D00x_00015, where 00x is the address of the module.
+
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+•
+
+The following diagnostic points are created in the status table for each D00x
+module:
+◦
+
+D00x_STS_COMM: associated coordinate 200x000000 (as source). The
+value indicates with status of the module. Value 1 means that the CPU
+cannot communicate with the D00x module.
+
+◦
+
+D00x_STS_DIAG: associated coordinate 200x000001 (as source). The
+value indicates the diagnostics for the module. Value 1 means that the
+module indicates a problem (diagnostic). Usually this status corresponds
+to a missing polarization.
+
+◦
+
+D001_STS_FAILBUS1: associated coordinate 200x000003 (as source).
+The value indicates if a communication interruption in bus 1 has been
+detected. Value 1 indicates a communication interruption in Profibus 1.
+
+◦
+
+D001_STS_FAILBUS2: associated coordinate 200x000004 (as source).
+The value indicates if a communication interruption in bus 2 has been
+detected. Value 1 indicates a communication interruption in Profibus 2.
+
+To include a point manually, create a new point, select laq as Source Device,
+click the right-button on the Source Coordinates field and select Launch Point
+wizard:
+Open Launch Point Wizard
+
+Launch Point Wizard
+
+Select the module in which you need to create these points and then select the
+point to be created from the Point needed area.
+NOTE: The points that are not created are shown in the Point needed list.
+You can include these points directly in coreDb.
+For example, if a coreDb point has assigned the signal 2003000000 as source,
+the value of this point indicates the communication status of the module 003
+(address).
+The value of the signal 2007000004 changes to 1 when the communication with
+the module 007 is lost.
+For additional information regarding coreDb and operation with signals, refer to
+the Easergy Builder user manual.
+
+BQT7945201-00
+
+31
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+
+32
+
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+BQT7945201-00
+
+33
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+Accessing the Command Points
+To access the command points, in webApp main menu, go to Monitoring and
+control > Data > Command and you can see the point mapped with Easergy
+Builder window allows you to monitor the information of each coreDb table:
+Command information
+
+Use
+button in the Value column to execute a command or use
+the Quality column to change the associated quality values.
+
+34
+
+button in
+
+BQT7945201-00
+
+Configuration and Maintenance
+
+PowerLogic DO180
+
+Edit value
+
+If you set the value to 1, press OK button, a command is sent to the field, latched
+or pulsed depending on the configuration of the local acquisition signal.
+
+Digital Outputs Signals Quality
+Digital outputs quality control
+
+For each signal, the quality information is shown in the table through icons in the
+Quality column. In coreDb, this information is stored in hexadecimal format.
+The quality information associated with a signal could include one or more of the
+following messages:
+Local quality bits
+
+BQT7945201-00
+
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00000001
+
+There has been an overflow.
+
+0x00000002
+
+There has been a carry on a counter or a roll-over.
+
+0x00000004
+
+There has been a counter adjustment.
+
+0x00000008
+
+Excessive changes in a digital input.
+
+0x00000010
+
+Locked Point (blocked).
+
+0x00000020
+
+Point manually replaced (manual).
+
+0x00000040
+
+The point has not yet been written into the database (No
+refresh).
+
+0x00000080
+
+Invalid value (Detected error).
+
+0x00000100
+
+The value of the item has exceeded Highest Limit Alarm.
+
+0x00000200
+
+The value of the item has exceeded High Limit Alarm.
+
+35
+
+PowerLogic DO180
+
+Configuration and Maintenance
+
+Local quality bits (Continued)
+Values (Hexadecimal)
+
+Description
+
+0x00000400
+
+The point value of the Low Limit Alarm has decreased.
+
+0x00000800
+
+The point value of the Lowest Limit Alarm has
+decreased.
+
+0x00001000
+
+Invalid time.
+
+Quality bits from the device
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00010000
+
+There was an overflow.
+
+0x00020000
+
+There was a carry on a counter or a roll-over.
+
+0x00040000
+
+There was a counter adjustment.
+
+0x00080000
+
+Excessive changes in a digital input.
+
+0x00100000
+
+Locked point.
+
+0x00200000
+
+Point manually replaced.
+
+0x00400000
+
+The point is not written into the database.
+
+0x00800000
+
+Invalid value.
+
+0x10000000
+
+Invalid time.
+
+NOTE: If more than one event is detected for a signal, the hexadecimal value
+monitored for quality bits results from the sum of all. For example:
+0x00000001 indicates that an overflow occurred and 0x00000002 indicates
+that there was a carry on a counter or a roll-over. The value 0x00000003 is
+monitored.
+
+36
+
+BQT7945201-00
+
+Appendix
+
+PowerLogic DO180
+
+Appendix
+Technical Specifications
+Hardware
+Specifications
+
+Description
+
+Number of outputs
+
+16
+
+Outputs per block
+
+8
+
+DO polarization (PV)
+
+24 Vdc
+
+Polarization range
+
+±20 % of PV
+
+Contact type
+
+SPST or Normally Open contacts
+
+Imax
+
+C1 Option: 2 A per output 30 Vdc (Resistive
+load)
+C2 Option: 0.5 A per output 30 Vdc (Resistive
+load)
+
+DO operating voltage
+
+C1 Option: 24 – 125 Vdc (60 W)
+C2 Option: 24 – 48 Vdc (12 W)
+
+Output switching capacity
+
+50 W, 250 Vrms; L/R ≤1 ms
+
+Maximum nominal current per block
+
+8 A (4 latched outputs per block)
+
+Isolation (polarization block)
+
+By optocoupler 2.2 kVrms
+
+Isolation (between output and power)
+
+By optocoupler 2.2 kVrms
+
+Output and polarization test
+
+Permanent
+
+Transient voltage protection (outputs)
+
+Peak pulse power dissipation 600 W on 10/1000
+µs waveform. Bidirectional
+
+Field connection
+
+Terminals
+
+Max. consumption (Electronic)
+
+1.25 W
+
+Max consumption for polarization
+
+6.7 W
+
+Max. consumption per relay
+
+16 mA/relay for 24 Vdc
+
+Weight
+
+740 g
+
+Dimensions
+
+245 x 180 x 45 mm
+
+Specifications
+
+Description
+
+Processing of digital outputs.
+
+Pulsed (fixed time) / Preset (latching)
+
+Software
+
+Single / Double
+Output timing
+
+Configurable per signal in ms (1 – 65535)
+
+Supervision mechanism
+
+Auxiliary permission by block.
+Software output verification.
+Auto-check after polarization reset.
+
+BQT7945201-00
+
+37
+
+PowerLogic DO180
+
+Appendix
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80%, 10 V/
+m
+1000 – 2700 MHz, AM 1 kHz Prof: 80%, 3 V/
+m
+2700 – 6000 MHz, AM 1 kHz Prof: 80%, 1 V/
+m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80%, 10
+Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2 kV, ±4 kV (asymmetrical
+coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+38
+
+BQT7945201-00
+
+Appendix
+
+PowerLogic DO180
+
+Directive / Test
+
+Identification
+
+Details
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93% / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+Ordering Options
+Two options are available for field connection:
+
+BQT7945201-00
+
+•
+
+Option C1: EMS74210: 24 Vdc relays with 3.81 mm terminal blocks.
+
+•
+
+Option C2: EMS74220: 24 Vdc relays with flat ribbon.
+
+39
+
+PowerLogic DO180
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AC: Alternate Current.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+
+D
+DC: direct current.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+
+E
+EMC: Electro Magnetic Compatibility.
+EPROM: Erasable Programmable Read Only Memory.
+
+G
+g: gram.
+GPS: Global Positioning System.
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+BQT7945201-00
+
+41
+
+PowerLogic DO180
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+MB: megabyte.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+
+N
+N/A: not applicable.
+
+P
+PC: Personal Computer.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+RS-232: communication standard.
+RS-485: multipoint differential bus.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+Rx: reception.
+
+42
+
+BQT7945201-00
+
+PowerLogic DO180
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TU: Terminal Unit.
+Tx: transmission.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7945201-00
+
+43
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7945201-00
+
+

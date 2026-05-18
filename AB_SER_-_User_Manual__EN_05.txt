@@ -1,0 +1,2344 @@
+EasyLogic T150
+M567100002 / AB_SER
+User Manual
+This manual provides information for the assembly, wiring, configuration, and
+maintenance of the AB_SER module.
+D3885600-00
+Publication Date (05/2025)
+Read carefully the information contained in this manual before assembly, installation and use of the
+equipment.
+
+www.se.com
+
+Public
+
+15/05/2025
+
+User Manual – AB_SER
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or
+in the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or
+omissions in the informational content of this document, as well as any nonintended use or misuse of the content thereof.
+
+2
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Table of Contents
+FOREWORD ........................................................................................................................5
+SAFETY INFORMATION .................................................................................................... 5
+IMPORTANT INFORMATION .............................................................................................5
+PLEASE NOTE ..............................................................................................................5
+EU DIRECTIVES ............................................................................................................. 6
+SAFETY INSTRUCTIONS .................................................................................................. 6
+ABOUT THE BOOK .......................................................................................................... 6
+DOCUMENT SCOPE .......................................................................................................6
+DOCUMENT REVISION HISTORY .....................................................................................6
+CONFORMITY................................................................................................................6
+RELATED DOCUMENTS ..................................................................................................7
+TRADEMARKS ...............................................................................................................8
+INFORMATION ON NON-INCLUSIVE OR INSENSITIVE TERMINOLOGY ...................................8
+CUSTOMER CARE CENTER ............................................................................................8
+SAFETY AND HEALTH.......................................................................................................9
+INTRODUCTION ............................................................................................................... 9
+INFORMATION OF SAFETY ..............................................................................................9
+PRESENTATION ............................................................................................................9
+INTRODUCTION TO SAFETY ........................................................................................... 10
+SYMBOLS AND LABELS ON THE EQUIPMENT .................................................................. 11
+INSTALLATION, SETUP AND OPERATION ........................................................................ 11
+GROUNDING ................................................................................................................ 13
+ELECTRICAL SAFETY ...................................................................................................14
+FUNCTIONAL EARTH (EMC).........................................................................................15
+HANDLING ELECTRONIC COMPONENTS ......................................................................... 15
+TECHNICAL SPECIFICATIONS FOR SAFETY ..................................................................... 15
+PROTECTIVE ELEMENTS ..............................................................................................15
+ENVIRONMENTAL CONDITIONS .....................................................................................16
+STORAGE CONDITIONS ...............................................................................................17
+TECHNICAL LABEL ....................................................................................................... 17
+PACKING AND UNPACKING ........................................................................................... 17
+DECOMMISSIONING AND DISPOSAL ............................................................................... 18
+GENERAL DESCRIPTION ................................................................................................19
+EASYLOGIC T150 PLATFORM ....................................................................................... 19
+AB_SER FUNCTIONS................................................................................................... 20
+INTERFACES ................................................................................................................ 20
+HARDWARE ARCHITECTURE ......................................................................................... 21
+PHYSICAL MOUNTING & INSTALLING ...........................................................................22
+ITB INSTALLATION ....................................................................................................... 22
+HANDLING ..................................................................................................................22
+LOCATION IN THE ITB ..................................................................................................22
+POWER SUPPLY REQUIREMENTS .................................................................................22
+D3885600-00
+
+3
+
+15/05/2025
+
+User Manual – AB_SER
+
+MOUNT AND DISMOUNT PROCEDURES .........................................................................23
+WIRING AB_SER ........................................................................................................ 24
+LED INDICATORS ......................................................................................................... 26
+MAINTENANCE & CONFIGURATION ..............................................................................27
+ITB CONFIGURATION .................................................................................................... 27
+AB_SER CONFIGURATION ........................................................................................... 29
+INFORMATION OF LOCAL ACQUISITION..........................................................................29
+INFORMATION IN THE STATUS TABLE ............................................................................29
+AB_SER CHANNELS ..................................................................................................29
+MAINTENANCE OF MODULE VIA WEB ............................................................................ 32
+WEBAPP.....................................................................................................................32
+USING WEBAPP ........................................................................................................... 32
+HOME TAB ..................................................................................................................33
+MONITORING & CONTROL............................................................................................34
+MAINTENANCE ............................................................................................................35
+FIRMWARE UPGRADE ................................................................................................... 35
+TECHNICAL SPECIFICATION TABLE .............................................................................39
+
+4
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully and look at the equipment to become familiar with the device
+before trying to install, operate, service, or maintain it. The following special messages may appear
+throughout this documentation or on the equipment to warn of potential hazards or to call attention to
+information that clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+! DANGER
+
+!
+
+DANGER indicates an imminently hazardous situation which, if not avoided, will result in death or
+serious injury.
+
+!
+
+WARNING
+
+WARNING indicates a potentially hazardous situation which, if not avoided, can result in death or
+serious injury.
+
+!
+
+CAUTION
+NOTICE
+
+Please Note
+Electrical equipment must be installed, operated, serviced, and maintained only by qualified
+personnel. No responsibility is assumed by Schneider Electric for any consequences arising out of
+the use of this material.
+
+A qualified person is one who has skills and knowledge related to the construction and operation of
+electrical equipment and its installation and has received safety training to recognize and avoid the
+hazards involved.
+
+D3885600-00
+
+5
+
+15/05/2025
+
+User Manual – AB_SER
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament and of the
+Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+This unit must be installed and serviced only by qualified electrical
+personnel.
+Turn off all power supplies of this unit before working on or inside the unit.
+Always use a properly rated voltage sensing device to confirm that power is
+off.
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+Set all devices, doors, and covers before turning on power to this unit.
+Failure to follow these instructions will result in death or serious injury.
+
+About the Book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and maintenance of the
+EasyLogic T150 AB_SER module (part number M557000002).
+
+Document Revision History
+Rev
+
+Date
+
+Description
+
+01
+
+11-05-2020
+
+Initial edition
+
+02
+
+02-03-2021
+
+Sections update
+
+03
+
+1-11-2023
+
+Technical Specification table section updated with the reference to railways
+certification (EN 51121-5)
+
+04
+
+19-04-2024
+
+Introduced EasyLogic branding
+
+05
+
+15/05/2025
+
+Brand labelling to EasyLogic T150
+
+Conformity
+The EasyLogic T150 AB_SER module and all components have been developed in accordance to
+the requirements for a quality management system, complying with the ISO 9001:2015 Norm.
+6
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Related Documents
+User Manual
+
+D3885600-00
+
+Document Code
+
+Easergy Builder User Manual
+
+SE-S856-MSS
+
+EasyLogic T150 Platform User Manual
+
+D3885557
+
+webApp User Manual
+
+BQT7944804
+
+7
+
+15/05/2025
+
+User Manual – AB_SER
+
+Trademarks
+QR Code is a registered trademark of DENSO WAVE INCORPORATED in Japan and other
+countries.
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its communications
+and products that contain non-inclusive or insensitive terminology. However, despite these efforts,
+our content may still contain terms that are deemed inappropriate by some customers.
+
+Customer Care Center
+For more information, you can download the app of the Customer Care Center by using the following
+QR code:
+
+8
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Safety and Health
+Introduction
+Information of Safety
+Important information
+Read these instructions carefully and look at the equipment to become familiar with the device
+before trying to install, operate, service or maintain it. In this manual you can find different types of
+messages associated with situations that have different level of risk for people and / or for the
+equipment.
+This symbol indicates "DANGER" or "WARNING". This symbol informs of an
+electrical risk that will cause personal injuries if the instructions are not followed.
+This symbol is associated to a safety alert. It is used to warn of possible personal
+injury hazards. The user must follow all instructions or messages associated to this
+symbol to avoid possible injuries.
+
+DANGER
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+WARNING
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+INFORMATION
+INFORMATION is used to address practices not related to physical injury. The safety alert
+symbol shall not be used with this signal word.
+
+To Keep in Mind
+Electrical equipment should be installed, operated, serviced, and maintained only by qualified
+personnel. No responsibility is assumed by Schneider Electric for any consequences arising out of
+the use of this material.
+A qualified person is who fulfill with requirements in paragraph “Introduction to Safety”
+
+Presentation
+This manual provides information for a safe handling, commissioning, and testing. This Safety
+chapter also includes descriptions of the labels on the equipment.
+Documentation for equipment ordered from Schneider Electric is dispatched separately from
+manufactured goods and may not be received at the same time. Therefore, this guide is provided in
+order to do that printed information which may be present on the equipment is fully understood by
+the recipient.
+D3885600-00
+
+9
+
+15/05/2025
+
+User Manual – AB_SER
+
+The technical data in this safety guide is typical only, see the technical data section of the user
+manual for specific details of a particular equipment.
+Before carrying out any work on the equipment the user should be familiar with the
+contents of this Safety chapter and the ratings on the equipment’s rating label.
+THE SAFETY SECTION MUST BE READ BEFORE STARTING ANY WORK ON
+THE EQUIPMENT.
+
+Introduction to Safety
+The information in this section is intended to get that equipment is properly installed and handled in
+order to maintain it in safety conditions. It is assumed that everyone who will be associated with the
+equipment will be familiar with the contents of that Safety section.
+When electrical equipment is in operation, dangerous voltages will be present in certain parts of the
+equipment. Failure to observe warning notices, an incorrect or improper use may endanger
+personnel and equipment and also cause personal injury or physical damage.
+
+WARNING
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Before working with the terminal of connection, the equipment must be switched off and
+disconnected of the power supply.
+Failure to follow these instructions could result in death or serious injury.
+Proper and safe operation of the equipment depends on appropriate shipping and handling, proper
+storage, installation, and commissioning, and on careful operation, maintenance and servicing. For
+this reason, only qualified personnel may work on or operate the equipment.
+Qualified personnel are individuals who:
+•
+
+Have read and understood the information on the device and its user manual.
+
+•
+
+Are familiar with the installation, commissioning, and operation of the equipment and of the
+system to which it is being connected.
+
+•
+
+Can safely perform switching operations in accordance with accepted safety engineering
+practices and are authorized to energize and de-energize equipment and to isolate, ground, and
+label it.
+
+•
+
+Are trained in the care and use of safety apparatus in accordance with safety engineering
+practices.
+
+•
+
+Are trained in emergency procedures (first aid).
+
+It is necessary to consider that the documentation of the device collects the instructions for its
+installation, set up and operation. However, the manuals could not cover all the possible
+circumstances neither include specific information on all the details.
+In case of questions or specific problems, contact with his office of sales Schneider Electric or with
+the center of attention to the customer and request the necessary information.
+
+10
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Symbols and Labels on the Equipment
+Before the equipment is installed or commissioned, the user must understand the following symbols,
+which may be used on the equipment or referred to in the user documentation:
+Table 1 – Symbols
+Symbol
+
+Associated Text
+
+Description
+
+Possibility of electric
+chock
+
+International Electrotechnical Commission (IEC)
+symbol associated to a DANGER or WARNING
+message indicating that there is an electrical
+risk. Failure to follow these instructions could
+cause damage to people or death.
+
+Caution, read the
+manual.
+
+Symbol associated with a risk alert. The user
+must read the manual before handling the
+equipment.
+
+Possibility of electric
+chock
+
+American National Standards Institute (ANSI)
+symbol associated to a DANGER or WARNING
+message indicating that there is an electrical
+risk. Failure to follow these instructions could
+cause damage to people or death.
+
+Protective earth
+connection
+
+Associated symbol to the protective ground
+connection. See paragraph “Electrical Safety” in
+this manual.
+
+Functional earth
+connection
+
+Associated symbol to the functional ground
+connection. See paragraph “Functional Earth
+(EMC)” in this manual.
+
+CE Mark
+
+This symbol indicates that the equipment has
+been developed in compliance with all
+applicable European Directives.
+
+Electronic device.
+Special instructions
+must be follow for
+discard it.
+
+This symbol indicates that, at the end of its life,
+this module must be discarded according to the
+WEEE Directive (Waste Electrical and Electronic
+Equipment).
+
+Compliant with
+RoHS.
+
+The equipment has been designed and
+manufactured according to RoHS Directive
+(Restriction of Hazardous Substances).
+
+Direct Voltage
+
+Symbol of direct voltage (VDC).
+
+Alternate Voltage
+
+Symbol of alternate voltage (VAC).
+
+Installation, Setup and Operation
+This equipment could use high voltages (> 50 V) depending on the ordering option. The user is
+responsible to check that the device is adequate for the installation where it will be mounted. The
+user should read the instructions of installation before proceeding to the use or maintenance of the
+device.
+Not following these instructions can be dangerous for the people and the devices.
+
+D3885600-00
+
+11
+
+15/05/2025
+
+User Manual – AB_SER
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Devices that handle dangerous tensions are marked with a sticker on the front label (size: 12,5
+mm). This label must be visible all the time while the module is installed on the DIN rail.
+Failure to follow these instructions will result in death or serious injury.
+The following products handle dangerous voltages:
+•
+
+HU120: High-performance CPU with acquisition (P/N M590xx0002).
+
+•
+
+AB_DI: Digital inputs module (P/N: M555200002, M555300002, M555400002, and
+M555500002).
+
+•
+
+AB_DIDO: Input and output digital module (P/N M572220002, M57233000x and M572420002,
+and M572520002). For other part numbers, depending on the voltage handled by the equipment
+connected to the digital outputs (voltage > 50 V), this module must be marked with an electric
+risk label. It will not be marked on factory.
+
+•
+
+AB_AC/LPVT: Direct measurements module (P/N M579000002).
+
+•
+
+AB_DO: Digital outputs module (P/N M554200002 and M554300002). This one does not handle
+dangerous voltages; it will not be marked at the factory. This module must be marked to inform
+about the risk when some equipment that manage voltage higher than 50 Vdc are connected to
+digital outputs.
+
+It is recommended to install the RTU inside a cabinet with a key. This cabinet only should be opened
+by a qualified person.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• If this type of cabinet is not available, a barrier must be installed in order to avoid an
+accidental contact with these dangerous elements. This barrier should only be able to be
+uninstalled using a special tool.
+• If the barrier has to be removed in order to access to equipment, personnel responsible for
+the task must be sure that the barrier is installed again when the task is finished.
+• While the RTU is accessible for a user, all people must follow all instructions to prevent
+electrical risk or discharges.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+An electrical risk symbol with enough size must be included on the cabinet’s door or
+on the barrier.
+The following image shows an example:
+
+12
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Figure 1 - Barrier of protection for elements with dangerous voltages.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• Terminals will not be accessible to the user directly once it has made the installation of the
+equipment. The cabinet will have to remain closed with key or a protective screen.
+• If the barrier has to be removed to access to equipment, personnel responsible for the task
+must be sure that the barrier is installed again when the task is finished.
+• The cabinet or installation must have a general switch placed just in the cable entry of the
+installation.
+• While the RTU is accessible for a user, all people must follow all instructions to prevent
+electrical risk or discharges.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+For the cleaning of the equipment, it is recommended to remove the power and to use only a dry
+cloth by the surface when it detects excessive presence of dust, or any element deposited on the
+surface.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+Do not use liquid products of cleanliness due to the presence of active parts.
+Failure to follow these instructions can result in equipment damage.
+Because of the variety of uses of the product, the managers of the application and use of this device
+of control will have to take the measures to ensure the fulfillment of all the requests of security and
+provision of each application. The requests do reference to the applicable laws, regulations, codes
+and standard.
+
+Grounding
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Before energizing the equipment, it has to be grounded properly such as it is indicated in
+following sections.
+
+•
+
+When installing the equipment in the cabinet, the ground is the first thing that must be
+connected and the last one that must be disconnected.
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+D3885600-00
+
+13
+
+15/05/2025
+
+User Manual – AB_SER
+
+EasyLogic T150 shall be grounded for two distinct needs:
+•
+
+For purposes of electrical safety (Protective Earth, PE).
+
+•
+
+Improve the behavior in EMC and derive perturbations to earth (functional Earth).
+
+Electrical Safety
+Only qualified personnel, with knowledge about hazards associate with electrical equipment is
+allowed to install EasyLogic T150. In general, the installation will be following IEC 61010-1
+recommendations i to be compliant with this norm.
+The modules must be installed on a metallic DIN Rail which is fixed on a metallic
+surface. This metallic surface must have an M4 screw marked with this symbol.
+According to the norm IEC 61010-1, the ground of the cabinet or installation must be
+connected to this screw.
+AB_SER is mounted in a metallic enclosure offering protection for isolation faults.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+According to Electrical Safety, the power voltage must be supplied by a power supply
+that offers double or reinforced insulation against hazardous voltages (higher than 50 V).
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+In the cabinet where the AB_SER module is mounted, a dedicated connection with green/yellow wire
+should be used to have electric continuity to the installation protective earth. Use a wire with
+adequate section according to IEC 61010.
+Figure 2 – Example of yellow/green cable for earthing.
+
+The design and installation of the cabinet must be compliance with all the existing international and
+national electrical codes concerning protective grounding of any equipment.
+
+14
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+The DIN rail must have terminals of grounding (with yellow and green colors) necessary
+to connect the ground terminal.
+
+•
+
+The screw for ground must be exclusive for this use.
+
+•
+
+The power voltage must be supplied by a power supply that offers double or reinforced
+insulation against high voltages (higher than 50 V).
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+Functional Earth (EMC)
+AB_SER does not need to be connected to the functional earth.
+
+Handling Electronic Components
+Like any electronic device, EasyLogic T150 is susceptible to receive electrostatic discharges during
+the handling. It is necessary to take the usual measures to minimize this risk, since serious damage
+to the equipment can be caused, which may not be detected immediately but which may affect the
+reliability of the product.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+The enclosure must ONLY be removed by authorized user and ONLY when is strictly
+necessary because this action has a risk for the equipment. The following cautions must
+be taken:
+• Before removing the enclosure, the operator must be equipotential with the equipment.
+The operator must wear a grounding bracelet and the device must be connected to
+ground as well.
+• Avoid touching the electronics. The board must be always manipulated by the edges.
+• If the equipment has to be manipulated by two people, both must be equipotential.
+• Put the module always on an antistatic surface or on a surface equipotential with you.
+• During the storage and transport, the module will remain in the packaging.
+• Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+Technical Specifications for Safety
+Protective Elements
+The cabinet's engineering and installation must include a general automatic switch next to the
+cables' input in the cabinet; once the door is opened, high voltages must be interrupted inside. This
+switch must be located at a place which is not accessible by a third person while the operator is
+using the boards in the cabinet.
+D3885600-00
+
+15
+
+15/05/2025
+
+User Manual – AB_SER
+
+Moreover, the installation will incorporate a circuit breaker of 5A next to the cabinet protecting it from
+possible overcurrent in the power supply.
+Both switches will be labeled with the symbol O as "Off" and I as “On”.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+The cabinet's engineering and installation must include a general automatic switch
+next to the cables' input in the cabinet; once the door is opened, high voltages have to
+be interrupted inside. This switch has to be located at a place which is not accessible by
+a third person while the operator is using the boards in the cabinet.
+
+•
+
+Moreover, the installation must incorporate a breaker of 5A next to the cabinet
+protecting it from possible overcurrent in the power supply.
+
+•
+
+Both switches will be labelled with the symbol O as "Off" and I as “On”.
+
+•
+
+The connection / disconnection switch must be installed in a fixed element (for example
+the wall of the cabinet) and it must not break any grounding wire.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+Environmental Conditions
+The protection degree of the device is IP20.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• This equipment has been designed ONLY for indoor use.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+If it is necessary for his use in some external surroundings, it has to mount in a cabinet or specific
+accommodation that contributes a degree of protection IP54, protected against the dust and water.
+The electronic cards of the modules will be coated. The coating product used is the AVR80, of the
+company ABchimie. It can consult all the technical information of this type of finishing in
+http://www.abchimie.com/.
+Other data to take into account about the environmental are:
+•
+
+Altitude until 2000 m.
+
+•
+
+Operation temperature range: Between -40 ºC and 70 ºC. (IEC 60068-2-1 and IEC 60068-2-2).
+
+WARNING
+HAZARD OF SKIN BURN
+According to the standard 60950-1, all electrical safety tests have been done in an
+environmental temperature range of -40 ºC to 70 ºC. For temperature higher than 60 ºC, the
+module must be handled with care since the metal surface could reach a dangerous
+temperature for the user.
+Failure to follow these instructions can result serious injury.
+
+16
+
+•
+
+Maximum relative humidity of 95%. (IEC 60068-2-30)
+
+•
+
+Degree of pollution II. (IEC 60255-5)
+
+•
+
+Overvoltage transitory until levels of Category III. (IEC 60255-5)
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Storage Conditions
+The continuous exhibition to some high levels of humidity during the storage can cause damages to
+the electronic components and reduce the useful life of the device.
+We recommend that, in the enclosure of storage, the relative humidity do not exceed 50%.
+Before the installation of an electrical equipment, it is recommended to leave the necessary time for
+the acclimatization of the environmental temperature.
+
+Technical Label
+Each EasyLogic T150 product includes a technical label with the following information:
+Figure 3 - Technical label.
+Product’s description
+
+Compliant with
+
+Technical data
+
+Serial Number (S/N)
+
+E
+
+Technical data in QR
+
+Di
+
+ti
+
+Manufacturer
+
+Packing and Unpacking
+All EasyLogic T150 modules are packaged separately in their own carton box and shipped inside
+outer packaging. Use special care when unpacking the device. Don’t use force.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+Schneider Electric products leave the factory in closed, sealed original packaging. If at receipt
+of the delivery the transport packaging is open or the seal is broken, the confidentiality and
+authenticity of the information contained in the products cannot be ensured.
+Failure to follow these instructions can result in equipment damage.
+The design revision and manufacturing options can be determined using the P/N included in the
+packaging label on packaging.
+After unpacking the device, inspect it visually to be sure it is in proper mechanical condition.
+If the product needs to be shipped, the original packaging must be used, including foams and the
+carton box. If the original packaging is no longer available, make sure that the packaging used is
+according to ISO 2248 specifications for a drop height 1 m.
+
+D3885600-00
+
+17
+
+15/05/2025
+
+User Manual – AB_SER
+
+Decommissioning and Disposal
+When the product is marked with this symbol, it means that, at the end of its life
+cycle, you mustn't dispose the product together with habitual residues. To avoid the
+possible damage to the environment or to the human health that represents the
+uncontrolled elimination of residues, please, separate the battery (if there is one) of
+the other elements, and each one must be recycled according to the local regulation.
+
+18
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+General Description
+EasyLogic T150 Platform
+EasyLogic T150 – part of the EasyLogic range - is a hardware platform by Schneider Electric
+specifically designed for real-time control and energy automation applications. EasyLogic T150 is a
+high-technology embedded platform which serves Schneider Electric’s business areas.
+On this hardware platform, the Baseline Software Platform is installed. This software is used in
+PowerLogic T500, EasyLogic T150 and other Schneider Electric products.
+Other features identifying EasyLogic T150 are:
+•
+
+A DIN rail is used for the mechanical installation.
+
+•
+
+The communication between the controls units integrated in a distributed system is mainly
+established by Ethernet.
+
+•
+
+The terminal blocks for field-connection are completely built into acquisition blocks.
+
+Figure 4 – EasyLogic T150
+
+EasyLogic T150’s design has been optimized to meet the most demanding requirements of multiple
+sectors:
+•
+
+Safety and reliability requirements for power, gas and water supply, as well as sewage treatment
+plants, etc.
+
+•
+
+Compliance with electric safety, electromagnetic compatibility, and environmental standards.
+
+•
+
+Centralized monitoring and control of geographically distributed systems which support
+hierarchical data acquisition and sharing networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed equipment.
+
+•
+
+Quick troubleshooting, including the possibility of using programmable automation execution
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+EasyLogic T150 does not support hot-swapping, that is, module replacements during
+operation.
+Failure to follow this instruction can result in equipment damage.
+
+D3885600-00
+
+19
+
+15/05/2025
+
+User Manual – AB_SER
+
+AB_SER Functions
+Figure 5 - AB_SER Module.
+
+The AB_SER is the serial communication module available in EasyLogic T150. It enhances the ITB
+communication with other devices through serial channels.
+The AB_SER module communicates with an advanced HU through the internal bus, at a
+transmission rate of up to 1.5 Mbps. The multiplexing operation allows transfers the message
+streams bidirectional from input channels and its signals.
+The communication protocol between the AB_SER module and the advanced HU module follows a
+master-slave (poll-response) structure, in which the master is the HU module and the slave are the
+different AB_SER modules which are installed.
+The maximum number of modules which can be installed in an ITB is 4, that is, there can be 16
+additional communication channels.
+All AB_SER modules in an ITB must be installed in the first row.
+
+Interfaces
+The diagram below illustrates the functional blocks integrated in the AB_SER acquisition block:
+Figure 6 - Functional block diagram.
+
+•
+
+20
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Hardware Architecture
+Figure 7 - AB_SER’s P/N description.
+
+AB_SER M5671000002 zz
+Revision:
+(Revision code)
+
+The figure below illustrates the hardware block diagram:
+Figure 8 - Hardware block diagram.
+Serial port
+COM1
+
+Serial port
+COM2
+
+Indic at ions
+
+EasyLogic
+
+AB_AO
+AB_DI
+
+T150
+
+I/O E xpansion
+
+I/O E xpansion
+
+Re m o teTe rm i n a l Un i t
+
+Connecto rs
+Details
+
+Serial port
+COM3
+
+Serial port
+COM4
+
+The AB_SER module includes 4 serial ports with the following features:
+•
+
+The 4 ports are enabled for asynchronous communications (max. rate 38,400 bps).
+
+•
+
+Each port can be configured through RS-232 / RS-485 / RS-422.
+
+Indicators
+There are 12 LED indicators to provide information about the module’s operation and status related
+to the module itself and the communication channels. More information in paragraph “LED
+Indicators”
+
+D3885600-00
+
+21
+
+15/05/2025
+
+User Manual – AB_SER
+
+Physical Mounting & Installing
+ITB Installation
+Handling
+Electrostatic discharges may damage semi-conductive devices within the module.
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the
+connectors.
+
+•
+
+Do not ever touch the pins of the expansion bus connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow this instruction can result in equipment damage.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+This unit must be installed and serviced only by qualified electrical personnel.
+
+•
+
+Do not perform any work on the equipment before reading this entire set of instructions
+and checking the technical characteristics of the device.
+
+•
+
+Never work alone.
+
+•
+
+Switch off all power supplies connected to this equipment before working on or inside it.
+Consider all sources of power, including the possibility of back feeding.
+
+•
+
+Always use a properly rated voltage sensing device to confirm that all power is off.
+
+•
+
+Start by connecting the device to the protective ground and to the functional ground.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+Failure to follow these instructions will result in death or serious injury.
+
+Location in the ITB
+These modules must be installed in the first row of the ITB, close to the Head Unit.
+
+Power Supply Requirements
+The main power for the ITB is connected to the HU and XU modules. These modules supply the
+power to other modules in the ITB through the bus.
+The maximum power requirement for each AB_SER module is:
+
+22
+
+D3885600-00
+
+User Manual – AB_SER
+
+•
+
+15/05/2025
+
+Main power supply: Basic consumption 1
+
+Mount and Dismount Procedures
+WARNING
+HAZARD OF ELECTRIC SHOCK
+It is important to assure that handling is always done while the ITB elements are unpowered.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+EasyLogic T150 modules have a DIN-rail bracket at the rear side that allows mounting on a DIN rail.
+Figure 9 - Mount bracket on DIN rail.
+
+The mounting procedure is described below:
+•
+
+Switch off the power supply.
+
+•
+
+Attach the module’s rear bracket on the upper DIN rail.
+
+•
+
+Press the lower front panel gently until a click confirms that the bracket is fit on the rail.
+
+•
+
+Verifying the module is anchored firmly to the rail, although lateral movement is possible.
+
+Figure 10 - EasyLogic T150 module on a DIN rail.
+
+The module is dismounted from the DIN rail as follows:
+•
+
+Switch off the power supply.
+
+•
+
+If necessary, disconnect the bridge(s) connecting the module to the system bus.
+
+•
+
+Holding the module by the front panel, push the upper metal tab downward. The user can
+also pull the tab down using for example a screwdriver as follow:
+
+1 Basic consumption and Maximum current per signal values are indicated in the technical specifications table at the
+
+end of this manual.
+D3885600-00
+
+23
+
+15/05/2025
+
+User Manual – AB_SER
+
+Figure 11 - Remove module.
+
+•
+
+Pressing the tab, remove the module from the lower DIN rail.
+
+•
+
+Once detached, the module can be removed easily.
+
+Wiring AB_SER
+This module has four DB9 connectors labeled as J1, J2, J5 and J6 are associated to COM1, COM2,
+COM3 and COM4 serial ports.
+Figure 12 – J1, J2, J5 and J6 DB9 connectors.
+
+COM2
+
+COM1
+
+COM3
+
+COM4
+
+The DB9 connector have the following pinout:
+Figure 13 – DB9 Connector
+
+All ports can be configured for RS-232 / RS-485 / RS-422. Their respective pinout is described
+below.
+
+24
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Table 2 – RS-232 pinout
+Pin
+
+Description
+
+1
+
+COM1
+COM2
+COM3
+COM4
+
+I/O
+
+-
+
+2
+
+Rx (Data reception).
+
+I
+
+3
+
+Tx (Data transmission).
+
+O
+
+4
+5
+
+GND (Ground).
+
+-
+
+6
+
+-
+
+7
+
+/RTS (Modem control output).
+
+O
+
+8
+
+/CTS (Modem control input).
+
+I
+
+9
+
+Not connected
+
+-
+
+Table 3 – Full-duplex RS-422 pinout
+Pin
+
+Description
+
+1
+
+COM1
+COM2
+COM3
+COM4
+
+I/O
+
+-
+
+2
+
+A (Data reception - no inverting).
+
+I
+
+3
+
+Z (Data transmission - inverting).
+
+O
+
+4
+5
+
+GND (Ground).
+
+-
+
+6
+
+-
+
+7
+
+Y (Data transmission -no inverting).
+
+O
+
+8
+
+B (Data reception - inverting).
+
+I
+
+9
+
+Not connected.
+
+-
+
+Table 4 – Half-duplex RS-485:
+Pin
+
+Description
+
+1
+
+COM1
+COM2
+COM3
+COM4
+
+I/O
+
+-
+
+2
+
+Unconnected.
+
+-
+
+3
+
+Z (B) – (Data transmission and reception - inverting).
+
+I/O
+
+4
+5
+
+GND (Ground).
+
+6
+
+-
+
+7
+
+Y (A) (Data transmission and reception -no inverting).
+
+I/O
+
+8
+
+Not connected.
+
+-
+
+9
+
+Not connected.
+
+-
+
+Note: pin 5 (GND) must be wired to the corresponding pin of the equipment with which it is
+communicating. Otherwise it may cause communication errors.
+
+D3885600-00
+
+25
+
+15/05/2025
+
+User Manual – AB_SER
+
+LED Indicators
+The AB_SER module has the following indicators on the front panel:
+Figure 14 – AB_SER LED indicators.
+
+LED indicators
+
+The information provided by these LED indicators is explained in the following table. In addition,
+information about the recommended actions is included in case of having to act because it is an
+anomalous situation
+AB_SER LED provide the following information to the operator:
+
+Table 5 – Led indicators meaning.
+LED
+Run
+
+Status
+
+Description
+
+Recommended action
+
+Module working properly.
+Module not in acquisition mode.
+
+The module was not included into the
+configuration, the module doesn't
+have an address or according to the
+loaded configuration, the type of the
+module is wrong.
+
+Module not configured or in abnormal state.
+
+Check the configuration loaded in the
+HU. The module must be addressed
+and with the correct type (AB_SER).
+
+Vout
+
+Fail
+
+No fault has been detected in configuration or
+hardware.
+Failure in EEPROM.
+Mnt
+
+The module is in maintenance (Flashing,
+addressing, ...)
+The module is in operation.
+
+Tx COMx
+
+Port n is transmitting data.
+Port n is not transmitting data.
+
+Rx COMx
+
+Port n is receiving data.
+Port n is not receiving data.
+
+26
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Maintenance & Configuration
+ITB Configuration
+To perform the operations described in this chapter, the user must be familiar with the configuration
+tool. Otherwise, please consult the user manual of Easergy Builder.
+In the Easergy Builder Workspace, create a new RTU using
+mouse in an empty area of the RTUs tree:
+
+button or pressing right button of the
+
+Figure 15 - Add RTU.
+
+Pressing button next to the graphical ITB, you can add, remove or change the I/O modules included
+on the default configuration.
+
+The user needs understand some basic concepts about EasyLogic T150 before configuring the
+acquisition:
+•
+
+An ITB is a set of acquisition blocks connected to a CPU (HU).
+
+•
+
+An Acquisition Block or AB is a EasyLogic T150 input/output module.
+
+•
+
+Each acquisition block is allocated to a unique address in the ITB, the Node Number; this
+number identifies both the module and its type.
+
+•
+
+The procedure AAP (Automatic Addressing Procedure) is performed by the operator
+every time an AB module is added, deleted, replaced or moved inside the ITB. It can be
+launched manually or automatically depending on the configuration switches of the HU
+(consult user manual of the HU).
+
+Figure 16 - Acquisition modules in a default configuration.
+
+D3885600-00
+
+27
+
+15/05/2025
+
+User Manual – AB_SER
+
+The number under each module corresponds with its address. You can select any AB and use
+buttons
+to change its physical position.
+When “Auto Address” box is checked (by default), if you reorder, add or delete an AB, all addresses
+are automatically recalculated matching their physical position in the rail. Address number 1 is
+assigned to the AB closest to the HU module (for HU_AF or HU_BI, address number 1 will be
+attached to the HU itself).
+If “Auto Address” box is unchecked, modules will retain the allocated address, ignoring any
+changes made. If rechecked, the following message will appear:
+
+Select an AB (click on the AB image) and use button
+and select the type of module to include:
+
+to remove it. Use button
+
+to add a new AB
+
+Figure 17 - Adding one (or several) AB.
+
+If “Auto Address” is checked, you can add several AB at one time. This window allows selecting the
+quantity of modules to be added. If “Auto Address” in unchecked, you only can add one AB each
+time and you have to select the address to be assigned.
+To create a new configuration, select RTU in the tree and pulse right button of the mouse or use
+button.
+Figure 18 - Adding a configuration.
+
+If the field "Create acquisition points defined in the RTU" is marked, all points of the local
+acquisition of the acquisition blocks included in the default acquisition configuration associated with
+the RTU will be included in coreDb.
+More information in the user manual of Easergy Builder.
+
+28
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+AB_SER Configuration
+The local acquisition Device for EasyLogic T150 is named “Local Acquisition Device Controller”
+(claq). The main functionality of claq is supporting the communication between field signals of each
+AB and its linked coreDb points.
+The first step to configure the acquisition settings is to assure that the ITB in the graphical interface
+is according to the system. Each module must be addressed according to its position in the ITB.
+The graphical interface does not show if the ITB is mounted in one or multiple rows.
+AB_SER, Tu nor XU modules, are included in the schema.
+
+Information of Local Acquisition
+The AB_SER module does not have local acquisition signals. All information managed in this module
+is associated to the protocols using AB_SER’s channels. Consult the user manual for each
+communication protocol.
+
+Information in the Status Table
+For each AB_SER module in the ITB, a diagnostic signal is included in the table status:
+•
+
+FAIL_SER1, …, FAIL_SER4: Active, indicates if there is a failure in the associated module
+(FAIL_SER1 indicates failure in module 1, and so on)
+
+These signals will be available or not depending on the number of AB_SER modules configured in
+the ITB.
+
+AB_SER Channels
+Ports used to communicate with field devices are configured as communication channels. They can
+be configured in the Channels tab of the configuration mode of Easergy Builder. The number and type
+of these channels depends on the type of CPU and communication modules installed in the RTU.
+Figure 19 – Channel Architecture
+
+D3885600-00
+
+29
+
+15/05/2025
+
+User Manual – AB_SER
+
+For example, this figure shows an RTU with a HUe and an AB_SER module. The “Channel
+Architecture” zone displays all channels and links (channel associations) which are defined.
+•
+
+Channel1 and Channel2: COM1 and COM2 (HUe)
+
+•
+
+Channel3: RS-485 (HUe)
+
+•
+
+Channel4, Channel5, Channel6 and Channel7: COM1, COM2, COM3 and COM4 (AB_SER)
+
+Using buttons in the toolbar, you can:
+•
+
+Add a new channel or link.
+
+•
+
+Delete a channel or link.
+
+•
+
+Modify the configuration of a channel or link
+
+The following figure shows the configuration panel for ASYNC channel:
+Figure 20 – Channel Setup
+
+Where:
+•
+
+Name: Identifying name
+
+•
+
+Description: Description
+
+•
+
+Type: Channel type depending on the implemented communication protocol. There are
+three types:
+TCP
+UDP
+ASYNC (RS-232, RS-485 or RS-422 serial communication)
+
+Specific Parameters: Reserved, this box mustn’t be checked
+
+30
+
+D3885600-00
+
+User Manual – AB_SER
+
+•
+
+15/05/2025
+
+Channel: The physical port that will be used for this channel. The list of physical channels
+available depends on the CPU type and the number of AB_SER modules
+
+Baudrate: To specify the communication speed. The speed ranges between 300 and 256000
+bps
+•
+
+Protocol: It defines the asynchronous protocol which will be used. The available protocols
+are RS-232, RS-485 and RS-422. RS-485 allows 2 or 4-wire communications.
+
+Parity, Stop bit, Data bits: To configure communication parameters
+RS-485 / RS-422:
+Termination resistor
+Polarization
+Modem Control: These parameters allow configuring the signals for modem control in the
+communication ports. Not all values are available for each CPU
+DTR Control: Flow control
+ENABLE: DTR at high logical level (1)
+DISABLE: DTR at low logical level (0)
+TOGGLE (only available for K7 modem): DTR control depends on the parameter
+“DTR - RTS delay”.
+RTS Control: To configure the RTS output
+DISABLE. Disables the use of the RTS signal
+ENABLE: It enables the RTS signal, and keeps it active.
+AUTO: The RTS signal timing will be defined automatically.
+TOGGLE: It allows defining timing for RTS signal.
+CD Control:
+ENABLE: CD at high logical level (1).
+DISABLE: CD at low logical level (0).
+DSR Control:
+ENABLE: DSR at high logical level (1).
+DISABLE: DSR at low logical level (0).
+Time Setup: The time setup when DTR is configured as TOGGLE
+Delay before transmission: Elapsed time from the data transmission is ready
+and activation of the RTS
+DTR – RTS delay: Timeout before establish the RTS signal when DTR has been
+activated
+Timeout CTS: Standby time from the activation of the RTS to the activation of
+the CTS. If the CTS value is zero, it means that the transmission will be
+done regardless of CTS value. For non-zero values, channel transmission is
+controlled by the CTS; if the time defined in this attribute elapses without a
+CTS activation, then the package pending to be sent is discarded
+RTS(or CTS) message delay: Elapsed time from the activation of the CTS to
+data transmission
+Message – RTS delay: time from the end of the data transmission to RTS
+deactivation.
+For 2-wire RS-485 communications, it is very often necessary to set the RTS control to TOGGLE,
+and define all times to 0 ms. Thus, reception while transmitting is disabled (to avoid echo).
+
+In RS-485 mode the first byte is lost if the answer is too fast.
+D3885600-00
+
+31
+
+15/05/2025
+
+User Manual – AB_SER
+
+For more information about configurations of channels, please, consult the Easergy Builder manual.
+
+Maintenance of Module via WEB
+webApp
+webApp is the remote user interface to consult, monitor and maintain tasks. Once the username and
+password have been entered, you can access to the main window and, depending on the web tool,
+several sections are available.
+When use webApp, the following message is shown previously to access the tool:
+Figure 21 – Disclaimer information.
+
+Please, read this information and take it into account.
+In this manual, only the information about AB_SER is shown. For more information about these
+tools, please, consult the user manual for each one.
+
+Using webApp
+EasyLogic T150 webApp includes an access management allowing to control users who can login in
+the tool. To access webApp, write https://< CPU IP address> in the navigation address bar, where
+<CPU IP address> must be changed for the correct IP address.
+Figure 22 – Access window.
+
+Write the Username and password to access the webApp’s main window:
+
+32
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+All information about default users is detailed in the webApp user manual.
+There are the following tabs in the main menu:
+•
+
+Home.
+
+•
+
+Monitoring & Control.
+
+•
+
+Diagnostic
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+Home tab
+Select Home in the main toolbar and the following information is shown:
+Figure 23 –Home tab.
+
+Some of this information can be filled in by the user.
+•
+
+Device Information. It is possible to add the names of the operators who have used or configured
+the equipment or a specific custom note that can be viewed each time a connection is
+established to this RTU. This information can be changed using button “Edit”, next to “Device
+information”.
+
+•
+
+Location. The GPS coordinates for the RTU location (place, latitude, longitude, and altitude)
+should be entered here by the installer. Location is not set automatically. The image must be
+include manually by clicking button
+
+D3885600-00
+
+on the map.
+33
+
+15/05/2025
+
+User Manual – AB_SER
+
+•
+
+Image associated to the RTU. It could be useful to include a location map corresponding to the
+GPS coordinates. Use button
+
+•
+
+on the graphic zone to do it.
+
+Notes. This zone allows the user to include notes that are shown to other users. Use button
+too add new notes.
+
+•
+
+Factory information: This zone shows the manufacturer, model and the version of the software
+loaded on the HU module. Using button
+next to the text “Factory Information”, it is also
+possible to include an image of the particular RTU or CPU for identification purposes.
+
+Monitoring & Control
+Select tab “Monitoring & Control” to access:
+•
+
+System information.
+
+•
+
+Information about coreDb points.
+
+System Information
+Figure 24 - Monitoring & Control tab.
+
+The correspondent supervision points must be installed, otherwise, you will see a warning like the
+one in the example above (“PLC information not available”). Other example of not defined point is
+the following:
+
+More information about how supervision information webApp user manual.
+
+34
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Diagnostic
+In the Diagnostic menu there is a Trace tab. The channels configured with Easergy Builder can be
+monitored in Trace tab. The user can choose the channel to monitoring and it click in the field “Show
+selected traces”.
+Figure 25 – Diagnostic View
+
+Maintenance
+Using the Maintenance tab, the user can consult the status of the I/O modules in the ITB. Each AB is
+shown in a tab, with its name and two icons showing the current status:
+Icon
+
+Meaning
+Communications are OK.
+Communications error.
+Module has no diagnostics.
+Module has diagnostics
+
+Firmware Upgrade
+Once the ITB is configured, the HU module already knows the type of acquisition blocks that are
+been installed and their corresponding addresses.
+To update the software of the AB_SER module, you need:
+•
+
+A console connection with the HU.
+
+•
+
+AB_SER module must be correctly addressed and working fine in the ITB (LED Run must be
+blinking).
+
+•
+
+AB_SER.bin file with the new version. This file is available in the /mnt/flash folder of the HU. If
+not, you can contact Schneider Electric to ask for it. Use an SFTP client and transfer this binary
+file into the HU flash folder.
+
+The console tool can be executed using any commercial tool for serial or SSH connection. In this
+manual, PuTTy software is used.
+D3885600-00
+
+35
+
+15/05/2025
+
+User Manual – AB_SER
+
+Open a serial connection as follow:
+Figure 26 – Putty configuration.
+
+SSH connection via Ethernet can be used too. More information about the console use in the HU
+user manual. In the following picture, HUe is used as CPU:
+Figure 27 – SSH connection
+
+It is necessary to login in the console with INSTALLER role user. No other user has permissions to
+execute this operation. Please, consult the HU user manual for more information.
+Once logged with INSTALLER role user, the BLSHELL is shown:
+
+36
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+If the file AB_SER.bin is available in the flash folder, use one of the following commands to upgrade
+the software of AB_SER modules:
+
+Table 6 – Upgrading AB_SER’s software.
+Module
+
+File
+
+Command
+
+Description
+
+All modules
+
+*.bin
+
+claqUpgrade “all”
+
+It updates all acquisition blocks
+addressed in the ITB. Binary files
+for each type of block must be
+available in the /flash folder.
+
+By position
+
+AB_SER.bin
+
+claqUpgrade
+“<position>”
+
+It updates the module AB_SER
+with the <position> address.
+
+AB_SER
+
+AB_SER.bin
+
+claqUpgrade “all
+AB_SER”
+
+It updates all AB_SER modules
+installed in the ITB.
+
+Console commands are case-sensitive, and quotation marks must be included.
+After running the command, the console will show some messages indicating the process status.
+Here below it is shown an example of how the firmware of an AB_MIO module is updated. It is
+similar for AB_SER:
+
+D3885600-00
+
+37
+
+15/05/2025
+
+User Manual – AB_SER
+
+When you run the command, the first step is to check the version that is installed in the module. After
+that, the file transfer to the module begins.
+Finally, if the process has finished successfully, the console will show information about the process
+as well as an upgrading summary, as shown here below.
+
+38
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Technical Specification Table
+Hardware Specifications
+Channels
+
+Communications
+
+Number
+
+4
+
+Type
+
+4 channels for asynchronous communication
+
+Level
+
+RS-232 / RS-485 (2 wires) / RS-422 (4 wires).
+
+Signals
+
+Rx, Tx, RTS and CTS
+
+Type of compatible CPU
+
+HUe, HU120
+
+Maximum number of AB_SER
+
+4
+
+Galvanic isolation (per block)
+
+0.5 kVac
+
+Typical consumption
+
+1.1 W
+
+Mechanical data
+
+Dimensions
+
+94 (length) x 129 (width) x 60 (depth) mm.
+
+Weight
+
+420 g.
+
+Interfaces
+Version A1 and A2
+
+Channel connector
+
+Functional Specifications
+
+4 DB9 male connectors
+
+Transmission characteristics
+
+Configurable for each channel.
+
+Transmission / Reception
+
+By complete streams.
+Asynchronous communications
+
+Up to 115,200 bps
+
+Other transmission rates are available with special configurations.
+
+Ordering Options
+
+AB_SER M5671000002 zz
+Revision:
+(Revision code)
+
+CE Mark
+Standards, Directives, and
+harmonized norms.
+
+D3885600-00
+
+LVD – Low Voltage Directive
+
+Directive 2014/35/UE
+
+EMC – Electromagnetic Compatibility
+
+Directive 2014/30/UE
+
+RoHS 3 – Restriction of Hazardous Substances
+
+Directive 2015/863/EU
+
+WEEE – Waste Electrical and Electronic Equipment
+
+Directive 2012/19/UE
+
+39
+
+15/05/2025
+
+User Manual – AB_SER
+
+EMC Directive
+EMC tests according to
+
+Power supply and EMC
+IEC-EN 60870-2-1:1996
+Immunity for equipment used in power station and substation environment
+IEC-EN 61000-6-5:2015 and EN 50121-5:2017 /A1:2019
+Emission standard for industrial environments – IEC-EN 61000-6-4 and EN 50121-5:2017 /A1:2019
+
+Emission EMC tests
+
+Radiated emissions
+EN 55022:2006 + A1:2007
+Conducted emissions
+EN 55022:2006 + A1:2007
+
+Immunity EMC tests
+
+Electrostatic discharges (ESD)
+IEC-EN 61000-4-2:2009
+RF electromagnetic field
+IEC-EN 61000-4-3:2006 + A2:2010
+
+From 30 to 6000 MHz (Class A)
+From 0.15 to 30 MHz (Class A)
+By air ±8 kV and by contact ±6 kV (Level 3)
+From 80 to 6000 MHz (Level 3).
+
+Fast transient common mode
+
+I/O ports: ±2 kV 5kHz (Level 4).
+
+IEC-EN 61000-4-4:2012
+
+I/O ports: ±4 kV 2.5kHz (Level 4).
+Power port: ±4 kV common and differential
+mode
+Other ports: ±2 kV differential mode, ±4 kV
+common mode
+
+Surge
+IEC-EN 61000-4-5:2006
+RF common mode
+IEC-EN 61000-4-6:1996 + A1:2001
+Power frequency magnetic field
+IEC-EN 61000-4-8:2010.
+Power frequency common mode disturbances.
+IEC-EN 61000-4-16:1998
+Damped oscillatory wave
+IEC-EN 61000-4-18:2007 + A1:2010
+
+10 VRMS 0.15-80 MHz 80% AM (Level 3).
+100 A/m, 1000 A/m 3 s (Level 4).
+300 A/m >10s
+30 V 50 Hz, 300V 50 Hz 1 s (Level 4).
+Power, Communications and I/O:
+1kV symmetrical, 2.5kV asymmetrical,
+(f=1MHz)
+
+Environmental
+Environmental tests
+
+Cold
+IEC-EN 60068-2-1:2007
+Dry heat
+IEC-EN 60068-2-2:2007
+Damp heat
+IEC-EN 60068-2-30:2005
+
+-40 ºC / 16 h
++70 ºC / 16 h
+From 25 ºC up to 55 ºC / 95% RH
+2 cycles of 24 h
+
+Bump test IEC-EN 60068-2-29
+
+250 m/s2, 6ms, 100 shocks/axis/polarity – 1
+axis (vertical)
+
+Salt mist, cyclic (sodium chloride solution)
+
+3 cycles of 24 h each (Severity 4)
+
+IEC 60068-2-52:1996
+
+Electrical Safety
+General requirements
+
+40
+
+IEC-EN 60950-1:2006 + A11:2009 + A1:2010 + AC:2011 + A12:2011+ A2:2013
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Index of Figures
+Figure 1 - Barrier of protection for elements with dangerous voltages. ......................................................................13
+Figure 2 – Example of yellow/green cable for earthing. .............................................................................................14
+Figure 3 - Technical label. ..........................................................................................................................................17
+Figure 4 – EasyLogic T150 ........................................................................................................................................19
+Figure 5 - AB_SER Module. .......................................................................................................................................20
+Figure 6 - Functional block diagram. ..........................................................................................................................20
+Figure 7 - AB_SER’s P/N description. ........................................................................................................................21
+Figure 8 - Hardware block diagram. ...........................................................................................................................21
+Figure 9 - Mount bracket on DIN rail...........................................................................................................................23
+Figure 10 - EasyLogic T150 module on a DIN rail......................................................................................................23
+Figure 11 - Remove module. ......................................................................................................................................24
+Figure 12 – J1, J2, J5 and J6 DB9 connectors...........................................................................................................24
+Figure 13 – DB9 Connector ........................................................................................................................................24
+Figure 14 – AB_SER LED indicators. .........................................................................................................................26
+Figure 15 - Add RTU. ..................................................................................................................................................27
+Figure 16 - Acquisition modules in a default configuration. ........................................................................................27
+Figure 17 - Adding one (or several) AB. .....................................................................................................................28
+Figure 18 - Adding a configuration. ............................................................................................................................28
+Figure 19 – Channel Architecture ...............................................................................................................................29
+Figure 20 – Channel Setup .........................................................................................................................................30
+Figure 21 – Disclaimer information. ............................................................................................................................32
+Figure 22 – Access window. .......................................................................................................................................32
+Figure 23 –Home tab. .................................................................................................................................................33
+Figure 24 - Monitoring & Control tab. .........................................................................................................................34
+Figure 25 – Diagnostic View .......................................................................................................................................35
+Figure 26 – Putty configuration. ..................................................................................................................................36
+Figure 27 – SSH connection .......................................................................................................................................36
+
+D3885600-00
+
+41
+
+15/05/2025
+
+User Manual – AB_SER
+
+Index of Tables
+Table 1 – Symbols ......................................................................................................................................................11
+Table 2 – RS-232 pinout .............................................................................................................................................25
+Table 3 – Full-duplex RS-422 pinout ..........................................................................................................................25
+Table 4 – Half-duplex RS-485: ...................................................................................................................................25
+Table 5 – Led indicators meaning...............................................................................................................................26
+Table 6 – Upgrading AB_SER’s software. ..................................................................................................................37
+
+42
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+Glossary
+A
+A: Ampere. Base unit of electric current in the International System of Units.
+AAP: Automatic Addressing Procedure.
+AB: EasyLogic T150 Acquisition Block.
+AB_SER: Acquisition block for analog inputs.
+AB_SER: Acquisition block for analog outputs.
+AB_DI: Acquisition block for digital inputs.
+AB_DIDO: Acquisition block for digital inputs and outputs.
+AB_SER: Acquisition block for digital outputs.
+AB_SER: Acquisition block for serial communications.
+AC: Alternate Current.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+
+C
+ºC: Celsius degrees.
+EMC: ElectroMagnetic Compatibility.
+CPU: Central Processing Unit.
+
+D
+DC: Direct Current.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung..
+DO: Digital Output.
+
+E
+EEPROM: Electrically Erasable PROgrammable read-only Memory.
+EOL: End-of-Life. According to the WEEE CE Directive, the EOL document provides instructions
+for discard the product at the end of its life.
+
+G
+G: Grame.
+GPS: Global Positioning System.
+
+H
+HU: Head Unit.
+
+D3885600-00
+
+43
+
+15/05/2025
+
+User Manual – AB_SER
+
+HUe: High-performance EasyLogic T150 CPU.
+Hz: Hertz. Frequency in cycles per second.
+
+I
+IED: Intelligent Electronic Device.
+I/O: Input / Output.
+IRIG: Inter Range Instrumentation Group.
+IRIG-B: Mode B of the standard IRIG.
+ISO 9001: Standard International of quality management systems.
+ITB: Intelligent Terminal Block.
+
+K
+KB: Kilobytes.
+kHz: Kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+MΩ: Megaohm.
+mA: Milliampere.
+MHz: Megahertz.
+Mbps: Megabits por segundo.
+m: Meter.
+mm: Millimeter.
+ms: Milisecond.
+
+N
+N/A: Not apply.
+NCHAT: Number of changes for chattering.
+
+P
+PC: Personal Computer.
+PE: Protective Earth.
+PPS: Pulses per Second.
+P/N: Part Number.
+PS: Power Supply.
+PV: Polarization Voltage.
+
+44
+
+D3885600-00
+
+User Manual – AB_SER
+
+15/05/2025
+
+PWR: Power.
+
+R
+RAM: Random Access Memory.
+RoHS: Restriction of Hazardous Substances.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+
+S
+s: Second.
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+
+T
+TCHAT: Time for chattering.
+TCP/IP: Transmission Control Protocol/Internet Protocol.
+TF: Filtering Time.
+TFTP: Trivial File Transfer Protocol.
+TM: Change in Memory Time.
+TS: Settling Time.
+TU: Terminal Unit.
+
+V
+VAC: Volts of alternate current.
+VDC: Volts of direct current.
+
+W
+W: Watt.
+WEEE: Waste Electrical and Electronic Equipment.
+
+X
+XU: Expansion Unit.
+
+D3885600-00
+
+45
+
+Printed in:
+Friday, July 25, 2025
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++33 (0) 1 41 29 70 00
+As standards, specifications, and design change from time to time,
+Please ask for confirmation of the information given in this publication.
+@2025 – Schneider Electric. All rights reserved.
+D3885600-00 05/2025
+
+46
+
+D3885600-00
+
+

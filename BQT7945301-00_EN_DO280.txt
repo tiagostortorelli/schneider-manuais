@@ -1,0 +1,2731 @@
+PowerLogic T500 Substation Controller
+PowerLogic DO280
+User Manual
+
+BQT7945301-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic DO280
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of DO280 ..................................................................8
+PowerLogic T500 Platform ..........................................................................8
+DO280 Module ...........................................................................................9
+LED Indicators.......................................................................................... 11
+
+Physical Mounting and Installation .........................................................13
+Installation ...............................................................................................13
+Limits .................................................................................................13
+Handling Modules ...............................................................................13
+Module Location within the Chassis or Backplane..................................13
+Power Supply Requirements................................................................14
+Configuration Switches........................................................................14
+Mounting Procedure............................................................................15
+Wiring Recommendations for PowerLogic T500..........................................16
+Wiring DO280 ..........................................................................................16
+Terminal Connection (option C1) ..........................................................16
+Flat Ribbon Connection (option C2)......................................................19
+Terminal blocks (option C2) .................................................................20
+
+Configuration and Maintenance..............................................................23
+Configuration of the Backplane ..................................................................23
+DO280 Configuration ................................................................................26
+Local Acquisition Information ...............................................................26
+DO280 Signals ...................................................................................27
+Local Acquisition Coordinates ..............................................................28
+coreDb Information for a DO280 Module...............................................28
+Maintenance of Module.............................................................................31
+webApp..............................................................................................31
+Using webApp ....................................................................................31
+
+Appendix ....................................................................................................36
+Technical Specifications ............................................................................36
+
+Glossary .....................................................................................................41
+
+BQT7945301-00
+
+3
+
+Foreword
+
+PowerLogic DO280
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7945301-00
+
+5
+
+PowerLogic DO280
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM DO280 module (part number EMS743x0).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7945301-00
+
+06/2024
+
+Creation
+
+BQT7945301-00
+
+Foreword
+
+PowerLogic DO280
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+PowerLogic HU280
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7945301-00
+
+7
+
+PowerLogic DO280
+
+General Description of DO280
+
+General Description of DO280
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7945301-00
+
+General Description of DO280
+
+PowerLogic DO280
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+DO280 Module
+Depending on the ordering options, C1 or C2, the following interfaces are
+available for field connections:
+•
+
+Option C1: EMS74310: used with 3.81 mm terminal blocks for field
+connection.
+
+•
+
+Option C2: EMS74320: used with flat ribbon for field connection.
+
+The DO280 module provides 32 passive digital configurable outputs to the
+transistor. According to IEC-60870-3, a passive output is defined when the
+polarization source is external to the control equipment.
+The output signals can be:
+•
+
+Single: pulsed (fixed time) or latched
+
+•
+
+Double: pulsed (fixed time) or latched
+
+The DO280 module consists of:
+
+BQT7945301-00
+
+•
+
+Two blocks with 16 digital outputs each
+
+•
+
+A controller block
+
+•
+
+An indication block
+
+•
+
+A "Select before operate" command management system
+
+9
+
+PowerLogic DO280
+
+General Description of DO280
+
+The following figure shows a schematic front view:
+DO280 - Front view
+
+Digital Output
+Two independent acquisition blocks with a main connector are available for field
+connection. Each digital output block accepts 16 signals which perform the
+following functions:
+•
+
+Permanent output checks
+
+•
+
+Command permission output
+
+•
+
+Over-voltage protection in output transistors
+
+•
+
+External polarization
+
+•
+
+Automatic polarizing test
+
+•
+
+Galvanic isolation through opto-coupler
+
+•
+
+Input protection against electromagnetic disturbance
+
+Controller Block
+The controller block supports the following functions:
+
+10
+
+•
+
+Hot-swap functionality
+
+•
+
+Parameterization and control of digital output blocks
+
+•
+
+Advanced processing of digital outputs
+
+•
+
+The indication block is updated with the module status information
+
+•
+
+Interface with the Profibus communication bus to connect with the CPU
+
+BQT7945301-00
+
+General Description of DO280
+
+PowerLogic DO280
+
+LED Indicators
+LED indicators
+
+The DO280 module integrates 36 indicators with the following functions:
+•
+
+DIA: general diagnostics
+
+•
+
+RUN: operation status
+
+•
+
+ST1 and ST2: indicate whether there is a situation that prevents the module
+from being brought into service.
+
+•
+
+DOn: indicates whether output n is active or inactive.
+
+The front indicators show the module status according to the following table:
+/
+
+: On
+
+/
+
+: Blinking
+
+: Off
+
+LED indicators meaning
+DIA
+
+RUN
+
+STx
+
+DOx
+
+Description
+
+Troubleshooting
+action
+
+Normal status. The module is ready to run
+commands to field.
+
+6 (If commands are not
+executed)
+
+NOTE: If in this situation commands are not
+executed, follow the action indicated.
+–
+
+–
+
+–
+
+Incorrect address assigned to the module (0 or
+greater than 96).
+
+1 (If the address is
+correct)
+
+If the address is correct, the type of the module is
+different to the configured for this address (and a
+module with correct type and this address is not
+inserted on the bus).
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+BQT7945301-00
+
+–
+
+Module not configured or disconnected. If the
+module is connected, the address is between 1 and
+96 but this address has not been configured.
+
+2 (If the module is
+connected)
+
+Digital output x activated.
+–
+
+It lights briefly during startup. If it remains on, an
+abnormal behavior has been detected in the
+firmware or during the startup process.
+
+3 (If it remains on)
+
+–
+
+Without polarization without active digital output.
+
+4
+
+11
+
+PowerLogic DO280
+
+General Description of DO280
+
+LED indicators meaning (Continued)
+DIA
+
+RUN
+
+STx
+
+DOx
+
+Description
+
+Troubleshooting
+action
+4
+
+–
+
+–
+
+Without polarization and at least one active digital
+output.
+
+–
+
+–
+
+Occurs when voltage is detected on the commonpermit line without the corresponding control being
+activated by the module.
+
+–
+
+–
+
+In this case, 8 digital outputs are blinking because a
+short-circuit has been detected between two
+blinking signals or one blinking signal and the mass
+line. All commands in the module are blocked.
+
+5
+
+The troubleshooting actions to be taken are:
+1. Check the type of the module and the module address by verifying the
+positions of the configuration switches.
+2. Check that the module is properly inserted in the backplane and that the
+assigned address is correct.
+3. Contact the support service.
+4. If any of the ST1 and ST2 LEDs is ON, the polarization voltage is lower than
+the minimum required. In this case, if there is an active command, the DIA
+LED is also blinking.
+5. If any of the DOn indicators is flashing, the self-verification system has
+detected an abnormal operating status in the associated output. In this case,
+the DIA LED is also blinking.
+6. DO280 Module Configuration section provides information about the DO280
+cabling procedure to prevent self-verification conflicts. If the wiring is correct,
+contact the support service, page 26.
+7. Check the following:
+
+12
+
+•
+
+Each terminal block must be connected in the correct order. The terminal
+block associated to the upper connector and lower connector have to be
+according to the wiring on the polarization terminal.
+
+•
+
+Two or more modules must not have the same address. If they do,
+commands are blocked.
+
+BQT7945301-00
+
+Physical Mounting and Installation
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+Installation
+Limits
+The maximum number of I/O modules connected to a CPU is 96.
+
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the CPU next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+BQT7945301-00
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically CPU modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant CPUs, place both CPUs modules side by side in
+the backplane.
+
+13
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+
+Backplane positions
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF INCORRECT WIRING OR SUPPLIED VOLTAGE
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+•
+
+Check that there is no reverse polarity.
+
+Failure to follow these instructions can result in equipment damage.
+The PS280 module supplies power to the modules connected to the backplane, as
+required. When using auxiliary power supplies, you need to scale them depending
+on the installed PowerLogic T500 modules.
+The consumption of all modules is added plus a safety margin (between 20% and
+50% of the full power). The power supply efficiency, typically, 70 - 90% is also
+considered to protect the chassis and power supply from overloading.
+The maximum power requirement for each DO280 module is:
+•
+
+Main power supply (through the bus): Basic consumption
+
+•
+
+Polarization supply: 32 x Polarization voltage x Maximum current per signal
+NOTE: The data is available in the Technical Specification Table at the end of
+this manual, page 36.
+
+Configuration Switches
+The module identification and Profibus communication speed can be set using the
+microswitches on the module rear panel.
+Profibus microswitches for module configuration
+
+1
+2
+3
+4
+
+Profibus address
+
+5
+6
+7
+8
+
+Reserved
+
+9
+10
+
+Profibus speed
+
+11
+12
+
+14
+
+Reserved
+
+BQT7945301-00
+
+Physical Mounting and Installation
+
+PowerLogic DO280
+
+The module identification must be unique, selecting between 1 and 96 using
+microswitches 1 to 7. The addresses 0 and from 97 to 127 are reserved and are
+not assigned. In the case that they are assigned, messages are generated when
+the system boots.
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+Assuming Px is the value assigned to the position of microswitch x (0 is OFF and 1
+is ON), for example, if switches 2, 4 and 5 are in the ON position, the Profibus
+address of the module is 26.
+The Profibus communication speed must be the same for all PowerLogic T500
+modules. It is determined by the speed of the primary device, configured in the
+Easergy Builder configuration tool.
+The speed is set using microswitches 9, 10 and 11 as shown in the following table:
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+
+BQT7945301-00
+
+15
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon connectors (mounting
+option C2).
+
+Wiring Recommendations for PowerLogic T500
+To help avoid EMC disturbances, refer to the PowerLogic T500 Platform user
+manual.
+
+Wiring DO280
+This module has two digital output blocks labeled as J1 and J2, allowing 32 digital
+outputs to be connected through terminals or flat ribbon.
+Depending on the pin, DO280 can be connected to the field using option C1
+(terminal connection) or C2 (flat-ribbon connection).
+
+Terminal Connection (option C1)
+The following figure shows the pin allocation of the connectors for C1. The J1
+connector is located at the top and the J2 connector at the bottom.
+
+16
+
+BQT7945301-00
+
+Physical Mounting and Installation
+
+PowerLogic DO280
+
+DO280- Direct connection (option C1)
+
+J1
+
+DO01
+DO02
+
+DO17
+DO18
+
+DO03
+DO04
+
+DO19
+DO20
+
+DO05
+DO06
+
+DO21
+DO22
+
+DO07
+DO08
+
+DO23
+DO24
+
+COM1
+
+COM3
+
+J2
+
+DO09
+DO10
+
+DO25
+DO26
+
+DO11
+DO12
+
+DO27
+DO28
+
+DO13
+DO14
+
+DO29
+DO30
+
+DO15
+DO16
+
+DO31
+DO32
+
+COM2
+
+COM4
+
++ v1
+
++ v2
+
+- v1
+
+- v2
+
+Where:
+•
+
+DOxx: Digital output xx
+
+•
+
+COMn: Common terminal group n
+
+•
+
++Vi: Voltage, positive terminal (Vi is V1 or V2)
+
+•
+
+-Vi: Voltage, negative terminal
+
+The following figure displays the wiring of the first block of digital outputs. The
+second block is wired using COM2.
+DO280 - Field connection schematics (option C1)
+J1
+DO01
+
+DO08
+COM1
+Internal permission for
+command execution
+
++V1
+-V1
+-
+
++
+
+External
+polarization
+
+Follow the instructions below before wiring this module:
+•
+
+Type of cable: Low voltage computer 20 x 0.14” (Brand: EMELEC).
+
+Recommended cable for field connection
+
+•
+
+BQT7945301-00
+
+To make the connection, strip between 8 and 10 cm off the cable end, and
+protect it with an insulating material as shown in the following figure:
+
+17
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+
+Cable prepared for field connection
+
+•
+
+The shield at the end of each individual cable is removed for a distance of
+0.5 cm, which is the part of copper to introduce in the terminal.
+
+Wiring a module with terminals
+
+A empty space at the bottom allows the door to be closed.
+
+Position of the cables when they are connected
+
+Once the module is installed in the cabinet, to avoid jerking and the cable fall on
+the terminal, due to their weight, join both cables with a plastic bracket. Then fix
+them to the cabinet or the chassis.
+
+18
+
+BQT7945301-00
+
+Physical Mounting and Installation
+
+PowerLogic DO280
+
+Example of mounting cables onto the cabinet or chassis
+
+Flat Ribbon Connection (option C2)
+When C2 option (flat ribbon) is used to connect the module to the field, you need
+to use a terminal block designed specifically for DO280 (two models are
+available). These terminal blocks include 16 relays with different breaking
+capacities. The flat ribbon cables are designed to be installed inside the cabinet.
+The DO280 module includes, apart from the two flat-ribbon cable connectors, a 4wire terminal connector – MC 1.5/4-STF-3.81 (Phoenix Contact) – used to
+connect the polarization inputs.
+This connector has the following pin assignments:
+•
+
+Pin 1: Common output of block 1 (signals 1 to 16)
+
+•
+
+Pin 2: V1+ positive polarization input
+
+•
+
+Pin 3: Common output of block 2 (signals 17 to 32)
+
+•
+
+Pin 4: V2+ positive polarization input
+
+The following figure shows the connection between the module, external terminal
+blocks and polarization supply:
+DO280 - Field connection schematics (option C2)
+Vpol +
+
+Vpol -
+
+DO280
+Disconnected
+Jumper
+
+4: Vpol+
+
+2: Vpol+
+
+1: C1B
+
+1
+2
+3
+4
+
+Polarization
+Terminal
+
+Terminal blocks
+with relays
+
+Disconnected
+jumper
+Terminal blocks
+with relays
+
+3: C2B
+
+•
+
+BQT7945301-00
+
+The terminal block polarization negative input is connected to the negative
+output from the polarization source.
+
+19
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+
+•
+
+The positive polarization input of the terminal block associated with the first
+acquisition block (outputs 1 to 16) is connected to contact 1 of the polarization
+terminal. The positive polarization input of the terminal block associated with
+the second acquisition block (outputs 17 to 32) is connected to contact 3 of
+the polarization terminal. The pins 2 and 4 are to be connected to the positive
+output from the polarization source.
+
+Terminal blocks (option C2)
+Two models of terminal blocks are available for DO280 module:
+•
+
+TB_DO16/T: Terminal block with 16 relays and medium breaking capacity.
+
+•
+
+TB_DO16/P: Terminal block with 16 relays and high breaking capacity.
+
+TB_DO16/T - TO180/P2 - TO180/P3 - Terminal Block
+TB_DO16/T - TO180/P2 - TO180/P3 - Terminal block with 16 relays and
+medium breaking capacity
+
+These terminal blocks include 16 relays controlled by a DO280 module as well as
+the polarization input. Breaking capacity of the included relays is 16 A/250 Vrms
+and 16 A/30 Vdc. These relays are used in applications that need to switch loads
+of 48 Vdc or lower voltages. These terminal blocks also include diodes to prevent
+current reflowing between relays, activate output LED indications and enable the
+selection of Normally Open or Normally Closed behavior of each relay.
+Technical Specifications of TB_DO16/T - TO180/P2 - TO180/P3
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625729
+PowerLogic EMS78320 (24 Vdc)
+E1035472
+PowerLogic EMS78330 (48 Vdc)
+
+20
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+24/48 Vdc ±10%.
+
+Dimensions
+
+76 x 126 x 266 mm
+
+Field connector
+
+Screw connection
+
+Min/Max wire cross section (rigid)
+
+Rigid: 0.2 / 4 mm2
+
+Min/Max wire cross section (flexible)
+
+Flexible: 0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 12
+
+Maximum current capacity per output
+
+5 A (at 40 ºC), resistive load
+
+Maximum operating voltage
+
+250 Vrms
+
+BQT7945301-00
+
+Physical Mounting and Installation
+
+PowerLogic DO280
+
+Technical Specifications of TB_DO16/T - TO180/P2 - TO180/P3 (Continued)
+Specification
+
+Description
+
+Contact type
+
+Configurable NA or NC
+
+Module connector
+
+20-way DIN 41651 connector
+
+Consumption per channel
+
+0.8 W
+
+Operate (set) time
+
+7 ms
+
+Release (reset) time
+
+3 ms
+
+Input circuit
+
+Parallel protection diode
+Series protection diode per channel
+
+The electrical diagram for this terminal block is shown below:
+TB_DO16/T - TO180/P2 - TO180/P3 - Electrical diagram
+1
+
+2
+
+3
+
+15
+
+4
+
+16
+
+17
+18
+
+19
+20
+
+J1
+
+K1
+
+K2
+
+NA
+
+1
+
+NC
+
+2
+
+K3
+
+NA
+
+3
+
+NC
+
+4
+
+K15
+
+K4
+
+NA
+
+5
+
+NC
+
+6
+
+NA
+
+7
+
+NC
+
+K16
+
+NA
+
+8
+
+29
+
+NC
+
+30
+
+NA
+
+31
+
+NC
+
+32
+
+33
+
+34
+
+TB_DO16/P - TO180H - Terminal Block
+TB_DO16/P - TO180H - Terminal block with 16 digital outputs and high
+breaking capacity
+
+These terminal blocks include 16 relays controlled by a DO280 module and the
+polarization input. Breaking capacity of these relays is 10 A/240 Vrms and 10 A/
+150 Vdc. These relays are used in applications that need to switch loads of
+voltages over 48 Vdc. These terminal blocks also include diodes to prevent
+current reflowing between relays, activate output LED indications.
+Technical Specifications of TB_DO16/P - TO180H
+
+BQT7945301-00
+
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625746
+
+21
+
+PowerLogic DO280
+
+Physical Mounting and Installation
+
+Technical Specifications of TB_DO16/P - TO180H (Continued)
+Specification
+
+Description
+PowerLogic EMS78340
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+24 Vdc, ±10%
+
+Dimensions
+
+90 x 126 x 507 mm
+
+IO Isolation
+
+2.5 kV, 50 Hz, 1 min
+
+Field connectors
+
+Knife-disconnect terminals with PCB
+test point
+
+Min/Max wire cross section (rigid)
+
+0.2 / 4 mm2
+
+Min/Max wire cross section (flexible)
+
+0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 12
+
+Maximum current per output
+
+5 A (at 40 ºC), resistive load
+
+Maximum operating voltage
+
+250 Vrms / 150 Vdc
+
+Contact type
+
+Single contact, 1 NO
+
+Module connector
+
+20-way DIN 41651 connector
+
+Consumption per channel
+
+1.2 W each active relay
+
+Operate (set) time
+
+15 ms
+
+Release (reset) time
+
+10 ms
+
+Input circuit
+
+Parallel protection diode
+Series protection diode per channel
+
+The electrical diagram for this terminal block is shown below:
+TB_DO16/P - TO180H - Electrical diagram
+
+22
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches, page 14.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+BQT7945301-00
+
+23
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+24
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+BQT7945301-00
+
+25
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+DO280 Configuration
+The local acquisition device for PowerLogic T500 is named laq and it is created by
+default for each PowerLogic T500 configuration.
+Configuring local acquisition for PowerLogic T500
+
+The laq Device supports communication between inputs and the outputs managed
+by the acquisition blocks and coreDb points. The first step to configure the
+acquisition settings is including all IO modules in the backplane.
+
+Local Acquisition Information
+The following figure shows the relationship between the field information received
+by the DO280 module and the related points in coreDb:
+
+26
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Field signals and points in coreDb
+
+Point Name Destination Device Destination Coordinate
+D001_00000
+
+laq
+
+D001_00001
+
+laq
+
+D001_00030
+
+laq
+
+D001_00031
+
+laq
+
+2001050000
+2001050001
+
+2001050030
+2001050031
+
+coreDb
+
+DO280
+Module
+
+Address: 1
+Field
+Digital Output
+
+Name
+
+Coordinate
+
+D1
+
+DO_SIM_1
+
+2001050000
+
+D2
+
+DO_SIM_2
+
+2001050001
+
+D31
+
+DO_SIM_31
+
+2001050030
+
+D32
+
+DO_SIM_32
+
+2001050031
+
+All signals in this picture are simple. If a signal is configured as double or counter,
+its default name is different.
+
+DO280 Signals
+The following configuration panel is displayed when DO280 is selected module:
+DO280 module configuration
+
+BQT7945301-00
+
+27
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+For each signal, the following items can be changed:
+•
+
+DO_SIM x or DO_DOB x: signal description
+
+•
+
+Signal type: the following items can be selected:
+◦
+
+DO_OSIM: simple digital output.
+
+◦
+
+DO_ODOB: double digital output.
+
+•
+
+Latch: the value Y indicates that the signal is retained, whereas the value N
+indicates that it is not retained.
+
+•
+
+ExeTim: time in which the signal value is retained. It is applied when the
+value of field Latch is N. The value is expressed in milliseconds, but its
+accuracy is 100 ms.
+
+As with digital inputs, if you set a signal as DO_ODOB, the following signal is not
+available:
+Configuring double output signal
+
+Local Acquisition Coordinates
+The coordinate is a unique identifier of a signal within a Bin. Its definition is
+different for each device and the local acquisition is defined with ten digits with the
+following format:
+2 BBB CC DDDD
+•
+
+2: first number of its coordinate for all PowerLogic T500 local acquisition
+signals is 2.
+
+•
+
+BBB: three digits indicates the point address according to the previous
+communication protocol. In case of Profibus-DP, the address range is from
+000 to 125.
+
+•
+
+CC: Type of signal:
+
+•
+
+◦
+
+00: diagnostic signals of the acquisition modules
+
+◦
+
+05: simple digital output (1 bit)
+
+◦
+
+15: double digital output (2 bits)
+
+◦
+
+16: digital output (1 bit) (Inputs table of Profibus)
+
+◦
+
+17: digital output (2 bits) (Inputs table of Profibus)
+
+DDDD: Number of the signal within each type, that is, it does not need to
+match the physical position. The first signal of a type is 0000, the second is
+0001 ..., with all the types of the previous point.
+
+coreDb Information for a DO280 Module
+Each SM_DO signal is associated with a coreDb register in the Status and
+Command table using its laq coordinate as source.
+
+28
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Status Table
+Status points
+
+Command Table
+Command points
+
+These points and other diagnostic points (D001_STS_COMM and D001_STS_
+DIAG) can be created automatically when the module is included in the
+backplane, but they can also be created manually using the laq wizard.
+To include a point manually, create a new point, select laq as Source Device,
+click right-button on the field Source Coordinates and select Launch Point
+wizard:
+Open launch point wizard
+
+In coreDb, the following diagnostics points can be mapped.
+
+BQT7945301-00
+
+29
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+Diagnostic Points
+Diagnostic signals of the PowerLogic T500 local acquisition
+Coordinate
+
+Description
+
+Name
+
+DDDD
+
+STS_COMM
+
+0000
+
+Module offline. Value 1 indicates that there is no communication
+with the module.
+
+STS_DIAG
+
+0001
+
+Module with diagnostics. Value 1 indicates a diagnostics.
+Usually correspond to a missing polarization in the module.
+
+STS_FAILBUS1
+
+0003
+
+Value 1 indicates a communication interruption in Profibus1.
+
+STS_FAILBUS2
+
+0004
+
+Value 1 indicates a communication interruption in Profibus2.
+
+LAQ diagnostic points (wizard)
+
+LAQ Digital Outputs (wizard)
+
+30
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+
+BQT7945301-00
+
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+31
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+32
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+Accessing the Command Points
+To access the command points, in webApp main menu, go to Monitoring and
+control > Data > Command and you can see the point mapped with Easergy
+Builder window allows you to monitor the information of each coreDb table:
+Command information
+
+For all types of points, each page has the same format. If you lock the signal and
+click
+in the Value column, the value of the corresponding signal can be
+changed.
+
+BQT7945301-00
+
+33
+
+PowerLogic DO280
+
+Configuration and Maintenance
+
+Edit value
+
+If you lock the signal and click
+in the Qhality column, the value of the
+corresponding signal can be changed..
+
+Digital Outputs Signals Quality
+Digital outputs quality control
+
+Each code of quality bit has a different meaning. See the following tables for the
+description of each one.
+Local quality bits
+
+34
+
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00000001
+
+There has been an overflow.
+
+0x00000002
+
+There has been a carry on a counter or a rollover.
+
+0x00000004
+
+There has been a counter adjustment.
+
+0x00000008
+
+Excessive changes in a digital input.
+
+0x00000010
+
+Locked Point (blocked).
+
+0x00000020
+
+Point manually replaced (manual).
+
+BQT7945301-00
+
+Configuration and Maintenance
+
+PowerLogic DO280
+
+Local quality bits (Continued)
+Values (Hexadecimal)
+
+Description
+
+0x00000040
+
+The point has not yet been written into the
+database (No refresh).
+
+0x00000080
+
+Invalid value (Detected error).
+
+0x00000100
+
+The value of the item has exceeded Highest
+Limit Alarm.
+
+0x00000200
+
+The value of the item has exceeded High Limit
+Alarm.
+
+0x00000400
+
+The point value of the Low Limit Alarm has
+decreased.
+
+0x00000800
+
+The point value of the Lowest Limit Alarm has
+decreased.
+
+0x00001000
+
+Invalid time.
+
+Quality bits from the device
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00010000
+
+There has been an overflow.
+
+0x00020000
+
+There has been a carry on a counter or a rollover.
+
+0x00040000
+
+There has been a counter adjustment.
+
+0x00080000
+
+Excessive changes in a digital input.
+
+0x00100000
+
+Locked point.
+
+0x00200000
+
+Point manually replaced.
+
+0x00400000
+
+The point has not yet been written into the
+database.
+
+0x00800000
+
+Invalid value.
+
+0x10000000
+
+Invalid time.
+
+NOTE: If more than one event is detected for a signal, the hexadecimal value
+monitored for quality bits results from the sum of all. For example:
+0x00000001 indicates that an overflow has occurred and 0x00000002
+indicates that there has been a carry on a counter or a roll-over. The value
+0x00000003 would appear monitored.
+
+BQT7945301-00
+
+35
+
+PowerLogic DO280
+
+Appendix
+
+Appendix
+Technical Specifications
+Hardware Specifications
+Specifications
+
+Description
+
+Number of outputs
+
+32 (2 blocks with 16 outputs each)
+
+DO polarization
+
+2 (1 per block)
+
+Number of polarization inputs
+
+2 (1 per block)
+
+Polarization voltage (PV)
+
+24 Vdc / 48 Vdc
+
+Polarization range
+
+±20 % PV
+
+Maximum output current (transistor)
+
+500 mA (no simultaneous)
+
+Isolation
+
+Between acquisition blocks: by optocoupler
+2.5 kVrms
+Between acquisition and control blocks: by
+optocoupler 2.5 kVrms
+
+Transient voltage protection (DO and Pol)
+
+Peak pulse power dissipation up to 4,2 J (for
+2 ms).
+
+Maximum voltage
+
+65 V
+
+Field connection
+
+Terminal / Flat ribbon
+
+Weight
+
+830 g
+
+Consumption
+
+TB_DO16T: 1.1 W + 0.8 W per active relay
+TB_DO16P: 1.1 W + 1.2 W per active relay
+
+Dimensions
+
+245 x 170 x 45 mm
+
+Coating
+
+AVR80
+
+Range of temperature
+
+Operation: from -40 ºC to +70 ºC
+Storage: from -40 ºC to +125 ºC
+
+Interfaces
+Specifications
+
+Description
+
+C1 option (Terminals)
+
+Two 20-way terminal block
+Recommended wire: Low voltage computer with
+20 x 0.14 by EMELEC
+
+C2 option (Flat ribbon)
+
+Two 20-way flat ribbon
+Polarization wire: 2.5 mm2 (13 AWG)
+
+36
+
+BQT7945301-00
+
+Appendix
+
+PowerLogic DO280
+
+Software
+Specifications
+
+Description
+
+Polarization test
+
+Automatic after polarization reset
+
+Type of signals (each signal)
+
+Pulsing or latching
+Single or Double
+
+Output timing
+
+100 - 25500 ms.
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+European and British Directives
+Low Voltage (LVD)
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80%, 10 V/
+m
+1000 – 2700 MHz, AM 1 kHz Prof: 80%, 3 V/
+m
+2700 – 6000 MHz, AM 1 kHz Prof: 80%, 1 V/
+m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80%, 10
+Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+
+BQT7945301-00
+
+37
+
+PowerLogic DO280
+Directive / Test
+
+Appendix
+Identification
+
+Details
+±0.5, ±1, ±2 kV, ±4 kV (asymmetrical
+coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93% / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+38
+
+BQT7945301-00
+
+Appendix
+
+PowerLogic DO280
+
+Ordering Options
+Two options are available for field connection:
+
+BQT7945301-00
+
+•
+
+Option C1: EMS74310: 20-way 3.81 mm terminal blocks.
+
+•
+
+Option C2: EMS74320: 20-way flat ribbon connection, using additional
+external terminal blocks.
+
+39
+
+PowerLogic DO280
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AC: Alternate Current.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+
+D
+DC: direct current.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+
+E
+EMC: Electro Magnetic Compatibility.
+EPROM: Erasable Programmable Read Only Memory.
+
+G
+g: gram.
+GPS: Global Positioning System.
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+BQT7945301-00
+
+41
+
+PowerLogic DO280
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+MB: megabyte.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+
+N
+N/A: not applicable.
+
+P
+PC: Personal Computer.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+RS-232: communication standard.
+RS-485: multipoint differential bus.
+RTDB: Real-Time DataBase.
+RTS: Request To Send.
+RTU: Remote Terminal Unit.
+
+42
+
+BQT7945301-00
+
+PowerLogic DO280
+
+Rx: reception.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TU: Terminal Unit.
+Tx: transmission.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7945301-00
+
+43
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7945301-00
+
+

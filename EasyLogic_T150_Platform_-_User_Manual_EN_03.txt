@@ -1,0 +1,4059 @@
+EasyLogic T150
+User Manual
+This manual provides general information about EasyLogic T150 Platform, including
+installation, wiring and other useful data for installers and designers.
+D3885557-00
+Publication Date (04/2025)
+Read carefully the information contained in this manual before assembly, installation,
+and use of the equipment.
+
+www.se.com
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or
+in the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or
+omissions in the informational content of this document, as well as any nonintended use or misuse of the content thereof.
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Table of Contents
+FOREWORD .....................................................................................................................4
+SAFETY INFORMATION ....................................................................................................4
+IMPORTANT INFORMATION ...........................................................................................5
+PLEASE NOTE ............................................................................................................5
+EU DIRECTIVES ..............................................................................................................5
+SAFETY INSTRUCTIONS ...................................................................................................6
+ABOUT THE BOOK ..........................................................................................................6
+DOCUMENT SCOPE .....................................................................................................6
+DOCUMENT REVISION HISTORY....................................................................................6
+CONFORMITY..............................................................................................................7
+RELATED DOCUMENTS ................................................................................................7
+GENERAL CYBERSECURITY INFORMATION ........................................................................8
+PRODUCT RELATED CYBERSECURITY INFORMATION .........................................................8
+POTENTIAL RISKS AND COMPENSATING CONTROLS .........................................................9
+TRADEMARKS ...........................................................................................................10
+INFORMATION ON NON-INCLUSIVE OR INSENSITIVE TERMINOLOGY ................................10
+CUSTOMER CARE CENTER ........................................................................................10
+SAFETY & HEALTH .......................................................................................................11
+INFORMATION OF SAFETY .........................................................................................11
+PRESENTATION ........................................................................................................11
+INTRODUCTION TO SAFETY ............................................................................................12
+SYMBOLS AND LABELS ON THE EQUIPMENT ...................................................................13
+INSTALLATION, SETUP AND OPERATION .........................................................................13
+GROUNDING .................................................................................................................15
+ELECTRICAL SAFETY ................................................................................................16
+FUNCTIONAL EARTH (EMC) ......................................................................................17
+HANDLING ELECTRONIC COMPONENTS ..........................................................................17
+TECHNICAL SPECIFICATIONS FOR SAFETY......................................................................18
+PROTECTIVE ELEMENTS ...........................................................................................18
+ENVIRONMENTAL CONDITIONS ..................................................................................19
+STORAGE CONDITIONS .............................................................................................19
+TECHNICAL LABEL ........................................................................................................19
+PACKING AND UNPACKING ............................................................................................20
+DECOMMISSIONING AND DISPOSAL ................................................................................20
+EASYLOGIC T150 FAMILY ............................................................................................21
+FIRST APPROACH .........................................................................................................21
+EASYLOGIC T150 MODULES .........................................................................................22
+GENERAL FEATURES ................................................................................................22
+LED INDICATORS .....................................................................................................22
+TYPES OF MODULES .....................................................................................................23
+HU MODULES (CPU) ................................................................................................23
+COMMUNICATION MODULES ......................................................................................23
+ACQUISITION BLOCKS (I/O MODULES) .......................................................................24
+ITB (INTELLIGENT TERMINAL BLOCK) ............................................................................25
+GENERAL DESCRIPTION ............................................................................................25
+DATA ACQUISITION BUS ............................................................................................26
+ARCHITECTURE LIMITS..............................................................................................27
+ITB BASIC FUNCTIONS ..............................................................................................28
+EASYLOGIC T150 ARCHITECTURES ...............................................................................30
+D3885557-00
+
+3
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+STAND-ALONE CONFIGURATION ................................................................................30
+MICRORTU ..............................................................................................................30
+SMALL/MEDIUM RTU ................................................................................................30
+LARGE RTU / DISTRIBUTED ACQUISITION ...................................................................31
+STANDARDS COMPLIANCE ............................................................................................32
+PHYSICAL MOUNTING & INSTALLING ........................................................................33
+ITB INSTALLATION ........................................................................................................33
+HANDLING MODULES ................................................................................................33
+MODULE LOCATION IN THE ITB ..................................................................................33
+POWER SUPPLY REQUIREMENTS...............................................................................34
+MOUNT AND DISMOUNT PROCEDURES .......................................................................34
+EXPANDING THE ITB .....................................................................................................35
+TERMINATION MODULES (TU) ...................................................................................35
+TERMINATION MODULE (BT) .....................................................................................36
+EXPANSION MODULE (XU) ........................................................................................37
+WIRING EXPANSION ..................................................................................................37
+WIRING RECOMMENDATIONS FOR EMC ..........................................................................38
+WIRING TYPES .........................................................................................................39
+BASELINE SOFTWARE IN EASYLOGIC T150 ..............................................................44
+GENERAL DESCRIPTION ................................................................................................44
+MAIN ELEMENTS ...........................................................................................................46
+COREDB – REAL TIME DATABASE (RTDB) .................................................................46
+DEVICES ..................................................................................................................46
+USER INTERFACES ...................................................................................................46
+SOFTWARE TOOLS........................................................................................................47
+SOFTWARE COMPATIBILITY ...........................................................................................47
+LOCAL ACQUISITION .....................................................................................................48
+CENTRALIZED LOCAL ACQUISITION ............................................................................48
+DISTRIBUTED LOCAL ACQUISITION .............................................................................49
+SIGNAL IDENTIFICATION - COORDINATES ....................................................................50
+ITB INITIALIZATION PROCESS ........................................................................................51
+TREATMENT OF LOCAL ACQUISITION SIGNALS ...............................................................52
+INTRODUCTION .........................................................................................................52
+DIGITAL INPUTS ........................................................................................................52
+DIGITAL OUTPUTS ....................................................................................................56
+ANALOG INPUTS .......................................................................................................57
+ANALOG OUTPUTS....................................................................................................58
+CONFIGURATION & MAINTENANCE ............................................................................60
+GETTING STARTED .......................................................................................................60
+ITB ADDRESSING (AAP) ...............................................................................................61
+
+Foreword
+Safety Information
+4
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Important Information
+Read these instructions carefully and look at the equipment to become familiar with the device
+before trying to install, operate, service, or maintain it. The following special messages may appear
+throughout this documentation or on the equipment to warn of potential hazards or to call attention
+to information that clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury
+or death.
+
+! DANGER
+
+!
+
+DANGER indicates an imminently hazardous situation which, if not avoided, will result in death or
+serious injury.
+
+!
+
+WARNING
+
+WARNING indicates a potentially hazardous situation which, if not avoided, can result in death or
+serious injury.
+
+!
+
+CAUTION
+NOTICE
+
+Please Note
+Electrical equipment must be installed, operated, serviced, and maintained only by qualified
+personnel. No responsibility is assumed by Schneider Electric for any consequences arising out of
+the use of this material.
+
+A qualified person is one who has skills and knowledge related to the construction and operation of
+electrical equipment and its installation and has received safety training to recognize and avoid the
+hazards involved.
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament and of the
+Council:
+
+D3885557-00
+
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+5
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Apply appropriate personal protective equipment (PPE) and follow
+safe electrical work practices. See NFPA 70E, NOM-029-STPS2011, CSA Z462, NFC 18–510 and UTE C18–510–1.
+
+•
+
+This unit must be installed and serviced only by qualified
+electrical personnel.
+
+•
+
+Turn off all power supplies of this unit before working on or inside the
+unit.
+
+•
+
+Always use a properly rated voltage sensing device to confirm that
+power is off.
+
+•
+
+To open a live current transformer secondary circuit, turn off the
+primary side of the transformer and short-circuit the transformer
+secondary circuit.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the Book
+Document Scope
+This manual provides information for the assembly, wiring, configuration, and maintenance of the
+EasyLogic T150 platform.
+
+Document Revision History
+
+6
+
+Rev
+
+Date
+
+Description
+
+01
+
+19-11-2019
+
+Initial edition.
+
+02
+
+19-04-2024
+
+• Overall update and branding as part of EasyLogic range
+
+03
+
+10-04-2025
+
+• Full brand labelling to EasyLogic T150
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Conformity
+The EasyLogic T150 range have been developed in accordance to the requirements for a quality
+management system, complying with the ISO 9001:2015 Norm.
+
+Related Documents
+User Manual
+
+D3885557-00
+
+Document Code
+
+Easergy Builder user manual
+
+FTE-S856-MSS
+
+webApp user manual
+
+BQT7944802
+
+IEC101 user manual
+
+FTE-S854-I1D
+
+IEC104 user manual
+
+FTE-S854-I4D
+
+IEC103 Master user manual
+
+FTE-S854-I3D
+
+Modbus user manual
+
+FTE-S854-MBD
+
+ISaGRAF user manual
+
+FTE-ISD-S854
+
+DNP user manual
+
+FTE-S854-DNP
+
+SOE user manual
+
+FTE-S854-SOE
+
+IEC61850 Ed1 user manual
+
+FTE-S854-IEC61-1
+
+IEC61850 Ed2 user manual
+
+FTE-S854-IEC61-2
+
+HUe user manual
+
+D3885577
+
+HU120 user manual
+
+D3885578
+
+AB_AI user manual
+
+D3885598
+
+AB_AO user manual
+
+D3885599
+
+AB_DI user manual
+
+D3885580
+
+AB_DO user manual
+
+D3885579
+
+AB_DIDO user manual
+
+D3885601
+
+AB_SER user manual
+
+D3885600
+
+AB_AC/LPVT user manual
+
+D3885603
+
+7
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+General Cybersecurity Information
+In the recent years, the growing number of networked machines and production plants has seen a
+corresponding increase in the potential for cyber threats, such as unauthorized access, data
+breaches, and operational disruptions. You must, therefore, consider all possible cybersecurity
+measures to help protect assets and systems against such threats.
+To help keep your Schneider Electric products secure and protected, it is in your best interest to
+implement the cybersecurity best practices as described in the Cybersecurity Best Practices
+document.
+Schneider Electric provides additional information and assistance:
+• Subscribe to the Schneider Electric security newsletter.
+• Visit the Cybersecurity Support Portal web page to:
+◦ Find Security Notifications.
+◦ Report vulnerabilities and incidents.
+• Visit the Schneider Electric Cybersecurity and Data Protection Posture web
+page to:
+◦ Access the cybersecurity posture.
+◦ Learn more about cybersecurity in the cybersecurity academy.
+◦ Explore the cybersecurity services from Schneider Electric.
+
+Product Related Cybersecurity Information
+Cyber threats are part of the digital world of communicating products. The EasyLogic T150 Hue
+module is concerned about possible cyber security issues and offers features to users to manage
+the Cyber security and reduce the risks.
+
+!
+
+WARNING
+
+HAZARD OF POTENTIAL COMPROMISE OF SYSTEM AVAILABILITY,
+INTEGRITY, SAFETY, AND CONFIDENTIALITY
+•
+
+Change default passwords/passcodes to help prevent unauthorized
+access to device settings and information. Implement strong
+authentication controls, with high complexity passwords.
+
+•
+
+Disable unused ports/services and default accounts where possible, to
+minimize pathways for malicious attacks.
+
+•
+
+Place networked devices behind multiple layers of cyber defences
+(such as firewall, network segmentation, and network intrusion
+detection and protection).
+
+•
+
+Use cybersecurity best practices (for example: least privilege,
+separation of duties) to help prevent unauthorized exposure, loss,
+modification of data and logs, interruption of services, unintended
+operation, or potentially damaging the infrastructure or injuring
+operating people.
+
+Failure to follow these instructions can result in death, serious injury,
+or equipment damage.
+NOTE: In the event of losing access to the device, the device must be returned
+to your respective Schneider Electric branch office.
+
+8
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Potential Risks and Compensating Controls
+NOTICE
+HAZARD OF UNAUTHORIZED ACCESS
+Always uses protective access functionality provided by the product to
+avoid cyber threads.
+Failure to follow these instructions can result in equipment damage.
+•
+
+Insecure protocols
+
+Modbus (Serial and TCP), IEC 60870-5-101, IEC60870-5-104 client, IEC 61850 (IEC 61850 MMS
+(Manufacturing Message Specification) and IEC 61850 GOOSE (Generic Object-Oriented System
+Event)) protocols, and some IT protocols (SNTP, DHCP, GPS) are insecure. If a malicious user
+gains access to your network, transmitted information could be disclosed or subject to tampering.
+List of protocols with security authentication capabilities are:
+o
+o
+
+IEC 60870-5-104 server
+DNP3 client and server
+
+To transmit data over an internal network, physically or logically segment the network and restrict
+access using standard controls such as firewalls and in particular IP Table allowlists.
+•
+
+Enclosure
+
+The physical integrity of the installation must be ensured by the end user. Physical access to the
+EasyLogic T150 modules and the operational area must be restricted.
+•
+
+Port hardening
+
+Schneider Electric recommends carrying out the following actions:
+•
+•
+
+Firewall: use the IP allowlist to limit external accesses to known devices.
+Port configuration: disable unused physical ports.
+
+Contact your SE branch office or field service representative for more information about cyber
+security features on the EasyLogic T150 platform.
+NOTE: Schneider Electric regularly posts security notifications with information on vulnerabilities
+and patches that it receives from its partners at the U.S. Department of Homeland Security’s ICSCERT and United States Computer Emergency Readiness Team (US-CERT), other ISACs, and
+cybersecurity firms, among others. These updates are designed to fix known vulnerabilities and are
+encouraged for any Internet-connected device. You can also subscribe to our newsletter to receive
+security notifications.
+
+NOTICE
+HAZARD OF CYBERSECURITY BREACH
+Report a cybersecurity matter on a Schneider Electric product or solution via the Report a
+cybersecurity vulnerability page.
+Failure to follow these instructions can result in equipment damage.
+
+D3885557-00
+
+9
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Trademarks
+QR Code is a registered trademark of DENSO WAVE INCORPORATED in Japan and other
+countries.
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its communications
+and products that contain non-inclusive or insensitive terminology. However, despite these efforts,
+our content may still contain terms that are deemed inappropriate by some customers.
+
+Customer Care Center
+For more information, you can download the app of the Customer Care Center by using the
+following QR code:
+
+10
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Safety & Health
+Information of Safety
+Important information
+Read these instructions carefully and look at the equipment to become familiar with the equipment
+before trying to install, operate, service or maintain it. This manual includes different types of
+messages associated with situations that have different level of risk for people and / or for the
+equipment.
+This symbol indicates "DANGER" or "WARNING". This symbol informs of an
+electrical risk that will cause personal injuries if the instructions are not followed.
+This symbol is associated to a safety alert. It is used to warn of possible personal
+injury hazards. The user must follow all instructions or messages associated to this
+symbol to avoid possible injuries.
+
+DANGER
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+WARNING
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury. The safety alert symbol shall
+not be used with this signal word.
+
+To Keep in Mind
+Electrical equipment must be installed, operated, serviced, and maintained only by qualified
+personnel. No responsibility is assumed by Schneider Electric for any consequences arising out of
+the use of this material.
+A qualified person is who fulfill the requirements in section 1.2 .
+
+Presentation
+This manual provides information for an appropriate handling, commissioning and testing. This
+chapter about Safety also includes descriptions of the labels on the equipment.
+Documentation for equipment ordered from Schneider Electric is dispatched separately from
+manufactured goods and may not be received at the same time. Therefore, this guide is provided in
+order to printed information (which may be present on the equipment) is fully understood by the
+recipient.
+The technical data in this safety guide is typical only, see the technical data section of the user
+manual for specific details of a particular equipment.
+D3885557-00
+
+11
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Before carrying out any work on the equipment the user must be familiar with the
+contents of this Safety guide, the ratings on the equipment’s rating label and the user
+manual.
+THE SAFETY SECTION MUST BE READ BEFORE STARTING ANY WORK ON
+THE EQUIPMENT.
+
+Introduction to Safety
+The information in this chapter is provided in order to the equipment is properly installed and
+handled maintaining it in a safety condition. It is assumed that everyone who will be associated with
+the equipment will be familiar with the contents of that Safety section.
+When electrical equipment is in operation, high voltages will be present in certain parts of the
+equipment. Failure to observe warning notices, an incorrect or not appropriate use may endanger
+personnel and equipment and also cause personal injury or physical damage.
+
+WARNING
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Before working with the terminal of connection, the equipment must be switched off and
+disconnected of the power supply.
+Failure to follow these instructions could result in death or serious injury.
+Proper and safe operation of the equipment depends on appropriate shipping and handling, proper
+storage, installation and commissioning, and on careful operation, maintenance and servicing. For
+this reason, only qualified personnel may work on or operate the equipment.
+Qualified personnel are individuals who:
+•
+
+Have read and understood the information on the device and its user manual.
+
+•
+
+Are familiar with the installation, commissioning, and operation of the equipment and of the
+system to which it is being connected.
+
+•
+
+Are able to safely perform switching operations in accordance with accepted safety engineering
+practices and are authorized to energize and de-energize equipment and to isolate, ground,
+and label it.
+
+•
+
+Are trained in the care and use of safety apparatus in accordance with safety engineering
+practices.
+
+•
+
+Are trained in emergency procedures (first aid).
+
+It is necessary to consider that the documentation of the equipment collects the instructions for its
+installation, set up and operation. However, the manuals could not cover all the possible
+circumstances neither include specific information on all the details.
+In case of questions or specific problems, contact with his sales office of Schneider Electric or with
+the customer care center and request the necessary information.
+
+12
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Symbols and Labels on the Equipment
+Before the equipment is installed or commissioned, the user must understand the following
+symbols, which may be used on the equipment or referred to in the user documentation:
+Table 1 – Symbols
+Symbol
+
+Associated Text
+
+Description
+
+Possibility of electric
+shock, explosion, or
+arc flash.
+
+International Electrotechnical Commission (IEC)
+symbol associated to a DANGER or WARNING
+message indicating that there is an electrical
+risk. Failure to follow these instructions could
+cause damage to people or death.
+
+Caution, read the
+manual.
+
+Symbol associated with a risk alert. The user
+must read the manual before handling the
+equipment.
+
+Possibility of electric
+shock, explosion, or
+arc flash.
+
+American National Standards Institute (ANSI)
+symbol associated to a DANGER or WARNING
+message indicating that there is an electrical
+risk. Failure to follow these instructions could
+cause damage to people or death.
+
+Protective earth
+connection.
+
+Associated symbol to the protective ground
+connection.
+
+Functional earth
+connection.
+
+Associated symbol to the functional ground
+connection.
+
+CE Mark.
+
+This symbol indicates that the equipment has
+been developed in compliance with all
+applicable European Directives.
+
+Electronic
+equipment. Special
+instructions must be
+followed for
+disposed.
+
+This symbol indicates that, at the end of its life,
+this module must be disposed according to the
+WEEE Directive (Waste Electrical and Electronic
+Equipment).
+
+Compliant with
+RoHS.
+
+The equipment has been designed and
+manufactured according to RoHS Directive
+(Restriction of Hazardous Substances).
+
+Direct Voltage.
+
+Symbol of direct voltage (VDC).
+
+Alternate Voltage.
+
+Symbol of alternate voltage (VAC).
+
+Installation, Setup and Operation
+There are several acquisition blocks in EasyLogic T150 that use hazarous voltages (> 50 Vdc). The
+user is responsible to check that the characteristics of each equipment are adapted and convenient
+for his installation. The user must read the instructions of installation before proceeding to the use
+or maintenance of the equipment.
+Failure to follow these instructions can be dangerous for the people and the equipment.
+
+D3885557-00
+
+13
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Devices that handle dangerous tensions are marked with a sticker on the front label (size: 12,5
+mm). This label must be visible all the time while the module is installed on the DIN rail.
+Failure to follow these instructions will result in death or serious injury.
+The following products handle hazardous voltages:
+•
+
+HU120: High-performance CPU with acquisition (P/N M590xx000x).
+
+•
+
+AB_DI: Digital inputs module (P/N: M555x00002).
+
+•
+
+AB_DIDO: Input and output digital module (P/N M572xy0002). For other part numbers,
+depending on the voltage handled by the equipment connected to the digital outputs (voltage
+>50 Vdc), this module must be marked with an electric risk label. It will not be marked on
+factory.
+
+•
+
+AB_AC/LPVT: Direct measurements module (P/N M579000002).
+
+•
+
+AB_DO: This module does not handle hazarous voltages. This module must be labeled with an
+electric risk label when some equipment that manage voltage higher than 50 Vdc are
+connected to digital outputs.
+
+It is recommended to install the RTU inside a cabinet with a key. This cabinet only must be opened
+by a qualified person.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• If this type of cabinet is not available, a barrier must be installed in order to avoid an
+accidental contact with these dangerous elements. This barrier should only be able to be
+uninstalled using a special tool.
+• If the barrier has to be removed in order to access to equipment, personnel responsible for
+the task must be sure that the barrier is installed again when the task is finished.
+• While the RTU is accessible for a user, all people must follow all instructions to prevent
+electrical risk or discharges.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+An electrical risk symbol with enough size must be included on the cabinet’s door or
+on the barrier.
+The following image shows an example:
+Figure 1 - Barrier of protection for elements with high voltages.
+
+14
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• Terminals will not be accessible to the user directly once it has made the installation of the
+equipment. The cabinet will have to remain closed with key or a protective screen.
+• If the barrier has to be removed to access to equipment, personnel responsible for the task
+must be sure that the barrier is installed again when the task is finished.
+• The cabinet or installation must have a general switch placed just in the cable entry of the
+installation.
+• While the RTU is accessible for a user, all people must follow all instructions to prevent
+electrical risk or discharges.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+The cabinet or installation must have a general switch placed just in the cable entry of the
+installation (see paragraph “Protective Elements”).
+For the cleaning of the equipment, it is recommended to remove the power and to use only a dry
+cloth by the surface when it detects excessive presence of dust, or any element deposited on the
+surface.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+Do not use liquid products of cleanliness due to the presence of active parts.
+Failure to follow these instructions can result in equipment damage.
+
+Because of the variety of uses of the product, the managers of the application and use of this
+controller device will have to take the measures to the fulfillment of all the safety requirements and
+provision of each application. These requirements are according to the applicable laws,
+regulations, codes and standard.
+
+Grounding
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Before energizing the equipment, it has to be grounded properly such as it is indicated in
+following sections.
+
+•
+
+When installing the equipment in the cabinet, the ground is the first thing that must be
+connected and the last one that must be disconnected.
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+EasyLogic T150 shall be grounded for two distinct needs:
+
+D3885557-00
+
+•
+
+For purposes of electrical safety (Protective Earth, PE).
+
+•
+
+Improve the behavior in Electromagnetic Compatibility (EMC) and derive perturbations to earth
+(functional Earth).
+
+15
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Electrical Safety
+Only qualified personnel, with knowledge about hazards associated with electrical equipment is
+allowed to install EasyLogic T150. In general, the installation will be following IEC 61010-1
+recommendations to be compliant with this standard.
+The modules must be installed on a metallic DIN Rail which is fixed on a metallic
+surface. This metallic surface must have an M4 screw marked with this symbol.
+According to the IEC 61010-1 standard, the ground of the cabinet or installation must
+be connected to this screw.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+According to Electrical Safety, the power voltage must be supplied by a power supply
+that offers double or reinforced insulation against hazardous voltages (higher than 50
+Vdc).
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+A dedicated connection with green/yellow wire must be used to have electric continuity to the
+installation protective earth. Use a wire with adequate section according to IEC 61010.
+Figure 2 – Yellow and green cable for grounding.
+
+The design and installation of the cabinet is responsible for compliance with all the existing
+international and national electrical standards concerning protective grounding of any equipment.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+The DIN rail must have terminals of grounding (with yellow and green colors) necessary
+to connect the ground terminal.
+
+•
+
+The screw for ground must be exclusive for this use.
+
+•
+
+The power voltage must be supplied by a power supply that offers double or reinforced
+insulation against high voltages (higher than 50 V).
+
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+16
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Functional Earth (EMC)
+In this case the main rule is that the connection has to be done with wires of the lower possible
+length to the shield or earth connection nearest. In this case the section of the driver is less
+notable, moreover, it is advised of the use of flat wires or flexible conductive bands for a good
+behavior EMC.
+Figure 3 –Terminal for functional earth (EMC)
+
+All EasyLogic T150 modules with power or polarization connector have an exclusive terminal for
+EMC protective grounding. These modules are HUe, XU, AB_DO, and AB_DIDO with external
+polarization.
+It must be connected as follows:
+Figure 4 – Example of grounding for EMC.
+
+Handling Electronic Components
+Like any electronic equipment, EasyLogic T150 is susceptible to receive electrostatic discharges
+during the handling. It is necessary to take the usual measures to minimize this risk, since serious
+damage to the equipment can be caused, which may not be detected immediately but which may
+affect the reliability of the product.
+
+D3885557-00
+
+17
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+The enclosure must ONLY be removed by authorized user and ONLY when is strictly
+necessary because this action has a risk for the equipment. The following cautions must
+be taken:
+• Before removing the enclosure, the operator must be equipotential with the equipment.
+The operator must wear a grounding bracelet and the device must be connected to
+ground as well.
+• Avoid touching the electronics. The board must be always manipulated by the edges.
+• If the equipment has to be manipulated by two people, both must be equipotential.
+• Put the module always on an antistatic surface or on a surface equipotential with you.
+• During the storage and transport, the module will remain in the packaging.
+• Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+Technical Specifications for Safety
+Protective Elements
+The cabinet's engineering and installation must include a general automatic switch next to the
+cables' input in the cabinet; once the door is opened, high voltages must be interrupted inside. This
+switch must be located at a place which is not accessible by a third person while the operator is
+using the boards in the cabinet.
+Moreover, the installation will incorporate a circuit breaker dimensioned according to the power
+consumption of the cabinet and next to it, to protect it from possible overcurrent in the power
+supply.
+Both switches will be labeled with the symbol O as "Off" and I as “On”.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+The cabinet's engineering and installation must include a general automatic switch
+next to the cables' input in the cabinet; once the door is opened, high voltages have to
+be interrupted inside. This switch has to be located at a place which is not accessible by
+a third person while the operator is using the boards in the cabinet.
+
+•
+
+Moreover, the installation must incorporate a breaker of 5A next to the cabinet
+protecting it from possible overcurrent in the power supply.
+
+•
+
+Both switches will be labelled with the symbol O as "Off" and I as “On”.
+
+•
+
+The connection / disconnection switch must be installed in a fixed element (for example
+the wall of the cabinet) and it must not break any grounding wire.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+
+18
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Environmental Conditions
+The protection degree of the equipment is IP20.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+• This equipment has been designed ONLY for indoor use.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+If it is necessary for its use in some external surroundings, the equipment must be mounted in a
+cabinet or specific accommodation that contributes to reach at least IP54 protection degree, to
+prevent from dust ingress and water splashed or spayed.
+The electronic cards of the modules are coated. The coating product used is the AVR80, of the
+company ABchimie. It can consult all the technical information of this type of finishing in
+http://www.abchimie.com.
+Other data to consider about the environmental are:
+•
+
+Altitude until 2000 m.
+
+•
+
+Operation temperature range: Between -40 ºC and 70 ºC. (IEC 60068-2-1 and IEC 60068-2-2).
+
+WARNING
+HAZARD OF SKIN BURN
+Use the right personal protective equipment to handle the module.
+Failure to follow these instructions can result serious injury.
+•
+
+Maximum relative humidity of 95%. (IEC 60068-2-30)
+
+•
+
+Degree of pollution II. (IEC 60255-5)
+
+•
+
+Overvoltage transitory until levels of Category II. (IEC 60255-5)
+
+Storage Conditions
+The continuous exhibition to some high levels of humidity during the storage can cause damages
+to the electronic components and reduce the useful life of the equipment.
+Recommended relative humidity for storage conditions: lower than 50%.
+Before the installation of an electrical equipment, it is recommended to leave the necessary time for
+the acclimatization of the environmental temperature.
+
+Technical Label
+Each EasyLogic T150 product includes a technical label with the following information:
+
+D3885557-00
+
+19
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 5 – Technical label.
+
+Packing and Unpacking
+All EasyLogic T150 modules are packaged separately in their own carton box and shipped inside
+outer packaging. Use special care when unpacking the equipment. Do not use force.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+Schneider Electric products leave the factory in closed, sealed original packaging. If at receipt
+of the delivery the transport packaging is open or the seal is broken, the confidentiality and
+authenticity of the information contained in the products cannot be ensured.
+Failure to follow these instructions can result in equipment damage.
+The design revision and manufacturing options can be determined using the P/N included in the
+packaging label on packaging.
+After unpacking the equipment, inspect it visually to be sure it is in proper mechanical condition.
+If the product needs to be shipped, the original packaging must be used. If the original packaging is
+no longer available, make sure that the packaging used is according to ISO 2248 specifications for
+a drop height of 1 m.
+
+Decommissioning and Disposal
+This symbol, means that, at the end of its life cycle, the product must not be disposed
+together with habitual residues. To avoid any possible damage to the environment or
+to the human health that represents the uncontrolled elimination of residues, please,
+separate the battery (if there is one) of the other elements, and each one must be
+recycled according to the local regulation.
+
+20
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+EasyLogic T150 Family
+First Approach
+EasyLogic T150 range – is a hardware platform by Schneider Electric specifically designed for realtime control and energy automation applications. EasyLogic T150 is a high-technology embedded
+electronics platform which serves Schneider Electric’s business areas.
+On this hardware platform, the Baseline Software Platform is installed. This software is used in
+PowerLogic and EasyLogic families (T500 and T150) and other Schneider Electric products.
+Other features identifying EasyLogic T150 are:
+•
+
+A DIN rail is used for the mechanical installation.
+
+•
+
+The terminal blocks for field-connection are completely built into acquisition blocks.
+
+•
+
+Communication between control units integrated in a distributed system is mainly established
+by Ethernet.
+
+Figure 6 – EasyLogic T150.
+
+EasyLogic T150 design has been optimized to meet the most demanding requirements of multiple
+sectors:
+•
+
+Safety and reliability requirements for power, gas and water supply, as well as sewage
+treatment plants, etc.
+
+•
+
+Compliance with all directives under CE mark.
+
+•
+
+Centralized monitoring and control of geographically distributed systems which support
+hierarchical data acquisition and sharing networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed equipment.
+
+•
+
+Quick troubleshooting, including the possibility of using programmable automation execution.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+EasyLogic T150 does not support hot-swapping, that is, module replacements during
+operation.
+Failure to follow this instruction can result in equipment damage.
+
+D3885557-00
+
+21
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+EasyLogic T150 Modules
+EasyLogic T150 modules are designed to operate in aggressive industrial environments, meeting
+the most demanding immunity requirements to reduce electromagnetic disturbances. The lowconsumption design allows modules to operate without forced ventilation, which widens the
+application range considerably.
+All modules are mounted on a DIN rail and can be distributed in several rows within the same
+cabinet.
+
+General Features
+The figure below shows the typical appearance of a EasyLogic T150 module:
+Figure 7 – EasyLogic T150 module.
+
+Modules are designed to be interconnected by using a flat ribbon, as shown in the figure below.
+Thus, the module’s mount and dismount procedures are easier, since only flat ribbon bridges need
+to be removed from attached modules. These resistant bridges are manufactured to allow multiple
+connections and disconnections.
+Figure 8 – Connection between modules.
+
+LED Indicators
+EasyLogic T150 modules integrate visible indicators in the upper front panel to provide status and
+diagnostic information. All these LED indicators are labeled to make interpretation easy.
+Following figure shows an example of LED indicators on a EasyLogic T150 module:
+Figure 9 – LED indicators.
+
+22
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Types of Modules
+HU Modules (CPU)
+The following CPUs are available in EasyLogic T150:
+
+HUe – High-Performance HU
+•
+
+OS: Linux.
+
+•
+
+Web tool: webApp.
+
+•
+
+Ethernet ports: 3 (copper or fiber optic).
+
+•
+
+USB port and SD card.
+
+•
+
+Synchronization: GPS / SNTP / IRIG-B / Protocol.
+
+•
+
+Serial communications: 3 ports (RS-232 / RS-485).
+
+•
+
+Watchdog output.
+
+•
+
+Command console tool: MiniUSB port and Bluetooth.
+
+•
+
+Cybersecurity included in baseline.
+
+HU120 – High-Performance HU with Local Acquisition
+•
+
+OS: Linux.
+
+•
+
+Web tool: webApp.
+
+•
+
+Ethernet ports: 3 (copper or fibre optic).
+
+•
+
+USB port and SD card.
+
+•
+
+Synchronization: GPS / SNTP / IRIG-B / Protocol.
+
+•
+
+Serial communications: 2 ports (RS-232 / RS-485).
+
+•
+
+Watchdog output.
+
+•
+
+Command console tool: MiniUSB port.
+
+•
+
+Cybersecurity included in baseline.
+
+•
+
+Field connection: 16 DI and 8 DO.
+
+Communication Modules
+There is only one communication module in EasyLogic T150:
+
+AB_SER – Communication module
+
+D3885557-00
+
+•
+
+4 serial ports.
+
+•
+
+DB-9 / Fibre Optic
+
+•
+
+Synchronous and asynchronous communications
+
+•
+
+Synchronization from HU.
+
+•
+
+RS-232 / RS-485 / RS-422
+
+•
+
+Power input depending on the ordering options.
+
+23
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Acquisition Blocks (I/O Modules)
+The following AB are available:
+
+AB_DI – Digital Inputs
+•
+
+Two removable terminal blocks.
+
+•
+
+16 digital inputs (single/double/slow counter)
+
+•
+
+4 options for DI polarization:
+o 12 – 24 VDC
+o 48 – 60 VDC
+o 125 VDC
+o 220 VDC
+
+•
+
+Three removable terminal blocks (signals and polarization).
+
+•
+
+8 digital outputs (single/double and SBO/Direct)
+
+•
+
+2 options for DO polarization:
+o 24 VDC
+o 48 VDC
+
+•
+
+Two removable terminal blocks.
+
+•
+
+8 analog inputs (voltage / current (external resistor is required)).
+
+•
+
+Range configurable in voltage or current.
+
+•
+
+Four removable terminal blocks (analog and digital signals).
+
+•
+
+4 analog outputs.
+
+•
+
+4 digital outputs (only for validation purpose).
+
+•
+
+Open loop indication
+
+AB_DO – Digital Outputs
+
+AB_AI – Analog Inputs
+
+AB_AO – Analog Outputs
+
+24
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+AB_DIDO – Digital Inputs and Outputs
+•
+
+Five removable terminal blocks (signals and polarization).
+
+•
+
+16 Digital Inputs (single/double/slow counter)
+
+•
+
+8 Digital Outputs (single/double and SBO/Direct).
+
+•
+
+4 options for DI polarization:
+o 12 – 24 VDC
+o 48 – 60 VDC
+o 125 VDC
+o 220 VDC
+
+•
+
+2 options for DO polarization:
+o 24 VDC
+o 48 VDC
+
+AB_AC/LPVT – Direct Measurements (Low Power)
+•
+
+Three removable terminal blocks + 3 BNC connectors.
+
+•
+
+3 Voltage inputs (0 – 1.2 VRMS)
+
+•
+
+3 Current inputs (0 – 5 ARMS)
+
+•
+
+1 Neutral (homopolar) input.
+
+•
+
+1 Digital input and 1 digital output (without use)
+
+•
+
+Available applications:
+o Basic application (calculation of measurements)
+o Fault Indication
+o Quality
+
+ITB (Intelligent Terminal Block)
+General Description
+An ITB consists of one HU, a set of ABs, together with all required building elements (termination
+module, expansion module, flat cables…)
+Figure 10 – Basic ITB
+
+Head
+Unit
+
+Internal Bus
+
+AB
+SER
+
+Serial
+comms.
+
+AB
+DI
+
+BT
+AB
+DO
+
+AB
+DIDO
+
+AB
+AI
+
+Hardwired field I/O
+
+The following figure shows a typical architecture of a system based on the EasyLogic T150
+platform. There is an HU module connected to a series of AB acquisition blocks including the
+expansion (XU) and termination units (TU or BT) needed.
+
+D3885557-00
+
+25
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 11 – EasyLogic T150 Architecture.
+
+HUe
+
+To define the ITB’s structure, the user should consider the following factors:
+•
+
+The system’s bus is expandable so acquisition blocks can be installed in different rows.
+
+•
+
+Each row can contain a maximum number of ABs are interconnected through flat ribbon
+bridges.
+
+•
+
+The last module in each row containing ABs must be a TU (Termination Unit) or a BT (Basic
+Termination Unit) in the last row.
+
+•
+
+The first module in each row (except for the first row) must be an XU (eXpansion Unit). This
+module, together with the TU from the previous row, is used for bus expansion by
+interconnecting one row to the next.
+
+•
+
+If some communication modules (AB_SER) are included, they all must be installed in the first
+row.
+
+•
+
+The physical support of each row is a DIN rail, which allows modules to be installed by a simple
+click.
+
+Other hardware and software limits are indicated later in this manual.
+The system can include more than one ITB, communicating with each other through an Ethernet
+network. This functionality allows designing architectures capable of covering any requirement of
+the current distributed control systems.
+
+Data Acquisition Bus
+Power, data, synchronization, signals and other information are transmitted between HU and ABs
+using an internal bus. This bus is based on a removable flat ribbon cable between a module and
+the following one in the ITB.
+The bus is expanded to the following ITB rows by using a cable which connects the DB15 pins
+available in the TU and XU modules. The power isn’t expanded between a row and the following. A
+power input terminal is available in each HU and XU modules. This terminal is used in order to
+power all module in its row.
+
+26
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 12 – TU-XU connection.
+
+At the end of each row there must be a termination module, that is, a TU or a BT.
+
+Architecture Limits
+Depending on the type of HU and the ITB architecture, you must have in account some limitations
+to make the ITB:
+Table 2 – Hardware and database limits depending on the HU
+Limitation
+
+HUe
+
+HU120
+
+Max total number of AB modules
+
+32
+
+3
+
+Max consumption per row (first row)
+
+10 W
+
+5W
+
+Other limitations not depending on the CPU:
+•
+
+Max number of rows: 4
+
+•
+
+Max number of AB modules per row: 8.
+
+•
+
+Max consumption per row (excluding the first): 10 W
+
+•
+
+Max longitude of the bus flat ribbon: 5 cm
+
+•
+
+Max long of extension cable (between rows): 1.5 m
+
+•
+
+Max number of AB_SER: 4, always in the first row next to the HU
+
+If you need to install some AB_AC/LPVT modules in the ITB, you should take into account some
+additional restrictions:
+•
+
+The AB_AC/LPVT modules must be installed in the first positions right after an XU or an HU
+module.
+
+•
+
+If you install an AB_AC/LPVT module in a row, the maximum number of modules to be
+installed in this row is 4.
+
+•
+
+In a row there can only be installed a maximum of two AB_AC/LPVT.
+
+According to these restrictions, valid combinations are as follows:
+•
+
+If it is the 1st row of the ITB: (x,x,x,x,y,y,y,y) or (z,z,x,x).
+
+•
+
+If it is the 2st, 3st or 4st row: (y,y,y,y,y,y,y,y) or (z,z,y,y)
+
+Where:
+x = AB_SER, AB_AI, AB_AO, AB_DI, AB_DO or AB_DIDO.
+y = AB_AI, AB_AO, AB_DI, AB_DO or AB_DIDO.
+z = AB_AC/LPVT.
+D3885557-00
+
+27
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+ITB Basic Functions
+The control unit (CPU), also called head unit (HU), performs the control functions for the complete
+system, centralizes the information acquired by other modules, and executes the programmable
+logic control, communication protocols and user-specific applications.
+The communication with the acquisition modules in the ITB is established by an internal high-speed
+bus that makes the system highly reliable even in noisy environments.
+Figure 13 – Communication between the CPU and acquisition blocks.
+
+The CPU module controls and manages the following functions:
+
+ITB Controller
+The Baseline software installed in the HU controls the operation of both, HU and ABs connected to
+the head unit througth the bus.
+This control includes:
+•
+
+Operation mode monitoring. It performs functions as hardware and software Watchdog control,
+the states control of the ABs and the HU and the provision of diagnostic information about the
+ITB status through the LED indicators and several log files. These files can be consulted by a
+user with sufficient privileges through SFTP, or webApp.
+
+•
+
+Interface with the operator through the console, or webApp (for supervision and maintenance)
+and Easergy Builder (for configuration).
+
+•
+
+Firmware upgrade by SFTP or webApp (using and Ethernet port) or USB 2.0 port.
+
+ITB Configuration
+The HU module maintains and manages the information that supports the real-time database,
+coreDb. In this database, the I/O signals are related to the communication protocols signals. The
+configuration is based on XML files that are generated with the Easergy Builder tool. These files
+are generated on a PC and sent to the CPU via an SFTP connection through Ethernet ports.
+
+ITB Synchronization
+Up to two different synchronization sources can be configured. In this configuration is included the
+priority level for each source, so there will be a primary and a secondary source. If both sources
+are active, only the primary source will synchronize the system.
+The available synchronization sources are:
+
+28
+
+•
+
+GPS: A GPS connected to a serial port (usually COM1). The time received from the GPS is
+used to set the system’s clock and the RTC.
+
+•
+
+SNTP: A SNTP source through Ethernet. HU modules can operate as an SNTP client or as an
+SNTP server.
+
+•
+
+Protocol: Most control protocols allow synchronizing slave devices.
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+•
+
+Console: The user can set the system's time manually from the console terminal.
+
+•
+
+IRIG-B: HUe can be configured as IRIG-B client. It can be synchronized by IRIG-B compliant
+devices.
+
+•
+
+PTP: as indicated in the IEEE-1588 standard, a PTP primary device can synchronize other
+PTP devices (secondary devices) through one or several Ethernet interfaces. EasyLogic T150
+CPUs can operate as PTP server to synchronize other devices connected to the Station Bus.
+
+Note that:
+• The primary source is used to synchronize the ITB, if available. Otherwise, the secondary
+source is used.
+• If the synchronization source is not configured, the console device will always be created by
+default. The console operates as the lowest priority when other source is configured.
+
+ITB Communications
+EasyLogic T150 supports the following communication protocols with field devices:
+•
+
+Controlling and controlled station IEC101.
+
+•
+
+Controlling and controlled station IEC104.
+
+•
+
+Master station and outstation DNP 3.0.
+
+•
+
+Controlling station IEC103.
+
+•
+
+Client and server Modbus.
+
+•
+
+Client IEC61850, Edition 1 and 2.
+
+•
+
+Server IEC61850, Edition 2.
+
+•
+
+Client SPA-Bus (only available for 11.06.16 and later)
+
+Each protocol is available or not depending on the type of CPU (More information in each HU user
+manual).
+
+I/O Acquisition
+The CPU manages the information exchange with the AB modules. This information is sent from
+the AB to the CPU through the bus.
+The software in the CPU adds the following features:
+•
+
+Processing I/O information, which offers an added value to the information from field.
+
+•
+
+Accessing the internal bus to exchange information with the ABs.
+
+•
+
+HUe includes 4 digital inputs that can be used as 4 general-purpose digital inputs or as 2
+specific-purpose digital inputs and 2 general-purpose digital inputs to be used ingternally in the
+cabinet. Please, check the HU User Manual for further details..
+
+•
+
+HU120 is a special HU that perform all CPU functions and also has their own acquisition
+signals, like other ABs.
+
+Real-time Database (coreDb)
+The core of the Baseline Software Platform is the real-time database or coreDb. It is a real-time
+database which stores not only the information acquired from field devices, but also the information
+about the status of the CPU modules and ABs included in the ITB.
+coreDb also relates the acquisition signals to the communication protocol signals. This database is
+generated in the CPU by using the configuration information.
+D3885557-00
+
+29
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+The information which is received from field in real time is processed, stored in the RTDB and then
+related to the communication protocols signals of the ITB, which function is to transfer that
+information to the primary device.
+coreDb can also have as a source of information the result of a logic, which can be implemented by
+a third-party software such as ISaGRAF® or within the database itself witch an internal device of
+the type “Formula”.
+Consult more information about this functionality in the Easergy Builder user manual.
+
+Cybersecurity
+HU modules are supplied with a standard security policy, complemented with the definition of an
+RBAC model (Role-Based Access Control). This model is defined and managed through a special
+tool, CAE (EcoStruxure™ Cybersecurity Admin Expert).
+
+EasyLogic T150 Architectures
+Thanks to its modular and flexible nature, EasyLogic T150 allows the implementation of a small
+RTU system which can be expanded to the most complex distributed control system. Some
+examples can be found below.
+
+Stand-Alone Configuration
+HU120 is a control module with integrated signal acquisition (digital inputs and digital outputs). It
+can be used in stand-alone mode, but can be expanded with other ABs if required.
+
+microRTU
+A single head unit (for example HUe) plus a set of acquisition blocks make a microRTU with a
+single ITB.
+Figure 14 – microRTU.
+
+Small/Medium RTU
+The system illustrated in the previous example can be expanded incresing both, processing
+capacity and number of ABs in the ITB. These components are used to build a small/medium size
+RTU.
+
+30
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 15 – Small / Medium RTU.
+
+Large RTU / Distributed Acquisition
+The following figure illustrates a system which integrates a large RTU with distributed data
+acquisition and processing capabilities:
+Figure 16 – Large RTU with distribute acquisition.
+(Primary ITB)
+
+As shown in the figure, there are various acquisition ITBs which are interconnected through an
+Ethernet network and controlled by a primary ITB (which also operates as an acquisition ITB). This
+primary ITB includes at least one HU in charge of gathering and processing all the information.
+
+D3885557-00
+
+31
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Standards Compliance
+Cybersecurity (Only available in HUe and HU120 modules)
+Based on
+
+IEC62351
+IEC62443
+
+Security Engine
+
+SEC 3.3.2 (XOR acceleration)
+
+Supported cryptographic algorithms
+
+3DES, AES, MD5/SHA, RSA/ECC, & FIPS (determinist generator)
+
+Processing
+
+Single pass encryption and authentication
+
+Security protocols
+
+SSL 3.0, SSL 3.1 / TLS 1.0
+
+CE Mark
+Standards, Directives
+and harmonized norms.
+
+EMC tests according to
+
+LVD – Low Voltage Directive
+
+Directive 2014/35/UE
+
+EMC – Electromagnetic Compatibility
+
+Directive 2014/30/UE
+
+RoHS 2
+
+Directive 2011/65/EU, according to royal legislative
+decree (RD) 219/2013
+
+WEEE – Waste Electrical and Electronic
+Equipment
+
+Directive 2012/19/UE according to RD 110/2015
+
+EN 60870-2-1:1996
+IEC/TS 61000-6-5:2015
+
+Emission EMC tests
+
+Radiated emissions
+EN 55022:2006 + A1:2007
+EN 55032:2012
+
+From 30 to 1000 MHz (Class A)
+From 30 to 6000 MHz (Class A)
+
+Conducted emissions
+EN 55022:2006 + A1:2007
+Immunity EMC tests
+
+From 0.15 to 30 MHz (Class A)
+
+Electrostatic discharges (ESD)
+EN 61000-4-2:2009
+
+By air ±8 kV and by contact ±6 kV (Level 3)
+
+Radiated, radio-frequency, electromagnetic field
+EN 61000-4-3:2006 + A2:2010
+
+From 80 to 6000 MHz (Level 3).
+
+Electrical fast transient/burst
+
+Power: ±4 kV, 5kHz.
+
+EN61000-4-4:2012
+
+Communications ±4 kV 5kHz and 2.5kHz.
+
+Surge
+EN 61000-4-5:2006
+
+E/S ±4 kV 5kHz (Level 4).
+Power: ±4 kV symmetric and asymmetric (Level 4)
+Power: ±4 kV, 5kHz.
+Communications: ±4 kV CM, ±2 kV DM (Level 4).
+I/O: ±4 kV CM, ±2 kV DM
+
+Conducted disturbances, radio-frequency fields
+EN 61000-4-6:1996 + A1:2001
+
+10V 0.15-80MHz 80% AM (Level 3).
+
+Magnetic field
+EN 61000-4-8:2010.
+
+100 A/m, 1000 A/m 3s (Level 4).
+
+Immunity to conducted disturbances, induced by
+radio-frequency fields
+EN 61000-4-16:1998
+
+30V 50Hz, 300V 50Hz 1s (Level 4).
+
+Damped oscillatory wave
+
+Power: 1kV DM, 2.5kV CM (Level 4),
+Communications and I/O. (f=1MHz)
+
+EN 61000-4-18:2007 + A1:2010
+Electric Safety
+RoHS
+Environmental tests
+
+32
+
+General requirements
+EN 60950-1:2006 + A11:2009 + A1:2010 + AC:2011 + A12:2011+ A2:2013
+Verification of Lead, Cadmium, Mercury, Chrome
+Directive 2011/65/UE
+and Bromine
+Cold - EN 60068-2-1:2007
+
+-20ºC during 16h (100h)
+
+Dry heat - EN 60068-2-2:2007
+
++80ºC during 16h (100h)
+
+Damp heat - EN 60068-2-30:2005
+
+25-60ºC with 95%RH during 24h
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Physical Mounting & Installing
+ITB Installation
+Handling Modules
+Please note the following precautions to avoid electrostatic damages:
+•
+
+Never touch the pins of the bus connector.
+
+•
+
+Keep the module in its packaging box when unused.
+
+WARNING
+HAZARD OF ELECTROSTATIC DISCHARGE
+Electrostatic discharges may damage semi-conducive devices within the module.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+Please follow all recommendations indicated in paragraph “Error! Reference source not found.“
+
+Module location in the ITB
+EasyLogic T150 modules cannot be placed at any position in the ITB. Some of them, such as the
+head unit, the termination (TU or BT), the expansion (XU) and the communications module
+(AB_SER) must be installed in a specific position in the ITB.
+
+HU Module
+The HU must always be the first module in the ITB, that is, it must be mounted in the first position
+of the first DIN rail, being the bus initiator in the ITB.
+
+NOTICE
+HAZARD OF DEVICE HEAT
+Install ITB’s head ubnit as far as possible from other modules handling altetnating current and
+high voltages to minimize the adverse effects of noise and heat.
+Failure to follow these instructions can result in equipment damage.
+
+Communication Modules
+AB_SER modules always must be installed only on the first row of the ITB.
+
+Acquisition Blocks
+The set of acquisition blocks, installed in each row, will always be placed between two termination
+blocks. The type of termination block will depend on the row position within the ITB (HU, TU, XU or
+BT).
+
+Termination Modules (BT and TU)
+While the BT module can only be used as a bus termination, the TU module can also be used in
+combination with an expansion module to connect to the next rows of modules.
+When installing an acquisition ITB, the bus termination module must be located at the end of each DIN rail. The BT,
+if used, will be attached to the right BUS connector in the last AB of the ITB’s last row.
+D3885557-00
+
+33
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 11 shows the use of a TU and a BT module.
+
+Expansion Module (XU)
+The bus expansion module will be mounted in the first position of each DIN rail (except for the first
+one). It has two main functions:
+•
+
+It expands the ITB’s primary bus to the modules installed in the same rail, so that it is
+connected directly to the TU module in the previous row.
+
+•
+
+It powers the modules in its row.
+
+Power Supply Requirements
+To calculate the ITB’s power supply requirements, the power consumption of each module must be
+considered. The modules’ power consumptions must be added plus an additional margin (min.
+20%) to cover peaks and avoid power supply overload. Each row in the ITB is powered
+independently thought the HUe (first row) or XU (second and following rows) module.
+To avoid ITB overload, the power supply performance should also be considered (typically, 7090%). The power supply shall have a reserve of at least of 50% what the system/equipment is
+requiring.
+The power consumption data is detailed in the technical specifications table of each module’s user
+manual and in the technical label on the equipment.
+
+Mount and Dismount Procedures
+Before replacing a module, it is important to back up the configuration, so parameter settings are
+not lost.
+Before removing a module, you must first:
+•
+
+Switch off the power supply.
+
+•
+
+Disconnect all cables, connectors, and Ethernet bridges from the modules.
+
+WARNING
+HAZARD OF ELECTRIC SHOCK
+Always unpower the ITB elements before handling.
+Failure to follow these instructions can result in death, serious injury, or equipment
+damage.
+In order to power down the equipment, cut the power supply of the cabinet (either externally or via
+the circuit breaker inside the cabinet) and disconnect the battery from the power supply module.
+Once both these actions have been implemented, all LEDs on the ITB will be off. This indicates
+that the EasyLogic T150 cabinet is therefore powered down (off).
+All EasyLogic T150 modules have a DIN-rail bracket at the rear side that allows mounting on a DIN
+rail:
+
+34
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 17 – Mount bracket on DIN rail.
+
+The mounting procedure is described below:
+•
+
+Switch off the power supply.
+
+•
+
+Attach the module’s rear bracket on the upper DIN rail.
+
+•
+
+Press the lower front panel gently until a click confirms that the bracket is fit on the rail.
+
+•
+
+Verify that the module is anchored firmly to the rail, although lateral movement is possible.
+
+Figure 18 – EasyLogic T150 module on a DIN rail.
+
+The module is dismounted, with the ITB unpowered:
+Figure 19 – Using a screwdriver to dismount a module.
+
+1. Using a flat-blade screwdriver (< 6 mm), pull down the tab that holds the module in place on
+the DIN rail.
+2. Tilt the module forwards to free it from the rail.
+3. Pull the top of the module upwards to remove it from the rail.
+
+Expanding the ITB
+Termination Modules (TU)
+TU is a EasyLogic T150 complementary module allowing to use multiple rows in an ITB.
+
+D3885557-00
+
+35
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 20 – TU module.
+
+The TU module performs two main roles in the ITB:
+
+The Row Termination (BUS Expansion)
+The ITB can be divided into several rows of modules (max. 4). All these rows require a TU module
+to perform the BUS expansion functions to the next row (except for the last row in which the TU
+module is the ITB termination).
+If the module is not in the last row, the TU must be connected to the XU module in the next row by
+using the J1 connectors (DB15) available at both modules. This connection expands all the internal
+bus lines except for the ground and power supply lines. For a detailed description about this
+connector, please refer paragraph 0.
+Additionally, the TU module integrates a resistor which allows using it as the BUS termination; in
+this case the resistor must be disconnected. This resistor must only be connected if the TU module
+is used as the ITB termination.
+To disconnect this resistor, the TU module has two switches on the right top side, which must be
+set to OFF, as shown in the figure below:
+Figure 21 – Switches to disconnect the TU resistor.
+
+ITB Termination
+The data bus requires resistors which operate as bus termination at both ends. The initial resistor is
+installed at the HU and the final resistor at the TU module, if it is correctly configured.
+To configure the TU as ITB termination, the switches shown in previous figure must be set to ON
+(upper position). Thus, the bus termination resistor will be activated.
+
+Termination Module (BT)
+BT only can be used in the last row to finish the bus. It allows finishing the ITB without having to install a
+
+TU module.
+
+Figure 22 – BT module.
+
+The only function of this module is to act as a bus termination, so it will be installed in the output
+connector of the bus expansion (right connector) of the last module in the ITB.
+
+36
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 23 – BT module connection.
+
+Please note the module’s orientation must be exactly as shown in the figure, that is, the BT
+connector must be installed on the right and that it should not stick out of the module’s enclosure.
+
+Expansion Module (XU)
+The XU module, used in combination with a TU, allows making an ITB with multiple rows.
+Figure 24 – XU module.
+
+The XU module performs two main functions in the ITB:
+
+Bus Expansion
+The data bus is expanded through a cable which goes from the TU J1 connector (DB15) in the
+previous row of the ITB, to the XU J1 connector (DB15).
+The XU module gathers the data obtained from the TU module with the power supply and ground
+connection and transmits everything to the rest of the ITB by means of the BUS connector on the
+right side.
+
+Power Supply of Row
+XU module has a power supply input (B1 terminal block) to connect a 24 or 48 VDC (depending on
+ordering option) ±20% power supply. This power input allows to power the rest of the modules in
+the row where it is installed.
+The B1 terminal block wiring, being the power input, is as follows:
+Figure 25 – XU power input wiring.
+
+Wiring Expansion
+The J1 connector in the module TU is used to expand the bus to the next rows in the ITB. A cable
+will connect this point to the DB15 male connector in the XU module, which has a typical
+impedance of 120 Ω and it must be shielded.
+At both end of this cable must be installed a female DB15 connector as follow:
+D3885557-00
+
+37
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 26 – TU and XU connector for expansion.
+
+XU
+The maximum length of the expansion cable is 1.5 m.
+Both connectors in XU and TU are male and it has the following pin-out:
+Figure 27 – TU and XU connector for expansion.
+
+The shielded of the cable must be connected to earth welding the shield to the metallic enclosure
+of the connector.
+
+Wiring recommendations for EMC
+The following table shows several wiring recommendations for signals, communications and power:
+Type
+Power
+
+7 mm
+
+1.5-2.5 mm²
+15-13 AWG
+
+0.5 Nm
+
+Copper
+
+Digital Inputs
+
+7 mm
+
+1.5 mm²
+15 AWG
+
+0.5 Nm
+
+Copper
+
+RS-485
+
+7 mm
+
+0.5 mm²
+20 AWG
+
+0.5 Nm
+
+Copper,
+shielded
+
+IRIG-B
+
+7 mm
+
+0.5 mm²
+20 AWG
+
+0.5 Nm
+
+Copper
+
+Watchdog
+
+7 mm
+
+1.5 mm²
+15 AWG
+
+0.5 Nm
+
+Copper
+
+To improve the EMC behavior of the equipment, it is recommended to follow the following
+indications in the wiring of the ITB.
+
+38
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Wiring Types
+The field connection of all ABs is done by using screw terminals.
+Considering the wiring types which could be used, there are five different groups:
+Table 3 – Wiring groups:
+Group
+
+Connection type
+
+1
+
+Analog signals field cabling.
+
+2
+
+Digital signals field cabling.
+
+3
+
+Communications signals cabling.
+
+4
+
+Power supply cabling (electronic, signal polarization and auxiliary).
+
+5
+
+Protection cabling (earth, human protection and EMC).
+
+Group 1, 2 & 3 (Digital, Analog, and Communication Signals)
+Common Recommendations
+With respect to the wiring of all these signals, it is very important to take the following
+recommendations into account:
+•
+
+Whenever possible, the cables from different groups should be wired separately. That is,
+analog signals, digital signals and communication signals require three separate conduits.
+
+•
+
+If separate wiring is not possible and the number of signals is reduced, this conduit can be
+exceptionally shared. In this case, as analog and communication signals are the most
+sensitive, these two signals should be wired through the same conduit, whereas digital signals
+should be wired separately.
+
+•
+
+If separate conduit is not possible, pay attention on not wiring analog, digital and
+communication signals in parallel.
+
+•
+
+If there are some sections in which parallel wiring cannot be avoided, these sections should be
+as short as possible and at least, 5 centimeters apart.
+
+•
+
+If cable needs to be crossed, these crossings should be perpendicular to each other.
+
+•
+
+To increase protection in field inputs and outputs, the terminal blocks are normally used for
+reinforcing the protection barrier. The power supply and protecting terminal blocks of DI, DO, AI
+and AO are protection barriers. The input wiring to these elements must always be separated
+from the output wiring of these barriers. They shall never share the conduit.
+
+NOTICE
+HAZARD OF SYSTEM MALFUNCTION
+Digital and communication signals cannot ever share the conduit with the power supply cables
+of the electronic and auxiliary components.
+Failure to follow this instruction can result in abnormal operation
+
+Analog Signals
+Analog signals must always be wired with shielded cables. The protection shield is connected to
+the ground using the last pin (to the right) of the terminal block.
+
+D3885557-00
+
+39
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 28 – Analog signals wiring.
+
+For AI and AO signals, under highly aggressive EMC environment, it is recommended to install a
+ferrite (model WÜRTH 74270062 or equivalent) with 2 turns of the wire.
+
+Digital Signals
+The DI and DO signals connection shall be treated in the same way as the analog signals.
+For these signals, under highly aggressive EMC environment, it is recommended to install a ferrite
+(model WÜRTH 74270062 or equivalent) with 1 turn of the wire.
+
+NOTICE
+HAZARD OF SYSTEM MALFUNCTION
+Field input signal cables must never be laid jointly with filtered signal cables.
+Failure to follow this instruction can result in abnormal operation
+
+Communication
+When using shielded cables (sharing conduit), the wire netting shall be connected to only one end
+of the cable.
+It is recommended to install the following ferrites:
+•
+
+RS-485 communications: Model WÜRTH 74271722 or equivalent, with 1 turn.
+
+•
+
+Ethernet communications: Model WÜRTH 74271221 or equivalent, with 2 turns.
+
+Group 4 (Power Supply)
+The power supply for the electronic elements is the main barrier between the existing disturbances
+in the power supply line and the system. That is why the power supply must include some
+additional filters (for instance, the Schneider Electric FIL1B P/N M584000002) for a good
+electromagnetic behavior of the system. It is extremely important to keep the filter’s input wiring
+independent from the output wiring.
+The polarizing sources output has the same route as the digital signals for which this polarization is
+used, so it should be treated as a field input/output. In some projects supplementary filters are
+installed. In these cases the wiring should be independent for the filter’s input and output.
+
+40
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 29 – Main power and polarization wiring.
+
+The polarization and main power do not feature any galvanic connection to EasyLogic T150, so
+they should be sufficiently separated from each other (independent conduits and layout) to
+minimize possible disturbances to reach the equipment’s wiring.
+It is very recommended to install supplementary filters (Recommended model: FIL1B of SchneiderElectric P/N M584000002), and the wiring should be independent for the filter’s input and output.
+The polarizing power supply should never be combined with the power supply for the electronics.
+Under no circumstances, shall the protection filter be shared, since the polarization power supply is
+connected to the field with the rest of the I/O signals. As shown in the following figure, a wrong
+connection of the polarization power supply reduces the effect of the protection barriers.
+Figure 30 – Wrong connection of the polarization power supply.
+
+Group 5 (Ground Connection)
+Use cables with enough section according to the safety standards. Use twisted pair or wire netting
+whenever possible.
+The equipment or cabinet needs to have a ground wire in a given point to have low impedance for
+the rest of elements. Horizontal copper bars shall be installed, as well as vertical copper bars,
+whenever possible. All the metal pieces in the equipment shall be connected to the protection
+earth. If metal cabinets are used, the cabinet’s walls can be also used to distribute the ground.
+
+D3885557-00
+
+41
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 31 – General scheme of a correct ground connection.
+HU
+EMC Earth
+EMC earth
+Power
+Supply
+
+Power
+Supply
+
+EMC
+earth
+
+Metal
+elements
+
+Earth
+connection
+
+Protective earth
+ground connection
+
+EMC
+earth
+
+EMC
+earth
+
+Protective earth ground connection bar
+
+•
+
+All connections shall be as short as possible, must be established through a dedicated cable
+and connected to the cabinet main ground connection bar.
+
+•
+
+A “cascading” ground connection of the elements is not allowed, as the ground disconnection
+of one element would leave other elements within the cabinets without a ground connection.
+The previous figure shows a correct connection, in which all metal elements are connected
+through a dedicated cable to the ground-connection bar. In next figure, the two ground
+connection cables are attached to simplify the connections, showing an incorrect connection.
+
+Previous figure shows a correct connection, in which all metal elements are connected through a
+dedicated cable to the ground-connection bar. In figure below, the two ground connection cables
+are attached to simplify the connections, showing an incorrect connection.
+Figure 32 – General scheme of an incorrect ground connection.
+RTU
+HU
+EMC Earth
+EMC earth
+Power
+Supply
+
+Power
+Supply
+
+Metal
+elements
+
+Protective earth
+ground connection
+
+EMC
+earth
+
+EMC
+earth
+
+Wrong
+EMC
+earth
+
+Protective earth ground connection
+bar
+
+•
+
+42
+
+It is very important that ground-connection cables are as short as possible. For that reason, the
+entire cabinet metal surface should be used for the connection.
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+D3885557-00
+
+15/04/2025
+
+•
+
+The electronic elements with metal coating, such as power supplies, must be connected to
+ground in two points. Firstly, they are connected to the protection earth using a cable with
+enough diameter (according the safety standards) linking the ground terminal and the groundconnection bar. Secondly, there is a second cable linking the ground terminal to the closest
+metal surface.
+
+•
+
+It is recommended to use flexible twisted cables for mobile ground parts (such as the cabinet’s
+doors). The ground twisted cables must be short but with a wide surface (the surface is an
+essential value in order to reduce high-frequency disturbances).
+
+43
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Baseline Software in EasyLogic T150
+General Description
+The Baseline Software Platform is used with EasyLogic T150 products and other Schneider
+Electric products. It consists of:
+•
+
+Real-time operating system (RTOS): Linux.
+
+•
+
+Real-time applications and configuration files (XML format).
+
+•
+
+Software tools: Configuration, local and remote maintenance, supervision and monitorization.
+
+The following figure shows the different applications included in the software platform, as well as
+additional applications (Devices) implementing new Devices or protocols to upgrade Easergy
+Builder.
+Figure 33 – Baseline Software Platform.
+
+The operating system abstracts the hardware from the software applications and manages the
+applications in real time. It integrates the basic protocols to access the remote unit (SFTP, SSH,
+etc.) and manage multiple users.
+The real-time database, named coreDb, is probably the most important element. All the other
+elements are developed around coreDb.
+
+44
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 34 – Relation between coreDb and other applications.
+
+The following concepts are related to coreDb:
+•
+
+Device Controller (also referred to as Controller): Real-time application that accesses coreDb.
+Each Controller acts as a producer and/or consumer of information managed by coreDb.
+
+•
+
+Point: Each register of coreDb is a point. A point can be included in the table Status, Analog,
+Command or Setpoint.
+
+•
+
+Device: A set of I/O points that share a common source/destination. A typical example of a
+Device is an IED that communicates with the RTU, or the representation of a SCADA
+exchanging information acquired or generated by the RTU. A Device is always associated to a
+type of Controller.
+
+•
+
+Source: Origin of the value of a coreDb data point. Any coreDb data point can have several
+different sources (in one or several Devices). This means that a value of a database point can
+be configured to be updated by several different entities.
+
+•
+
+Destination: Target of the value of a coreDb data point. coreDb data points can be configured
+to have several different destinations (in one or several Devices).
+Take into account that any coreDb signal can be associated to more than one source; this is
+only applicable to Command and SetPoint tables. Allocating more than source to one point is
+not recommended in Status and Analog tables.
+
+•
+
+Coordinate: Point identification within a Device. It is unique for each point and has a different
+structure for each Controller.
+
+•
+
+Configuration Plugin: Specific Configuration plugins extend the Easergy Builder application to
+configure Device Controllers.
+
+The user can modify the configuration of each Controller and Device using the appropriate Plugin.
+Once the database is completely configured, the files with the new information can be generated
+and transferred to the RTU, where they will be processed by the software on startup.
+The information exchange, that is, the exchange of configuration data between the RTU and
+Easergy Builder is not continuous, but performed through XML files under user’s request. When
+the configuration is modified in Easergy Builder and the XML files are sent to the RTU, it is
+necessary to reboot the RTU.
+D3885557-00
+
+45
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Main Elements
+For the user, the Baseline Software Platform has the following main elements:
+
+coreDb – Real Time DataBase (RTDB)
+coreDb is the real-time database which stores not only the information acquired from field devices,
+but also the information about the HU and acquisition blocks status that are part of the ITB. coreDb
+also relates the acquisition signals to the communication protocol signals. This database is
+generated in the HU by using the configuration information.
+The information which is received from field in real time is processed, stored in the RTDB and then
+related to the communication protocols signals of the ITB, which function is to transfer that
+information to the master device.
+Figure 35 – Interfaces with coreDb.
+
+CoreDb points are organized in four tables: Status, Analog, SetPoint and Command to group the
+different types of points. These internal tables present the following differences:
+•
+
+Depending on the point type: status, and command tables support integer values, whereas
+setpoint and analog tables manage floating values.
+
+•
+
+Depending on the treatment of the point: Status and Analog points can be locked or reset to
+initial values, whereas the other two signal types cannot. All types can retain the value in a
+non-volatile memory.
+
+Devices
+Each type of device keeps a list of its associated points, identified by unique labels. These labels
+allow the identification of each device point unequivocally as source or destination of a coreDb data
+point.
+Each point is a piece of information produced (or consumed) by a Device. Within a single Device,
+point identifiers (coordinates) are unique and cannot be used by two different points.
+
+User Interfaces
+The user can use the following tools in order to access to the RTU information:
+•
+
+46
+
+Easergy Builder: configuration tool for Schneider Electric RTUs that uses the Baseline
+Software Platform. It has to be installed in a PC, and among other features, it can be used to
+perform: offline configuration of the general settings of an RTU (IP address, user
+administration, communication channels and so on), design and maintenance of coreDb,
+administration of the synchronization mechanisms, configuration of the supervision and
+monitoring features.
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+•
+
+Console: advanced diagnostic (for expert users only, local or remote connection). It is possible
+to connect the PC through the serial cable to the CON port or using an Ethernet cable to an
+ETH port and SSH.
+
+•
+
+webApp: is the local and remote user interface for online monitoring, operating, and
+maintaining the CPU.
+
+Software Tools
+A basic configuration is included with HU, which has to be adapted to the requirement of the
+system. Depending on the type of HU, following software tools will be available for configuration or
+maintenance:
+•
+
+Easergy Builder: Engineering tool for the RTU OFFLINE configuration. It allows to include and
+adapt the different functions of the RTU to the system where it is being integrated. It is a
+software tool that needs to be installed on a PC.
+
+•
+
+CAE: Only available for HU with Cybersecurity, HUe and HU120. Engineering tool for defining
+the security policy and assigning roles to users. It allows defining a series of rights and
+responsibilities in the system for authorized users. It defines WHO, WHAT, WHEN and HOW
+can the user do it, according to the RBAC model. It is a software tool that needs to be installed
+on a PC.
+
+•
+
+webApp: Web tool for online maintenance and monitoring of the RTU with HUe or HU120
+using Linux as OS. Using the configuration defined in Easergy Builder and loaded in the HU,
+the user can consult and/or change some parameters through the WEB server. Unlike Easergy
+Builder, webApp does NOT allow adding new features. Only the parameters included in the
+configuration can be changed.
+
+•
+
+SFTP: Manual exchange of configuration files (for expert users only).
+
+•
+
+Console: This tool have to be used by advanced users with a wide knowledge of the system.
+The connection can be made through a serial channel (PC’s COMx port) or using SSH through
+an Ethernet port. The console is a commands tool, which the user could execute or not
+depending on the level of privileges assigned to him.
+
+•
+
+ISaGRAF (version 5): Third party software for design, configuration, debugging and
+optimization of the embedded logic programs.
+
+Software Compatibility
+Depending on the type of HU, following devices and tools will be available or not:
+Table 4 – Software compatibility
+Software Function
+
+D3885557-00
+
+HUe / HU120
+
+DNP Master Protocol
+
+√
+
+DNP Slave Protocol
+
+√
+
+Easergy Builder
+
+√
+
+Formula
+
+√
+
+IEC101 Master Protocol
+
+√
+
+IEC101 Slave Protocol
+
+√
+
+IEC103 Master Protocol
+
+√
+
+IEC104 Master Protocol
+
+√
+47
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+Software Function
+
+HUe / HU120
+
+IEC104 Slave Protocol
+
+√
+
+IEC61850 Server Ed 1
+
+×
+
+IEC61850 Client Ed 1
+
+√
+
+IEC61850 Server Ed 2
+
+√
+
+IEC61850 Client Ed 2
+
+√
+
+ISaGRAF5
+
+√
+
+MICOM Master Protocol
+
+√
+
+Modbus Master Protocol
+
+√
+
+Modbus Slave Protocol
+
+√
+
+Operating System
+
+Linux
+
+EasyLogic T150 local acquisition
+(claq)
+
+√
+
+Sepam Protocol
+
+√
+
+Sequence of events (SOE)
+
+√
+
+Synchronization (thm)
+
+√
+
+Supervision
+
+√
+
+webApp
+
+√
+
+Local Acquisition
+Local acquisition is understood as the handling carried out by the system of the information arriving
+to the HU from field devices either through available integrated local acquisition in the HU itself or
+through external acquisition blocks (AB).
+This manual describes the configuration of the local acquisition signals in general terms, with no
+comprehensive information about the configuration of each AB. This chapter explains how
+information is processed by the CPU once it is received from each module.
+For more detailed information about each AB, please refer to the corresponding user manual.
+With respect to the ITB architecture, there are two types:
+•
+
+Centralized Local Acquisition: All modules are installed over the same ITB, in which there
+will only be one HU. The ITB could have several rows of modules, but only the first one would
+have a CPU.
+
+•
+
+Distributed Local Acquisition: There would be several acquisition ITB sending information to
+a single control ITB. In this case, it would be like all AB would be installed in the same physical
+ITB.
+
+Centralized Local Acquisition
+The local acquisition Device for EasyLogic T150 is named “claq”. The main functionality of the
+Local Acquisition Device Controller is supporting the communication between the inputs and the
+outputs managed by the acquisition blocks and coreDb points. This device would be created by
+default in every EasyLogic T150 configuration.
+The first step to configure the acquisition settings is assembling the ITB in the graphical interface,
+including both the HU and the acquisition blocks in the same order as they are physically installed
+in the DIN rail.
+48
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+The graphical interface does not consider whether the ITB is assembled in one or multiple rows.
+The modules should always be added in the right physical position, regardless of the number of
+TU-XU modules that are installed.
+When creating the RTU, if the needed acquisition blocks were not configured, they could be added
+individually later, by editing the corresponding configuration.
+It is necessary to double click in the claq device of the configuration devices tree (
+). The ITB
+configuration window is displayed. Then, it would be possible to add and/or remove the AB that are
+required.
+Figure 36 – Local acquisition configuration in Easergy Builder.
+
+For further information about the configuration and addressing procedure of the ITB, please refer to
+Easergy Builder User Manual.
+
+Distributed Local Acquisition
+If local acquisition is distributed in several ITB’s in our system, you need to number each ITB in
+order to identify them individually within the global system.
+Figure 37 – Distributed local acquisition.
+
+D3885557-00
+
+49
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+To indicate that it is a distributed system, you will check the “IP Expand” box in the local acquisition
+window.
+Figure 38 – IP expand configuration.
+
+When the box on the left is checked, the following fields are enabled:
+•
+
+AB: Indicates the Ethernet port through which all ITB’s communicate in the distributed system.
+
+•
+
+Position: If you have more than one distributed system within the same network, you will
+assign an identifier to the system you are configuring as to identify its modules uniquely in the
+network.
+
+With respect to the configuration of the local acquisition in Easergy Builder, and using If local
+acquisition is distributed in several ITB’s in our system, you need to number each ITB in order to
+identify them individually within the global system.
+Figure 39 – Configuration of the local acquisition in a distributed ITB.
+
+Each acquisition block is configured as if all were physically assembled on the same ITB.
+
+Signal Identification - Coordinates
+The coordinate is an unique identifier of a signal within a Device. Its definition is different for each
+Device Controller and the local acquisition is defined with ten digits with the following format:
+1 XXX YY ZZZZ
+Where:
+•
+
+1: The first number of its coordinate for all local acquisition signals will be 1.
+
+•
+
+XXX: Number that identifies the module. It will be the address obtained for the module through
+AAP. The HU modules are associated to 000 and the AB modules are associated to 001
+onwards, but if the control module is a HU120, it will use 001 and the ABs will use 002
+onwards.
+
+•
+
+YY: Type of signal, which includes:
+
+•
+
+50
+
+o
+
+00: Diagnostic signals.
+
+o
+
+01: Analog signal (signed 32-bit signal).
+
+o
+
+02: Simple digital input (1 bit).
+
+o
+
+03: Counter (32 bits).
+
+o
+
+04: Analog output (16 bits).
+
+o
+
+05: Simple digital output (1 bit).
+
+o
+
+07: Double digital input (2 bits).
+
+o
+
+08: Frequency meter.
+
+o
+
+09: Quick counter (32 bits).
+
+o
+
+15: Double digital output (2 bits).
+
+ZZZZ: Signal number within the acquisition block. The number ranges from 0000 to 9999. For
+Diagnostic signals (YY = 00), then 0000  module´s communication state and 0001 
+Module’s hardware state.
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Example:
+In coreDb we create a point to with the local acquisition signal (Device claq) with the coordinate
+1005030002 is assigned as the source. It means that this coreDb point obtains its value from the
+third signal (0002) of 32-bits counter type (03) in module number 5 (05) of the ITB.
+
+ITB Initialization Process
+The diagram below shows the different ITB states during the initialization process, based on the
+LED indicators status. If the CPU does not initialize correctly, the diagram describes the actions to
+solve it.
+If the HU module has the software loaded and operates properly, the LED RUN will be on and blink
+after the reboot.
+Figure 40 – Description of the ITB initialization.
+
+LED FAIL lighted during the initialization indicates that an anomaly has been detected in the loaded
+configuration files. It can also indicate that no files are loaded. In either case, the operator will need
+to load a correct configuration file and reset.
+If the LED FAIL is blinking in an AB, it means it has detected an anomaly in the EEPROM, which is
+forcing the module out of service.
+Once a correct configuration file is loaded, the LED DIO on the HU module will be observed. If it is
+on, the operator will need to check if the acquisition modules addressing is correct. The bus
+physical connection must be reviewed, including the module bridges, the expansion cables, and
+the terminations. Check again when the LED DIO is on.
+Check if the problem is that the table of addressed modules does not match with the connected
+modules (see paragraph 0).
+In this case the operator will need to review:
+•
+
+The physical bus connection, including the module bridges, the expansion cables and the
+terminations.
+
+•
+
+The physical arrangement must match the order specified in the table, that is, the type of each
+module must match the position specified in the loaded configuration file.
+
+•
+
+The configuration file related to the bin controllers, signals, references, etc.
+
+If necessary, a new configuration is loaded, and the module is reset.
+D3885557-00
+
+51
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Once configured correctly, run the AAP procedure until all the modules appear as connected in the
+table (see paragraph 0).
+
+Treatment of Local Acquisition Signals
+Introduction
+The input/output information processing is performed between the acquisition module and the head
+unit, which will be in charge of the data exchange with the real-time data base by means of the
+internal data bus. The information processing consists of treating and adapting the inputs and a
+conditioning of the field outputs.
+Figure 41 – Data processing in the Head Unit
+
+All the signals stored in the real-time database are associated to quality information. This
+information is generated by the status controller block, which uses the following information to
+generate the quality flag:
+•
+
+Diagnostic information, which is transmitted to the head unit by the AB.
+
+•
+
+Diagnostic information and internal bus status.
+
+•
+
+Information generated by other processing blocks in the same head unit.
+
+The status of each signal and its associated quality bits can be viewed from webApp, as described
+in the “Baseline Software Platform” manual.
+The following sections explain the types of data that EasyLogic T150 can manage through the
+acquisition block. These sections also describe the information processing procedure and the
+quality associated to the stored data.
+
+Digital Inputs
+EasyLogic T150 can manage digital inputs with or without timestamp. In both cases, the values are
+0 and 1.
+The acquisition block transmits the signal’s value to the HU whenever it changes; it also attaches a
+timestamp if using this type of signals.
+The quality values associated to the signal’s values are:
+•
+
+Invalid value due to a polarization anomaly.
+
+•
+
+Locked signal.
+
+•
+
+Invalid time: the module is not synchronized (only for signals with timestamp).
+
+The types of points managed by RTDB and that are defined in function of these digital inputs are:
+•
+52
+
+Single digital.
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+•
+
+Double digital.
+
+•
+
+Slow counter.
+
+15/04/2025
+
+The digital inputs processing received from the field devices includes the functions explained
+below. Each processing will be applied or not depending on the type of point generated.
+
+Digital Filtering
+This function can be used to define the period of time during which a value change has to be
+retained to be considered (filtering time or TF). If the change lasts less than the time specified in
+the TF parameter, it will be ignored.
+This functionality is applicable to all the points generated from digital signals, being single,
+double, or slow counters.
+The following figure illustrates an example of the digital filter operation:
+Figure 42 – Digital filtering.
+
+The filtering time can take from 0 to 255 ms.
+
+Change Memory
+The change memory can store the changes detected in the inputs for a specified period of time
+(Memory time or TM).
+It only applies to single and double points. If the TM parameter is set to 0, this function is
+disabled.
+The change memory response for a digital input is represented in the following figures.
+Figure 43 – Change memory.
+
+The memory time can range between 0 and 2,550 ms.
+
+Inversion
+It applies for single, double, and counter signals. By using this mechanism, the input can be
+configured as enabled when the value is “1” or disabled when the value is “0”.
+
+D3885557-00
+
+53
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Settling Time
+This processing is applicable only for points configured as double digital signals. These points are
+considered as valid when only one of the two signals is active, and invalid if both signals are active
+or inactive.
+When one of them is active, the transition to the other status must be done by disabling the active
+signal and then enabling the other signal. Since these changes do not necessarily take place at the
+same time, there is a timeout (settling time or TS) from the deactivation of one of the inputs to the
+activation of the other. During this period, the system does not consider that the input status is
+invalid, but it interprets it is under transition.
+The following figure shows an example in which the TS does not expire, so the invalid status of the
+input signals is ignored:
+Figure 44 – Status validation for double signals (no TS expiration).
+
+If the TS expired, coreDb will register the signals invalid state until a new change occurs:
+Figure 45 – Status validation for double signals (TS expiration).
+
+If the settling time is set to zero, this processing will not be applied.
+The two inputs need to be fixed for that period. Otherwise, the time counter will resume operation.
+
+Edge Configuration for Counters
+It applies only for the signals defined as slow counters.
+It allows configuring each slow counter as single or double counter. In the first case the counter is
+incremented when a rising edge is detected in the input. However, the double counters are
+incremented when both rising and falling edges are detected.
+The maximum input frequency is 45 Hz.
+54
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Anti-chattering
+It applies to single and double signals.
+The anti-chattering processing function is to detect a determined number of changes in a specific
+time interval. If the specified number of changes is exceeded throughout this observation time:
+•
+
+The event related to the last change is registered.
+
+•
+
+The signal’s chattering is indicated by means of a quality bit.
+
+•
+
+Events stop being registered until no changes are detected in the signal during a specific
+period of time.
+
+Considered changes are the valid events after going through the filtering process, since the antichattering processing is the last treatment of digital inputs.
+The anti-chattering parameters are:
+•
+
+Monitoring period or TCHAT. It is the period of time during which the number of changes
+cannot be exceeded. This time can be defined from 0 to 255 seconds.
+
+•
+
+Maximum number of changes or NCHAT. It is the maximum number of changes in the signal
+during a TCHAT period. This parameter can be defined from 1 to 255 changes.
+
+•
+
+Idle time or TIDLE. Once the signal is marked as chattering, it will return to its normal status
+(normal event reporting) if during TIDLE time no changes are detected in the signal input. This
+parameter is not configurable, and its value is always equal to TCHAT.
+
+The figure below illustrates the anti-chattering processing diagrams:
+Figure 46 – Verification of the number of changes during TCHAT.
+
+The observation window slides over time:
+Figure 47 – Observation window movement.
+
+If the number of changes occurred in the interval matches the number defined in NCHAT, the
+signal is marked as in chattering and following events are ignored:
+
+D3885557-00
+
+55
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 48 – The signal is marked as in chattering.
+
+The changes in the signal are continuously observed (but events are not generated).
+Figure 49 – The signals switch to a normal status.
+
+When the TIDLE time expires with no signal change detected, it is marked as in normal status, the
+last change event is transmitted with its timestamp and events continue being generated normally.
+
+Digital Outputs
+EasyLogic T150 can manage two types of output signals:
+•
+
+Standard digital signal. These signals are triggered by a direct command. They can operate as
+latched signals or with variable pulse time (pulsing).
+
+•
+
+“Select Before Operate” digital signals. These outputs have a selection mechanism
+implemented when execution of multiple commands simultaneously is not required. They
+operate as latched signals.
+
+All modules with DO signals installed in the ITB can be configured exclusively as SBO or
+DO, depending on the type of commands to be received.
+Both types of digital outputs can be mapped to single or double signals in the coreDb, so the
+following types of points are possible:
+•
+
+Single pulsing output.
+
+•
+
+Single latched output.
+
+•
+
+Double pulsing output.
+
+•
+
+Double latched output.
+
+•
+
+Single SBO.
+
+•
+
+Double SBO.
+
+Note that:
+
+56
+
+•
+
+When a point is defined as double in the coreDb, the two field signals to be wired must be
+contiguous and on the same acquisition block.
+
+•
+
+IMPORTANT: When the ITB is operating under “Local” mode, all commands received on the
+digital outputs are rejected. This is not applicable for analog outputs.
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+The digital outputs processing includes the following functions:
+
+Pulse Time
+The pulse time is only applicable when the point is defined as pulsing; it specifies the output
+duration. It can be configured through the system’s parameter called Execution Time or ExeTime,
+which indicates the time in millisecond units, although with an accuracy of 100 ms. Its value is
+selectable from 10 to 65535 ms.
+
+SBO Command Lock (AB_DO, AB_DIDO and HU120 modules)
+This functionality is applicable to all SBO commands, being single or double.
+If a module is configured as SBO, the reception of two simultaneous commands is not supported.
+In other words, if a command A is received with a pulse time T, the module will block the reception
+of any other command until this time expires. When time T expires and command A is completed,
+the module will admit the next received command.
+
+Analog Inputs
+EasyLogic T150 allows managing analog input signals related to voltage, current, temperature,
+frequency and, in general, any analog measurement which can be obtained through a physical
+device and/or protocol.
+To manage the information from field devices, different types of points can be defined in the
+coreDb, such as:
+•
+
+Standard analog measurement. It can manage 16-bit signed values (from -32,768 to 32,767).
+
+•
+
+RTD measurement (PT100). It manages 16-bit unsigned values (from 0 to 65,535).
+
+•
+
+Standard counter. It can manage 32-bit unsigned values (from 0 to 4,294,967,295).
+
+•
+
+Frequency measurement. Alike the counter, it manages 32-bit unsigned values (from 0 to
+4,294,967,295).
+
+The first two types of signals, standard and RTD measurements, have a quality bit associated
+which indicates whether the value is invalid due to a power supply anomaly. Besides this bit, the
+last two types, counters and frequency measurements, have an additional quality bit to report any
+discrepancy in the quadrature of input signals.
+Moreover, before storing the information into the corresponding point in the coreDb, the system
+performs the following processing only for the first two types of signals:
+
+Input Range
+It is possible to define in coreDb the input range for each analog input received from an AB. It even
+allows defining a different range for the coreDb input with respect to the range generated by the AB
+for the respective analog measurement.
+The processing of the received analog measurement includes the value conversion to the range
+defined in the coreDb.
+The figure below shows the range conversion:
+
+D3885557-00
+
+57
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Figure 50 – Converting input range to engineering units.
+
+Analog raw values
+Raw Max
+
+Conversion to Engineering
+Units
+
+Engineering value
+EGU Max
+
+Raw Min
+
+Phy
+Min
+
+EGU Min
+Range
+Min
+
+Range Phy
+Max Max
+
+Under valid range
+
+Raw
+Min
+
+Raw
+Max
+
+Over valid range
+
+Input Physical Range
+Range:
+Raw:
+EGU:
+
+Physical Range (mA, V…)
+ADC Output
+Engineering Units
+
+The analog input processing distinguishes between unipolar and bipolar input ranges.
+
+Out-of-Range Detection
+If the system detects that the value is higher or lower than the valid range, after the conversion to
+engineering units (grayed area in Figure 9-10), it will be indicated in the signal quality flag with the
+corresponding bit activation,
+
+Digital Filtering
+It applies a digital filtering to minimize the noise effects. The user can specify the filter parameters
+using Easergy Builder.
+
+Scaling to Engineering Units
+This functional block can convert the analog measurement value expressed in field units to
+engineering units (UI). The user defines the relation between two points within the field values
+range and their corresponding values in the engineering unit scale. Based on this relation, the
+system defines the scaling formula which will be used to convert any field value within its valid
+range to engineering units.
+
+Cancellation of Values Close to Zero
+This filter avoids unwanted changes in the signal. The user defines a range around the lower limit
+for field values, and any input value within this range is interpreted as zero. The range around the
+lower limit is defined by the user as a percentage of the input total range.
+
+Range Checking
+The user can define four alarm values associated to each signal: Very low, low, high, and very
+high. Each value has an alarm flag associated which is transmitted as an input to the “status
+controller” block.
+
+Change Threshold
+The user can define, by means of a parameter, a value expressed in engineering units that
+generates a range within which the input signal will remain invariable. This filter allows the system
+to ignore small changes in the signal current value.
+
+Analog Outputs
+The ITB operation in “Local” mode does not affect the execution of analog outputs; only
+commands (digital outputs) are discarded.
+The processing of analog outputs consists of the following steps:
+
+58
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Figure 51 – Converting engineering units to output range.
+
+Reset Value
+The user must define the output reset value, that is, the output initial value after resetting the
+acquisition block. This value is defined in a 16-bit signed range (between -32,768 and 32,767).
+
+Maintenance
+If the acquisition block is not in RUN status (LED Run is off) and maintenance is configured, the
+analog output will retain the last value written to it, or the reset value otherwise.
+
+Scaling to Field Values
+This module performs the opposite process than the “Scaling to Engineering Units” in analog input
+processing, that is, it converts the output value expressed in engineering units to its corresponding
+field units.
+Figure 52 – Scaling to field values.
+HFS
+Max
+
+Valor analógico de salida en
+unidades de campo
+
+Valor analógico de salida en
+unidades de ingeniería
+
+Raw
+Max
+
+Range
+Max
+
+Raw
+Min
+
+Range
+Min
+EGU
+Max
+
+EGU
+Min
+
+EGU:
+Raw:
+Range:
+
+Raw
+Min
+
+Raw
+Max
+
+Engineering Units
+DAC Output
+Physical Range (mA, V…)
+
+The configuration of this scaling is the same as described for the processing of analog inputs in the
+block “Scaling to Engineering Units”.
+
+Output range configuration.
+The user can define the output range for each analog output using Easergy Builder. If the
+acquisition block's hardware supports multirange, it should be configured with a range as close as
+possible to the user-defined range. In any case, the user can define a value range different to the
+hardware range for each analog signal.
+
+D3885557-00
+
+59
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Configuration & Maintenance
+Getting Started
+The HU is provided with a basic configuration, which will help you have a first contact with the
+system. To get started, you need to know following data:
+
+Default IP Addresses
+Depending on the CPU type, the IP addresses are:
+Table 5 – Factory default IP addresses.
+CPU
+
+Port
+
+Hue/HU120
+
+IP
+
+Mask
+
+MNT
+
+192.168.2.1
+
+255.255.255.0
+
+LAN1
+
+10.1.1.1
+
+255.0.0.0
+
+LAN2
+
+192.168.1.1
+
+255.255.255.0
+
+User Roles
+In accordance with the policy provided by the CS Brick, the description of the roles available in the
+system are:
+Table 6 – Default roles
+Role
+
+Description
+
+OPERATOR
+
+This user can view most of the system's information (data, syslog, events,
+settings…) It can write to coreDb, but it does NOT have access to security
+parameters.
+
+ENGINEER
+
+This user can view and modify all the system information, except for the security
+parameters. It can also access the operating system's console, although it cannot
+execute EasyLogic T150 commands.
+
+INSTALLER
+
+This user can view and modify all the system information, except for the security
+parameters. In the console, it can only access the BLMon application and
+EasyLogic commands.
+
+VIEWER
+
+This user level can read coreDb settings and data and can connect to webApp. It
+cannot make changes to settings or to the coreDb data.
+
+SECADM
+
+This user level is only used to define and modify the security parameters and user
+permissions.
+
+SECAUD
+
+This user only is authorized to read the security log.
+
+RBACMNT
+
+This user is authorized to read the security log and to change the RBAC model.
+
+By default, HUe only has the user SecurityAdmin with password SecurityAdmin1! With SECADM
+role. On the first boot it is highly recommended to connect to webApp with this user and:
+
+60
+
+•
+
+Change default SecurityAdmin user password.
+
+•
+
+Create another SECADM user as backup.
+
+•
+
+Create required users with other roles: ENGINEER, INSTALLER, VIEWER…
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+WARNING
+HAZARD OF POTENTIAL COMPROMISE OF SYSTEM AVAILABILITY, INTEGRITY,
+SAFETY, AND CONFIDENTIALITY
+Change default passwords/passcodes to help prevent unauthorized access to device
+settings and information. Implement strong authentication controls, with high complexity
+passwords.
+Failure to follow these instructions can result in death, serious injury, equipment
+damage, system anomaly or information exposure.
+
+We recommend using and ENGINEER role to perform configuration tasks with Easergy Builder and
+an INSTALLER role to use the console.
+When working with the HUe module, the user will need to prepare the working environment, in
+terms of installing the adequate tools, making the software files available, in case the CPU needs
+to be upgraded, and so on.
+There are certain tasks that the user must be familiar with before using EasyLogic T150, such as:
+•
+
+Installing and using Easergy Builder: This manual describes specific operations to be
+performed with this tool (see Chapter 5 in this manual). For detailed information about the use
+of Easergy Builder, please refer to “Easergy Builder User Manual”.
+
+•
+
+Using webApp: For detailed information about the use of the web server, please refer to
+“webApp User Manual”.
+
+•
+
+Operating EasyLogic T150 modules: For further information about the wiring, configuration,
+and use of the modules which be included in an ITB, please refer to their respective user
+manual.
+
+ITB Addressing (AAP)
+In the ITB, each acquisition or communication block must be identified with a number. This number
+is assigned with Easergy Builder when the local acquisition is configured (see Error! Reference
+source not found. section).
+Once the local acquisition has been configured and transferred to the RTU, it is necessary to
+address also those modules while they are in operation. To do that, the AAP (Automatic
+Addressing Procedure) procedure creates a table in which acquisition blocks mounted in the ITB
+are related with their address and type. The physical system has to match with the system that has
+been configured in Easergy Builder.
+For AAP execution, at least one configuration needs to be loaded in the RTU; it must match the
+configuration loaded in the modules that are physically installed on the ITB. For further information
+about how to define and load a configuration to the RTU by using Easergy Builder, please refer to
+section 5.4.
+AAP must be executed under the following circumstances:
+
+D3885557-00
+
+•
+
+When the ITB is initialized for the first time, after the configuration is transmitted to the RTU
+with Easergy Builder.
+
+•
+
+When a physical change is made to the ITB:
+o
+
+When a module is replaced with another module (the same or different type).
+
+o
+
+When the module position is rearranged.
+
+o
+
+When a module is added or removed.
+61
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+The AAP can be executed automatically or manually by an operator.
+
+Automatic Execution
+Using a combination of switches in the CPU (consult the CPU’s user manual) the AAP procedure
+can be executed automatically when the module restart. This AAP is necessary to update the
+RTU's table of modules which have been configured in Easergy Builder.
+Each time the CPU is rebooted, at the end of the booting process the APP will be executed,
+showing the information of all the modules that are installed and configured.
+Figure 53 – Example with messages generated once AAP has finished.
+
+When any of the acquisition blocks configured in Easergy Builder are not properly addressed
+(“SUCCESSFUL!” message is not displayed on the console), RUN LED of the module does not
+blink and the DIO LED keeps lit.
+After the current configuration for the system has been reached, it is recommended to deactivate
+the automatic execution of AAP using the CPU’s switches.
+
+Manual Execution
+Anytime the user could force the addressing of the modules.
+For AAP to be executed, the CPU’s switch that allow this operation must be in ON position. Consult
+the CPU’s user manual to identity the correct switch.
+For manual AAP execution, next steps need to be followed:
+•
+
+In the console, it is necessary to execute the “claqStartAAP” command to run the procedure
+and the “LAQ_StartAAP: Running AAP....please wait” message will appear until the end of the
+process. For communication blocks, the command would be “MUX_startAAP” instead.
+Afterwards, the screen will show the information about each node, such as the type, address,
+and serial number.
+
+•
+
+It is necessary to check that all modules appear on the console and that “SUCCESSFUL!” is
+indicated for each one of them.
+
+•
+
+To finish the procedure, one of the following commands has to be executed:
+o
+
+claqTableAck: It confirms that the table with the data is correct, so it will be registered
+permanently and applied from that moment on. As result of this command, a message
+will appear to inform that the content of the list of modules has been modified.
+
+o
+
+claqTableNack: The operator informs the system that the table with the data is not
+valid, and therefore should not be applied. In this case, there are two options: the APP
+can be executed again and the result of the claqTableAck command is confirmed, or
+the ITB is completely reset so that it can have a valid addressing. The second option
+would allow the ITB to restore the addressing tables before the AAP was executed.
+
+o
+
+claqStartAAP: The AAP is re-executed, so addresses are reallocated for each node.
+
+From this moment, the RTU will be ready to be initialized and switch to data exchange mode if the
+application software has already been loaded. Otherwise, the software will have to be updated as
+well.
+Only after executing the claqTableAck command, the information will be recorded permanently.
+
+62
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Addresses that have been obtained from the AAP must match the ones configured with Easergy
+Builder.
+Whenever a minor or major change is made to the ITB, the addressing procedure should be
+executed. Moreover, prior to this addressing procedure, it’s necessary to check that the
+configuration loaded into the RTU is correct with respect to the current condition of the ITB.
+Figure 54 – Example of manual AAP execution.
+
+D3885557-00
+
+63
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Index of Figures
+Figure 1 - Barrier of protection for elements with high voltages. ..............................................................................14
+Figure 2 – Yellow and green cable for grounding. .....................................................................................................16
+Figure 3 –Terminal for functional earth (EMC) ..........................................................................................................17
+Figure 4 – Example of grounding for EMC. ................................................................................................................17
+Figure 5 – Technical label..........................................................................................................................................20
+Figure 6 – EasyLogic T150. .......................................................................................................................................21
+Figure 7 – EasyLogic T150 module. ..........................................................................................................................22
+Figure 8 – Connection between modules. .................................................................................................................22
+Figure 9 – LED indicators. .........................................................................................................................................22
+Figure 10 – Basic ITB ................................................................................................................................................25
+Figure 11 – EasyLogic T150 Architecture. ................................................................................................................26
+Figure 12 – TU-XU connection. .................................................................................................................................27
+Figure 13 – Communication between the CPU and acquisition blocks. ....................................................................28
+Figure 14 – microRTU. ..............................................................................................................................................30
+Figure 15 – Small / Medium RTU. .............................................................................................................................31
+Figure 16 – Large RTU with distribute acquisition. ....................................................................................................31
+Figure 17 – Mount bracket on DIN rail. ......................................................................................................................35
+Figure 18 – EasyLogic T150 module on a DIN rail. ...................................................................................................35
+Figure 19 – Using a screwdriver to dismount a module. ...........................................................................................35
+Figure 20 – TU module. .............................................................................................................................................36
+Figure 21 – Switches to disconnect the TU resistor. .................................................................................................36
+Figure 22 – BT module. .............................................................................................................................................36
+Figure 23 – BT module connection. ...........................................................................................................................37
+Figure 24 – XU module. .............................................................................................................................................37
+Figure 25 – XU power input wiring. ...........................................................................................................................37
+Figure 26 – TU and XU connector for expansion. .....................................................................................................38
+Figure 27 – TU and XU connector for expansion. .....................................................................................................38
+Figure 28 – Analog signals wiring. .............................................................................................................................40
+Figure 29 – Main power and polarization wiring. .......................................................................................................41
+Figure 30 – Wrong connection of the polarization power supply. ..............................................................................41
+Figure 31 – General scheme of a correct ground connection. ..................................................................................42
+Figure 32 – General scheme of an incorrect ground connection. .............................................................................42
+Figure 33 – Baseline Software Platform. ...................................................................................................................44
+Figure 34 – Relation between coreDb and other applications...................................................................................45
+Figure 35 – Interfaces with coreDb. ...........................................................................................................................46
+Figure 36 – Local acquisition configuration in Easergy Builder. ................................................................................49
+Figure 37 – Distributed local acquisition. ...................................................................................................................49
+Figure 38 – IP expand configuration. .........................................................................................................................50
+Figure 39 – Configuration of the local acquisition in a distributed ITB. .....................................................................50
+Figure 40 – Description of the ITB initialization. ........................................................................................................51
+Figure 41 – Data processing in the Head Unit ...........................................................................................................52
+Figure 42 – Digital filtering. ........................................................................................................................................53
+Figure 43 – Change memory. ....................................................................................................................................53
+Figure 44 – Status validation for double signals (no TS expiration). .........................................................................54
+Figure 45 – Status validation for double signals (TS expiration). ..............................................................................54
+Figure 46 – Verification of the number of changes during TCHAT............................................................................55
+Figure 47 – Observation window movement. ............................................................................................................55
+Figure 48 – The signal is marked as in chattering. ....................................................................................................56
+Figure 49 – The signals switch to a normal status. ...................................................................................................56
+Figure 50 – Converting input range to engineering units. .........................................................................................58
+Figure 51 – Converting engineering units to output range. .......................................................................................59
+Figure 52 – Scaling to field values. ............................................................................................................................59
+Figure 53 – Example with messages generated once AAP has finished. .................................................................62
+Figure 54 – Example of manual AAP execution. .......................................................................................................63
+
+64
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+Index of Tables
+Table 1 – Symbols ......................................................................................................................................................13
+Table 2 – Hardware and database limits depending on the HU .................................................................................27
+Table 3 – Wiring groups: .............................................................................................................................................39
+Table 4 – Software compatibility .................................................................................................................................47
+Table 5 – Factory default IP addresses. .....................................................................................................................60
+Table 6 – Default roles ................................................................................................................................................60
+
+D3885557-00
+
+65
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+Glossary
+A
+A: Ampere.
+AAP: Automatic Addressing Procedure.
+AB: EasyLogic T150 Acquisition Block.
+AB_AC: Direct measurements Acquisition Block.
+AB_AI: Analog Inputs Acquisition Block.
+AB_AO: Analog Outputs Acquisition Block.
+AB_DI: Digital Inputs Acquisition Block.
+AB_DIDO: Digital Inputs and Outputs Acquisition Blocks.
+AB_DO: Digital Outputs Acquisition Blocks.
+AB_SER: Communication module for expansion.
+AC: Alternate Current.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+
+B
+Bps: Bits per second.
+
+C
+ºC: Celsius degree.
+COM: Puerto de comunicaciones.
+CPU: Central Processing Unit.
+CTS: Clear to Send.
+
+D
+DC: Direct Current.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO: Digital Output.
+DRAM: Dynamic Random Access Memory.
+
+E
+EMC: ElectroMagnetic Compatibility.
+EPROM: Erasable Programmable Read Only Memory
+
+F
+FTP: File Transfer Protocol.
+66
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+
+G
+g: Gram.
+GPS: Global Positioning System.
+
+H
+HU: Head Unit. EasyLogic T150 CPU.
+HU120: EasyLogic T150 High-Performance Head Unit with acquisition.
+HUe: EasyLogic T150 High-Performance Head Unit.
+Hz: Hertz.
+
+I
+IED: Intelligent Electronic Device.
+I/O: Input / Output.
+IRIG: Inter Range Instrumentation Group.
+IRIG-B: Mode B of the standard IRIG.
+ISO 9001: International standard for Quality Management Systems.
+ITB: Intelligent Terminal Block.
+
+K
+KB: Kilobyte.
+kHz: Kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+
+M
+mA: Milliampere.
+MHz: Megahertz.
+MB: Megabyte.
+Mbps: Megabits per second.
+m: Meter.
+mm: Millimeter.
+ms: Millisecond.
+
+N
+N/A: Non-Application.
+
+P
+PC: Personal Computer.
+D3885557-00
+
+67
+
+15/04/2025
+
+User Manual – EasyLogic T150 Platform
+
+PPS: Pulses per Second.
+PS: Power Supply.
+PWR: Power.
+
+R
+RAM: Random Access Memory.
+RS-232: Communication standard.
+RS-485: Multipoint differential Bus.
+RTDB: Real Time DataBase.
+RTS: Request To Send.
+RTU: Remote Terminal Unit.
+Rx: Reception
+
+S
+s: Second.
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+
+T
+TCP/IP: Transmission Control Protocol/Internet Protocol.
+TFTP: Trivial File Transfer Protocol.
+TU: Terminal Unit.
+Tx: Transmission.
+
+V
+VAC: Volt of Alternate Current.
+VDC: Volt of Direct Current.
+
+W
+W: Watt.
+
+X
+XU: Expansion Unit.
+
+68
+
+D3885557-00
+
+User Manual – EasyLogic T150 Platform
+
+15/04/2025
+Printed in:
+Friday, June 20, 2025
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++33 (0) 1 41 29 70 00
+As standards, specifications, and design change from time to time,
+Please ask for confirmation of the information given in this publication.
+@2025 – Schneider Electric. All rights reserved.
+D3885577-00 04/2025
+
+D3885557-00
+
+69
+
+

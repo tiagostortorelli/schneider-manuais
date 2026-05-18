@@ -1,0 +1,4193 @@
+PowerLogic P3
+Universal Relays P3U20 and P3U30
+Quick Start - IEC
+01/2026
+
+P3U_EN_QS_30-209A
+www.schneider-electric.com
+
+Universal Relays P3U20 and P3U30
+
+Table of Contents
+
+Table of Contents
+1 About this manual.......................................................................... 8
+1.1 Description of the document versions...............................................................8
+
+2 Easergy to PowerLogic renaming.................................................. 9
+3 General product information.........................................................10
+3.1 Checking the consignment..............................................................................10
+3.2 Product identification.......................................................................................10
+3.3 Storage........................................................................................................... 12
+3.4 Warranty......................................................................................................... 12
+3.5 Complaints...................................................................................................... 12
+
+4 Operational safety........................................................................ 13
+4.1 Electrical safety...............................................................................................13
+4.2 Device handling.............................................................................................. 13
+4.3 Electrostatic discharge....................................................................................13
+
+5 Wiring........................................................................................... 14
+5.1 Installing connections......................................................................................14
+5.2 Checking the wiring.........................................................................................14
+
+6 Energizing.................................................................................... 15
+7 Front panel................................................................................... 16
+7.1 Push-buttons...................................................................................................16
+7.2 LED indicators.................................................................................................17
+7.3 Controlling the alarm screen........................................................................... 18
+7.4 Accessing operating levels............................................................................. 18
+7.5 Adjusting the LCD contrast............................................................................. 18
+7.6 Testing the LEDs and LCD screen................................................................. 19
+7.7 Releasing latches............................................................................................19
+7.7.1 Releasing latches using eSetup Easergy Pro.......................................19
+7.7.2 Releasing latches using buttons and local panel display......................20
+7.7.3 Releasing latches using F1 or F2 buttons............................................ 20
+7.8 Controlling an object with selective control..................................................... 21
+7.9 Controlling an object with direct control.......................................................... 21
+7.10 Menus........................................................................................................... 21
+7.10.1 Moving in the menus ..........................................................................24
+7.10.2 Local panel messages........................................................................ 24
+
+8 eSetup Easergy Pro setting and configuration tool...................... 25
+9 Access to device configuration.....................................................26
+9.1 User accounts................................................................................................. 26
+9.2 Logging on via the front panel.........................................................................26
+
+P3U_EN_QS_30-209A
+
+3
+
+Universal Relays P3U20 and P3U30
+
+Table of Contents
+
+9.3 HTTP and FTP logon details...........................................................................27
+9.4 Password management.................................................................................. 27
+9.5 Password restoring......................................................................................... 28
+
+10 Local port................................................................................... 29
+11 Block diagrams...........................................................................30
+12 Mounting.................................................................................... 42
+13 Related documents.................................................................... 46
+
+4
+
+P3U_EN_QS_30-209A
+
+Legal information
+
+Universal Relays P3U20 and P3U30
+
+Legal information
+The Schneider Electric brand and any registered trademarks of Schneider Electric
+Industries SAS referred to in this guide are the sole property of Schneider Electric
+SA and its subsidiaries. They may not be used for any purpose without the
+owner's permission, given in writing. This guide and its content are protected,
+within the meaning of the French intellectual property code (Code de la propriété
+intellectuelle français, referred to hereafter as "the Code"), under the laws of
+copyright covering texts, drawings and models, as well as by trademark law. You
+agree not to reproduce, other than for your own personal, noncommercial use as
+defined in the Code, all or part of this guide on any medium whatsoever without
+Schneider Electric's permission, given in writing. You also agree not to establish
+any hypertext links to this guide or its content. Schneider Electric does not grant
+any right or license for the personal and noncommercial use of the guide or its
+content, except for a non-exclusive license to consult it on an "as is" basis, at your
+own risk. All other rights are reserved.
+Electrical equipment should be installed, operated, serviced and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+As standards, specifications and designs change from time to time, please ask for
+confirmation of the information given in this publication.
+
+P3U_EN_QS_30-209A
+
+5
+
+Safety information
+
+Universal Relays P3U20 and P3U30
+
+Safety information
+Important information
+Read these instructions carefully and look at the equipment to become familiar
+with the device before trying to install, operate, service or maintain it.
+The following special messages may appear throughout this publication or on
+the equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+This is the safety alert symbol. It is used to alert you to potential
+personal injury hazards. Obey all safety messages that follow
+this symbol to avoid possible injury or death.
+The addition of either symbol to a “Danger” or “Warning” safety
+label indicates that an electrical hazard exists which will result
+in personal injury if the instructions are not followed.
+
+DANGER
+DANGER indicates a hazardous situation which, if not avoided, will result
+in death or serious injury.
+
+WARNING
+WARNING indicates a hazardous situation which, if not avoided, can
+result in death or serious injury.
+
+CAUTION
+CAUTION indicates a hazardous situation which, if not avoided, can
+result in minor or moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+Please note
+Electrical equipment must only be installed, operated, serviced, and maintained
+by qualified personnel. A qualified person is one who has skills and knowledge
+related to the construction, installation, and operation of electrical equipment and
+has received safety training to recognize and avoid the hazards involved.
+No responsibility is assumed by Schneider Electric for any consequences arising
+out of the use of this material.
+Protective grounding
+The user is responsible for compliance with all the existing international and
+national electrical codes concerning protective grounding of any device.
+
+6
+
+P3U_EN_QS_30-209A
+
+EU directive and UKCA regulations compliance
+
+Universal Relays P3U20 and P3U30
+
+EU directive and UKCA regulations compliance
+
+EU directive compliance
+
+UKCA regulations compliance
+Schneider Electric Limited
+Telford, TF3 3BL
+United Kingdom
+
+EMC compliance
+
+EMC compliance
+
+2014/30/EU
+
+SI 2016 No. 1091
+
+Compliance with the European
+
+The Electromagnetic Compatibility
+
+Commission's EMC Directive. Product
+
+Regulations:
+
+Specific Standard was used to establish
+
+• BS EN 60255-26 2013
+
+conformity:
+• EN 60255-26 2013
+Product safety
+
+Product safety
+
+2014/35/EU
+
+SI 2016 No. 1101
+
+Compliance with the European
+
+The Electrical Equipment (Safety)
+
+Commission's Low Voltage Directive.
+
+Regulations:
+
+Product Specific Safety Standard was used • BS EN 60255-27 2014
+to establish conformity:
+• EN 60255-27 2014
+RoHS directive
+
+RoHS regulation
+
+2011/65/EU (inclusive of Directive (EU)
+
+SI 2012 No. 3032
+
+2015/863) Compliance
+
+The Restriction of the Use of Certain
+
+Compliance with the European
+
+Hazardous Substances in Electrical and
+
+Commission's on the restriction of the
+
+Electronic Equipment Regulations
+
+use of certain hazardous substances in
+
+• BS EN IEC 63000:2018
+
+electrical and electronic equipment
+• EN IEC 63000:2018 / IEC 63000:2016
+
+P3U_EN_QS_30-209A
+
+7
+
+Universal Relays P3U20 and P3U30
+
+1 About this manual
+
+1 About this manual
+This manual contains instructions for handling, mounting and wiring PowerLogic
+P3 protection relays.
+Carefully read through the mounting instruction of this manual before undertaking
+any mounting or wiring work.
+
+1.1 Description of the document versions
+The document version rule was upgraded since the firmware version 30.208 to
+help understand for which firmware version the user manual is intended.
+The document version is composed of the following information:
+•
+
+•
+
+•
+
+•
+•
+•
+
+8
+
+Product type
+◦ P3U stands for PowerLogic P3 Standard; P3X stands for PowerLogic P3
+Advanced;
+◦ P3F stands for PowerLogic P3 Feeder;
+◦ P3G stands for PowerLogic P3 Generator;
+◦ P3L stands for PowerLogic P3 Line differential;
+◦ P3M stands for PowerLogic P3 Motor;
+◦ P3T stands for PowerLogic P3 Transformer.
+Language and standard definition
+◦ EN, FR, IT, ES, PT, RU, CN, ANSI, and so on.
+◦ By default, the IEC standard applies. ANSI version is always published in
+the English language.
+Document type
+◦ M stands for User Manual, QS stands for Quick Start Manual, C stands for
+Communication Manual.
+Major version of the firmware
+Release version of the firmware
+Document version, which loops from A to Z for a dedicated release version.
+
+P3U_EN_QS_30-209A
+
+2 Easergy to PowerLogic renaming
+
+Universal Relays P3U20 and P3U30
+
+2 Easergy to PowerLogic renaming
+Schneider Electric, driven by its “Customer First” Core Value, is fully committed
+to easing the customer experience with our portfolio on all fronts. With this core
+mission in mind, the decision to optimize the number of brands has been taken
+across the entire digital Schneider Electric portfolio to provide a more cohesive
+and consistent presentation of our offers across different Divisions, bringing a
+simpler and customer-centric approach that will facilitate the navigation through
+all the breadth and depth of our offers and that will be a key enabler for an
+optimized digitization experience.
+This brand optimization initiative affects Protection & Control portfolio including
+Easergy P3 protection and control relays. The Easergy P3 has been renamed to
+PowerLogic P3. It is essential to emphasize that this renaming exclusively affects
+the brand name of the products and will have absolutely no consequence on the
+current performance, specifications, characteristics, and/or quality of the product,
+which remain totally unaffected by this brand name migration. During the brand
+transition project, it may happen that the application of this change to different
+parts of the offer becomes effective with different time schedules. There is
+absolutely no difference between Easergy and PowerLogic branded P3 products
+and accessories. Easergy accessories can be used with PowerLogic P3 product
+as long as the commercial reference is matching. The commercial references
+have not changed along with the renaming of the offer. eSetup Easergy Pro and
+CET850 remain the software to configure PowerLogic P3 protection and control
+relays.
+
+P3U_EN_QS_30-209A
+
+9
+
+3 General product information
+
+Universal Relays P3U20 and P3U30
+
+3 General product information
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing, see applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing device to ensure that all
+power is off.
+Do not open the secondary circuit of a live current transformer.
+Always connect the polarity of the current transformer (CT) and the voltage
+transformer (VT) and their secondary ground wiring according to the
+connection diagrams presented in this document.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+
+3.1 Checking the consignment
+•
+
+•
+•
+
+Check that the unit packaging and the seal are intact at the receipt of the
+delivery. Our products leave the factory in closed, sealed packaging. If the
+transport packaging is open or the seal is broken, the confidentiality and
+authenticity of the information contained in the products cannot be ensured.
+Check the device visually for possible external damage or loose parts inside
+the device. If you find the device to be damaged, see 3.5 Complaints.
+Check that the device complies with the order and the Calibration and Test
+Report. Check:
+◦
+◦
+
+relay type, serial number
+other possible order-related structural matters
+
+If found incomplete, see 3.5 Complaints.
+
+3.2 Product identification
+Each PowerLogic P3 relay is delivered in a separate package containing:
+•
+•
+•
+
+PowerLogic P3 protection relay with the necessary terminal connectors
+Production testing certificate
+Quick Start manual
+
+Optional accessories are delivered in separate packages.
+To identify a PowerLogic P3 protection relay, see the labels on the package and
+on the side of the relay.
+
+10
+
+P3U_EN_QS_30-209A
+
+3 General product information
+
+Universal Relays P3U20 and P3U30
+
+Serial number label
+Figure 1 - P3U Serial number label
+1 Un:
+
+100/110V
+50/60Hz
+3 In:
+1/5A
+4 Io1n: 5/1A
+5 P:
+15W
+6 Uaux: 48 - 240 Vac/dc
+
+Made in Country
+
+2 fn:
+
+9 Mfg Date: 4.5.2025
+
+10 MAC: 001AD3029731
+
+Type: 7 P3U30-5AAA1BCAA 11 REL52003
+12 VID: P3U30-42947
+S/N: 8 SM23184L0100059
+
+1.
+
+Rated voltage Un
+
+2.
+
+Rated frequency fn
+
+3.
+
+Rated phase current In
+
+4.
+
+Rated earth fault current I0n
+
+5.
+
+Power consumption Pmax
+
+6.
+
+Power supply operating range Uaux
+
+7.
+
+Order code
+
+8.
+
+Serial number
+
+9.
+
+Manufacturing date
+
+10.
+
+MAC address for TCP/IP communication
+
+11.
+
+Short order code
+
+12.
+
+Production identification
+
+Unit package label
+Figure 2 - P3U Unit package label
+
+P3U30
+
+A
+
+Protection relay
+Relais de protection
+
+B
+
+C
+PowerLogic - P3
+
+D P3U30-5AAA1BCAA
+P3U30-42947
+
+Made in Country
+SM23184L0100059
+REL52003
+135732
+
+x1
+
+F
+
+E
+60648 1
+
+3571 6 8 3
+
+SCHNEIDER ELECTRIC
+CS30323
+F-92506 RUEIL MALMAISON CEDEX
+
+A. Product name
+B. Serial number
+C. Short order code
+
+P3U_EN_QS_30-209A
+
+D. Order code
+E. EAN13 bar code
+F. Internal product code
+
+11
+
+3 General product information
+
+Universal Relays P3U20 and P3U30
+
+3.3 Storage
+
+NOTICE
+WATER DAMAGE
+•
+•
+•
+
+•
+
+Do not expose the products to sustained humidity during storage.
+Electrically energize the products within three months of unpacking.
+Where electrical equipment is being installed, allow sufficient time for
+acclimatization to the ambient temperature of the environment before
+powering on.
+Supply power to the protection device every two years for at least one hour.
+
+Failure to follow these instructions can reduce the product life span.
+If PowerLogic P3 devices are not to be installed immediately upon receipt,
+they should be stored in a place free from dust, humidity and moisture in their
+original packaging. PowerLogic P3 can be stored in its original packaging, in an
+appropriate location for several years:
+•
+•
+
+Temperature from -40°C to +70°C (-40°F to +158°F)
+Humidity <90%
+
+Care should be taken on subsequent unpacking so that any dust collected on the
+carton does not fall inside.
+Periodically, on yearly basis checking of the environment and the packaging
+condition is recommended. It is recommended to power on PowerLogic P3 for
+one hour every two years.
+After PowerLogic P3 is unpacked, it is recommended to energize the device
+immediately in an appropriate environment in terms of temperature, humidity and
+pollution.
+If PowerLogic P3 is installed in a cubicle, keep the cubicle protection packing as
+long as possible. The relay should not be stored in a damp environment for more
+than a month. It should be energized as quickly as possible. If this is not possible,
+the cubicle reheating system should be activated.
+
+3.4 Warranty
+This product has a standard warranty of 2 years.
+Ask your local Schneider Electric representative about our optional 10-year
+warranty. Local conditions and availability apply.
+
+3.5 Complaints
+Complaints for manufacturing faults are directed in writing to the relay
+manufacturer or the authorized dealer from which the product was acquired. Find
+more information from our customers care center (https://www.se.com/CCC).
+Complaints about transport damage must be sent to the accountable transport or
+insurance company.
+
+12
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+4 Operational safety
+
+4 Operational safety
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing, see applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing device to ensure that all
+power is off.
+Do not open the secondary circuit of a live current transformer.
+Always connect the polarity of the current transformer (CT) and the voltage
+transformer (VT) and their secondary ground wiring according to the
+connection diagrams presented in this document.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+
+4.1 Electrical safety
+National electrical safety regulations must be observed when work is carried out
+under live conditions. The relay manufacturer cannot be held responsible for
+accidents caused by incorrect working or protection practices.
+
+4.2 Device handling
+The correct handling of the relays under all mounting and operating conditions
+forms the foundation for their correct and safe use. Observe all safety notes and
+warnings.
+
+4.3 Electrostatic discharge
+The devices include components that are liable to be damaged by electrostatic
+discharge (ESD). Do not open the devices without permission from the
+manufacturer.
+
+P3U_EN_QS_30-209A
+
+13
+
+5 Wiring
+
+Universal Relays P3U20 and P3U30
+
+5 Wiring
+Perform the wiring work according to national standards and possible
+requirements from the customer.
+
+5.1 Installing connections
+
+WARNING
+HAZARD OF UNEXPECTED OPERATION
+Use only the terminals delivered with the product to wire the relay.
+Failure to follow these instructions can result in death, serious injury,
+or equipment damage.
+NOTE: Use only the connectors supplied with the relay. When replacing an
+existing relay, do not reuse old connectors.
+NOTE: Use only single-strand wire or stranded wire with insulated crimp
+terminals.
+1.
+
+Check that the rated values of the relay comply with those of the intended
+application.
+◦
+
+◦
+
+Check that the rated values of the voltage and current transformer
+secondaries comply with those of the device. The rated values can be
+found on the serial number label.
+Check that the load ability of the outputs is adequate.
+
+2.
+
+Earth the relay by connecting an earthing wire using a minimum 2.5 mm2
+cross-section (AWG 14) to the device's earthing terminal.
+
+3.
+
+Wire the relay to the rest of the system according to the wiring diagrams of
+the application.
+
+4.
+
+Connect the cable shields of shielded signal cables to the device's earthing
+terminal.
+
+5.2 Checking the wiring
+Check the secondary wiring by visual inspection and, when needed, by
+measuring to eliminate possible incorrect wiring that may cause malfunction of
+the relay or associated devices.
+•
+Check the wiring visually:
+◦
+
+•
+
+Inspect the wiring visually. Especially check the wire bunches for
+adequate slack where needed over the hinges.
+◦ Check the screw terminals for correct tightness.
+◦ Check that no wire strands are protruding from the terminals.
+Check the wiring by measuring:
+◦
+◦
+
+14
+
+Check the connections between the relay and associated devices by
+using a circuit indicator lamp or buzzer.
+Check other possible connections by using recognized and reliable
+working practices.
+P3U_EN_QS_30-209A
+
+6 Energizing
+
+Universal Relays P3U20 and P3U30
+
+6 Energizing
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Before connecting the devices, disconnect the supply voltage to the unit.
+Failure to follow these instructions will result in death or serious injury.
+The external auxiliary voltage UAUX 48 (-20%) – 240 (+10%) V ac/dc or 24-48
+(±20%) V dc for the relay is connected to the pins X2: 3–4.
+NOTE: Check the available power supply range from the device's serial
+number label.
+NOTE: When 24-48 V dc power module is used, the polarity is as follows:
+X2:3 positive (+), X2:4 negative (-).
+
+NOTICE
+LOSS OF PROTECTION OR RISK OF NUISANCE TRIPPING
+Check that the operating mode and SF relay wiring are compatible with the
+installation.
+Failure to follow these instructions can result in equipment damage.
+NOTE: If the relay is no longer supplied with power or is in permanent fault
+state, the protection functions are no longer active and all the PowerLogic P3
+digital outputs are dropped out.
+When the device is switched on, it performs the following initialization sequence
+that takes approximately 5 seconds:
+• Power LED ON, “Starting ..” on the screen.
+• Watchdog contact starts.
+The first screen displayed at the end of the sequence is the Mimic view screen.
+
+P3U_EN_QS_30-209A
+
+15
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+7 Front panel
+Figure 3 - PowerLogic P3U20 and P3U30 front panel
+
+A
+G
+
+B
+
+E
+F
+
+C
+
+D
+A. LCD
+B. Navigation push-buttons
+C. Object control buttons
+D. LED indicators
+
+E. Local port
+F. Function push-buttons and LEDs showing their status
+G. INFO push-button
+
+7.1 Push-buttons
+Symbol
+
+Function
+HOME/CANCEL push-button for returning to the previous menu. To
+return to the first menu item in the main menu, press the button for at
+least 3 seconds.
+INFO push-button for viewing additional information, for entering the
+password view and for adjusting the LCD contrast.
+Programmable function push-button.1)
+Programmable function push-button.1)
+ENTER push-button for activating or confirming a function.
+UP navigation push-button for moving up in the menu or increasing a
+numerical value.
+
+16
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+Symbol
+
+Function
+DOWN navigation push-button for moving down in the menu or
+decreasing a numerical value.
+LEFT navigation push-button for moving backwards in a parallel menu
+or selecting a digit in a numerical value.
+RIGHT navigation push-button for moving forwards in a parallel menu or
+selecting a digit in a numerical value.
+Circuit breaker ON push-button
+Circuit breaker OFF push-button
+
+1) The default names of the function buttons are Function button 1 and 2. You can change the names
+
+of the buttons in the Control > Names for function buttons setting view.
+
+7.2 LED indicators
+The relay has 12 LED indicators on the front panel:
+•
+•
+•
+
+two LEDs for function buttons (F1 and F2)
+two LEDs represent the unit's general status (power and service)
+eight user-configurable LEDs (A-H)
+NOTE: LED A is upgraded into red color for the trip indication.
+
+Figure 4 - LED indicators
+
+The LED statuses are restored after device restart.
+When the relay is powered, the power LED is green. During normal use, the
+service LED is not active, it activates only when an error occurs or the relay is
+not operating correctly. Should this happen, contact your local representative for
+further guidance. The service LED and watchdog contact are assigned to work
+together. Hardwire the status output into the substation's automation system for
+alarm purposes.
+To customize the LED texts on the front panel for the user-configurable LEDs, the
+text may be created using a template and then printed. The printed text may be
+placed in the pockets beside the LEDs.
+You can also customize the LED texts that are shown on the screen for active
+LEDs via eSetup Easergy Pro.
+
+P3U_EN_QS_30-209A
+
+17
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+Table 1 - LED indicators and their information
+LED indicator
+
+LED color
+
+Meaning
+
+Measure /
+Remarks
+
+Power LED lit
+
+Green
+
+The auxiliary power
+
+Normal operation
+
+has been switched
+
+state
+
+on.
+Service LED lit
+
+Red
+
+Internal fault.
+
+The relay attempts
+
+Operates in parallel
+
+to reboot. If
+
+with the self-
+
+the service LED
+
+supervision output
+
+remains lit, call for
+maintenance.
+
+A LED lit
+
+Red
+
+Trip
+
+Configurable in the
+Matrix setting view
+
+B–H LED lit
+
+F1 or F2 LED lit
+
+Yellow
+
+Yellow
+
+Application-related
+
+Configurable in the
+
+status indicators.
+
+Matrix setting view
+
+Corresponding
+
+Depending on
+
+function key
+
+the function
+
+pressed / activated
+
+programmed to F1 /
+F2
+
+NOTE: The LED light might seem like yellow or orange to you, and it is up to
+the individual difference.
+
+7.3 Controlling the alarm screen
+You can enable or disable the alarm screen either via the relay's local display or
+using eSetup Easergy Pro:
+•
+•
+
+On the local display, go to Events > Alarms.
+In eSetup Easergy Pro, go to General > Local panel conf.
+
+7.4 Accessing operating levels
+1. On the front panel, press
+
+and
+
+2. Enter the password, and press
+
+.
+.
+
+7.5 Adjusting the LCD contrast
+Prerequisite: You have entered the correct password.
+
+18
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+1. Press
+
+, and adjust the contrast.
+
+◦
+
+To increase the contrast, press
+
+◦
+
+To decrease the contrast, press
+
+2. To return to the main menu, press
+
+.
+.
+.
+
+NOTE: By nature, the LCD display changes its contrast depending on the
+ambient temperature. The display may become dark or unreadable at low
+temperatures. However, this condition does not affect the proper operation of
+the protection or other functions.
+
+7.6 Testing the LEDs and LCD screen
+You can start the test sequence in any main menu window.
+To start the LED and LCD test:
+1. Press
+2. Press
+
+.
+.
+
+The relay tests the LCD screen and the functionality of all LEDs.
+
+7.7 Releasing latches
+You can release latches using:
+• eSetup Easergy Pro
+• buttons and local panel display
+• F1 or F2 buttons
+
+7.7.1 Releasing latches using eSetup Easergy Pro
+1.
+
+Connect eSetup Easergy Pro to the device.
+
+2.
+
+From the eSetup Easergy Pro toolbar, select Device > Release all latches.
+Figure 5 - Releasing all latches
+
+Alternatively, go to Control > Release latches, and click the Release
+button.
+
+P3U_EN_QS_30-209A
+
+19
+
+7 Front panel
+
+Universal Relays P3U20 and P3U30
+
+Figure 6 - Release latches
+
+7.7.2 Releasing latches using buttons and local panel display
+Prerequisite: You have entered the correct password
+1.
+
+Press
+
+2.
+
+Press
+
+3.
+
+Select Release, and press
+All latches are released.
+
+.
+.
+.
+
+7.7.3 Releasing latches using F1 or F2 buttons
+You can use the function buttons F1 or F2 to release all latches after configuring
+this function in eSetup Easergy Pro.
+•
+
+To configure F1 to release latches:
+a. In eSetup Easergy Pro, go to Control > Function buttons.
+b. For F1, select F1 from the Selected control drop-down menu.
+Figure 7 - Function buttons view
+
+c. Go to Control > Release latches.
+d. Select F1 from the DI to release latches drop-down menu.
+e. Set 1 s delay for Latch release signal pulse.
+
+20
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+Figure 8 - Release latches view
+
+After this, pressing the F1 button on the relay’s front panel releases all
+latches.
+NOTE: The latch release signal can be activated only if the latched
+output is active.
+
+7.8 Controlling an object with selective control
+Prerequisite: You have logged in with the correct password and enabled selective
+control in the Objects setting view.
+When selective control is enabled, the control operation needs confirmation
+(select before operate).
+•
+
+•
+
+Press
+
+to close an object.
+
+–
+
+Press
+
+again to confirm.
+
+–
+
+Press
+
+to cancel.
+
+Press
+
+to open an object.
+
+–
+
+Press
+
+again to confirm.
+
+–
+
+Press
+
+to cancel.
+
+7.9 Controlling an object with direct control
+Prerequisite: You have logged in with the correct password and enabled direct
+control in the Objects setting view.
+When direct control is enabled, the control operation is done without confirmation.
+•
+
+Press
+
+to close an object.
+
+•
+
+Press
+
+to open an object.
+
+7.10 Menus
+This section gives an overview of the menus that you can access via the device's
+front panel.
+
+P3U_EN_QS_30-209A
+
+21
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+The main menu
+Press the right arrow to access more measurements in the main menu.
+Table 2 - Main menu
+Menu name
+
+Description
+
+Active LEDs
+
+User-configurable texts for active LEDs
+
+Measurements
+
+User-configurable measurements
+
+Single line
+
+Single line or Single line mimic,
+measurements and control view. This is
+a default start view. To return to this
+view from any location, press the HOME/
+CANCEL button for at least 3 seconds.
+
+Info
+
+Information about the relay: relay's name,
+order code, date, time and firmware version
+
+P
+
+Power: power factor and frequency values
+calculated by the relay. Press the right
+arrow to view more measurements.
+
+E
+
+Energy: the amount of energy that
+has passed through the protected line,
+calculated by the relay from the currents
+and voltages. Press the right arrow to view
+more energy measurements.
+
+I
+
+Current: phase currents and demand
+values of phase currents. Press the right
+arrow to view more current measurements.
+
+U
+
+Line-to-line voltages. Press the right arrow
+to view other voltage measurements.
+
+Dema
+
+Minimum and maximum phase current and
+power demand values
+
+Umax
+
+Minimum and maximum values of voltage
+and frequency
+
+Imax
+
+Minimum and maximum current values
+
+Pmax
+
+Minimum and maximum power values
+
+Month
+
+Monthly maximum current and power
+values
+
+FL
+
+Short-circuit locator applied to incomer or
+feeder
+
+22
+
+Evnt
+
+Event log: event codes and time stamps
+
+DR
+
+Disturbance recorder configuration settings
+
+P3U_EN_QS_30-209A
+
+7 Front panel
+
+Universal Relays P3U20 and P3U30
+
+Menu name
+
+Description
+
+Runh
+
+Running hour counter
+
+TIMR
+
+Timers: programmable timers that you can
+use to preset functions
+
+DI
+
+Digital input statuses and settings
+
+DO
+
+Digital output statuses and settings
+
+Prot
+
+Protection: settings and statuses for various
+protection functions
+
+I>, I>>, etc.
+
+Protection stage settings and statuses. The
+availability of the menus depends on the
+activated protection stages.
+
+AR
+
+Auto-recloser settings, statuses and
+registers
+
+OBJ
+
+Objects: settings related to object status
+data and object control (open/closed)
+
+Lgic
+
+Logic events and counters
+
+CONF
+
+General device setup: CT and VT scalings,
+frequency adaptation, units, device info,
+date, time, clock, etc.
+
+Bus
+
+Communication port settings
+
+OPT
+
+Slot info: card ID (CID) that is the name of
+the card used by the relay firmware
+
+Diag
+
+P3U_EN_QS_30-209A
+
+Diagnosis: various diagnostic information
+
+23
+
+Universal Relays P3U20 and P3U30
+
+7 Front panel
+
+7.10.1 Moving in the menus
+Figure 9 - Moving in menus using the front panel
+Main menu
+
+Submenus
+
+protection enabling
+
+Prot
+
+OK
+
+ISTART setting
+OK
+
+OK
+
+•
+
+To move in the main menu, press
+
+or
+
+.
+
+•
+
+To move in the submenus, press
+
+or
+
+•
+
+While in the submenu, press
+
+or
+
+•
+
+To enter a submenu, press
+up in the menu.
+
+and use
+
+•
+
+To edit a parameter value, press
+
+and
+
+•
+
+Enter the password, and press
+
+.
+
+•
+
+To go back to the previous menu, press
+
+•
+
+To go back to the first menu item in the main menu, press
+three seconds.
+
+.
+to jump to the root.
+or
+
+for moving down or
+
+.
+
+.
+for at least
+
+NOTE: To enter the parameter edit mode, enter the password. When the
+value is in edit mode, its background is dark.
+
+7.10.2 Local panel messages
+Table 3 - Local panel messages
+Value is not editable:
+
+The value can not be edited or password is
+not given
+
+Control disabled:
+
+Object control disabled due to wrong
+operating level
+
+Change causes autoboot:
+
+Notification that if the parameter is changed
+the relay boots itself
+
+24
+
+P3U_EN_QS_30-209A
+
+8 eSetup Easergy Pro setting and configuration tool
+
+Universal Relays P3U20 and P3U30
+
+8 eSetup Easergy Pro setting and configuration tool
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC
+FLASH
+Only qualified personnel should operate this equipment.
+Such work should be performed only after reading this
+entire set of instructions and checking the technical
+characteristics of the device.
+Failure to follow this instruction will result in death or
+serious injury.
+eSetup Easergy Pro is a software tool for configuring PowerLogic P3 relays. It
+has a graphical interface where the relay settings and parameters are grouped
+under seven tabs:
+•
+•
+•
+•
+•
+•
+•
+
+General
+Measurements
+Inputs/outputs
+Protection
+Matrix
+Logs
+Communication
+
+The contents of the tabs depend on the relay type and the selected application
+mode.
+eSetup Easergy Pro stores the relay configuration in a setting file. The
+configuration of one physical relay is saved in one setting file. The configurations
+can be printed out and saved for later use.
+For more information, see the eSetup Easergy Pro user manual.
+NOTE: Download the latest version of the software from se.com.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+After writing new settings or configurations to a device, perform a test to verify
+that the relay operates correctly with the new settings.
+Failure to follow these instructions can result in unwanted shutdown of
+the electrical installation.
+
+P3U_EN_QS_30-209A
+
+25
+
+9 Access to device configuration
+
+Universal Relays P3U20 and P3U30
+
+9 Access to device configuration
+You can access the device configuration via:
+• the eSetup Easergy Pro setting tool
+• the device’s front panel
+NOTE: There is a timeout mechanism for Telnet/Serial/Http connections.
+When logging on via the front panel or Web HMI, you are automatically
+logged out after 15 minutes inactivity.
+
+9.1 User accounts
+By default, the PowerLogic P3 device has three user accounts.
+Table 4 - User accounts
+User account User name
+
+Default
+password
+
+Use
+
+User
+
+0
+
+Can view parameter values,
+
+user
+
+measurements and events. This
+account cannot modify settings
+and files.
+Operator
+
+operator
+
+1
+
+Has the same rights as User
+account and can perform control
+actions and change settings.
+
+Configurator
+
+conf
+
+2
+
+Has the same rights as Operator
+account and is needed during
+P3 device commissioning. For
+example, the scaling of the voltage
+and current transformers can be
+set only with Configurator account.
+
+9.2 Logging on via the front panel
+NOTE: To log on via the front panel, you need a password that consists of
+letters, digits, or other characters in the scope of ASCII 0x21~0x7E.
+1.
+
+Press
+
+and
+
+on the front panel. The Enter password view opens.
+
+Figure 10 - Enter password view
+
+2.
+
+26
+
+Enter the password for the desired access level.
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+9 Access to device configuration
+
+Select a digit value using
+
+, and if the password is longer than one digit,
+
+move to the next digit position using
+
+.
+
+NOTE: There are 16 digit positions in the Enter password view. Enter
+the password starting from the first digit position.
+For example, if the password is 2, you can enter 2***, **2*, ***2, or 0002
+to log on.
+3.
+
+Press
+
+to confirm the password.
+
+Related topics
+9.4 Password management
+
+9.3 HTTP and FTP logon details
+You can log on to the HTTP server and FTP using these user names and
+passwords.
+Table 5 - HTTP and FTP logon details
+Protocol
+
+User name
+
+Password
+
+HTTP
+
+conf
+
+2
+
+FTP
+
+conf
+
+2
+
+9.4 Password management
+
+NOTICE
+CYBERSECURITY HAZARD
+•
+•
+•
+
+Change all passwords from their default values when taking the protection
+device into use.
+Change all passwords regularly.
+Ensure a minimum level of password complexity according to common
+password guidelines.
+
+Failure to follow these instructions can increase the risk of unauthorized
+access.
+You can change the password for the operator or configurator user accounts in
+the DEVICE/TEST > System info setting view in eSetup Easergy Pro.
+The password can contain letters, digits or other characters in the scope of ASCII
+0x21~0x7E. However, the new password cannot be any of the default passwords
+(digits 0–4 or 9999).
+Follow these guidelines to improve the password complexity and thus device
+security:
+• Use a password of minimum 8 characters.
+• Use alphabetic (uppercase and lowercase) and numeric characters in addition
+to symbols.
+• Avoid character repetition, number or letter sequences and keyboard patterns.
+
+P3U_EN_QS_30-209A
+
+27
+
+Universal Relays P3U20 and P3U30
+
+•
+•
+•
+
+9 Access to device configuration
+
+Do not use any personal information, such as birthday, name, etc.
+Do not use the same password for different user accounts.
+Do not reuse old passwords.
+
+Also, all users must be aware of the best practices concerning passwords
+including:
+• not sharing personal passwords
+• not displaying passwords during password entry
+• not transmitting passwords in email or by other means
+• not saving the passwords on PCs or other devices
+• no written passwords on any supports
+• regularly reminding users about the best practices concerning passwords
+Related topics
+9.2 Logging on via the front panel
+
+9.5 Password restoring
+If you have lost or forgotten all passwords, contact Schneider Electric to restore
+the default passwords.
+
+28
+
+P3U_EN_QS_30-209A
+
+10 Local port
+
+Universal Relays P3U20 and P3U30
+
+10 Local port
+The relay has a USB port in the front panel.
+Protocol for the USB port
+The front panel USB type B port is always using the command line protocol for
+eSetup Easergy Pro.
+The speed of the interface is defined in the CONF/DEVICE SETUP menu via the
+front panel. The default settings for the relay are 187500.
+Connecting a cable between the PC and the relay creates a virtual com-port. The
+fixed bit rate for the relay is 187500. The communication parameter display on the
+local display shows the active parameter values for the local port.
+
+P3U_EN_QS_30-209A
+
+29
+
+Universal Relays P3U20 and P3U30
+
+11 Block diagrams
+
+11 Block diagrams
+The status of the output contacts is shown when the relay is energized but none
+of the protection, controlling or self-supervision elements are activated.
+
+Figure 11 - P3U20 5AA A1ABAA block diagram
+
+A
+X2:1
+
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+
+I0
+
+X1:8
+X1:9
+
+I0
+
+5A
+1A
+
+X1:10
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:7 DI3
+X4:8 DI3
+
+DI
+
+X3
+
+1
+P3U20- 5 AA A2 ABAA
+6
+3
+
+~
+
+X2:3
+
+X1:1
+
+X2
+
+U4
+
+X2:2
+
+B
+X4
+
+X4:1 1)
+X4:2 RS - 485 GND
+X4:3 2)
+X4:4 RS - 485 +
+X4:5 RS - 485 X4:6 3)
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+A1
+
+X4
+
+SF
+
+X3:10
+X3:7
+X3:9
+X3:8
+X3:20
+X3:19
+X3:18
+
+X4:9 DI4
+X4:10 DI4
+X4:11 DI5
+X4:12 DI5
+X4:13 DI6
+X4:14 DI6
+X4:15 COM
+
+DI
+
+X4:16 DI7
+X4:17 DI8
+X4:18 COM
+
+DI
+
+X4:19 DI9
+X4:20 DI10
+
+A. Front
+B. Communications
+1) Cable shield gnd
+
+2) + side termination, connect to X4:4
+3) - side termination, connect to X4:5
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+30
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Figure 12 - P3U20 5AA A1ACAA block diagram
+
+A
+X2:1
+X2:2
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+X1:10
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:1 DI3
+X4:2 DI3
+
+DI
+
+X3
+
+1
+P3U20- 5 AA A2 A CAA
+6
+3 D
+
+~
+
+X2:3
+
+X1:1
+
+X2
+
+U4
+
+X4
+Eth1
+Eth2
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+A1
+
+X4
+
+SF
+
+X3:10
+X3:7
+X3:9
+X3:8
+X3:20
+X3:19
+X3:18
+
+X4:3 DI4
+X4:4 DI4
+X4:5 DI5
+X4:6 DI5
+X4:7 DI6
+X4:8 DI6
+X4:9 COM
+
+DI
+
+X4:10 DI7
+X4:11 DI8
+X4:12 COM
+
+DI
+
+X4:13 DI9
+X4:14 DI10
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3U_EN_QS_30-209A
+
+31
+
+Universal Relays P3U20 and P3U30
+
+11 Block diagrams
+
+Figure 13 - P3U20 5AA A1AEAA block diagram
+
+A
+X2:1
+
+U4
+
+X2:2
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+1
+P3U20- 5 AA A2 AEAA
+6
+3 F
+
+~
+
+X2:3
+
+X1:1
+
+X2
+X4
+Eth1
+RS232
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+X1:10
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:1 DI3
+X4:2 DI3
+
+DI
+
+X3
+
+A1
+
+SF
+
+X4
+
+X3:10
+X3:7
+X3:9
+X3:8
+X3:20
+X3:19
+X3:18
+
+X4:3 DI4
+X4:4 DI4
+X4:5 DI5
+X4:6 DI5
+X4:7 DI6
+X4:8 DI6
+X4:9 COM
+
+DI
+
+X4:10 DI7
+X4:11 DI8
+X4:12 COM
+
+DI
+
+X4:13 DI9
+X4:14 DI10
+
+RS232
+MINI I/O PLUG
+
+7 GND
+8 +12 V
+3 Tx REM
+4 Rx REM
+1 Tx EXT
+2 Rx EXT
+5 IRIG B
+6 IRIG B GND
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+32
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Figure 14 - P3U20 5AA A1AHAA block diagram
+
+A
+X2:1
+X2:2
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+X1:10
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:14 DI8
+
+DI
+
+X4:13 DI7
+
+X3
+
+1
+P3U20- 5 AA A2 AH AA
+6
+3 I
+
+~
+
+X2:3
+
+X1:1
+
+X2
+
+U4
+
+X4
+Eth1
+Eth2
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+A1
+
+X4
+
+SF
+
+X3:10
+X3:7
+X3:9
+X3:8
+X3:20
+X3:19
+X3:18
+
+X4:12 DI6
+X4:11 COM
+X4:10 DI5
+X4:9 DI4
+X4:8 DI3
+X4:7 COM
+
+X4 T5
+
+X4:6
+
+T6
+
+X4:5
+X4:4
+
+T7
+
+X4:3
+X4:2
+X4:1
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3U_EN_QS_30-209A
+
+33
+
+Universal Relays P3U20 and P3U30
+
+11 Block diagrams
+
+Figure 15 - P3U20 5AA A1AGAA block diagram
+
+A
+X2:1
+X2:2
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+X1:10
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+X4:20 DI8
+X4:19 DI7
+
+DI
+
+X3
+
+1
+P3U20- 5 AA A2 AGAA
+6
+3
+
+~
+
+X2:3
+
+X1:1
+
+X2
+
+U4
+
+B
+X4
+
+X4:1 1)
+X4:2 RS-485 GND
+X4:3 2)
+X4:4 RS-485 +
+X4:5 RS-485 X4:6 3)
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+A1
+
+DI
+
+X4
+
+SF
+
+X3:10
+X3:7
+X3:9
+X3:8
+X3:20
+X3:19
+X3:18
+
+X4:18 DI6
+X4:17 COM
+X4:16 DI5
+X4:15 DI4
+X4:14 DI3
+X4:13 COM
+
+X4 T5
+
+X4:12
+
+T6
+
+X4:11
+X4:10
+
+T7
+
+X4:9
+X4:8
+X4:7
+
+A. Front
+B. Communications
+1) Cable shield gnd
+
+2) + side termination, connect to X4:4
+3) – side termination, connect to X4:5
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+34
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Figure 16 - P3U30 5AA A1BBA block diagram
+
+A
+X2:1
+X2:2
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+
+Io
+
+X1:8
+X1:9
+
+Io
+
+5A
+
+1
+P3U30- 5 AA A2 BBA
+6
+3
+
+~
+
+X2:3
+
+X1:1
+
+X2
+
+U4
+
+B
+X4
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+1A
+
+X1:10
+X5:20
+X5:19
+
+U1
+
+X5:18
+X5:17
+
+U2
+
+X5:16
+X5:15
+
+U3
+
+X4:1 1)
+X4:2 RS-485 GND
+X4:3 2)
+X4:4 RS-485 +
+X4:5 RS-485 X4:6 3)
+
+X5
+
+A1
+
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:7 DI3
+X4:8 DI3
+
+DI
+
+SF
+
+X3:20
+X3:19
+X3:18
+
+T5
+
+X5:14
+
+X3
+X5
+
+X5:13
+
+X4
+T6
+
+X4:9 DI4
+
+X3:10
+X3:7
+X3:9
+X3:8
+
+X5:12
+X5:11
+
+X4:10 DI4
+X4:11 DI5
+X4:12 DI5
+
+T7
+
+X5:10
+X5:9
+
+X4:13 DI6
+X4:14 DI6
+X4:15 COM
+
+DI
+
+X4:16 DI7
+X4:17 DI8
+X4:18 COM
+
+DI
+
+X4:19 DI9
+X4:20 DI10
+
+X5:1 COM
+X5:2 DI11
+X5:3 DI12
+X5:4 DI13
+
+DI
+
+X5:5 COM
+X5:6 DI14
+X5:7 DI15
+X5:8 DI16
+
+DI
+
+X5
+
+A. Front
+B. Communications
+1) Cable shield gnd
+
+2) + side termination, connect to X4:4
+3) - side termination, connect to X4:5
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3U_EN_QS_30-209A
+
+35
+
+Universal Relays P3U20 and P3U30
+
+11 Block diagrams
+
+Figure 17 - P3U30 7AA A1BBA block diagram – LPIT
+
+A
+X2:2
+
+=
+
+X2
+
+LPCT
+IL1 RJ45
+IL2 RJ45
+IL3 RJ45
+
+LPVT
+HUB1 U1, U2, U3
+HUB2 U4
+
+X1:1
+X1:2
+X1:3
+
+Io
+
+5A
+
+Io
+
+1A
+
+X1
+
+1
+P3U30-7 AA A2BBA
+8
+3
+
+~
+
+X2:1
+
+B
+X4
+
+X4:1 1)
+X4:2 RS-485 GND
+X4:3 2)
+X4:4 RS-485 +
+X4:5 RS-485 X4:6 3)
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+X1:4
+
+A1
+
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:7 DI3
+X4:8 DI3
+
+DI
+
+SF
+
+X3:20
+X3:19
+X3:18
+
+T5
+
+X5:14
+
+X3
+
+X5
+
+X5:13
+
+X4
+
+X4:9 DI4
+
+X3:10
+X3:7
+X3:9
+X3:8
+
+T6
+
+X5:12
+
+T7
+
+X5:10
+
+X5:11
+
+X4:10 DI4
+X4:11 DI5
+X4:12 DI5
+
+X5:9
+
+X4:13 DI6
+X4:14 DI6
+X4:15 COM
+
+DI
+
+X4:16 DI7
+X4:17 DI8
+X4:18 COM
+
+DI
+
+X4:19 DI9
+X4:20 DI10
+
+X5:1 COM
+X5:2 DI11
+X5:3 DI12
+X5:4 DI13
+
+DI
+
+X5:5 COM
+X5:6 DI14
+X5:7 DI15
+X5:8 DI16
+
+DI
+
+X5
+
+A. Front
+B. Communications
+1) Cable shield gnd
+
+2) + side termination, connect to X4:4
+3) - side termination, connect to X4:5
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+36
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Figure 18 - P3U30 5AA A1BCA block diagram
+
+A
+X2:1
+
+~
+
+X2:3
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+1
+P3U30- 5 AA A2 B CA
+6
+3 D
+
+X2:2
+
+X1:1
+
+X2
+
+U4
+
+X4
+Eth1
+Eth2
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+X1:10
+X5:20
+X5:19
+
+U1
+
+X5:18
+X5:17
+
+U2
+
+X5:16
+X5:15
+
+U3
+
+X5
+
+A1
+
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+DI
+
+X4:1 DI3
+X4:2 DI3
+
+DI
+
+SF
+
+X3:20
+X3:19
+X3:18
+
+T5
+
+X5:14
+
+X3
+X5
+
+X5:13
+
+X4
+T6
+
+X4:3 DI4
+
+X3:10
+X3:7
+X3:9
+X3:8
+
+X5:12
+X5:11
+
+X4:4 DI4
+X4:5 DI5
+X4:6 DI5
+
+T7
+
+X5:10
+X5:9
+
+X4:7 DI6
+X4:8 DI6
+X4:9 COM
+
+DI
+
+X4:10 DI7
+X4:11 DI8
+X4:12 COM
+
+DI
+
+X4:13 DI9
+X4:14 DI10
+
+X5:1 COM
+X5:2 DI11
+X5:3 DI12
+X5:4 DI13
+
+DI
+
+X5:5 COM
+X5:6 DI14
+X5:7 DI15
+X5:8 DI16
+
+DI
+
+X5
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3U_EN_QS_30-209A
+
+37
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Figure 19 - P3U30 5AA A1 BEA block diagram
+
+A
+X2:1
+
+~
+
+X2:3
+X2:4
+
+=
+
+X1
+
+IL1
+
+X1:2
+X1:3
+
+IL2
+
+X1:4
+X1:5
+
+IL3
+
+X1:6
+X1:7
+X1:8
+X1:9
+
+I0
+
+5A
+
+I0
+
+1A
+
+1
+P3U30- 5 AA A2 BEA
+6
+3 F
+
+U4
+
+X2:2
+
+X1:1
+
+X2
+
+X4
+Eth1
+RS232
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+X1:10
+X5:20
+X5:19
+
+U1
+
+X5:18
+X5:17
+
+U2
+
+X5:16
+X5:15
+
+U3
+
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+X4:1 DI3
+X4:2 DI3
+
+X5
+
+A1
+
+DI
+
+DI
+
+SF
+
+X3:20
+X3:19
+X3:18
+
+T5
+
+X5:14
+
+T6
+
+X5:12
+
+X3
+X5
+
+X3:10
+X3:7
+X3:9
+X3:8
+
+X5:13
+
+X4
+
+X4:3 DI4
+
+X5:11
+
+X4:4 DI4
+X4:5 DI5
+X4:6 DI5
+
+T7
+
+X5:10
+X5:9
+
+X4:7 DI6
+X4:8 DI6
+X4:9 COM
+
+DI
+
+X4:10 DI7
+X4:11 DI8
+X4:12 COM
+
+DI
+
+X4:13 DI9
+X4:14 DI10
+
+X5:1 COM
+X5:2 DI11
+X5:3 DI12
+X5:4 DI13
+
+DI
+
+X5:5 COM
+X5:6 DI14
+X5:7 DI15
+X5:8 DI16
+
+DI
+
+RS232
+MINI I/O PLUG
+
+X5
+
+7 GND
+8 +12 V
+3 Tx REM
+4 Rx REM
+1 Tx EXT
+2 Rx EXT
+5 IRIG B
+6 IRIG B GND
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+38
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+Figure 20 - P3U30 5AA A1BHA block diagram
+
+A
+
+X2:1
+X2:2
+
+~
+
+X2:3
+X2:4
+
+X1:1
+X1:2
+X1:3
+X1:4
+X1:5
+X1:6
+X1:7
+X1:8
+X1:9
+
+X2
+
+=
+
+X1
+
+IL1
+
+IL2
+
+IL3
+
+Io
+
+5A
+
+Io
+
+1A
+
+1
+P3U30-5 AA A2 BH
+A
+6
+3 I
+
+U4
+
+X4
+Eth1
+Eth2
+
+X3 T1
+
+X3:17
+
+T2
+
+X3:16
+X3:15
+
+T3
+
+X3:14
+X3:13
+
+T4
+
+X3:12
+X3:11
+
+X1:10
+X5:20
+X5:19
+
+U1
+
+X5:18
+X5:17
+
+U2
+
+X5:16
+X5:15
+
+U3
+
+X3:3 DI1
+X3:4 DI1
+X3:5 DI2
+X3:6 DI2
+
+X5
+
+A1
+
+DI
+
+X3:10
+X3:7
+X3:9
+X3:8
+
+SF
+
+X3:20
+X3:19
+X3:18
+
+T5
+
+X4:6
+
+X3
+X4
+
+X4:5
+X4:7 COM
+X4:8 DI3
+X4:9 DI4
+X4:10 DI5
+
+DI
+
+X4:11 COM
+X4:12 DI6
+X4:13 DI7
+X4:14 DI8
+
+DI
+
+X5:1 COM
+X5:2 DI9
+X5:3 DI10
+X5:4 DI11
+
+DI
+
+X5:5 COM
+X5:6 DI12
+X5:7 DI13
+X5:8 DI14
+
+DI
+
+X4
+
+T6
+
+X4:4
+X4:3
+
+T7
+
+X4:2
+X4:1
+
+X5
+X5
+
+T8
+
+X5:14
+
+T9
+
+X5:12
+
+T10
+
+X5:10
+
+X5:13
+
+X5:11
+
+X5:9
+
+A. Front
+
+NOTE: Connect only one earth fault overcurrent I0 input to either terminal pins
+X1:7–8 or X1:9–10 as the relay has only one I0 input channel. Nominal I0
+secondary current depends on relay order code.
+
+P3U_EN_QS_30-209A
+
+39
+
+Universal Relays P3U20 and P3U30
+
+11 Block diagrams
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+NOTE: Use only the connectors supplied with the relay. When replacing an
+existing relay, do not reuse old connectors.
+Table 6 - Connection terminal tightening torque
+Terminal
+X1
+characteris
+tics
+
+X2
+
+X3
+
+X4
+
+X5
+
+Pluggable clamp connector
+Wire cross
+
+6
+
+2.5
+
+2.5
+
+2.5
+
+2.5
+
+section, mm2
+
+(10)
+
+(13–14)
+
+(13–14)
+
+(13–14)
+
+(13–14)
+
+0.8
+
+0.5–0.6
+
+0.5–0.6
+
+0.5 - 0.6
+
+0.5 - 0.6
+
+(7)
+
+(4.4–5.3)
+
+(4.4–5.3)
+
+(4.4–5.3)
+
+(4.4–5.3)
+
+1
+
+0.34
+
+0.34
+
+0.34
+
+0.34
+
+(8.5)
+
+(3)
+
+(3)
+
+(3)
+
+(3)
+
+(AWG)
+Maximum
+wiring screw
+tightening
+torque Nm
+(Ib-in)
+Maximum
+connector
+retention
+tightening
+torque Nm
+(Ib-in)
+Wire type
+
+Single strand or stranded with insulated crimp terminal
+
+Pluggable ring lug connector
+Ring lug
+
+10.0, M4
+
+width (mm)
+and screw
+size
+Maximum
+wire cross
+section if
+
+2.5
+(14)
+
+directly
+mounted
+under screw,
+mm2 (AWG)
+
+40
+
+P3U_EN_QS_30-209A
+
+11 Block diagrams
+
+Universal Relays P3U20 and P3U30
+
+Terminal
+X1
+characteris
+tics
+Maximum
+wiring screw
+tightening
+
+X2
+
+X3
+
+X4
+
+X5
+
+1.5 Nm
+(13)
+
+torgue Nm
+(Ib-in)
+Maximum
+connector
+retention
+
+1.4
+(12)
+
+screw
+tightening
+torque Nm
+(Ib-in)
+Wire type
+
+P3U_EN_QS_30-209A
+
+Single strand or stranded with insulated crimp terminal
+
+41
+
+Universal Relays P3U20 and P3U30
+
+12 Mounting
+
+12 Mounting
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing refer applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing relay to ensure that all power
+is off.
+Do not open the secondary circuit of a live current transformer.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+NOTE: The length of the earthing cable should be as minimal as possible.
+
+42
+
+P3U_EN_QS_30-209A
+
+12 Mounting
+
+Universal Relays P3U20 and P3U30
+
+Figure 21 - Panel mounting
+
+mm
+in
+
+128
+171
+5.04
+6.72
+
+A
+155
+6.10
+
+PowerLogic
+
+176
+6.94
+
+OK
+
+F1
+
+F2
+
+A
+
+B
+
+P3Uxx-5
+
+214mm / 8.4″
+
+192mm / 7.6″
+
+P3Uxx-6
+
+226mm / 8.9″
+
+204mm / 8.0″
+
+2.5
+0.1
+
+137
+5.39
+
+124.5
+4.90
+
+B
+
+O
+I
+
+13.25
+0.52
+
+A
+
+B
+
+Po w er
+
+144.5 6
+5.69 12 6
+4.9
+
+9.25
+0.36
+
+5.0
+0.2
+
+28.5
+1.12
+
+Lo gi c
+
+2
+
+9.5
+0.37
+0
+2
+1
+4.72
+
+139
+5.47
+
+OK
+
+mm
+in
+
+Po w er
+
+Lo gi c
+
+OK
+
+F2
+F2
+
+9.5
+0.37
+
+F1
+
+O
+
+F1
+
+O
+
+1.
+0.040-10
+- 0.3
+
+I
+
+X1 (P3Uxx-6)
+
+I
+
+9
+
+X1 (P3Uxx-5)
+
+T max. 1.40Nm
+12lb.in
+
+T max. 1.40Nm
+12lb.in
+
+0.8 x 4.0
+5/32in x 0.03in
+
+0.4 x 2.5
+3/32in x 0.015in
+
+X2, X3, X4, X5
+T max. 0.3Nm
+2.7lb.in
+
+0.8 x 4.0
+5/32in x 0.03in
+
+0.4 x 2.5
+3/32in x 0.015in
+
+T max. 0.80Nm
+7lb.in
+
+min. 2.5mm2
+Ø 4-6mm
+
+0.4 x 2.5
+3/32in x 0.015in
+
+T max. 0.6Nm
+5.3lb.in
+
+> 20
+
+0.79
+
+C
+
+Po w er
+
+Po w er
+
+Lo gi c
+
+Lo gi c
+
+Nut M4
+7mm 1.5Nm
+9/32in 13.3Ib in
+
+OK
+OK
+
+F2
+F2
+F1
+F1
+OK
+OK
+
+F2
+F2
+F1
+F1
+
+O
+O
+I
+
+I
+
+OO
+II
+
+P3U_EN_QS_30-209A
+
+43
+
+Universal Relays P3U20 and P3U30
+
+12 Mounting
+
+Figure 22 - Panel mounting with the raising frame REL52834
+mm
+in
+
+171
+6.72
+
+110
+4.3
+
+PowerLogic
+
+124.5
+4.90
+B
+
+176
+137
+6.94 5.39
+
+OK
+
+F2
+
+F1
+
+A
+
+A
+
+B
+
+P3Uxx-5
+
+214mm / 8.4″
+
+147mm / 5.8″
+
+P3Uxx-6
+
+226mm / 8.9″
+
+159mm / 6.2″
+
+O
+I
+
+A
+
+B
+Po we rL
+
+og ic
+
+2.5
+0.1
+
+Po we rL
+
+C
+
+og ic
+
+rLyog ic
+se rg
+Eawe
+Po
+
+OK
+
+OK
+
+F2
+
+F2
+
+F1
+
+OK
+OK
+
+F1
+
+F2
+F2
+
+O
+
+F1
+F1
+
+O
+
+I
+
+I
+
+X1 (P3Uxx-6)
+T max. 1.40Nm
+12lb.in
+
+OO
+
+13.25
+0.52
+
+D
+9.25
+0.36
+
+0.8 x 4.0
+5/32in x 0.03in
+
+X1 (P3Uxx-5)
+T max. 1.40Nm
+12lb.in
+0.8 x 4.0
+5/32in x 0.03in
+T max. 0.80Nm
+7lb.in
+0.4 x 2.5
+3/32in x 0.015in
+X2, X3, X4, X5
+T max. 0.3Nm
+2.7lb.in
+0.4 x 2.5
+3/32in x 0.015in
+T max. 0.6Nm
+5.3lb.in
+
+II
+
+144.5 6
+5.69 12 6
+4.9
+
+28.5
+1.12
+
+139
+5.47
+
+mm
+in
+
+5.0
+0.2
+
+2
+
+9.5
+0.37
+120
+4.72
+
+rg y og ic
+Ea se
+Po we rL
+
+OK
+
+OK
+
+F2
+
+9.5
+0.37
+
+F1
+
+O
+
+1.
+0.040-12
+- 0.4
+
+I
+
+F2
+
+F1
+
+O
+I
+
+7
+> 20
+
+E
+
+0.79
+
+min. 2.5mm2
+Ø 4-6mm
+
+Po we rL
+
+Po we
+
+og ic
+
+rL og ic
+
+Nut M4
+7mm 1.5Nm
+9/32in 13.3Ib in
+
+OK
+
+OK
+
+F2
+F1
+
+OK
+
+F2
+F1
+
+O
+I
+
+F2
+
+F1
+
+O
+I
+
+O
+I
+
+CAUTION
+HAZARD OF CUTS
+•
+•
+
+Trim the edges of the cut-out plates to remove any jagged edges.
+Use protective gloves when moving and mounting the device.
+
+Failure to follow these instructions can result in injury.
+
+44
+
+P3U_EN_QS_30-209A
+
+Universal Relays P3U20 and P3U30
+
+12 Mounting
+
+Figure 23 - Example of the P3U alarm facial label insertion
+
+1
+
+Set group 1/2
+Relay power
+Trip
+Alarm
+I> stage
+I>> stage
+
+Io block
+Relay status
+Io > stage
+Io >> stage
+
+2
+
+Set group 1/2
+Relay power
+Trip
+Alarm
+I> stage
+I>> stage
+
+Io block
+Relay status
+Io > stage
+Io >> stage
+
+3
+
+Set group 1/2
+Relay power
+Trip
+Alarm
+I> stage
+I>> stage
+
+Io block
+Relay status
+Io > stage
+Io >> stage
+
+See "P3 Standard Series facial label instruction" document for more information.
+Protective film
+
+NOTICE
+PERMANENT RELAY DAMAGE
+Remove the protective film after mounting the relay.
+Failure to follow these instructions can result in equipment damage.
+NOTE: The display of the protective relay is plastic and can melt if exposed to
+high temperatures or intensive sunlight.
+
+P3U_EN_QS_30-209A
+
+45
+
+Universal Relays P3U20 and P3U30
+
+13 Related documents
+
+13 Related documents
+Table 7 - Related documents
+Document
+
+Identification
+
+PowerLogic P3 Universal Relays P3U20
+
+P3U/EN/M/xx-xxxA
+
+and P3U30 User Manual
+
+NOTE: xx-xxx stands for the major
+version-minor version.
+
+eSetup Easergy Pro Setting and
+
+P3eSetup/EN M/xxxx2)
+
+Configuration Tool User Manual
+P3 Standard Series facia label instruction
+
+P3TDS17011EN
+
+Principles of numerical protection
+
+P3INS17019EN
+
+techniques
+2) xxxx = revision number
+
+46
+
+P3U_EN_QS_30-209A
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison - France
+Phone: +33 (0) 1 41 29 70 00
+www.schneider-electric.com
+As standards, specifications, and designs change from time to time,
+please ask for confirmation of the information given in this publication.
+© 2026 Schneider Electric All Rights Reserved.
+P3U_EN_QS_30-209A — 01/2026
+
+

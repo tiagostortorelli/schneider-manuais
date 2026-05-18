@@ -1,0 +1,2872 @@
+PowerLogic T500 Substation Controller
+PowerLogic DI180
+User Manual
+
+BQT7945101-00
+06/2024
+
+www.se.com
+
+Legal Information
+The information provided in this document contains general descriptions, technical
+characteristics and/or recommendations related to products/solutions.
+This document is not intended as a substitute for a detailed study or operational and
+site-specific development or schematic plan. It is not to be used for determining
+suitability or reliability of the products/solutions for specific user applications. It is the
+duty of any such user to perform or have any professional expert of its choice
+(integrator, specifier or the like) perform the appropriate and comprehensive risk
+analysis, evaluation and testing of the products/solutions with respect to the relevant
+specific application or use thereof.
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this document are the property of Schneider Electric SE or
+its subsidiaries. All other brands may be trademarks of their respective owner.
+This document and its content are protected under applicable copyright laws and
+provided for informative use only. No part of this document may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the
+document or its content, except for a non-exclusive and personal license to consult it
+on an "as is" basis.
+Schneider Electric reserves the right to make changes or updates with respect to or in
+the content of this document or the format thereof, at any time without notice.
+To the extent permitted by applicable law, no responsibility or liability is
+assumed by Schneider Electric and its subsidiaries for any errors or omissions
+in the informational content of this document, as well as any non-intended use
+or misuse of the content thereof.
+
+PowerLogic DI180
+
+Table of Contents
+Foreword ......................................................................................................5
+Safety Information ......................................................................................5
+EU Directives .............................................................................................6
+Safety Instructions ......................................................................................6
+About the book ...........................................................................................6
+
+General Description of DI180 ....................................................................8
+PowerLogic T500 Platform ..........................................................................8
+DI180 Module.............................................................................................9
+Software Processing.................................................................................10
+Digital Filtering.................................................................................... 11
+Change Memory ................................................................................. 11
+Input Functional Allocation...................................................................12
+LED Indicators..........................................................................................14
+
+Physical Mounting and Installation .........................................................16
+Installation ...............................................................................................16
+Limits .................................................................................................16
+Handling Modules ...............................................................................16
+Module Location within the Chassis or Backplane..................................16
+Power Supply Requirements................................................................17
+Configuration Switches........................................................................17
+Mounting Procedure............................................................................18
+Wiring Recommendations for PowerLogic T500..........................................19
+Wiring DI180 ............................................................................................19
+Terminal Connection (option C1) ..........................................................20
+Flat Ribbon Connection (option C2)......................................................23
+Polarization ........................................................................................23
+Commons ..........................................................................................24
+Terminal Blocks ..................................................................................24
+
+Configuration and Maintenance..............................................................27
+Configuration of the Backplane ..................................................................27
+DI180 Configuration..................................................................................30
+Local Acquisition Information ...............................................................31
+DI180 Signals .....................................................................................31
+Local Acquisition Coordinates ..............................................................32
+Information in the Table Status .............................................................33
+Maintenance of Module.............................................................................35
+webApp..............................................................................................35
+Using webApp ....................................................................................35
+
+Appendix ....................................................................................................40
+Technical Specifications ............................................................................40
+
+Glossary .....................................................................................................43
+
+BQT7945101-00
+
+3
+
+Foreword
+
+PowerLogic DI180
+
+Foreword
+Safety Information
+Important Information
+Read these instructions carefully, and look at the equipment to become familiar
+with the device before trying to install, operate, service, or maintain it. The
+following special messages may appear throughout this documentation or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a “Danger” or “Warning” safety label indicates that an
+electrical hazard exists which will result in personal injury if the instructions are not
+followed.
+
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+!
+
+DANGER
+
+DANGER indicates a hazardous situation which, if not avoided, will result in death or serious
+injury.
+
+!
+
+WARNING
+
+WARNING indicates a hazardous situation which, if not avoided, could result in death or
+serious injury.
+
+!
+
+CAUTION
+
+CAUTION indicates a hazardous situation which, if not avoided, could result in minor or
+moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+
+Please Note
+Electrical equipment should be installed, operated, serviced, and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+A qualified person is one who has skills and knowledge related to the construction
+and operation of electrical equipment and its installation, and has received safety
+training to recognize and avoid the hazards involved.
+
+BQT7945101-00
+
+5
+
+PowerLogic DI180
+
+Foreword
+
+EU Directives
+This equipment complies with the following Directives of the European Parliament
+and of the Council:
+•
+
+EMC Directive 2014/30/EU
+
+•
+
+LVD Directive 2014/35/EU
+
+•
+
+RoHS Directive 2015/863/EU
+
+Safety Instructions
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+
+Electrical equipment must be installed, operated, serviced and maintained
+only by qualified personnel.
+
+•
+
+All safety instructions in the Operation Manual must be read, understood and
+strictly followed, and the technical characteristics of the device must be
+checked before installing or working on this equipment.
+
+•
+
+Do not work alone.
+
+•
+
+Apply appropriate personal protective equipment (PPE) and follow safe
+electrical work practices. See NFPA 70E, NOM-029-STPS-2011, CSA Z462,
+NFC 18–510 and UTE C18–510–1.
+
+•
+
+Turn off all power supplying this unit before working on or inside the
+equipment. Consider all sources of power, including the possibility of back
+feeding.
+
+•
+
+Before working on the equipment, check for hazardous voltage between all
+terminals, including the protective earth ground. Always use a proper rated
+voltage sensing device to confirm that the power is off.
+
+•
+
+Start by connecting the device to the protective earth ground and to the
+functional ground.
+
+•
+
+To open a live current transformer secondary circuit, turn off the primary side
+of the transformer and short-circuit the transformer secondary circuit.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+•
+
+Set all devices, doors, and covers before turning on power to this unit.
+
+Failure to follow these instructions will result in death or serious injury.
+
+About the book
+Document Scope
+This manual provides information for the assembly, wiring, configuration and
+maintenance of the PowerLogicTM DI180 module (part number EMS741x0).
+
+Document Revision History
+
+6
+
+Document referencerevision
+
+Release date
+
+Modifications
+
+BQT7945101-00
+
+06/2024
+
+Creation
+
+BQT7945101-00
+
+Foreword
+
+PowerLogic DI180
+
+Conformity
+The PowerLogic T500 platform and all its components have been developed in
+accordance with the requirements for a quality management system, complying
+with the ISO 9001:2015 standard.
+
+Related Documents
+Product
+
+Title of
+documentation
+
+Reference
+number
+
+PowerLogic HU280 module
+
+User Manual
+
+BQT7944901
+
+PowerLogic T500 Platform
+
+User Manual
+
+BQT7944801
+
+webApp Maintenance and Monitoring Tool
+
+User Manual
+
+BQT7944802
+
+Easergy Builder
+
+User Manual
+
+SE-S856-MSS
+
+Information on Non-Inclusive or Insensitive Terminology
+As a responsible, inclusive company, Schneider Electric is constantly updating its
+communications and products that contain non-inclusive or insensitive
+terminology. However, despite these efforts, our content may still contain terms
+that are deemed inappropriate by some customers.
+
+BQT7945101-00
+
+7
+
+PowerLogic DI180
+
+General Description of DI180
+
+General Description of DI180
+PowerLogic T500 Platform
+The PowerLogic T500 substation controller range addresses applications in the
+energy automation domain. It is a high-technology platform which provides a
+solution to the business areas of Schneider Electric.
+The following figures show a PowerLogic T500 in chassis (left) and in backplane
+(right).
+
+PowerLogic T500 in chassis and backplane
+
+The PowerLogic T500 design has been optimized to meet the most demanding
+requirements of multiple sectors:
+
+8
+
+•
+
+Cost-efficiency, minimum downtime, and compliance with electrical safety,
+electromagnetic compatibility and environmental standards.
+
+•
+
+Safety and reliability requirements for power, gas, water, residual water
+supply, etc.
+
+•
+
+Centralized monitoring and control of geographically-distributed systems
+which support hierarchical data acquisition and redundant networks.
+
+•
+
+Local monitoring and control with data sharing capabilities of plant-distributed
+devices.
+
+•
+
+Quick troubleshooting by means of programmable automation execution.
+
+•
+
+Modular design: all I/O, power supply and communication modules have an
+identical format.
+
+BQT7945101-00
+
+General Description of DI180
+
+PowerLogic DI180
+
+PowerLogic T500 architecture
+PowerLogic T500
+Configuration Tool
+Communication Modules
+XS280
+Profibus-DP
+SCADA Client
+
+HU280
+
+HU280
+I/O Modules
+
+LAN Ethernet
+(1 Gbps / 100 Mbps)
+
+Control Modules
+
+Display
+
+DI180
+DO280
+DO180
+
+IED
+
+AI160
+
+IED
+AX160
+IED
+PowerLogic T500
+WebApp Tool/ WebUI Tool
+Monitorization and Diagnostic Tool
+
+DI180 Module
+Interfaces and Functions
+Internally, all modules are electrically connected to the backplane using a 48-pin
+connector on the rear side. In relation to the field connection (external devices),
+two connectors are located on the front side.
+According to the DI180 part number, two ordering options are available for field
+connection:
+•
+
+Option C1: EMS74110: Terminal connection.
+
+•
+
+Option C2: EMS74120: Flat-ribbon connection, using additional terminal
+blocks.
+
+The main features of this module are the following:
+
+BQT7945101-00
+
+•
+
+32 configurable and high-precision digital input, distributed in two 16-signal
+blocks.
+
+•
+
+Each digital input can be configured as Single / Double / Slow counter.
+
+•
+
+Filtering the information before transmitting it to the CPU.
+
+•
+
+Advanced processing of digital inputs, including the management of simple or
+processed inputs with chronological register and time stamping.
+
+•
+
+The change memory time parameter can be set for each signal.
+
+•
+
+The module is synchronized by a message received from the CPU.
+
+•
+
+36 light indicators are available on the front side.
+
+•
+
+Input protection against electromagnetic disturbance.
+
+•
+
+External polarization (with automatic polarization test).
+
+•
+
+Two common grounds per block.
+
+•
+
+Galvanic isolation using optocouplers.
+
+•
+
+Hot-swap functionality.
+
+9
+
+PowerLogic DI180
+
+General Description of DI180
+
+The following figure shows the functional blocks integrated in the DI180 module:
+Functional block diagram
+LEDs
+
+I/O to the bus
+(Communications with the CPU)
+
+Synchronization
+
+Controller Block
+Digital Filtering
+
+32 Digital Inputs
+DI180
+
+•
+
+I/O to the bus: Connection to the bus in the backplane to share information
+with the CPU.
+
+•
+
+LEDs: 36 LED indicators are available on the front side of the module which
+provides information about the module and the input signals.
+
+•
+
+Synchronization: The DI180 is synchronized by a message received from
+the CPU that includes information about the time. The module is
+synchronized with the synchronization source accuracy used for the CPU.
+
+•
+
+Controller block: The DI180 does a previous processing of the information
+before it is transmitted to the CPU. Every time the signal changes, the
+information is transmitted to the CPU as an event which includes the changed
+value and the timestamp.
+
+•
+
+Digital inputs: The DI180 has two connectors (flat ribbon or terminal
+connections depending on the part number) labeled as J1 and J2 which allow
+the 32 digital inputs to be connected from the field. Each digital input can be
+configured as Single, Double or Slow counter.
+
+Software Processing
+The DI180 can manage digital inputs with or without timestamp. In both cases, the
+values are 0 and 1. The module transmits the value of the signal to the CPU
+whenever it changes; it also attaches a timestamp if this type of signals are used.
+A quality status is associated with the signal values. The quality status are the
+following:
+•
+
+Invalid value due to a polarization failure.
+
+•
+
+Locked signal.
+
+•
+
+Invalid time: the module is not synchronized (only for signals with timestamp).
+
+In coreDb the digital inputs can be configured as the following types:
+•
+
+Single digital
+
+•
+
+Double digital
+
+•
+
+Slow counter
+NOTE: A maximum of 25 inputs can be configured as slow counters.
+
+Before the information is sent to the CPU, each DI180 module processes the
+information received for each digital input (depending on the type).
+This processing includes the following:
+•
+
+10
+
+Filtering time - TF: The changes that take less than the user-specified time
+are rejected. The aim of this filtering is to prevent changes caused by
+transients.
+BQT7945101-00
+
+General Description of DI180
+
+PowerLogic DI180
+
+•
+
+Change memory - TM: This applies to the signals set to event. After an
+event, the value of the signal is retained for a short period of time before
+another event occurs. It ensures the correct detection by the logic.
+
+•
+
+Inversion: The input can be configured as enabled when the value is 1 or
+disabled when the value is 0.
+
+•
+
+Settling Time - TS: This applies to the signals configured as double signals
+and is controlled by the CPU, not by the DI180. In digital signals defined as
+double signals, the stand-by time is used to define a time frame in which the
+deactivation of the active input is not detected until the other input is
+activated.
+
+•
+
+Chronological record: This feature is applicable to the inputs configured as
+indications or numeric values. The inputs configured with chronological
+record generate an input with time marking when a status change is made to
+the inputs.
+
+Digital Filtering
+The digital filtering allows eliminating the changes made to the inputs if these
+changes are not retained for a minimum amount of time Filtering Time or TF.
+The filtering response from a digital input is shown in the following figures:
+Digital filtering in digital inputs
+Signal
+level %
+
+1
+0
+0
+Signal in "1"
+
+8
+0
+
+Signal in "0"
+1 ms
+Sampling time
+
+Milliseconds
+0
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+Logical signal
+level
+1
+0
+Filtered signal level
+(2 ms)
+
+Absolute change time
+
+1
+0
+
+Change Memory
+The change memory keeps inputs for a predefined period. This memory is called
+Memory Time or TM.
+The change memory response from a digital input is shown in the following figure:
+
+BQT7945101-00
+
+11
+
+PowerLogic DI180
+
+General Description of DI180
+
+Change memory in digital inputs
+Logical signal level
+
+1
+Milliseconds
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+
+100
+
+120
+
+140
+
+150
+Absolute change time
+
+Filtered signal level
+(2 ms)
+
+Preset interval
+
+1
+0
+
+NOTE: The change memory does not apply in counter mode.
+
+Input Functional Allocation
+The digital input signals are available in two functionalities:
+•
+
+Simple indication
+
+•
+
+Double indication
+
+Simple Indication
+The module receives an input and the input represents a boolean value (YES/
+NO). The figure given below shows its processing:
+Simple indication
+
+The figure shows that inversion, digital filtering, change memory, and
+chronological treatments are assigned to the input.
+The hardware diagnostics are available. This indicate the value is invalid when the
+hardware is not working after an internal test of the module.
+
+Double Indication (IDOB)
+The module receives two inputs and the inputs represent a status with four
+possible values. The figure given below shows its processing:
+
+12
+
+BQT7945101-00
+
+General Description of DI180
+
+PowerLogic DI180
+
+Double indication
+
+The figure shows that inversion, digital filtering, change memory, and
+chronological treatments are assigned to the inputs.
+The state validation is controlled by the Settling Time or TS. The Settling Time is
+defined as the time delay required after a change to accept a new signal status is
+received. The two inputs need to be fixed for that period. Otherwise, the time
+counter resumes the operation.
+The processed inputs received from one or more inputs of the module represents
+a slow counter type analog value.
+
+Slow Counter (ICNT)
+The processed inputs received from one or more inputs in the module and
+represent an analog value (slow counter). It is used to acquire counting pulses
+from an external generator. The figure given below shows its processing:
+Slow counter
+
+The figure shows that inversion is associated with the inputs. It also shows that the
+counter supports a physical input. This input accumulates the values from the slow
+counter of the module. This input always exists.
+Inversion Memory Filter and Simple/Double Edge are configurable.
+The capture performed by the CPU can be set using the Filter Time or TF. This
+time indicates the writing period of the value of the counter into the data tables
+which are accessible for the CPU.
+
+BQT7945101-00
+
+13
+
+PowerLogic DI180
+
+General Description of DI180
+
+LED Indicators
+The module integrates an input verification mechanism to detect if the hardware is
+not working. The verification is performed when powering the module or when
+resetting the field polarization after a polarization interruption.
+This verification system monitors polarization voltages, the general status of the
+module and communication.
+
+The information given by the LED indicators includes the following:
+
+14
+
+•
+
+Acquisition and system status (Run and DIA).
+
+•
+
+Polarization status (ST1 and ST2).
+
+•
+
+Status for each digital input (DIx).
+
+BQT7945101-00
+
+General Description of DI180
+
+PowerLogic DI180
+
+The LED of the DI180 provide the following information to the operator:
+/
+
+: On
+
+/
+
+: Off
+
+: Blinking
+
+LED indicators meaning
+DIA
+
+RUN
+
+ST1
+
+DIx
+
+Description
+
+Action
+
+ST2
+The polarization and configuration are OK. The
+module is in service.
+
+–
+
+The digital input x is deactivated.
+
+–
+
+–
+
+–
+
+The Profibus server number assigned to the
+module is 0 or greater than 96. If the address is
+correct, the type of the module is different to the
+configured for this address (and a module with
+correct type and this address is not inserted on
+the bus).
+
+–
+
+–
+
+–
+
+The module is not configured or disconnected. If
+the module is connected, the address is
+between 1 and 96 but this address is not
+configured.
+
+Check that the module is properly inserted in
+the bus and the module address corresponds
+to configured address.
+
+Digital input x is active.
+
+–
+
+It lights briefly during the startup. If it remains
+ON, an abnormal behavior is detected in the
+firmware or during the startup process.
+
+Contact the support service.
+
+Polarization issue detected in block x.
+
+If the ST1 or ST2 indicator is flashing, the
+polarization voltage is lower than the
+minimum required. In this case, the LED DIA
+is also flashing.
+
+Verification mechanism for the digital input x is
+not working.
+
+If any of the DIn indicator is flashing, it means
+that the input self-verification system has
+detected an abnormal operating status in the
+associated input. In this case, DIA is also
+flashing. (*) This verification mechanism
+requires cabling to be performed as indicated
+in Wiring DI180, page 19. If the wiring is
+correct but a DIx flashes, contact the support
+service.
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+–
+
+Check the type of the module and the
+selected address with the rear switches.
+
+(*) The verification test is done every 3 seconds. If the issue was solved, the module must return to a normal state. If the issue is present,
+the signal remains flashing.
+
+BQT7945101-00
+
+15
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+Physical Mounting and Installation
+Installation
+Limits
+The maximum number of I/O modules connected to a CPU is 96.
+
+Handling Modules
+
+NOTICE
+HAZARD OF ELECTROSTATIC DISCHARGE
+•
+
+Handle the module from the front side, as far as possible from the backplane
+connectors.
+
+•
+
+Do not touch the pins of the module connector.
+
+•
+
+Keep the module in its antistatic bag or packaging box, when unused.
+
+Failure to follow these instructions can result in equipment damage.
+
+Module Location within the Chassis or Backplane
+
+NOTICE
+HAZARD OF INCORRECT EQUIPMENT OPERATION
+•
+
+Do not place the CPU next to PS280 power supply module.
+
+•
+
+Modules must be installed in vertical position.
+
+Failure to follow these instructions can result in equipment damage.
+Respect the following requirements to place the modules in the chassis or in the
+backplane:
+•
+
+When using the PS280 power supply module, place it in slot 1 (left-hand
+side). In redundant-power supply configurations, use slots 1 and 2 for both
+power supply modules.
+Other modules can be located in any position (slot) within the chassis.
+
+16
+
+•
+
+Group the modules to minimize the adverse effects caused by noise and
+heat.
+
+•
+
+Place modules, and specifically CPU modules, as far as possible from the
+modules which operate at alternating currents or high currents.
+
+•
+
+If the system uses redundant CPUs, place both CPUs modules side by side in
+the backplane.
+
+BQT7945101-00
+
+Physical Mounting and Installation
+
+PowerLogic DI180
+
+Backplane positions
+
+Power Supply Requirements
+
+NOTICE
+HAZARD OF INCORRECT WIRING OR SUPPLIED VOLTAGE
+•
+
+Check that the voltage input for the backplane is 5.4 Vdc.
+
+•
+
+Check that there is no reverse polarity.
+
+Failure to follow these instructions can result in equipment damage.
+The backplane can be powered by a PS280 module, by an external power supply
+or by a redundant power supply configuration.
+The PS280 module is capable of supplying power to the modules connected to the
+backplane, as required.
+When using auxiliary power supplies, check that the power supply satisfies the
+power consumption depending on the installed modules.
+Estimation of the power consumption required:
+•
+
+Consider that the maximum power requirement for each DI180 module is:
+◦
+
+Main power supply (through the bus): Basic consumption
+
+◦
+
+Polarization supply: 32 x Polarization voltage x Maximum current per
+signal
+
+•
+
+Add up the power consumption for each module installed in the backplane.
+The power consumption information is indicated on the technical label of the
+module. It is also included in the technical specification table in the user
+manual of each module and in the data sheet.
+
+•
+
+After adding the consumption of all modules, add a safety margin: between
+20% and 50% of the full power consumed by the modules in the backplane.
+
+•
+
+When selecting a power supply, consider the power supply efficiency: 70 90%. This helps protect the chassis and power supply from overloading.
+
+Configuration Switches
+The module identification and Profibus communication speed can be set using the
+microswitches on the module rear panel.
+
+BQT7945101-00
+
+17
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+Profibus microswitches for module configuration
+
+1
+2
+3
+4
+
+Profibus address
+
+5
+6
+7
+8
+
+Reserved
+
+9
+10
+
+Profibus speed
+
+11
+12
+
+Reserved
+
+The module identification must be unique, selecting between 1 and 96 using
+microswitches 1 to 7. The addresses 0 and from 97 to 127 are reserved and are
+not assigned. In the case that they are assigned, messages are generated when
+the system boots.
+The address definition is as follows:
+P1*20 + P2*21 + P3*22 + P4*23 + P5*24 + P6*25 + P7*26
+Assuming Px is the value assigned to the position of microswitch x (0 is OFF and 1
+is ON), for example, if switches 2, 4 and 5 are in the ON position, the Profibus
+address of the module is 26.
+The Profibus communication speed must be the same for all PowerLogic T500
+modules. It is determined by the speed of the primary device, configured in the
+Easergy Builder configuration tool.
+The speed is set using microswitches 9, 10 and 11 as shown in the following table:
+Position 11
+
+Position 10
+
+Position 9
+
+Profibus Rate
+
+OFF
+
+OFF
+
+OFF
+
+19.2 kbaud
+
+OFF
+
+OFF
+
+ON
+
+93.75 kbaud
+
+OFF
+
+ON
+
+OFF
+
+187.5 kbaud
+
+OFF
+
+ON
+
+ON
+
+500 kbaud
+
+ON
+
+OFF
+
+OFF
+
+1.5 Mbaud
+
+ON
+
+OFF
+
+ON
+
+Not available
+
+ON
+
+ON
+
+OFF
+
+Not available
+
+ON
+
+ON
+
+ON
+
+Not available
+
+NOTE: For optimal system performance, set the Profibus rate to 1.5 Mbaud.
+NOTE: Microswitches 8 and 12 are reserved and must be set to OFF.
+
+Mounting Procedure
+PowerLogic T500 modules can be installed in a 19-inch chassis (BP270) or a
+backplane (BP260).
+The BP260 can detect an incorrect installation of the modules. However, some
+configurations can work correctly even though the modules are not mounted
+correctly. This situation creates a mechanical instability and might cause serious
+problems.
+
+18
+
+BQT7945101-00
+
+Physical Mounting and Installation
+
+PowerLogic DI180
+
+NOTICE
+HAZARD OF INCORRECT MOUNTING OF MODULES
+Ensure that configurations are working correctly and modules are mounted
+correctly.
+Failure to follow these instructions can result in equipment damage.
+The following figure shows two modules inserted on the backplane. One of the
+modules is incorrectly inserted but this does not prevent its functioning.
+PowerLogic T500 module incorrectly inserted on the left (shown with the red
+ellipsis) and module correctly inserted on the right
+
+To mount the module in the chassis or backplane, follow the instructions below:
+1. Switch off the power supply.
+2. Mount the module at the desired position, and if you are using a backplane,
+verify that the rear rails are properly mounted using the pre-drilled holes on
+the backplane.
+3. Firmly press the module to ensure that the connector fits in to the backplane
+connector properly. Check the module is correctly mounted onto the
+backplane base.
+4. Fix the module using the screw located at the top.
+5. Insert the terminal (mounting option C1) or flat ribbon connectors (mounting
+option C2).
+
+Wiring Recommendations for PowerLogic T500
+To help avoid EMC disturbances, refer to the PowerLogic T500 Platform user
+manual.
+
+Wiring DI180
+Two options to connect field signals to the DI180 module are option C1 (terminal
+connection), and option C2 (flat-ribbon connection).
+•
+
+BQT7945101-00
+
+C1: Terminal connection or Direct connection. This is used when the length of
+the field cabling is short. For example, when interconnections and assemblies
+are done within the cabinet, signals are generated in a close site or proceed
+from an interface cabinet located at the same site, etc.
+
+19
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+•
+
+C2: Flat-ribbon connection through terminal blocks. This is used when the
+distance between the module and the signal source is long or when the cable
+gauge needs to be bigger than 0.5 mm2 due to the cabling layout.
+
+A module can be easily replaced by disconnecting the two field-connectors and
+removing the module from its slot, in both direct and terminal-block connections.
+This section provides information about: signals field connection, polarization,
+commons, and terminal blocks.
+
+Terminal Connection (option C1)
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION OR ARC FLASH
+Depending on the devices connected to the module DI180, for any of these
+cases, follow these instructions:
+•
+
+Only qualified operator should install this equipment. This operation should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+
+•
+
+Do not work alone.
+
+•
+
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of back feeding.
+
+•
+
+Always use a properly rated voltage sensing device to confirm that all power
+is OFF.
+
+•
+
+Start by connecting the device to the protective ground and to the functional
+ground.
+
+•
+
+Screw tight all terminals, even those not in use.
+
+Failure to follow these instructions will result in death or serious injury.
+The DI180 option C1 has Eurostyle ™ 20-way and 3.81 mm connectors mounted
+which allows you to use multiple solutions as shown in the following figure:
+
+The recommended torque is 0.5 Nm.
+The following figure shows the pin allocation of the connectors for option C1.
+The connector J1 is located at the top, behind the front window, and the connector
+J2 is located at the bottom, behind the front window.
+Terminal connection (option C1)
+
+20
+
+BQT7945101-00
+
+Physical Mounting and Installation
+
+PowerLogic DI180
+
+Where:
+•
+
+DIxx: Digital input xx.
+
+•
+
+COMn: Common terminal for Jn connector.
+
+•
+
++V1 and +V2: Terminal for polarization positive.
+
+•
+
+-V1 and -V2: Terminal for polarization negative.
+
+Field connection schematics for option C1
+DI01
+
+DI08
+COM1
+DI09
+
+DI16
+COM1
++V1
+-V1
+
++
+
+-
+
+External
+polarization
+
+Follow the instructions below before wiring this module:
+•
+
+Type of cable: Low voltage computer 20 x 0.14” (Brand: EMELEC).
+
+Recommended cable for field connection
+
+•
+
+To make the connection, strip between 8 and 10 cm off the cable end, and
+protect it with an insulating material as shown in the following figure:
+
+Cable prepared for field connection
+
+•
+
+BQT7945101-00
+
+Remove 0.5 cm of the shield at the end of each individual cable to expose the
+copper which is inserted in the terminal.
+
+21
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+Wiring a module with terminals
+
+A free space at the bottom is enough for the door to be closed:
+
+Position of the cables when they are installed
+
+To avoid jerking and the weight of the cable does not fall on the terminal, when the
+module is installed in the cabinet, both wires are joined with a plastic bracket, and
+they should be fixed to the cabinet or chassis.
+The following figure shows an example:
+Mounting cables to the cabinet or chassis
+
+22
+
+BQT7945101-00
+
+Physical Mounting and Installation
+
+PowerLogic DI180
+
+Flat Ribbon Connection (option C2)
+When the connection is established through terminal blocks, they can be simple
+connecting interfaces made up by a flat ribbon and terminals. These spring-type
+terminals with capacity for 2.5 mm2 gauge cables have a DIN 35 rail mounting
+base. The flat ribbon cable has 20 ways, so two terminal blocks for each module
+are required. The flat ribbon cables are designed to be installed inside the cabinet.
+The following figure shows the pin allocation of the connectors for option C2.
+The connector J1 is located at the top, behind the front window, and the connector
+J2 is located at the bottom, behind the front window.
+Flat ribbon pinout (option C2)
+
+The field connection must be done as follows:
+Field connection schematics for option C2
+Flat ribbon
+cable
+
+J1
+
+TB_DI32
+1
+
+VP+
+
+16
+C1
+
+DI01
+
+DI16
+COM1
++V1
+-V1
+
+VP-
+
++
+
+External
+Polarization
+
+Wiring to field
+Internal wiring
+
+Polarization
+The digital inputs need a polarization voltage for operation.
+
+BQT7945101-00
+
+23
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+The 32 inputs of the DI180 module are divided into two 16-input polarization
+blocks. Each block can be polarized independently but both must have the same
+value.
+The polarization of V1 and V2 voltages is supplied externally from the module.
+Even if two power supplies are available, use only one power supply by bridging
+the terminals, depending on the chosen connection option, that is, C1 or C2.
+•
+
+For option C1, the +V1 terminal (in J1) must be interconnected with the +V2
+terminal (in J2) and -V1 terminal (in J1) with the -V2 terminal (in J2).
+
+•
+
+For option C2, the +V and -V terminals of the power supply must be
+interconnected with the +V and -V terminals of the terminal block.
+NOTE: For option C2, check operation of the jumpers S1 and S2 in section 0.
+
+Commons
+The field receivers are powered with the positive of the polarization voltage (V1
+and V2). The best way of doing this is through the common outputs of the
+connectors on the module.
+•
+
+For C1 ordering option, page 21, these commons are identified with the name
+COMx for each connector (terminals 9 and 18).
+
+•
+
+In option C2, the common terminals depend on the type of terminal block
+used. Refer to the adequate electrical schematic in the following section.
+NOTE: The commons wiring should be independent for each connector J1
+and J2. This means that the commons of the different blocks cannot be joined,
+and they must be assigned to the correct connector.
+
+WARNING
+HAZARD OF INCORRECT WIRING
+Ensure that common outputs of the connectors are connected properly.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+If the signal polarization is wired correctly through the commons, the module may
+have to do a comprehensive test of the input signals.
+
+Terminal Blocks
+Some terminal blocks of the PowerLogic T500 family are specifically designed to
+be used with the DI180 modules. These terminal blocks can help to simplify wiring
+because they use thicker cables for field signals.
+Terminal blocks are connected to the module using two 20-way flat-ribbon cables.
+The module is polarized through the terminal block.
+These terminal blocks have two jumpers S1 and S2, one for each block of signals,
+which allow the following:
+•
+
+S1 and S2 are connected to the position labelled as 17: This is the normal
+position of the jumpers. In this case, the common of the corresponding block
+is polarized by the voltage that reaches the module through the flat ribbon.
+The module controls the inputs polarization through internal wiring.
+
+•
+
+S1 and S2 are connected to the position labelled as +: The common of the
+corresponding block receives the supply voltage directly, so that the module is
+not involved in the digital inputs polarization.
+
+The electrical diagrams given below show the normal position of these jumpers for
+each type of terminal block.
+
+24
+
+BQT7945101-00
+
+Physical Mounting and Installation
+
+PowerLogic DI180
+
+TB_DI32/N-TI180 - Phöenix Contact - Normalized Terminal Block
+Technical Specifications of TB_DI32/N-TI180 Phöenix Contact
+
+TB_DI32/N-TI180 Phöenix
+Contact Normalized terminal
+block
+
+Specification
+
+Description
+
+Manufacturer
+
+Phoenix Contact
+
+Reference (code)
+
+E0625773
+PowerLogic EMS78100
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc (max)
+
+Maximum current capacity per branch
+
+1A
+
+Dimensions
+
+65 x 45 x 235 mm
+
+Field connectors
+
+Knife disconnect terminals with fixing
+screws
+
+Min/Max wire cross section (rigid)
+
+0.2 / 4 mm2
+
+Min/Max wire cross section (flexible)
+
+0.2 / 2.5 mm2
+
+Min/Max wire cross section AWG/kcmil
+
+24 / 12
+
+Module connector
+
+2 x 20-way DIN 41651 connector
+
+Electrical Diagram
+TB_DI32/N-TI180 – Electrical diagram – Phöenix Contact
+
+TB_DI32/N - Weidmüller - Normalized Terminal Block
+Technical Specifications of TB_DI32/N Weidmüller
+
+TB_DI32/N Weidmüller Normalized terminal block
+
+BQT7945101-00
+
+Specification
+
+Description
+
+Manufacturer
+
+Weidmüller
+
+Reference (code)
+
+7508000581
+
+Assembly
+
+DIN rail
+
+Rated voltage UN
+
+60 Vrms/Vdc (max)
+
+Maximum current capacity per branch
+
+1A
+
+Number of connection terminals
+
+40
+
+Dimensions
+
+245 x 45 mm
+
+Module connectors (type)
+
+2 x 20-way DIN 41651 connector
+
+Field connector
+
+Knife disconnect terminals with fixing
+screws
+
+Min/Max wire cross section (rigid)
+
+0.5 / 6 mm2
+
+Min/Max wire cross section (flexible)
+
+0.5 / 4 mm2
+
+25
+
+PowerLogic DI180
+
+Physical Mounting and Installation
+
+Technical Specifications of TB_DI32/N Weidmüller (Continued)
+Min/Max wire cross section AWG/kcmil
+
+20 / 10
+
+Electrical Diagram
+TB_DI32/N – Electrical diagram – Weidmüller
+
+26
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+Configuration and Maintenance
+Configuration of the Backplane
+NOTE: You should be familiar with the general use of Easergy Builder. For
+more information about the tool, refer to the Easergy Builder manual.
+An understanding of basic PowerLogic T500 concepts is required in order to
+configure the acquisition:
+•
+
+A backplane is a set of IO modules connected to a CPU and a power supply.
+
+•
+
+Each IO module is allocated to a unique address in the backplane.
+
+•
+
+The addressing procedure is carried out manually through the switches of
+each module. In Easergy Builder tool, you need to match this address with
+the one shown by the switches. For more information, refer to Configuration
+Switches, page 17.
+
+In the workspace of Easergy Builder, create a new RTU using
+an empty area of the RTU tree.
+
+or right-click in
+
+Create a new RTU
+
+Click
+next to the graphic of the backplane to add, remove or change the IO
+modules included on the default configuration.
+Modify the IO modules
+
+BQT7945101-00
+
+27
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+From this screen, you can do the following action:
+Configuring backplane
+
+1. Using this window, add or remove a module in the backplane. Use
+new modules and
+
+to add
+
+to remove a module.
+
+Adding new IO modules
+
+2. Change the address for each module displayed under its image using
+.
+The address for each module must be the same that is indicated with its rear
+switches.
+Change address
+
+28
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+3. Use
+
+to configure the time parameters of the polling and digital filtering.
+
+Profibus configuration
+
+4. To create a new configuration, use
+click.
+
+or select RTU in the tree and right-
+
+New configuration
+
+If Create defined RTU acquisition points field is checked, all points of the
+local acquisition of the acquisition blocks included in the default configuration
+associated with the RTU are included in coreDb.
+For example, if an HU280 is mounted in a backplane with an acquisition
+module and Create defined RTU acquisition points is checked, the
+following points are generated:
+•
+
+Corresponding inputs, if available, in the Analog or Status table
+
+•
+
+Corresponding outputs, if available, in the Commands table
+
+•
+
+Supervision point for each block
+
+At the end of the operation, the new configuration appears in the RTU tree.
+Double-click it, so that the Easergy Builder tool goes into configuration mode.
+PowerLogic T500 local acquisition
+
+Within the configuration, double-click on the laq icon to change the address of
+the modules.
+
+BQT7945101-00
+
+29
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+DI180 Configuration
+The local acquisition device for PowerLogic T500 is named laq and it is created by
+default for each PowerLogic T500 configuration.
+The first step to configure the acquisition settings is to ensure that the configured
+backplane in the graphical interface is according to the system. Each module must
+be addressed according the position of its microswitches. Refer Configuration
+Switches, page 17.
+Configuring local acquisition for PowerLogic T500
+
+The laq device supports communication between inputs and the outputs managed
+by the acquisition blocks and coreDb points. The first step to configure the
+acquisition settings is including all IO modules in the backplane.
+NOTE: The graphical interface does not show if the modules are mounted in
+one or multiple backplanes. Communication and power supplies modules are
+not included in the graphical schematic.
+
+30
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+Local Acquisition Information
+The following figure shows the relationship between the field information received
+by the DI180 module and the related points in coreDb:
+Field signals and points in coreDb
+Point Name
+
+Source Device Source Coordinate
+
+D001_00000
+D001_00001
+
+laq
+laq
+
+2001020000
+2001020001
+
+D001_00030
+D001_00031
+
+laq
+laq
+
+2001020030
+2001020031
+
+coreDb
+
+DI180
+Module
+Address: 1
+
+Field
+Digital Input
+
+Name
+
+Coordinate
+
+D1
+D2
+
+DI 1
+DI 2
+
+2001020000
+2001020001
+
+D31
+D32
+
+DI 31
+DI 32
+
+2001020030
+2001020031
+
+All signals in this picture are simple. If a signal is configured as double or counter,
+its default name must be different.
+
+DI180 Signals
+The following figure shows the configuration panel when the backplane is
+composed of a CPU HU280 and one DI180 module with address 1:
+Input signals
+
+BQT7945101-00
+
+31
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+Select the module in the graphical scheme and all its field signals are shown
+(marked in red).
+The first position of each row corresponds with the description of the signal (DI_
+ISIM_1 .. DI_ISIM_16). In coreDb, each signal is identified using its coordinate.
+For each signal, the following parameters can be changed:
+•
+
+Type of signal: the signal is configured as: Simple digital (DI_ISIM), double
+digital (DI_IDOB) or slow counter (DI_ICNT32).
+The associated specific parameters depend on the type of signal. A simple
+digital signal has the associated parameters shown in the figure above.
+If a signal is configured as double, the following signal disappears
+automatically and the associated parameters are given below:
+Configuration input signals
+
+•
+
+ChgEvt: shows whether changes can generate events. The Y value
+generates events, whereas N value does not generate them.
+
+•
+
+DbICnt: flange counter. This field is available for DI_ICNT32 signals; the
+value Y indicates that the two flanges of each pulse are counted, whereas the
+value N indicates that only one flange is counted.
+
+•
+
+Invert: inversion flag. The signal is inverted (Y) or not inverted (N).
+
+•
+
+TF: (ms): filtering time. All changes that take less than this time are rejected.
+
+•
+
+TM (ms*10): this applies to the signals set to event. After an event, the value
+of the signal is retained for this time before another event occurs. It must
+ensure the correct detection by the logic.
+
+•
+
+TS (ms*100): this applies only for double signals. The stand-by time is used
+to create a time frame in which the deactivation of the active input is not
+detected until the other input is activated.
+
+If any signal is set to a double digital signal, the next signal available is disabled,
+as a double signal takes two signals:
+Configuration double input signal
+
+The button Next is used to access the rest of digital inputs of the module, that is,
+from 17 to 32.
+
+Local Acquisition Coordinates
+Each digital input is identified in coreDb by a name (it is stored in the field
+Description), but this name is only used for information purpose. coreDb uses the
+coordinate of the signal to identify a field signal.
+
+32
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+The following figure shows digital inputs in the status table:
+Digital inputs for the DI180 module in the status table
+
+The coordinate is a unique identifier of a signal within a Bin. Its definition is
+different for each device and the local acquisition is defined with ten digits in the
+following format:
+2 BBB CC DDDD
+•
+
+2: first number of its coordinate for all PowerLogic T500 local acquisition
+signals is 2.
+
+•
+
+BBB: three digits to indicate the point address according to the previous
+communication protocol. In the case of Profibus-DP, the address range is
+from 000 to 125.
+
+•
+
+CC: type of signal:
+
+•
+
+◦
+
+00: diagnostic signals of the acquisition modules.
+
+◦
+
+02: simple digital input (1 bit).
+
+◦
+
+03: counter (32 bits).
+
+◦
+
+07: double digital input (2 bits).
+
+◦
+
+10: digital input (1 bit) (Profibus input table).
+
+◦
+
+11: digital input (2 bits) (Profibus input table).
+
+DDDD: number of the signal within each type, that is, it does not need to
+match the physical position. The first signal of a type is 0000, the second is
+0001 and so on, with all the types of the previous point.
+
+For example, if a coreDb point has associated the signal 2003020002 as source,
+then it means that this point of coreDb takes it is the same value that the signal
+(0002) of the DI_ISIM (02) type, in the module with address 003, according to
+Profibus-DP (2) protocol.
+
+Information in the Table Status
+The following points are included in coreDb when the Create defined RTU
+acquisition points field is marked (see figure New Configuration, page 29):
+•
+
+BQT7945101-00
+
+32 points for information from field. A coreDb point is included in the status
+table for each field signal. The default name is: D00x_00000 ... D00x_00015,
+where 00x is the module’s address.
+
+33
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+•
+
+The following diagnostic points are created for each module D00x:
+
+Diagnostic signals of the PowerLogic T500 local acquisition
+Coordinate
+
+Description
+
+Name
+
+DDDD
+
+STS_COMM
+
+0000
+
+Module offline. Value 1 indicates that there is no communication
+with the module.
+
+STS_DIAG
+
+0001
+
+Module with diagnostics. Value 1 indicates a diagnostics.
+Usually correspond to a polarization failure in the module.
+
+STS_PPS
+
+0002
+
+Value 1 indicates that the synchronization signal is not reaching
+the module correctly.
+
+STS_FAILBUS1
+
+0003
+
+Value 1 indicates a communication interruption in Profibus1.
+
+STS_FAILBUS2
+
+0004
+
+Value 1 indicates a communication interruption in Profibus2.
+
+LAQ diagnostic points (wizard)
+
+To include a point manually, create a new point, select laq as Source Device,
+click right-button on the Source Coordinates field and select Launch Point
+wizard:
+Open launch point wizard
+
+Launch point wizard
+
+34
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+Select the module in which it wants to create these points and then select the
+point to be created.
+NOTE: Points that are not created is shown in the list.
+You can include these points directly in coreDb. For example:
+If a coreDb point has assigned the signal 2003000000 as source, the value of this
+point indicates the communication status of the module 003 (address).
+The value of the signal 2007000004 changes to 1 when the communication with
+the module 007 is lost.
+For additional information regarding coreDb and operation with signals, refer to
+the Easergy Builder user manual.
+
+Maintenance of Module
+webApp
+The webApp is a set of remote user interfaces for consulting, monitoring and
+maintenance tasks. Once the username and password have been entered, you
+can access the main window and, depending on the webtool, several sections are
+available.
+webApp is used with the HU280 module.
+NOTE: webApp has been designed to work only with the cyber security brick.
+This functionality is not available in systems that do not include the cyber
+security brick and does not work in systems without the external web server
+either. The pages are loaded dynamically according to the users roles.
+When you use webApp, the following message appears before the tool is
+accessed:
+Disclaimer information
+
+Read the information and take it into account.
+
+Using webApp
+PowerLogic T500 webApp has an access control that gives access only to
+authorized users. To get to the window access, enter https://< CPU IP
+address> in the navigation address bar, where <CPU IP address> must be
+changed for the correct IP address.
+
+BQT7945101-00
+
+35
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+Access screen
+
+Enter the Username and Password to access the webApp main window.
+The webApp main window screen has five tabs:
+•
+
+Home
+
+•
+
+Monitoring & Control
+
+•
+
+Diagnostic
+
+•
+
+Maintenance
+
+•
+
+Settings
+
+Home Tab
+Home tab
+
+The Home tab displays the following information:
+•
+
+Device Information: You can add the names of the operators who have used
+or configured the equipment or a specific custom note that can be viewed
+each time a connection is established to this RTU. This information can be
+modified using Edit option.
+
+•
+
+Location: The GPS coordinates for the RTU location (place, latitude,
+longitude, and altitude) should be entered here by the installer. The location is
+not set automatically. The image must be included manually by clicking
+on the map.
+
+•
+
+36
+
+Image associated with the RTU. Click
+on the graphic zone to include a
+location map corresponding to the GPS coordinates.
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+•
+
+Notes. This zone allows you to include notes that are shown to other users.
+Click
+
+•
+
+to add notes.
+
+Factory information: This zone shows the manufacturer, model and the
+version of the software loaded on the PowerLogic HU280 module. Click
+next to the Factory Information to include an image of the particular
+RTU or CPU for identification purposes.
+
+Monitoring and Control Tab
+Monitoring and Control view - System information
+
+The Monitoring & control > Data window allows you to monitor the information of
+each coreDb table:
+
+BQT7945101-00
+
+•
+
+Status page: for viewing the status of the digital data.
+
+•
+
+Command page: for sending the change of state commands based on the
+digital data.
+
+•
+
+Analog page: for viewing measurement values.
+
+•
+
+Setpoint page: for forcing parameter values.
+
+37
+
+PowerLogic DI180
+
+Configuration and Maintenance
+
+Accessing the Command Points
+Status information
+
+If Locking field is marked for a signal, then buttons
+are available and they can
+be used to change the value or associated quality flags for this signal.
+Edit value
+
+Digital Inputs Signals Quality
+Digital inputs quality control
+
+38
+
+BQT7945101-00
+
+Configuration and Maintenance
+
+PowerLogic DI180
+
+For each signal, its quality information is shown in the table through icons in the
+column Quality. In coreDb, this information is stored in hexadecimal format. The
+quality information associated with a signal could include one or more of the
+following messages:
+Local quality bits
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00000001
+
+There has been an overflow.
+
+0x00000002
+
+There has been a carry on a counter or a roll-over.
+
+0x00000004
+
+There has been a counter adjustment.
+
+0x00000008
+
+Excessive changes in a digital input.
+
+0x00000010
+
+Locked Point (blocked).
+
+0x00000020
+
+Point manually replaced (manual).
+
+0x00000040
+
+The point has not yet been written into the database (No
+refresh).
+
+0x00000080
+
+Invalid value (Detected error).
+
+0x00000100
+
+The value of the item has exceeded Highest Limit Alarm.
+
+0x00000200
+
+The value of the item has exceeded High Limit Alarm.
+
+0x00000400
+
+The point value of the Low Limit Alarm has decreased.
+
+0x00000800
+
+The point value of the Lowest Limit Alarm has
+decreased.
+
+0x00001000
+
+Invalid time.
+
+Quality bits from the device
+Values (Hexadecimal)
+
+Description
+
+0x00000000
+
+OK
+
+0x00010000
+
+There has been an overflow.
+
+0x00020000
+
+There has been a carry on a counter or a rollover.
+
+0x00040000
+
+There has been a counter adjustment.
+
+0x00080000
+
+Excessive changes in a digital input.
+
+0x00100000
+
+Locked point.
+
+0x00200000
+
+Point manually replaced.
+
+0x00400000
+
+The point has not yet been written into the
+database.
+
+0x00800000
+
+Invalid value.
+
+0x10000000
+
+Invalid time.
+
+NOTE: If more than one error is detected for a signal, the hexadecimal value
+monitored for quality bits results from the sum of all. For example:
+0x00000001 indicates that an overflow has occurred and 0x00000002
+indicates that there has been a carry on a counter or a roll-over. The value
+0x00000003 would appear monitored.
+
+BQT7945101-00
+
+39
+
+PowerLogic DI180
+
+Appendix
+
+Appendix
+Technical Specifications
+Hardware Specifications
+Specifications
+
+Description
+
+Number of inputs
+
+32
+
+Inputs per common
+
+16
+
+Inputs per polarization block
+
+16
+
+DI polarization (PV)
+
+Auto-range: 12 – 24 Vdc / 48 – 60 Vdc / 110 –
+125 Vdc
+
+Polarization range
+
+±20 % of PV for each range
+
+Input current
+
+1.5 mA / signal (at nominal polarization)
+
+Nominal value for ACTIVE signal
+
+±25 % of PV for each range
+
+Nominal value for DEACTIVE signal.
+
+From 0 to -15% and +15% of the minimum value
+for each range of PV
+
+Polarization blocks isolation
+
+By optocoupler 2.5 kV rms
+
+Input test
+
+Signals are checked when polarization is
+supplied
+
+Transient voltage protection (polarization and
+inputs)
+
+Protected with MOV (varistor) 17 J @ 2 ms on
+8/20 µs waveform
+
+Field connection
+
+Terminal / Flat ribbon
+
+Weight
+
+580 g
+
+Consumption
+
+1W
+
+Dimensions
+
+245 x 180 x 45 mm
+
+Specifications
+
+Description
+
+Digital input types
+
+Status indication, single and double
+
+Software
+
+Slow pulse counters 32 bits, 40 Hz (single and
+double edge)
+Maximum inputs as slow counters
+
+25
+
+Time stamping
+
+1 ms resolution
+
+Filtering time (TF)
+
+0 – 255 ms
+
+Settling time (TS)
+
+0 – 25500 ms
+
+Change memory time (TM)
+
+0 – 2550 ms
+
+Standard Compliance
+Directive / Test
+
+Identification
+
+Details
+
+2014/35/EU
+
+CE Mark Directive
+
+European and British Directives
+Low Voltage (LVD)
+
+40
+
+BQT7945101-00
+
+Appendix
+Directive / Test
+
+Electromagnetic Compatibility (EMC)
+
+RoHS
+
+WEEE
+
+PowerLogic DI180
+Identification
+
+Details
+
+IEC 61010-1:2010
+
+Standard of product for electrical safety
+requirements
+
+IEC 61850-3:2013 (Clause 6.9.3)
+
+Climatic environmental tests
+
+IEC 61850-3:2013 (Clauses 6.10.1,
+6.10.2, 6.10.3)
+
+Mechanical performance
+
+2014/30/EU
+
+CE Mark Directive
+
+IEC 60255-26:2013
+
+Standard for measuring relays and
+protection equipment
+
+IEC 61850-3:2013
+
+Standard for communication networks and
+systems for power utility automation
+
+EN 61000-6-4: 2018
+
+Emission standard for industrial
+environments
+
+EN 61000-6-5: 2015
+
+Immunity for equipment used in power
+station and substation environment
+
+2011/65/EU, including the delegated
+Directive 2015/863
+
+European Directive
+
+EN IEC 63000:2018
+
+Technical documentation for the RoHS
+assessment
+
+2012/19/UE
+
+European Directive
+
+CISPR16-2-3:2016
+
+30 MHz to 6 GHz
+
+EMC - Emission tests
+Radiated emission. EF measure
+
+CISPR 32:2015+A1:2019
+EN 55022:2011
+Continuous conducted emission on power
+leads
+
+EN 55032:2015 / AC:2016-07
+
+0.15 MHz to 30 MHz
+
+CISPR 16-2-1:2014 / AMD1:2017
+CISPR 32:2015+A1:2019
+EMC - Immunity tests
+Radiated RF Electromagnetic field immunity
+test
+
+EN 61000-4-3:2006 / A1:2008 / A2:2010
+
+80 – 6000 MHz, AM 1 kHz Prof: 80%, 10 V/
+m
+1000 – 2700 MHz, AM 1 kHz Prof: 80%, 3 V/
+m
+2700 – 6000 MHz, AM 1 kHz Prof: 80%, 1 V/
+m
+
+Immunity to conducted disturbances, induced
+by radiofrequency fields
+
+IEC 61000-4-6:2014
+
+0.15 – 80 MHz, AM 1 kHz Prof: 80%, 10
+Vrms
+
+Electrical fast transient / burst immunity test
+
+IEC 61000-4-4:2012
+
+±4 kV, 5 kHz
+
+Surges immunity test
+
+IEC 61000-4-5:2014
+
+±0.5, ±1, ±2 kV (symmetrical coupling)
+±0.5, ±1, ±2 kV, ±4 kV (asymmetrical
+coupling)
+
+Damped oscillatory wave
+
+EN 61000-4-18:2007 / A1:2011
+
+1 kV (1 MHz) DM / 2.5 kV (1 MHz) CM
+
+Power frequency magnetic field immunity test
+
+IEC 61000-4-8:2010
+
+50 Hz, 100, 30, 3 A/m continuous
+50 Hz, 1000 A/m for 1 s
+50 Hz, 300 A/m for 3 s
+
+Electrostatic discharge immunity test
+
+IEC 61000-4-2:2009
+
+±4 kV, ±6 kV (direct and indirect contact
+discharge)
+±2 kV; ±4 kV; ±8 kV (air discharge)
+
+DC Voltage dips, short interruptions and
+voltage variations
+
+IEC 61000-4-29:2000
+
+100 % during 100 ms. Criterion A
+100 % during 5000 ms. Criterion C
+60 % during 200 ms. Criterion C
+30 % during 500 ms. Criterion C
+
+BQT7945101-00
+
+41
+
+PowerLogic DI180
+
+Appendix
+
+Directive / Test
+
+Identification
+
+Details
+Applies to PS280
+
+Mains frequency voltage
+
+IEC 61000-4-16:2016
+
+30, 10 V continuous
+100, 300 V 1 s
+100 V (differential), 300 V (common)
+
+Ripple on DC input power port
+
+IEC 61000-4-17:1999
+
+15 % Un, 100 Hz / 10 % Un, 50 Hz
+
+Gradual shut-down / start-up (dc power
+supply)
+
+60255-26:2013 (Clause 7.2.13)
+
+Shut-down ramp, 60 s
+Power-off, 5 min
+Start-up ramp, 60 s
+
+Electrical Safety
+Compliant with all requirements
+
+IEC 61010-1:2010
+
+Overvoltage category II
+Pollution degree 2
+
+Environmental tests
+Cold test
+
+IEC 60068-2-1:2007
+
+Test Ad (-40 ºC / 16 h)
+Test Ab (-40 ºC / 72 h)
+
+Dry heat test
+
+IEC 60068-2-2:2007
+
+Test Bd (+70 ºC / 16 h)
+Test Bb (+80 ºC / 72 h)
+
+Damp heat, cyclic test
+
+IEC 60068-2-30:2005
+
++25 ºC / +55 ºC, 93 % RH / 96 % RH, 6
+cycles (24 h)
+
+Damp heat steady state test
+
+IEC 60068-2-78:2001
+
+Test Cab 93% / +40 °C / 10 days
+
+Change of temperature
+
+IEC 60068-2-14:2009
+
+Test Nb
+-40 ºC / +70 ºC / 2 ºC/min / 1 h / 10 cycles
+
+Mechanical tests (Chassis mounting)
+Vibration (sinusoidal)
+
+Shock and bump
+
+Seismic tests
+
+IEC 60068-2-6:2008
+
+Test Fc
+
+IEC 60255-21-1:1988
+
+Section 1
+
+IEC 60068-2-27:2011
+
+Test Ea and guidance
+
+IEC 60255-21-2:1988
+
+Section 2
+
+IEC 60068-2-6:2008
+
+Section 3
+
+IEC 60255-21-3:1988
+Drop test
+
+IEC 60068-2-31 :2008
+
+1 m (with packaging)
+
+ISO 4180:2019
+
+Ordering Options
+Two options are available for field connection:
+
+42
+
+•
+
+Option C1: EMS74110: Terminal connection.
+
+•
+
+Option C2: EMS74120: Flat-ribbon connection, using additional terminal
+blocks.
+
+BQT7945101-00
+
+PowerLogic DI180
+
+Glossary
+A
+A: ampere. Base unit of electric current in the International System of Units.
+AI160: PowerLogic T500 analog input module.
+AI: Analog Input.
+AO: Analog Output.
+AWG: American Wire Gauge.
+AX160: PowerLogic T500 analog input/output module.
+
+B
+BP260: PowerLogic T500 backplane.
+BP270: PowerLogic T500 chassis.
+Bps: bits per second.
+
+C
+CPU: Central Processing Unit.
+
+D
+DC: direct current.
+DI180: PowerLogic T500 digital input module.
+DI: Digital Input.
+DIN: Deutsches Institut für Normung.
+DO180: PowerLogic T500 digital output module with relays.
+DO280: PowerLogic T500 digital output module with transistors.
+DO: Digital Output.
+
+E
+EMC: Electro Magnetic Compatibility.
+EOL: End-Of-Life. According to the WEEE CE Directive, the EOL document
+provides instructions for discard the product at the end of its life.
+
+G
+G: Grame.
+GPS: Global Positioning System.
+
+H
+HU280: PowerLogic T500 CPU module.
+Hz: hertz. Frequency in cycles per second.
+
+BQT7945101-00
+
+43
+
+PowerLogic DI180
+
+I
+I/O: Input/Output.
+IED: Intelligent Electronic Device.
+IRIG-B: mode B of the standard IRIG.
+IRIG: Inter Range Instrumentation Group.
+ISO 9001: international standard of quality management systems.
+
+K
+kB: kilobyte.
+kHz: kilohertz.
+
+L
+LAN: Local Area Network.
+LED: Light Emitting Diode.
+LVD: Low Voltage Directive.
+
+M
+mA: milliampere.
+Mbps: megabits per second.
+MHz: megahertz.
+m: meter.
+mm: millimeter.
+ms: millisecond.
+MΩ: megaohm.
+
+N
+N/A: not applicable.
+NCHAT: number of changes for chattering.
+
+P
+P/N: part number.
+PC: Personal Computer.
+PE: Protective Earth Ground.
+PPS: pulses per second.
+PS280: PowerLogic T500 power supply.
+PV: Polarization Voltage.
+PWR: power.
+
+R
+RAM: Random Access Memory.
+
+44
+
+BQT7945101-00
+
+PowerLogic DI180
+
+RoHS: Restriction of Hazardous Substances.
+RTDB: Real-Time DataBase.
+RTU: Remote Terminal Unit.
+
+S
+SCADA: Supervisory Control And Data Acquisition.
+SNTP: Simple Network Time Protocol.
+SRAM: Static Random Access Memory.
+s: second.
+
+T
+TCHAT: time for chattering.
+TCP or TCP/IP: Transmission Control Protocol/Internet Protocol. Set of protocols
+used to transfer data on the Internet.
+TF: Time Filtering.
+TM: Time Memory.
+TS: Time Setting.
+TU: Terminal Unit.
+
+V
+VAC: Voltage of Alternate Current.
+VDC: Voltage of Direct Current.
+
+W
+WEEE: Waste Electrical and Electronic Equipment.
+W: watts.
+
+X
+XS280: PowerLogic T500 serial communication module.
+
+BQT7945101-00
+
+45
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2024 – Schneider Electric. All rights reserved.
+BQT7945101-00
+
+

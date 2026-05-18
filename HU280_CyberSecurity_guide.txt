@@ -1,0 +1,4640 @@
+PowerLogic HU280
+CyberSecurity Guide
+
+Internal
+
+Change Control
+Rev
+
+Date
+
+Description
+
+01
+
+09/06/2023
+
+Initial revision
+
+02
+
+30/10/2024
+
+Included CS vuln report link
+
+03
+
+30/04/2025
+
+FW version 11.07.04. Included CS standards T500 is adhered
+and new password management from 11.07.04
+
+General Information
+The Baseline Software Platform and all its components have been developed in accordance to the requirements
+for a quality management system, complying with the ISO 9001:2015 Norm:
+Revision/Date:
+
+Rev 3
+
+File:
+
+HU280 CyberSecurity guide.pdf
+
+Reference Documents
+Schneider Electric vulnerability management policy
+CAE_User_Guide
+RBAC standards
+
+Software Version in this Manual
+The information in this manual is valid for the software versions listed below. This information is also valid for
+later versions, although some parameters may change slightly:
+Module
+
+RTU Software (Baseline Version)
+
+PowerLogic™ HU280
+
+11.07.04
+
+HU280 Cybersecurity guide
+
+2
+
+Internal
+
+1
+
+SCOPE ......................................................................................................................................................... 6
+
+2
+
+APPLICATION ............................................................................................................................................. 7
+
+3
+
+REFERENCES ............................................................................................................................................. 8
+
+4
+
+SAFETY PRECAUTIONS ............................................................................................................................ 9
+
+5
+
+INTRODUCTION ........................................................................................................................................10
+5.1 WHAT IS CYBERSECURITY ............................................................................................................................10
+5.2 THE THREATS ..............................................................................................................................................10
+
+6
+
+CYBER SECURITY POLICY .....................................................................................................................12
+
+7
+
+ESSENTIAL CYBERSECURITY FUNCTIONS .........................................................................................12
+7.1 ESSENTIAL ASSETS TO PROTECT ..................................................................................................................13
+
+8
+
+PRINCIPLES OVERVIEW ..........................................................................................................................14
+
+9
+
+COMMUNICATION ARCHITECTURE .......................................................................................................15
+
+10
+
+COMMUNICATION INTERFACES ............................................................................................................16
+
+10.1
+
+LOCAL INTERFACES .................................................................................................................................17
+
+11
+
+THREATS MITIGATION ............................................................................................................................18
+
+12
+
+SECURE BOOT .........................................................................................................................................19
+
+13
+
+SECURITY ADMINISTRATION TOOL (CAE) ...........................................................................................20
+
+13.1
+
+SECURITY PARAMETERS ..........................................................................................................................20
+
+13.2
+
+ROLE MANAGEMENT ................................................................................................................................21
+
+13.3
+
+CONFIGURATION OF SYSTEM LOGGING PROTOCOL.....................................................................................21
+
+14
+
+SECURITY ADMINISTRATOR ROLE .......................................................................................................22
+
+14.1
+
+CYBER SECURITY LOG MESSAGES............................................................................................................23
+
+14.2
+
+CYBER SECURITY LOG REVIEW ................................................................................................................25
+
+14.3
+
+USER ACCOUNT MANAGEMENT .................................................................................................................27
+
+15
+
+ACCESS CONTROL ..................................................................................................................................29
+
+15.1
+
+RBAC PRESENTATION.............................................................................................................................29
+
+15.2
+
+ACCESS AND RIGHT MANAGEMENT ...........................................................................................................30
+
+15.2.1
+
+Role definition .................................................................................................................................30
+
+15.2.2
+
+Rights ..............................................................................................................................................31
+
+15.2.3
+
+Object – Action pairs .......................................................................................................................32
+
+15.2.4
+
+Default right access ........................................................................................................................34
+
+15.3
+
+PASSWORD MANAGEMENT .......................................................................................................................36
+
+HU280 Cybersecurity guide
+
+3
+
+Internal
+
+15.3.1
+
+Default password ............................................................................................................................36
+
+15.3.2
+
+Default password change. ..............................................................................................................37
+
+15.4
+
+15.4.1
+
+Operating Principle .........................................................................................................................37
+
+15.4.2
+
+Centralized Authentication with RADIUS ........................................................................................41
+
+15.4.3
+
+Centralized Authentication with LDAP ............................................................................................47
+
+15.4.4
+
+PowerLogic HU280 Cyber Security Configuration Update via CAE ...............................................51
+
+15.4.5
+
+PowerLogic HU280 User Login Sequence .....................................................................................54
+
+15.5
+16
+
+LOCAL AND CENTRALIZED AUTHENTICATION MANAGEMENT .......................................................................37
+
+RECOMMENDATIONS ...............................................................................................................................54
+
+PORT HARDENING ...................................................................................................................................56
+
+16.1
+
+PHYSICAL PORTS ....................................................................................................................................56
+
+16.2
+
+LOGICAL PORTS AND PROTOCOLS ............................................................................................................56
+
+17
+
+16.2.1
+
+Default configuration and configuration principles ..........................................................................57
+
+16.2.2
+
+Conventions & rules ........................................................................................................................57
+
+16.2.3
+
+LAN .................................................................................................................................................58
+
+16.2.4
+
+IP addressing and communication channel creation. .....................................................................58
+
+16.2.5
+
+Firewall Rules..................................................................................................................................58
+
+SECURE COMMUNICATION ....................................................................................................................60
+
+17.1
+
+NETWORK SEGMENTATION .......................................................................................................................60
+
+17.2
+
+SECURE PROTOCOLS...............................................................................................................................60
+
+17.3
+
+CERTIFICATE MANAGEMENT .....................................................................................................................61
+
+17.4
+
+WEBSERVICES SECURITY .........................................................................................................................61
+
+17.5
+
+RECOMMENDATIONS ...............................................................................................................................62
+
+18
+
+ISAGRAF® PORT MANAGEMENT ...........................................................................................................63
+
+18.1
+
+ISAGRAF® PORT OVERVIEW ..................................................................................................................63
+
+18.2
+
+ENABLING ISAGRAF® PORT ...................................................................................................................63
+
+19
+
+PATCH AND UPDATE MANAGEMENT ...................................................................................................64
+
+19.1
+
+OVERVIEW ..............................................................................................................................................64
+
+19.2
+
+FIRMWARE UPDATE .................................................................................................................................64
+
+19.3
+
+RECOMMENDATIONS ...............................................................................................................................64
+
+20
+
+BACKUP ....................................................................................................................................................65
+
+20.1
+
+CONFIGURATION BACKUP.........................................................................................................................65
+
+20.2
+
+SECURITY PARAMETERS BACKUP (CAE) ...................................................................................................65
+
+20.3
+
+USER ACCOUNT AND RBAC BACKUP (CAE) .............................................................................................65
+
+21
+
+RESTORE ..................................................................................................................................................66
+
+21.1
+
+RESET TO FACTORY MODE. ......................................................................................................................66
+
+21.2
+
+EMERGENCY CASES ................................................................................................................................66
+
+21.3
+
+SECURITY ADMINISTRATOR CREDENTIALS LOST ........................................................................................66
+
+HU280 Cybersecurity guide
+
+4
+
+Internal
+
+22
+
+RECOVERY................................................................................................................................................68
+
+22.1
+
+FAILURE MANAGEMENT ............................................................................................................................68
+
+22.2
+
+FW & CONFIGURATION UPDATE MANAGEMENT .........................................................................................68
+
+23
+
+SECURE DESIGN RULES.........................................................................................................................69
+
+24
+
+PRODUCT DEFENSE-IN-DEPTH..............................................................................................................70
+
+24.1
+
+DEVICE SECURITY CAPABILITIES ...............................................................................................................70
+
+24.2
+
+PROTECTED ENVIRONMENT ASSUMPTIONS................................................................................................72
+
+24.3
+
+ANTIMALWARE MANAGEMENT ...................................................................................................................73
+
+25
+
+PHYSICAL TAMPERING RESISTANCE ..................................................................................................74
+
+HU280 Cybersecurity guide
+
+5
+
+1 Scope
+This document is a guide for the PowerLogic HU280 Cyber Security aspects.
+
+The purpose of this document is to present all the information for the secure installation, configuration, and use
+of the PowerLogic HU280.
+
+This guide provides information and recommendations in order to help system security engineers to set up a
+secured Distribution Automation System.
+
+Schneider Electric will not be liable for PowerLogic HU280 Hardening settings achieved by the Customer.
+
+HU280 CyberSecurity guide.docx
+
+6
+
+2 Application
+This document is applicable to the release 11.07.04 of the PowerLogic HU280 firmware.
+
+HU280 CyberSecurity guide.docx
+
+7
+
+3 References
+Schneider Electric vulnerability management policy
+CAE_User_Guide
+RBAC standards
+
+HU280 CyberSecurity guide.docx
+
+8
+
+4 Safety Precautions
+The use of this software and the generation of security configurations must be performed by personnel having
+received the proper training in Cybersecurity and on PowerLogic HU280 product and associated software.
+
+The following safety message applies to this guide in its entirety:
+
+CAUTION
+
+UNEXPECTED EQUIPMENT BEHAVIOR
+•
+
+PowerLogic HU280 product and Cybersecurity Admin Expert software must be used by
+properly trained personnel.
+
+•
+
+Do not push into the system incorrect security configurations.
+
+•
+
+Follow the instructions in this guide.
+
+Failure to follow these instructions can result in injury or equipment damage.
+
+HU280 CyberSecurity guide.docx
+
+9
+
+5 Introduction
+5.1 What is Cybersecurity
+Cyber Security is the body of technologies, processes and practices designed to protect networks, computers,
+programs and data from attack, damage or unauthorized access.
+
+Cyber Security intends to ensure the confidentiality, integrity and availability of information and system.
+
+5.2 The Threats
+It is not possible to protect against every current or future threat or method of attack.
+The concept of security is to define some defense strategies against the identified threats.
+
+The threats could be for example:
+•
+
+Denial of service
+
+•
+
+Man in the middle (Insertion of an attacker between two communicating parties)
+
+•
+
+Intentional bad operation through permitted actions
+
+•
+
+Bad operation through non-permitted/non-configured access
+
+•
+
+Unauthorized data disclosure
+
+•
+
+Manipulation/deletion of data
+
+The following table summarizes the threats and indicates which security properties to help to understand the
+relation between the threats and the security properties.
+
+Threat
+
+Security Property
+
+Spoofing identity:
+
+Authentication:
+
+The action of accessing using the identity of
+
+The ability of a system to verify the identity of a
+
+another user, component, or system.
+
+user, component or system.
+
+Tampering with data:
+
+Integrity:
+
+Malicious modification of data
+
+Elevation of privilege:
+An unprivileged user gains privileged access.
+
+•
+
+Enforcing access control
+
+•
+
+Tamper detection
+
+Authorization:
+•
+
+Access control
+
+Repudiation:
+
+Non-Repudiation:
+
+The act of denying being the author of a given
+
+The ability of a system to ensure that all actions
+
+action.
+
+are accounted for and can be traced back to their
+author.
+
+Information disclosure:
+
+Confidentiality:
+
+The action of viewing confidential data without
+
+The property of data that is not made available to
+
+proper authorization.
+
+unauthorized parties.
+
+HU280 CyberSecurity guide.docx
+
+10
+
+Denial of Service:
+
+Availability:
+
+The act of preventing a system from functioning in
+
+The property of data that is accessible to legitimate
+
+accordance with its intended purpose.
+
+parties whenever they need it to be.
+
+Elevation of privilege:
+
+Authorization:
+
+An actor could be allowed to perform an operation
+
+Provides access controls for resources and
+
+that it is not authorized to do.
+
+operations.
+
+To communicate a security topic affecting a Schneider Electric product or solution, visit:
+
+https://www.se.com/ww/en/work/support/cybersecurity/vulnerability-policy.jsp
+
+HU280 CyberSecurity guide.docx
+
+11
+
+6 Cyber Security policy
+The Cyber Security policy of the PowerLogic HU280 is based on the following features:
+•
+
+Secure the local and remote-control access based on RBAC & Port Hardening
+
+•
+
+Security logs
+
+•
+
+Secure protocol used for communication (cryptography)
+
+•
+
+Patch management
+
+•
+
+Backup
+
+•
+
+Restore
+
+•
+
+Secure design rules
+
+These functions reduce the attack surface by disabling control access that is not required while maintaining the
+minimum functionality that is required. These functions provide the capability to identify each security operation.
+
+Our product adheres to the following standards and guidelines to ensure robust cybersecurity measures:
+
+IEC 62443-4-2 Security Level Capabilities (SL-C 2):
+The product meets the requirements for Security Level Capability 2 as defined in IEC 62443-4-2. This includes
+comprehensive security controls and measures to protect against threats and vulnerabilities.
+
+IEC 62443-4-1 Secure Development Lifecycle (SDL) Processes:
+Our development processes are aligned with the IEC 62443-4-1 standard, ensuring that security is integrated
+throughout the product lifecycle. This includes secure design, implementation, testing, and maintenance practices.
+
+To communicate a security topic affecting a Schneider Electric product or solution,
+Please go to: https://www.se.com/ww/en/work/support/cybersecurity/report-a-vulnerability.jsp
+
+7 Essential CyberSecurity functions
+The PowerLogic T500 platform has the following CyberSecurity function available:
+•
+
+IEC 62351-8: User Access management (Role Based Access Control)
+
+•
+
+IEC 62351-5: Secure Authentication for communication protocols (DNP3 and IEC 104)
+
+•
+
+Radius server for User identification and authentication
+
+•
+
+Port hardening management
+
+•
+
+IP communication filter
+
+•
+
+Firewall
+
+•
+
+Syslog protocol and secure log storage and retrieval
+
+•
+
+Software integrity with firmware signature
+
+•
+
+Secure boot
+
+•
+
+TPM
+
+HU280 CyberSecurity guide.docx
+
+12
+
+•
+
+Multi Certificate Management
+
+7.1 Essential Assets to protect
+When considering the Easergy T500 CyberSecurity it is recommended to protect the following assets:
+•
+
+Username and Password management
+
+•
+
+Certificates
+
+•
+
+Configuration files
+
+•
+
+Firmware
+
+•
+
+CyberSecurity logs
+
+•
+
+Communication ports
+
+•
+
+Digital I/O substation monitoring
+
+•
+
+Analog Measurements
+
+•
+
+Functionality
+
+HU280 CyberSecurity guide.docx
+
+13
+
+8 Principles overview
+The Distribution Automation system shall be designed and built for secure operations. It shall implement or use
+components compliant with some of the following examples of design principles:
+•
+
+Least privilege
+
+•
+
+Defense-in-depth
+
+•
+
+Secure the communications external to the substation
+
+•
+
+Logging and monitoring
+
+•
+
+Users and Security Policy (Central management)
+
+•
+
+Backup and restore
+
+•
+
+Hardening
+
+•
+
+Physical security
+
+HU280 CyberSecurity guide.docx
+
+14
+
+9 Communication architecture
+According to Schneider Electric’s defense-in-depth approach, the communications architecture provides a
+segmentation of the communication network to mitigate the threat.
+It is assumed that PowerLogic HU280 product is installed in a secured substation, allowing physical access only
+to authorized and skilled personnel.
+
+HU280 CyberSecurity guide.docx
+
+15
+
+PowerLogic HU280 Communication interfaces
+
+10 Communication interfaces
+The following figure indicates the physical communication ports available on the PowerLogic HU280.
+
+The PowerLogic HU280 communicates with remote SCADA or between substation elements using the following
+protocols:
+•
+
+IEC 104 server and client
+
+•
+
+IEC 101 server and client
+
+•
+
+DNP3 master station and outstation
+
+•
+
+IEC 103 client
+
+•
+
+Modbus server and client
+
+•
+
+IEC 61850 protocols for server and client
+
+•
+
+HTTPS for secure webserver connection
+
+•
+
+SNTP/PTP/IRIG-B/GPS for time synchronization
+
+•
+
+SNTP/PTP for synchronization of other devices
+
+•
+
+SNMP agent and server
+
+•
+
+Radius/LDAP for Centralized RBAC management
+
+•
+
+Syslog for pushing security events to Syslog server
+
+10.1 Local interfaces
+The local interfaces provided by the PowerLogic HU280 are:
+•
+
+RS-232/RS-485 channels
+
+•
+
+Ethernet LAN interfaces
+
+•
+
+SD Card Slot
+
+•
+
+Reset button
+
+Local interfaces only can be accessed physically from inside the substation.
+
+These interfaces may be secured deeper according to the standard and secure principles.
+
+HU280 CyberSecurity guide.docx
+
+17
+
+11 Threats mitigation
+Threat
+
+Actions
+
+or
+
+PowerLogic
+
+HU280
+
+functions to mitigate the threat
+Spoofing identity:
+
+RBAC:
+
+Authentication
+
+to
+
+connect
+
+to
+
+the
+
+The action of assuming the identity of another
+
+PowerLogic HU280 and password policy.
+
+user, component, or system.
+
+Centralized RBAC through Radius, LDAP or
+LDAPS.
+Port hardening.
+
+Tampering with data:
+
+Least privilege policy
+
+The action of illegally modifying data.
+
+Port hardening.
+Cryptographic elements: hashes, MACs,
+Digital signature
+TLS
+
+Repudiation:
+
+Security logs.
+
+The act of denying being the author of a given
+
+Timestamps in logs.
+
+action.
+Information disclosure:
+
+RBAC: Rol management.
+
+The action of viewing confidential data without
+
+Use of secure (TLS) communications.
+
+proper authorization.
+
+Encryption of confidential data.
+
+Denial of Service:
+
+Penetration tests.
+
+The act of preventing a system from functioning
+
+Ping and Syn flood management.
+
+in accordance with its intended purpose.
+
+Firewall
+
+Elevation of privilege:
+
+Authorization
+
+An actor could be allowed to perform an operation
+
+RADIUS…
+
+that it is not authorized to do.
+
+Least privilege policy.
+
+HU280 CyberSecurity guide.docx
+
+mechanisms:
+
+RBAC,
+
+LDAP,
+
+18
+
+PowerLogic HU280 Secure boot
+12 Secure boot
+PowerLogic HU280 implements secure boot functionality. So only SE signed FW can be installed.
+
+HU280 CyberSecurity guide.docx
+
+19
+
+PowerLogic HU280 Security Administration Tool (CAE)
+13 Security Administration Tool (CAE)
+The “Cybersecurity Administration Expert" (CAE) is the Security Administration Tool (SAT) software used by the
+Security Administrator of the system to manage the security policy.
+The CAE permits management of the system’s security database:
+•
+
+Creation and editing of the security database.
+
+•
+
+Deployment of the security configuration of the PowerLogic HU280.
+
+•
+
+RBAC management.
+
+•
+
+Configuration of security parameters.
+
+The functional description of the CAE is defined in the following document: CAE_User_Guide
+
+13.1 Security parameters
+The security policy includes a collection of security parameters that apply to the PowerLogic HU280.
+
+Please refer to the technical document CAE_User_Guide for more information about these parameters.
+
+The table below is the collection of all security parameters of the PowerLogic HU280
+
+Parameters
+
+Default
+
+Unit
+
+Min
+
+Max
+
+minute
+
+1
+
+99
+
+Range
+
+Value
+Idle session timeout
+
+15
+
+Authorize user lockout
+
+Yes
+
+Maximum number of connections
+
+5
+
+Password timeout
+
+3
+
+Account auto-unlock
+
+Yes
+
+Account lock duration
+
+240
+
+Security Log and Monitoring standard
+
+BDEW
+
+HU280 CyberSecurity guide.docx
+
+Yes/No
+
+minute
+
+1
+
+99
+
+1
+
+30
+Yes/No
+
+second
+
+1
+
+86400
+•
+
+BDEW
+
+•
+
+E3
+
+•
+
+NERC_CIP
+
+•
+
+IEEE 1686
+
+•
+
+IEC62351
+
+•
+
+CS_PH1
+
+•
+
+CS_PH2
+
+20
+
+PowerLogic HU280 Security Administration Tool (CAE)
+Parameters
+
+Default
+
+Unit
+
+Min
+
+Max
+
+Range
+
+Value
+Password complexity
+
+IEEE1686
+
+Syslog server IP address
+
+10.22.90.14
+
+Syslog server IP port
+
+601
+
+•
+
+None,
+
+•
+
+IEEE1686
+
+•
+
+NERC
+
+IP address
+
+13.2 Role management
+The role management can be done with the use of Security Administration Tool (CAE) software.
+Roles cannot be created or deleted from the webApp.
+
+Please refer to the technical document CAE_User_Guide to get details about how to create a new role or modify
+the access rights of an existing role.
+
+13.3 Configuration of System Logging Protocol
+If the Security Administrator has a System logging external server supporting SYSLOG protocol, it is possible to
+configure the PowerLogic HU280 to send Security Logs to this server.
+The configuration is done using the CAE tool:
+
+The supported logging standards are listed in the Security parameters section.
+Depending on the selected logging standard the messages logged are based on the Security log messages table.
+Refer to the CAE_User_Guide for more information on the Security Log configuration.
+
+HU280 CyberSecurity guide.docx
+
+21
+
+PowerLogic HU280 Security Administrator role
+14 Security Administrator role
+In the default user database, the Security Administrator user is the only user with sufficient rights to manage
+PowerLogic HU280 cybersecurity actions. According to the RBAC model, the Security Administrator (SECADM
+role) is able to manage the system security functions. This includes the following:
+
+•
+
+Management of users, passwords and access rights, for more details refer to User account management.
+
+•
+
+Check default security settings such as user accounts settings and Security Logs.
+
+•
+
+Install customer certificates.
+
+•
+
+Downgrade to an older FW version.
+
+Please refer to Access and right management for details about the RBAC model.
+Please refer to Certificate management for details about the Certificate Management.
+
+In order to carry out the Security Administration functions there are 2 options:
+1. WebApp: connect to the PowerLogic HU280 using the webApp with the SECADM user credentials. As
+shown in the figure below.
+
+Once the connection is established, the SECADM user can review and perform configuration or maintenance
+tasks:
+•
+
+Check cyber security log.
+
+•
+
+Users' management.
+
+•
+
+Downgrade to an older FW version.
+
+•
+
+Install certificate.
+
+HU280 CyberSecurity guide.docx
+
+22
+
+PowerLogic HU280 Security Administrator role
+
+2. CAE: In CAE, the SECADM user can:
+•
+
+Configure Security parameters
+
+•
+
+Manage RBAC: Users, actions, roles.
+
+•
+
+Manage Local and Centralized Authentication management
+
+•
+
+Manage Syslog protocol configuration: Server IP, Port, etc.
+
+•
+
+Manage certificates.
+
+14.1 Cyber Security log messages
+The security logs emissions depend on the security standard or set of logs selected. See Security parameters to
+check all the available standards:
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+“Permission _ for system user _
+using service _"
+CONNECTION_SUCCES
+S
+
+“Authentication distant success
+INFO
+
+Successful connection
+
+and unlock account.”
+“_ _ successfully authenticated
+critical ASDU”
+“
+"Authentication attempt failure."
+“_
+
+_
+
+unexpected
+
+message
+
+received”
+“_ maximum authentication error
+exceeded”
+CONNECTION_FAILURE
+
+WARNING
+
+Unsuccessful
+
+“_ authentication error message
+
+connection (wrong
+
+received”
+
+credentials)
+
+“_ _ unsuccessful session key
+change"
+“_ _ unsuccessfully authenticated
+critical ASDU”
+“Unauthorized
+
+user
+
+attempting
+
+connection”
+
+CONNECTION_FAILURE
+
+EMERGE
+
+_AND_BLOCK
+
+NCY
+
+Unsuccessful
+
+“Authentication distant success
+
+connection (wrong
+
+and unlock account.”
+
+credentials) triggering
+the blocking of the
+account on the IED
+
+CONNECTION_FAILURE
+
+EMERGE
+
+_ALREADY_BLOCKED
+
+NCY
+
+HU280 CyberSecurity guide.docx
+
+Unsuccessful
+
+"Authentication
+
+attempt
+
+connection because of
+
+(user already blocked)."
+
+failure
+
+a blocked user ID on
+
+23
+
+CS Phase 2
+
+X
+
+Messages
+
+CS Phase 1
+
+IEEE 1686-2013
+
+Explanation
+
+NERC CIP-007-5
+
+y
+
+E3
+
+Severit
+
+BDEW
+
+Log ID
+
+IEC62351-8:2017
+
+PowerLogic T500 device is able to provide the following CS log messages:
+
+PowerLogic HU280 Security Administrator role
+this IED
+DISCONNECTION
+
+INFO
+
+Disconnection triggered
+
+“Disconnection: system user _”
+
+by the peer / user
+
+“Disconnection successful”
+"Elevated
+
+DISCONNECTION_TIME
+OUT
+
+INFO
+
+session
+
+Disconnection triggered
+
+disconnection."
+
+by a timeout
+
+"IDLE
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+automatic
+
+session
+
+automatic
+
+disconnection."
+"AUTH-PIP
+CONTROL_OPERATION
+INFO
+
+INFO
+
+Trace and control /
+override of real data
+from a peer
+
+CAUTH:
+
+Radius
+
+protocol not embedded"
+"AUTH-PIP
+
+CAUTH:
+
+LDAP
+
+protocol not embedded"
+CONFIGURATION_UPLO
+AD
+
+Upload of a new
+INFO
+
+configuration file (CID)
+
+X
+
+into the device
+“Firmware upgrade from _ to _”
+“Firmware downgrade from _ to _”
+
+INFO
+
+"Firmware update order emitted
+for device."
+"Firmware
+
+could
+
+not
+
+be
+
+downgraded"
+"Firmware has not been found"
+"The symmetric key file used to
+decrypt the firmware has not been
+found"
+"The symmetric key used to
+decrypt the firmware could not be
+retrieved"
+"Firmware
+Upload of a new
+
+FIRMWARE_UPDATE
+
+firmware in the device
+ERROR
+
+could
+
+not
+
+be
+
+decrypted"
+"The master certificate file has not
+
+X
+
+been found"
+"Authentication
+firmware
+
+failure
+
+(The
+
+not
+
+been
+
+has
+
+authenticated successfully)"
+"The encapsulated content of the
+firmware could not be retrieved"
+"The release archive extracted
+from the firmware is corrupted,
+data integrity failure"
+"Could not be extracted the files
+from the firmware"
+"Some files are missing from the
+firmware"
+"Firmware could not be upgraded
+(Unknown error)"
+Update of the RBAC
+RBAC_UPDATE
+
+INFO
+
+cache
+
+or
+
+security
+
+X
+
+X
+
+policies in the IED
+SECURITY_UPDATE
+
+INFO
+
+HU280 CyberSecurity guide.docx
+
+Update of the Security
+policy database
+
+X
+
+24
+
+X
+
+PowerLogic HU280 Security Administrator role
+DSS_UPDATE
+
+INFO
+
+SEC_LOGS_RETRIEVAL
+
+INFO
+
+REBOOT_ORDER
+
+AUTHORIZATION_REQ
+
+Update of the DSS
+
+X
+
+Retrieval of the security
+
+Reboot order sent to
+
+NCY
+
+the device
+
+X
+
+X
+
+logs of the IED
+
+EMERGE
+
+INFO
+
+"Update of the dss"
+
+database
+
+"Reboot"
+
+Any authorization
+
+"Authorization
+
+request sent to the CS
+
+operation: _"
+
+request
+
+for
+X
+
+X
+
+X
+
+application
+Failure to access a file
+FILESYSTEM_
+ACCESS_ERROR
+
+INFO
+
+"File Access error path:_ action:_"
+
+(different access
+
+X
+
+modes:
+read/write/etc…).
+"The signature certificate could
+not
+
+INFO
+
+be
+
+extracted
+
+from
+
+the
+
+firmware"
+"The signature certificate could
+Error during signature
+verification of
+data/firmware
+
+SIGNATURE_CHECK_ER
+ROR
+
+not
+
+be
+
+from
+
+the
+
+signature
+
+certificate
+
+X
+
+firmware"
+"The
+
+ERROR
+
+extracted
+
+extracted from the firmware is
+outdated"
+"Firmware signature failure"
+
+LOSS_OF_LOG
+
+INFO
+
+A corruption is detected
+
+"This log message has been lost"
+
+in parsing of the file
+
+"Loss of logs from id _ to id _"
+
+X
+
+storage module.
+
+14.2 Cyber Security log review
+To access the Security logs, press the “Diagnostics” button and select the “Cyber security” pop-up tab. The
+following figure illustrates the Security log available from the PowerLogic HU280 webApp. The Administrator is
+able to review or export the log to a downloadable CSV file.
+
+HU280 CyberSecurity guide.docx
+
+25
+
+PowerLogic HU280 Security Administrator role
+
+HU280 CyberSecurity guide.docx
+
+26
+
+PowerLogic HU280 Security Administrator role
+14.3 User account management
+The management of user accounts can be done with the use of Security Administration Tool (CAE) software or
+through webApp or web services. Only SECADM role users are allowed to manage users accounts. Default user
+accounts shall be deleted or modified by the Customer when transferring installation responsibility to Customer.
+
+Recommendation
+It is then recommended to create a backup System Administrator user account.
+
+Using the webApp, SECADM role users can do the following actions:
+•
+
+Add or delete users, modify passwords, and assign or unassign one or more predefined roles to users
+(either default roles or those created in the CAE).
+
+•
+
+Act only on 1 single PowerLogic HU280 at a time.
+
+For accessing the webApp users' management press the “Maintenance” button and select the “Users” pop-up
+tab. Figure below illustrates the ability of the Security Administrator to manage the users and passwords
+
+HU280 CyberSecurity guide.docx
+
+27
+
+PowerLogic HU280 Security Administrator role
+
+It is not possible to modify the rights assigned to a role via the PowerLogic HU280 webApp. This can only be done
+via the CAE. Refer to the CAE manual for more information on how to administer the roles and associated rights
+in the RBAC model.
+
+Note: User accounts created from the web interface will be overwritten with any update done from CAE.
+
+Please refer to the technical document webApp User Guide for getting details how to proceed with users'
+management with webApp.
+
+Please refer to the technical document CAE_User_Guide for getting details of how to proceed with users'
+management with CAE.
+
+HU280 CyberSecurity guide.docx
+
+28
+
+PowerLogic HU280 Access control
+15 Access control
+15.1 RBAC presentation
+Role Based Access Control (RBAC) is a method to restrict resource access to authorized users. RBAC is an
+alternative to traditional Mandatory Access Control (MAC) and Discretionary Access Control (DAC).
+
+A key feature of the RBAC model is that all access is through roles.
+A role is essentially a collection of permissions, and all users receive permissions through the roles to which they
+are assigned, or through roles they inherit from the role hierarchy.
+
+Roles are created for various job activities.
+The permissions to perform operations are assigned to the specific roles.
+Members, staff or system users are assigned particular roles and through those role assignments acquire the
+permissions to perform particular functions.
+Since users are not assigned permissions directly but acquire them through their role, management or individual
+user right becomes a matter of simply assigning appropriate roles to the user’s account.
+The RBAC standard is defined at http://csrc.nist.gov/groups/SNS/rbac/standards.html
+
+HU280 CyberSecurity guide.docx
+
+29
+
+PowerLogic HU280 Access control
+RBAC defines four different concepts.
+
+RBAC Standard Description
+Definition
+Object
+
+An Object can represent information containers (files, directories in an operating
+system, tables and views in a database management system) or device resources
+such as IEDs.
+
+Subject
+
+A subject is a user of the system. A subject can be a person or an automated
+agent/device
+
+Right
+
+A right is the ability to access an object in order to perform certain operations.
+
+Role
+
+A role defines a certain authority level in the system. Rights are assigned to roles
+
+RBAC defines 3 primary rules
+
+RBAC Rule
+
+Description
+
+1
+
+A subject can exercise a permission only if the subject has been selected or assigned
+
+Role assignment
+
+to a role.
+2
+
+3
+
+Role
+
+A subject’s active role must be authorized for the subject. With rule 1 above, this rule
+
+authorization
+
+ensures that users can take on only roles for which they are authorized.
+
+Permission
+
+A subject can exercise permission only if the permission is authorized for the subject’s
+
+authorization
+
+active role. With rules 1 and 2 this rule ensures that users can exercise only
+permissions for which they are authorized.
+
+15.2 Access and right management
+15.2.1 Role definition
+The IEC62351-8 standard defines some pre-defined roles.
+
+ROLE
+
+Description
+
+VIEWER
+
+A viewer can view what objects are present within a logical-device by presenting ID of those
+objects.
+
+OPERATOR
+
+An operator can view what objects and values are present within a logical-device by
+presenting the type ID of those objects as well as perform control actions.
+
+ENGINEER
+
+An engineer can view what objects and values are present within a logical-device by
+presenting the type ID of those objects. Moreover, an engineer has full access to DataSets
+and Files and can configure the server locally or remotely.
+
+HU280 CyberSecurity guide.docx
+
+30
+
+PowerLogic HU280 Access control
+ROLE
+
+Description
+
+INSTALLER
+
+An installer can view what objects and values are present within a logical-device by presenting
+the type ID of those objects. Moreover, an installer can write files and can configure the server
+locally and remotely.
+
+SECADM
+
+Security administrator can change subject-to-role assignments (outside the device) and roleto-right assignment (inside the device) and validity periods; change security settings such as
+access token verification.
+
+SECAUD
+
+Security Auditor can view audit logs.
+
+RBACMNT
+
+RBAC Management can change role-to-right assignment.
+
+15.2.2 Rights
+
+RIGHT
+
+OBJECT
+
+ACTION
+
+CONFDB_READ
+
+CONF_DB
+
+Read
+
+CONFDB_WRITE
+
+CONF_DB
+
+Write
+
+CONFSYS_READ
+
+CONF_SYS
+
+Read
+
+CONFSYS_WRITE
+
+CONF_SYS
+
+Write
+
+FIRMWARE_VIEW
+
+FIRMWARE
+
+View
+
+FIRMWARE_READ
+
+FIRMWARE
+
+Read
+
+FIRMWARE_WRITE
+
+FIRMWARE
+
+Write
+
+FIRMWARE_DOWNGRADE
+
+FIRMWARE
+
+Downgrade
+
+WEBSERVICES_ACCESS
+
+WEBSERVICES
+
+Access
+
+SYSLOG_READ
+
+SYS_LOG
+
+Read
+
+SYSLOG_WRITE
+
+SYS_LOG
+
+Write
+
+RBAC_READ
+
+RBAC
+
+Read
+
+RBAC_WRITE
+
+RBAC
+
+Write
+
+RBACLOG_READ
+
+RBAC_LOG
+
+Read
+
+RESET_ACCESS
+
+RESET
+
+Access
+
+DATA_READ
+
+DATA
+
+Read
+
+DATA_WRITE
+
+DATA
+
+Write
+
+WEBAPP_ACCESS
+
+WEBAPP
+
+Access
+
+WUI_OPP_ACCESS
+
+WUI_OPP
+
+Access
+
+WUI_SUPP_ACCESS
+
+WUI_SUPP
+
+Access
+
+HU280 CyberSecurity guide.docx
+
+31
+
+PowerLogic HU280 Access control
+15.2.3 Object – Action pairs
+OBJECT
+
+ACTIONS
+
+WS ASSOCIATION
+
+APP ASSOCIATION
+
+CONF_DB
+
+Read
+
+Download coreDb conf files
+
+webApp access
+webUI access
+Configuration tool Read configuration
+
+CONF_DB
+
+Write
+
+Upload coreDb conf files
+
+Configuration tool Apply configuration
+
+launchBLAppRestore
+DATA
+
+Read
+
+coreDbReadData
+
+webApp data monitoring
+
+coreDbReadMultData
+
+webApp settings view
+
+coreDbReadMultDatas
+
+webUI access
+
+coreDbfnPutS
+DATA
+
+Write
+
+coreDbBlockPoint
+
+webApp data monitoring force
+
+coreDbKrunchData
+
+webApp settings edit
+
+coreDbKrunchDataQuality
+
+webUI operate
+
+coreDbfnPut
+CONF_SYS
+
+Read
+
+Download sys conf files.
+
+webApp IP configuration
+Configuration tool Read configuration
+
+CONF_SYS
+
+Write
+
+Upload sys conf files.
+
+webApp IP configuration modification
+Configuration tool Apply configuration
+webApp manual clock management
+
+FIRMWARE
+
+View
+
+getBSPVersion
+
+webApp firmware version view
+
+baselineshowVer
+FIRMWARE
+
+Read
+
+getFWUpgradeCheck
+
+None
+
+FIRMWARE
+
+Write
+
+launchFWUpgrade
+
+webApp firmware update
+
+getFWUpgradeStatus
+FIRMWARE
+
+Downgrade
+
+Downgrade FW feature
+
+webApp firmware downgrade
+
+WEBSERVICES
+
+Access
+
+getTime
+
+webApp access
+
+getBLAppStatus
+
+webUI access
+Configuration tool Read configuration
+Configuration tool Apply configuration
+
+CERT_MGT
+
+AddCertificate
+
+None.
+
+webApp certificate management.
+
+Download syslog files
+
+CAE Syslog view.
+
+GetCertificate
+GetListCertificate
+PurgeCertificate
+RemoveCertificate
+SYS_LOG
+
+Read
+
+Configuration tool syslog view.
+SYS_LOG
+
+Write
+
+None.
+
+webApp clear events log.
+
+RBAC
+
+Read
+
+getRbacPerm
+
+webApp RBAC users’ management.
+
+HU280 CyberSecurity guide.docx
+
+32
+
+PowerLogic HU280 Access control
+OBJECT
+
+ACTIONS
+
+WS ASSOCIATION
+
+APP ASSOCIATION
+
+getUsersList
+
+CAE access.
+
+getRolesList
+getRolesListByUser
+getUserLockState
+getLockedUsers
+RBAC
+
+Write
+
+setUserLock
+setUserPassword
+setUserRoles
+
+RBAC
+
+GetLockedAccoun
+
+getUserLockState
+
+(SAT dependency)
+
+tList
+
+getLockedUsers
+
+RBAC
+
+LockAccount
+
+setUserLock
+
+(SAT dependency)
+
+UnlockAccount
+
+RBAC
+
+SetUserPassword
+
+setUserPassword
+
+UpdateRbac
+
+setUserRoles
+
+(SAT dependency)
+
+RBAC
+(SAT dependency)
+
+RBAC
+
+Create
+
+(SAT dependency)
+
+Delete
+GetConfVersion
+GetRbacVersion
+RenewRbac
+SetConf
+SetRights
+SetRoles
+SetUsers
+UpdateConf
+
+RBAC_LOG
+
+Read
+
+Download CS log files
+
+webApp Cybersecurity log view.
+
+RESET
+
+Access
+
+rtuReboot
+
+Configuration
+
+launchT300ConfPartsApplyAction
+
+command
+
+tool
+
+RTU
+
+reset
+
+t300ApplyConf
+WEBAPP
+
+Access
+
+Access to webApp interface
+
+webApp access
+
+WUI_OPP
+
+Access
+
+Access to webUI interface for View
+
+webUI access with rights to Operate
+
+and Operate
+WUI_SUPP
+
+Access
+
+DDS
+
+GetDSSFileVersio
+
+Access to webUI interface for View
+
+webUI access with only view rights
+
+Required for CAE access
+
+n
+DDS
+
+SetDSSFile
+
+Required for CAE access
+
+UpdateDSSFile
+
+HU280 CyberSecurity guide.docx
+
+33
+
+PowerLogic HU280 Access control
+OBJECT
+
+ACTIONS
+
+WS ASSOCIATION
+
+SECURITY_LOG
+
+GetNLogs
+
+S
+
+GetTotalLogsNb
+
+APP ASSOCIATION
+CAE Cybersecurity log view
+
+OPERATOR-wUI
+
+OPERATOR-wAPP
+
+ENGINEER
+
+ENGINEER-wUI
+
+ENGINEER-wAPP
+
+INSTALLER
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+on
+
+CONF_DB
+
+CoreDB
+
+Read
+
+configuration Write
+files object.
+CONF_SYS
+
+System
+
+Read
+
+X
+
+X
+
+X
+
+configuration Write
+files object.
+FIRMWARE
+
+Firmware
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+View
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+management Read
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+Write
+Downgra
+
+RBACMNT
+
+OPERATOR
+
+X
+
+Action
+
+SECAUD
+
+VIEWER-wAPP
+
+Descripti
+
+VIEWER-wUI
+
+Object
+
+VIEWER
+
+Rights
+
+SECADM
+
+15.2.4 Default right access
+
+X
+
+de
+WEBSERVICES
+
+Web
+
+Access
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+services
+access
+permission.
+SYS_LOG
+
+Baseline’s
+
+Read
+
+system log.
+
+Write
+
+Includes BL
+sysLog and
+soeLog.
+Excluded CS
+logs.
+RBAC
+
+CS brick
+
+Read
+
+X
+
+X
+
+configuration Write
+files
+
+X
+
+X
+
+HU280 CyberSecurity guide.docx
+
+34
+
+RBACMNT
+
+INSTALLER
+
+ENGINEER-wAPP
+
+ENGINEER-wUI
+
+Read
+
+SECAUD
+
+Access to
+
+SECADM
+
+RBAC_LOG
+
+ENGINEER
+
+VIEWER
+
+on
+
+OPERATOR-wUI
+
+Action
+
+OPERATOR
+
+Descripti
+
+VIEWER-wAPP
+
+Object
+
+VIEWER-wUI
+
+Rights
+
+OPERATOR-wAPP
+
+PowerLogic HU280 Access control
+
+X
+
+X
+
+X
+
+coreDB data
+points.
+DATA
+
+Access to
+
+Read
+
+X
+
+X
+
+X
+
+coreDB data Write
+points.
+RESET
+
+It allows the
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+Access
+
+local and
+remote reset
+(BLApp
+reload and
+system
+reboot).
+WEBAPP_ACCE Access to
+SS
+
+Access
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+webApp
+interface
+
+WUI_OPP
+
+Access to
+
+Access
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+webUI
+interface for
+View and
+Operate
+WUI_SUPP
+
+Access to
+
+Access
+
+X
+
+X
+
+webUI
+interface for
+View
+DDS
+
+Management Read
+of DSS
+
+X
+
+X
+
+Write
+
+X
+
+Read
+
+X
+
+agent
+LOGS
+
+Read
+Security logs
+
+Note 1: It is not possible to modify the rights assigned to a role via the PowerLogic HU280 webApp. This can only be
+done via the CAE. Refer to the CAE manual for more information on how to administer.
+
+HU280 CyberSecurity guide.docx
+
+35
+
+PowerLogic HU280 Access control
+15.3 Password management
+PowerLogic HU280 access is controlled by identification and authentication of the users.
+A password is required to connect to the PowerLogic HU280.
+
+The password complexity policy is selected with the Security Administration Tool (CAE) software from the following list:
+
+None/Custom
+
+•
+
+At least 12 characters
+
+•
+
+Case sensitive
+
+•
+
+At least one upper case character (A-Z)
+
+•
+
+At least one lower case character (a-z)
+
+•
+
+At least one base-10 digit (0-9)
+
+•
+
+At least one non-alphanumeric character (e.g., @, %, &, *)
+
+•
+
+At least 8 characters
+
+•
+
+Case sensitive
+
+•
+
+At least one upper case character (A-Z)
+
+•
+
+At least one lower case character (a-z)
+
+•
+
+At least one base-10 digit (0-9)
+
+•
+
+At least one non-alphanumeric character (e.g., @, %, &, *)
+
+NERC
+
+•
+
+At least 8 characters
+
+CIP-007-5 R 5.5
+
+•
+
+At least 3 types of characters
+
+IEEE1686
+
+o
+
+Uppercase alphabetic,
+
+o
+
+Lowercase alphabetic,
+
+o
+
+Numeric,
+
+o
+
+Non-alphanumeric
+
+Note: "Space" is not allowed.
+
+15.3.1 Default password
+ROLE
+
+Default User
+
+Default
+Password
+
+SECADM
+
+SecurityAdmin
+
+HU280 CyberSecurity guide.docx
+
+AAAAAAA
+
+36
+
+PowerLogic HU280 Access control
+
+Recommendation
+Customer default password change is required to create an ENGINEER or INSTALLER user
+that can configure the device. The default password change can be done accessing with default
+user to webApp.
+
+Recommendation
+It is then recommended to create a backup SECADM user account.
+
+15.3.2 Default password change.
+RTU only have by default a default SECADM role user: SecurityAdmin. This default user doesn’t have permissions to
+configure or monitor the RTU. So, when RTU is received for the user is required that default SECADM role user adds
+ENGINEER or INTALLER user that are able to configure the RTU.
+Default password complexity is Custom, so, 12 chars, Uppercase, Lowercase, Numeric and non-alphanumeric digits
+are required in the password.
+On first access to webApp, RTU requires to change the default SecurityAdmin password. Default password doesn’t
+match complexity so it can’t be reused anymore.
+
+15.4 Local and Centralized Authentication management
+15.4.1 Operating Principle
+
+HU280 CyberSecurity guide.docx
+
+37
+
+PowerLogic HU280 Access control
+
+Centralized authentication provides the capability to use a centralized user database to authenticate users remotely
+and provide their RBAC Role on the local system (PowerLogic HU280). This makes it possible to have a generalized
+and unique authentication policy on a dedicated server, rather than to define them locally on the various PowerLogic
+HU280s of the network.
+15.4.1.1 Network Infrastructure
+Centralized authentication requires an architecture that includes PowerLogic HU280s, a CAE server and a centralized
+authentication server connected via a remote network.
+•
+
+The PowerLogic HU280 includes the locally defined authentication policy in the unit. This policy is used in case
+of non-availability of centralized authentication.
+
+•
+
+The CAE server includes the remote authentication policy. It includes all the individual authentications of each
+PowerLogic HU280 on the same server. Rather than configuring it locally on each product, it may be useful to
+define it in one place on a dedicated server.
+
+•
+
+The centralized authentication server includes the remote centralized authentication policy, enabling global
+authentication common to each PowerLogic HU280.
+
+The exchange during an authentication between the centralized authentication server and the PowerLogic HU280
+depends on the authentication mode defined:
+•
+
+Locally only (server not used)
+
+•
+
+Locally then centralized if the requested user is not locally found.
+
+•
+
+Centralized then locally if the requested user is not found in centralized.
+
+The common authentication parameters are defined in the CAE:
+
+HU280 CyberSecurity guide.docx
+
+38
+
+PowerLogic HU280 Access control
+
+Name
+
+Default
+
+Description
+
+Authentication mode
+
+Local
+
+Indicate the type of authentication used:
+
+Centralized authentication
+
+VIEWER
+
+default role
+
+1.
+
+Local
+
+2.
+
+Local then centralized
+
+3.
+
+Centralized then local
+
+Role assigned by default when the centralized access is
+used. That the role is not given by the centralized
+authentication protocol server.
+
+Centralized authentication
+
+5
+
+timeout (s)
+
+Maximum time for which an authentication response is
+expected from each centralized authentication protocol
+server.
+
+Centralized authentication
+protocol
+
+LDAP
+
+This field is enabled when the Authentication mode is other
+than Local.
+Defines the current protocol used to reach a centralized
+authentication protocol server.
+1.
+
+RADIUS
+
+2.
+
+LDAP
+
+NOTE: If the centralized authentication protocol RADIUS or
+
+HU280 CyberSecurity guide.docx
+
+39
+
+PowerLogic HU280 Access control
+LDAP is selected, then the administrator needs to fill up the
+Protocol Details section.
+
+Please refer to the technical document CAE_User_Guide to get details about how to create and push a central
+configuration, declare a Radius server, LDAP Server, select authentication mode, and know related settings.
+
+HU280 CyberSecurity guide.docx
+
+40
+
+PowerLogic HU280 Access control
+15.4.2 Centralized Authentication with RADIUS
+15.4.2.1 The RADIUS server
+Radius server is part of the network infrastructure to which PowerLogic HU280 device is connected to. It provides the
+centralized database of users and contains:
+•
+
+The dictionary: definition of the list of attributes of user records.
+
+•
+
+User records: list of the users, respecting the attributes specified in the dictionary.
+
+User attributes are provided to the Radius client once the user is authenticated. Hence Radius server provides to
+PowerLogic HU280 device the following information related to the authenticated user:
+•
+
+RBAC Roles
+
+•
+
+Expiration date.
+
+NOTE: The Radius client for the PowerLogic HU280 is not activated by default. It can be enabled through CAE.
+
+15.4.2.2 RADIUS Protocol
+
+Radius has several authentication schemes.
+
+The PowerLogic HU280 implements Radius client with PAP scheme (EAP scheme is not supported for the moment).
+In Radius PAP scheme, the client sends an Access request, and the server replies with Access Accept, or Access
+Reject.
+
+The exchange uses UDP, on a configurable port (by default 1812).
+
+In order to secure exchanges between client and server (authentication of both parts, and ciphering of some part of the
+information), RADIUS uses a shared key mechanism. This shared secret is pushed using CAE to each PowerLogic
+HU280 configured to use this server.
+15.4.2.3 RADIUS Remote Authentication Principle
+
+HU280 CyberSecurity guide.docx
+
+41
+
+PowerLogic HU280 Access control
+
+A. User (webApp)
+B. RADIUS
+
+During an authentication request from a user connected to the webApp the procedure is as follows (we will take the
+example of a "Local then centralized" authentication mode):
+
+1. The webApp requests an authentication test from the PowerLogic HU280.
+2. The PowerLogic HU280 first checks if this user is present in the local user database.
+3. If so, authentication is accepted. Otherwise, remote authentication is requested from the RADIUS server.
+4. The RADIUS server responds to the PowerLogic HU280 request.
+5. The PowerLogic HU280 responds to the user with an approval or a refusal depending on whether the user is
+recognized by the RADIUS server.
+
+15.4.2.4 CAE RADIUS Authentication Configuration via the CAE
+The CAE also allows to define the configuration parameters of the RADIUS client in the PowerLogic HU280:
+
+HU280 CyberSecurity guide.docx
+
+42
+
+PowerLogic HU280 Access control
+
+The Radius server has a specific configuration as explained in the current chapter.
+PowerLogic HU280 device must know this configuration in order to be able to communicate with it.
+
+This configuration is divided in 2 categories:
+o
+
+Networking information: IP address, port, Shared Secret.
+
+o
+
+Protocol parameters:
+o
+
+The structure of the user database: the dictionary.
+
+o
+
+The name of the attribute related to Role and Date in this dictionary, so that the client can extract them
+from the Access-Accept response.
+
+o
+
+The attributes separator in case an attribute contains a list of values (eg: multiple roles).
+
+15.4.2.5 Example of RADIUS Server Use
+This chapter describes a nominal use case with:
+o
+
+Default CAE users that are pushed to PowerLogic HU280. Those users act as "recovery" users if the network
+connection to the Radius server is not operational.
+
+o
+
+Configured Radius server. Remote users in this server can connect to PowerLogic HU280 device.
+
+The following use case is a suggestion of configuration and must be adapted to the network infrastructure. It assumes
+a network infrastructure including the following characteristics:
+o
+
+Network: 192.168.1.0/24
+
+HU280 CyberSecurity guide.docx
+
+43
+
+PowerLogic HU280 Access control
+o
+
+Radius server address: 192.168.1.84
+
+o
+
+PowerLogic HU280 connected with WAN port to this network with following IP addresses: 192.168.1.10,
+192.168.1.11…
+
+15.4.2.6 RADIUS Server Configuration
+The configuration detailed hereafter is provided as a minimal setup for evaluation purposes. For more information about
+configuring the RADIUS server, for example, we could use Freeradius. please refer to the Freeradius server
+documentation at the following Web address: http://freeradius.org/doc/.
+Prerequisite
+
+Host or VM running Ubuntu server 16.04 LTS.
+
+Configuration
+1. Install the RADIUS service using the following command:
+# sudo apt-get install freeradius freeradius-utils
+
+2. Add the next information to /etc/freeradius/client.conf, with the information of your subnet:
+client 192.168.1.0/24 {
+secret = testing123
+shortname = private-network-1
+}
+
+3. Add the next information to /etc/freeradius/dictionary:
+# PowerLogicHU280 dictionary
+VENDOR PowerLogicHU280 12345
+BEGIN-VENDOR PowerLogicHU280
+ATTRIBUTE PowerLogicHU280-Role 1 string
+ATTRIBUTE PowerLogicHU280-Scope 2 string
+ATTRIBUTE PowerLogicHU280-Date 3 date
+END-VENDOR PowerLogicHU280
+
+4. Add users in /etc/freeradius/users, as follows:
+John User-Password=="John1!"
+PowerLogicHU280-Role="INSTALLER",
+PowerLogicHU280-Scope="France",
+PowerLogicHU280-Date=1707738778,
+Alice User-Password=="Alice1!"
+PowerLogicHU280-Role="ENGINEER",
+PowerLogicHU280-Scope="Spain",
+PowerLogicHU280-Date=1707738778,
+
+HU280 CyberSecurity guide.docx
+
+44
+
+PowerLogic HU280 Access control
+
+Note: Date (validity date) must be greater than current date.
+15.4.2.7 Cyber Security Authentication Configuration in CAE
+Start the CAE, select the “SECURITY SETTINGS” tab, then open Authentication configuration area by clicking on the
+green arrow. Configure the parameters as follow (see screenshot here after):
+o
+
+Authentication mode: Local then Centralized.
+
+o
+
+Default role for centralized authentication: VIEWER.
+
+o
+
+Centralized authentication protocol: RADIUS.
+
+o
+
+IP Address: IP where Radius is running.
+
+o
+
+Shared secret: secret field in /etc/freeradius/client.conf.
+
+Click Ok to take into account the setting.
+
+Example of RADIUS settings
+
+HU280 CyberSecurity guide.docx
+
+45
+
+PowerLogic HU280 Access control
+
+Go to the "RADIUS" menu: in “Security Configuration” horizontal tab and “Authentication configuration” vertical tab,
+open the “RADIUS” horizontal tab and configure the following values (see screenshot RADIUS beside):
+o
+
+Mode: RADIUS_CLEAN
+
+o
+
+IP Address: 192.168.1.84
+
+o
+
+Port: 1812
+
+o
+
+Shared Secret: testing123
+
+o
+
+Role attribute name: PowerLogicHU280-Role
+
+o
+
+AoR attribute name: PowerLogicHU280-Scope
+
+o
+
+Date attribute name: PowerLogicHU280-Date
+
+o
+
+Attribute separator:
+
+o
+
+Dictionary:
+
+ATTRIBUTE User-Name 1 string
+ATTRIBUTE User-Password 2 string
+ATTRIBUTE NAS-IP-Address 4 ipaddr
+ATTRIBUTE NAS-Port 5 integer
+
+HU280 CyberSecurity guide.docx
+
+46
+
+PowerLogic HU280 Access control
+ATTRIBUTE Service-Type 6 integer
+ATTRIBUTE Reply-Message 18 string
+ATTRIBUTE State 24 octets
+ATTRIBUTE Class 25 octets
+ATTRIBUTE Vendor-Specific 26 octets
+ATTRIBUTE Session-Timeout 27 integer
+ATTRIBUTE NAS-Identifier 32 string
+ATTRIBUTE EAP-Message 79 octets
+ATTRIBUTE Message-Authenticator 80 octets
+VENDOR PowerLogicHU280 12345
+BEGIN-VENDOR PowerLogicHU280
+ATTRIBUTE PowerLogicHU280-Role 1 string
+ATTRIBUTE PowerLogicHU280-Scope 2 string
+ATTRIBUTE PowerLogicHU280-Date 3 date
+END-VENDOR PowerLogicHU280
+
+Click Ok to take into account the setting.
+NOTE: A minimal list of “ATTRIBUTE”s must be added in order for the CAE to understand the dictionary. The list of
+attributes above the “VENDOR” shall simply be copied “as is” in CAE “Dictionary” field.
+
+15.4.3 Centralized Authentication with LDAP
+15.4.3.1 LDAP Protocol
+LDAP authentication offers a standardized method for centralized user management and access control. Users provide
+their credentials, which are checked against stored directory data through a secure connection. Successful
+authentication enables access to resources, while unsuccessful attempts are denied. This approach ensures efficient,
+secure, and scalable user authentication across diverse systems and applications in enterprise environments.
+
+HU280 CyberSecurity guide.docx
+
+47
+
+PowerLogic HU280 Access control
+
+15.4.3.2 LDAP Remote Authentication Principle
+
+LDAP authentication includes following steps:
+1. User Initialization: the authentication process begins when a user attempts to access the PowerLogic HU280
+by providing their credentials.
+2. LDAP Client Communication: PowerLogic HU280 acting as an LDAP client initiates a connection to the LDAP
+server using the LDAP protocol.
+3. Binding: once connected, the LDAP client sends a "bind" request to the server. The binding request includes
+the user's provided credentials (username and password). The server then attempts to match these credentials
+against the stored data in its directory.
+4. Authentication Process: LDAP server verifies the user's credentials by searching its directory for a matching
+user entry.
+If the username and password match the stored information, the server generates a successful
+authentication response.
+Otherwise, if the credentials are invalid, the server responds with an authentication failure.
+5. Access Decision: PowerLogic HU280 receives the authentication response from the server. If the response is
+positive (authentication successful), the client can proceed to grant the user access.
+6. Unbind: the user's session remains active until he logs out, the session times out due to inactivity, or the user
+explicitly terminates the session. When the session ends, the user needs to re-authenticate when attempting
+to access resources again.
+
+15.4.3.3 CAE LDAP Authentication Configuration via CAE
+CAE also allows you to define the configuration parameters of the LDAP client in the PowerLogic HU280:
+
+HU280 CyberSecurity guide.docx
+
+48
+
+PowerLogic HU280 Access control
+
+Name
+
+Default
+
+Base DN
+
+Description
+Domain name of the LDAP server. It defines the base
+distinguished name (DN) used when searching for users, for
+example: DN=MyDomain, DC=com.
+
+Server IP address
+
+Server IP address of the domain controller expressed in the
+classic way of IP address: aaa.bbb.ccc.ddd
+
+Server Port
+
+389
+
+Listening port of the domain controller. It is used by the LDAP
+server to establish the communication with the Security
+Application:
+•
+
+TCP and UDP port 389
+
+•
+
+TCP and UDP port 636 for LDAPS (LDAP over TLS)
+
+Link between AD
+
+Configurable menu that enables link between LDAP groups and
+
+group and ROLE
+
+RBAC roles of T300.
+
+In order to add a group, click on the Add a new Group button. An additional menu appears as shown below:
+
+HU280 CyberSecurity guide.docx
+
+49
+
+PowerLogic HU280 Access control
+
+The LDAP groups determine which group corresponds to RBAC role. Below is an example of two customized
+created groups:
+Substation Engineer:
+
+Multirole:
+
+HU280 CyberSecurity guide.docx
+
+50
+
+PowerLogic HU280 Access control
+
+15.4.4 PowerLogic HU280 Cyber Security Configuration Update via CAE
+NOTICE
+HAZARD OF UNINTENDED OPERATION
+o
+
+The Cyber Security configuration update applies to all "PowerLogic HU280" in the list.
+
+o
+
+Consequently, remove undesired devices that may appear in the list, using the trash icon on the right.
+
+Failure to follow these instructions can result in equipment damage.
+
+Once the configuration has been made in CAE, this one must be loaded into the PowerLogic HU280 modules. To
+do this, do the following:
+1. Be sure that in the tab SYSTEM EDITOR contains the Device(s) to be configured.
+
+HU280 CyberSecurity guide.docx
+
+51
+
+PowerLogic HU280 Access control
+
+2. Move to the MANAGEMENT OF SYSTEM tab.
+3. Press the “Discover device(s) over the network” button on the bottom right.
+
+The first time the device appears as “Not connected”. Then the user should import the Device certificate.
+To do that the user should right click in the device and select “Trust”.
+
+HU280 CyberSecurity guide.docx
+
+52
+
+PowerLogic HU280 Access control
+
+HU280 CyberSecurity guide.docx
+
+53
+
+PowerLogic HU280 Access control
+
+4. First time, user should click on “Send Signing Certificate” for allowing the PowerLogic HU280 to validate
+the received CAE configuration.
+5. Press the “Send security configuration” button on the bottom right to send the configuration to the
+PowerLogic HU280.
+
+Finally, CAE indicates successful operation:
+
+15.4.5 PowerLogic HU280 User Login Sequence
+Once the centralized authentication server is configured and cyber security configuration has been pushed
+accordingly to PowerLogic HU280 devices, authentication is ready to be tested.
+
+Testing can be done by connecting with one of the users defined in the centralized authentication server via an
+access to the H280 webApp.
+
+15.5 Recommendations
+The following list presents generic recommendations regarding device security.
+
+HU280 CyberSecurity guide.docx
+
+54
+
+PowerLogic HU280 Access control
+Recommendation
+Change SecurityAdmin default password, and a backup Security Administrator account is
+created.
+
+The Security Administrator can create user accounts relevant to the customer organization and remove default
+ones except for SecurityAdmin.
+
+The options for user and role management are webApp and CAE and web services. By using CAE, the Security
+Administrator can create a new RBAC profile that can be deployed in multiple PowerLogic HU280 modules while
+webApp and web services are limited to changes in only one PowerLogic HU280 to which the user connected.
+Deployment of a CAE configuration completely rewrites the RBAC and all the previous users or passwords are
+lost. WebApp and web services permit to edit an individual user without changing the others.
+
+The following list presents generic recommendations for access control management.
+
+Access control coverage
+
+Recommendation
+
+User account
+
+The same user with the same role must have the same name.
+Name the same user with the same login on different assets.
+
+Default password
+
+Change all the default passwords immediately after the installation &
+responsibility transfer. It is recommended also to create user accounts
+relevant to the customer organization and to remove default ones
+except SecurityAdmin.
+
+Password management
+
+Grant passwords only to people who need access. Prohibit password
+sharing.
+
+Account management
+
+Require Security Administrator to change passwords regularly (and
+don’t use the last N passwords).
+
+Account management
+
+Remove employee access account when employment has terminated.
+
+Account management
+
+Define and secure a backup Security Administrator account
+
+User account
+
+Require use of different passwords for different accounts.
+
+Password management
+
+Do not transmit passwords via email or any other way over the
+insecure internet.
+
+HU280 CyberSecurity guide.docx
+
+55
+
+PowerLogic HU280 Port Hardening
+16 Port Hardening
+Device hardening is the process of configuring settings to strengthen security on devices.
+It involves password management, access control, disable unused physical ports, logical ports, protocols and
+services. Port hardening consists in hardening selectively each individual port, both physically and logically.
+
+Physical port hardening
+•
+
+Deactivate unused physical ports by hardware or software.
+
+Logical port hardening
+•
+
+Restrict logical ports to only the required ports.
+
+•
+
+Restrict access to logical port to only the minimal subset of required physical interface.
+
+16.1 Physical Ports
+Main principle is to reduce the potential attack surface by deactivating unused physical ports.
+
+By default, all physical ports are active.
+Each port can be disabled, independently with the following recommended restrictions:
+•
+
+On each module, one of the Ethernet ports must remain enabled (minimum to access the equipment).
+
+Selection of ports to close depends on the Customer system architecture:
+•
+
+Port used for SCADA communication.
+
+•
+
+Port to be used for local maintenance.
+
+•
+
+Port used to interface miscellaneous devices.
+
+Example keeping a local port available for local configuration tool and closing all other unused ports.
+
+For disabling a physical port, user must remove the IP configuration of a device. Once the IP configuration of a
+physical port is removed the port is always on Disable (DOWN) state.
+
+16.2 Logical Ports and protocols
+The purpose of this section is to select logical ports to be explicitly closed, depending on the retained information
+system architecture. This contributes again to reducing the attack surface.
+
+HU280 CyberSecurity guide.docx
+
+56
+
+PowerLogic HU280 Port Hardening
+Hardening consists in dropping explicitly the remaining ports on the interfaces where they will not be used in the
+Customer application.
+
+The following tables indicate the communication ports that could be opened on the PowerLogic HU280 product,
+for each IP interface. All other ports are closed.
+
+Note: This section concerns only logical ports on which PowerLogic HU280 may be "Called", on a predefined port.
+When acting as client, PowerLogic HU280 is using ephemeral port, changing for any new session.
+
+16.2.1 Default configuration and configuration principles
+Some protocols and associated logical ports are activated per default (e.g. for HTTPS, NTP).
+The preselection of the other protocols used by the PowerLogic HU280 is done automatically during the
+configuration process:
+•
+
+With the configuration tool: For SCADA protocol selection
+
+•
+
+With the security administration tool: Cybersecurity Admin Expert (CAE) for security services (Syslog,
+Radius)
+
+Corresponding logical ports are then selected.
+
+Then in a second step, each TCP or UDP port may be closed explicitly, for each IP interface:
+•
+
+Through webApp
+
+•
+
+Through configuration tool
+
+See in Firewall Rules how to explicitly close logical ports.
+
+16.2.2 Conventions & rules
+M: Mandatory
+C: Conditional = necessary to use related function, to be closed otherwise
+
+Following rules apply:
+•
+
+All ports never used by PowerLogic HU280 are closed: no need to drop them explicitly.
+
+•
+
+Keep listed ports open on the interfaces where the associated service is necessary.
+
+•
+
+TCP/UPD SCADA protocol ports are closed by default, except if a called TCP communication channel
+has been created in configuration ➔ When creating a communication channel, restrict IP interface on
+which the channel will operate by selecting LocalPort and associated IP address.
+
+•
+
+Keeping TCP Connection security check/Test open is mandatory to check and authorize connection
+between CAE and any IED.
+
+•
+
+Keeping WS-Discovery open is mandatory today to enable connection between CAE and any IED.
+
+•
+
+At least one interface shall leave HTTPS access open to allow system and applicative configuration.
+
+•
+
+At least one interface shall leave CAE access open to allow security configuration.
+
+HU280 CyberSecurity guide.docx
+
+57
+
+PowerLogic HU280 Port Hardening
+•
+
+Specific ports are open automatically when configuring dedicated services (Syslog, Radius) or
+communication protocols and declaring the associated port number. Standard default values are
+registered in the following table for information but may be changed.
+
+16.2.3 LAN
+TCP Port
+
+Description
+
+Usage
+
+Default
+
+M/C
+
+22
+
+SSH
+
+SFTP
+
+X
+
+C
+
+X
+
+C
+
+connection
+443
+
+HTTPS
+
+webApp,
+EPAS-M
+
+8443
+
+HTTPS
+
+CAE
+
+X
+
+C (CAE)
+
+9867
+
+TCP Connection security check/Test
+
+CAE
+
+X
+
+C (CAE)
+
+UDP Port
+
+Description
+
+Usage
+
+Default
+
+M/C
+
+16.2.4 IP addressing and communication channel creation.
+It is possible to restrict IP addresses allowed to access PowerLogic HU280 and select the allowed IP address by
+channel configuration.
+•
+
+Use Routing table to declare explicitly the remote subnetworks from which access to PowerLogic HU280
+is possible; restrict the allowed remote IP addresses in the declared subnetwork.
+
+•
+
+On each IP interface, optionally configure blocklist and allowlist. Make sure, however, they will cover the
+various connection scenarios needed for the Customer application.
+
+•
+
+For SCADA communication, create a dedicated communication channel for each Client which may access
+in parallel to other ones.
+
+•
+
+For SCADA communication channel, list explicitly the remoteIP@ of the associated Client. Several
+redundant clients may use the same channel (only 1 at a time, last one disconnecting previous one).
+
+16.2.5 Firewall Rules
+It is possible to configure firewall rules that include the following parameters:
+•
+
+Drop port
+
+•
+
+Allowed list
+
+•
+
+Blocked list
+
+This process is done through webApp or configuration tools.
+
+HU280 CyberSecurity guide.docx
+
+58
+
+PowerLogic HU280 Port Hardening
+
+Type of rule
+
+Description
+
+Configuration
+parameters
+
+Drop port
+
+Close specific UDP/TCP port
+
+Type: (UDP or TCP)
+Port: number of the port
+
+Allowed list
+
+Blocked list
+
+Grant network access only to specific IP
+
+IP Address
+
+addresses
+
+Subnet mask
+
+Restrict
+
+network
+
+addresses
+
+access
+
+to
+
+specific
+
+IP
+
+IP Address
+Subnet mask
+
+Note: It is possible to simultaneously configure more than one firewall rule on each Physical port
+
+HU280 CyberSecurity guide.docx
+
+59
+
+PowerLogic HU280 Secure communication
+17 Secure communication
+17.1 Network segmentation
+Network segmentation splits the network into several smaller sub-networks.
+This architecture improves the performance of the network (reduces congestion, limits the effect of local failures,
+etc.) and improves security.
+Network segmentation helps to:
+•
+
+Contain malware infections to one sub-network.
+
+•
+
+Improve security by limiting node visibility.
+
+•
+
+Stop the intruder’s scans at the sub-network level.
+
+•
+
+Limit the impact of a security breach to one sub-network.
+
+•
+
+Control communication between sub-networks.
+
+Network segmentation is implemented with the use of IT routers and firewall products.
+
+17.2 Secure protocols
+The PowerLogic HU280 uses secure protocol for remote access:
+•
+
+HTTPS
+
+•
+
+HTTPS for CAE
+
+The PowerLogic HU280 offers Secure Authentication capabilities according to IEC 62351. The key update may
+be customized and entered as secure setting of the protocol session. The protocols with this capability are:
+•
+
+DNP3 Server
+
+•
+
+IEC 60870-5-104 Server/Client
+
+The PowerLogic HU280 offers these protocols without security capabilities, unless TCP communication channel
+in sent though TLS 1.2:
+•
+
+DNP3 Client
+
+•
+
+IEC 60870-5-101 Server/Client
+
+•
+
+IEC 60870-5-103 Client
+
+•
+
+Modbus Server/Client
+
+•
+
+IEC 61850 Server/Client
+
+The PowerLogic HU280 can use GPS(NMEA), SNTP and PTP protocols for time synchronization. The protocols
+are no secure.
+
+HU280 CyberSecurity guide.docx
+
+60
+
+PowerLogic HU280 Secure communication
+
+17.3 Certificate management
+PowerLogic HU280 contains a physical TPM (Trusted Platform Module) device (model ST33GTPMI). TPM is used
+in HU280 to securely save private keys of certificates.
+By default, TPM generates a self-signed certificate. The private key of the self-signed certificate is securely saved
+in TPM device and never exits from it.
+If a certificate is installed through webApp by Security admin role user, the private key of the certificate is securely
+saved in TPM device and from then, never exits from it.
+PowerLogic HU280 acting as a TLS client is able to authenticate the servers using TLS1.2 or TLS1.3. It can also
+act as TLS server but only using one-way authentication using TLS1.2 or TLS1.3. The allowed ciphers for TLS
+are:
+• TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+• TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+• TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+• TLS_PSK_WITH_AES_256_GCM_SHA384
+• TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+• TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+• TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+• TLS_PSK_WITH_AES_128_GCM_SHA256
+
+The installed or auto-generated certificate is used for the TLS encryption. The following PowerLogic HU280
+protocols are over TLS:
+
+•
+
+LDAP
+
+•
+
+Syslog
+
+•
+
+HTTPS (Only TLS1.2 is supported)
+
+•
+
+CAE
+
+•
+
+TCP channels communications protocols (configurable).
+
+17.4 webServices security
+In WebServer, the only request accepted without SessionID and Token is “login”. During the login process, if the
+login/password is valid, WebServer returns a SessionID (32 random chars) and a WSToken (16 random chars).
+The received SessionID is associated to the logged user role.
+
+All other requests require a valid SessionID and a valid WSToken. WSToken expires after some requests. Each
+valid request is answered by the webserver with a new random WSToken.
+
+When webserver receive a request, it checks:
+
+HU280 CyberSecurity guide.docx
+
+61
+
+PowerLogic HU280 Secure communication
+•
+
+SessionID is valid and the role assigned to that SessionID has permission for the required request.
+
+•
+
+WSToken is valid and not expired.
+
+WebServer allows a logout function. This call invalidates the current SessionID. Furthermore, each session has
+an inactivity timeout.
+
+The number of active sessions is limited to 5.
+
+17.5 Recommendations
+The following list presents generic recommendations for secure network communication.
+
+Recommendation
+Design a communication architecture with a network segmentation.
+
+Use only secure protocols with encryption for IT protocols.
+
+Control the communication access.
+
+HU280 CyberSecurity guide.docx
+
+62
+
+PowerLogic HU280 ISaGRAF® Port Management
+18 ISaGRAF® Port Management
+18.1 ISaGRAF® Port Overview
+For security reasons, the port used by ISaGRAF® workbench is always closed, by default, and when starting the
+application.
+The port used to communicate with ISaGRAF® workbench is port number 1131. When required, this port can be
+enabled with user authentication.
+If the port is enabled, it is automatically closed after a timeout of 60 seconds (time without any communication
+between ISaGRAF® workbench and the PowerLogic HU280).
+
+18.2 Enabling ISaGRAF® Port
+With the required access right, the ISaGRAF® port can be enabled.
+The ISaGRAF item in the Maintenance menu allows to enable the port.
+
+This menu item is only available in the following conditions:
+•
+
+The user has the required right/role: Engineer or Installer
+
+•
+
+The installed configuration includes an ISaGRAF® component to enable the ISaGRAF® port, select the
+ENABLE option.
+
+To disable the ISaGRAF® port, select the DISABLE option.
+NOTE: The authorized user can force deactivation of the port even though there is communication between
+between ISaGRAF® workbench and the PowerLogic HU280.
+The status of this port is managed by the PLC_ENABLE supervision point. The PLC_ENABLE point is part of the
+status signals of CoreDB. Every action on the ISaGRAF® Port, is logged in the system log.
+
+HU280 CyberSecurity guide.docx
+
+63
+
+PowerLogic HU280 Patch and update management
+19 Patch and update management
+19.1 Overview
+In order to reduce vulnerability to threats, the PowerLogic HU280 should run with the latest firmware version.
+
+It is important to plan and test firmware updates before they are executed.
+
+19.2 Firmware update
+PowerLogic HU280 Firmware is signed by Schneider Electric. It is not possible to install any other FW not signed
+by Schneider Electric.
+
+Firmware update permissions are managed by the RBAC. There are specific rights for Firmware version view,
+Firmware version upgrade and Firmware downgrade (by default only SECADM rol users). Firmware download is
+not available.
+
+19.3 Recommendations
+The following list presents generic recommendations for patch and update management.
+
+Recommendation
+Define a system Patch Management process:
+•
+
+Compliant with the system architecture,
+
+•
+
+Including all the modules or equipment of the Distribution Automation System,
+
+•
+
+Compliant with the operational procedures and policies of the owner of the Distribution
+Automation System.
+
+•
+
+Compliant with the Patch Management Process of the PowerLogic HU280.
+
+Manage the “Patch Management Process” in the organization of the owner of the Distribution
+Automation System.
+
+HU280 CyberSecurity guide.docx
+
+64
+
+PowerLogic HU280 Backup
+20 Backup
+The PowerLogic HU280 is composed of several items that must be backed up.
+•
+
+Configuration
+
+•
+
+User account and RBAC Role
+
+•
+
+Security parameters
+
+20.1 Configuration backup
+The configuration of the PowerLogic HU280 can be saved in several ways:
+•
+
+WebApp in one of the 3 slots.
+
+•
+
+WebApp downloading it in .tar.gz format
+
+•
+
+Configuration tool. Connected to the PowerLogic HU280 and downloading the current configuration.
+
+•
+
+Web Services. Calling the right web services with the right user credentials current configuration can be
+downloaded as .tar.gz
+
+20.2 Security parameters backup (CAE)
+The configuration of the PowerLogic HU280 security parameters is done with the Security Administration Tool.
+
+Please refer to the chapter Security Administration Tool (CAE) for details about CAE.
+
+20.3 User account and RBAC backup (CAE)
+The management of the user accounts and RBAC roles of the PowerLogic HU280 is done with the Security
+Administration Tool.
+
+Please refer to the chapter Security Administration Tool (CAE) for details about CAE.
+
+HU280 CyberSecurity guide.docx
+
+65
+
+PowerLogic HU280 Restore
+21 Restore
+21.1 Reset to factory mode.
+The “factory mode” is the default configuration of the PowerLogic HU280 device coming out of the factory.
+
+Reset to factory mode can be done with the physical reset button. The reset button behavior is the following
+depending on the pushing elapsed time:
+
+0-1s nothing happens
+1-3s Start slow led blinking in purple.
+If user releases the button → SW reset
+3s Start fast led blinking in purple.
+If user releases the button → spinning led in purple → “waiting user confirmation for factory default”
+0-3s user pushes+releases again the button → Factory default (SW reset + Default network + Minimal default
+configuration)
++3s → No user confirmation → Run -> Led return to previous state and RTU continue in RUN
+6s → HW reset.
+
+Factory mode does not restore the default RBAC profile.
+
+21.2 Emergency cases
+In case of emergency, it can be necessary to get access to the PowerLogic HU280.
+The customer organization should define a process to create an emergency access.
+
+Recommendation
+Create a specific role “Emergency” with the security administrator access.
+
+Create a procedure to deliver the password to the operator in the substation.
+
+21.3 Security Administrator credentials lost
+Password recovery is managed in the customer organization by the security administrator(s).
+
+HU280 CyberSecurity guide.docx
+
+66
+
+PowerLogic HU280 Restore
+Recommendation
+The procedure of “Security administrator recovery credentials” is based on having several
+security administrators within the organization. So, another administrator could fix any problem
+with other administrator’s credentials.
+
+HU280 CyberSecurity guide.docx
+
+67
+
+PowerLogic HU280 Recovery
+22 Recovery
+22.1 Failure management
+PowerLogic HU280 contains a watchdog software.
+In the case of a firmware crash or malfunction, the watchdog resets the device in order to return to a safe state.
+The device reset is recorded in both the syslog and Cyber Security log.
+If the crash or malfunction occurs after every reset, watchdog will reset the device 5 times, then watchdog reset
+is disabled and malfunction module is disabled. In this state:
+-
+
+Usually, the user can now obtain the debug info through webApp to report the issue and apply another
+configuration.
+
+-
+
+It could happen that there is no access to webApp because webserver is down. In this case user should
+follow the Reset to factory mode to set the Factory default settings. Once set to Factory default mode
+the user should take the debug info through webApp and report the issue and apply another
+configuration.
+
+22.2 FW & Configuration update management
+PowerLogic HU280 has a rule for managing configurations. When a configuration is applied then the current
+application is backed up. During the new application starts, any error is found, the backed upped application is
+restored. So PowerLogic HU280 doesn’t allow any invalid configuration.
+
+PowerLogic HU280 always have a backup of the last FW image that was loaded successfully. When the
+Firmware is updated, the bootloader tries to launch the new FW. If the FW image load is not successful, then
+the bootloader launches the backed up one. In case FW is loaded successfully, then it is saved as the backup
+one. This protects the boot process in case of the installation of an invalid FW due to any issue like corruption
+of the FW, loss of the power supply during FW update process, etc.
+
+HU280 CyberSecurity guide.docx
+
+68
+
+PowerLogic HU280 Secure design rules
+23 Secure design rules
+PowerLogic HU280 is designed according to secure design rules, in compliance with SDL V2 development
+process.
+
+This includes:
+•
+
+Input data validation, rejecting invalid data.
+
+•
+
+Output data validation
+
+•
+
+Static Code analysis
+
+•
+
+Resources are monitored by file system (UBI) which handle bad blocks if any.
+
+•
+
+Sensitive data are stored internally in PowerLogic HU280. They are neither visible, nor exported.
+Passwords are stored and hashed. The hash algorithm is based on salt and SHA256 algorithms.
+
+•
+
+Checking archive file consistency when loading a configuration file or firmware file
+
+•
+
+Encryption algorithm and key selection according to ENISA and NIST recommendations. Only
+cryptographic algorithms, and parameters considered suitable for legacy or future use are enabled.
+Algorithms are implemented exactly as they are described there without any modification.
+
+•
+
+Only TLS versions suitable for legacy or future use are enabled.
+
+•
+
+Public firmware bricks (e.g. SSL) are implemented without any modification
+
+•
+
+User access to root user account is disabled, for local and for remote access.
+
+•
+
+No distinction in terms of security level between nominal and fallback modes, whatever system state.
+
+•
+
+Secured architecture
+o
+
+Any remote access is going through Head Unit applicative layers before taking action towards
+field devices.
+
+o
+
+Actual switchgear control & monitoring processors are protected against flooding by Head Unit,
+still running if ever Head Unit communication channels should be saturated.
+
+o
+•
+
+All accesses to database are done through dedicated API with input data validation.
+
+Ports and services used for debug are suppressed for products in production:
+o
+
+Internal debug connector on board is not assembled on production.
+
+o
+
+Final firmware for production is a dedicated version, where unused services are disabled.
+
+o
+
+In addition, physical ports, as other unused ports, may be fully deactivated through webApp
+and/or configuration tool.
+
+Consequently, Firmware component & algorithms versions becoming obsolete could be removed in future
+product versions.
+
+HU280 CyberSecurity guide.docx
+
+69
+
+PowerLogic HU280 Product defense-in-depth
+24 Product defense-in-depth
+Use a layered network approach with multiple security and defense controls in your IT and control system to
+minimize data protection gaps, reduce single-points of-failure and create a strong cybersecurity posture.
+The more layers of security in your network, the harder it is to breach defenses, take digital assets or cause
+disruption.
+
+24.1 Device security capabilities
+This section describes the security capabilities available with your device.
+These security capabilities help protect the confidentiality of information through secure protocols that employ
+cryptographic algorithms, key sizes and mechanisms used to help prevent unauthorized users from reading
+information in transit, i.e. HTTPS.
+
+Configuration
+These security capabilities support the analysis of security events, help protect the device from unauthorized
+alteration and records configuration changes and user account events:
+
+HU280 CyberSecurity guide.docx
+
+70
+
+PowerLogic HU280 Product defense-in-depth
+•
+
+Internal time synchronization.
+
+•
+
+Time source integrity protection and configuration event logging.
+
+•
+
+Timestamps, including date and time, match the clock.
+
+•
+
+Settings can be backed-up and restored.
+
+•
+
+Embeds user information with changes.
+
+•
+
+Offload information to syslog or a protected storage or retention location.
+
+User accounts and privileges
+These security capabilities help enforce authorizations assigned to users, segregation of duties and least
+privilege:
+•
+
+User authentication is used to identify and authenticate software processes and devices managing
+accounts.
+
+•
+
+Least privilege configurable in multiple dimensions: read, peak demand reset, time sync, test mode,
+configuration and security communications configuration.
+
+•
+
+User account lockouts configurable with number of unsuccessful login attempts.
+
+•
+
+Use control is used in Advanced security mode to restrict allowed actions to the authorized use of the
+control system.
+
+•
+
+Supervisors can override user authorizations by deleting their account.
+
+•
+
+Password strength feedback.
+
+Hardening
+•
+
+These security capabilities help prohibit and restrict the use of unnecessary functions, ports, protocols
+and/or services:
+
+•
+
+Least functionality can be applied to prohibit and restrict the use of unnecessary functions, ports,
+protocols and/or services.
+
+•
+
+Port numbers can be changed from default values to lower the predictability of port use.
+
+•
+
+Session lock is used to require sign in after a configurable time-period of inactivity for webpages,
+display.
+
+•
+
+Session termination is used to terminate a session automatically after a configurable time-period of
+inactivity or manually by the user who initiated the session.
+
+•
+
+Concurrent session control to limit the number of concurrent sessions with each interface.
+
+System upgrades and backups
+This security capability helps protect the authenticity of the firmware running on the device and facilitates
+protected file transfer: digitally signed firmware is used to help protect the authenticity of the firmware running
+on the device and only allows firmware generated and signed by Schneider Electric.
+
+Threat intelligence
+These security capabilities help provide a method to generate security-related reports and manage event log
+storage:
+
+HU280 CyberSecurity guide.docx
+
+71
+
+PowerLogic HU280 Product defense-in-depth
+•
+
+Machine and human-readable reporting options for current device security settings.
+
+•
+
+Audit event logs to identify:
+o
+
+Configuration changes.
+
+o
+
+System events.
+
+•
+
+Audit record storage capacity communication to notify a user when the threshold is approaching.
+
+•
+
+Audit storage capacity of 700 event logs by default and alternate methods for log management.
+
+•
+
+Time source integrity protection and event logged when changed.
+
+Secure disposal
+Prior to disposing of the product. It is recommended to perform a factory reset as described in Section Reset to
+factory mode.
+
+After the factory reset, it is recommended to restore the default RBAC profile. This can be done by accessing
+the webApp using a user with the SECADM role. This will allow RBAC modification, as described in Access and
+right management
+
+Please refer to section Certificate management for details on Certificate Management
+
+In order to remove the product from its intended environment, please refer to the technical document
+“PowerLogic HU280 End-of-Life Instructions” for technical description of the disposal procedure.
+
+24.2 Protected environment assumptions
+Cybersecurity governance – available and up-to-date guidance on governing the use of information and
+technology assets in your company.
+•
+
+Perimeter security – installed devices, and devices that are not in service, are in an access-controlled
+or monitored location.
+Emergency power – the control system provides the capability to switch to and from an emergency
+power supply without affecting the existing security state or a documented degraded mode.
+
+•
+
+Firmware upgrades – device upgrades are implemented consistently to the current version of firmware.
+
+•
+
+Controls against malware – detection, prevention and recovery controls to help protect against malware
+are implemented and combined with appropriate user awareness.
+
+•
+
+•
+
+Physical network segmentation – the control system provides the capability to:
+o
+
+Physically segment control system networks from non-control system networks.
+
+o
+
+Physically segment critical control system networks from non-critical control system networks.
+
+Logical isolation of critical networks – the control system provides the capability to logically and
+physically isolate critical control system networks from non-critical control system networks. For
+example, using VLANs.
+
+•
+
+Independence from non-control system networks – the control system provides network services to
+control system networks, critical or non-critical, without a connection to non-control system networks.
+
+HU280 CyberSecurity guide.docx
+
+72
+
+PowerLogic HU280 Product defense-in-depth
+•
+
+Encrypt protocol transmissions over all external connections using an encrypted tunnel, TLS wrapper
+or a similar solution.
+
+•
+
+Zone boundary protection – the control system provides the capability to:
+o
+
+Manage connections through managed interfaces consisting of appropriate boundary protection
+devices, such as: proxies, gateways, routers, firewalls and encrypted tunnels.
+
+o
+
+Use effective architecture, for example, firewalls protecting application gateways residing in a
+DMZ.
+
+•
+
+Control system boundary protections at any designated alternate processing sites should provide the
+same levels of protection as that of the primary site, for example, data centers.
+
+•
+
+No public internet connectivity – access from the control system to the internet is not recommended. If
+a remote site connection is needed, for example, encrypt protocol transmissions.
+
+•
+
+Resource availability and redundancy – ability to break the connections between different network
+segments or use duplicate devices in response to an incident.
+
+•
+
+Manage communication loads – the control system provides the capability to manage communication
+loads to mitigate the effects of information flooding types of DoS (Denial of Service) events.
+
+•
+
+Control system backup – available and up-to-date backups for recovery from a control system failure.
+
+24.3 Antimalware management
+Anti-virus and allow-listing solutions are not mature at the moment for embedded devices.
+
+It is possible to install only specific firmware signed by Schneider Electric.
+
+HU280 CyberSecurity guide.docx
+
+73
+
+PowerLogic HU280 Physical Tampering resistance
+25 Physical Tampering resistance
+PowerLogic HU280 head unit device is provided with a sticker to prevent and detect physical access to the
+device.
+This sticker will allow the asset owner to detect any physical access that could end in physical tampering of the
+device. In case of tampering detection, the device should be considered compromised.
+The asset owner should define the check frequency of the sticker.
+
+The sticker is modified when removed.
+
+HU280 CyberSecurity guide.docx
+
+74
+
+PowerLogic HU280 Physical Tampering resistance
+Part of the sticker remains in the device.
+
+Publication, Production and Printing:
+Schneider Electric - Made in France
+
+HU280 CyberSecurity guide.docx
+
+75
+
+PowerLogic HU280 Physical Tampering resistance
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison - France
+Phone: +33 (0)1 41 29 70 00
+www.se.com
+As standards, specifications, and designs change
+from time to time, please ask for confirmation of the
+information given in this publication.
+© 2016-2022 Schneider Electric. All Rights
+Reserved.
+NT00389-EN-08 - 06/2022
+
+HU280 CyberSecurity guide.docx
+
+76
+
+

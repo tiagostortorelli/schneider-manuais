@@ -1,0 +1,3149 @@
+PowerLogicTM A125
+Arc Flash Protection Unit
+User Manual
+06/2023
+Version: A125/EN M/01A
+
+www.se.com
+
+Legal Information
+The Schneider Electric brand and any trademarks of Schneider Electric SE and its
+subsidiaries referred to in this guide are the property of Schneider Electric SE or its
+subsidiaries. All other brands may be trademarks of their respective owners.
+This guide and its content are protected under applicable copyright laws and
+furnished for informational use only. No part of this guide may be reproduced or
+transmitted in any form or by any means (electronic, mechanical, photocopying,
+recording, or otherwise), for any purpose, without the prior written permission of
+Schneider Electric.
+Schneider Electric does not grant any right or license for commercial use of the guide
+or its content, except for a non-exclusive and personal license to consult it on an "as
+is" basis. Schneider Electric products and equipment should be installed, operated,
+serviced, and maintained only by qualified personnel.
+As standards, specifications, and designs change from time to time, information
+contained in this guide may be subject to change without notice.
+To the extent permitted by applicable law, no responsibility or liability is assumed by
+Schneider Electric and its subsidiaries for any errors or omissions in the informational
+content of this material or consequences arising out of or resulting from the use of the
+information contained herein.
+
+Arc Flash Protection Unit
+
+Table of Contents
+General .........................................................................................................5
+Legal notice ...............................................................................................5
+Safety information.......................................................................................5
+User qualification........................................................................................6
+Password protection ...................................................................................6
+Settings protection......................................................................................6
+Certification and declaration ........................................................................6
+Periodical testing ........................................................................................7
+Purpose .....................................................................................................7
+Abbreviations .............................................................................................7
+
+Introduction ..................................................................................................9
+PowerLogic A125 .......................................................................................9
+Equipment identification ..............................................................................9
+Unit features ............................................................................................ 11
+DIP switch settings on unit......................................................................... 11
+Connecting the supply voltage ...................................................................13
+Disconnecting the supply voltage...............................................................14
+
+Functions ....................................................................................................15
+Arc flash protection, general principle.........................................................15
+Self-supervision........................................................................................15
+Binary inputs and outputs ..........................................................................15
+Output relays............................................................................................16
+HMI functions and indications ....................................................................16
+
+Application .................................................................................................18
+Connections ...............................................................................................21
+X1 connector............................................................................................21
+X2 connector............................................................................................22
+X5 connector............................................................................................22
+
+Arc flash sensor.........................................................................................24
+VA 1 DA ...................................................................................................24
+Connecting the IED...................................................................................25
+Sensitivity ................................................................................................26
+
+Preventive maintenance ..........................................................................27
+Maintenance ............................................................................................27
+Cleaning of hardware................................................................................27
+Sensor condition and positioning check ......................................................27
+System status messages ..........................................................................28
+Spare parts ..............................................................................................28
+Returning for expert assessment ...............................................................28
+End of life.................................................................................................28
+
+Technical data ...........................................................................................29
+PowerLogic A125 .....................................................................................29
+Arc flash sensor........................................................................................35
+
+Mounting.....................................................................................................36
+Order information .....................................................................................39
+
+A125/EN M/01A
+
+3
+
+General
+
+Arc Flash Protection Unit
+
+General
+Legal notice
+Copyright
+2023 Schneider Electric. All rights reserved.
+Disclaimer
+No responsibility is assumed by Schneider Electric for any consequences arising
+out of the use of this document. This document is not intended as an instruction
+manual for untrained persons. This document gives instructions on device
+installation, commissioning and operation. However, the manual cannot cover all
+conceivable circumstances or include detailed information on all topics. In the
+event of questions or specific issues, contact Schneider Electric and request the
+necessary information.
+Contact information
+35 rue Joseph Monier
+92506 Rueil-Malmaison
+FRANCE
+Phone: +33 (0) 1 41 29 70 00
+Fax: +33 (0) 1 41 29 71 00
+www.se.com
+
+Safety information
+Important information
+Read these instructions carefully and look at the equipment to become familiar
+with the device before trying to install, operate, service or maintain it. The
+following special messages may appear throughout this manual or on the
+equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+The addition of this symbol to a "Danger" or "Warning" safety label indicates that an
+electrical hazard exists which will result in death or serious injury if the instructions
+are not followed.
+This is the safety alert symbol. It is used to alert you to potential personal injury
+hazards. Obey all safety messages that follow this symbol to avoid possible injury or
+death.
+
+DANGER
+DANGER indicates an imminently hazardous situation which, if not avoided, will
+result in death or serious injury.
+Failure to follow these instructions will result in death or serious injury.
+
+WARNING
+WARNING indicates a potentially hazardous situation which, if not avoided, can
+result in death or serious injury.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+A125/EN M/01A
+
+5
+
+Arc Flash Protection Unit
+
+General
+
+CAUTION
+CAUTION indicates a potentially hazardous situation which, if not avoided, can
+result in minor or moderate injury, or equipment damage.
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+Failure to follow these instructions can result in equipment damage.
+
+User qualification
+Electrical equipment should be installed, operated, serviced, and maintained only
+by trained and qualified personnel. No responsibility is assumed by Schneider
+Electric for any consequences arising out of the use of this material. A qualified
+person is one who has skills and knowledge related to the construction,
+installation, and operation of electrical equipment and has received safety training
+to recognize and avoid the hazards involved.
+
+Password protection
+Use the IED’s password protection feature to help prevent untrained and nonauthorized personnel interacting with this device.
+
+Settings protection
+The IED's settings protection is intended for detecting accidental settings change.
+It automatically alarms, if the system is not installed after the DIP switch changes.
+
+WARNING
+WORKING ON ENERGIZED EQUIPMENT
+Do not choose lower Personal Protection Equipment while working on
+energized equipment.
+Failure to follow these instructions can result in death, serious injury, or
+equipment damage.
+
+Certification and declaration
+Item
+
+European
+Commission's
+directives
+
+6
+
+Standard
+
+Description
+
+EN IEC 60255-26
+
+Electromagnetic Compatibility Directive (EMCD)
+2014/30/EU
+
+EN IEC 60255-27
+
+Low Voltage Directive (LVD) 2014/35/EU
+
+EN IEC 63000
+
+Restriction of the Use of Certain Hazardous
+Substances in Electrical and Electronic
+Equipment (ROHS) Directive 2015/863/EU
+
+A125/EN M/01A
+
+General
+
+Arc Flash Protection Unit
+Item
+
+United Kingdom
+regulations
+
+Standard
+
+Description
+
+BS EN 60255-26
+
+Electromagnetic Compatibility (EMC)
+Regulations SI 2016 No. 1091.
+
+BS EN 60255-27
+
+Electrical Equipment (Safety) Regulations SI
+2016 No. 1101
+
+BS EN IEC 63000
+
+Restriction of the Use of Certain Hazardous
+Substances in Electrical and Electronic
+Equipment (ROHS) Regulations SI 2012 No.
+3032
+
+Periodical testing
+The protection IED, cabling and arc sensors must periodically be tested according
+to the end-user's safety instructions, national safety instructions or law. The
+manufacturer recommends that functional testing is carried out at the minimum
+every five (5) years.
+It is proposed that the periodic testing is conducted with a secondary injection
+principle for those protection stages which are used in the IED and its related units
+where current measurement is used.
+
+Purpose
+NOTE: For applications in the US, Canada and Mexico, use specific
+documents reviewed in line with the requirements of the relevant regulatory
+authorities. Please contact our local Schneider Electric office for assistance.
+This document contains instructions on the installation, commissioning and
+operation of the PowerLogicTM A125. This guide also contains an application
+example of configuring an arc flash protection system.
+This document is intended for persons who are experts on electrical power
+engineering, and it covers the device models as described by the ordering
+code in Order information , page 39.
+
+Related documents
+Document
+
+Identification*)
+
+PowerLogic A125 Quick Start Guide
+
+GEX56292+XX
+
+*) xx = revision number
+Download the latest manual at www.se.com.
+
+Abbreviations
+Table 1 - Abbreviations used in the manual
+
+A125/EN M/01A
+
+Acronyms
+
+Indication
+
+ac
+
+Alternating current
+
+ANSI
+
+American National Standards Institute. A standardization organization.
+
+AWG
+
+American wire gauge
+
+CB
+
+Circuit breaker
+
+dc
+
+Direct current
+
+7
+
+Arc Flash Protection Unit
+
+General
+
+Table 1 - Abbreviations used in the manual (Continued)
+
+8
+
+Acronyms
+
+Indication
+
+DI
+
+Digital input
+
+DO
+
+Digital output, output relay
+
+EEPROM
+
+Electrically Erasable Programmable Read - Only Memory
+
+HSO
+
+High speed output
+
+HMI
+
+Human-machine interface
+
+IED
+
+Intelligent electronic device, refers to the PowerLogic A125 in this document
+
+LED
+
+Light-emitting diode
+
+MT
+
+Master trip
+
+SF
+
+Self-supervision contact
+
+VAMP 4C
+
+Current I/O unit for arc flash protection
+
+A125/EN M/01A
+
+Introduction
+
+Arc Flash Protection Unit
+
+Introduction
+PowerLogic A125
+Figure 1 - Arc protection unit PowerLogic A125
+
+A11102A
+
+The PowerLogic A125 arc flash protection unit is a versatile and independently
+operating device for bay based protection.
+The PowerLogic A125 has a fixed one type design, and it is optimized for use in
+arc protection as a stand-alone device or as part of a system. It can be used in
+various arc protection applications in low or medium voltage power distribution
+systems.
+•
+
+External input for overcurrent measurement via the I> IN input
+
+•
+
+Event memory, LED indication memory in case of mains loss
+
+•
+
+Operation on simultaneous current and light or on light only mode (I> & L>, or
+L>)
+
+•
+
+Typically a 8 ms operation time with a mechanical output relay: with HSO the
+operation time is typically 2 ms in the light only mode
+
+•
+
+Two programmable operation zones
+
+•
+
+Full system self-supervision
+
+•
+
+Up to two normally-open trip contacts for fast arc flash detection: T1 (HSO)
+and T2 (SPST)
+
+•
+
+One change-over signal contact: SF (self-supervision contact)
+
+•
+
+LED indications of status, error and trip indications
+
+•
+
+Binary input/output (BI/BO) bus for light and overcurrent information and
+master trip
+
+Equipment identification
+Different kinds of labels are used on the PowerLogic A125 to identify its model
+type and contain safety instructions.
+
+A125/EN M/01A
+
+9
+
+Arc Flash Protection Unit
+
+Introduction
+
+Figure 2 - Label examples on the PowerLogic A125
+
+2
+
+3
+
+1
+
+A11119A
+
+① QR code label
+② Product label
+③ Instruction label
+
+QR code label
+Scan the QR code with mySchneider application or other scanner to access the
+specific product website to get basic product documents and product life cycle
+documents like Certificate of Conformity and Test.
+
+Product label
+The product label contains the serial number, the model number, technical data
+and certification information.
+Figure 3 - Example of a product label
+
+Instruction label
+This label contains the safety instructions for operations on the PowerLogic A125.
+
+10
+
+A125/EN M/01A
+
+Introduction
+
+Arc Flash Protection Unit
+
+Figure 4 - Example of an instruction label
+
+Unit features
+The PowerLogic A125 is a state of the art arc protection unit for electrical power
+distribution systems. By using the PowerLogic A125 in switchgears, considerable
+safety improvements are obtained in the form of minimized injury and damage in
+case of an arc fault. The PowerLogic A125 is a stand alone device, which provides
+a compact solution when the application does not require overcurrent
+measurement or when the overcurrent information is available from the incomer
+protection relay or any other arc protection unit (VAM 4C). It is possible to connect
+four arc sensors of the VA1DA or VA1EH type to the PowerLogic A125 unit.
+
+DIP switch settings on unit
+Figure 5 - PowerLogic A125 DIP switch operations and sensor connection
+
+ON/OFF
+
+ON/OFF
+
+-LATCH
+-L+I/L
+-T1=T2
+-S2=S3
+-BLOCK
+-MT ENABLE
+-MT MODE
+-TRIP OUT MODE
+
+87654321
+
+7
+6
+5
+4
+
+T1
+
+3
+2
+US
+
+1
+
+1 2 3 4 5 6 7 8
+
+T2
+
+8
+
+1211 10 9 8 7 6 5 4 3 2 1
+S4
+S3 S2
+S1
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+X5
+
+X2
+
+A11103A
+
+The unit is configured using DIP switches which are located on top of the device.
+NOTE: If any settings are changed, the device indicates it via the service
+output and the
+LED is lit.
+
+A125/EN M/01A
+
+11
+
+Arc Flash Protection Unit
+
+Introduction
+
+Table 2 - DIP switches 1 – 8:
+ON/OFF
+-LATCH
+-L+I/L
+-T1=T2
+-S2=S3
+-BLOCK
+-MT ENABLE
+-MT MODE
+-TRIP OUT MODE
+
+SW No.
+
+Description
+
+1 Latch
+
+The latch switch enables latching of the trip relays. If set to
+the ‘ON’ position, the latching function is activated. If set to
+the ‘OFF’ position, the output relays will follow the state of
+the sensors and minimally 20 ms output control pulse is
+generated.
+
+2 L+I/L
+
+The L+I/L switch selects the operation mode. If set to the
+‘ON’ position, the unit operates in the L+I mode (requires
+both I > input activation and light + external I > IN signal). If
+set to the ‘OFF’ position, the unit operates in the L > mode
+(light only mode).
+
+3 T1=T2
+
+The T1=T2 mode is for setting the system selectivity. If set
+to the ‘OFF’ position, sensors No. 1 and 2 will trip relay T1.
+Accordingly, sensors No. 3 and 4 will trip relay T2. If set to
+the ‘ON’ position, all four sensor channels will activate both
+trip outputs.
+
+4 S2=S3
+
+If the configuration switch for sensor inputs 2 and 3 is in
+the ‘ON’ position, the activation of sensor 2 or 3 results in a
+common trip of both T1 and T2. If the switch is in the ‘OFF’
+position, sensor 2 is linked to T1, sensor 3 is linked to T2
+and both will individually trip their dedicated trip relays.
+
+5 Block
+
+The block switch enables blocking function to unit outputs.
+
+6 MT enable
+
+The MT enable switch enables the master trip function.
+
+7 MT mode
+
+If the configuration switch is set to the ‘OFF’ position, the
+MT output follows T1. If the configuration switch is set to
+the ‘ON’ position, the MT output follows T1 and T2.
+
+A11104A
+
+Note: Operation applies also to the L+I/L function.
+8 Trip output
+mode
+
+If the configuration switch is set to the ‘OFF’ position, the
+trip out follows the state of T1. If the switch is set to the
+‘ON’ position, the trip out follows the state of T2.
+
+The table below provides a reference for outputs activated by inputs on different
+DIP switch configurations.
+
+12
+
+A125/EN M/01A
+
+Introduction
+
+Arc Flash Protection Unit
+DIP switch configuration
+
+Inputs
+
+Outputs
+T1
+
+Default (all switches: OFF)
+
+T2
+
+Trip
+Out
+
+MT
+Out
+
+MT In
+S1
+
+●
+
+●
+
+●
+
+S2
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+S4
+
+●
+
+T1 = T2: ON
+
+MT In
+
+Other switches: OFF
+
+S1
+
+●
+
+●
+
+●
+
+●
+
+S2
+
+●
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+●
+
+●
+
+●
+
+S4
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+S2 = S3: ON
+
+MT In
+
+Other switches: OFF
+
+S1
+
+●
+
+S2
+
+●
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+●
+
+●
+
+●
+
+●
+
+S4
+MT enable: ON
+
+MT In
+
+●
+
+●
+
+Other switches: OFF
+
+S1
+
+●
+
+●
+
+●
+
+S2
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+S4
+
+●
+
+MT mode: ON
+
+MT In
+
+Other switches: OFF
+
+S1
+
+●
+
+●
+
+●
+
+S2
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+●
+
+S4
+
+●
+
+●
+
+MT enable: ON
+
+MT In
+
+●
+
+●
+
+●
+
+MT mode: ON
+
+S1
+
+●
+
+●
+
+●
+
+Other switches: OFF
+
+S2
+
+●
+
+●
+
+●
+
+S3
+
+●
+
+●
+
+S4
+
+●
+
+●
+
+Trip output mode: ON
+
+MT In
+
+Other switches: OFF
+
+S1
+
+●
+
+●
+
+S2
+
+●
+
+●
+
+S3
+
+●
+
+●
+
+S4
+
+●
+
+●
+
+Connecting the supply voltage
+NOTE: Do not connect the supply voltage before the device connections and
+configuration are done. If the settings of the unit need to be changed,
+disconnect the supply voltage before configuring the device(s).
+
+A125/EN M/01A
+
+•
+
+Ensure the device connections, protective grounding and unit configurations
+are in order.
+
+•
+
+Connect the auxiliary supply voltage to the IED’s terminal block.
+
+13
+
+Arc Flash Protection Unit
+
+Introduction
+
+See Mounting, page 36 for ground connection details.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Always connect the protective grounding before connecting the power supply.
+Failure to follow these instructions will result in death or serious injury.
+
+Disconnecting the supply voltage
+The auxiliary supply power must be disconnected from the IED if the following
+service actions are required:
+
+14
+
+•
+
+Replacement, add-on or removal of unit, cabling or sensors
+
+•
+
+Changing of unit settings
+
+A125/EN M/01A
+
+Functions
+
+Arc Flash Protection Unit
+
+Functions
+Arc flash protection, general principle
+The arc flash protection contains two protection zones, which may be used to trip
+for example the incomer and outgoing circuit breakers. Arc protection zones are
+activated with external overcurrent status and light signals (or light signal alone).
+The allocation of different light signals to arc zones is defined in the sensor
+channel mapping of the unit.
+Figure 6 - PowerLogic A125 block diagram
+Power
+input
+X5-1
+
+Binary outputs
+X1-2 (+)
+
+X5-2
+
+ac /
+dc
+
+X1-1 (-)
+
+X1-6 (+)
+
+Trip
+Out
+
+Supervision
+relay
+
+Trip relays
+
+X1-5 (-)
+
+X5-4
+
+MT
+Out
+
+X5-5
+
+X5-7
+
+Fast
+Trip T1
+
+X5-8
+
+X1-16
+
+Trip T2
+
+X1-17
+
+X1-18
+
+SF relay
+
+dc
+
+Trip control logic
+
+DIP switches
+
+Supervision function
+logic
+
+Latch
+L+I / L
+T1=T2
+S2=S3
+Block
+MT enable
+Trip out mode
+MT mode
+
+Memory
+controller
+
+L>
+S1
+
+X2-1
+
+S2
+
+X2-5
+X2-2
+
+S3
+
+X2-7
+X2-6
+
+S4
+
+X2-11
+X2-8
+
+MT
+In
+
+I> In
+
+X1-14
+
+X1-15
+
+X1-8
+
+Block
+
+X1-9
+
+X1-10
+
+X1-11
+
+Reset
+
+X1-12
+
+EEPROM
+memory
+
+Reset /
+Install
+button
+
+X1-13
+
+X2-12
+
+Sensor
+channels
+
+Binary inputs
+A11105A
+
+Self-supervision
+The electronics and operation of the PowerLogic A125 unit are supervised by
+means of a separate self-supervision logic. The arc flash sensors are also selfsupervised. In case the self-supervision detects a permanent error within the
+PowerLogic A125 unit or the arc sensors connected, the self-supervision output
+and system status indication LED are activated.
+
+Binary inputs and outputs
+Information from the arc protection function can be transmitted and/or received
+through binary inputs (BI) and outputs (BO). The rated voltage of these signals is
+24 V dc when active. The input signal voltage range is 18...250 V dc.
+
+A125/EN M/01A
+
+15
+
+Arc Flash Protection Unit
+
+Functions
+
+Binary inputs
+The binary inputs ‘BI’ (MT In, Block, Reset or I > IN) can be used to receive the
+master trip, blocking, reset or current indication from another IED to build selective
+arc protection scheme(s). BI is a dry type input for a 18...250 V dc signal. The
+function of BI signals is configured with the DIP switch.
+
+Binary outputs
+The binary outputs ‘BO’ (Trip Out or MT Out) can be used to send the trip
+indication/information signal to another IED's binary input to build selective arc
+protection systems. BO is an internally driven (wetted) 24 Vdc signal. The function
+of BO signals is configured with the DIP switch.
+
+Output relays
+The output relays are also called digital outputs. Trip contacts can be controlled
+only by the corresponding arc flash sensors. The activated contact is indicated by
+the T1 and T2 LEDs.
+An output relay can be configured as latched or non-latched using DIP switch 1.
+Latched relay contacts can be set free by pressing the IED's Reset / Install key.
+The difference between the trip contacts and signal contacts is the DC breaking
+capacity. The contacts are single pole single throw (SPST) normal open type
+(NO), except for the signal relay SF which has a change-over contact single pole
+double throw (SPDT).
+
+HMI functions and indications
+Figure 7 - PowerLogic A125 DIP switch operations and sensor connection
+
+RESET/
+INSTALL
+ON
+
+4
+
+1
+
+Block
+
+2
+
+S3
+
+S1
+S2
+
+S4
+T1
+T2
+
+I>
+MT
+
+A125
+
+3
+
+A11106A
+
+1. Operating status indication lights
+
+16
+
+•
+
+On: Green, steady when the device is powered
+
+•
+
+Block: Yellow, lit when the block is active, either from DIP or Block input
+
+•
+
+Tool: Red, steady when the device is in the error state or blocked
+
+A125/EN M/01A
+
+Functions
+
+Arc Flash Protection Unit
+
+2. Sensor and trip output indications
+•
+
+S1: Yellow, steady when sensor 1 is activated, flashing in the unhealthy
+state
+
+•
+
+S2: Yellow, steady when sensor 2 is activated, flashing in the unhealthy
+state
+
+•
+
+S3: Yellow, steady when sensor 3 is activated, flashing in the unhealthy
+state
+
+•
+
+S4: Yellow, steady when sensor 4 is activated, flashing in the unhealthy
+state
+
+•
+
+T1: Red, steady when trip 1 is activated, flashing in the unhealthy state
+
+•
+
+T2: Red, steady when trip 2 is activated, flashing in the unhealthy state
+
+3. Binary input indications
+•
+
+I >: Red, steady when I> input is energized
+
+•
+
+MT: Red, steady when external master trip is received from MT In
+
+4. Reset / Install
+•
+
+•
+
+A125/EN M/01A
+
+Push button on the front: Reset / Install
+◦
+
+0.5 s press to, reset and clear indications / latch
+
+◦
+
+5 s to press to, install sensors
+
+While pressing "Install", the device will flash all LEDs at the end of the
+installation routine to perform the LED function test.
+
+17
+
+Arc Flash Protection Unit
+
+Application
+
+Application
+Every switchgear or assembly compartment is equipped with an arc flash point
+sensor. Up to four sensors can be connected to the PowerLogic A125 unit. The
+trip relays are electromechanical and hybrid type of outputs. Relays can be
+connected directly to control the circuit breakers.
+The PowerLogic A125 is an arc flash protection relay for small MV and LV power
+distribution applications used in power generation, industry and utilities where the
+light only operation mode with full selectivity is required.
+If overcurrent criteria is required simultaneously with light activation, a binary
+current signal has to be connected to X1-14/15. This I > IN signal can for example
+be taken from the VAM 4C unit.
+The one main application and two main application are explained with figures
+below:
+Figure 8 - One main application
+
+Fault in cable end of outgoing feeders
+•
+
+S4 sensor activates trip contact T2. Busbar remains operational.
+
+Fault in busbar and feeder CB
+•
+
+S1 sensor in busbar or S2 sensor in feeder CB activates the master trip out.
+
+•
+
+MT Out is connected to the incomer PowerLogic A125 unit master trip in.
+
+•
+
+When the PowerLogic A125 unit located in the incomer receives MT to input,
+the incomer unit activates the trip contact T1.
+
+Fault in incomer CB or cable end
+•
+
+18
+
+Sensors S3 and S4 activate contact T2.
+
+A125/EN M/01A
+
+Application
+
+Arc Flash Protection Unit
+
+DIP switch settings for incoming and outgoing feeders in the one main application.
+These settings are identical for the incomer and feeder PowerLogic A125 IED.
+ON
+Latch
+
+OFF
+
+X
+
+L+I/L
+
+X
+
+T1=T2
+
+X
+
+S2=S3
+
+X
+
+Block
+
+X
+
+MT enable
+
+X
+
+MT mode
+
+X
+
+Trip out mode
+
+X
+
+Figure 9 - Two main application
+
+Fault in cable end of outgoing feeders and fault in busbar and outgoing feeder CB
+is same as the one main application.
+Fault in busbar in main feeder
+
+A125/EN M/01A
+
+•
+
+S1 sensor in busbar in main feeder activates T1 trip relay of the PowerLogic
+A125 relay in main feeder, controls its associated CB and activates T2 trip
+relay of the same PowerLogic A125 which should be sent/wired to neighbor
+main feeder tripping circuit.
+
+•
+
+S3 and S4 sensors in CB and cable end of the main feeder activate the trip
+out relay of PowerLogic A125 relay which is installed in main feeder and send
+direct transfer trip to upstream.
+
+19
+
+Arc Flash Protection Unit
+
+Application
+
+DIP switch settings for incoming and outgoing feeders in the two main application.
+Table 3 - Setting for incoming feeders
+ON
+Latch
+
+X
+
+L+I/L
+T1=T2
+
+OFF
+
+X
+X
+
+S2=S3
+
+X
+
+Block
+
+X
+
+MT enable
+
+X
+
+MT mode
+Trip out mode
+
+X
+X
+
+Table 4 - Setting for outgoing feeders
+ON
+Latch
+
+X
+
+L+I/L
+
+X
+
+T1=T2
+
+X
+
+S2=S3
+
+X
+
+Block
+
+X
+
+MT enable
+
+20
+
+OFF
+
+X
+
+MT mode
+
+X
+
+Trip out mode
+
+X
+
+A125/EN M/01A
+
+Connections
+
+Arc Flash Protection Unit
+
+Connections
+Figure 10 - PowerLogic A125 connections
+
+A11102A
+
+The PowerLogic A125 unit comprises two independent arc protection zones. Both
+zones have their own trip relay, trip 1 and trip 2. Trip 1 is controlled by sensor
+inputs 1 and 2. Trip 2 is controlled by sensors 3 and 4.
+Trip Out is activated if either or both the trip relays trip.
+•
+
+If the trip out mode switch is in the "OFF" position, the output follows the state
+of T1.
+
+•
+
+If the trip out mode switch is in the "ON" position, the output follows the state
+of T2.
+
+If the “T1=T2” dip switch is in the “ON” position, both trip outputs will work in
+parallel for any sensor activation.
+If the “S2=S3” dip switch is in the “ON” position, activation of sensor 2 or 3 will
+cause both T1 and T2 to trip. This is for example used for CB compartment
+supervision where two zones overlap each other.
+If the overcurrent criteria are required simultaneously with light activation, a binary
+current signal has to be connected to X1-14/15. This I> signal can e.g. be taken
+from the VAM 4C unit. External reset is possible by energizing the Reset input in
+X1-12/13 by auxiliary voltage.
+The auxiliary voltage is connected to X5-1 and X5-2. The PowerLogic A125 has a
+wide power supply range.
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Always connect the protective grounding before connecting the power supply.
+Failure to follow these instructions will result in death or serious injury.
+
+X1 connector
+Table 5 - Type: Phoenix contact MSTB 2.5 – 5.06
+
+A125/EN M/01A
+
+Pin No.
+
+Symbol
+
+Description
+
+1
+
+Trip Out
+
+Trip Out, negative terminal
+
+2
+
+Trip Out
+
+Trip Out, positive terminal, +24 V dc
+
+3
+
+GND
+
+Binary output GND
+
+4
+
+GND
+
+Binary output GND
+
+5
+
+MT Out
+
+MT Out, negative terminal
+
+21
+
+Arc Flash Protection Unit
+
+Connections
+
+Table 5 - Type: Phoenix contact MSTB 2.5 – 5.06 (Continued)
+Pin No.
+
+Symbol
+
+Description
+
+6
+
+MT Out
+
+MT Out, positive terminal, +24 V dc
+
+7
+
+NC
+
+No connection
+
+8
+
+MT In
+
+External master trip input
+
+9
+
+MT In
+
+External master trip input
+
+10
+
+Block
+
+External block input
+
+11
+
+Block
+
+External block input
+
+12
+
+Reset
+
+External reset input
+
+13
+
+Reset
+
+External reset input
+
+14
+
+I> In
+
+External current input
+
+15
+
+I> In
+
+External current input
+
+16
+
+SF COMMON
+
+Service status output, common
+
+17
+
+SF NO
+
+Service status output, normal open
+
+18
+
+SF NC
+
+Service status output, normal close
+
+NOTE: Binary inputs are polarity free which means that the user can freely
+choose "-" and "+" terminals for each binary input.
+
+X2 connector
+Table 6 - Type: Phoenix contact MC 1.5 – 3.5
+Pin No.
+
+Symbol
+
+Description
+
+1
+
+S1
+
+Arc sensor channel 1, positive terminal
+
+2
+
+S1
+
+Arc sensor channel 1, negative terminal
+
+3
+
+GND
+
+Arc sensor channel 1 Ground
+
+4
+
+GND
+
+Arc sensor channel 2 Ground
+
+5
+
+S2
+
+Arc sensor channel 2, positive terminal
+
+6
+
+S2
+
+Arc sensor channel 2, negative terminal
+
+7
+
+S3
+
+Arc sensor channel 3, positive terminal
+
+8
+
+S3
+
+Arc sensor channel 3, negative terminal
+
+9
+
+GND
+
+Arc sensor channel 3 Ground
+
+10
+
+GND
+
+Arc sensor channel 4 Ground
+
+11
+
+S4
+
+Arc sensor channel 4, positive terminal
+
+12
+
+S4
+
+Arc sensor channel 4, negative terminal
+
+X5 connector
+Table 7 - Type: Phoenix contact MSTB 2.5 – 5.06
+
+22
+
+Pin No.
+
+Symbol
+
+Description
+
+1
+
+L/-/~
+
+Supply voltage, positive terminal
+
+2
+
+N/+/~
+
+Supply voltage, negative terminal
+
+3
+
+NC
+
+No connection
+
+A125/EN M/01A
+
+Connections
+
+Arc Flash Protection Unit
+
+Table 7 - Type: Phoenix contact MSTB 2.5 – 5.06 (Continued)
+
+A125/EN M/01A
+
+Pin No.
+
+Symbol
+
+Description
+
+4
+
+T1
+
+Trip relay 1, HSO type
+
+5
+
+T1
+
+Trip relay 1, HSO type
+
+6
+
+NC
+
+No connection
+
+7
+
+T2
+
+Trip relay 2, electromechanical type
+
+8
+
+T2
+
+Trip relay 2, electromechanical type
+
+23
+
+Arc Flash Protection Unit
+
+Arc flash sensor
+
+Arc flash sensor
+VA 1 xx is a point type arc flash sensor. Arc flash light is transformed to a current
+signal in the sensor.
+•
+
+Standard 8000 – 10000 lux visible light sensitivity
+
+•
+
+Wide area arc flash detection
+
+•
+
+Typically < 1 ms detection time
+
+•
+
+Standard cable length of 6 m (19.68 ft) or 20 m (65.61 ft) (cut to length on
+site)
+
+•
+
+Easy to install (2-wired non-polarity sensitive connection)
+
+•
+
+Can be mounted on switchgear surface, in customer drilled holes in
+switchgear or on VYX001 Z shape or VYX002 L shape mounting plates
+available, or locally fabricated from supplied drawings
+
+The sensor is used by an arc flash protection device (IED) or system to detect the
+light coming from the arc flash incident.
+
+VA 1 DA
+The arc sensor VA 1 DA is activated by strong light. The sensor transforms the
+light information into the current signal, which is used by the IED to detect arc
+flash light.
+Figure 11 - VA 1 DA dimensions
+mm
+in
+
+22.2
+0.83
+
+20
+0.79
+
+46.4
+1.83
+
+10
+0.39
+
+14
+0.55
+
+25
+0.98
+
+8
+0.31
+4.2
+0.17
+A11110A
+
+You can install the arc sensor onto the switchgear wall from the outside. Press the
+active part of the sensor through the 10 mm (0.393 in) hole in the wall and fix it
+using a M4 screw.
+
+24
+
+A125/EN M/01A
+
+Arc flash sensor
+
+Arc Flash Protection Unit
+
+Figure 12 - VA 1 DA mounting
+A
+
+B
+
+C
+
+D
+
+A11111A
+
+A. Active part of the sensor
+
+B. Cable clamp
+
+C. Fastening screw M4 x 15 mm
+
+D. Sensor cable
+
+Connecting the IED
+The sensors are delivered with 6 m (19.68 ft) or 20 m (65.61 ft) cables. After
+mounting the sensors, connect them to the IED as follows:
+•
+
+Draw the wire to the nearest IED using the shortest route possible and cut it
+to a suitable length.
+
+•
+
+Connect the arc sensors to the screw terminals. The polarity of the arc sensor
+cables is not critical.
+
+•
+
+Connect the cable shield to the corresponding connector on X2 terminal when
+using shielded cable on sensor(s).
+NOTE:
+•
+
+Use a ferrule to protect exposed sensor wire when the sensor wire is
+connected to terminals. Guarantee a correct sensor wiring.
+
+•
+
+Do not splice or extend pre-made/supplied cables with any type of wires
+or cables.
+
+Figure 13 - Cable landing to PowerLogic A125 X2 connector
+
+A125/EN M/01A
+
+25
+
+Arc Flash Protection Unit
+
+Arc flash sensor
+
+Sensitivity
+NOTE: The sensor must not be exposed to direct sunlight or other strong light
+sources. Do not mount the sensor directly under a light source.
+Figure 14 - Sensitivity of the arc sensor VA 1 DA
+
+26
+
+A125/EN M/01A
+
+Preventive maintenance
+
+Arc Flash Protection Unit
+
+Preventive maintenance
+The IED requires maintenance to help ensure that it works according to the
+specification. Keep record of the maintenance actions performed for the system.
+The maintenance can include, but is not limited to, the following actions.
+
+Maintenance
+The arc products, sensors and cabling shall be visually checked when the
+switchgear is de-energized. During such inspection pay attention to:
+•
+
+Possible dirty arc sensors
+
+•
+
+Loose wire connections
+
+•
+
+Damaged wiring
+
+•
+
+Indicator lights (unit start-up)
+
+•
+
+Other mechanical connections.
+
+Visual inspection shall be carried out at the minimum once every three (3) years.
+
+CAUTION
+EQUIPMENT OPERATION HAZARD
+Carry out periodical system testing as per manufacturer's recommendation or in
+case the protection system scheme has been changed.
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+Cleaning of hardware
+Pay special attention to help ensure that the device, its extension units and
+sensors are always clean. In case cleaning is required, wipe out dirt from the units.
+Use a dry cleaning cloth or equivalent together with mild soapy water to clean any
+residues from the sensor.
+
+CAUTION
+EQUIPMENT OPERATION HAZARD
+Do not use any type of solvents or gasoline to clean the IED, sensors or cables.
+Failure to follow these instructions can result in injury or equipment
+damage.
+
+Sensor condition and positioning check
+After commissioning, sensor replacement, modification procedure, cleaning and
+periodical testing always check that the sensor positioning remains as it was
+originally designed.
+
+A125/EN M/01A
+
+27
+
+Arc Flash Protection Unit
+
+Preventive maintenance
+
+System status messages
+In case the IED’s self-checking detects any unexpected system status, it provides
+an alarm by activating the Service LED (
+) and indication status notification on
+the SF output. Should this happen, contact your local office for further guidance.
+
+Spare parts
+Use the entire unit as a spare for the device to be replaced.
+
+Returning for expert assessment
+To return PowerLogic A125 for expert assessment, use the original packaging if
+possible.
+PowerLogic A125 must be returned accompanied by its settings sheet and the
+following information:
+•
+
+Name and address of the initiator
+
+•
+
+PowerLogic A125 type and serial number
+
+•
+
+Date of the incident
+
+•
+
+Detailed description of the incident
+
+•
+
+LED status at the time of the incident
+
+•
+
+List of stored events
+
+•
+
+Repair and Modification Authorization (RMA) form which is from the country
+organization
+
+End of life
+At end of life of PowerLogic A125, Schneider Electric's Green Premium program
+helps decrease the amount of waste and allow recovery of the product
+components and materials. Please refer to the Product Environmental Profile and
+the End of Life instructions documents available on SE website: https://www.se.
+com/ww/en/work/support/green-premium/.
+Dispose the device according to the legislation of the country when
+decommissioning the device. It helps prevent potential disclosure of data
+contained in the device that was not removed.
+
+WARNING
+UNAUTHORIZED OR UNINTENDED ACCESS TO CONFIDENTIAL DATA
+Ensure all data from the device has been saved and erased.
+Failure to follow these instructions can result in unauthorized or
+unintended access to sensitive or secure customer data.
+
+28
+
+A125/EN M/01A
+
+Technical data
+
+Arc Flash Protection Unit
+
+Technical data
+PowerLogic A125
+Table 8 - Auxiliary power supply
+UAUX
+
+48...240 (-20%...+10%) V ac/dc
+
+Maximum withstand voltage
+
+264 V ac/dc
+
+Normal operating power consumption
+
+5 W; (Max. 8 W)
+
+Table 9 - High speed output, T1
+Number of contacts
+
+1, NO
+
+Rated voltage (max withstand voltage)
+
+250 V ac (3 A); 24 V dc (2 A); 250 V dc (0.2 A);
+
+Minimum voltage
+
+12 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+-
+
+Typical operation time (light only)1
+
+2 ms
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40 ms)
+•
+
+at 48 V dc: 5 A
+
+•
+
+at 110 V dc: 3 A
+
+•
+
+at 220 V dc: 1 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13...14 AWG)
+Minimum 1.5 mm2 (15...16 AWG)
+
+Table 10 - Trip contact, T2
+Number of contacts
+
+1, NO
+
+Rated voltage
+
+250 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+100 mA at 24 V dc
+
+Typical operation time (light only)
+
+8 ms
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40ms)
+•
+
+at 48 V dc: 1.15 A
+
+•
+
+at 110 V dc: 0.5 A
+
+•
+
+at 220 V dc: 0.25 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13...14 AWG)
+Minimum 1.5 mm2 (15...16 AWG)
+
+1.
+
+Typically a 8 ms operation time with a mechanical output relay: with HSO the operation time is typically 2 ms in the light only mode.
+
+A125/EN M/01A
+
+29
+
+Arc Flash Protection Unit
+
+Technical data
+
+Table 11 - Self-supervision contact; SF
+Number of contacts:
+
+2, NC/NO
+
+Rated voltage
+
+250 V ac/dc
+
+Continuous current
+
+5A
+
+Minimum making current
+
+100 mA at 24 V ac/dc
+
+Make and carry, 0.5 s
+
+30 A
+
+Make and carry, 3 s
+
+15 A
+
+Breaking capacity, AC
+
+2000 VA (resistive load 1, inductive load 0.7)
+
+Breaking capacity, DC (L/R = 40ms)
+•
+
+at 48 V dc: 1.15 A
+
+•
+
+at 110 V dc: 0.5 A
+
+•
+
+at 220 V dc: 0.25 A
+
+Contact material
+
+Ag alloy
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13...14 AWG)
+Minimum 1.5 mm2 (15...16 AWG)
+
+Table 12 - Binary outputs; Trip Out, MT Out
+Number of outputs
+
+2
+
+Rated output voltage
+
++24 V dc (max +32 V dc unloaded)
+
+Rated output current
+
+20 mA
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13 – 14 AWG)
+Minimum 1.5 mm2 (15 – 16 AWG)
+
+Connection cable
+
+Twisted pair, with shield. Shield shall be grounded to the appropriate
+connector.
+
+Table 13 - Binary inputs; MT In, Block, Reset, I > IN
+Number of inputs
+
+4
+
+Voltage withstand
+
+250 V dc
+
+Nominal operation voltage
+
+24...240 V dc (max. 250 V DC)
+
+Typical switching threshold
+
+12 V dc ± 5 %
+
+Current drain
+
+approx. 3 mA
+
+Terminal block:
+Pitch: 5.08 mm/0.2 in.
+
+Wire dimension:
+Maximum 2.5 mm2 (13...14 AWG)
+Minimum 1.5 mm2 (15...16 AWG)
+
+Connection cable
+
+Twisted pair, with shield. Shield shall be grounded to the appropriate
+connector.
+
+Table 14 - Arc sensor inputs; S1 – S4
+Number of inputs
+
+4
+
+Supply to sensors
+
+8 V dc
+
+Grounding
+
+4 grounding pins on connector
+
+30
+
+A125/EN M/01A
+
+Technical data
+
+Arc Flash Protection Unit
+
+Table 14 - Arc sensor inputs; S1 – S4 (Continued)
+Terminal block:
+Pitch: 3.5 mm/0.14 in.
+
+Wire dimension:
+Maximum 1.5 mm2 (15...16 AWG)
+Minimum 0.14 mm2 (25...26 AWG)
+
+Connection cable
+
+Twisted pair, with shield. Shield shall be grounded to the appropriate
+connector.
+
+Table 15 - Electro-Magnetic Compatibility (EMC) requirements
+Characteristic
+
+Standard
+
+Description
+
+EN IEC 60255-26
+
+Class A2
+
+Emission tests
+Radiated emission
+
+CISPR 11
+CISPR 16-2-3
+Conducted emission
+
+EN IEC 60255-26
+
+Class A (Power ports)
+
+CISPR 11
+CISPR 22
+Radiated disturbances immunity tests
+Electrostatic discharges
+
+IEC 61000-4-2
+
+Level 3:
++/- 6 kV Contact Discharge
++/- 8 kV Air Discharge
+Criteria B
+
+Radiated radio frequency
+electromagnetic field
+
+IEC 61000-4-3
+
+Level x:
+16 V/m, 0.8 to 1 GHz, AM 80% - 1 kHz
+20 V/m, 1 to 6 GHz - AM 80% - 1kHz
+Criteria A
+
+Power frequency magnetic fields
+
+IEC 61000-4-8
+
+Level 5:
+100 A/m, continuously - 60 s, 50/60 Hz
+Criteria A
+1000 A/m, continuously - 3 s, 50/60 Hz
+Criteria B
+
+Conducted disturbances immunity tests
+Electrical fast transient
+
+IEC 61000-4-4
+
+Level 4:
+4 kV, burst frequency 5kHz
+Criteria B
+
+Surge
+
+IEC 61000-4-5
+
+Level 4:
+4 kV, 1.2/50 μs (CM) - 2 kV, 1.2/50 μs (DM)
+Criteria B
+
+RF conducted disturbances
+
+IEC 61000-4-6
+
+Level x:
+15 Vrms, 0.15 - 80 MHz - AM 80% - 1kHz
+Criteria A
+
+Conducted low frequency
+
+IEC 61000-4-16
+
+Level 4:
+Continuous disturbance: 30 V - 50/60 Hz
+Short disturbance: 300 V(CM), 100 V(DM) - 50/60 Hz
+Criteria A
+
+2.
+
+Tested from 30 MHz to 1 GHz. According to the EN IEC 60255-26, if the highest frequency of the internal sources of the EUT is less than
+108 MHz, the measurement shall only be made up to 1 GHz.
+
+A125/EN M/01A
+
+31
+
+Arc Flash Protection Unit
+
+Technical data
+
+Table 15 - Electro-Magnetic Compatibility (EMC) requirements (Continued)
+Characteristic
+
+Standard
+
+Description
+
+Ripple (DC)
+
+IEC 61000-4-17
+
+Level 4:
+15% UDC - 100 Hz / 120 Hz – 5 min
+Criteria A
+
+1 MHz slow damped oscillatory
+
+IEC 61000-4-18
+
+Level 3:
+2.5 kV (1 MHz): CM
+1 kV (1 MHz): DM
+Criteria B
+
+Gradual shutdown
+
+IEC 60255-26
+
+Criteria C:
+Shut-down ramp 60 s
+Power off 5 min
+Start-up ramp 60 s
+
+Table 16 - Electrical safety tests
+Characteristic
+
+Standard
+
+Description
+
+Insulation
+
+IEC 60255-27
+
+Insulation resistance > 100 MΏ at 500 Vdc
+
+Clearances and creepage distances
+
+IEC 60255-27
+
+Pollution degree 2, Overvoltage category III
+
+Dielectric voltage
+
+IEC 60255-27
+
+3.7 kV DC, 1 min: between all independent circuits.
+1.5 kV DC, 1 min: across normally open control and
+signaling contacts. 3
+
+Impulse voltage
+
+IEC 60255-27
+
+6 kV, 1.2 μs - 50 μs, 0.5J between all independent
+circuits.
+
+Protective bonding
+
+IEC 60255-27
+
+R< 0,1 Ω; 32 A, 12V ac or dc maximum; 60 seconds.
+
+Reverse polarity and slow ramp test
+
+IEC 60255-27
+
+/
+
+Table 17 - Mechanical requirements (DIN rail mounting & panel mounting)
+Characteristic
+
+Standard
+
+Description
+
+Vibration
+
+IEC 60255-21-1
+
+Class 1:
+
+IEC 60068-2-6
+
+Response – 0.5 Gn, 10 Hz to 150 Hz
+Endurance - 1 Gn, 10 Hz to 150 Hz
+
+Shock and bump
+
+IEC 60255-21-2
+
+Class 1:
+Shock response - 5 Gn, 11 ms
+Shock withstand - 15 Gn, 11 ms
+Bump - 10 Gn, 16 ms
+
+Seismic
+
+IEC 60255-21-3
+
+Class 1: 1 Gn horizontal; 0.5 Gn vertical
+
+Table 18 - Climatic environmental requirements
+Characteristic
+
+Standard
+
+Description
+
+Cold test
+
+IEC 60068-2-1
+
+In operation:
+
+Dry heat test
+
+IEC 60068-2-2
+
+-40°C (-40°F), 96 hours / +70°C (+158°F), 96 hours.
+Storage:
+-40°C (-40°F), 96 hours / +85°C (+185°F), 96 hours.
+
+Damp heat steady state
+
+3.
+
+32
+
+IEC 60068-2-78
+
+In operation:
+
+None for high speed, high break control relay output due to solid state devices across normally open contact.
+
+A125/EN M/01A
+
+Technical data
+
+Arc Flash Protection Unit
+
+Table 18 - Climatic environmental requirements (Continued)
+Characteristic
+
+Standard
+
+Description
+10 days, 93% RH, +40°C (104°F).
+
+Cyclic temperature with humidity
+
+IEC 60068-2-30
+
+In operation:
+93% RH, +25°C to +55°C (77°F to 131°F), 6 cycles
+(12 hours + 12 hours).
+
+Change of temperature test
+
+IEC 60068-2-14
+
+In operation:
+-40°C to +70°C (-40°F to +158°F)
+Exposure time: 2h + 1h, 5 cycles
+5°C/min (18°F/min) of transfer time
+
+Table 19 - Enclosure protection
+Characteristic
+Enclosure
+protection
+
+Standard
+
+Description
+
+Front surface
+area
+
+IEC 60529
+
+IP2X
+
+IEC 62262
+
+IK07
+
+Other area
+
+IEC 60529
+
+IP2X
+
+IEC 60255-27
+
+Needle flame test
+
+Flammability of Insulating materials,
+components, and fire enclosures
+
+IEC 60695-11-5
+Single fault condition
+
+IEC 61010-1
+
+Short-circuit of components
+
+Durability of markings
+
+IEC 60255-27
+
+Water-resistance
+
+Packaging
+
+IEC 68000-2-31
+
+Resistance to shocks by free fall (with packaging). 1
+m (3.28ft)
+
+A125/EN M/01A
+
+33
+
+Arc Flash Protection Unit
+
+Technical data
+
+Table 20 - Energizing quantities
+Characteristic
+
+Standard
+
+Description
+
+Burden
+
+IEC 60255-1
+
+Power supply DC:
+4 W typical, 6 W maximum at 48 Vdc
+5 W typical, 7 W maximum at 240 Vdc
+Power supply AC:
+6 VA typical, 9 VA maximum at 48 Vac
+17 VA typical, 22 VA maximum at 240 Vac
+Digital inputs:
+<1 W at 24 Vdc
+<1 W at 240 Vdc
+
+AC power supply interruption
+
+IEC 61000-4-11
+
+48 V / 60 Hz:
+0%, 12 cycles, criteria A
+40%, 30 cycles, criteria C
+70%, 30 cycles, criteria C
+100 V / 60 Hz:
+0%, 12 cycles, criteria A
+40%, 30 cycles, criteria C
+70%, 30 cycles, criteria C
+240 V / 50 Hz:
+0%, 25 cycles, criteria A
+40%, 25 cycles, criteria C
+70%, 25 cycles, criteria C
+
+DC power supply interruption
+
+IEC 61000-4-29
+
+48 VDC:
+0%, 300 ms, criteria A
+40%, 300 ms, criteria C
+70%, 1 s, criteria C
+240 VDC:
+0%, 500 ms, criteria A
+40%, 300 ms, criteria C
+70%, 1 s, criteria C
+
+Table 21 - Environmental conditions
+Ambient temperature range, in operation:
+
+-40...+70°C (-40...+158°F)
+
+Ambient temperature range, storage:
+
+-40...+80°C (-40...+176°F)
+
+Relative air humidity:
+
+< 90%
+
+Maximum operating altitude:
+
+2000 m (6561.68 ft)
+
+No condensation.
+
+Table 22 - Casing
+Degree of protection (IEC 60529)
+
+IP2X
+
+Dimensions (W x H x D)
+
+70.6 x 135.8 x 126.2 mm / 2.779 x 5.346 x 4.968 in
+
+Weight
+
+0.95 kg (2.094 lb)
+
+34
+
+A125/EN M/01A
+
+Technical data
+
+Arc Flash Protection Unit
+
+Arc flash sensor
+UAUX
+
+8, 12 or 15 V DC (from the IED)
+
+Current consumption
+
+< 2...4 mA (in normal mode)
+< 18...29 mA (activated)
+
+Housing class (IEC 60529)
+
+IP20
+
+Dimensions (W x H x D)
+
+25 x 55 x 14 mm / 0.98 x 2.17 x 0.55 in
+
+Material
+
+Plastic
+
+Weight (with 6 m / 236.22 in cable)
+
+0.3 kg (0.662 lb)
+
+Cable length
+
+6 m (236.22 in) or 20 m (787.40 in)
+
+Environment
+
+Pollution Degree 2
+
+Operation temperature
+
+-40...85°C (-40...185°F)
+
+Light spectrum sensitivity area
+
+400...1100 nm
+
+A125/EN M/01A
+
+35
+
+Arc Flash Protection Unit
+
+Mounting
+
+Mounting
+PowerLogic A125 DIN rail mounting
+Figure 15 - DIN rail mounting
+Max screw size
+M3 x 5 mm
+
+35/1.38 in
+EN 50022
+
+1
+
+2
+
+126.2
+4.968
+
+mm
+in.
+
+135.8
+5.346
+
+70.6
+2.779
+
+114
+4.488
+
+120.2
+4.730
+
+X2
+
+X1, X5
+
+7 mm
+0.28 in.
+
+7 mm
+0.28 in.
+
+Ø 4...6 mm
+0.16...0.24 in.
+
+Min. 0.14 mm2 (AWG 26...25)
+Max. 1.5 mm2 (AWG 16...15)
+
+0.22...0.25 N•m
+1.95...2.21 Ib-in
+
+Min. 1.5 mm2 (AWG 16...15)
+Max. 2.5 mm2 (AWG 14...13)
+
+0.5...0.6 N•m
+4.4...5.3 Ib-in
+
+Min. 2.5 mm2 (AWG 12)
+
+1.5 N•m
+13.28 Ib-in
+
+2.5 mm
+3/32 in.
+
+3.5 mm
+9/64 in.
+
+M4
+
+A11115A
+
+36
+
+A125/EN M/01A
+
+Mounting
+
+Arc Flash Protection Unit
+
+PowerLogic A125 panel mounting
+90
+3.54
+
+mm
+in.
+
+5
+77 ± 0.
+0.02
+3.03 ±
+
+130
+5.19
+
+120 ± 0.5
+4.72 ± 0.02
+
+1
+
+2b
+
+2a
+
+3
+0.7 N•m
+(6.2 lb-in)
+
+1...5
+0.04...0.2
+
+5
+0.2
+
+>10
+0.394
+
+4b
+
+2 N•m
+(17.7 lb-in)
+
+4a
+
+104
+4.094
+
+126.2
+4.968
+
+144
+5.669
+
+135.8
+5.346
+
+A11116A
+
+Figure 16 - VYX 001 mounting plate for sensors
+mm
+in
+
+15
+0.59
+
+59
+2.32
+42
+1.65
+
+50
+1.97
+
+25
+0.98
+
+51
+2.0
+
+2.5
+0.1
+10
+0.39
+
+7
+0.28
+
+A125/EN M/01A
+
+50
+1.97
+
+15
+0.59
+
+37
+
+Arc Flash Protection Unit
+
+Mounting
+
+Figure 17 - VYX 002 mounting plate for sensors
+mm
+in
+
+10
+0.39
+
+15
+0.59
+
+59
+2.32
+
+15
+0.59
+
+3
+0.12
+30
+1.18
+
+30
+1.18
+
+38
+
+A125/EN M/01A
+
+Order information
+
+Arc Flash Protection Unit
+
+Order information
+When ordering, please state:
+•
+
+Type designation: PowerLogic A125
+
+•
+
+Quantity
+
+•
+
+Accessories (see respective ordering code):
+
+Table 23 - Accessories
+
+A125/EN M/01A
+
+Commercial
+Reference
+
+Product Name
+
+Description
+
+REL52804
+
+VA 1 DA-6
+
+Arc sensor, cable length 6 m (19.69 ft)
+
+REL52801
+
+VA 1 DA-20
+
+Arc sensor, cable length 20 m (65.62
+ft)
+
+REL52806
+
+VA 1 DA-6S
+
+Arc sensor, shielded, cable length 6 m
+(19.69 ft)
+
+REL52803
+
+VA 1 DA-20S
+
+Arc sensor, shielded, cable length 20
+m (65.62 ft)
+
+REL52805
+
+VA 1 DA-6S-HF
+
+Arc sensor, halogen free, cable length
+6 m (19.69 ft)
+
+REL52802
+
+VA 1 DA-20S-HF
+
+Arc sensor, halogen free, cable length
+20 m (65.62 ft)
+
+REL52839
+
+VA 1 DA-6W
+
+Arc sensor, shielded at sensor end,
+cable length 6 m (19.69 ft)
+
+REL52840
+
+VA 1 DA-20W
+
+Arc sensor, shielded at sensor end,
+cable length 20 m (65.62 ft)
+
+REL52809
+
+VA 1 EH-6
+
+Arc sensor (pipe type), cable length 6
+m (19.69 ft)
+
+REL52807
+
+VA 1 EH-20
+
+Arc sensor (pipe type), cable length
+20 m (65.62 ft)
+
+REL52810
+
+VA 1 EH-6S
+
+Arc sensor (pipe type), shielded,
+cable length 6 m (19.69 ft)
+
+REL52808
+
+VA 1 EH-20S
+
+Arc sensor (pipe type), shielded,
+cable length 20 m (65.62 ft)
+
+REL52828
+
+VYX 001
+
+Surface mounting plate for sensors,
+Z-shaped
+
+REL52829
+
+VYX 002
+
+Surface mounting plate for sensors, Lshaped
+
+REL52903
+
+Door mount bracket
+
+For PowerLogic A125 and
+PowerLogic A3F, IP 20
+
+39
+
+Schneider Electric Industries SAS
+35 rue Joseph Monier CS30323
+92506 Rueil-Malmaison Cedex
+France
++ 33 (0) 1 41 29 70 00
+www.se.com
+As standards, specifications, and design change from time to time,
+please ask for confirmation of the information given in this publication.
+
+© 2023 – 2023 Schneider Electric. All rights reserved.
+A125/EN M/01A
+
+

@@ -1,0 +1,3287 @@
+PowerLogic P3
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+Quick Start - IEC
+01/2026
+
+P3X_EN_QS_30-209A
+www.schneider-electric.com
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Table of Contents
+
+Table of Contents
+1 About this manual.......................................................................... 8
+1.1 Description of the document versions...............................................................8
+
+2 Easergy to PowerLogic renaming.................................................. 9
+3 General product information.........................................................10
+3.1 Checking the consignment..............................................................................10
+3.2 Product identification.......................................................................................10
+3.3 Storage........................................................................................................... 12
+3.4 Warranty......................................................................................................... 12
+3.5 Complaints...................................................................................................... 12
+
+4 Operational safety........................................................................ 13
+4.1 Electrical safety...............................................................................................13
+4.2 Device handling.............................................................................................. 13
+4.3 Electrostatic discharge....................................................................................13
+
+5 Wiring........................................................................................... 14
+5.1 Installing connections......................................................................................14
+5.2 Checking the wiring.........................................................................................14
+
+6 Energizing.................................................................................... 15
+7 Front panel................................................................................... 16
+7.1 Push-buttons...................................................................................................16
+7.2 LED indicators.................................................................................................17
+7.3 Configuring the LED names via eSetup Easergy Pro..................................... 18
+7.4 Controlling the alarm screen........................................................................... 18
+7.5 Accessing operating levels............................................................................. 19
+7.6 Adjusting the LCD contrast............................................................................. 19
+7.7 Testing the LEDs and LCD screen................................................................. 19
+7.8 Releasing latches............................................................................................19
+7.8.1 Releasing latches using eSetup Easergy Pro.......................................19
+7.8.2 Releasing latches using buttons and local panel display......................20
+7.8.3 Releasing latches using F1 or F2 buttons............................................ 20
+7.9 Controlling an object with selective control..................................................... 21
+7.10 Controlling an object with direct control........................................................ 22
+7.11 Menus........................................................................................................... 22
+7.11.1 Moving in the menus ..........................................................................24
+7.11.2 Local panel messages........................................................................ 25
+
+8 eSetup Easergy Pro setting and configuration tool...................... 26
+9 Access to device configuration.....................................................27
+9.1 User accounts................................................................................................. 27
+
+P3X_EN_QS_30-209A
+
+3
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Table of Contents
+
+9.2 Logging on via the front panel.........................................................................27
+9.3 HTTP and FTP logon details...........................................................................28
+9.4 Password management.................................................................................. 28
+9.5 Password restoring......................................................................................... 29
+
+10 Local port................................................................................... 30
+11 Block diagrams...........................................................................31
+12 Mounting.................................................................................... 35
+13 Related documents.................................................................... 40
+
+4
+
+P3X_EN_QS_30-209A
+
+Legal information
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Legal information
+The Schneider Electric brand and any registered trademarks of Schneider Electric
+Industries SAS referred to in this guide are the sole property of Schneider Electric
+SA and its subsidiaries. They may not be used for any purpose without the
+owner's permission, given in writing. This guide and its content are protected,
+within the meaning of the French intellectual property code (Code de la propriété
+intellectuelle français, referred to hereafter as "the Code"), under the laws of
+copyright covering texts, drawings and models, as well as by trademark law. You
+agree not to reproduce, other than for your own personal, noncommercial use as
+defined in the Code, all or part of this guide on any medium whatsoever without
+Schneider Electric's permission, given in writing. You also agree not to establish
+any hypertext links to this guide or its content. Schneider Electric does not grant
+any right or license for the personal and noncommercial use of the guide or its
+content, except for a non-exclusive license to consult it on an "as is" basis, at your
+own risk. All other rights are reserved.
+Electrical equipment should be installed, operated, serviced and maintained only
+by qualified personnel. No responsibility is assumed by Schneider Electric for any
+consequences arising out of the use of this material.
+As standards, specifications and designs change from time to time, please ask for
+confirmation of the information given in this publication.
+
+P3X_EN_QS_30-209A
+
+5
+
+Safety information
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Safety information
+Important information
+Read these instructions carefully and look at the equipment to become familiar
+with the device before trying to install, operate, service or maintain it.
+The following special messages may appear throughout this publication or on
+the equipment to warn of potential hazards or to call attention to information that
+clarifies or simplifies a procedure.
+This is the safety alert symbol. It is used to alert you to potential
+personal injury hazards. Obey all safety messages that follow
+this symbol to avoid possible injury or death.
+The addition of either symbol to a “Danger” or “Warning” safety
+label indicates that an electrical hazard exists which will result
+in personal injury if the instructions are not followed.
+
+DANGER
+DANGER indicates a hazardous situation which, if not avoided, will result
+in death or serious injury.
+
+WARNING
+WARNING indicates a hazardous situation which, if not avoided, can
+result in death or serious injury.
+
+CAUTION
+CAUTION indicates a hazardous situation which, if not avoided, can
+result in minor or moderate injury.
+
+NOTICE
+NOTICE is used to address practices not related to physical injury.
+Please note
+Electrical equipment must only be installed, operated, serviced, and maintained
+by qualified personnel. A qualified person is one who has skills and knowledge
+related to the construction, installation, and operation of electrical equipment and
+has received safety training to recognize and avoid the hazards involved.
+No responsibility is assumed by Schneider Electric for any consequences arising
+out of the use of this material.
+Protective grounding
+The user is responsible for compliance with all the existing international and
+national electrical codes concerning protective grounding of any device.
+
+6
+
+P3X_EN_QS_30-209A
+
+EU directive and UKCA regulations compliance
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+EU directive and UKCA regulations compliance
+
+EU directive compliance
+
+UKCA regulations compliance
+Schneider Electric Limited
+Telford, TF3 3BL
+United Kingdom
+
+EMC compliance
+
+EMC compliance
+
+2014/30/EU
+
+SI 2016 No. 1091
+
+Compliance with the European
+
+The Electromagnetic Compatibility
+
+Commission's EMC Directive. Product
+
+Regulations:
+
+Specific Standard was used to establish
+
+• BS EN 60255-26 2013
+
+conformity:
+• EN 60255-26 2013
+Product safety
+
+Product safety
+
+2014/35/EU
+
+SI 2016 No. 1101
+
+Compliance with the European
+
+The Electrical Equipment (Safety)
+
+Commission's Low Voltage Directive.
+
+Regulations:
+
+Product Specific Safety Standard was used • BS EN 60255-27 2014
+to establish conformity:
+• EN 60255-27 2014
+RoHS directive
+
+RoHS regulation
+
+2011/65/EU (inclusive of Directive (EU)
+
+SI 2012 No. 3032
+
+2015/863) Compliance
+
+The Restriction of the Use of Certain
+
+Compliance with the European
+
+Hazardous Substances in Electrical and
+
+Commission's on the restriction of the
+
+Electronic Equipment Regulations
+
+use of certain hazardous substances in
+
+• BS EN IEC 63000:2018
+
+electrical and electronic equipment
+• EN IEC 63000:2018 / IEC 63000:2016
+
+P3X_EN_QS_30-209A
+
+7
+
+1 About this manual
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+1 About this manual
+This manual contains instructions for handling, mounting and wiring PowerLogic
+P3 protection relays:
+• P3F30 Feeder protection
+• P3L30 Line protection
+• P3T32 Transformer protection
+• P3M30, P3M32 Motor protection
+• P3G30, P3G32 Generator protection
+Carefully read through the mounting instruction of this manual before undertaking
+any mounting or wiring work.
+
+1.1 Description of the document versions
+The document version rule was upgraded since the firmware version 30.208 to
+help understand for which firmware version the user manual is intended.
+The document version is composed of the following information:
+•
+
+•
+
+•
+
+•
+•
+•
+
+8
+
+Product type
+◦ P3U stands for PowerLogic P3 Standard; P3X stands for PowerLogic P3
+Advanced;
+◦ P3F stands for PowerLogic P3 Feeder;
+◦ P3G stands for PowerLogic P3 Generator;
+◦ P3L stands for PowerLogic P3 Line differential;
+◦ P3M stands for PowerLogic P3 Motor;
+◦ P3T stands for PowerLogic P3 Transformer.
+Language and standard definition
+◦ EN, FR, IT, ES, PT, RU, CN, ANSI, and so on.
+◦ By default, the IEC standard applies. ANSI version is always published in
+the English language.
+Document type
+◦ M stands for User Manual, QS stands for Quick Start Manual, C stands for
+Communication Manual.
+Major version of the firmware
+Release version of the firmware
+Document version, which loops from A to Z for a dedicated release version.
+
+P3X_EN_QS_30-209A
+
+2 Easergy to PowerLogic renaming
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+2 Easergy to PowerLogic renaming
+Schneider Electric, driven by its “Customer First” Core Value, is fully committed
+to easing the customer experience with our portfolio on all fronts. With this core
+mission in mind, the decision to optimize the number of brands has been taken
+across the entire digital Schneider Electric portfolio to provide a more cohesive
+and consistent presentation of our offers across different Divisions, bringing a
+simpler and customer-centric approach that will facilitate the navigation through
+all the breadth and depth of our offers and that will be a key enabler for an
+optimized digitization experience.
+This brand optimization initiative affects Protection & Control portfolio including
+Easergy P3 protection and control relays. The Easergy P3 has been renamed to
+PowerLogic P3. It is essential to emphasize that this renaming exclusively affects
+the brand name of the products and will have absolutely no consequence on the
+current performance, specifications, characteristics, and/or quality of the product,
+which remain totally unaffected by this brand name migration. During the brand
+transition project, it may happen that the application of this change to different
+parts of the offer becomes effective with different time schedules. There is
+absolutely no difference between Easergy and PowerLogic branded P3 products
+and accessories. Easergy accessories can be used with PowerLogic P3 product
+as long as the commercial reference is matching. The commercial references
+have not changed along with the renaming of the offer. eSetup Easergy Pro and
+CET850 remain the software to configure PowerLogic P3 protection and control
+relays.
+
+P3X_EN_QS_30-209A
+
+9
+
+3 General product information
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+3 General product information
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing, see applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing device to ensure that all
+power is off.
+Do not open the secondary circuit of a live current transformer.
+Always connect the polarity of the current transformer (CT) and the voltage
+transformer (VT) and their secondary ground wiring according to the
+connection diagrams presented in this document.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+
+3.1 Checking the consignment
+•
+
+•
+•
+
+Check that the unit packaging and the seal are intact at the receipt of the
+delivery. Our products leave the factory in closed, sealed packaging. If the
+transport packaging is open or the seal is broken, the confidentiality and
+authenticity of the information contained in the products cannot be ensured.
+Check the device visually for possible external damage or loose parts inside
+the device. If you find the device to be damaged, see 3.5 Complaints.
+Check that the device complies with the order and the Calibration and Test
+Report. Check:
+◦
+◦
+
+relay type, serial number
+other possible order-related structural matters
+
+If found incomplete, see 3.5 Complaints.
+
+3.2 Product identification
+Each PowerLogic P3 relay is delivered in a separate package containing:
+•
+•
+•
+
+PowerLogic P3 protection relay with the necessary terminal connectors
+Production testing certificate
+Quick Start manual
+
+Optional accessories are delivered in separate packages.
+To identify a PowerLogic P3 protection relay, see the labels on the package and
+on the side of the relay.
+
+10
+
+P3X_EN_QS_30-209A
+
+3 General product information
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Serial number label
+Figure 1 - P3X Serial number label
+1 Un:
+Made in Country
+100/110V
+12 Mfg Date: 27.7.2017
+2 fn:
+50/60Hz
+I
+5 I n:
+3 In:
+1/5A 13 MAC: 001AD3011FF1
+1/5A
+6 Io2n: 1/0.2A
+4 Io1n: 5/1A
+7 Io3n: 1/5A
+8 Pmax:
+35W
+P:
+9 Uaux: 110 240 Vac/dc
+
+Type: 10 P3G32-CGITA-KAENA-BAAAA
+14 VID: P3G32-001017
+S/N: 11 SM173020002
+
+1.
+
+Rated voltage Un
+
+2.
+
+Rated frequency fn
+
+3.
+
+Rated phase current In
+
+4.
+
+Rated earth fault current I01n
+
+5.
+
+Rated phase current I´n1) *)
+
+6.
+
+Rated earth fault current I02n
+
+7.
+
+Rated earth fault current I03n1) *)
+
+8.
+
+Power consumption Pmax
+
+9.
+
+Power supply operating range Uaux
+
+10.
+
+Order code
+
+11.
+
+Serial number
+
+12.
+
+Manufacturing date
+
+13.
+
+MAC address for TCP/IP communication
+
+14.
+
+Production identification
+
+Unit package label
+Figure 2 - P3X Unit package label
+
+P3F30
+
+A
+
+Protection relay
+Relais de protection
+
+B
+
+C
+PowerLogic - P3
+
+Made in Country
+EB20253L0100022
+REL52101
+135732
+
+D P3F30-CGGII-KAENA-BAAAA
+P3F30-009096
+
+x1
+
+F
+
+E
+606481
+
+3571 6 8 3
+
+SCHNEIDER ELECTRIC
+CS30323
+F-92506 RUEIL MALMAISON CEDEX
+
+A. Product name
+B. Serial number
+C. Short order code
+
+1)
+
+P3X_EN_QS_30-209A
+
+D. Order code
+E. EAN13 bar code
+F. Internal product code
+
+*)Available in P3M32, P3T32 and P3G32 models only
+
+11
+
+3 General product information
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+3.3 Storage
+
+NOTICE
+WATER DAMAGE
+•
+•
+•
+
+•
+
+Do not expose the products to sustained humidity during storage.
+Electrically energize the products within three months of unpacking.
+Where electrical equipment is being installed, allow sufficient time for
+acclimatization to the ambient temperature of the environment before
+powering on.
+Supply power to the protection device every two years for at least one hour.
+
+Failure to follow these instructions can reduce the product life span.
+If PowerLogic P3 devices are not to be installed immediately upon receipt,
+they should be stored in a place free from dust, humidity and moisture in their
+original packaging. PowerLogic P3 can be stored in its original packaging, in an
+appropriate location for several years:
+•
+•
+
+Temperature from -40°C to +70°C (-40°F to +158°F)
+Humidity <90%
+
+Care should be taken on subsequent unpacking so that any dust collected on the
+carton does not fall inside.
+Periodically, on yearly basis checking of the environment and the packaging
+condition is recommended. It is recommended to power on PowerLogic P3 for
+one hour every two years.
+After PowerLogic P3 is unpacked, it is recommended to energize the device
+immediately in an appropriate environment in terms of temperature, humidity and
+pollution.
+If PowerLogic P3 is installed in a cubicle, keep the cubicle protection packing as
+long as possible. The relay should not be stored in a damp environment for more
+than a month. It should be energized as quickly as possible. If this is not possible,
+the cubicle reheating system should be activated.
+
+3.4 Warranty
+This product has a standard warranty of 2 years.
+Ask your local Schneider Electric representative about our optional 10-year
+warranty. Local conditions and availability apply.
+
+3.5 Complaints
+Complaints for manufacturing faults are directed in writing to the relay
+manufacturer or the authorized dealer from which the product was acquired. Find
+more information from our customers care center (https://www.se.com/CCC).
+Complaints about transport damage must be sent to the accountable transport or
+insurance company.
+
+12
+
+P3X_EN_QS_30-209A
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+4 Operational safety
+
+4 Operational safety
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing, see applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing device to ensure that all
+power is off.
+Do not open the secondary circuit of a live current transformer.
+Always connect the polarity of the current transformer (CT) and the voltage
+transformer (VT) and their secondary ground wiring according to the
+connection diagrams presented in this document.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+
+4.1 Electrical safety
+National electrical safety regulations must be observed when work is carried out
+under live conditions. The relay manufacturer cannot be held responsible for
+accidents caused by incorrect working or protection practices.
+
+4.2 Device handling
+The correct handling of the relays under all mounting and operating conditions
+forms the foundation for their correct and safe use. Observe all safety notes and
+warnings.
+
+4.3 Electrostatic discharge
+The devices include components that are liable to be damaged by electrostatic
+discharge (ESD). Do not open the devices without permission from the
+manufacturer.
+
+P3X_EN_QS_30-209A
+
+13
+
+5 Wiring
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+5 Wiring
+Perform the wiring work according to national standards and possible
+requirements from the customer.
+
+5.1 Installing connections
+NOTE: Use only single-strand wire or stranded wire with insulated crimp
+terminals.
+1.
+
+Check that the rated values of the relay comply with those of the intended
+application.
+◦
+
+◦
+
+Check that the rated values of the voltage and current transformer
+secondaries comply with those of the device. The rated values can be
+found on the serial number label.
+Check that the load ability of the outputs is adequate.
+
+2.
+
+Earth the relay by connecting an earthing wire using a minimum 2.5 mm2
+cross-section (AWG 14) to the device's earthing terminal.
+
+3.
+
+Wire the relay to the rest of the system according to the wiring diagrams of
+the application.
+
+4.
+
+Connect the cable shields of shielded signal cables to the device's earthing
+terminal.
+
+5.2 Checking the wiring
+Check the secondary wiring by visual inspection and, when needed, by
+measuring to eliminate possible incorrect wiring that may cause malfunction of
+the relay or associated devices.
+•
+Check the wiring visually:
+◦
+
+•
+
+Inspect the wiring visually. Especially check the wire bunches for
+adequate slack where needed over the hinges.
+◦ Check the screw terminals for correct tightness.
+◦ Check that no wire strands are protruding from the terminals.
+Check the wiring by measuring:
+◦
+◦
+
+14
+
+Check the connections between the relay and associated devices by
+using a circuit indicator lamp or buzzer.
+Check other possible connections by using recognized and reliable
+working practices.
+
+P3X_EN_QS_30-209A
+
+6 Energizing
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+6 Energizing
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Before connecting the devices, disconnect the supply voltage to the unit.
+Failure to follow these instructions will result in death or serious injury.
+The external auxiliary voltage UAUX (110–240 V ac/dc, or optionally 24–48 V dc)
+of the relay is connected to the pins 1/C/1:1–2 or 1/D/1:1–2.
+NOTE: When an optional 24–48 V dc power module is used, the polarity is as
+follows: 1/D/2:2 positive (+), 1/D/2:1 negative (-).
+
+NOTICE
+LOSS OF PROTECTION OR RISK OF NUISANCE TRIPPING
+Check that the operating mode and SF relay wiring are compatible with the
+installation.
+Failure to follow these instructions can result in equipment damage.
+NOTE: If the relay is no longer supplied with power or is in permanent fault
+state, the protection functions are no longer active and all the PowerLogic P3
+digital outputs are dropped out.
+When the device is switched on, it performs the following initialization sequence
+that takes approximately 5 seconds:
+• Power LED ON, “Starting ..” on the screen.
+• Watchdog contact starts.
+The first screen displayed at the end of the sequence is the Mimic view screen.
+
+P3X_EN_QS_30-209A
+
+15
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+7 Front panel
+
+7 Front panel
+PowerLogic P3 has a 128 x 128 LCD matrix display.
+Figure 3 - PowerLogic P3 front panel
+
+A
+
+I
+
+B
+
+D
+
+E
+
+F
+
+ON
+A
+C
+E
+G
+I
+K
+M
+
+Service
+B
+D
+F
+H
+J
+L
+N
+
+F1
+
+F2
+
+J G
+
+A. Power LED
+B. HOME/CANCEL push-button
+C. Navigation push-buttons
+D. LCD
+E. INFO push-button
+
+C
+
+G
+
+J
+
+H
+
+F. Service LED
+G. Function push-buttons and LEDs showing their status
+H. Local port
+I. Object control buttons
+J. User-configurable LEDs
+
+7.1 Push-buttons
+Symbol
+
+Function
+HOME/CANCEL push-button for returning to the previous menu. To
+return to the first menu item in the main menu, press the button for at
+least 3 seconds.
+INFO push-button for viewing additional information, for entering the
+password view and for adjusting the LCD contrast.
+Programmable function push-button.2)
+Programmable function push-button.2)
+ENTER push-button for activating or confirming a function.
+UP navigation push-button for moving up in the menu or increasing a
+numerical value.
+
+16
+
+P3X_EN_QS_30-209A
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Symbol
+
+Function
+DOWN navigation push-button for moving down in the menu or
+decreasing a numerical value.
+LEFT navigation push-button for moving backwards in a parallel menu
+or selecting a digit in a numerical value.
+RIGHT navigation push-button for moving forwards in a parallel menu or
+selecting a digit in a numerical value.
+Circuit breaker ON push-button
+Circuit breaker OFF push-button
+
+2) The default names of the function buttons are Function button 1 and 2. You can change the names
+
+of the buttons in the Control > Names for function buttons setting view.
+
+7.2 LED indicators
+The relay has 18 LEDs on the front panel:
+•
+•
+•
+
+two LEDs for function buttons (F1 and F2)
+two LEDs represent the unit's general status (power and service)
+14 user-configurable LEDs (A-N)
+
+When the relay is powered, the power LED is green. During normal use, the
+service LED is not active, it activates only when an error occurs or the relay is
+not operating correctly. Should this happen, contact your local representative for
+further guidance. The service LED and watchdog contact are assigned to work
+together. Hardwire the status output into the substation's automation system for
+alarm purposes.
+The user-configurable LEDs may be red or green. You can configure them via
+eSetup Easergy Pro.
+To customize the LED texts on the front panel for the user-configurable LEDs, the
+text may be created using a template and then printed. The printed text may be
+placed in the pockets beside the LEDs.
+You can also customize the LED texts that are shown on the screen for active
+LEDs via eSetup Easergy Pro.
+Table 1 - LED indicators and their information
+LED indicator
+
+LED color
+
+Meaning
+
+Measure /
+Remarks
+
+Power LED lit
+
+Green
+
+The auxiliary power
+
+Normal operation
+
+has been switched
+
+state
+
+on.
+Service LED lit
+
+Red
+
+Internal fault.
+
+The relay attempts
+
+Operates in parallel
+
+to reboot. If
+
+with the self-
+
+the service LED
+
+supervision output
+
+remains lit, call for
+maintenance.
+
+P3X_EN_QS_30-209A
+
+17
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+LED indicator
+
+LED color
+
+Meaning
+
+Measure /
+Remarks
+
+A–N LED lit
+
+Green, red, or
+
+Application-related
+
+Configurable in the
+
+orange3)
+
+status indicators.
+
+Matrix setting view
+
+Green
+
+Corresponding
+
+Depending on
+
+function key
+
+the function
+
+pressed / activated
+
+programmed to F1 /
+
+F1 or F2 LED lit
+
+F2
+3) To set the LED color to orange, go to MATRIX > LED matrix in eSetup Easergy Pro and configure
+
+the LED to display both green and red simultaneously.
+
+7.3 Configuring the LED names via eSetup Easergy Pro
+1.
+
+Go to Control > LED names.
+
+2.
+
+To change a LED, click the LED Description text and type a new name. To
+save the new name, press Enter.
+Figure 4 - LED NAMES menu in eSetup Easergy Pro for LED configuration
+
+7.4 Controlling the alarm screen
+You can enable or disable the alarm screen either via the relay's local display or
+using eSetup Easergy Pro:
+•
+•
+
+18
+
+On the local display, go to Events > Alarms.
+In eSetup Easergy Pro, go to General > Local panel conf.
+
+P3X_EN_QS_30-209A
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+7 Front panel
+
+7.5 Accessing operating levels
+1. On the front panel, press
+
+and
+
+2. Enter the password, and press
+
+.
+.
+
+7.6 Adjusting the LCD contrast
+Prerequisite: You have entered the correct password.
+1. Press
+
+, and adjust the contrast.
+
+◦
+
+To increase the contrast, press
+
+◦
+
+To decrease the contrast, press
+
+2. To return to the main menu, press
+
+.
+.
+.
+
+NOTE: By nature, the LCD display changes its contrast depending on the
+ambient temperature. The display may become dark or unreadable at low
+temperatures. However, this condition does not affect the proper operation of
+the protection or other functions.
+
+7.7 Testing the LEDs and LCD screen
+You can start the test sequence in any main menu window.
+To start the LED and LCD test:
+1. Press
+2. Press
+
+.
+.
+
+The relay tests the LCD screen and the functionality of all LEDs.
+
+7.8 Releasing latches
+You can release latches using:
+• eSetup Easergy Pro
+• buttons and local panel display
+• F1 or F2 buttons
+
+7.8.1 Releasing latches using eSetup Easergy Pro
+
+P3X_EN_QS_30-209A
+
+1.
+
+Connect eSetup Easergy Pro to the device.
+
+2.
+
+From the eSetup Easergy Pro toolbar, select Device > Release all latches.
+
+19
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Figure 5 - Releasing all latches
+
+Alternatively, go to Control > Release latches, and click the Release
+button.
+Figure 6 - Release latches
+
+7.8.2 Releasing latches using buttons and local panel display
+Prerequisite: You have entered the correct password
+.
+
+1.
+
+Press
+
+2.
+
+Press
+
+3.
+
+Select Release, and press
+All latches are released.
+
+.
+.
+
+7.8.3 Releasing latches using F1 or F2 buttons
+You can use the function buttons F1 or F2 to release all latches after configuring
+this function in eSetup Easergy Pro. You can make the configuration either under
+Control > Release Latches or under Control > Function buttons.
+•
+
+To configure F1 to release latches under Control > Release latches:
+a. In eSetup Easergy Pro, go to Control > Release latches.
+b. Under Release latches, select F1 from the DI to release latches dropdown menu.
+c. Set 1 s delay for Latch release signal pulse.
+
+20
+
+P3X_EN_QS_30-209A
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+7 Front panel
+
+Figure 7 - Release latches view
+
+•
+
+After this, pressing the F1 button on the relay’s front panel releases all
+latches.
+To configure F1 to release latches under Control >Function buttons:
+a. Under Function buttons, for F1, select PrgFncs from the Selected
+control drop down menu.
+b. Set 1 s delay for F1 pulse length.
+c. Under Programmable functions for F1, select “On” from the Release
+all latches drop-down menu.
+Figure 8 - Function buttons view
+
+After this, pressing the F1 button on the relay's front panel releases all
+latches.
+NOTE: The latch release signal can be activated only if the latched
+output is active.
+
+7.9 Controlling an object with selective control
+Prerequisite: You have logged in with the correct password and enabled selective
+control in the Objects setting view.
+When selective control is enabled, the control operation needs confirmation
+(select before operate).
+
+P3X_EN_QS_30-209A
+
+21
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+•
+
+•
+
+Press
+
+to close an object.
+
+–
+
+Press
+
+again to confirm.
+
+–
+
+Press
+
+to cancel.
+
+Press
+
+7 Front panel
+
+to open an object.
+
+–
+
+Press
+
+again to confirm.
+
+–
+
+Press
+
+to cancel.
+
+7.10 Controlling an object with direct control
+Prerequisite: You have logged in with the correct password and enabled direct
+control in the Objects setting view.
+When direct control is enabled, the control operation is done without confirmation.
+•
+
+Press
+
+to close an object.
+
+•
+
+Press
+
+to open an object.
+
+7.11 Menus
+This section gives an overview of the menus that you can access via the device's
+front panel.
+The main menu
+Press the right arrow to access more measurements in the main menu.
+Table 2 - Main menu
+Menu name
+
+Description
+
+Active LEDs
+
+User-configurable texts for active LEDs
+
+Measurements
+
+User-configurable measurements
+
+Single line
+
+Single line or Single line mimic,
+measurements and control view. This is
+a default start view. To return to this
+view from any location, press the HOME/
+CANCEL button for at least 3 seconds.
+
+Info
+
+Information about the relay: relay's name,
+order code, date, time and firmware version
+
+P
+
+Power: power factor and frequency values
+calculated by the relay. Press the right
+arrow to view more measurements.
+
+22
+
+P3X_EN_QS_30-209A
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Menu name
+
+Description
+
+E
+
+Energy: the amount of energy that
+has passed through the protected line,
+calculated by the relay from the currents
+and voltages. Press the right arrow to view
+more energy measurements.
+
+I
+
+Current: phase currents and demand
+values of phase currents. Press the right
+arrow to view more current measurements.
+
+U
+
+Line-to-line voltages. Press the right arrow
+to view other voltage measurements.
+
+Dema
+
+Minimum and maximum phase current and
+power demand values
+
+Umax
+
+Minimum and maximum values of voltage
+and frequency
+
+Imax
+
+Minimum and maximum current values
+
+Pmax
+
+Minimum and maximum power values
+
+Month
+
+Monthly maximum current and power
+values
+
+FL
+
+Short-circuit locator applied to incomer or
+feeder
+
+Evnt
+
+Event log: event codes and time stamps
+
+DR
+
+Disturbance recorder configuration settings
+
+Runh
+
+Running hour counter
+
+TIMR
+
+Timers: programmable timers that you can
+use to preset functions
+
+DI
+
+Digital input statuses and settings
+
+DO
+
+Digital output statuses and settings
+
+Arc
+
+Arc flash detection settings
+
+Prot
+
+Protection: settings and statuses for various
+protection functions
+
+I>, I>>, etc.
+
+Protection stage settings and statuses. The
+availability of the menus depends on the
+activated protection stages.
+
+AR
+
+Auto-recloser settings, statuses and
+registers
+
+P3X_EN_QS_30-209A
+
+23
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Menu name
+
+Description
+
+OBJ
+
+Objects: settings related to object status
+data and object control (open/closed)
+
+Lgic
+
+Logic events and counters
+
+CONF
+
+General device setup: CT and VT scalings,
+frequency adaptation, units, device info,
+date, time, clock, etc.
+
+Bus
+
+Communication port settings
+
+Slot
+
+Slot info: card ID (CID) that is the name of
+the card used by the relay firmware
+
+Diag
+
+Diagnosis: various diagnostic information
+
+7.11.1 Moving in the menus
+Figure 9 - Moving in menus using the front panel
+Main menu
+
+Prot
+
+Submenus
+
+protection enabling
+OK
+
+ISTART setting
+OK
+
+OK
+
+•
+
+To move in the main menu, press
+
+or
+
+.
+
+•
+
+To move in the submenus, press
+
+or
+
+•
+
+While in the submenu, press
+
+or
+
+•
+
+To enter a submenu, press
+up in the menu.
+
+and use
+
+•
+
+To edit a parameter value, press
+
+and
+
+•
+
+Enter the password, and press
+
+.
+
+•
+
+To go back to the previous menu, press
+
+•
+
+To go back to the first menu item in the main menu, press
+three seconds.
+
+.
+to jump to the root.
+or
+
+for moving down or
+
+.
+
+.
+for at least
+
+NOTE: To enter the parameter edit mode, enter the password. When the
+value is in edit mode, its background is dark.
+
+24
+
+P3X_EN_QS_30-209A
+
+7 Front panel
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+7.11.2 Local panel messages
+Table 3 - Local panel messages
+Value is not editable:
+
+The value can not be edited or password is
+not given
+
+Control disabled:
+
+Object control disabled due to wrong
+operating level
+
+Change causes autoboot:
+
+Notification that if the parameter is changed
+the relay boots itself
+
+P3X_EN_QS_30-209A
+
+25
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+8 eSetup Easergy Pro setting and configuration tool
+
+8 eSetup Easergy Pro setting and configuration tool
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC
+FLASH
+Only qualified personnel should operate this equipment.
+Such work should be performed only after reading this
+entire set of instructions and checking the technical
+characteristics of the device.
+Failure to follow this instruction will result in death or
+serious injury.
+eSetup Easergy Pro is a software tool for configuring PowerLogic P3 relays. It
+has a graphical interface where the relay settings and parameters are grouped
+under seven tabs:
+•
+•
+•
+•
+•
+•
+•
+
+General
+Measurements
+Inputs/outputs
+Protection
+Matrix
+Logs
+Communication
+
+The contents of the tabs depend on the relay type and the selected application
+mode.
+eSetup Easergy Pro stores the relay configuration in a setting file. The
+configuration of one physical relay is saved in one setting file. The configurations
+can be printed out and saved for later use.
+For more information, see the eSetup Easergy Pro user manual.
+NOTE: Download the latest version of the software from se.com.
+
+NOTICE
+HAZARD OF EQUIPMENT DAMAGE
+After writing new settings or configurations to a device, perform a test to verify
+that the relay operates correctly with the new settings.
+Failure to follow these instructions can result in unwanted shutdown of
+the electrical installation.
+
+26
+
+P3X_EN_QS_30-209A
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+9 Access to device configuration
+
+9 Access to device configuration
+You can access the device configuration via:
+• the eSetup Easergy Pro setting tool
+• the device’s front panel
+NOTE: There is a timeout mechanism for Telnet/Serial/Http connections.
+When logging on via the front panel or Web HMI, you are automatically
+logged out after 15 minutes inactivity.
+
+9.1 User accounts
+By default, the PowerLogic P3 device has three user accounts.
+Table 4 - User accounts
+User account User name
+
+Default
+password
+
+Use
+
+User
+
+0
+
+Can view parameter values,
+
+user
+
+measurements and events. This
+account cannot modify settings
+and files.
+Operator
+
+operator
+
+1
+
+Has the same rights as User
+account and can perform control
+actions and change settings.
+
+Configurator
+
+conf
+
+2
+
+Has the same rights as Operator
+account and is needed during
+P3 device commissioning. For
+example, the scaling of the voltage
+and current transformers can be
+set only with Configurator account.
+
+9.2 Logging on via the front panel
+NOTE: To log on via the front panel, you need a password that consists of
+letters, digits, or other characters in the scope of ASCII 0x21~0x7E.
+1.
+
+Press
+
+and
+
+on the front panel. The Enter password view opens.
+
+Figure 10 - Enter password view
+
+2.
+
+P3X_EN_QS_30-209A
+
+Enter the password for the desired access level.
+
+27
+
+9 Access to device configuration
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Select a digit value using
+
+, and if the password is longer than one digit,
+
+move to the next digit position using
+
+.
+
+NOTE: There are 16 digit positions in the Enter password view. Enter
+the password starting from the first digit position.
+For example, if the password is 2, you can enter 2***, **2*, ***2, or 0002
+to log on.
+3.
+
+Press
+
+to confirm the password.
+
+Related topics
+9.4 Password management
+
+9.3 HTTP and FTP logon details
+You can log on to the HTTP server and FTP using these user names and
+passwords.
+Table 5 - HTTP and FTP logon details
+Protocol
+
+User name
+
+Password
+
+HTTP
+
+conf
+
+2
+
+FTP
+
+conf
+
+2
+
+9.4 Password management
+
+NOTICE
+CYBERSECURITY HAZARD
+•
+•
+•
+
+Change all passwords from their default values when taking the protection
+device into use.
+Change all passwords regularly.
+Ensure a minimum level of password complexity according to common
+password guidelines.
+
+Failure to follow these instructions can increase the risk of unauthorized
+access.
+You can change the password for the operator or configurator user accounts in
+the DEVICE/TEST > System info setting view in eSetup Easergy Pro.
+The password can contain letters, digits or other characters in the scope of ASCII
+0x21~0x7E. However, the new password cannot be any of the default passwords
+(digits 0–4 or 9999).
+Follow these guidelines to improve the password complexity and thus device
+security:
+• Use a password of minimum 8 characters.
+• Use alphabetic (uppercase and lowercase) and numeric characters in addition
+to symbols.
+• Avoid character repetition, number or letter sequences and keyboard patterns.
+
+28
+
+P3X_EN_QS_30-209A
+
+9 Access to device configuration
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+•
+•
+•
+
+Do not use any personal information, such as birthday, name, etc.
+Do not use the same password for different user accounts.
+Do not reuse old passwords.
+
+Also, all users must be aware of the best practices concerning passwords
+including:
+• not sharing personal passwords
+• not displaying passwords during password entry
+• not transmitting passwords in email or by other means
+• not saving the passwords on PCs or other devices
+• no written passwords on any supports
+• regularly reminding users about the best practices concerning passwords
+Related topics
+9.2 Logging on via the front panel
+
+9.5 Password restoring
+If you have lost or forgotten all passwords, contact Schneider Electric to restore
+the default passwords.
+
+P3X_EN_QS_30-209A
+
+29
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+10 Local port
+
+10 Local port
+The relay has a USB port in the front panel.
+Protocol for the USB port
+The front panel USB type B port is always using the command line protocol for
+eSetup Easergy Pro.
+The speed of the interface is defined in the CONF/DEVICE SETUP menu via the
+front panel. The default settings for the relay are 187500.
+
+30
+
+P3X_EN_QS_30-209A
+
+11 Block diagrams
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+11 Block diagrams
+The status of the output contacts is shown when the relay is energized but none
+of the protection, controlling or self-supervision elements are activated.
+
+Figure 11 - Typical block diagram for P3F30, P3M30 and P3G30 relays
+
+~
+
+1/C/1:1
+
+L +/~
+
+1/C/1:2
+
+8/E/1:1
+8/E/1:2
+8/E/1:3
+8/E/1:4
+8/E/1:5
+
+8/1/1:1
+IL1 5/1A
+8/1/1:2
+8/1/1:3
+IL2 5/1A
+8/1/1:4
+8/1/1:5
+
+8/E/1:6
+8/E/1:7
+8/E/1:8
+
+8/1/1:6
+8/1/1:7
+8/1/1:8
+
+8/E/1:9
+8/E/1:10
+8/E/1:11
+
+8/1/1:9
+8/1/1:10 I02 1A
+8/1/1:11
+
+8/E/1:12
+8/E/2:1
+8/E/2:2
+8/E/2:3
+8/E/2:4
+8/E/2:5
+8/E/2:6
+
+8/1/1:12
+8/1/2:1
+
+8/E/2:7
+8/E/2:8
+
+8/1/2:7
+
+=
+
+IL3 5/1A
+I01 5A
+I01 1A
+
+I02 0.2A
+
+U1
+
+8/1/2:2
+8/1/2:3
+U2
+8/1/2:4
+8/1/2:5
+U3
+8/1/2:6
+8/1/2:8
+
+1
+F
+P3M30-CGGAA-DAENA-BAAAA
+G
+
+N -/~
+
+1/C/1:20
+
+T12
+
+1/C/1:19
+1/C/1:18
+
+T12
+T11
+
+1/C/1:17
+1/C/1:16
+1/C/1:15
+1/C/1:14
+1/C/1:13
+1/C/1:12
+1/C/1:11
+
+T11
+T10
+T10
+T9
+T9
+T1
+T1
+
+1/C/1:10
+1/C/1:9
+1/C/1:8
+
+A1 NO
+A1 NC
+A1 COM
+
+1/C/1:7
+1/C/1:6
+1/C/1:5
+
+SF NC
+SF NO
+SF COM
+
+2/G/1:13
+2/G/1:14
+2/G/1:15
+2/G/1:16
+
+U4
+
+2/G/1:17
+2/G/1:18
+
+DI6
+DI6
+DI5
+DI5
+DI4
+DI4
+DI3
+DI3
+DI2
+DI2
+DI1
+DI1
+
+2/G/1:12
+2/G/1:11
+2/G/1:10
+2/G/1:9
+2/G/1:8
+2/G/1:7
+2/G/1:6
+2/G/1:5
+2/G/1:4
+2/G/1:3
+2/G/1:2
+2/G/1:1
+
+DI
+
+DI12
+DI12
+DI11
+DI11
+DI10
+DI10
+DI9
+DI9
+DI8
+DI8
+DI7
+DI7
+
+3/G/1:12
+3/G/1:11
+3/G/1:10
+3/G/1:9
+3/G/1:8
+3/G/1:7
+3/G/1:6
+3/G/1:5
+3/G/1:4
+3/G/1:3
+3/G/1:2
+3/G/1:1
+
+DI
+
+S6 S6 +
+S5 S5 +
+S4 S4 +
+S3 S3 +
+
+6/D/1:8
+6/D/1:7
+6/D/1:6
+6/D/1:5
+6/D/1:4
+6/D/1:3
+6/D/1:2
+6/D/1:1
+
+L>
+
+2/G/1:19
+2/G/1:20
+
+3/G/1:13
+3/G/1:14
+3/G/1:15
+3/G/1:16
+3/G/1:17
+3/G/1:18
+3/G/1:19
+3/G/1:20
+
+T13
+T14
+T15
+T16
+
+T17
+T18
+T19
+T20
+
+9/N/1
+
+Eth RJ45
+
+9/N/2
+
+Eth RJ45
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3X_EN_QS_30-209A
+
+31
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+11 Block diagrams
+
+Figure 12 - P3F30 and P3M30 block diagram – LPIT
+
+1/C/1:1
+
+L +/~
+
+1/C/1:2
+
+~
+=
+LPCT
+IL1 RJ45
+IL2 RJ45
+IL3 RJ45
+
+LPVT
+HUB1 U1, U2, U3
+HUB2 U4
+
+8/M/1:1
+8/M/1:2
+
+8/M/1:1 I
+5A
+01
+8/M/1:2
+
+8/M/1:3
+8/M/1:4
+8/M/1:5
+
+8/M/1:3
+8/M/1:4 I 1A
+02
+8/M/1:5
+
+8/M/1:6
+
+8/M/1:6
+
+I01 1A
+
+I02 0.2A
+
+F
+P3M30-CGGAA-DAMNA-BAAAA
+
+N -/~
+
+1/C/1:20
+
+T12
+
+1/C/1:19
+1/C/1:18
+
+T12
+T11
+
+1/C/1:17
+1/C/1:16
+1/C/1:15
+1/C/1:14
+1/C/1:13
+1/C/1:12
+1/C/1:11
+
+T11
+T10
+T10
+T9
+T9
+T1
+T1
+
+1/C/1:10
+1/C/1:9
+1/C/1:8
+
+A1 NO
+A1 NC
+A1 COM
+
+1/C/1:7
+1/C/1:6
+1/C/1:5
+
+SF NC
+SF NO
+SF COM
+
+2/G/1:13
+2/G/1:14
+2/G/1:15
+2/G/1:16
+2/G/1:17
+2/G/1:18
+
+DI6
+DI6
+DI5
+DI5
+DI4
+DI4
+DI3
+DI3
+DI2
+DI2
+DI1
+DI1
+
+2/G/1:12
+2/G/1:11
+2/G/1:10
+2/G/1:9
+2/G/1:8
+2/G/1:7
+2/G/1:6
+2/G/1:5
+2/G/1:4
+2/G/1:3
+2/G/1:2
+2/G/1:1
+
+DI12
+DI12
+DI11
+DI11
+DI10
+DI10
+DI9
+DI9
+DI8
+DI8
+DI7
+DI7
+
+3/G/1:12
+3/G/1:11
+3/G/1:10
+3/G/1:9
+3/G/1:8
+3/G/1:7
+3/G/1:6
+3/G/1:5
+3/G/1:4
+3/G/1:3
+3/G/1:2
+3/G/1:1
+
+DI
+
+S6 S6 +
+S5 S5 +
+S4 S4 +
+S3 S3 +
+
+6/D/1:8
+6/D/1:7
+6/D/1:6
+6/D/1:5
+6/D/1:4
+6/D/1:3
+6/D/1:2
+6/D/1:1
+
+L>
+
+DI
+
+2/G/1:19
+2/G/1:20
+
+3/G/1:13
+3/G/1:14
+3/G/1:15
+3/G/1:16
+3/G/1:17
+3/G/1:18
+3/G/1:19
+3/G/1:20
+
+T13
+T14
+T15
+T16
+
+T17
+T18
+T19
+T20
+
+9/N/1
+
+Eth RJ45
+
+9/N/2
+
+Eth RJ45
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+32
+
+P3X_EN_QS_30-209A
+
+11 Block diagrams
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Figure 13 - Typical block diagram for P3L30 relay
+
+1/C/1:1
+
+L +/~
+
+1/C/1:2
+
+8/E/1:1
+8/E/1:2
+8/E/1:3
+8/E/1:4
+8/E/1:5
+8/E/1:6
+8/E/1:7
+8/E/1:8
+8/E/1:9
+8/E/1:10
+8/E/1:11
+8/E/1:12
+8/E/2:1
+8/E/2:2
+8/E/2:3
+8/E/2:4
+8/E/2:5
+8/E/2:6
+8/E/2:7
+8/E/2:8
+
+~
+=
+
+IL1 5/1A
+IL2 5/1A
+IL3 5/1A
+I01 5A
+I01 1A
+I02 1A
+I02 0.2A
+
+P3L30-CGGAA-SAENA-BAAAA
+
+N -/~
+
+1/C/1:20
+
+T12
+
+1/C/1:19
+1/C/1:18
+
+T12
+T11
+
+1/C/1:17
+1/C/1:16
+
+T11
+T10
+
+1/C/1:15
+1/C/1:14
+1/C/1:13
+1/C/1:12
+
+T10
+T9
+T9
+T1
+
+1/C/1:11
+1/C/1:10
+1/C/1:9
+1/C/1:8
+
+T1
+A1 NO
+A1 NC
+A1 COM
+
+1/C/1:7
+1/C/1:6
+1/C/1:5
+
+SF NC
+SF NO
+SF COM
+
+2/G/1:13
+2/G/1:14
+2/G/1:15
+2/G/1:16
+2/G/1:17
+
+U1
+
+2/G/1:18
+2/G/1:19
+
+U2
+
+2/G/1:20
+
+T13
+T14
+T15
+T16
+
+U3
+
+3/G/1:13
+
+U4
+
+3/G/1:14
+3/G/1:15
+
+DI6
+DI6
+DI5
+DI5
+DI4
+DI4
+DI3
+DI3
+DI2
+DI2
+DI1
+DI1
+
+2/G/1:12
+2/G/1:11
+2/G/1:10
+2/G/1:9
+2/G/1:8
+2/G/1:7
+2/G/1:6
+2/G/1:5
+2/G/1:4
+2/G/1:3
+2/G/1:2
+2/G/1:1
+
+DI
+
+DI12
+DI12
+DI11
+DI11
+DI10
+DI10
+DI9
+DI9
+DI8
+DI8
+DI7
+DI7
+
+3/G/1:12
+3/G/1:11
+3/G/1:10
+3/G/1:9
+3/G/1:8
+3/G/1:7
+3/G/1:6
+3/G/1:5
+3/G/1:4
+3/G/1:3
+3/G/1:2
+3/G/1:1
+
+DI
+
+3/G/1:16
+3/G/1:17
+3/G/1:18
+3/G/1:19
+3/G/1:20
+
+T17
+T18
+T19
+T20
+
+6/S
+
+Line diff.
+pilot
+
+9/N/1
+
+Eth RJ45
+
+9/N/2
+
+Eth RJ45
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+P3X_EN_QS_30-209A
+
+33
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+11 Block diagrams
+
+Figure 14 - Typical block diagram for P3M32, P3T32 and P3G32 relays
+
+~
+
+N -/~
+
+1/C/1:1
+
+L +/~
+
+1/C/1:2
+
+DI1
+DI1
+DI2
+DI2
+DI3
+DI3
+DI4
+DI4
+DI5
+DI5
+DI6
+DI6
+
+2/G/1:1
+2/G/1:2
+2/G/1:3
+2/G/1:4
+2/G/1:5
+2/G/1:6
+2/G/1:7
+2/G/1:8
+2/G/1:9
+2/G/1:10
+2/G/1:11
+2/G/1:12
+
+DI
+
+DI7
+DI7
+DI8
+DI8
+DI9
+DI9
+DI10
+DI10
+DI11
+DI11
+DI12
+DI12
+DI13
+DI13
+DI14
+DI14
+DI15
+DI15
+DI16
+DI16
+
+3/I/1:1
+3/I/1:2
+3/I/1:3
+3/I/1:4
+3/I/1:5
+3/I/1:6
+3/I/1:7
+3/I/1:8
+3/I/1:9
+3/I/1:10
+3/I/1:11
+3/I/1:12
+3/I/1:13
+3/I/1:14
+3/I/1:15
+3/I/1:16
+3/I/1:17
+3/I/1:18
+3/I/1:19
+3/I/1:20
+
+DI
+
+Io1 (S2)
+Io2 (S1)
+Io2 (S2)
+
+8/E/1:1
+8/E/1:2
+8/E/1:3
+8/E/1:4
+8/E/1:5
+8/E/1:6
+8/E/1:7
+8/E/1:8
+8/E/1:9
+8/E/1:10
+8/E/1:11
+
+8/1/1:1
+8/1/1:2
+8/1/1:3
+8/1/1:4
+8/1/1:5
+8/1/1:6
+8/1/1:7
+8/1/1:8
+8/1/1:9
+8/1/1:10
+8/1/1:11
+
+Io2 (S2)
+ULL/ULN
+ULL/ULN
+ULL/ULN
+ULL/ULN
+Uo/ULL/ULN
+Uo/ULN/ULL
+Uo/ULN/ULL
+Uo/ULN/ULL
+
+8/E/1:12
+8/E/2:1
+8/E/2:2
+8/E/2:3
+8/E/2:4
+8/E/2:5
+8/E/2:6
+8/E/2:7
+8/E/2:8
+
+8/1/1:12
+8/1/2:1
+8/1/2:2
+8/1/2:3
+8/1/2:4
+8/1/2:5
+8/1/2:6
+8/1/2:7
+8/1/2:8
+
+IꞌL1 (S1)
+IꞌL1 (S2)
+IꞌL1 (S2)
+
+4/T/1:1
+4/T/1:2
+4/T/1:3
+
+4/1/1:1
+4/1/1:2
+4/1/1:3
+
+5A
+1A
+
+IꞌL2 (S1)
+IꞌL2 (S2)
+IꞌL2 (S2)
+
+4/T/1:4
+4/T/1:5
+4/T/1:6
+
+4/1/1:4
+4/1/1:5
+4/1/1:6
+
+5A
+1A
+
+IꞌL3 (S1)
+IꞌL3 (S2)
+IꞌL3 (S2)
+
+4/T/1:7
+4/T/1:8
+4/T/1:9
+
+4/1/1:7
+4/1/1:8
+4/1/1:9
+
+5A
+1A
+
+Io3 (S1)
+Io3 (S2)
+Io3 (S2)
+
+4/T/1:10
+4/T/1:11
+4/T/1:12
+
+4/1/1:10
+4/1/1:11
+4/1/1:12
+
+5A
+1A
+
+1
+1
+M
+P3T32-CGITA-AAENA-BAAAA
+G
+
+IL1 (S1)
+IL1 (S2)
+IL2 (S1)
+IL2 (S2)
+IL3 (S1)
+IL3 (S2)
+Io1 (S1)
+Io1 (S2)
+
+=
+
+1/C/1:20
+1/C/1:19
+1/C/1:18
+1/C/1:17
+1/C/1:16
+1/C/1:15
+
+T12
+T12
+T11
+T11
+T10
+T10
+
+1/C/1:14
+1/C/1:13
+1/C/1:12
+1/C/1:11
+1/C/1:10
+1/C/1:9
+1/C/1:8
+
+T9
+T9
+T1
+T1
+A1 NO
+A1 NC
+A1 COM
+
+1/C/1:7
+1/C/1:6
+1/C/1:5
+
+SF NC
+SF NO
+SF COM
+
+2/G/1:13
+2/G/1:14
+2/G/1:15
+2/G/1:16
+2/G/1:17
+2/G/1:18
+2/G/1:19
+2/G/1:20
+
+T13
+T13
+T14
+T14
+T15
+T15
+T16
+T16
+
+IL1 5/1A
+IL2 5/1A
+IL3 5/1A
+I0
+
+5A
+
+I0
+
+1A
+
+I0
+
+1A
+
+I0
+
+0.2A
+
+U1
+U2
+U3
+U4
+
+9/N/1
+
+Eth1
+
+9/N/2
+
+Eth2
+
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+Failure to follow this instruction will result in death or serious injury.
+
+34
+
+P3X_EN_QS_30-209A
+
+12 Mounting
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+12 Mounting
+DANGER
+HAZARD OF ELECTRIC SHOCK, EXPLOSION, OR ARC FLASH
+•
+•
+
+•
+•
+•
+•
+•
+
+Wear your personal protective equipment (PPE) and comply with the safe
+electrical work practices. For clothing refer applicable local standards.
+Only qualified personnel should install this equipment. Such work should
+be performed only after reading this entire set of instructions and checking
+the technical characteristics of the device.
+NEVER work alone.
+Turn off all power supplying this equipment before working on or inside it.
+Consider all sources of power, including the possibility of backfeeding.
+Always use a properly rated voltage sensing relay to ensure that all power
+is off.
+Do not open the secondary circuit of a live current transformer.
+Connect the device's protective ground to functional earth according to the
+connection diagrams presented in this document.
+
+Failure to follow this instruction will result in death or serious injury.
+NOTE: The length of the earthing cable should be as minimal as possible.
+
+CAUTION
+HAZARD OF CUTS
+•
+•
+
+Trim the edges of the cut-out plates to remove any jagged edges.
+Use protective gloves when moving and mounting the device.
+
+Failure to follow these instructions can result in injury.
+
+P3X_EN_QS_30-209A
+
+35
+
+12 Mounting
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Panel mounting
+Figure 15 - Panel mounting
+
+mm
+in
+
+225
+8.86
+
+1
+
+2
+
+c
+erg y
+Eas
+Pow erL ogi
+
+Pow erL ogi
+
+152
+5.98
+
+c
+
+1.0
+0.0-60
+4-2
+.3
+
+6
+
+3b
+
+2.5 Nm
+22 lb-in
+
+T max. 1.2 Nm
+10.6 lb-in
+
+3c
+
+T max. 0.3 Nm
+2.7 lb-in
+T max. 0.6 Nm
+5.3 lb-in
+
+3 Nm
+27 lb-in
+
+3
+
+4
+3a
+
+3a
+
+erg yerL ogi c
+EasPow
+
+min. 2.5mm2
+Ø 5-8mm
+
+CLICK !
+
+mm
+in
+
+Nut M5
+1.5Nm, 13.3 Ib in
+208
+8.18
+183
+7.20
+
+264
+10.37
+PowerLogic
+
+177
+6.97
+
+150
+5.91
+
+223.33
+9.17
+
+253.40
+9.97
+
+24.60
+0.97
+
+153
+6.02
+183
+7.20
+
+The conventional mounting technique has always been installing the relay on the
+secondary compartment's door. A limitation of this approach could be that the
+door construction is not strong enough for the relay's weight and wiring a large
+amount of secondary and communication cabling could be challenging.
+
+36
+
+P3X_EN_QS_30-209A
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+12 Mounting
+
+Panel mounting with detachable display
+Figure 16 - Panel mounting with detachable display
+
+mm
+in
+
+Pow erLo
+
+247
+9.72
+180
+7.09
+
+199
+7.81
+
+199
+7.83
+180
+7.09
+
+gic
+
+150
+5.91
+
+29
+1.12
+
+1
+
+PowerLogic
+
+210
+8.27
+
+Ø5
+0.2
+
+177
+6.97
+M4x20
+Torx T-20
+1.5Nm
+
+mm
+in
+
+100
+3.94
+
+264
+10.37
+
+2
+
+18
+0.71
+
+20
+0.79
+T max. 1.2Nm
+10.6 lb.in
+
+34
+1.34
+
+11.5
+0.45
+Pow erL ogi
+
+c
+
+T max. 0.3Nm
+2.7 lb.in
+
+T max. 0.6Nm
+
+5.3 lb-in
+
+3
+
+180
+7.09
+Ø7
+0.28
+min. 2.5mm2
+Ø 5-8mm
+
+180
+7.09
+
+Nut M5
+1.5 Nm, 13.3 Ib in
+
+This mounting technique allows the door to be lighter as the relay's frame
+is installed on the back of the secondary compartment. Normally, the relay
+is mounted by the terminal blocks, hence the secondary wiring is short.
+Communication cabling is easier, too, as the door movement does not need to be
+considered. In this case, only the communication between relay base and display
+have to be wired.
+
+P3X_EN_QS_30-209A
+
+37
+
+12 Mounting
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Projection mounting
+Figure 17 - Projection mounting
+
+225
+8.86
+
+2
+
+1
+
+Pow erL ogi
+
+mm
+in
+
+c
+erLyogi c
+Powerg
+Eas
+
+152
+5.98
+
+1.0
+0.0 -60
+4-2
+.36
+
+3b
+
+3c
+
+T max. 0.3Nm
+2.7 lb.in
+
+T max. 1.2Nm
+10.6 lb.in
+
+T max. 0.6Nm
+5.3 lb-in
+
+3Nm
+27 lb.in
+
+2.5Nm
+22 lb.in
+
+4
+
+3
+3a
+
+y ogi c
+ergerL
+EasPow
+
+min. 2.5mm2
+Ø 5-8mm
+
+3a
+
+Vamp 300
+
+ON
+
+OK
+
+F2
+
+I
+
+O
+
+F1
+
+Nut M5
+1.5Nm, 13.3 Ib in
+
+CLICK !
+
+mm
+in
+
+208
+8.18
+183
+7.20
+
+264
+10.37
+PowerLogic
+
+269
+10.59
+224
+8.82
+
+45
+1.77
+
+Vamp 300
+ON
+
+177
+6.97
+
+150
+5.91
+
+OK
+
+I
+
+O
+
+F1
+
+152
+5.98
+177
+7.0
+
+F2
+
+If the depth dimension behind the compartment door is limited, the relay can be
+equipped with a frame around the collar. This arrangement reduces the depth
+inside the compartment by 45 mm.
+
+38
+
+P3X_EN_QS_30-209A
+
+12 Mounting
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+Example of the P3 alarm facial label insertion
+
+1
+
+A
+C
+E
+G
+I
+K
+M
+
+B
+D
+F
+H
+J
+L
+N
+
+F1
+
+F2
+
+A
+C
+E
+G
+I
+K
+M
+
+B
+D
+F
+H
+J
+L
+N
+
+F1
+
+F2
+
+PowerLogic
+
+2
+
+PowerLogic
+
+3
+
+A
+C
+E
+G
+I
+K
+M
+
+B
+D
+F
+H
+J
+L
+N
+
+F1
+
+F2
+
+See "P3 Advanced Series facial label instruction" document for more information.
+Protective film
+
+NOTICE
+PERMANENT RELAY DAMAGE
+Remove the protective film after mounting the relay.
+Failure to follow these instructions can result in equipment damage.
+NOTE: The display of the protective relay is plastic and can melt if exposed to
+high temperatures or intensive sunlight.
+
+P3X_EN_QS_30-209A
+
+39
+
+P3F30, P3L30, P3T32, P3M30, P3M32, P3G30, P3G32
+
+13 Related documents
+
+13 Related documents
+Table 6 - Related documents
+Document
+
+Identification
+
+P3 Advanced User Manual
+
+P3X/EN/M/xx-xxxA
+NOTE: xx-xxx stands for the major
+version-minor version.
+
+eSetup Easergy Pro Setting and
+
+P3eSetup/EN M/xxxx4)
+
+Configuration Tool User Manual
+P3 Advanced Series facia label instruction
+
+P3TDS17012EN
+
+Principles of numerical protection
+
+P3INS17019EN
+
+techniques
+4) xxxx = revision number
+
+40
+
+P3X_EN_QS_30-209A
+
+Schneider Electric
+35 rue Joseph Monier
+92500 Rueil Malmaison - France
+Phone: +33 (0) 1 41 29 70 00
+www.schneider-electric.com
+As standards, specifications, and designs change from time to time,
+please ask for confirmation of the information given in this publication.
+© 2026 Schneider Electric All Rights Reserved.
+P3X_EN_QS_30-209A — 01/2026
+
+
